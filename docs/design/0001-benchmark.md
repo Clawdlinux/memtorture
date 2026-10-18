@@ -31,7 +31,7 @@ memproof is built by the team behind zerodb. That is stated at the top of the RE
 - **Controls first.** Each fault suite has a configuration that must fail and one that must pass. A suite whose controls do not behave is not reported.
 - **No LLM where a program can check.** Tier 1 uses no LLM and a deterministic embedder. LLM-judged quality is delegated to existing harnesses.
 - **Strongest native mapping.** Each adapter uses the system's own APIs: keyed upsert, point delete, metadata filters, durability flags. No emulation that makes a system look worse. Emulated or unsupported cells are marked as such.
-- **Two rows per system where it matters:** documented default config, and documented maximum-durability config, each with its write latency and throughput.
+- **Two rows per system where it matters:** documented default config, and the documented durable config if one exists (otherwise marked "no documented durable mode"), each with its write latency and throughput.
 - **OSS only.** Self-hosted open-source builds. No hosted clouds (several cloud terms bar publishing benchmarks).
 
 ## What it does not do
@@ -46,7 +46,7 @@ memproof is built by the team behind zerodb. That is stated at the top of the RE
 - A write is **acked** only when the harness has read the worker's reply after the system's call returned.
 - Every payload carries a content hash written by the harness, so torn records are detected the same way for every system.
 - Fault targets are reported separately: application worker, storage server, both.
-- For client-server systems the main fault target is the server. The harness kills the server PID directly with `os.kill(pid, SIGKILL)` right after the ack. It never shells out to `docker kill`, whose delay can hide a short async flush window. Containers are resolved to a host PID with `docker inspect`. Killing only the client worker of a server-backed system tests little, and results say so.
+- For client-server systems the main fault target is the server. The harness kills the server PID directly with `os.kill(pid, SIGKILL)` right after the ack. It never shells out to `docker kill`, whose delay can hide a short async flush window. Containers are resolved to a host PID with `docker inspect`. That only works on Linux, so the server fault target is Linux-only. On macOS, servers run as native binaries. Killing only the client worker of a server-backed system tests little, and results say so.
 - Like Jepsen's `:info`, writes that were in flight and not acked may be present or absent. Only acked writes missing, or torn records, are violations.
 
 ## Tier 1: engine properties (no LLM, deterministic, CI)
@@ -59,7 +59,7 @@ All vector systems use one pinned deterministic embedder (a seeded hash embedder
 | `recall-delay` | Write a record, then read it back through each documented read path (by id, by metadata filter, by recency, by search). Poll interval 10 ms, timeout 60 s. Records an extraction step dropped (Mem0 `infer=True`) are reported as `dropped`, apart from timeouts | `write_latency` (start to ack), `visibility_lag` (ack to visible), `time_to_visible` (start to visible), per read path. Timeouts reported separately |
 | `history-scale` | One session grows to 1K, 10K, 100K (1M extended). Every record is written so it is reachable by every read path the system supports, so index sizes match across systems. At each size: last 20 by recency, get by key, search for a known record | p50/p99 per operation and size, as curves. Non-native operations marked |
 | `process-kill` | Acked writes, then SIGKILL of each fault target at random points, restart, read everything | Acked writes lost, torn records. Tests user-space buffering and recovery, not disk durability, and says so |
-| `power-loss` (Linux) | Same workload on LazyFS. Order: SIGKILL the system, then clear the LazyFS cache, then restart. Systems run as native processes in a subdirectory of the LazyFS mount, never in Docker over FUSE | Acked writes lost, torn records |
+| `power-loss` (Linux) | Same workload on LazyFS. Order: SIGKILL the system, then clear the LazyFS cache, then restart. Systems run as native processes at the same pinned versions as the containers, in a subdirectory of the LazyFS mount, never in Docker over FUSE | Acked writes lost, torn records |
 | `concurrent-append` | 2, 4, 8 processes append distinct records to one scope | Acked records missing, duplicates, torn records |
 | `concurrent-kv` | 2, 4, 8 processes write distinct keys, then overlapping keys | Distinct keys: none missing. Overlapping: final value equals one intact acked write. CAS support and history are reported as capabilities, never as pass or fail |
 | `supersede-by-key` | Native keyed update N times, read | Capability check: current value correct |
@@ -67,16 +67,16 @@ All vector systems use one pinned deterministic embedder (a seeded hash embedder
 | `forget-residue` | After `forget`, scan the data directory for the plaintext | Bytes found. zerodb v0.1 fails this until compaction ships |
 | `recovery` | Restart after 100K and 1M records | Time to ready, RSS after open |
 
-Controls. Each suite has its own must-fail and must-pass control. Each control isolates one cause. A must-fail control must fail in at least 90% of trials, and the rate is published. If a control does not discriminate, the suite publishes nothing.
+Controls. Each suite has its own must-fail and must-pass control. Each control isolates one cause. A must-fail control must fail in at least 90% of trials, and the rate is published. If a control does not discriminate, the suite publishes nothing. One exception: the `mmap` pair in `power-loss` only gates `mmap`-based systems.
 
 | Suite | Must fail | Must pass |
 |---|---|---|
 | `process-kill` | A toy writer that acks, then buffers in user space and flushes every 100 ms | SQLite WAL `synchronous=OFF`, ack after commit. The page cache survives SIGKILL, and the result shows it |
 | `power-loss` | SQLite WAL `synchronous=OFF`, ack after commit. A toy writer that does `pwrite` without `fsync`. A toy writer that writes through `mmap` without `msync` | SQLite `synchronous=FULL`, ack after commit. The toy writer with `fsync`. The `mmap` writer with `msync` before ack |
 | `concurrent-*` | Markdown read-modify-write with a fixed 5 ms sleep inside the window | SQLite with a busy timeout |
-| `recall-delay` | A wrapper that indexes after a fixed 100 ms async delay. Measured `visibility_lag` must be within 10% of 100 ms | SQLite, visible on commit |
+| `recall-delay` | A wrapper that indexes after a fixed 100 ms async delay. Run with a 1 ms poll. Measured `visibility_lag` must fall between 100 ms and 100 ms plus 1 ms plus the read p99 | SQLite, visible on commit |
 | `forget` | A store that deletes the main row but leaves the FTS5 row | SQLite deleting both |
-| `forget-residue` | SQLite delete with `secure_delete=OFF` and no `VACUUM` | SQLite with `secure_delete=ON` and `VACUUM` |
+| `forget-residue` | SQLite delete with `secure_delete=OFF` and no `VACUUM` | SQLite with `secure_delete=ON`, FTS5 `secure-delete` on, then `VACUUM` and `wal_checkpoint(TRUNCATE)` |
 
 SQLite WAL `synchronous=NORMAL` is reported in `power-loss` as an expected-loss row. If the `mmap` must-fail control passes, LazyFS cannot see `mmap` writes. Then every `mmap`-based system is reported as "power-loss not measurable", never as a pass.
 
