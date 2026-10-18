@@ -46,6 +46,7 @@ memproof is built by the team behind zerodb. That is stated at the top of the RE
 - A write is **acked** only when the harness has read the worker's reply after the system's call returned.
 - Every payload carries a content hash written by the harness, so torn records are detected the same way for every system.
 - Fault targets are reported separately: application worker, storage server, both.
+- For client-server systems the main fault target is the server. The harness kills the server PID directly with `os.kill(pid, SIGKILL)` right after the ack. It never shells out to `docker kill`, whose delay can hide a short async flush window. Containers are resolved to a host PID with `docker inspect`. Killing only the client worker of a server-backed system tests little, and results say so.
 - Like Jepsen's `:info`, writes that were in flight and not acked may be present or absent. Only acked writes missing, or torn records, are violations.
 
 ## Tier 1: engine properties (no LLM, deterministic, CI)
@@ -55,20 +56,29 @@ All vector systems use one pinned deterministic embedder (a seeded hash embedder
 | Suite | What it does | Metrics |
 |---|---|---|
 | `write-throughput` | 1, 8 and 64 writers, mixed record sizes | ops/s, p50/p99 write latency, per config row |
-| `recall-delay` | Write a record, then read it back through each documented read path (by id, by metadata filter, by recency, by search), fixed poll interval | `write_latency` (start to ack), `visibility_lag` (ack to visible), `time_to_visible` (start to visible), per read path. Timeouts reported separately |
-| `history-scale` | One session grows to 1K, 10K, 100K (1M extended). At each size: last 20 by recency, get by key, search for a known record | p50/p99 per operation and size, as curves. Non-native operations marked |
+| `recall-delay` | Write a record, then read it back through each documented read path (by id, by metadata filter, by recency, by search). Poll interval 10 ms, timeout 60 s. Records an extraction step dropped (Mem0 `infer=True`) are reported as `dropped`, apart from timeouts | `write_latency` (start to ack), `visibility_lag` (ack to visible), `time_to_visible` (start to visible), per read path. Timeouts reported separately |
+| `history-scale` | One session grows to 1K, 10K, 100K (1M extended). Every record is written so it is reachable by every read path the system supports, so index sizes match across systems. At each size: last 20 by recency, get by key, search for a known record | p50/p99 per operation and size, as curves. Non-native operations marked |
 | `process-kill` | Acked writes, then SIGKILL of each fault target at random points, restart, read everything | Acked writes lost, torn records. Tests user-space buffering and recovery, not disk durability, and says so |
-| `power-loss` (Linux) | Same workload on LazyFS, drop unsynced data, restart | Acked writes lost, torn records |
+| `power-loss` (Linux) | Same workload on LazyFS. Order: SIGKILL the system, then clear the LazyFS cache, then restart. Systems run as native processes in a subdirectory of the LazyFS mount, never in Docker over FUSE | Acked writes lost, torn records |
 | `concurrent-append` | 2, 4, 8 processes append distinct records to one scope | Acked records missing, duplicates, torn records |
-| `concurrent-kv` | 2, 4, 8 processes write distinct keys, then overlapping keys | Distinct keys: none missing. Overlapping: final value equals one intact acked write. With CAS: acked CAS count equals revisions |
+| `concurrent-kv` | 2, 4, 8 processes write distinct keys, then overlapping keys | Distinct keys: none missing. Overlapping: final value equals one intact acked write. CAS support and history are reported as capabilities, never as pass or fail |
 | `supersede-by-key` | Native keyed update N times, read | Capability check: current value correct |
 | `forget` | Delete through the native API, then query every documented read path | Judged against the system's own documented promise (delete vs erase) |
 | `forget-residue` | After `forget`, scan the data directory for the plaintext | Bytes found. zerodb v0.1 fails this until compaction ships |
 | `recovery` | Restart after 100K and 1M records | Time to ready, RSS after open |
 
-Controls:
-- `process-kill` and `power-loss`: SQLite `synchronous=OFF` with an ack before commit must fail; SQLite `synchronous=FULL` must pass.
-- `concurrent-*`: markdown read-modify-write must fail; SQLite with a busy timeout must pass.
+Controls. Each suite has its own must-fail and must-pass control. Each control isolates one cause. A must-fail control must fail in at least 90% of trials, and the rate is published. If a control does not discriminate, the suite publishes nothing.
+
+| Suite | Must fail | Must pass |
+|---|---|---|
+| `process-kill` | A toy writer that acks, then buffers in user space and flushes every 100 ms | SQLite WAL `synchronous=OFF`, ack after commit. The page cache survives SIGKILL, and the result shows it |
+| `power-loss` | SQLite WAL `synchronous=OFF`, ack after commit. A toy writer that does `pwrite` without `fsync`. A toy writer that writes through `mmap` without `msync` | SQLite `synchronous=FULL`, ack after commit. The toy writer with `fsync`. The `mmap` writer with `msync` before ack |
+| `concurrent-*` | Markdown read-modify-write with a fixed 5 ms sleep inside the window | SQLite with a busy timeout |
+| `recall-delay` | A wrapper that indexes after a fixed 100 ms async delay. Measured `visibility_lag` must be within 10% of 100 ms | SQLite, visible on commit |
+| `forget` | A store that deletes the main row but leaves the FTS5 row | SQLite deleting both |
+| `forget-residue` | SQLite delete with `secure_delete=OFF` and no `VACUUM` | SQLite with `secure_delete=ON` and `VACUUM` |
+
+SQLite WAL `synchronous=NORMAL` is reported in `power-loss` as an expected-loss row. If the `mmap` must-fail control passes, LazyFS cannot see `mmap` writes. Then every `mmap`-based system is reported as "power-loss not measurable", never as a pass.
 
 ## Tier 2: correction recall for coding agents
 
@@ -86,10 +96,13 @@ Controls:
     - C, supersession and revocation (about 30%).
   - Paraphrased wording is included.
   - Labeled by people outside the zerodb team, with inter-annotator agreement reported.
+  - Queries come from the corpus, not from us. For each correction, the `QueryContext` is built from a later commit in the same repo: its touched file paths and its commit message as task text. Outside labelers mark which corrections that commit should have seen. The method ships with the corpus.
+  - Bucket C runs in 2 modes, scored apart. **Keyed:** `supersedes_id` is given. **Unkeyed:** only the new text and `path_scope` are given, and the system must work out what changed.
   - Split into a public `dev` set and a frozen, checksummed `eval` set. Adapters must not branch on eval contents.
 - **Tokens:**
   - Counted by the harness, never the adapter, with `o200k_base`, over the exact string that would be injected, including wrappers.
   - Recall, precision and stale rate are reported at fixed budgets of 500, 1K and 2K tokens.
+  - Output over the budget is cut at the budget by the harness, and only what is left is scored. The overflow rate per system is reported.
 
 ### End-to-end level (LLM, opt-in)
 
@@ -112,14 +125,16 @@ A zerodb provider in `memorybench`. memproof links those results. It does not re
 | Markdown, flat + `rg` | 1, 2 | append, rewrite | What developers use today |
 | Markdown, nested `CLAUDE.md` / `AGENTS.md` | 2 | curated, append | Directory scoping for free |
 | Rules files (`.instructions.md`, `.mdc`) | 2 | | Path globs |
-| SQLite (WAL + FTS5, path column) | 1, 2 | `synchronous` NORMAL, FULL | The 50-line DIY baseline |
+| SQLite (WAL + FTS5, path column) | 1, 2 | `synchronous=NORMAL`, `synchronous=FULL` | The 50-line DIY baseline |
 | MCP reference memory server | 1, 2 | | What MCP users try first |
-| Qdrant | 1, 2 | `wait` false, true | Metadata filters allowed |
+| Qdrant | 1, 2 | `wait=false`, `wait=true` | `wait` controls when a write is applied and visible, not fsync. Rows are named by the setting, never "durable". Metadata filters allowed |
 | Chroma (self-hosted) | 1, 2 | default | |
 | Mem0 OSS | 1, 2 | `infer=False`; `infer=True` with pinned local LLM | LLM rows labeled and capped at 1K records |
 | Graphiti OSS | 1 (small N), 2 | pinned local LLM via Ollama | Capped at 1K records |
 | basic-memory | 2 | | MCP over markdown with SQLite index |
 | zerodb | 1, 2 | | Only from a tagged release with `zerodb serve` (zerodb S3). Never through a shim |
+
+Rows are named by their exact setting. Each row cites the upstream doc line that says what is persisted before the call returns. A system with no documented fsync-before-ack mode gets "no documented durable mode" instead of a second row.
 
 ## Architecture
 
@@ -130,7 +145,7 @@ A zerodb provider in `memorybench`. memproof links those results. It does not re
 class Adapter(Protocol):
     name: str
     def capabilities(self) -> set[str]: ...
-    def start(self, workdir: Path, config: str) -> None: ...      # config row: "default", "durable", ...
+    def start(self, workdir: Path, config: str) -> None: ...      # config row, named by its exact setting
     def stop(self, target: str = "all", kill: bool = False) -> None: ...
     def write(self, scope: Scope, record: Record) -> Ack: ...
     def read_recent(self, scope: Scope, n: int) -> list[Record]: ...
@@ -164,13 +179,13 @@ class Adapter(Protocol):
 
 | M | Scope | Publishes |
 |---|---|---|
-| B1 | Harness, process model, controls. Suites: `write-throughput`, `recall-delay`, `history-scale`, `process-kill`, `concurrent-append`, `concurrent-kv`, `recovery`. Adapters: markdown (flat), SQLite (both rows), MCP reference memory server, Qdrant (both rows) | Methodology and results for those systems. No zerodb cells |
-| B2 | `power-loss` on Linux with LazyFS (GitHub Actions or a Linux VM). `supersede-by-key`, `forget`, `forget-residue`. Adapters: Chroma, Mem0 (`infer=False`) | Results. Tier 2 corpus published for critique |
+| B1 | Harness, process model, controls. Suites: `recall-delay`, `history-scale`, `process-kill`, `concurrent-append`, `concurrent-kv`. Adapters: markdown (flat), SQLite (both rows), MCP reference memory server, Qdrant (both rows) | Methodology, code and control results. Comparative tables only after an outside maintainer joins and the 14-day reply window closes. No zerodb cells |
+| B2 | `write-throughput`, `recovery`. `power-loss` on Linux with LazyFS (GitHub Actions or a Linux VM), with the `mmap` controls. `supersede-by-key`, `forget`, `forget-residue`. Adapters: Chroma, Mem0 (`infer=False`) | Results. Tier 2 corpus published for critique |
 | B3 | Tier 2 retrieval level. Adapters: nested markdown, rules files, basic-memory, SQLite FTS5 | Tier 2 results, once the outside maintainer and the corpus labels are in |
 | B4 | zerodb adapter (after zerodb S3 is tagged). Mem0 `infer=True` and Graphiti with a pinned local LLM, small N | zerodb cells, after the 14-day reply window |
 | B5 | Tier 2 end-to-end. zerodb provider for `memorybench` | End-to-end results |
 
-B1 is worth open-sourcing alone. It would be the first public process-kill and concurrency test of agent memory stores and vector databases, on systems the sponsor does not own.
+B1 is worth open-sourcing alone. It would be the first public process-kill and concurrency test of agent memory stores and vector databases, on systems the sponsor does not own. The governance rules apply from B1, not from B4.
 
 ## Expected zerodb losses (pre-registered)
 
@@ -188,4 +203,4 @@ B1 is worth open-sourcing alone. It would be the first public process-kill and c
 
 ## Open questions
 
-1. GitHub org: a separate org with sponsor disclosure, or `Clawdlinux/memproof` with sponsor disclosure. The reviewers split on this.
+1. GitHub org. Both reviewers now favor a separate org (`memproof`) with "Sponsored and built by the Clawdlinux team" in the org bio and README. Waiting on the owner's call.
