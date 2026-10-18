@@ -1,146 +1,191 @@
 # 0001: memproof, a benchmark for agent memory engines
 
-Status: Draft for review. Working name `memproof`.
+Status: Revised after review round 1 (Claude Opus 5.5 and Gemini 4 Argon, independent). Working name `memproof`: evidence, not proof.
 
 ## Why
 
-Agent memory products publish recall scores on LoCoMo and LongMemEval, and independent reruns often fail to reproduce them. Mem0's co-founder confirmed the paper numbers came from the SaaS platform, not the OSS code. Redis could not reproduce several vendors' scores.
+Agent memory products mostly publish recall scores on LoCoMo and LongMemEval. Several independent reruns did not reproduce vendor numbers, and the vendors' own notes say some scores came from hosted builds rather than the open-source code (sources in `docs/research-landscape-2026-10-18.md`).
 
-What users complain about most is never measured:
+Users also report problems that no harness measures as a number:
 
-1. Acked writes that are lost (Mem0 #5245 silent drops, Graphiti #1707, the MCP memory server overwriting concurrent writers).
-2. Time from write to recallable: Mem0 `add` about 20 s (#2813), Graphiti about 12 s per message (#186), Zep "a few seconds to a few minutes", Redis Agent Memory extracts every 5 minutes by default.
-3. Slowdown as history grows.
-4. Concurrent writers losing updates (Mem0 #4892, Cognee #5254).
-5. Deletes that miss copies (Mem0 #7452).
-6. Old facts still answered after an update.
-7. Coding agents repeating mistakes they were corrected on.
+- acked writes that are later missing (for example mem0 #5245, graphiti #1707, modelcontextprotocol/servers #4797);
+- long delays between a write and when it can be recalled (mem0 #2813, graphiti #186, Zep and Redis docs);
+- slowdown as history grows;
+- concurrent writers losing updates (mem0 #4892, cognee #5254);
+- deletes that miss copies (mem0 #7452);
+- outdated facts still returned after an update;
+- coding agents repeating mistakes they were corrected on.
 
-Research (2026-10-18, `memory-bench-landscape.md`) found no harness that measures 1 to 7. No completed crash-safety test exists for any agent memory or vector database.
+No completed crash-safety test exists for any agent memory store or vector database (research, 2026-10-18).
 
-memproof measures exactly these, reproducibly, with raw outputs published, and including results where zerodb loses.
+memproof measures these, reproducibly, with raw outputs, controls, and suites where any system can lose, including the sponsor's.
+
+## Sponsor disclosure
+
+memproof is built by the team behind zerodb. That is stated at the top of the README and on every results page. The governance rules below exist to make the results trustworthy anyway.
 
 ## Principles
 
-- **Prove, don't claim.** Every number comes with the command, versions, hardware and raw per-request output.
-- **Neutral by construction.** Every system goes through the same adapter interface. zerodb has no special path. Anyone can add a system or rerun a result.
-- **No LLM where a program can check.** Tier 1 is fully deterministic and free to run. LLM-judged quality is delegated to existing harnesses.
-- **Vendor-recommended configs.** Each adapter uses the system's documented production setup, linked from the results.
-- **OSS only.** Self-hosted open-source builds. No hosted clouds (several cloud ToS bar publishing benchmarks: Mem0, Zep, Redis, LangSmith, Chroma).
+- **Evidence, not claims.** Every number ships with the command, pinned versions, hardware, and raw per-operation output.
+- **Same interface for everyone.** No system gets a special path. Anyone can add a system or rerun a cell.
+- **Controls first.** Each fault suite has a configuration that must fail and one that must pass. A suite whose controls do not behave is not reported.
+- **No LLM where a program can check.** Tier 1 uses no LLM and a deterministic embedder. LLM-judged quality is delegated to existing harnesses.
+- **Strongest native mapping.** Each adapter uses the system's own APIs: keyed upsert, point delete, metadata filters, durability flags. No emulation that makes a system look worse. Emulated or unsupported cells are marked as such.
+- **Two rows per system where it matters:** documented default config, and documented maximum-durability config, each with its write latency and throughput.
+- **OSS only.** Self-hosted open-source builds. No hosted clouds (several cloud terms bar publishing benchmarks).
 
 ## What it does not do
 
-- Rebuild LoCoMo or LongMemEval runners. Supermemory's `memorybench` (MIT) already runs them through a provider interface. We ship a zerodb provider there instead.
-- Benchmark ANN index speed on static corpora. VectorDBBench already does.
+- Rebuild LoCoMo or LongMemEval runners. Supermemory's `memorybench` (MIT) already does that through a provider interface. We contribute a zerodb provider there.
+- Benchmark ANN speed on static corpora. VectorDBBench does that.
+- Publish a combined score or a leaderboard.
 
-## Tiers
+## Process model
 
-### Tier 1: engine properties (deterministic, no LLM, runs in CI)
+- Every system under test runs in its own worker process (and its own server container if it has one). The harness talks to the worker over a pipe.
+- A write is **acked** only when the harness has read the worker's reply after the system's call returned.
+- Every payload carries a content hash written by the harness, so torn records are detected the same way for every system.
+- Fault targets are reported separately: application worker, storage server, both.
+- Like Jepsen's `:info`, writes that were in flight and not acked may be present or absent. Only acked writes missing, or torn records, are violations.
 
-| Suite | What it does | Metric |
+## Tier 1: engine properties (no LLM, deterministic, CI)
+
+All vector systems use one pinned deterministic embedder (a seeded hash embedder in CI, `BAAI/bge-small-en-v1.5` via fastembed for realistic runs). Setup data is bulk loaded without timing. Default scale caps at 100K records; `--extended` goes to 1M.
+
+| Suite | What it does | Metrics |
 |---|---|---|
-| `recall-delay` | Write a unique marker, then poll the system's own read or search API for it | Time from write ack to first successful read, p50/p99. Timeout counts as not recallable |
-| `history-scale` | Grow one session from 1K to 1M records. At each size, read the last 20 and search for a known record | p50/p99 latency per size, as a curve |
-| `crash` | Write with acks recorded, `kill -9` the system's server process at random points, restart, read everything | Acked writes lost (must be 0), unacked writes exposed half-written |
-| `power-loss` (Linux) | Same workload on LazyFS, drop unsynced data, restart | Acked writes lost |
-| `concurrent` | 2, 4, 8 processes write distinct and overlapping keys | Lost updates, duplicates, torn records |
-| `forget` | Write, delete through the system's API, then query every read path | Deleted content still returned |
-| `supersede` | Set a fact, update it N times, query | Stale answers returned |
+| `write-throughput` | 1, 8 and 64 writers, mixed record sizes | ops/s, p50/p99 write latency, per config row |
+| `recall-delay` | Write a record, then read it back through each documented read path (by id, by metadata filter, by recency, by search), fixed poll interval | `write_latency` (start to ack), `visibility_lag` (ack to visible), `time_to_visible` (start to visible), per read path. Timeouts reported separately |
+| `history-scale` | One session grows to 1K, 10K, 100K (1M extended). At each size: last 20 by recency, get by key, search for a known record | p50/p99 per operation and size, as curves. Non-native operations marked |
+| `process-kill` | Acked writes, then SIGKILL of each fault target at random points, restart, read everything | Acked writes lost, torn records. Tests user-space buffering and recovery, not disk durability, and says so |
+| `power-loss` (Linux) | Same workload on LazyFS, drop unsynced data, restart | Acked writes lost, torn records |
+| `concurrent-append` | 2, 4, 8 processes append distinct records to one scope | Acked records missing, duplicates, torn records |
+| `concurrent-kv` | 2, 4, 8 processes write distinct keys, then overlapping keys | Distinct keys: none missing. Overlapping: final value equals one intact acked write. With CAS: acked CAS count equals revisions |
+| `supersede-by-key` | Native keyed update N times, read | Capability check: current value correct |
+| `forget` | Delete through the native API, then query every documented read path | Judged against the system's own documented promise (delete vs erase) |
+| `forget-residue` | After `forget`, scan the data directory for the plaintext | Bytes found. zerodb v0.1 fails this until compaction ships |
+| `recovery` | Restart after 100K and 1M records | Time to ready, RSS after open |
 
-Systems with no fact or update concept run `supersede` through their documented update path, or are reported as "not supported".
+Controls:
+- `process-kill` and `power-loss`: SQLite `synchronous=OFF` with an ack before commit must fail; SQLite `synchronous=FULL` must pass.
+- `concurrent-*`: markdown read-modify-write must fail; SQLite with a busy timeout must pass.
 
-### Tier 2: correction recall for coding agents
+## Tier 2: correction recall for coding agents
 
-Two levels.
+### Retrieval level (no LLM, CI)
 
-- **Retrieval level (no LLM, CI):**
-  - Corpus: 50 to 200 scripted corrections, each with a scope (file paths, task type) and later supersessions.
-  - Queries: "about to edit `<path>`" or "about to do `<task>`".
-  - Each system answers through its own retrieval path (its search API, `rg` over files, rules-file globs, zerodb scoped facts).
-  - Metrics: precision and recall of the corrections returned, superseded corrections returned, tokens returned per query.
-- **End-to-end level (LLM, pinned models, opt-in):**
-  - A small fixed repo and 20 to 40 tasks.
-  - A correction is given in session 1; fresh sessions touch the corrected area, unrelated areas, and areas whose correction was later replaced.
-  - Metrics: repeat-mistake rate, task success, tokens injected per task.
-  - Programmatic checks only (tests pass, a forbidden pattern absent). No LLM judge.
+- **Same input for every system.**
+  - Records are `Correction(id, path_scope, task_tags, text, supersedes_id)`.
+  - Queries are `QueryContext(file_path, task_text, recent_context, token_budget)`.
+  - Adapters may use metadata filters, text, or both. Upstream maintainers may rewrite their adapter.
+- **Corpus, published before any zerodb result:**
+  - Mined from the git history of `CLAUDE.md`, `AGENTS.md`, `.cursor/rules` and `.github/instructions` in permissively licensed public repos, with attribution. Later edits give supersession ground truth.
+  - Stratified, each bucket scored separately:
+    - A, path or directory scoped (about 35%);
+    - B, task, library or symbol scoped, where path globs cannot help (about 35%);
+    - C, supersession and revocation (about 30%).
+  - Paraphrased wording is included.
+  - Labeled by people outside the zerodb team, with inter-annotator agreement reported.
+  - Split into a public `dev` set and a frozen, checksummed `eval` set. Adapters must not branch on eval contents.
+- **Tokens:**
+  - Counted by the harness, never the adapter, with `o200k_base`, over the exact string that would be injected, including wrappers.
+  - Recall, precision and stale rate are reported at fixed budgets of 500, 1K and 2K tokens.
 
-### Tier 3: recall quality (delegated)
+### End-to-end level (LLM, opt-in)
 
-- A zerodb provider for `memorybench`, so zerodb gets LoCoMo and LongMemEval scores with the same pipeline and judge as everyone else.
-- memproof links those results. It does not re-host LoCoMo (CC BY-NC).
+- **Harness:** one open, minimal tool-loop agent, the same injection hook and budget for every system. No closed coding-agent CLIs.
+- **Two sub-suites:**
+  - **apply:** corrections are preloaded identically for every system;
+  - **capture:** each system's own write path, reported separately.
+- **Tasks:** on public repos. Programmatic checks only: tests pass, a forbidden pattern is absent.
+- **Models:** a pinned hosted snapshot at temperature 0 with a fixed seed, plus one open-weights model run locally so results stay reproducible after hosted models change.
+- **Runs:** at least 5 repeats per task, with confidence intervals. Full transcripts and cost per run are published.
 
-## Systems, first wave
+## Tier 3: recall quality (delegated)
 
-| System | Why | Notes |
-|---|---|---|
-| Markdown files + `rg` | What developers actually use today | Headline baseline |
-| Path-scoped rules files | Copilot `.instructions.md` / Cursor `.mdc` behavior | Tier 2 only |
-| SQLite (WAL) | What you get for free | Tier 1 baseline |
-| Mem0 OSS | Largest community | `infer=False` for Tier 1 where supported, default for Tier 2 |
-| Graphiti OSS | Most cited methodology | Neo4j backend per docs |
-| Chroma (self-hosted) | Common default store | |
-| Qdrant | Mature, benchmark-friendly | |
-| zerodb | Ours | Same adapter rules as everyone |
+A zerodb provider in `memorybench`. memproof links those results. It does not re-host LoCoMo (CC BY-NC).
 
-Letta, Cognee, LanceDB, Redis Agent Memory Server and the MCP memory server come next.
+## Systems
+
+| System | Tier | Rows | Notes |
+|---|---|---|---|
+| Markdown, flat + `rg` | 1, 2 | append, rewrite | What developers use today |
+| Markdown, nested `CLAUDE.md` / `AGENTS.md` | 2 | curated, append | Directory scoping for free |
+| Rules files (`.instructions.md`, `.mdc`) | 2 | | Path globs |
+| SQLite (WAL + FTS5, path column) | 1, 2 | `synchronous` NORMAL, FULL | The 50-line DIY baseline |
+| MCP reference memory server | 1, 2 | | What MCP users try first |
+| Qdrant | 1, 2 | `wait` false, true | Metadata filters allowed |
+| Chroma (self-hosted) | 1, 2 | default | |
+| Mem0 OSS | 1, 2 | `infer=False`; `infer=True` with pinned local LLM | LLM rows labeled and capped at 1K records |
+| Graphiti OSS | 1 (small N), 2 | pinned local LLM via Ollama | Capped at 1K records |
+| basic-memory | 2 | | MCP over markdown with SQLite index |
+| zerodb | 1, 2 | | Only from a tagged release with `zerodb serve` (zerodb S3). Never through a shim |
 
 ## Architecture
 
-- Python harness (most systems ship Python SDKs). `uv` for pinned dependencies.
-- One adapter per system:
+- Python harness, `uv` with a lockfile.
+- One adapter file per system, plus a pinned config. Upstream maintainers can own their adapter through `CODEOWNERS`.
 
 ```python
 class Adapter(Protocol):
     name: str
-    def start(self, workdir: Path) -> None: ...        # launch the system's process(es)
-    def stop(self, kill: bool = False) -> None: ...     # kill=True sends SIGKILL
+    def capabilities(self) -> set[str]: ...
+    def start(self, workdir: Path, config: str) -> None: ...      # config row: "default", "durable", ...
+    def stop(self, target: str = "all", kill: bool = False) -> None: ...
     def write(self, scope: Scope, record: Record) -> Ack: ...
     def read_recent(self, scope: Scope, n: int) -> list[Record]: ...
+    def get(self, scope: Scope, key: str) -> Record | None: ...
+    def list_prefix(self, scope: Scope, prefix: str, limit: int) -> list[Record]: ...
     def search(self, scope: Scope, query: str, k: int) -> list[Record]: ...
-    def set_fact(self, scope: Scope, key: str, value: str) -> Ack: ...   # optional
-    def delete(self, scope: Scope, ref: Ref) -> Ack: ...                 # optional
-    def capabilities(self) -> set[str]: ...
+    def upsert(self, scope: Scope, key: str, value: str) -> Ack: ...
+    def delete(self, scope: Scope, ref: Ref) -> Ack: ...
+    def retrieve_for(self, ctx: QueryContext) -> str: ...           # Tier 2: the exact text to inject
+    def data_dirs(self) -> list[Path]: ...                          # for forget-residue
 ```
 
-- Each system runs in its own process or container, so `crash` kills the real server, not a Python wrapper.
-- A registry maps names to adapters. Adding a system is one file plus a pinned config.
+- Unsupported methods raise `NotSupported`, which shows in results as N/A.
 - Results:
-  - raw per-operation JSONL (timestamps, latencies, pass/fail);
-  - a summary table;
-  - a manifest with system versions, configs, hardware, OS and harness commit.
-- `memproof run --suite crash --system mem0` reproduces any single cell.
+  - raw per-operation JSONL;
+  - per-suite tables (systems in alphabetical order);
+  - a manifest with versions, configs, hardware, OS and harness commit.
+- `memproof run --suite process-kill --system qdrant --config durable` reproduces one cell.
+- Published results come from scripted CI or a documented machine, never hand runs. A methodology change reruns every system.
 
-## Fairness and honesty rules
+## Governance
 
-- Same machine for every system in a run. Hardware recorded.
-- Pinned versions (tag or SHA) for every system and the harness.
-- Vendor-recommended production config. Deviations are listed next to the result.
-- Raw outputs published with every result.
-- Results where zerodb loses are shown in the same tables.
-- Before publishing a comparison, open an issue with each OSS project and give maintainers a chance to fix our adapter config.
-- No hosted cloud products.
+- Sponsor disclosure on the README and every results page.
+- At least one maintainer from outside the sponsor before the first comparative publication. Methodology changes need their approval.
+- 14-day right of reply. Before publishing comparative tables, open an issue with each upstream project with the adapter, config and raw output. Link the issue and record who replied.
+- Maintainer config fixes are merged even when they lower zerodb's standing.
+- Expected zerodb losses are written down before zerodb's first run.
+- Sponsor marketing must link the full run, never a cropped table.
 
 ## Milestones
 
-| M | Scope |
-|---|---|
-| B1 | Harness core, adapter protocol, results format. Adapters: markdown+`rg`, SQLite, zerodb (via its S3 server; until S3 lands, an embedded Python-side shim over the CLI). Suites: `recall-delay`, `history-scale`, `crash`, `concurrent` |
-| B2 | Adapters: Mem0 OSS, Chroma, Qdrant. Suites: `forget`, `supersede` |
-| B3 | Tier 2 retrieval level. Rules-files adapter |
-| B4 | Graphiti adapter, Linux `power-loss` suite with LazyFS |
-| B5 | Tier 2 end-to-end, `memorybench` zerodb provider |
+| M | Scope | Publishes |
+|---|---|---|
+| B1 | Harness, process model, controls. Suites: `write-throughput`, `recall-delay`, `history-scale`, `process-kill`, `concurrent-append`, `concurrent-kv`, `recovery`. Adapters: markdown (flat), SQLite (both rows), MCP reference memory server, Qdrant (both rows) | Methodology and results for those systems. No zerodb cells |
+| B2 | `power-loss` on Linux with LazyFS (GitHub Actions or a Linux VM). `supersede-by-key`, `forget`, `forget-residue`. Adapters: Chroma, Mem0 (`infer=False`) | Results. Tier 2 corpus published for critique |
+| B3 | Tier 2 retrieval level. Adapters: nested markdown, rules files, basic-memory, SQLite FTS5 | Tier 2 results, once the outside maintainer and the corpus labels are in |
+| B4 | zerodb adapter (after zerodb S3 is tagged). Mem0 `infer=True` and Graphiti with a pinned local LLM, small N | zerodb cells, after the 14-day reply window |
+| B5 | Tier 2 end-to-end. zerodb provider for `memorybench` | End-to-end results |
 
-Open-source the repo publicly at B1, with results only for the systems it covers.
+B1 is worth open-sourcing alone. It would be the first public process-kill and concurrency test of agent memory stores and vector databases, on systems the sponsor does not own.
 
-## Risks
+## Expected zerodb losses (pre-registered)
 
-- **Self-serving perception.** Mitigations: neutral rules, open adapters, maintainers invited to fix configs, our losses shown.
-- **Adapter mistakes making a competitor look bad.** Mitigation: maintainer review before publishing.
-- **Tier 2 corpus bias toward zerodb's design** (path scopes). Mitigation: include task-scoped corrections that path scopes cannot express, and publish the corpus for critique.
-- **zerodb not ready.** B1 can run before S3 using the shim; results are labeled pre-release.
+- `search` and Tier 2 bucket B: N/A or weak until zerodb has search.
+- `forget-residue`: fails until compaction.
+- `write-throughput` with 1 writer: likely slower than stores that ack before fsync in their default rows.
+- `recovery`: open is O(log size) for the CRC scan.
+- Tier 3 recall quality: likely below LLM-extraction systems.
+
+## Licensing
+
+- Code: Apache-2.0.
+- Corpus and results: CC BY 4.0.
+- Mined rules files only from permissively licensed repos, with attribution.
 
 ## Open questions
 
-1. Name: `memproof` or something else?
-2. Separate GitHub org for neutrality, or under Clawdlinux?
-3. License: Apache-2.0 (patent grant) or MIT?
+1. GitHub org: a separate org with sponsor disclosure, or `Clawdlinux/memproof` with sponsor disclosure. The reviewers split on this.
