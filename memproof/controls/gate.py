@@ -6,7 +6,13 @@ import uuid
 from pathlib import Path
 
 from memproof.results import ResultWriter, hardware
-from memproof.suites import PATHS, concurrent, process_kill, recall_delay
+from memproof.suites import (
+    HISTORY_CONTROLS,
+    PATHS,
+    concurrent,
+    process_kill,
+    recall_delay,
+)
 from memproof.types import NotSupported
 
 DEFAULT_ROOT = Path("results/controls")
@@ -39,10 +45,14 @@ def control_gate(failures, passes, trials):
 
 
 def require_controls(suite, root=DEFAULT_ROOT):
+    if suite == "history-scale":
+        return
     try:
         summary = json.loads((Path(root) / "gate.json").read_text())
         valid = (
             summary["methodology_sha256"] == methodology_hash()
+            and summary["quick"] is False
+            and summary["trials"] >= 20
             and summary["os"] == platform.platform()
             and summary["hardware"] == hardware()
             and summary["suites"][suite]["discriminates"]
@@ -57,7 +67,7 @@ def run_controls(*, quick=False, root=DEFAULT_ROOT):
     root = Path(root)
     run_root = root / ("quick" if quick else "full")
     trials = 5 if quick else 20
-    work = root / ".work" / uuid.uuid4().hex
+    work = run_root / ".work" / uuid.uuid4().hex
     work.mkdir(parents=True)
     summary = {
         "trials": trials,
@@ -176,17 +186,12 @@ def run_controls(*, quick=False, root=DEFAULT_ROOT):
                         counts["must_fail"], counts["must_pass"], trials
                     ),
                     "details": details,
+                    "gated": True,
                 }
-            summary["suites"]["history-scale"] = {
-                **summary["suites"]["recall-delay"],
-                "note": (
-                    "Shares recall-delay timing calibration. "
-                    "The approved spec defines no scale-specific failure threshold. "
-                    "History reads also check loaded count and payload integrity."
-                ),
-            }
+            summary["suites"]["history-scale"] = dict(HISTORY_CONTROLS)
             writer.manifest["control_summary"] = "gate.json"
-        (root / "gate.json").write_text(json.dumps(summary, indent=2) + "\n")
+        if not quick:
+            (root / "gate.json").write_text(json.dumps(summary, indent=2) + "\n")
         (run_root / "gate.json").write_text(json.dumps(summary, indent=2) + "\n")
     finally:
         shutil.rmtree(work)

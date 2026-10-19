@@ -8,4 +8,5 @@ __pycache__/
 results/*
 !results/controls/
 results/controls/.work/
+results/controls/*/.work/
 *.egg-info/

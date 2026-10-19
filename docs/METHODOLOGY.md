@@ -56,6 +56,9 @@ Qdrant clients share one server per data directory.
 Run `uv run memproof controls` before measuring cells.
 It uses 20 trials per control.
 `--quick` uses 5.
+Quick runs write only under `results/controls/quick/`.
+They never replace the top-level full gate or authorize benchmark cells.
+Gated suites require a current full gate with at least 20 trials.
 Must-fail controls must fail in at least 90% of trials.
 Must-pass controls must pass every trial.
 The threshold is never rounded down.
@@ -66,10 +69,11 @@ The threshold is never rounded down.
 | `concurrent-append` | Markdown rewrite with a 5 ms race window. | SQLite WAL with a 30-second busy timeout. |
 | `concurrent-kv` | The same isolated rewrite race. | The same SQLite busy timeout. |
 | `recall-delay` | Fixed 100 ms visibility delay, polled every 1 ms. | SQLite visible on commit. |
-| `history-scale` | Shares recall-delay timing calibration. | The same SQLite visibility check. |
 
-The approved spec has no scale-specific failure threshold.
-History calibration checks timing, not an invented slowdown limit.
+History scale is an ungated measurement suite.
+No controls are defined for it in the approved spec.
+Its gate entry has `discriminates: null` and `gated: false`.
+Results carry that note instead of borrowing another suite's rates.
 History reads also verify loaded counts, hashes, keys, and recency order.
 
 The delayed control stages index entries behind a monotonic deadline.
@@ -217,14 +221,12 @@ Corpus and results use CC BY 4.0.
 
 ## Spec decisions
 
-The latest task excludes the sponsor's database entirely.
-The README keeps sponsor disclosure without naming that product.
-This differs from the plan's exact disclosure sentence.
+The README names the sponsor's product, as the approved design requires.
 There are no sponsor-database adapters or cells.
 
 The plan asks every suite to have controls.
 The design only specifies failure controls for fault and visibility suites.
-History therefore shares visibility calibration without inventing a slowdown threshold.
+History runs ungated without an invented control or slowdown threshold.
 
 The design's Qdrant example uses `--config durable`.
 Its explicit row rule requires `wait=false` or `wait=true`.

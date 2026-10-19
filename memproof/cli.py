@@ -55,10 +55,19 @@ def main(argv=None):
 
         summary = run_controls(quick=args.quick)
         for suite, result in sorted(summary["suites"].items()):
+            if result.get("gated") is False:
+                print(f"{suite}: ungated ({result['controls']})")
+                continue
             print(
                 f"{suite}: fail={result['must_fail_rate']:.0%} "
                 f"pass={result['must_pass_rate']:.0%} "
                 f"discriminates={result['discriminates']}"
             )
-        return int(not all(r["discriminates"] for r in summary["suites"].values()))
+        return int(
+            not all(
+                r["discriminates"]
+                for r in summary["suites"].values()
+                if r.get("gated", True)
+            )
+        )
     return 0

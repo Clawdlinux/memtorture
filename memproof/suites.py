@@ -17,6 +17,11 @@ SUITES = (
     "concurrent-append",
     "concurrent-kv",
 )
+HISTORY_CONTROLS = {
+    "discriminates": None,
+    "gated": False,
+    "controls": "none defined in approved spec; measurement suite",
+}
 PATHS = {
     "id": "get-id",
     "filter": "list_prefix",
@@ -454,4 +459,10 @@ def history_scale(
                     ),
                 }
             curves[str(size)] = ops
-    return {"status": "ok", "sizes": curves, "info": info, "bulk_load_timed": False}
+    return {
+        "status": "ok",
+        "sizes": curves,
+        "info": info,
+        "bulk_load_timed": False,
+        "control_gate": dict(HISTORY_CONTROLS),
+    }

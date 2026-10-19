@@ -13,7 +13,7 @@ Python 3.12 and [uv](https://docs.astral.sh/uv/) are required.
 
 ```sh
 uv sync --locked
-uv run memproof controls --quick
+uv run memproof controls
 uv run memproof run --suite process-kill --system sqlite --config synchronous=FULL
 uv run memproof report
 ```
@@ -25,9 +25,11 @@ uv run memproof controls
 uv run memproof run --all
 ```
 
-The quick gate uses 5 trials.
+The quick check uses 5 trials and never authorizes benchmark cells.
 The full gate uses 20.
-Cells refuse to run if controls are missing, stale, or not discriminating.
+Gated cells refuse to run if full controls are missing, stale, or not discriminating.
+History scale is an ungated measurement suite.
+The approved spec defines no control for it.
 Unsupported adapters show N/A with a reason.
 Local results are not cleared for comparative publication.
 
