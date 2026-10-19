@@ -31,6 +31,8 @@ def hardware():
 
 class ResultWriter:
     def __init__(self, root: Path, command: list[str]):
+        from memproof.controls.gate import methodology_hash
+
         self.root = Path(root)
         self.root.mkdir(parents=True, exist_ok=True)
         self.raw = (self.root / "operations.jsonl").open("w")
@@ -43,6 +45,7 @@ class ResultWriter:
             "harness_dirty": bool(
                 subprocess.check_output(["git", "status", "--porcelain"], text=True)
             ),
+            "methodology_sha256": methodology_hash(),
             "os": platform.platform(),
             "python": platform.python_version(),
             "hardware": hardware(),

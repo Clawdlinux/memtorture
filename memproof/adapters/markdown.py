@@ -33,7 +33,7 @@ class Markdown(Base):
             "emulated:read_recent",
             "emulated:upsert",
             "emulated:delete",
-            "history" if self.config == "append" else "keyed",
+            "keyed",
         }
 
     def start(self, workdir, config):

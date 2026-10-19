@@ -48,6 +48,7 @@ The blocked installed tree was removed.
 Raw reports stay under `.tools/mcp/`.
 The committed summary is `scripts/mcp/scan-verdict.json`.
 Re-enabling this adapter requires a complete safe scan and a new implementation review.
+The preparation script refuses known blocked pins before running npm.
 
 ## Qdrant
 

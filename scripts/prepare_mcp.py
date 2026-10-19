@@ -50,6 +50,15 @@ def main():
     gate = tool / "attestation.json"
     gate.unlink(missing_ok=True)
     try:
+        known = ROOT / "scripts/mcp/scan-verdict.json"
+        if known.exists():
+            verdict = json.loads(known.read_text())
+            decision = verdict["installed_dependency_tree"]["verdict"]
+            if verdict["version"] == VERSION and decision != "SAFE":
+                raise NotSupported(
+                    f"Known pinned dependency tree: {decision}. "
+                    "No npm command will run. See docs/SECURITY.md."
+                )
         subprocess.run(
             [
                 "npm",

@@ -79,13 +79,15 @@ def recall_delay(
                 continue
             observations, read_latencies = [], []
             for index in range(samples):
+                buffered_events = []
+                event_sink = buffered_events.append if emit else None
                 token = f"needle{path}{index:08d}"
                 record = Record.make(scope, token, token)
                 ack = worker.call("write", scope=scope, record=record)
                 start, ack_ns = worker.last_sent_ns, worker.last_ack_ns
                 write_ms = (ack_ns - start) / 1e6
                 event(
-                    emit,
+                    event_sink,
                     operation="write",
                     path=path,
                     record=asdict(record),
@@ -96,6 +98,8 @@ def recall_delay(
                 )
                 if ack.dropped:
                     observations.append({"status": "dropped", "write_ms": write_ms})
+                    for data in buffered_events:
+                        emit(data)
                     continue
                 deadline = ack_ns + int(timeout_s * 1e9)
                 next_poll, polls = ack_ns, 0
@@ -121,7 +125,7 @@ def recall_delay(
                     violations += torn
                     visible = any(r == record for r in rows)
                     event(
-                        emit,
+                        event_sink,
                         operation="poll",
                         path=path,
                         record_id=record.id,
@@ -145,6 +149,8 @@ def recall_delay(
                     next_poll += int(poll_ms * 1e6)
                     if next_poll < read_end:
                         next_poll = read_end
+                for data in buffered_events:
+                    emit(data)
             visible = [o for o in observations if o["status"] == "visible"]
             metrics[path] = {
                 "status": "measured",
@@ -196,26 +202,40 @@ def process_kill(
         for trial in range(trials):
             path = workdir / f"{target}-{trial}"
             worker = Worker(system, config, path)
+            faulted = False
+            writes = []
             try:
                 for index in range(generator.randint(1, 8)):
                     record = Record.make(scope, f"key{index}", f"memory{index}")
                     ack = worker.call("write", scope=scope, record=record)
-                    event(
-                        emit,
-                        operation="write",
-                        trial=trial,
-                        target=target,
-                        record=asdict(record),
-                        dropped=ack.dropped,
-                        start_ns=worker.last_sent_ns,
-                        ack_ns=worker.last_ack_ns,
+                    writes.append(
+                        (
+                            record,
+                            ack.dropped,
+                            worker.last_sent_ns,
+                            worker.last_ack_ns,
+                        )
                     )
-                time.sleep(generator.uniform(0, 0.01))
                 fault_ns = time.monotonic_ns()
                 worker.kill(target)
+                faulted = True
                 expected = dict(worker.acked)
             finally:
-                worker.close(preserve_server=True)
+                worker.close(preserve_server=faulted)
+            for record, dropped, start_ns, ack_ns in writes:
+                event(
+                    emit,
+                    operation="write",
+                    trial=trial,
+                    target=target,
+                    record=asdict(record),
+                    dropped=dropped,
+                    start_ns=start_ns,
+                    ack_ns=ack_ns,
+                )
+            event(
+                emit, operation="fault", target=target, trial=trial, fault_ns=fault_ns
+            )
             with Worker(system, config, path) as reader:
                 rows = reader.call(
                     "list_prefix", scope=scope, prefix="", limit=len(expected) + 100
@@ -234,6 +254,13 @@ def process_kill(
     return {
         "status": "violation" if any(totals.values()) else "ok",
         **dict(totals),
+        "targets": {
+            target: {
+                metric: sum(r[metric] for r in results if r["target"] == target)
+                for metric in ("acked_missing", "duplicates", "torn")
+            }
+            for target in targets
+        },
         "trials": results,
         "note": PROCESS_NOTE,
         "info": info,
@@ -374,7 +401,12 @@ def history_scale(
             all_rows = worker.call(
                 "list_prefix", scope=scope, prefix="", limit=size + 1
             )
-            if len(all_rows) != size or any(not r.valid() for r in all_rows):
+            if (
+                len(all_rows) != size
+                or len({r.id for r in all_rows}) != size
+                or {r.key for r in all_rows} != {f"key{i:08d}" for i in range(size)}
+                or any(not r.valid() for r in all_rows)
+            ):
                 raise RuntimeError(f"Bulk load validation failed at {size}")
             known = next(r for r in all_rows if r.key == f"key{size // 2:08d}")
             ops = {}
@@ -387,7 +419,10 @@ def history_scale(
                     start = time.monotonic_ns()
                     if op == "read_recent":
                         result = worker.call(op, scope=scope, n=20)
-                        valid = len(result) == min(20, size)
+                        valid = [r.key for r in result] == [
+                            f"key{i:08d}"
+                            for i in range(size - 1, max(-1, size - 21), -1)
+                        ]
                     elif op == "get":
                         result = worker.call(op, scope=scope, key=known.key)
                         valid = result == known

@@ -1,0 +1,6201 @@
+{
+  "trials": 20,
+  "quick": false,
+  "os": "macOS-27.0.1-arm64-arm-64bit",
+  "hardware": {
+    "machine": "arm64",
+    "processor": "arm",
+    "cpu_count": 10,
+    "ram_bytes": 17179869184
+  },
+  "methodology_sha256": "221c818f8beef6958c9f42be5740cc72c393f31229b9ad40cfc27c03f3aa849f",
+  "suites": {
+    "recall-delay": {
+      "must_fail": "delayed-index",
+      "must_pass": "sqlite-visible",
+      "must_fail_rate": 1.0,
+      "must_pass_rate": 1.0,
+      "discriminates": true,
+      "details": [
+        {
+          "role": "must_fail",
+          "trial": 0,
+          "path": "id",
+          "lag_ms": 100.083791,
+          "upper_ms": 101.102916,
+          "read_p99_ms": 0.102916,
+          "matched": true
+        },
+        {
+          "role": "must_fail",
+          "trial": 1,
+          "path": "filter",
+          "lag_ms": 100.083959,
+          "upper_ms": 101.099334,
+          "read_p99_ms": 0.099334,
+          "matched": true
+        },
+        {
+          "role": "must_fail",
+          "trial": 2,
+          "path": "recency",
+          "lag_ms": 100.096417,
+          "upper_ms": 101.104875,
+          "read_p99_ms": 0.104875,
+          "matched": true
+        },
+        {
+          "role": "must_fail",
+          "trial": 3,
+          "path": "search",
+          "lag_ms": 100.13725,
+          "upper_ms": 101.137167,
+          "read_p99_ms": 0.137167,
+          "matched": true
+        },
+        {
+          "role": "must_fail",
+          "trial": 4,
+          "path": "id",
+          "lag_ms": 100.085167,
+          "upper_ms": 101.102375,
+          "read_p99_ms": 0.102375,
+          "matched": true
+        },
+        {
+          "role": "must_fail",
+          "trial": 5,
+          "path": "filter",
+          "lag_ms": 100.085334,
+          "upper_ms": 101.1,
+          "read_p99_ms": 0.1,
+          "matched": true
+        },
+        {
+          "role": "must_fail",
+          "trial": 6,
+          "path": "recency",
+          "lag_ms": 100.083292,
+          "upper_ms": 101.083208,
+          "read_p99_ms": 0.083208,
+          "matched": true
+        },
+        {
+          "role": "must_fail",
+          "trial": 7,
+          "path": "search",
+          "lag_ms": 100.103708,
+          "upper_ms": 101.130708,
+          "read_p99_ms": 0.130708,
+          "matched": true
+        },
+        {
+          "role": "must_fail",
+          "trial": 8,
+          "path": "id",
+          "lag_ms": 100.067583,
+          "upper_ms": 101.082041,
+          "read_p99_ms": 0.082041,
+          "matched": true
+        },
+        {
+          "role": "must_fail",
+          "trial": 9,
+          "path": "filter",
+          "lag_ms": 100.06725,
+          "upper_ms": 101.084375,
+          "read_p99_ms": 0.084375,
+          "matched": true
+        },
+        {
+          "role": "must_fail",
+          "trial": 10,
+          "path": "recency",
+          "lag_ms": 100.055917,
+          "upper_ms": 101.059291,
+          "read_p99_ms": 0.059291,
+          "matched": true
+        },
+        {
+          "role": "must_fail",
+          "trial": 11,
+          "path": "search",
+          "lag_ms": 100.071291,
+          "upper_ms": 101.10725,
+          "read_p99_ms": 0.10725,
+          "matched": true
+        },
+        {
+          "role": "must_fail",
+          "trial": 12,
+          "path": "id",
+          "lag_ms": 100.070125,
+          "upper_ms": 101.072083,
+          "read_p99_ms": 0.072083,
+          "matched": true
+        },
+        {
+          "role": "must_fail",
+          "trial": 13,
+          "path": "filter",
+          "lag_ms": 100.061041,
+          "upper_ms": 101.073792,
+          "read_p99_ms": 0.073792,
+          "matched": true
+        },
+        {
+          "role": "must_fail",
+          "trial": 14,
+          "path": "recency",
+          "lag_ms": 100.064875,
+          "upper_ms": 101.064833,
+          "read_p99_ms": 0.064833,
+          "matched": true
+        },
+        {
+          "role": "must_fail",
+          "trial": 15,
+          "path": "search",
+          "lag_ms": 100.06525,
+          "upper_ms": 101.075958,
+          "read_p99_ms": 0.075958,
+          "matched": true
+        },
+        {
+          "role": "must_fail",
+          "trial": 16,
+          "path": "id",
+          "lag_ms": 100.066834,
+          "upper_ms": 101.081667,
+          "read_p99_ms": 0.081667,
+          "matched": true
+        },
+        {
+          "role": "must_fail",
+          "trial": 17,
+          "path": "filter",
+          "lag_ms": 100.064208,
+          "upper_ms": 101.068958,
+          "read_p99_ms": 0.068958,
+          "matched": true
+        },
+        {
+          "role": "must_fail",
+          "trial": 18,
+          "path": "recency",
+          "lag_ms": 100.063875,
+          "upper_ms": 101.063833,
+          "read_p99_ms": 0.063833,
+          "matched": true
+        },
+        {
+          "role": "must_fail",
+          "trial": 19,
+          "path": "search",
+          "lag_ms": 100.065542,
+          "upper_ms": 101.102583,
+          "read_p99_ms": 0.102583,
+          "matched": true
+        },
+        {
+          "role": "must_pass",
+          "trial": 0,
+          "path": "id",
+          "lag_ms": 0.142708,
+          "upper_ms": 101.118291,
+          "read_p99_ms": 0.118291,
+          "matched": true
+        },
+        {
+          "role": "must_pass",
+          "trial": 1,
+          "path": "filter",
+          "lag_ms": 0.1355,
+          "upper_ms": 101.109667,
+          "read_p99_ms": 0.109667,
+          "matched": true
+        },
+        {
+          "role": "must_pass",
+          "trial": 2,
+          "path": "recency",
+          "lag_ms": 0.085583,
+          "upper_ms": 101.071333,
+          "read_p99_ms": 0.071333,
+          "matched": true
+        },
+        {
+          "role": "must_pass",
+          "trial": 3,
+          "path": "search",
+          "lag_ms": 0.160459,
+          "upper_ms": 101.135167,
+          "read_p99_ms": 0.135167,
+          "matched": true
+        },
+        {
+          "role": "must_pass",
+          "trial": 4,
+          "path": "id",
+          "lag_ms": 0.1305,
+          "upper_ms": 101.104334,
+          "read_p99_ms": 0.104334,
+          "matched": true
+        },
+        {
+          "role": "must_pass",
+          "trial": 5,
+          "path": "filter",
+          "lag_ms": 0.098709,
+          "upper_ms": 101.08275,
+          "read_p99_ms": 0.08275,
+          "matched": true
+        },
+        {
+          "role": "must_pass",
+          "trial": 6,
+          "path": "recency",
+          "lag_ms": 0.125333,
+          "upper_ms": 101.101083,
+          "read_p99_ms": 0.101083,
+          "matched": true
+        },
+        {
+          "role": "must_pass",
+          "trial": 7,
+          "path": "search",
+          "lag_ms": 0.128125,
+          "upper_ms": 101.11325,
+          "read_p99_ms": 0.11325,
+          "matched": true
+        },
+        {
+          "role": "must_pass",
+          "trial": 8,
+          "path": "id",
+          "lag_ms": 0.096208,
+          "upper_ms": 101.082167,
+          "read_p99_ms": 0.082167,
+          "matched": true
+        },
+        {
+          "role": "must_pass",
+          "trial": 9,
+          "path": "filter",
+          "lag_ms": 0.140459,
+          "upper_ms": 101.115042,
+          "read_p99_ms": 0.115042,
+          "matched": true
+        },
+        {
+          "role": "must_pass",
+          "trial": 10,
+          "path": "recency",
+          "lag_ms": 0.131667,
+          "upper_ms": 101.105542,
+          "read_p99_ms": 0.105542,
+          "matched": true
+        },
+        {
+          "role": "must_pass",
+          "trial": 11,
+          "path": "search",
+          "lag_ms": 0.156833,
+          "upper_ms": 101.132666,
+          "read_p99_ms": 0.132666,
+          "matched": true
+        },
+        {
+          "role": "must_pass",
+          "trial": 12,
+          "path": "id",
+          "lag_ms": 0.126166,
+          "upper_ms": 101.104791,
+          "read_p99_ms": 0.104791,
+          "matched": true
+        },
+        {
+          "role": "must_pass",
+          "trial": 13,
+          "path": "filter",
+          "lag_ms": 0.115875,
+          "upper_ms": 101.09625,
+          "read_p99_ms": 0.09625,
+          "matched": true
+        },
+        {
+          "role": "must_pass",
+          "trial": 14,
+          "path": "recency",
+          "lag_ms": 0.12425,
+          "upper_ms": 101.099875,
+          "read_p99_ms": 0.099875,
+          "matched": true
+        },
+        {
+          "role": "must_pass",
+          "trial": 15,
+          "path": "search",
+          "lag_ms": 0.162792,
+          "upper_ms": 101.138083,
+          "read_p99_ms": 0.138083,
+          "matched": true
+        },
+        {
+          "role": "must_pass",
+          "trial": 16,
+          "path": "id",
+          "lag_ms": 0.132292,
+          "upper_ms": 101.109458,
+          "read_p99_ms": 0.109458,
+          "matched": true
+        },
+        {
+          "role": "must_pass",
+          "trial": 17,
+          "path": "filter",
+          "lag_ms": 0.131583,
+          "upper_ms": 101.108167,
+          "read_p99_ms": 0.108167,
+          "matched": true
+        },
+        {
+          "role": "must_pass",
+          "trial": 18,
+          "path": "recency",
+          "lag_ms": 0.125875,
+          "upper_ms": 101.102209,
+          "read_p99_ms": 0.102209,
+          "matched": true
+        },
+        {
+          "role": "must_pass",
+          "trial": 19,
+          "path": "search",
+          "lag_ms": 0.176334,
+          "upper_ms": 101.152667,
+          "read_p99_ms": 0.152667,
+          "matched": true
+        }
+      ]
+    },
+    "process-kill": {
+      "must_fail": "buffered",
+      "must_pass": "sqlite-off",
+      "must_fail_rate": 1.0,
+      "must_pass_rate": 1.0,
+      "discriminates": true,
+      "details": [
+        {
+          "role": "must_fail",
+          "trial": 0,
+          "status": "violation",
+          "acked_missing": 6,
+          "duplicates": 0,
+          "torn": 0,
+          "targets": {
+            "worker": {
+              "acked_missing": 6,
+              "duplicates": 0,
+              "torn": 0
+            }
+          },
+          "trials": [
+            {
+              "target": "worker",
+              "trial": 0,
+              "acked": 6,
+              "fault_ns": 147408662170791,
+              "acked_missing": 6,
+              "duplicates": 0,
+              "torn": 0
+            }
+          ],
+          "note": "Tests user-space buffering and recovery, not disk durability. Worker-only faults test little for server-backed systems.",
+          "info": {
+            "capabilities": [
+              "delete",
+              "emulated:delete",
+              "emulated:get",
+              "emulated:list_prefix",
+              "emulated:read_recent",
+              "emulated:upsert",
+              "get",
+              "get-id",
+              "keyed",
+              "list_prefix",
+              "read_recent",
+              "search",
+              "upsert",
+              "write"
+            ],
+            "server_pid": null,
+            "version": "stdlib-jsonl-v1",
+            "notes": "Ack before user-space flush. Flush interval 100 ms. No fsync.",
+            "runtime_versions": {}
+          }
+        },
+        {
+          "role": "must_fail",
+          "trial": 1,
+          "status": "violation",
+          "acked_missing": 8,
+          "duplicates": 0,
+          "torn": 0,
+          "targets": {
+            "worker": {
+              "acked_missing": 8,
+              "duplicates": 0,
+              "torn": 0
+            }
+          },
+          "trials": [
+            {
+              "target": "worker",
+              "trial": 0,
+              "acked": 8,
+              "fault_ns": 147408779073500,
+              "acked_missing": 8,
+              "duplicates": 0,
+              "torn": 0
+            }
+          ],
+          "note": "Tests user-space buffering and recovery, not disk durability. Worker-only faults test little for server-backed systems.",
+          "info": {
+            "capabilities": [
+              "delete",
+              "emulated:delete",
+              "emulated:get",
+              "emulated:list_prefix",
+              "emulated:read_recent",
+              "emulated:upsert",
+              "get",
+              "get-id",
+              "keyed",
+              "list_prefix",
+              "read_recent",
+              "search",
+              "upsert",
+              "write"
+            ],
+            "server_pid": null,
+            "version": "stdlib-jsonl-v1",
+            "notes": "Ack before user-space flush. Flush interval 100 ms. No fsync.",
+            "runtime_versions": {}
+          }
+        },
+        {
+          "role": "must_fail",
+          "trial": 2,
+          "status": "violation",
+          "acked_missing": 7,
+          "duplicates": 0,
+          "torn": 0,
+          "targets": {
+            "worker": {
+              "acked_missing": 7,
+              "duplicates": 0,
+              "torn": 0
+            }
+          },
+          "trials": [
+            {
+              "target": "worker",
+              "trial": 0,
+              "acked": 7,
+              "fault_ns": 147408895363708,
+              "acked_missing": 7,
+              "duplicates": 0,
+              "torn": 0
+            }
+          ],
+          "note": "Tests user-space buffering and recovery, not disk durability. Worker-only faults test little for server-backed systems.",
+          "info": {
+            "capabilities": [
+              "delete",
+              "emulated:delete",
+              "emulated:get",
+              "emulated:list_prefix",
+              "emulated:read_recent",
+              "emulated:upsert",
+              "get",
+              "get-id",
+              "keyed",
+              "list_prefix",
+              "read_recent",
+              "search",
+              "upsert",
+              "write"
+            ],
+            "server_pid": null,
+            "version": "stdlib-jsonl-v1",
+            "notes": "Ack before user-space flush. Flush interval 100 ms. No fsync.",
+            "runtime_versions": {}
+          }
+        },
+        {
+          "role": "must_fail",
+          "trial": 3,
+          "status": "violation",
+          "acked_missing": 6,
+          "duplicates": 0,
+          "torn": 0,
+          "targets": {
+            "worker": {
+              "acked_missing": 6,
+              "duplicates": 0,
+              "torn": 0
+            }
+          },
+          "trials": [
+            {
+              "target": "worker",
+              "trial": 0,
+              "acked": 6,
+              "fault_ns": 147409001171916,
+              "acked_missing": 6,
+              "duplicates": 0,
+              "torn": 0
+            }
+          ],
+          "note": "Tests user-space buffering and recovery, not disk durability. Worker-only faults test little for server-backed systems.",
+          "info": {
+            "capabilities": [
+              "delete",
+              "emulated:delete",
+              "emulated:get",
+              "emulated:list_prefix",
+              "emulated:read_recent",
+              "emulated:upsert",
+              "get",
+              "get-id",
+              "keyed",
+              "list_prefix",
+              "read_recent",
+              "search",
+              "upsert",
+              "write"
+            ],
+            "server_pid": null,
+            "version": "stdlib-jsonl-v1",
+            "notes": "Ack before user-space flush. Flush interval 100 ms. No fsync.",
+            "runtime_versions": {}
+          }
+        },
+        {
+          "role": "must_fail",
+          "trial": 4,
+          "status": "violation",
+          "acked_missing": 5,
+          "duplicates": 0,
+          "torn": 0,
+          "targets": {
+            "worker": {
+              "acked_missing": 5,
+              "duplicates": 0,
+              "torn": 0
+            }
+          },
+          "trials": [
+            {
+              "target": "worker",
+              "trial": 0,
+              "acked": 5,
+              "fault_ns": 147409107016083,
+              "acked_missing": 5,
+              "duplicates": 0,
+              "torn": 0
+            }
+          ],
+          "note": "Tests user-space buffering and recovery, not disk durability. Worker-only faults test little for server-backed systems.",
+          "info": {
+            "capabilities": [
+              "delete",
+              "emulated:delete",
+              "emulated:get",
+              "emulated:list_prefix",
+              "emulated:read_recent",
+              "emulated:upsert",
+              "get",
+              "get-id",
+              "keyed",
+              "list_prefix",
+              "read_recent",
+              "search",
+              "upsert",
+              "write"
+            ],
+            "server_pid": null,
+            "version": "stdlib-jsonl-v1",
+            "notes": "Ack before user-space flush. Flush interval 100 ms. No fsync.",
+            "runtime_versions": {}
+          }
+        },
+        {
+          "role": "must_fail",
+          "trial": 5,
+          "status": "violation",
+          "acked_missing": 3,
+          "duplicates": 0,
+          "torn": 0,
+          "targets": {
+            "worker": {
+              "acked_missing": 3,
+              "duplicates": 0,
+              "torn": 0
+            }
+          },
+          "trials": [
+            {
+              "target": "worker",
+              "trial": 0,
+              "acked": 3,
+              "fault_ns": 147409212699916,
+              "acked_missing": 3,
+              "duplicates": 0,
+              "torn": 0
+            }
+          ],
+          "note": "Tests user-space buffering and recovery, not disk durability. Worker-only faults test little for server-backed systems.",
+          "info": {
+            "capabilities": [
+              "delete",
+              "emulated:delete",
+              "emulated:get",
+              "emulated:list_prefix",
+              "emulated:read_recent",
+              "emulated:upsert",
+              "get",
+              "get-id",
+              "keyed",
+              "list_prefix",
+              "read_recent",
+              "search",
+              "upsert",
+              "write"
+            ],
+            "server_pid": null,
+            "version": "stdlib-jsonl-v1",
+            "notes": "Ack before user-space flush. Flush interval 100 ms. No fsync.",
+            "runtime_versions": {}
+          }
+        },
+        {
+          "role": "must_fail",
+          "trial": 6,
+          "status": "violation",
+          "acked_missing": 7,
+          "duplicates": 0,
+          "torn": 0,
+          "targets": {
+            "worker": {
+              "acked_missing": 7,
+              "duplicates": 0,
+              "torn": 0
+            }
+          },
+          "trials": [
+            {
+              "target": "worker",
+              "trial": 0,
+              "acked": 7,
+              "fault_ns": 147409323541375,
+              "acked_missing": 7,
+              "duplicates": 0,
+              "torn": 0
+            }
+          ],
+          "note": "Tests user-space buffering and recovery, not disk durability. Worker-only faults test little for server-backed systems.",
+          "info": {
+            "capabilities": [
+              "delete",
+              "emulated:delete",
+              "emulated:get",
+              "emulated:list_prefix",
+              "emulated:read_recent",
+              "emulated:upsert",
+              "get",
+              "get-id",
+              "keyed",
+              "list_prefix",
+              "read_recent",
+              "search",
+              "upsert",
+              "write"
+            ],
+            "server_pid": null,
+            "version": "stdlib-jsonl-v1",
+            "notes": "Ack before user-space flush. Flush interval 100 ms. No fsync.",
+            "runtime_versions": {}
+          }
+        },
+        {
+          "role": "must_fail",
+          "trial": 7,
+          "status": "violation",
+          "acked_missing": 2,
+          "duplicates": 0,
+          "torn": 0,
+          "targets": {
+            "worker": {
+              "acked_missing": 2,
+              "duplicates": 0,
+              "torn": 0
+            }
+          },
+          "trials": [
+            {
+              "target": "worker",
+              "trial": 0,
+              "acked": 2,
+              "fault_ns": 147409429311375,
+              "acked_missing": 2,
+              "duplicates": 0,
+              "torn": 0
+            }
+          ],
+          "note": "Tests user-space buffering and recovery, not disk durability. Worker-only faults test little for server-backed systems.",
+          "info": {
+            "capabilities": [
+              "delete",
+              "emulated:delete",
+              "emulated:get",
+              "emulated:list_prefix",
+              "emulated:read_recent",
+              "emulated:upsert",
+              "get",
+              "get-id",
+              "keyed",
+              "list_prefix",
+              "read_recent",
+              "search",
+              "upsert",
+              "write"
+            ],
+            "server_pid": null,
+            "version": "stdlib-jsonl-v1",
+            "notes": "Ack before user-space flush. Flush interval 100 ms. No fsync.",
+            "runtime_versions": {}
+          }
+        },
+        {
+          "role": "must_fail",
+          "trial": 8,
+          "status": "violation",
+          "acked_missing": 3,
+          "duplicates": 0,
+          "torn": 0,
+          "targets": {
+            "worker": {
+              "acked_missing": 3,
+              "duplicates": 0,
+              "torn": 0
+            }
+          },
+          "trials": [
+            {
+              "target": "worker",
+              "trial": 0,
+              "acked": 3,
+              "fault_ns": 147409534673375,
+              "acked_missing": 3,
+              "duplicates": 0,
+              "torn": 0
+            }
+          ],
+          "note": "Tests user-space buffering and recovery, not disk durability. Worker-only faults test little for server-backed systems.",
+          "info": {
+            "capabilities": [
+              "delete",
+              "emulated:delete",
+              "emulated:get",
+              "emulated:list_prefix",
+              "emulated:read_recent",
+              "emulated:upsert",
+              "get",
+              "get-id",
+              "keyed",
+              "list_prefix",
+              "read_recent",
+              "search",
+              "upsert",
+              "write"
+            ],
+            "server_pid": null,
+            "version": "stdlib-jsonl-v1",
+            "notes": "Ack before user-space flush. Flush interval 100 ms. No fsync.",
+            "runtime_versions": {}
+          }
+        },
+        {
+          "role": "must_fail",
+          "trial": 9,
+          "status": "violation",
+          "acked_missing": 1,
+          "duplicates": 0,
+          "torn": 0,
+          "targets": {
+            "worker": {
+              "acked_missing": 1,
+              "duplicates": 0,
+              "torn": 0
+            }
+          },
+          "trials": [
+            {
+              "target": "worker",
+              "trial": 0,
+              "acked": 1,
+              "fault_ns": 147409645001375,
+              "acked_missing": 1,
+              "duplicates": 0,
+              "torn": 0
+            }
+          ],
+          "note": "Tests user-space buffering and recovery, not disk durability. Worker-only faults test little for server-backed systems.",
+          "info": {
+            "capabilities": [
+              "delete",
+              "emulated:delete",
+              "emulated:get",
+              "emulated:list_prefix",
+              "emulated:read_recent",
+              "emulated:upsert",
+              "get",
+              "get-id",
+              "keyed",
+              "list_prefix",
+              "read_recent",
+              "search",
+              "upsert",
+              "write"
+            ],
+            "server_pid": null,
+            "version": "stdlib-jsonl-v1",
+            "notes": "Ack before user-space flush. Flush interval 100 ms. No fsync.",
+            "runtime_versions": {}
+          }
+        },
+        {
+          "role": "must_fail",
+          "trial": 10,
+          "status": "violation",
+          "acked_missing": 8,
+          "duplicates": 0,
+          "torn": 0,
+          "targets": {
+            "worker": {
+              "acked_missing": 8,
+              "duplicates": 0,
+              "torn": 0
+            }
+          },
+          "trials": [
+            {
+              "target": "worker",
+              "trial": 0,
+              "acked": 8,
+              "fault_ns": 147409756053916,
+              "acked_missing": 8,
+              "duplicates": 0,
+              "torn": 0
+            }
+          ],
+          "note": "Tests user-space buffering and recovery, not disk durability. Worker-only faults test little for server-backed systems.",
+          "info": {
+            "capabilities": [
+              "delete",
+              "emulated:delete",
+              "emulated:get",
+              "emulated:list_prefix",
+              "emulated:read_recent",
+              "emulated:upsert",
+              "get",
+              "get-id",
+              "keyed",
+              "list_prefix",
+              "read_recent",
+              "search",
+              "upsert",
+              "write"
+            ],
+            "server_pid": null,
+            "version": "stdlib-jsonl-v1",
+            "notes": "Ack before user-space flush. Flush interval 100 ms. No fsync.",
+            "runtime_versions": {}
+          }
+        },
+        {
+          "role": "must_fail",
+          "trial": 11,
+          "status": "violation",
+          "acked_missing": 4,
+          "duplicates": 0,
+          "torn": 0,
+          "targets": {
+            "worker": {
+              "acked_missing": 4,
+              "duplicates": 0,
+              "torn": 0
+            }
+          },
+          "trials": [
+            {
+              "target": "worker",
+              "trial": 0,
+              "acked": 4,
+              "fault_ns": 147409861658375,
+              "acked_missing": 4,
+              "duplicates": 0,
+              "torn": 0
+            }
+          ],
+          "note": "Tests user-space buffering and recovery, not disk durability. Worker-only faults test little for server-backed systems.",
+          "info": {
+            "capabilities": [
+              "delete",
+              "emulated:delete",
+              "emulated:get",
+              "emulated:list_prefix",
+              "emulated:read_recent",
+              "emulated:upsert",
+              "get",
+              "get-id",
+              "keyed",
+              "list_prefix",
+              "read_recent",
+              "search",
+              "upsert",
+              "write"
+            ],
+            "server_pid": null,
+            "version": "stdlib-jsonl-v1",
+            "notes": "Ack before user-space flush. Flush interval 100 ms. No fsync.",
+            "runtime_versions": {}
+          }
+        },
+        {
+          "role": "must_fail",
+          "trial": 12,
+          "status": "violation",
+          "acked_missing": 5,
+          "duplicates": 0,
+          "torn": 0,
+          "targets": {
+            "worker": {
+              "acked_missing": 5,
+              "duplicates": 0,
+              "torn": 0
+            }
+          },
+          "trials": [
+            {
+              "target": "worker",
+              "trial": 0,
+              "acked": 5,
+              "fault_ns": 147409972784916,
+              "acked_missing": 5,
+              "duplicates": 0,
+              "torn": 0
+            }
+          ],
+          "note": "Tests user-space buffering and recovery, not disk durability. Worker-only faults test little for server-backed systems.",
+          "info": {
+            "capabilities": [
+              "delete",
+              "emulated:delete",
+              "emulated:get",
+              "emulated:list_prefix",
+              "emulated:read_recent",
+              "emulated:upsert",
+              "get",
+              "get-id",
+              "keyed",
+              "list_prefix",
+              "read_recent",
+              "search",
+              "upsert",
+              "write"
+            ],
+            "server_pid": null,
+            "version": "stdlib-jsonl-v1",
+            "notes": "Ack before user-space flush. Flush interval 100 ms. No fsync.",
+            "runtime_versions": {}
+          }
+        },
+        {
+          "role": "must_fail",
+          "trial": 13,
+          "status": "violation",
+          "acked_missing": 4,
+          "duplicates": 0,
+          "torn": 0,
+          "targets": {
+            "worker": {
+              "acked_missing": 4,
+              "duplicates": 0,
+              "torn": 0
+            }
+          },
+          "trials": [
+            {
+              "target": "worker",
+              "trial": 0,
+              "acked": 4,
+              "fault_ns": 147410078618666,
+              "acked_missing": 4,
+              "duplicates": 0,
+              "torn": 0
+            }
+          ],
+          "note": "Tests user-space buffering and recovery, not disk durability. Worker-only faults test little for server-backed systems.",
+          "info": {
+            "capabilities": [
+              "delete",
+              "emulated:delete",
+              "emulated:get",
+              "emulated:list_prefix",
+              "emulated:read_recent",
+              "emulated:upsert",
+              "get",
+              "get-id",
+              "keyed",
+              "list_prefix",
+              "read_recent",
+              "search",
+              "upsert",
+              "write"
+            ],
+            "server_pid": null,
+            "version": "stdlib-jsonl-v1",
+            "notes": "Ack before user-space flush. Flush interval 100 ms. No fsync.",
+            "runtime_versions": {}
+          }
+        },
+        {
+          "role": "must_fail",
+          "trial": 14,
+          "status": "violation",
+          "acked_missing": 6,
+          "duplicates": 0,
+          "torn": 0,
+          "targets": {
+            "worker": {
+              "acked_missing": 6,
+              "duplicates": 0,
+              "torn": 0
+            }
+          },
+          "trials": [
+            {
+              "target": "worker",
+              "trial": 0,
+              "acked": 6,
+              "fault_ns": 147410191184416,
+              "acked_missing": 6,
+              "duplicates": 0,
+              "torn": 0
+            }
+          ],
+          "note": "Tests user-space buffering and recovery, not disk durability. Worker-only faults test little for server-backed systems.",
+          "info": {
+            "capabilities": [
+              "delete",
+              "emulated:delete",
+              "emulated:get",
+              "emulated:list_prefix",
+              "emulated:read_recent",
+              "emulated:upsert",
+              "get",
+              "get-id",
+              "keyed",
+              "list_prefix",
+              "read_recent",
+              "search",
+              "upsert",
+              "write"
+            ],
+            "server_pid": null,
+            "version": "stdlib-jsonl-v1",
+            "notes": "Ack before user-space flush. Flush interval 100 ms. No fsync.",
+            "runtime_versions": {}
+          }
+        },
+        {
+          "role": "must_fail",
+          "trial": 15,
+          "status": "violation",
+          "acked_missing": 2,
+          "duplicates": 0,
+          "torn": 0,
+          "targets": {
+            "worker": {
+              "acked_missing": 2,
+              "duplicates": 0,
+              "torn": 0
+            }
+          },
+          "trials": [
+            {
+              "target": "worker",
+              "trial": 0,
+              "acked": 2,
+              "fault_ns": 147410303658958,
+              "acked_missing": 2,
+              "duplicates": 0,
+              "torn": 0
+            }
+          ],
+          "note": "Tests user-space buffering and recovery, not disk durability. Worker-only faults test little for server-backed systems.",
+          "info": {
+            "capabilities": [
+              "delete",
+              "emulated:delete",
+              "emulated:get",
+              "emulated:list_prefix",
+              "emulated:read_recent",
+              "emulated:upsert",
+              "get",
+              "get-id",
+              "keyed",
+              "list_prefix",
+              "read_recent",
+              "search",
+              "upsert",
+              "write"
+            ],
+            "server_pid": null,
+            "version": "stdlib-jsonl-v1",
+            "notes": "Ack before user-space flush. Flush interval 100 ms. No fsync.",
+            "runtime_versions": {}
+          }
+        },
+        {
+          "role": "must_fail",
+          "trial": 16,
+          "status": "violation",
+          "acked_missing": 6,
+          "duplicates": 0,
+          "torn": 0,
+          "targets": {
+            "worker": {
+              "acked_missing": 6,
+              "duplicates": 0,
+              "torn": 0
+            }
+          },
+          "trials": [
+            {
+              "target": "worker",
+              "trial": 0,
+              "acked": 6,
+              "fault_ns": 147410414582125,
+              "acked_missing": 6,
+              "duplicates": 0,
+              "torn": 0
+            }
+          ],
+          "note": "Tests user-space buffering and recovery, not disk durability. Worker-only faults test little for server-backed systems.",
+          "info": {
+            "capabilities": [
+              "delete",
+              "emulated:delete",
+              "emulated:get",
+              "emulated:list_prefix",
+              "emulated:read_recent",
+              "emulated:upsert",
+              "get",
+              "get-id",
+              "keyed",
+              "list_prefix",
+              "read_recent",
+              "search",
+              "upsert",
+              "write"
+            ],
+            "server_pid": null,
+            "version": "stdlib-jsonl-v1",
+            "notes": "Ack before user-space flush. Flush interval 100 ms. No fsync.",
+            "runtime_versions": {}
+          }
+        },
+        {
+          "role": "must_fail",
+          "trial": 17,
+          "status": "violation",
+          "acked_missing": 3,
+          "duplicates": 0,
+          "torn": 0,
+          "targets": {
+            "worker": {
+              "acked_missing": 3,
+              "duplicates": 0,
+              "torn": 0
+            }
+          },
+          "trials": [
+            {
+              "target": "worker",
+              "trial": 0,
+              "acked": 3,
+              "fault_ns": 147410520201541,
+              "acked_missing": 3,
+              "duplicates": 0,
+              "torn": 0
+            }
+          ],
+          "note": "Tests user-space buffering and recovery, not disk durability. Worker-only faults test little for server-backed systems.",
+          "info": {
+            "capabilities": [
+              "delete",
+              "emulated:delete",
+              "emulated:get",
+              "emulated:list_prefix",
+              "emulated:read_recent",
+              "emulated:upsert",
+              "get",
+              "get-id",
+              "keyed",
+              "list_prefix",
+              "read_recent",
+              "search",
+              "upsert",
+              "write"
+            ],
+            "server_pid": null,
+            "version": "stdlib-jsonl-v1",
+            "notes": "Ack before user-space flush. Flush interval 100 ms. No fsync.",
+            "runtime_versions": {}
+          }
+        },
+        {
+          "role": "must_fail",
+          "trial": 18,
+          "status": "violation",
+          "acked_missing": 8,
+          "duplicates": 0,
+          "torn": 0,
+          "targets": {
+            "worker": {
+              "acked_missing": 8,
+              "duplicates": 0,
+              "torn": 0
+            }
+          },
+          "trials": [
+            {
+              "target": "worker",
+              "trial": 0,
+              "acked": 8,
+              "fault_ns": 147410625932458,
+              "acked_missing": 8,
+              "duplicates": 0,
+              "torn": 0
+            }
+          ],
+          "note": "Tests user-space buffering and recovery, not disk durability. Worker-only faults test little for server-backed systems.",
+          "info": {
+            "capabilities": [
+              "delete",
+              "emulated:delete",
+              "emulated:get",
+              "emulated:list_prefix",
+              "emulated:read_recent",
+              "emulated:upsert",
+              "get",
+              "get-id",
+              "keyed",
+              "list_prefix",
+              "read_recent",
+              "search",
+              "upsert",
+              "write"
+            ],
+            "server_pid": null,
+            "version": "stdlib-jsonl-v1",
+            "notes": "Ack before user-space flush. Flush interval 100 ms. No fsync.",
+            "runtime_versions": {}
+          }
+        },
+        {
+          "role": "must_fail",
+          "trial": 19,
+          "status": "violation",
+          "acked_missing": 5,
+          "duplicates": 0,
+          "torn": 0,
+          "targets": {
+            "worker": {
+              "acked_missing": 5,
+              "duplicates": 0,
+              "torn": 0
+            }
+          },
+          "trials": [
+            {
+              "target": "worker",
+              "trial": 0,
+              "acked": 5,
+              "fault_ns": 147410736655541,
+              "acked_missing": 5,
+              "duplicates": 0,
+              "torn": 0
+            }
+          ],
+          "note": "Tests user-space buffering and recovery, not disk durability. Worker-only faults test little for server-backed systems.",
+          "info": {
+            "capabilities": [
+              "delete",
+              "emulated:delete",
+              "emulated:get",
+              "emulated:list_prefix",
+              "emulated:read_recent",
+              "emulated:upsert",
+              "get",
+              "get-id",
+              "keyed",
+              "list_prefix",
+              "read_recent",
+              "search",
+              "upsert",
+              "write"
+            ],
+            "server_pid": null,
+            "version": "stdlib-jsonl-v1",
+            "notes": "Ack before user-space flush. Flush interval 100 ms. No fsync.",
+            "runtime_versions": {}
+          }
+        },
+        {
+          "role": "must_pass",
+          "trial": 0,
+          "status": "ok",
+          "acked_missing": 0,
+          "duplicates": 0,
+          "torn": 0,
+          "targets": {
+            "worker": {
+              "acked_missing": 0,
+              "duplicates": 0,
+              "torn": 0
+            }
+          },
+          "trials": [
+            {
+              "target": "worker",
+              "trial": 0,
+              "acked": 6,
+              "fault_ns": 147410855534875,
+              "acked_missing": 0,
+              "duplicates": 0,
+              "torn": 0
+            }
+          ],
+          "note": "Tests user-space buffering and recovery, not disk durability. Worker-only faults test little for server-backed systems.",
+          "info": {
+            "capabilities": [
+              "delete",
+              "get",
+              "get-id",
+              "keyed",
+              "list_prefix",
+              "read_recent",
+              "search",
+              "upsert",
+              "write"
+            ],
+            "server_pid": null,
+            "version": "3.53.3",
+            "notes": "WAL synchronous=OFF. Commit before ack. Page cache survives SIGKILL.",
+            "runtime_versions": {}
+          }
+        },
+        {
+          "role": "must_pass",
+          "trial": 1,
+          "status": "ok",
+          "acked_missing": 0,
+          "duplicates": 0,
+          "torn": 0,
+          "targets": {
+            "worker": {
+              "acked_missing": 0,
+              "duplicates": 0,
+              "torn": 0
+            }
+          },
+          "trials": [
+            {
+              "target": "worker",
+              "trial": 0,
+              "acked": 8,
+              "fault_ns": 147410971236916,
+              "acked_missing": 0,
+              "duplicates": 0,
+              "torn": 0
+            }
+          ],
+          "note": "Tests user-space buffering and recovery, not disk durability. Worker-only faults test little for server-backed systems.",
+          "info": {
+            "capabilities": [
+              "delete",
+              "get",
+              "get-id",
+              "keyed",
+              "list_prefix",
+              "read_recent",
+              "search",
+              "upsert",
+              "write"
+            ],
+            "server_pid": null,
+            "version": "3.53.3",
+            "notes": "WAL synchronous=OFF. Commit before ack. Page cache survives SIGKILL.",
+            "runtime_versions": {}
+          }
+        },
+        {
+          "role": "must_pass",
+          "trial": 2,
+          "status": "ok",
+          "acked_missing": 0,
+          "duplicates": 0,
+          "torn": 0,
+          "targets": {
+            "worker": {
+              "acked_missing": 0,
+              "duplicates": 0,
+              "torn": 0
+            }
+          },
+          "trials": [
+            {
+              "target": "worker",
+              "trial": 0,
+              "acked": 7,
+              "fault_ns": 147411080952166,
+              "acked_missing": 0,
+              "duplicates": 0,
+              "torn": 0
+            }
+          ],
+          "note": "Tests user-space buffering and recovery, not disk durability. Worker-only faults test little for server-backed systems.",
+          "info": {
+            "capabilities": [
+              "delete",
+              "get",
+              "get-id",
+              "keyed",
+              "list_prefix",
+              "read_recent",
+              "search",
+              "upsert",
+              "write"
+            ],
+            "server_pid": null,
+            "version": "3.53.3",
+            "notes": "WAL synchronous=OFF. Commit before ack. Page cache survives SIGKILL.",
+            "runtime_versions": {}
+          }
+        },
+        {
+          "role": "must_pass",
+          "trial": 3,
+          "status": "ok",
+          "acked_missing": 0,
+          "duplicates": 0,
+          "torn": 0,
+          "targets": {
+            "worker": {
+              "acked_missing": 0,
+              "duplicates": 0,
+              "torn": 0
+            }
+          },
+          "trials": [
+            {
+              "target": "worker",
+              "trial": 0,
+              "acked": 6,
+              "fault_ns": 147411194852041,
+              "acked_missing": 0,
+              "duplicates": 0,
+              "torn": 0
+            }
+          ],
+          "note": "Tests user-space buffering and recovery, not disk durability. Worker-only faults test little for server-backed systems.",
+          "info": {
+            "capabilities": [
+              "delete",
+              "get",
+              "get-id",
+              "keyed",
+              "list_prefix",
+              "read_recent",
+              "search",
+              "upsert",
+              "write"
+            ],
+            "server_pid": null,
+            "version": "3.53.3",
+            "notes": "WAL synchronous=OFF. Commit before ack. Page cache survives SIGKILL.",
+            "runtime_versions": {}
+          }
+        },
+        {
+          "role": "must_pass",
+          "trial": 4,
+          "status": "ok",
+          "acked_missing": 0,
+          "duplicates": 0,
+          "torn": 0,
+          "targets": {
+            "worker": {
+              "acked_missing": 0,
+              "duplicates": 0,
+              "torn": 0
+            }
+          },
+          "trials": [
+            {
+              "target": "worker",
+              "trial": 0,
+              "acked": 5,
+              "fault_ns": 147411308762041,
+              "acked_missing": 0,
+              "duplicates": 0,
+              "torn": 0
+            }
+          ],
+          "note": "Tests user-space buffering and recovery, not disk durability. Worker-only faults test little for server-backed systems.",
+          "info": {
+            "capabilities": [
+              "delete",
+              "get",
+              "get-id",
+              "keyed",
+              "list_prefix",
+              "read_recent",
+              "search",
+              "upsert",
+              "write"
+            ],
+            "server_pid": null,
+            "version": "3.53.3",
+            "notes": "WAL synchronous=OFF. Commit before ack. Page cache survives SIGKILL.",
+            "runtime_versions": {}
+          }
+        },
+        {
+          "role": "must_pass",
+          "trial": 5,
+          "status": "ok",
+          "acked_missing": 0,
+          "duplicates": 0,
+          "torn": 0,
+          "targets": {
+            "worker": {
+              "acked_missing": 0,
+              "duplicates": 0,
+              "torn": 0
+            }
+          },
+          "trials": [
+            {
+              "target": "worker",
+              "trial": 0,
+              "acked": 3,
+              "fault_ns": 147411426970541,
+              "acked_missing": 0,
+              "duplicates": 0,
+              "torn": 0
+            }
+          ],
+          "note": "Tests user-space buffering and recovery, not disk durability. Worker-only faults test little for server-backed systems.",
+          "info": {
+            "capabilities": [
+              "delete",
+              "get",
+              "get-id",
+              "keyed",
+              "list_prefix",
+              "read_recent",
+              "search",
+              "upsert",
+              "write"
+            ],
+            "server_pid": null,
+            "version": "3.53.3",
+            "notes": "WAL synchronous=OFF. Commit before ack. Page cache survives SIGKILL.",
+            "runtime_versions": {}
+          }
+        },
+        {
+          "role": "must_pass",
+          "trial": 6,
+          "status": "ok",
+          "acked_missing": 0,
+          "duplicates": 0,
+          "torn": 0,
+          "targets": {
+            "worker": {
+              "acked_missing": 0,
+              "duplicates": 0,
+              "torn": 0
+            }
+          },
+          "trials": [
+            {
+              "target": "worker",
+              "trial": 0,
+              "acked": 7,
+              "fault_ns": 147411546356458,
+              "acked_missing": 0,
+              "duplicates": 0,
+              "torn": 0
+            }
+          ],
+          "note": "Tests user-space buffering and recovery, not disk durability. Worker-only faults test little for server-backed systems.",
+          "info": {
+            "capabilities": [
+              "delete",
+              "get",
+              "get-id",
+              "keyed",
+              "list_prefix",
+              "read_recent",
+              "search",
+              "upsert",
+              "write"
+            ],
+            "server_pid": null,
+            "version": "3.53.3",
+            "notes": "WAL synchronous=OFF. Commit before ack. Page cache survives SIGKILL.",
+            "runtime_versions": {}
+          }
+        },
+        {
+          "role": "must_pass",
+          "trial": 7,
+          "status": "ok",
+          "acked_missing": 0,
+          "duplicates": 0,
+          "torn": 0,
+          "targets": {
+            "worker": {
+              "acked_missing": 0,
+              "duplicates": 0,
+              "torn": 0
+            }
+          },
+          "trials": [
+            {
+              "target": "worker",
+              "trial": 0,
+              "acked": 2,
+              "fault_ns": 147411661096375,
+              "acked_missing": 0,
+              "duplicates": 0,
+              "torn": 0
+            }
+          ],
+          "note": "Tests user-space buffering and recovery, not disk durability. Worker-only faults test little for server-backed systems.",
+          "info": {
+            "capabilities": [
+              "delete",
+              "get",
+              "get-id",
+              "keyed",
+              "list_prefix",
+              "read_recent",
+              "search",
+              "upsert",
+              "write"
+            ],
+            "server_pid": null,
+            "version": "3.53.3",
+            "notes": "WAL synchronous=OFF. Commit before ack. Page cache survives SIGKILL.",
+            "runtime_versions": {}
+          }
+        },
+        {
+          "role": "must_pass",
+          "trial": 8,
+          "status": "ok",
+          "acked_missing": 0,
+          "duplicates": 0,
+          "torn": 0,
+          "targets": {
+            "worker": {
+              "acked_missing": 0,
+              "duplicates": 0,
+              "torn": 0
+            }
+          },
+          "trials": [
+            {
+              "target": "worker",
+              "trial": 0,
+              "acked": 3,
+              "fault_ns": 147411775704875,
+              "acked_missing": 0,
+              "duplicates": 0,
+              "torn": 0
+            }
+          ],
+          "note": "Tests user-space buffering and recovery, not disk durability. Worker-only faults test little for server-backed systems.",
+          "info": {
+            "capabilities": [
+              "delete",
+              "get",
+              "get-id",
+              "keyed",
+              "list_prefix",
+              "read_recent",
+              "search",
+              "upsert",
+              "write"
+            ],
+            "server_pid": null,
+            "version": "3.53.3",
+            "notes": "WAL synchronous=OFF. Commit before ack. Page cache survives SIGKILL.",
+            "runtime_versions": {}
+          }
+        },
+        {
+          "role": "must_pass",
+          "trial": 9,
+          "status": "ok",
+          "acked_missing": 0,
+          "duplicates": 0,
+          "torn": 0,
+          "targets": {
+            "worker": {
+              "acked_missing": 0,
+              "duplicates": 0,
+              "torn": 0
+            }
+          },
+          "trials": [
+            {
+              "target": "worker",
+              "trial": 0,
+              "acked": 1,
+              "fault_ns": 147411884286750,
+              "acked_missing": 0,
+              "duplicates": 0,
+              "torn": 0
+            }
+          ],
+          "note": "Tests user-space buffering and recovery, not disk durability. Worker-only faults test little for server-backed systems.",
+          "info": {
+            "capabilities": [
+              "delete",
+              "get",
+              "get-id",
+              "keyed",
+              "list_prefix",
+              "read_recent",
+              "search",
+              "upsert",
+              "write"
+            ],
+            "server_pid": null,
+            "version": "3.53.3",
+            "notes": "WAL synchronous=OFF. Commit before ack. Page cache survives SIGKILL.",
+            "runtime_versions": {}
+          }
+        },
+        {
+          "role": "must_pass",
+          "trial": 10,
+          "status": "ok",
+          "acked_missing": 0,
+          "duplicates": 0,
+          "torn": 0,
+          "targets": {
+            "worker": {
+              "acked_missing": 0,
+              "duplicates": 0,
+              "torn": 0
+            }
+          },
+          "trials": [
+            {
+              "target": "worker",
+              "trial": 0,
+              "acked": 8,
+              "fault_ns": 147411993249166,
+              "acked_missing": 0,
+              "duplicates": 0,
+              "torn": 0
+            }
+          ],
+          "note": "Tests user-space buffering and recovery, not disk durability. Worker-only faults test little for server-backed systems.",
+          "info": {
+            "capabilities": [
+              "delete",
+              "get",
+              "get-id",
+              "keyed",
+              "list_prefix",
+              "read_recent",
+              "search",
+              "upsert",
+              "write"
+            ],
+            "server_pid": null,
+            "version": "3.53.3",
+            "notes": "WAL synchronous=OFF. Commit before ack. Page cache survives SIGKILL.",
+            "runtime_versions": {}
+          }
+        },
+        {
+          "role": "must_pass",
+          "trial": 11,
+          "status": "ok",
+          "acked_missing": 0,
+          "duplicates": 0,
+          "torn": 0,
+          "targets": {
+            "worker": {
+              "acked_missing": 0,
+              "duplicates": 0,
+              "torn": 0
+            }
+          },
+          "trials": [
+            {
+              "target": "worker",
+              "trial": 0,
+              "acked": 4,
+              "fault_ns": 147412107842333,
+              "acked_missing": 0,
+              "duplicates": 0,
+              "torn": 0
+            }
+          ],
+          "note": "Tests user-space buffering and recovery, not disk durability. Worker-only faults test little for server-backed systems.",
+          "info": {
+            "capabilities": [
+              "delete",
+              "get",
+              "get-id",
+              "keyed",
+              "list_prefix",
+              "read_recent",
+              "search",
+              "upsert",
+              "write"
+            ],
+            "server_pid": null,
+            "version": "3.53.3",
+            "notes": "WAL synchronous=OFF. Commit before ack. Page cache survives SIGKILL.",
+            "runtime_versions": {}
+          }
+        },
+        {
+          "role": "must_pass",
+          "trial": 12,
+          "status": "ok",
+          "acked_missing": 0,
+          "duplicates": 0,
+          "torn": 0,
+          "targets": {
+            "worker": {
+              "acked_missing": 0,
+              "duplicates": 0,
+              "torn": 0
+            }
+          },
+          "trials": [
+            {
+              "target": "worker",
+              "trial": 0,
+              "acked": 5,
+              "fault_ns": 147412228738291,
+              "acked_missing": 0,
+              "duplicates": 0,
+              "torn": 0
+            }
+          ],
+          "note": "Tests user-space buffering and recovery, not disk durability. Worker-only faults test little for server-backed systems.",
+          "info": {
+            "capabilities": [
+              "delete",
+              "get",
+              "get-id",
+              "keyed",
+              "list_prefix",
+              "read_recent",
+              "search",
+              "upsert",
+              "write"
+            ],
+            "server_pid": null,
+            "version": "3.53.3",
+            "notes": "WAL synchronous=OFF. Commit before ack. Page cache survives SIGKILL.",
+            "runtime_versions": {}
+          }
+        },
+        {
+          "role": "must_pass",
+          "trial": 13,
+          "status": "ok",
+          "acked_missing": 0,
+          "duplicates": 0,
+          "torn": 0,
+          "targets": {
+            "worker": {
+              "acked_missing": 0,
+              "duplicates": 0,
+              "torn": 0
+            }
+          },
+          "trials": [
+            {
+              "target": "worker",
+              "trial": 0,
+              "acked": 4,
+              "fault_ns": 147412338495375,
+              "acked_missing": 0,
+              "duplicates": 0,
+              "torn": 0
+            }
+          ],
+          "note": "Tests user-space buffering and recovery, not disk durability. Worker-only faults test little for server-backed systems.",
+          "info": {
+            "capabilities": [
+              "delete",
+              "get",
+              "get-id",
+              "keyed",
+              "list_prefix",
+              "read_recent",
+              "search",
+              "upsert",
+              "write"
+            ],
+            "server_pid": null,
+            "version": "3.53.3",
+            "notes": "WAL synchronous=OFF. Commit before ack. Page cache survives SIGKILL.",
+            "runtime_versions": {}
+          }
+        },
+        {
+          "role": "must_pass",
+          "trial": 14,
+          "status": "ok",
+          "acked_missing": 0,
+          "duplicates": 0,
+          "torn": 0,
+          "targets": {
+            "worker": {
+              "acked_missing": 0,
+              "duplicates": 0,
+              "torn": 0
+            }
+          },
+          "trials": [
+            {
+              "target": "worker",
+              "trial": 0,
+              "acked": 6,
+              "fault_ns": 147412457384166,
+              "acked_missing": 0,
+              "duplicates": 0,
+              "torn": 0
+            }
+          ],
+          "note": "Tests user-space buffering and recovery, not disk durability. Worker-only faults test little for server-backed systems.",
+          "info": {
+            "capabilities": [
+              "delete",
+              "get",
+              "get-id",
+              "keyed",
+              "list_prefix",
+              "read_recent",
+              "search",
+              "upsert",
+              "write"
+            ],
+            "server_pid": null,
+            "version": "3.53.3",
+            "notes": "WAL synchronous=OFF. Commit before ack. Page cache survives SIGKILL.",
+            "runtime_versions": {}
+          }
+        },
+        {
+          "role": "must_pass",
+          "trial": 15,
+          "status": "ok",
+          "acked_missing": 0,
+          "duplicates": 0,
+          "torn": 0,
+          "targets": {
+            "worker": {
+              "acked_missing": 0,
+              "duplicates": 0,
+              "torn": 0
+            }
+          },
+          "trials": [
+            {
+              "target": "worker",
+              "trial": 0,
+              "acked": 2,
+              "fault_ns": 147412571967708,
+              "acked_missing": 0,
+              "duplicates": 0,
+              "torn": 0
+            }
+          ],
+          "note": "Tests user-space buffering and recovery, not disk durability. Worker-only faults test little for server-backed systems.",
+          "info": {
+            "capabilities": [
+              "delete",
+              "get",
+              "get-id",
+              "keyed",
+              "list_prefix",
+              "read_recent",
+              "search",
+              "upsert",
+              "write"
+            ],
+            "server_pid": null,
+            "version": "3.53.3",
+            "notes": "WAL synchronous=OFF. Commit before ack. Page cache survives SIGKILL.",
+            "runtime_versions": {}
+          }
+        },
+        {
+          "role": "must_pass",
+          "trial": 16,
+          "status": "ok",
+          "acked_missing": 0,
+          "duplicates": 0,
+          "torn": 0,
+          "targets": {
+            "worker": {
+              "acked_missing": 0,
+              "duplicates": 0,
+              "torn": 0
+            }
+          },
+          "trials": [
+            {
+              "target": "worker",
+              "trial": 0,
+              "acked": 6,
+              "fault_ns": 147412685964416,
+              "acked_missing": 0,
+              "duplicates": 0,
+              "torn": 0
+            }
+          ],
+          "note": "Tests user-space buffering and recovery, not disk durability. Worker-only faults test little for server-backed systems.",
+          "info": {
+            "capabilities": [
+              "delete",
+              "get",
+              "get-id",
+              "keyed",
+              "list_prefix",
+              "read_recent",
+              "search",
+              "upsert",
+              "write"
+            ],
+            "server_pid": null,
+            "version": "3.53.3",
+            "notes": "WAL synchronous=OFF. Commit before ack. Page cache survives SIGKILL.",
+            "runtime_versions": {}
+          }
+        },
+        {
+          "role": "must_pass",
+          "trial": 17,
+          "status": "ok",
+          "acked_missing": 0,
+          "duplicates": 0,
+          "torn": 0,
+          "targets": {
+            "worker": {
+              "acked_missing": 0,
+              "duplicates": 0,
+              "torn": 0
+            }
+          },
+          "trials": [
+            {
+              "target": "worker",
+              "trial": 0,
+              "acked": 3,
+              "fault_ns": 147412800530125,
+              "acked_missing": 0,
+              "duplicates": 0,
+              "torn": 0
+            }
+          ],
+          "note": "Tests user-space buffering and recovery, not disk durability. Worker-only faults test little for server-backed systems.",
+          "info": {
+            "capabilities": [
+              "delete",
+              "get",
+              "get-id",
+              "keyed",
+              "list_prefix",
+              "read_recent",
+              "search",
+              "upsert",
+              "write"
+            ],
+            "server_pid": null,
+            "version": "3.53.3",
+            "notes": "WAL synchronous=OFF. Commit before ack. Page cache survives SIGKILL.",
+            "runtime_versions": {}
+          }
+        },
+        {
+          "role": "must_pass",
+          "trial": 18,
+          "status": "ok",
+          "acked_missing": 0,
+          "duplicates": 0,
+          "torn": 0,
+          "targets": {
+            "worker": {
+              "acked_missing": 0,
+              "duplicates": 0,
+              "torn": 0
+            }
+          },
+          "trials": [
+            {
+              "target": "worker",
+              "trial": 0,
+              "acked": 8,
+              "fault_ns": 147412919952041,
+              "acked_missing": 0,
+              "duplicates": 0,
+              "torn": 0
+            }
+          ],
+          "note": "Tests user-space buffering and recovery, not disk durability. Worker-only faults test little for server-backed systems.",
+          "info": {
+            "capabilities": [
+              "delete",
+              "get",
+              "get-id",
+              "keyed",
+              "list_prefix",
+              "read_recent",
+              "search",
+              "upsert",
+              "write"
+            ],
+            "server_pid": null,
+            "version": "3.53.3",
+            "notes": "WAL synchronous=OFF. Commit before ack. Page cache survives SIGKILL.",
+            "runtime_versions": {}
+          }
+        },
+        {
+          "role": "must_pass",
+          "trial": 19,
+          "status": "ok",
+          "acked_missing": 0,
+          "duplicates": 0,
+          "torn": 0,
+          "targets": {
+            "worker": {
+              "acked_missing": 0,
+              "duplicates": 0,
+              "torn": 0
+            }
+          },
+          "trials": [
+            {
+              "target": "worker",
+              "trial": 0,
+              "acked": 5,
+              "fault_ns": 147413040559708,
+              "acked_missing": 0,
+              "duplicates": 0,
+              "torn": 0
+            }
+          ],
+          "note": "Tests user-space buffering and recovery, not disk durability. Worker-only faults test little for server-backed systems.",
+          "info": {
+            "capabilities": [
+              "delete",
+              "get",
+              "get-id",
+              "keyed",
+              "list_prefix",
+              "read_recent",
+              "search",
+              "upsert",
+              "write"
+            ],
+            "server_pid": null,
+            "version": "3.53.3",
+            "notes": "WAL synchronous=OFF. Commit before ack. Page cache survives SIGKILL.",
+            "runtime_versions": {}
+          }
+        }
+      ]
+    },
+    "concurrent-append": {
+      "must_fail": "md-rmw-sleep",
+      "must_pass": "sqlite-busy",
+      "must_fail_rate": 1.0,
+      "must_pass_rate": 1.0,
+      "discriminates": true,
+      "details": [
+        {
+          "role": "must_fail",
+          "trial": 0,
+          "status": "violation",
+          "acked_missing": 20,
+          "duplicates": 0,
+          "torn": 0,
+          "invalid_final": 0,
+          "trials": [
+            {
+              "writers": 2,
+              "phase": "distinct",
+              "acked_missing": 20,
+              "duplicates": 0,
+              "torn": 0,
+              "invalid_final": 0
+            }
+          ],
+          "info": {
+            "capabilities": [
+              "delete",
+              "emulated:delete",
+              "emulated:get",
+              "emulated:list_prefix",
+              "emulated:read_recent",
+              "emulated:upsert",
+              "get",
+              "get-id",
+              "keyed",
+              "list_prefix",
+              "read_recent",
+              "search",
+              "upsert",
+              "write"
+            ],
+            "server_pid": null,
+            "version": "stdlib-jsonl-v1",
+            "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
+            "runtime_versions": {}
+          },
+          "cas": false,
+          "history": false
+        },
+        {
+          "role": "must_fail",
+          "trial": 1,
+          "status": "violation",
+          "acked_missing": 60,
+          "duplicates": 0,
+          "torn": 0,
+          "invalid_final": 0,
+          "trials": [
+            {
+              "writers": 4,
+              "phase": "distinct",
+              "acked_missing": 60,
+              "duplicates": 0,
+              "torn": 0,
+              "invalid_final": 0
+            }
+          ],
+          "info": {
+            "capabilities": [
+              "delete",
+              "emulated:delete",
+              "emulated:get",
+              "emulated:list_prefix",
+              "emulated:read_recent",
+              "emulated:upsert",
+              "get",
+              "get-id",
+              "keyed",
+              "list_prefix",
+              "read_recent",
+              "search",
+              "upsert",
+              "write"
+            ],
+            "server_pid": null,
+            "version": "stdlib-jsonl-v1",
+            "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
+            "runtime_versions": {}
+          },
+          "cas": false,
+          "history": false
+        },
+        {
+          "role": "must_fail",
+          "trial": 2,
+          "status": "violation",
+          "acked_missing": 140,
+          "duplicates": 0,
+          "torn": 0,
+          "invalid_final": 0,
+          "trials": [
+            {
+              "writers": 8,
+              "phase": "distinct",
+              "acked_missing": 140,
+              "duplicates": 0,
+              "torn": 0,
+              "invalid_final": 0
+            }
+          ],
+          "info": {
+            "capabilities": [
+              "delete",
+              "emulated:delete",
+              "emulated:get",
+              "emulated:list_prefix",
+              "emulated:read_recent",
+              "emulated:upsert",
+              "get",
+              "get-id",
+              "keyed",
+              "list_prefix",
+              "read_recent",
+              "search",
+              "upsert",
+              "write"
+            ],
+            "server_pid": null,
+            "version": "stdlib-jsonl-v1",
+            "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
+            "runtime_versions": {}
+          },
+          "cas": false,
+          "history": false
+        },
+        {
+          "role": "must_fail",
+          "trial": 3,
+          "status": "violation",
+          "acked_missing": 20,
+          "duplicates": 0,
+          "torn": 0,
+          "invalid_final": 0,
+          "trials": [
+            {
+              "writers": 2,
+              "phase": "distinct",
+              "acked_missing": 20,
+              "duplicates": 0,
+              "torn": 0,
+              "invalid_final": 0
+            }
+          ],
+          "info": {
+            "capabilities": [
+              "delete",
+              "emulated:delete",
+              "emulated:get",
+              "emulated:list_prefix",
+              "emulated:read_recent",
+              "emulated:upsert",
+              "get",
+              "get-id",
+              "keyed",
+              "list_prefix",
+              "read_recent",
+              "search",
+              "upsert",
+              "write"
+            ],
+            "server_pid": null,
+            "version": "stdlib-jsonl-v1",
+            "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
+            "runtime_versions": {}
+          },
+          "cas": false,
+          "history": false
+        },
+        {
+          "role": "must_fail",
+          "trial": 4,
+          "status": "violation",
+          "acked_missing": 60,
+          "duplicates": 0,
+          "torn": 0,
+          "invalid_final": 0,
+          "trials": [
+            {
+              "writers": 4,
+              "phase": "distinct",
+              "acked_missing": 60,
+              "duplicates": 0,
+              "torn": 0,
+              "invalid_final": 0
+            }
+          ],
+          "info": {
+            "capabilities": [
+              "delete",
+              "emulated:delete",
+              "emulated:get",
+              "emulated:list_prefix",
+              "emulated:read_recent",
+              "emulated:upsert",
+              "get",
+              "get-id",
+              "keyed",
+              "list_prefix",
+              "read_recent",
+              "search",
+              "upsert",
+              "write"
+            ],
+            "server_pid": null,
+            "version": "stdlib-jsonl-v1",
+            "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
+            "runtime_versions": {}
+          },
+          "cas": false,
+          "history": false
+        },
+        {
+          "role": "must_fail",
+          "trial": 5,
+          "status": "violation",
+          "acked_missing": 140,
+          "duplicates": 0,
+          "torn": 0,
+          "invalid_final": 0,
+          "trials": [
+            {
+              "writers": 8,
+              "phase": "distinct",
+              "acked_missing": 140,
+              "duplicates": 0,
+              "torn": 0,
+              "invalid_final": 0
+            }
+          ],
+          "info": {
+            "capabilities": [
+              "delete",
+              "emulated:delete",
+              "emulated:get",
+              "emulated:list_prefix",
+              "emulated:read_recent",
+              "emulated:upsert",
+              "get",
+              "get-id",
+              "keyed",
+              "list_prefix",
+              "read_recent",
+              "search",
+              "upsert",
+              "write"
+            ],
+            "server_pid": null,
+            "version": "stdlib-jsonl-v1",
+            "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
+            "runtime_versions": {}
+          },
+          "cas": false,
+          "history": false
+        },
+        {
+          "role": "must_fail",
+          "trial": 6,
+          "status": "violation",
+          "acked_missing": 20,
+          "duplicates": 0,
+          "torn": 0,
+          "invalid_final": 0,
+          "trials": [
+            {
+              "writers": 2,
+              "phase": "distinct",
+              "acked_missing": 20,
+              "duplicates": 0,
+              "torn": 0,
+              "invalid_final": 0
+            }
+          ],
+          "info": {
+            "capabilities": [
+              "delete",
+              "emulated:delete",
+              "emulated:get",
+              "emulated:list_prefix",
+              "emulated:read_recent",
+              "emulated:upsert",
+              "get",
+              "get-id",
+              "keyed",
+              "list_prefix",
+              "read_recent",
+              "search",
+              "upsert",
+              "write"
+            ],
+            "server_pid": null,
+            "version": "stdlib-jsonl-v1",
+            "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
+            "runtime_versions": {}
+          },
+          "cas": false,
+          "history": false
+        },
+        {
+          "role": "must_fail",
+          "trial": 7,
+          "status": "violation",
+          "acked_missing": 60,
+          "duplicates": 0,
+          "torn": 0,
+          "invalid_final": 0,
+          "trials": [
+            {
+              "writers": 4,
+              "phase": "distinct",
+              "acked_missing": 60,
+              "duplicates": 0,
+              "torn": 0,
+              "invalid_final": 0
+            }
+          ],
+          "info": {
+            "capabilities": [
+              "delete",
+              "emulated:delete",
+              "emulated:get",
+              "emulated:list_prefix",
+              "emulated:read_recent",
+              "emulated:upsert",
+              "get",
+              "get-id",
+              "keyed",
+              "list_prefix",
+              "read_recent",
+              "search",
+              "upsert",
+              "write"
+            ],
+            "server_pid": null,
+            "version": "stdlib-jsonl-v1",
+            "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
+            "runtime_versions": {}
+          },
+          "cas": false,
+          "history": false
+        },
+        {
+          "role": "must_fail",
+          "trial": 8,
+          "status": "violation",
+          "acked_missing": 140,
+          "duplicates": 0,
+          "torn": 0,
+          "invalid_final": 0,
+          "trials": [
+            {
+              "writers": 8,
+              "phase": "distinct",
+              "acked_missing": 140,
+              "duplicates": 0,
+              "torn": 0,
+              "invalid_final": 0
+            }
+          ],
+          "info": {
+            "capabilities": [
+              "delete",
+              "emulated:delete",
+              "emulated:get",
+              "emulated:list_prefix",
+              "emulated:read_recent",
+              "emulated:upsert",
+              "get",
+              "get-id",
+              "keyed",
+              "list_prefix",
+              "read_recent",
+              "search",
+              "upsert",
+              "write"
+            ],
+            "server_pid": null,
+            "version": "stdlib-jsonl-v1",
+            "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
+            "runtime_versions": {}
+          },
+          "cas": false,
+          "history": false
+        },
+        {
+          "role": "must_fail",
+          "trial": 9,
+          "status": "violation",
+          "acked_missing": 20,
+          "duplicates": 0,
+          "torn": 0,
+          "invalid_final": 0,
+          "trials": [
+            {
+              "writers": 2,
+              "phase": "distinct",
+              "acked_missing": 20,
+              "duplicates": 0,
+              "torn": 0,
+              "invalid_final": 0
+            }
+          ],
+          "info": {
+            "capabilities": [
+              "delete",
+              "emulated:delete",
+              "emulated:get",
+              "emulated:list_prefix",
+              "emulated:read_recent",
+              "emulated:upsert",
+              "get",
+              "get-id",
+              "keyed",
+              "list_prefix",
+              "read_recent",
+              "search",
+              "upsert",
+              "write"
+            ],
+            "server_pid": null,
+            "version": "stdlib-jsonl-v1",
+            "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
+            "runtime_versions": {}
+          },
+          "cas": false,
+          "history": false
+        },
+        {
+          "role": "must_fail",
+          "trial": 10,
+          "status": "violation",
+          "acked_missing": 60,
+          "duplicates": 0,
+          "torn": 0,
+          "invalid_final": 0,
+          "trials": [
+            {
+              "writers": 4,
+              "phase": "distinct",
+              "acked_missing": 60,
+              "duplicates": 0,
+              "torn": 0,
+              "invalid_final": 0
+            }
+          ],
+          "info": {
+            "capabilities": [
+              "delete",
+              "emulated:delete",
+              "emulated:get",
+              "emulated:list_prefix",
+              "emulated:read_recent",
+              "emulated:upsert",
+              "get",
+              "get-id",
+              "keyed",
+              "list_prefix",
+              "read_recent",
+              "search",
+              "upsert",
+              "write"
+            ],
+            "server_pid": null,
+            "version": "stdlib-jsonl-v1",
+            "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
+            "runtime_versions": {}
+          },
+          "cas": false,
+          "history": false
+        },
+        {
+          "role": "must_fail",
+          "trial": 11,
+          "status": "violation",
+          "acked_missing": 140,
+          "duplicates": 0,
+          "torn": 0,
+          "invalid_final": 0,
+          "trials": [
+            {
+              "writers": 8,
+              "phase": "distinct",
+              "acked_missing": 140,
+              "duplicates": 0,
+              "torn": 0,
+              "invalid_final": 0
+            }
+          ],
+          "info": {
+            "capabilities": [
+              "delete",
+              "emulated:delete",
+              "emulated:get",
+              "emulated:list_prefix",
+              "emulated:read_recent",
+              "emulated:upsert",
+              "get",
+              "get-id",
+              "keyed",
+              "list_prefix",
+              "read_recent",
+              "search",
+              "upsert",
+              "write"
+            ],
+            "server_pid": null,
+            "version": "stdlib-jsonl-v1",
+            "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
+            "runtime_versions": {}
+          },
+          "cas": false,
+          "history": false
+        },
+        {
+          "role": "must_fail",
+          "trial": 12,
+          "status": "violation",
+          "acked_missing": 20,
+          "duplicates": 0,
+          "torn": 0,
+          "invalid_final": 0,
+          "trials": [
+            {
+              "writers": 2,
+              "phase": "distinct",
+              "acked_missing": 20,
+              "duplicates": 0,
+              "torn": 0,
+              "invalid_final": 0
+            }
+          ],
+          "info": {
+            "capabilities": [
+              "delete",
+              "emulated:delete",
+              "emulated:get",
+              "emulated:list_prefix",
+              "emulated:read_recent",
+              "emulated:upsert",
+              "get",
+              "get-id",
+              "keyed",
+              "list_prefix",
+              "read_recent",
+              "search",
+              "upsert",
+              "write"
+            ],
+            "server_pid": null,
+            "version": "stdlib-jsonl-v1",
+            "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
+            "runtime_versions": {}
+          },
+          "cas": false,
+          "history": false
+        },
+        {
+          "role": "must_fail",
+          "trial": 13,
+          "status": "violation",
+          "acked_missing": 60,
+          "duplicates": 0,
+          "torn": 0,
+          "invalid_final": 0,
+          "trials": [
+            {
+              "writers": 4,
+              "phase": "distinct",
+              "acked_missing": 60,
+              "duplicates": 0,
+              "torn": 0,
+              "invalid_final": 0
+            }
+          ],
+          "info": {
+            "capabilities": [
+              "delete",
+              "emulated:delete",
+              "emulated:get",
+              "emulated:list_prefix",
+              "emulated:read_recent",
+              "emulated:upsert",
+              "get",
+              "get-id",
+              "keyed",
+              "list_prefix",
+              "read_recent",
+              "search",
+              "upsert",
+              "write"
+            ],
+            "server_pid": null,
+            "version": "stdlib-jsonl-v1",
+            "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
+            "runtime_versions": {}
+          },
+          "cas": false,
+          "history": false
+        },
+        {
+          "role": "must_fail",
+          "trial": 14,
+          "status": "violation",
+          "acked_missing": 140,
+          "duplicates": 0,
+          "torn": 0,
+          "invalid_final": 0,
+          "trials": [
+            {
+              "writers": 8,
+              "phase": "distinct",
+              "acked_missing": 140,
+              "duplicates": 0,
+              "torn": 0,
+              "invalid_final": 0
+            }
+          ],
+          "info": {
+            "capabilities": [
+              "delete",
+              "emulated:delete",
+              "emulated:get",
+              "emulated:list_prefix",
+              "emulated:read_recent",
+              "emulated:upsert",
+              "get",
+              "get-id",
+              "keyed",
+              "list_prefix",
+              "read_recent",
+              "search",
+              "upsert",
+              "write"
+            ],
+            "server_pid": null,
+            "version": "stdlib-jsonl-v1",
+            "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
+            "runtime_versions": {}
+          },
+          "cas": false,
+          "history": false
+        },
+        {
+          "role": "must_fail",
+          "trial": 15,
+          "status": "violation",
+          "acked_missing": 20,
+          "duplicates": 0,
+          "torn": 0,
+          "invalid_final": 0,
+          "trials": [
+            {
+              "writers": 2,
+              "phase": "distinct",
+              "acked_missing": 20,
+              "duplicates": 0,
+              "torn": 0,
+              "invalid_final": 0
+            }
+          ],
+          "info": {
+            "capabilities": [
+              "delete",
+              "emulated:delete",
+              "emulated:get",
+              "emulated:list_prefix",
+              "emulated:read_recent",
+              "emulated:upsert",
+              "get",
+              "get-id",
+              "keyed",
+              "list_prefix",
+              "read_recent",
+              "search",
+              "upsert",
+              "write"
+            ],
+            "server_pid": null,
+            "version": "stdlib-jsonl-v1",
+            "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
+            "runtime_versions": {}
+          },
+          "cas": false,
+          "history": false
+        },
+        {
+          "role": "must_fail",
+          "trial": 16,
+          "status": "violation",
+          "acked_missing": 60,
+          "duplicates": 0,
+          "torn": 0,
+          "invalid_final": 0,
+          "trials": [
+            {
+              "writers": 4,
+              "phase": "distinct",
+              "acked_missing": 60,
+              "duplicates": 0,
+              "torn": 0,
+              "invalid_final": 0
+            }
+          ],
+          "info": {
+            "capabilities": [
+              "delete",
+              "emulated:delete",
+              "emulated:get",
+              "emulated:list_prefix",
+              "emulated:read_recent",
+              "emulated:upsert",
+              "get",
+              "get-id",
+              "keyed",
+              "list_prefix",
+              "read_recent",
+              "search",
+              "upsert",
+              "write"
+            ],
+            "server_pid": null,
+            "version": "stdlib-jsonl-v1",
+            "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
+            "runtime_versions": {}
+          },
+          "cas": false,
+          "history": false
+        },
+        {
+          "role": "must_fail",
+          "trial": 17,
+          "status": "violation",
+          "acked_missing": 140,
+          "duplicates": 0,
+          "torn": 0,
+          "invalid_final": 0,
+          "trials": [
+            {
+              "writers": 8,
+              "phase": "distinct",
+              "acked_missing": 140,
+              "duplicates": 0,
+              "torn": 0,
+              "invalid_final": 0
+            }
+          ],
+          "info": {
+            "capabilities": [
+              "delete",
+              "emulated:delete",
+              "emulated:get",
+              "emulated:list_prefix",
+              "emulated:read_recent",
+              "emulated:upsert",
+              "get",
+              "get-id",
+              "keyed",
+              "list_prefix",
+              "read_recent",
+              "search",
+              "upsert",
+              "write"
+            ],
+            "server_pid": null,
+            "version": "stdlib-jsonl-v1",
+            "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
+            "runtime_versions": {}
+          },
+          "cas": false,
+          "history": false
+        },
+        {
+          "role": "must_fail",
+          "trial": 18,
+          "status": "violation",
+          "acked_missing": 20,
+          "duplicates": 0,
+          "torn": 0,
+          "invalid_final": 0,
+          "trials": [
+            {
+              "writers": 2,
+              "phase": "distinct",
+              "acked_missing": 20,
+              "duplicates": 0,
+              "torn": 0,
+              "invalid_final": 0
+            }
+          ],
+          "info": {
+            "capabilities": [
+              "delete",
+              "emulated:delete",
+              "emulated:get",
+              "emulated:list_prefix",
+              "emulated:read_recent",
+              "emulated:upsert",
+              "get",
+              "get-id",
+              "keyed",
+              "list_prefix",
+              "read_recent",
+              "search",
+              "upsert",
+              "write"
+            ],
+            "server_pid": null,
+            "version": "stdlib-jsonl-v1",
+            "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
+            "runtime_versions": {}
+          },
+          "cas": false,
+          "history": false
+        },
+        {
+          "role": "must_fail",
+          "trial": 19,
+          "status": "violation",
+          "acked_missing": 60,
+          "duplicates": 0,
+          "torn": 0,
+          "invalid_final": 0,
+          "trials": [
+            {
+              "writers": 4,
+              "phase": "distinct",
+              "acked_missing": 60,
+              "duplicates": 0,
+              "torn": 0,
+              "invalid_final": 0
+            }
+          ],
+          "info": {
+            "capabilities": [
+              "delete",
+              "emulated:delete",
+              "emulated:get",
+              "emulated:list_prefix",
+              "emulated:read_recent",
+              "emulated:upsert",
+              "get",
+              "get-id",
+              "keyed",
+              "list_prefix",
+              "read_recent",
+              "search",
+              "upsert",
+              "write"
+            ],
+            "server_pid": null,
+            "version": "stdlib-jsonl-v1",
+            "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
+            "runtime_versions": {}
+          },
+          "cas": false,
+          "history": false
+        },
+        {
+          "role": "must_pass",
+          "trial": 0,
+          "status": "ok",
+          "acked_missing": 0,
+          "duplicates": 0,
+          "torn": 0,
+          "invalid_final": 0,
+          "trials": [
+            {
+              "writers": 2,
+              "phase": "distinct",
+              "acked_missing": 0,
+              "duplicates": 0,
+              "torn": 0,
+              "invalid_final": 0
+            }
+          ],
+          "info": {
+            "capabilities": [
+              "delete",
+              "get",
+              "get-id",
+              "keyed",
+              "list_prefix",
+              "read_recent",
+              "search",
+              "upsert",
+              "write"
+            ],
+            "server_pid": null,
+            "version": "3.53.3",
+            "notes": "WAL synchronous=NORMAL. Busy timeout 30 seconds.",
+            "runtime_versions": {}
+          },
+          "cas": false,
+          "history": false
+        },
+        {
+          "role": "must_pass",
+          "trial": 1,
+          "status": "ok",
+          "acked_missing": 0,
+          "duplicates": 0,
+          "torn": 0,
+          "invalid_final": 0,
+          "trials": [
+            {
+              "writers": 4,
+              "phase": "distinct",
+              "acked_missing": 0,
+              "duplicates": 0,
+              "torn": 0,
+              "invalid_final": 0
+            }
+          ],
+          "info": {
+            "capabilities": [
+              "delete",
+              "get",
+              "get-id",
+              "keyed",
+              "list_prefix",
+              "read_recent",
+              "search",
+              "upsert",
+              "write"
+            ],
+            "server_pid": null,
+            "version": "3.53.3",
+            "notes": "WAL synchronous=NORMAL. Busy timeout 30 seconds.",
+            "runtime_versions": {}
+          },
+          "cas": false,
+          "history": false
+        },
+        {
+          "role": "must_pass",
+          "trial": 2,
+          "status": "ok",
+          "acked_missing": 0,
+          "duplicates": 0,
+          "torn": 0,
+          "invalid_final": 0,
+          "trials": [
+            {
+              "writers": 8,
+              "phase": "distinct",
+              "acked_missing": 0,
+              "duplicates": 0,
+              "torn": 0,
+              "invalid_final": 0
+            }
+          ],
+          "info": {
+            "capabilities": [
+              "delete",
+              "get",
+              "get-id",
+              "keyed",
+              "list_prefix",
+              "read_recent",
+              "search",
+              "upsert",
+              "write"
+            ],
+            "server_pid": null,
+            "version": "3.53.3",
+            "notes": "WAL synchronous=NORMAL. Busy timeout 30 seconds.",
+            "runtime_versions": {}
+          },
+          "cas": false,
+          "history": false
+        },
+        {
+          "role": "must_pass",
+          "trial": 3,
+          "status": "ok",
+          "acked_missing": 0,
+          "duplicates": 0,
+          "torn": 0,
+          "invalid_final": 0,
+          "trials": [
+            {
+              "writers": 2,
+              "phase": "distinct",
+              "acked_missing": 0,
+              "duplicates": 0,
+              "torn": 0,
+              "invalid_final": 0
+            }
+          ],
+          "info": {
+            "capabilities": [
+              "delete",
+              "get",
+              "get-id",
+              "keyed",
+              "list_prefix",
+              "read_recent",
+              "search",
+              "upsert",
+              "write"
+            ],
+            "server_pid": null,
+            "version": "3.53.3",
+            "notes": "WAL synchronous=NORMAL. Busy timeout 30 seconds.",
+            "runtime_versions": {}
+          },
+          "cas": false,
+          "history": false
+        },
+        {
+          "role": "must_pass",
+          "trial": 4,
+          "status": "ok",
+          "acked_missing": 0,
+          "duplicates": 0,
+          "torn": 0,
+          "invalid_final": 0,
+          "trials": [
+            {
+              "writers": 4,
+              "phase": "distinct",
+              "acked_missing": 0,
+              "duplicates": 0,
+              "torn": 0,
+              "invalid_final": 0
+            }
+          ],
+          "info": {
+            "capabilities": [
+              "delete",
+              "get",
+              "get-id",
+              "keyed",
+              "list_prefix",
+              "read_recent",
+              "search",
+              "upsert",
+              "write"
+            ],
+            "server_pid": null,
+            "version": "3.53.3",
+            "notes": "WAL synchronous=NORMAL. Busy timeout 30 seconds.",
+            "runtime_versions": {}
+          },
+          "cas": false,
+          "history": false
+        },
+        {
+          "role": "must_pass",
+          "trial": 5,
+          "status": "ok",
+          "acked_missing": 0,
+          "duplicates": 0,
+          "torn": 0,
+          "invalid_final": 0,
+          "trials": [
+            {
+              "writers": 8,
+              "phase": "distinct",
+              "acked_missing": 0,
+              "duplicates": 0,
+              "torn": 0,
+              "invalid_final": 0
+            }
+          ],
+          "info": {
+            "capabilities": [
+              "delete",
+              "get",
+              "get-id",
+              "keyed",
+              "list_prefix",
+              "read_recent",
+              "search",
+              "upsert",
+              "write"
+            ],
+            "server_pid": null,
+            "version": "3.53.3",
+            "notes": "WAL synchronous=NORMAL. Busy timeout 30 seconds.",
+            "runtime_versions": {}
+          },
+          "cas": false,
+          "history": false
+        },
+        {
+          "role": "must_pass",
+          "trial": 6,
+          "status": "ok",
+          "acked_missing": 0,
+          "duplicates": 0,
+          "torn": 0,
+          "invalid_final": 0,
+          "trials": [
+            {
+              "writers": 2,
+              "phase": "distinct",
+              "acked_missing": 0,
+              "duplicates": 0,
+              "torn": 0,
+              "invalid_final": 0
+            }
+          ],
+          "info": {
+            "capabilities": [
+              "delete",
+              "get",
+              "get-id",
+              "keyed",
+              "list_prefix",
+              "read_recent",
+              "search",
+              "upsert",
+              "write"
+            ],
+            "server_pid": null,
+            "version": "3.53.3",
+            "notes": "WAL synchronous=NORMAL. Busy timeout 30 seconds.",
+            "runtime_versions": {}
+          },
+          "cas": false,
+          "history": false
+        },
+        {
+          "role": "must_pass",
+          "trial": 7,
+          "status": "ok",
+          "acked_missing": 0,
+          "duplicates": 0,
+          "torn": 0,
+          "invalid_final": 0,
+          "trials": [
+            {
+              "writers": 4,
+              "phase": "distinct",
+              "acked_missing": 0,
+              "duplicates": 0,
+              "torn": 0,
+              "invalid_final": 0
+            }
+          ],
+          "info": {
+            "capabilities": [
+              "delete",
+              "get",
+              "get-id",
+              "keyed",
+              "list_prefix",
+              "read_recent",
+              "search",
+              "upsert",
+              "write"
+            ],
+            "server_pid": null,
+            "version": "3.53.3",
+            "notes": "WAL synchronous=NORMAL. Busy timeout 30 seconds.",
+            "runtime_versions": {}
+          },
+          "cas": false,
+          "history": false
+        },
+        {
+          "role": "must_pass",
+          "trial": 8,
+          "status": "ok",
+          "acked_missing": 0,
+          "duplicates": 0,
+          "torn": 0,
+          "invalid_final": 0,
+          "trials": [
+            {
+              "writers": 8,
+              "phase": "distinct",
+              "acked_missing": 0,
+              "duplicates": 0,
+              "torn": 0,
+              "invalid_final": 0
+            }
+          ],
+          "info": {
+            "capabilities": [
+              "delete",
+              "get",
+              "get-id",
+              "keyed",
+              "list_prefix",
+              "read_recent",
+              "search",
+              "upsert",
+              "write"
+            ],
+            "server_pid": null,
+            "version": "3.53.3",
+            "notes": "WAL synchronous=NORMAL. Busy timeout 30 seconds.",
+            "runtime_versions": {}
+          },
+          "cas": false,
+          "history": false
+        },
+        {
+          "role": "must_pass",
+          "trial": 9,
+          "status": "ok",
+          "acked_missing": 0,
+          "duplicates": 0,
+          "torn": 0,
+          "invalid_final": 0,
+          "trials": [
+            {
+              "writers": 2,
+              "phase": "distinct",
+              "acked_missing": 0,
+              "duplicates": 0,
+              "torn": 0,
+              "invalid_final": 0
+            }
+          ],
+          "info": {
+            "capabilities": [
+              "delete",
+              "get",
+              "get-id",
+              "keyed",
+              "list_prefix",
+              "read_recent",
+              "search",
+              "upsert",
+              "write"
+            ],
+            "server_pid": null,
+            "version": "3.53.3",
+            "notes": "WAL synchronous=NORMAL. Busy timeout 30 seconds.",
+            "runtime_versions": {}
+          },
+          "cas": false,
+          "history": false
+        },
+        {
+          "role": "must_pass",
+          "trial": 10,
+          "status": "ok",
+          "acked_missing": 0,
+          "duplicates": 0,
+          "torn": 0,
+          "invalid_final": 0,
+          "trials": [
+            {
+              "writers": 4,
+              "phase": "distinct",
+              "acked_missing": 0,
+              "duplicates": 0,
+              "torn": 0,
+              "invalid_final": 0
+            }
+          ],
+          "info": {
+            "capabilities": [
+              "delete",
+              "get",
+              "get-id",
+              "keyed",
+              "list_prefix",
+              "read_recent",
+              "search",
+              "upsert",
+              "write"
+            ],
+            "server_pid": null,
+            "version": "3.53.3",
+            "notes": "WAL synchronous=NORMAL. Busy timeout 30 seconds.",
+            "runtime_versions": {}
+          },
+          "cas": false,
+          "history": false
+        },
+        {
+          "role": "must_pass",
+          "trial": 11,
+          "status": "ok",
+          "acked_missing": 0,
+          "duplicates": 0,
+          "torn": 0,
+          "invalid_final": 0,
+          "trials": [
+            {
+              "writers": 8,
+              "phase": "distinct",
+              "acked_missing": 0,
+              "duplicates": 0,
+              "torn": 0,
+              "invalid_final": 0
+            }
+          ],
+          "info": {
+            "capabilities": [
+              "delete",
+              "get",
+              "get-id",
+              "keyed",
+              "list_prefix",
+              "read_recent",
+              "search",
+              "upsert",
+              "write"
+            ],
+            "server_pid": null,
+            "version": "3.53.3",
+            "notes": "WAL synchronous=NORMAL. Busy timeout 30 seconds.",
+            "runtime_versions": {}
+          },
+          "cas": false,
+          "history": false
+        },
+        {
+          "role": "must_pass",
+          "trial": 12,
+          "status": "ok",
+          "acked_missing": 0,
+          "duplicates": 0,
+          "torn": 0,
+          "invalid_final": 0,
+          "trials": [
+            {
+              "writers": 2,
+              "phase": "distinct",
+              "acked_missing": 0,
+              "duplicates": 0,
+              "torn": 0,
+              "invalid_final": 0
+            }
+          ],
+          "info": {
+            "capabilities": [
+              "delete",
+              "get",
+              "get-id",
+              "keyed",
+              "list_prefix",
+              "read_recent",
+              "search",
+              "upsert",
+              "write"
+            ],
+            "server_pid": null,
+            "version": "3.53.3",
+            "notes": "WAL synchronous=NORMAL. Busy timeout 30 seconds.",
+            "runtime_versions": {}
+          },
+          "cas": false,
+          "history": false
+        },
+        {
+          "role": "must_pass",
+          "trial": 13,
+          "status": "ok",
+          "acked_missing": 0,
+          "duplicates": 0,
+          "torn": 0,
+          "invalid_final": 0,
+          "trials": [
+            {
+              "writers": 4,
+              "phase": "distinct",
+              "acked_missing": 0,
+              "duplicates": 0,
+              "torn": 0,
+              "invalid_final": 0
+            }
+          ],
+          "info": {
+            "capabilities": [
+              "delete",
+              "get",
+              "get-id",
+              "keyed",
+              "list_prefix",
+              "read_recent",
+              "search",
+              "upsert",
+              "write"
+            ],
+            "server_pid": null,
+            "version": "3.53.3",
+            "notes": "WAL synchronous=NORMAL. Busy timeout 30 seconds.",
+            "runtime_versions": {}
+          },
+          "cas": false,
+          "history": false
+        },
+        {
+          "role": "must_pass",
+          "trial": 14,
+          "status": "ok",
+          "acked_missing": 0,
+          "duplicates": 0,
+          "torn": 0,
+          "invalid_final": 0,
+          "trials": [
+            {
+              "writers": 8,
+              "phase": "distinct",
+              "acked_missing": 0,
+              "duplicates": 0,
+              "torn": 0,
+              "invalid_final": 0
+            }
+          ],
+          "info": {
+            "capabilities": [
+              "delete",
+              "get",
+              "get-id",
+              "keyed",
+              "list_prefix",
+              "read_recent",
+              "search",
+              "upsert",
+              "write"
+            ],
+            "server_pid": null,
+            "version": "3.53.3",
+            "notes": "WAL synchronous=NORMAL. Busy timeout 30 seconds.",
+            "runtime_versions": {}
+          },
+          "cas": false,
+          "history": false
+        },
+        {
+          "role": "must_pass",
+          "trial": 15,
+          "status": "ok",
+          "acked_missing": 0,
+          "duplicates": 0,
+          "torn": 0,
+          "invalid_final": 0,
+          "trials": [
+            {
+              "writers": 2,
+              "phase": "distinct",
+              "acked_missing": 0,
+              "duplicates": 0,
+              "torn": 0,
+              "invalid_final": 0
+            }
+          ],
+          "info": {
+            "capabilities": [
+              "delete",
+              "get",
+              "get-id",
+              "keyed",
+              "list_prefix",
+              "read_recent",
+              "search",
+              "upsert",
+              "write"
+            ],
+            "server_pid": null,
+            "version": "3.53.3",
+            "notes": "WAL synchronous=NORMAL. Busy timeout 30 seconds.",
+            "runtime_versions": {}
+          },
+          "cas": false,
+          "history": false
+        },
+        {
+          "role": "must_pass",
+          "trial": 16,
+          "status": "ok",
+          "acked_missing": 0,
+          "duplicates": 0,
+          "torn": 0,
+          "invalid_final": 0,
+          "trials": [
+            {
+              "writers": 4,
+              "phase": "distinct",
+              "acked_missing": 0,
+              "duplicates": 0,
+              "torn": 0,
+              "invalid_final": 0
+            }
+          ],
+          "info": {
+            "capabilities": [
+              "delete",
+              "get",
+              "get-id",
+              "keyed",
+              "list_prefix",
+              "read_recent",
+              "search",
+              "upsert",
+              "write"
+            ],
+            "server_pid": null,
+            "version": "3.53.3",
+            "notes": "WAL synchronous=NORMAL. Busy timeout 30 seconds.",
+            "runtime_versions": {}
+          },
+          "cas": false,
+          "history": false
+        },
+        {
+          "role": "must_pass",
+          "trial": 17,
+          "status": "ok",
+          "acked_missing": 0,
+          "duplicates": 0,
+          "torn": 0,
+          "invalid_final": 0,
+          "trials": [
+            {
+              "writers": 8,
+              "phase": "distinct",
+              "acked_missing": 0,
+              "duplicates": 0,
+              "torn": 0,
+              "invalid_final": 0
+            }
+          ],
+          "info": {
+            "capabilities": [
+              "delete",
+              "get",
+              "get-id",
+              "keyed",
+              "list_prefix",
+              "read_recent",
+              "search",
+              "upsert",
+              "write"
+            ],
+            "server_pid": null,
+            "version": "3.53.3",
+            "notes": "WAL synchronous=NORMAL. Busy timeout 30 seconds.",
+            "runtime_versions": {}
+          },
+          "cas": false,
+          "history": false
+        },
+        {
+          "role": "must_pass",
+          "trial": 18,
+          "status": "ok",
+          "acked_missing": 0,
+          "duplicates": 0,
+          "torn": 0,
+          "invalid_final": 0,
+          "trials": [
+            {
+              "writers": 2,
+              "phase": "distinct",
+              "acked_missing": 0,
+              "duplicates": 0,
+              "torn": 0,
+              "invalid_final": 0
+            }
+          ],
+          "info": {
+            "capabilities": [
+              "delete",
+              "get",
+              "get-id",
+              "keyed",
+              "list_prefix",
+              "read_recent",
+              "search",
+              "upsert",
+              "write"
+            ],
+            "server_pid": null,
+            "version": "3.53.3",
+            "notes": "WAL synchronous=NORMAL. Busy timeout 30 seconds.",
+            "runtime_versions": {}
+          },
+          "cas": false,
+          "history": false
+        },
+        {
+          "role": "must_pass",
+          "trial": 19,
+          "status": "ok",
+          "acked_missing": 0,
+          "duplicates": 0,
+          "torn": 0,
+          "invalid_final": 0,
+          "trials": [
+            {
+              "writers": 4,
+              "phase": "distinct",
+              "acked_missing": 0,
+              "duplicates": 0,
+              "torn": 0,
+              "invalid_final": 0
+            }
+          ],
+          "info": {
+            "capabilities": [
+              "delete",
+              "get",
+              "get-id",
+              "keyed",
+              "list_prefix",
+              "read_recent",
+              "search",
+              "upsert",
+              "write"
+            ],
+            "server_pid": null,
+            "version": "3.53.3",
+            "notes": "WAL synchronous=NORMAL. Busy timeout 30 seconds.",
+            "runtime_versions": {}
+          },
+          "cas": false,
+          "history": false
+        }
+      ]
+    },
+    "concurrent-kv": {
+      "must_fail": "md-rmw-sleep",
+      "must_pass": "sqlite-busy",
+      "must_fail_rate": 1.0,
+      "must_pass_rate": 1.0,
+      "discriminates": true,
+      "details": [
+        {
+          "role": "must_fail",
+          "trial": 0,
+          "status": "violation",
+          "acked_missing": 20,
+          "duplicates": 0,
+          "torn": 0,
+          "invalid_final": 0,
+          "trials": [
+            {
+              "writers": 2,
+              "phase": "distinct",
+              "acked_missing": 20,
+              "duplicates": 0,
+              "torn": 0,
+              "invalid_final": 0
+            },
+            {
+              "writers": 2,
+              "phase": "overlap",
+              "acked_missing": 0,
+              "duplicates": 0,
+              "torn": 0,
+              "invalid_final": 0
+            }
+          ],
+          "info": {
+            "capabilities": [
+              "delete",
+              "emulated:delete",
+              "emulated:get",
+              "emulated:list_prefix",
+              "emulated:read_recent",
+              "emulated:upsert",
+              "get",
+              "get-id",
+              "keyed",
+              "list_prefix",
+              "read_recent",
+              "search",
+              "upsert",
+              "write"
+            ],
+            "server_pid": null,
+            "version": "stdlib-jsonl-v1",
+            "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
+            "runtime_versions": {}
+          },
+          "cas": false,
+          "history": false
+        },
+        {
+          "role": "must_fail",
+          "trial": 1,
+          "status": "violation",
+          "acked_missing": 60,
+          "duplicates": 0,
+          "torn": 0,
+          "invalid_final": 0,
+          "trials": [
+            {
+              "writers": 4,
+              "phase": "distinct",
+              "acked_missing": 60,
+              "duplicates": 0,
+              "torn": 0,
+              "invalid_final": 0
+            },
+            {
+              "writers": 4,
+              "phase": "overlap",
+              "acked_missing": 0,
+              "duplicates": 0,
+              "torn": 0,
+              "invalid_final": 0
+            }
+          ],
+          "info": {
+            "capabilities": [
+              "delete",
+              "emulated:delete",
+              "emulated:get",
+              "emulated:list_prefix",
+              "emulated:read_recent",
+              "emulated:upsert",
+              "get",
+              "get-id",
+              "keyed",
+              "list_prefix",
+              "read_recent",
+              "search",
+              "upsert",
+              "write"
+            ],
+            "server_pid": null,
+            "version": "stdlib-jsonl-v1",
+            "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
+            "runtime_versions": {}
+          },
+          "cas": false,
+          "history": false
+        },
+        {
+          "role": "must_fail",
+          "trial": 2,
+          "status": "violation",
+          "acked_missing": 140,
+          "duplicates": 0,
+          "torn": 0,
+          "invalid_final": 0,
+          "trials": [
+            {
+              "writers": 8,
+              "phase": "distinct",
+              "acked_missing": 140,
+              "duplicates": 0,
+              "torn": 0,
+              "invalid_final": 0
+            },
+            {
+              "writers": 8,
+              "phase": "overlap",
+              "acked_missing": 0,
+              "duplicates": 0,
+              "torn": 0,
+              "invalid_final": 0
+            }
+          ],
+          "info": {
+            "capabilities": [
+              "delete",
+              "emulated:delete",
+              "emulated:get",
+              "emulated:list_prefix",
+              "emulated:read_recent",
+              "emulated:upsert",
+              "get",
+              "get-id",
+              "keyed",
+              "list_prefix",
+              "read_recent",
+              "search",
+              "upsert",
+              "write"
+            ],
+            "server_pid": null,
+            "version": "stdlib-jsonl-v1",
+            "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
+            "runtime_versions": {}
+          },
+          "cas": false,
+          "history": false
+        },
+        {
+          "role": "must_fail",
+          "trial": 3,
+          "status": "violation",
+          "acked_missing": 20,
+          "duplicates": 0,
+          "torn": 0,
+          "invalid_final": 0,
+          "trials": [
+            {
+              "writers": 2,
+              "phase": "distinct",
+              "acked_missing": 20,
+              "duplicates": 0,
+              "torn": 0,
+              "invalid_final": 0
+            },
+            {
+              "writers": 2,
+              "phase": "overlap",
+              "acked_missing": 0,
+              "duplicates": 0,
+              "torn": 0,
+              "invalid_final": 0
+            }
+          ],
+          "info": {
+            "capabilities": [
+              "delete",
+              "emulated:delete",
+              "emulated:get",
+              "emulated:list_prefix",
+              "emulated:read_recent",
+              "emulated:upsert",
+              "get",
+              "get-id",
+              "keyed",
+              "list_prefix",
+              "read_recent",
+              "search",
+              "upsert",
+              "write"
+            ],
+            "server_pid": null,
+            "version": "stdlib-jsonl-v1",
+            "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
+            "runtime_versions": {}
+          },
+          "cas": false,
+          "history": false
+        },
+        {
+          "role": "must_fail",
+          "trial": 4,
+          "status": "violation",
+          "acked_missing": 60,
+          "duplicates": 0,
+          "torn": 0,
+          "invalid_final": 0,
+          "trials": [
+            {
+              "writers": 4,
+              "phase": "distinct",
+              "acked_missing": 60,
+              "duplicates": 0,
+              "torn": 0,
+              "invalid_final": 0
+            },
+            {
+              "writers": 4,
+              "phase": "overlap",
+              "acked_missing": 0,
+              "duplicates": 0,
+              "torn": 0,
+              "invalid_final": 0
+            }
+          ],
+          "info": {
+            "capabilities": [
+              "delete",
+              "emulated:delete",
+              "emulated:get",
+              "emulated:list_prefix",
+              "emulated:read_recent",
+              "emulated:upsert",
+              "get",
+              "get-id",
+              "keyed",
+              "list_prefix",
+              "read_recent",
+              "search",
+              "upsert",
+              "write"
+            ],
+            "server_pid": null,
+            "version": "stdlib-jsonl-v1",
+            "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
+            "runtime_versions": {}
+          },
+          "cas": false,
+          "history": false
+        },
+        {
+          "role": "must_fail",
+          "trial": 5,
+          "status": "violation",
+          "acked_missing": 140,
+          "duplicates": 0,
+          "torn": 0,
+          "invalid_final": 0,
+          "trials": [
+            {
+              "writers": 8,
+              "phase": "distinct",
+              "acked_missing": 140,
+              "duplicates": 0,
+              "torn": 0,
+              "invalid_final": 0
+            },
+            {
+              "writers": 8,
+              "phase": "overlap",
+              "acked_missing": 0,
+              "duplicates": 0,
+              "torn": 0,
+              "invalid_final": 0
+            }
+          ],
+          "info": {
+            "capabilities": [
+              "delete",
+              "emulated:delete",
+              "emulated:get",
+              "emulated:list_prefix",
+              "emulated:read_recent",
+              "emulated:upsert",
+              "get",
+              "get-id",
+              "keyed",
+              "list_prefix",
+              "read_recent",
+              "search",
+              "upsert",
+              "write"
+            ],
+            "server_pid": null,
+            "version": "stdlib-jsonl-v1",
+            "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
+            "runtime_versions": {}
+          },
+          "cas": false,
+          "history": false
+        },
+        {
+          "role": "must_fail",
+          "trial": 6,
+          "status": "violation",
+          "acked_missing": 20,
+          "duplicates": 0,
+          "torn": 0,
+          "invalid_final": 0,
+          "trials": [
+            {
+              "writers": 2,
+              "phase": "distinct",
+              "acked_missing": 20,
+              "duplicates": 0,
+              "torn": 0,
+              "invalid_final": 0
+            },
+            {
+              "writers": 2,
+              "phase": "overlap",
+              "acked_missing": 0,
+              "duplicates": 0,
+              "torn": 0,
+              "invalid_final": 0
+            }
+          ],
+          "info": {
+            "capabilities": [
+              "delete",
+              "emulated:delete",
+              "emulated:get",
+              "emulated:list_prefix",
+              "emulated:read_recent",
+              "emulated:upsert",
+              "get",
+              "get-id",
+              "keyed",
+              "list_prefix",
+              "read_recent",
+              "search",
+              "upsert",
+              "write"
+            ],
+            "server_pid": null,
+            "version": "stdlib-jsonl-v1",
+            "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
+            "runtime_versions": {}
+          },
+          "cas": false,
+          "history": false
+        },
+        {
+          "role": "must_fail",
+          "trial": 7,
+          "status": "violation",
+          "acked_missing": 60,
+          "duplicates": 0,
+          "torn": 0,
+          "invalid_final": 0,
+          "trials": [
+            {
+              "writers": 4,
+              "phase": "distinct",
+              "acked_missing": 60,
+              "duplicates": 0,
+              "torn": 0,
+              "invalid_final": 0
+            },
+            {
+              "writers": 4,
+              "phase": "overlap",
+              "acked_missing": 0,
+              "duplicates": 0,
+              "torn": 0,
+              "invalid_final": 0
+            }
+          ],
+          "info": {
+            "capabilities": [
+              "delete",
+              "emulated:delete",
+              "emulated:get",
+              "emulated:list_prefix",
+              "emulated:read_recent",
+              "emulated:upsert",
+              "get",
+              "get-id",
+              "keyed",
+              "list_prefix",
+              "read_recent",
+              "search",
+              "upsert",
+              "write"
+            ],
+            "server_pid": null,
+            "version": "stdlib-jsonl-v1",
+            "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
+            "runtime_versions": {}
+          },
+          "cas": false,
+          "history": false
+        },
+        {
+          "role": "must_fail",
+          "trial": 8,
+          "status": "violation",
+          "acked_missing": 139,
+          "duplicates": 0,
+          "torn": 0,
+          "invalid_final": 0,
+          "trials": [
+            {
+              "writers": 8,
+              "phase": "distinct",
+              "acked_missing": 139,
+              "duplicates": 0,
+              "torn": 0,
+              "invalid_final": 0
+            },
+            {
+              "writers": 8,
+              "phase": "overlap",
+              "acked_missing": 0,
+              "duplicates": 0,
+              "torn": 0,
+              "invalid_final": 0
+            }
+          ],
+          "info": {
+            "capabilities": [
+              "delete",
+              "emulated:delete",
+              "emulated:get",
+              "emulated:list_prefix",
+              "emulated:read_recent",
+              "emulated:upsert",
+              "get",
+              "get-id",
+              "keyed",
+              "list_prefix",
+              "read_recent",
+              "search",
+              "upsert",
+              "write"
+            ],
+            "server_pid": null,
+            "version": "stdlib-jsonl-v1",
+            "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
+            "runtime_versions": {}
+          },
+          "cas": false,
+          "history": false
+        },
+        {
+          "role": "must_fail",
+          "trial": 9,
+          "status": "violation",
+          "acked_missing": 20,
+          "duplicates": 0,
+          "torn": 0,
+          "invalid_final": 0,
+          "trials": [
+            {
+              "writers": 2,
+              "phase": "distinct",
+              "acked_missing": 20,
+              "duplicates": 0,
+              "torn": 0,
+              "invalid_final": 0
+            },
+            {
+              "writers": 2,
+              "phase": "overlap",
+              "acked_missing": 0,
+              "duplicates": 0,
+              "torn": 0,
+              "invalid_final": 0
+            }
+          ],
+          "info": {
+            "capabilities": [
+              "delete",
+              "emulated:delete",
+              "emulated:get",
+              "emulated:list_prefix",
+              "emulated:read_recent",
+              "emulated:upsert",
+              "get",
+              "get-id",
+              "keyed",
+              "list_prefix",
+              "read_recent",
+              "search",
+              "upsert",
+              "write"
+            ],
+            "server_pid": null,
+            "version": "stdlib-jsonl-v1",
+            "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
+            "runtime_versions": {}
+          },
+          "cas": false,
+          "history": false
+        },
+        {
+          "role": "must_fail",
+          "trial": 10,
+          "status": "violation",
+          "acked_missing": 60,
+          "duplicates": 0,
+          "torn": 0,
+          "invalid_final": 0,
+          "trials": [
+            {
+              "writers": 4,
+              "phase": "distinct",
+              "acked_missing": 60,
+              "duplicates": 0,
+              "torn": 0,
+              "invalid_final": 0
+            },
+            {
+              "writers": 4,
+              "phase": "overlap",
+              "acked_missing": 0,
+              "duplicates": 0,
+              "torn": 0,
+              "invalid_final": 0
+            }
+          ],
+          "info": {
+            "capabilities": [
+              "delete",
+              "emulated:delete",
+              "emulated:get",
+              "emulated:list_prefix",
+              "emulated:read_recent",
+              "emulated:upsert",
+              "get",
+              "get-id",
+              "keyed",
+              "list_prefix",
+              "read_recent",
+              "search",
+              "upsert",
+              "write"
+            ],
+            "server_pid": null,
+            "version": "stdlib-jsonl-v1",
+            "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
+            "runtime_versions": {}
+          },
+          "cas": false,
+          "history": false
+        },
+        {
+          "role": "must_fail",
+          "trial": 11,
+          "status": "violation",
+          "acked_missing": 140,
+          "duplicates": 0,
+          "torn": 0,
+          "invalid_final": 0,
+          "trials": [
+            {
+              "writers": 8,
+              "phase": "distinct",
+              "acked_missing": 140,
+              "duplicates": 0,
+              "torn": 0,
+              "invalid_final": 0
+            },
+            {
+              "writers": 8,
+              "phase": "overlap",
+              "acked_missing": 0,
+              "duplicates": 0,
+              "torn": 0,
+              "invalid_final": 0
+            }
+          ],
+          "info": {
+            "capabilities": [
+              "delete",
+              "emulated:delete",
+              "emulated:get",
+              "emulated:list_prefix",
+              "emulated:read_recent",
+              "emulated:upsert",
+              "get",
+              "get-id",
+              "keyed",
+              "list_prefix",
+              "read_recent",
+              "search",
+              "upsert",
+              "write"
+            ],
+            "server_pid": null,
+            "version": "stdlib-jsonl-v1",
+            "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
+            "runtime_versions": {}
+          },
+          "cas": false,
+          "history": false
+        },
+        {
+          "role": "must_fail",
+          "trial": 12,
+          "status": "violation",
+          "acked_missing": 20,
+          "duplicates": 0,
+          "torn": 0,
+          "invalid_final": 0,
+          "trials": [
+            {
+              "writers": 2,
+              "phase": "distinct",
+              "acked_missing": 20,
+              "duplicates": 0,
+              "torn": 0,
+              "invalid_final": 0
+            },
+            {
+              "writers": 2,
+              "phase": "overlap",
+              "acked_missing": 0,
+              "duplicates": 0,
+              "torn": 0,
+              "invalid_final": 0
+            }
+          ],
+          "info": {
+            "capabilities": [
+              "delete",
+              "emulated:delete",
+              "emulated:get",
+              "emulated:list_prefix",
+              "emulated:read_recent",
+              "emulated:upsert",
+              "get",
+              "get-id",
+              "keyed",
+              "list_prefix",
+              "read_recent",
+              "search",
+              "upsert",
+              "write"
+            ],
+            "server_pid": null,
+            "version": "stdlib-jsonl-v1",
+            "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
+            "runtime_versions": {}
+          },
+          "cas": false,
+          "history": false
+        },
+        {
+          "role": "must_fail",
+          "trial": 13,
+          "status": "violation",
+          "acked_missing": 60,
+          "duplicates": 0,
+          "torn": 0,
+          "invalid_final": 0,
+          "trials": [
+            {
+              "writers": 4,
+              "phase": "distinct",
+              "acked_missing": 60,
+              "duplicates": 0,
+              "torn": 0,
+              "invalid_final": 0
+            },
+            {
+              "writers": 4,
+              "phase": "overlap",
+              "acked_missing": 0,
+              "duplicates": 0,
+              "torn": 0,
+              "invalid_final": 0
+            }
+          ],
+          "info": {
+            "capabilities": [
+              "delete",
+              "emulated:delete",
+              "emulated:get",
+              "emulated:list_prefix",
+              "emulated:read_recent",
+              "emulated:upsert",
+              "get",
+              "get-id",
+              "keyed",
+              "list_prefix",
+              "read_recent",
+              "search",
+              "upsert",
+              "write"
+            ],
+            "server_pid": null,
+            "version": "stdlib-jsonl-v1",
+            "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
+            "runtime_versions": {}
+          },
+          "cas": false,
+          "history": false
+        },
+        {
+          "role": "must_fail",
+          "trial": 14,
+          "status": "violation",
+          "acked_missing": 140,
+          "duplicates": 0,
+          "torn": 0,
+          "invalid_final": 0,
+          "trials": [
+            {
+              "writers": 8,
+              "phase": "distinct",
+              "acked_missing": 140,
+              "duplicates": 0,
+              "torn": 0,
+              "invalid_final": 0
+            },
+            {
+              "writers": 8,
+              "phase": "overlap",
+              "acked_missing": 0,
+              "duplicates": 0,
+              "torn": 0,
+              "invalid_final": 0
+            }
+          ],
+          "info": {
+            "capabilities": [
+              "delete",
+              "emulated:delete",
+              "emulated:get",
+              "emulated:list_prefix",
+              "emulated:read_recent",
+              "emulated:upsert",
+              "get",
+              "get-id",
+              "keyed",
+              "list_prefix",
+              "read_recent",
+              "search",
+              "upsert",
+              "write"
+            ],
+            "server_pid": null,
+            "version": "stdlib-jsonl-v1",
+            "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
+            "runtime_versions": {}
+          },
+          "cas": false,
+          "history": false
+        },
+        {
+          "role": "must_fail",
+          "trial": 15,
+          "status": "violation",
+          "acked_missing": 20,
+          "duplicates": 0,
+          "torn": 0,
+          "invalid_final": 0,
+          "trials": [
+            {
+              "writers": 2,
+              "phase": "distinct",
+              "acked_missing": 20,
+              "duplicates": 0,
+              "torn": 0,
+              "invalid_final": 0
+            },
+            {
+              "writers": 2,
+              "phase": "overlap",
+              "acked_missing": 0,
+              "duplicates": 0,
+              "torn": 0,
+              "invalid_final": 0
+            }
+          ],
+          "info": {
+            "capabilities": [
+              "delete",
+              "emulated:delete",
+              "emulated:get",
+              "emulated:list_prefix",
+              "emulated:read_recent",
+              "emulated:upsert",
+              "get",
+              "get-id",
+              "keyed",
+              "list_prefix",
+              "read_recent",
+              "search",
+              "upsert",
+              "write"
+            ],
+            "server_pid": null,
+            "version": "stdlib-jsonl-v1",
+            "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
+            "runtime_versions": {}
+          },
+          "cas": false,
+          "history": false
+        },
+        {
+          "role": "must_fail",
+          "trial": 16,
+          "status": "violation",
+          "acked_missing": 60,
+          "duplicates": 0,
+          "torn": 0,
+          "invalid_final": 0,
+          "trials": [
+            {
+              "writers": 4,
+              "phase": "distinct",
+              "acked_missing": 60,
+              "duplicates": 0,
+              "torn": 0,
+              "invalid_final": 0
+            },
+            {
+              "writers": 4,
+              "phase": "overlap",
+              "acked_missing": 0,
+              "duplicates": 0,
+              "torn": 0,
+              "invalid_final": 0
+            }
+          ],
+          "info": {
+            "capabilities": [
+              "delete",
+              "emulated:delete",
+              "emulated:get",
+              "emulated:list_prefix",
+              "emulated:read_recent",
+              "emulated:upsert",
+              "get",
+              "get-id",
+              "keyed",
+              "list_prefix",
+              "read_recent",
+              "search",
+              "upsert",
+              "write"
+            ],
+            "server_pid": null,
+            "version": "stdlib-jsonl-v1",
+            "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
+            "runtime_versions": {}
+          },
+          "cas": false,
+          "history": false
+        },
+        {
+          "role": "must_fail",
+          "trial": 17,
+          "status": "violation",
+          "acked_missing": 140,
+          "duplicates": 0,
+          "torn": 0,
+          "invalid_final": 0,
+          "trials": [
+            {
+              "writers": 8,
+              "phase": "distinct",
+              "acked_missing": 140,
+              "duplicates": 0,
+              "torn": 0,
+              "invalid_final": 0
+            },
+            {
+              "writers": 8,
+              "phase": "overlap",
+              "acked_missing": 0,
+              "duplicates": 0,
+              "torn": 0,
+              "invalid_final": 0
+            }
+          ],
+          "info": {
+            "capabilities": [
+              "delete",
+              "emulated:delete",
+              "emulated:get",
+              "emulated:list_prefix",
+              "emulated:read_recent",
+              "emulated:upsert",
+              "get",
+              "get-id",
+              "keyed",
+              "list_prefix",
+              "read_recent",
+              "search",
+              "upsert",
+              "write"
+            ],
+            "server_pid": null,
+            "version": "stdlib-jsonl-v1",
+            "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
+            "runtime_versions": {}
+          },
+          "cas": false,
+          "history": false
+        },
+        {
+          "role": "must_fail",
+          "trial": 18,
+          "status": "violation",
+          "acked_missing": 20,
+          "duplicates": 0,
+          "torn": 0,
+          "invalid_final": 0,
+          "trials": [
+            {
+              "writers": 2,
+              "phase": "distinct",
+              "acked_missing": 20,
+              "duplicates": 0,
+              "torn": 0,
+              "invalid_final": 0
+            },
+            {
+              "writers": 2,
+              "phase": "overlap",
+              "acked_missing": 0,
+              "duplicates": 0,
+              "torn": 0,
+              "invalid_final": 0
+            }
+          ],
+          "info": {
+            "capabilities": [
+              "delete",
+              "emulated:delete",
+              "emulated:get",
+              "emulated:list_prefix",
+              "emulated:read_recent",
+              "emulated:upsert",
+              "get",
+              "get-id",
+              "keyed",
+              "list_prefix",
+              "read_recent",
+              "search",
+              "upsert",
+              "write"
+            ],
+            "server_pid": null,
+            "version": "stdlib-jsonl-v1",
+            "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
+            "runtime_versions": {}
+          },
+          "cas": false,
+          "history": false
+        },
+        {
+          "role": "must_fail",
+          "trial": 19,
+          "status": "violation",
+          "acked_missing": 60,
+          "duplicates": 0,
+          "torn": 0,
+          "invalid_final": 0,
+          "trials": [
+            {
+              "writers": 4,
+              "phase": "distinct",
+              "acked_missing": 60,
+              "duplicates": 0,
+              "torn": 0,
+              "invalid_final": 0
+            },
+            {
+              "writers": 4,
+              "phase": "overlap",
+              "acked_missing": 0,
+              "duplicates": 0,
+              "torn": 0,
+              "invalid_final": 0
+            }
+          ],
+          "info": {
+            "capabilities": [
+              "delete",
+              "emulated:delete",
+              "emulated:get",
+              "emulated:list_prefix",
+              "emulated:read_recent",
+              "emulated:upsert",
+              "get",
+              "get-id",
+              "keyed",
+              "list_prefix",
+              "read_recent",
+              "search",
+              "upsert",
+              "write"
+            ],
+            "server_pid": null,
+            "version": "stdlib-jsonl-v1",
+            "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
+            "runtime_versions": {}
+          },
+          "cas": false,
+          "history": false
+        },
+        {
+          "role": "must_pass",
+          "trial": 0,
+          "status": "ok",
+          "acked_missing": 0,
+          "duplicates": 0,
+          "torn": 0,
+          "invalid_final": 0,
+          "trials": [
+            {
+              "writers": 2,
+              "phase": "distinct",
+              "acked_missing": 0,
+              "duplicates": 0,
+              "torn": 0,
+              "invalid_final": 0
+            },
+            {
+              "writers": 2,
+              "phase": "overlap",
+              "acked_missing": 0,
+              "duplicates": 0,
+              "torn": 0,
+              "invalid_final": 0
+            }
+          ],
+          "info": {
+            "capabilities": [
+              "delete",
+              "get",
+              "get-id",
+              "keyed",
+              "list_prefix",
+              "read_recent",
+              "search",
+              "upsert",
+              "write"
+            ],
+            "server_pid": null,
+            "version": "3.53.3",
+            "notes": "WAL synchronous=NORMAL. Busy timeout 30 seconds.",
+            "runtime_versions": {}
+          },
+          "cas": false,
+          "history": false
+        },
+        {
+          "role": "must_pass",
+          "trial": 1,
+          "status": "ok",
+          "acked_missing": 0,
+          "duplicates": 0,
+          "torn": 0,
+          "invalid_final": 0,
+          "trials": [
+            {
+              "writers": 4,
+              "phase": "distinct",
+              "acked_missing": 0,
+              "duplicates": 0,
+              "torn": 0,
+              "invalid_final": 0
+            },
+            {
+              "writers": 4,
+              "phase": "overlap",
+              "acked_missing": 0,
+              "duplicates": 0,
+              "torn": 0,
+              "invalid_final": 0
+            }
+          ],
+          "info": {
+            "capabilities": [
+              "delete",
+              "get",
+              "get-id",
+              "keyed",
+              "list_prefix",
+              "read_recent",
+              "search",
+              "upsert",
+              "write"
+            ],
+            "server_pid": null,
+            "version": "3.53.3",
+            "notes": "WAL synchronous=NORMAL. Busy timeout 30 seconds.",
+            "runtime_versions": {}
+          },
+          "cas": false,
+          "history": false
+        },
+        {
+          "role": "must_pass",
+          "trial": 2,
+          "status": "ok",
+          "acked_missing": 0,
+          "duplicates": 0,
+          "torn": 0,
+          "invalid_final": 0,
+          "trials": [
+            {
+              "writers": 8,
+              "phase": "distinct",
+              "acked_missing": 0,
+              "duplicates": 0,
+              "torn": 0,
+              "invalid_final": 0
+            },
+            {
+              "writers": 8,
+              "phase": "overlap",
+              "acked_missing": 0,
+              "duplicates": 0,
+              "torn": 0,
+              "invalid_final": 0
+            }
+          ],
+          "info": {
+            "capabilities": [
+              "delete",
+              "get",
+              "get-id",
+              "keyed",
+              "list_prefix",
+              "read_recent",
+              "search",
+              "upsert",
+              "write"
+            ],
+            "server_pid": null,
+            "version": "3.53.3",
+            "notes": "WAL synchronous=NORMAL. Busy timeout 30 seconds.",
+            "runtime_versions": {}
+          },
+          "cas": false,
+          "history": false
+        },
+        {
+          "role": "must_pass",
+          "trial": 3,
+          "status": "ok",
+          "acked_missing": 0,
+          "duplicates": 0,
+          "torn": 0,
+          "invalid_final": 0,
+          "trials": [
+            {
+              "writers": 2,
+              "phase": "distinct",
+              "acked_missing": 0,
+              "duplicates": 0,
+              "torn": 0,
+              "invalid_final": 0
+            },
+            {
+              "writers": 2,
+              "phase": "overlap",
+              "acked_missing": 0,
+              "duplicates": 0,
+              "torn": 0,
+              "invalid_final": 0
+            }
+          ],
+          "info": {
+            "capabilities": [
+              "delete",
+              "get",
+              "get-id",
+              "keyed",
+              "list_prefix",
+              "read_recent",
+              "search",
+              "upsert",
+              "write"
+            ],
+            "server_pid": null,
+            "version": "3.53.3",
+            "notes": "WAL synchronous=NORMAL. Busy timeout 30 seconds.",
+            "runtime_versions": {}
+          },
+          "cas": false,
+          "history": false
+        },
+        {
+          "role": "must_pass",
+          "trial": 4,
+          "status": "ok",
+          "acked_missing": 0,
+          "duplicates": 0,
+          "torn": 0,
+          "invalid_final": 0,
+          "trials": [
+            {
+              "writers": 4,
+              "phase": "distinct",
+              "acked_missing": 0,
+              "duplicates": 0,
+              "torn": 0,
+              "invalid_final": 0
+            },
+            {
+              "writers": 4,
+              "phase": "overlap",
+              "acked_missing": 0,
+              "duplicates": 0,
+              "torn": 0,
+              "invalid_final": 0
+            }
+          ],
+          "info": {
+            "capabilities": [
+              "delete",
+              "get",
+              "get-id",
+              "keyed",
+              "list_prefix",
+              "read_recent",
+              "search",
+              "upsert",
+              "write"
+            ],
+            "server_pid": null,
+            "version": "3.53.3",
+            "notes": "WAL synchronous=NORMAL. Busy timeout 30 seconds.",
+            "runtime_versions": {}
+          },
+          "cas": false,
+          "history": false
+        },
+        {
+          "role": "must_pass",
+          "trial": 5,
+          "status": "ok",
+          "acked_missing": 0,
+          "duplicates": 0,
+          "torn": 0,
+          "invalid_final": 0,
+          "trials": [
+            {
+              "writers": 8,
+              "phase": "distinct",
+              "acked_missing": 0,
+              "duplicates": 0,
+              "torn": 0,
+              "invalid_final": 0
+            },
+            {
+              "writers": 8,
+              "phase": "overlap",
+              "acked_missing": 0,
+              "duplicates": 0,
+              "torn": 0,
+              "invalid_final": 0
+            }
+          ],
+          "info": {
+            "capabilities": [
+              "delete",
+              "get",
+              "get-id",
+              "keyed",
+              "list_prefix",
+              "read_recent",
+              "search",
+              "upsert",
+              "write"
+            ],
+            "server_pid": null,
+            "version": "3.53.3",
+            "notes": "WAL synchronous=NORMAL. Busy timeout 30 seconds.",
+            "runtime_versions": {}
+          },
+          "cas": false,
+          "history": false
+        },
+        {
+          "role": "must_pass",
+          "trial": 6,
+          "status": "ok",
+          "acked_missing": 0,
+          "duplicates": 0,
+          "torn": 0,
+          "invalid_final": 0,
+          "trials": [
+            {
+              "writers": 2,
+              "phase": "distinct",
+              "acked_missing": 0,
+              "duplicates": 0,
+              "torn": 0,
+              "invalid_final": 0
+            },
+            {
+              "writers": 2,
+              "phase": "overlap",
+              "acked_missing": 0,
+              "duplicates": 0,
+              "torn": 0,
+              "invalid_final": 0
+            }
+          ],
+          "info": {
+            "capabilities": [
+              "delete",
+              "get",
+              "get-id",
+              "keyed",
+              "list_prefix",
+              "read_recent",
+              "search",
+              "upsert",
+              "write"
+            ],
+            "server_pid": null,
+            "version": "3.53.3",
+            "notes": "WAL synchronous=NORMAL. Busy timeout 30 seconds.",
+            "runtime_versions": {}
+          },
+          "cas": false,
+          "history": false
+        },
+        {
+          "role": "must_pass",
+          "trial": 7,
+          "status": "ok",
+          "acked_missing": 0,
+          "duplicates": 0,
+          "torn": 0,
+          "invalid_final": 0,
+          "trials": [
+            {
+              "writers": 4,
+              "phase": "distinct",
+              "acked_missing": 0,
+              "duplicates": 0,
+              "torn": 0,
+              "invalid_final": 0
+            },
+            {
+              "writers": 4,
+              "phase": "overlap",
+              "acked_missing": 0,
+              "duplicates": 0,
+              "torn": 0,
+              "invalid_final": 0
+            }
+          ],
+          "info": {
+            "capabilities": [
+              "delete",
+              "get",
+              "get-id",
+              "keyed",
+              "list_prefix",
+              "read_recent",
+              "search",
+              "upsert",
+              "write"
+            ],
+            "server_pid": null,
+            "version": "3.53.3",
+            "notes": "WAL synchronous=NORMAL. Busy timeout 30 seconds.",
+            "runtime_versions": {}
+          },
+          "cas": false,
+          "history": false
+        },
+        {
+          "role": "must_pass",
+          "trial": 8,
+          "status": "ok",
+          "acked_missing": 0,
+          "duplicates": 0,
+          "torn": 0,
+          "invalid_final": 0,
+          "trials": [
+            {
+              "writers": 8,
+              "phase": "distinct",
+              "acked_missing": 0,
+              "duplicates": 0,
+              "torn": 0,
+              "invalid_final": 0
+            },
+            {
+              "writers": 8,
+              "phase": "overlap",
+              "acked_missing": 0,
+              "duplicates": 0,
+              "torn": 0,
+              "invalid_final": 0
+            }
+          ],
+          "info": {
+            "capabilities": [
+              "delete",
+              "get",
+              "get-id",
+              "keyed",
+              "list_prefix",
+              "read_recent",
+              "search",
+              "upsert",
+              "write"
+            ],
+            "server_pid": null,
+            "version": "3.53.3",
+            "notes": "WAL synchronous=NORMAL. Busy timeout 30 seconds.",
+            "runtime_versions": {}
+          },
+          "cas": false,
+          "history": false
+        },
+        {
+          "role": "must_pass",
+          "trial": 9,
+          "status": "ok",
+          "acked_missing": 0,
+          "duplicates": 0,
+          "torn": 0,
+          "invalid_final": 0,
+          "trials": [
+            {
+              "writers": 2,
+              "phase": "distinct",
+              "acked_missing": 0,
+              "duplicates": 0,
+              "torn": 0,
+              "invalid_final": 0
+            },
+            {
+              "writers": 2,
+              "phase": "overlap",
+              "acked_missing": 0,
+              "duplicates": 0,
+              "torn": 0,
+              "invalid_final": 0
+            }
+          ],
+          "info": {
+            "capabilities": [
+              "delete",
+              "get",
+              "get-id",
+              "keyed",
+              "list_prefix",
+              "read_recent",
+              "search",
+              "upsert",
+              "write"
+            ],
+            "server_pid": null,
+            "version": "3.53.3",
+            "notes": "WAL synchronous=NORMAL. Busy timeout 30 seconds.",
+            "runtime_versions": {}
+          },
+          "cas": false,
+          "history": false
+        },
+        {
+          "role": "must_pass",
+          "trial": 10,
+          "status": "ok",
+          "acked_missing": 0,
+          "duplicates": 0,
+          "torn": 0,
+          "invalid_final": 0,
+          "trials": [
+            {
+              "writers": 4,
+              "phase": "distinct",
+              "acked_missing": 0,
+              "duplicates": 0,
+              "torn": 0,
+              "invalid_final": 0
+            },
+            {
+              "writers": 4,
+              "phase": "overlap",
+              "acked_missing": 0,
+              "duplicates": 0,
+              "torn": 0,
+              "invalid_final": 0
+            }
+          ],
+          "info": {
+            "capabilities": [
+              "delete",
+              "get",
+              "get-id",
+              "keyed",
+              "list_prefix",
+              "read_recent",
+              "search",
+              "upsert",
+              "write"
+            ],
+            "server_pid": null,
+            "version": "3.53.3",
+            "notes": "WAL synchronous=NORMAL. Busy timeout 30 seconds.",
+            "runtime_versions": {}
+          },
+          "cas": false,
+          "history": false
+        },
+        {
+          "role": "must_pass",
+          "trial": 11,
+          "status": "ok",
+          "acked_missing": 0,
+          "duplicates": 0,
+          "torn": 0,
+          "invalid_final": 0,
+          "trials": [
+            {
+              "writers": 8,
+              "phase": "distinct",
+              "acked_missing": 0,
+              "duplicates": 0,
+              "torn": 0,
+              "invalid_final": 0
+            },
+            {
+              "writers": 8,
+              "phase": "overlap",
+              "acked_missing": 0,
+              "duplicates": 0,
+              "torn": 0,
+              "invalid_final": 0
+            }
+          ],
+          "info": {
+            "capabilities": [
+              "delete",
+              "get",
+              "get-id",
+              "keyed",
+              "list_prefix",
+              "read_recent",
+              "search",
+              "upsert",
+              "write"
+            ],
+            "server_pid": null,
+            "version": "3.53.3",
+            "notes": "WAL synchronous=NORMAL. Busy timeout 30 seconds.",
+            "runtime_versions": {}
+          },
+          "cas": false,
+          "history": false
+        },
+        {
+          "role": "must_pass",
+          "trial": 12,
+          "status": "ok",
+          "acked_missing": 0,
+          "duplicates": 0,
+          "torn": 0,
+          "invalid_final": 0,
+          "trials": [
+            {
+              "writers": 2,
+              "phase": "distinct",
+              "acked_missing": 0,
+              "duplicates": 0,
+              "torn": 0,
+              "invalid_final": 0
+            },
+            {
+              "writers": 2,
+              "phase": "overlap",
+              "acked_missing": 0,
+              "duplicates": 0,
+              "torn": 0,
+              "invalid_final": 0
+            }
+          ],
+          "info": {
+            "capabilities": [
+              "delete",
+              "get",
+              "get-id",
+              "keyed",
+              "list_prefix",
+              "read_recent",
+              "search",
+              "upsert",
+              "write"
+            ],
+            "server_pid": null,
+            "version": "3.53.3",
+            "notes": "WAL synchronous=NORMAL. Busy timeout 30 seconds.",
+            "runtime_versions": {}
+          },
+          "cas": false,
+          "history": false
+        },
+        {
+          "role": "must_pass",
+          "trial": 13,
+          "status": "ok",
+          "acked_missing": 0,
+          "duplicates": 0,
+          "torn": 0,
+          "invalid_final": 0,
+          "trials": [
+            {
+              "writers": 4,
+              "phase": "distinct",
+              "acked_missing": 0,
+              "duplicates": 0,
+              "torn": 0,
+              "invalid_final": 0
+            },
+            {
+              "writers": 4,
+              "phase": "overlap",
+              "acked_missing": 0,
+              "duplicates": 0,
+              "torn": 0,
+              "invalid_final": 0
+            }
+          ],
+          "info": {
+            "capabilities": [
+              "delete",
+              "get",
+              "get-id",
+              "keyed",
+              "list_prefix",
+              "read_recent",
+              "search",
+              "upsert",
+              "write"
+            ],
+            "server_pid": null,
+            "version": "3.53.3",
+            "notes": "WAL synchronous=NORMAL. Busy timeout 30 seconds.",
+            "runtime_versions": {}
+          },
+          "cas": false,
+          "history": false
+        },
+        {
+          "role": "must_pass",
+          "trial": 14,
+          "status": "ok",
+          "acked_missing": 0,
+          "duplicates": 0,
+          "torn": 0,
+          "invalid_final": 0,
+          "trials": [
+            {
+              "writers": 8,
+              "phase": "distinct",
+              "acked_missing": 0,
+              "duplicates": 0,
+              "torn": 0,
+              "invalid_final": 0
+            },
+            {
+              "writers": 8,
+              "phase": "overlap",
+              "acked_missing": 0,
+              "duplicates": 0,
+              "torn": 0,
+              "invalid_final": 0
+            }
+          ],
+          "info": {
+            "capabilities": [
+              "delete",
+              "get",
+              "get-id",
+              "keyed",
+              "list_prefix",
+              "read_recent",
+              "search",
+              "upsert",
+              "write"
+            ],
+            "server_pid": null,
+            "version": "3.53.3",
+            "notes": "WAL synchronous=NORMAL. Busy timeout 30 seconds.",
+            "runtime_versions": {}
+          },
+          "cas": false,
+          "history": false
+        },
+        {
+          "role": "must_pass",
+          "trial": 15,
+          "status": "ok",
+          "acked_missing": 0,
+          "duplicates": 0,
+          "torn": 0,
+          "invalid_final": 0,
+          "trials": [
+            {
+              "writers": 2,
+              "phase": "distinct",
+              "acked_missing": 0,
+              "duplicates": 0,
+              "torn": 0,
+              "invalid_final": 0
+            },
+            {
+              "writers": 2,
+              "phase": "overlap",
+              "acked_missing": 0,
+              "duplicates": 0,
+              "torn": 0,
+              "invalid_final": 0
+            }
+          ],
+          "info": {
+            "capabilities": [
+              "delete",
+              "get",
+              "get-id",
+              "keyed",
+              "list_prefix",
+              "read_recent",
+              "search",
+              "upsert",
+              "write"
+            ],
+            "server_pid": null,
+            "version": "3.53.3",
+            "notes": "WAL synchronous=NORMAL. Busy timeout 30 seconds.",
+            "runtime_versions": {}
+          },
+          "cas": false,
+          "history": false
+        },
+        {
+          "role": "must_pass",
+          "trial": 16,
+          "status": "ok",
+          "acked_missing": 0,
+          "duplicates": 0,
+          "torn": 0,
+          "invalid_final": 0,
+          "trials": [
+            {
+              "writers": 4,
+              "phase": "distinct",
+              "acked_missing": 0,
+              "duplicates": 0,
+              "torn": 0,
+              "invalid_final": 0
+            },
+            {
+              "writers": 4,
+              "phase": "overlap",
+              "acked_missing": 0,
+              "duplicates": 0,
+              "torn": 0,
+              "invalid_final": 0
+            }
+          ],
+          "info": {
+            "capabilities": [
+              "delete",
+              "get",
+              "get-id",
+              "keyed",
+              "list_prefix",
+              "read_recent",
+              "search",
+              "upsert",
+              "write"
+            ],
+            "server_pid": null,
+            "version": "3.53.3",
+            "notes": "WAL synchronous=NORMAL. Busy timeout 30 seconds.",
+            "runtime_versions": {}
+          },
+          "cas": false,
+          "history": false
+        },
+        {
+          "role": "must_pass",
+          "trial": 17,
+          "status": "ok",
+          "acked_missing": 0,
+          "duplicates": 0,
+          "torn": 0,
+          "invalid_final": 0,
+          "trials": [
+            {
+              "writers": 8,
+              "phase": "distinct",
+              "acked_missing": 0,
+              "duplicates": 0,
+              "torn": 0,
+              "invalid_final": 0
+            },
+            {
+              "writers": 8,
+              "phase": "overlap",
+              "acked_missing": 0,
+              "duplicates": 0,
+              "torn": 0,
+              "invalid_final": 0
+            }
+          ],
+          "info": {
+            "capabilities": [
+              "delete",
+              "get",
+              "get-id",
+              "keyed",
+              "list_prefix",
+              "read_recent",
+              "search",
+              "upsert",
+              "write"
+            ],
+            "server_pid": null,
+            "version": "3.53.3",
+            "notes": "WAL synchronous=NORMAL. Busy timeout 30 seconds.",
+            "runtime_versions": {}
+          },
+          "cas": false,
+          "history": false
+        },
+        {
+          "role": "must_pass",
+          "trial": 18,
+          "status": "ok",
+          "acked_missing": 0,
+          "duplicates": 0,
+          "torn": 0,
+          "invalid_final": 0,
+          "trials": [
+            {
+              "writers": 2,
+              "phase": "distinct",
+              "acked_missing": 0,
+              "duplicates": 0,
+              "torn": 0,
+              "invalid_final": 0
+            },
+            {
+              "writers": 2,
+              "phase": "overlap",
+              "acked_missing": 0,
+              "duplicates": 0,
+              "torn": 0,
+              "invalid_final": 0
+            }
+          ],
+          "info": {
+            "capabilities": [
+              "delete",
+              "get",
+              "get-id",
+              "keyed",
+              "list_prefix",
+              "read_recent",
+              "search",
+              "upsert",
+              "write"
+            ],
+            "server_pid": null,
+            "version": "3.53.3",
+            "notes": "WAL synchronous=NORMAL. Busy timeout 30 seconds.",
+            "runtime_versions": {}
+          },
+          "cas": false,
+          "history": false
+        },
+        {
+          "role": "must_pass",
+          "trial": 19,
+          "status": "ok",
+          "acked_missing": 0,
+          "duplicates": 0,
+          "torn": 0,
+          "invalid_final": 0,
+          "trials": [
+            {
+              "writers": 4,
+              "phase": "distinct",
+              "acked_missing": 0,
+              "duplicates": 0,
+              "torn": 0,
+              "invalid_final": 0
+            },
+            {
+              "writers": 4,
+              "phase": "overlap",
+              "acked_missing": 0,
+              "duplicates": 0,
+              "torn": 0,
+              "invalid_final": 0
+            }
+          ],
+          "info": {
+            "capabilities": [
+              "delete",
+              "get",
+              "get-id",
+              "keyed",
+              "list_prefix",
+              "read_recent",
+              "search",
+              "upsert",
+              "write"
+            ],
+            "server_pid": null,
+            "version": "3.53.3",
+            "notes": "WAL synchronous=NORMAL. Busy timeout 30 seconds.",
+            "runtime_versions": {}
+          },
+          "cas": false,
+          "history": false
+        }
+      ]
+    },
+    "history-scale": {
+      "must_fail": "delayed-index",
+      "must_pass": "sqlite-visible",
+      "must_fail_rate": 1.0,
+      "must_pass_rate": 1.0,
+      "discriminates": true,
+      "details": [
+        {
+          "role": "must_fail",
+          "trial": 0,
+          "path": "id",
+          "lag_ms": 100.083791,
+          "upper_ms": 101.102916,
+          "read_p99_ms": 0.102916,
+          "matched": true
+        },
+        {
+          "role": "must_fail",
+          "trial": 1,
+          "path": "filter",
+          "lag_ms": 100.083959,
+          "upper_ms": 101.099334,
+          "read_p99_ms": 0.099334,
+          "matched": true
+        },
+        {
+          "role": "must_fail",
+          "trial": 2,
+          "path": "recency",
+          "lag_ms": 100.096417,
+          "upper_ms": 101.104875,
+          "read_p99_ms": 0.104875,
+          "matched": true
+        },
+        {
+          "role": "must_fail",
+          "trial": 3,
+          "path": "search",
+          "lag_ms": 100.13725,
+          "upper_ms": 101.137167,
+          "read_p99_ms": 0.137167,
+          "matched": true
+        },
+        {
+          "role": "must_fail",
+          "trial": 4,
+          "path": "id",
+          "lag_ms": 100.085167,
+          "upper_ms": 101.102375,
+          "read_p99_ms": 0.102375,
+          "matched": true
+        },
+        {
+          "role": "must_fail",
+          "trial": 5,
+          "path": "filter",
+          "lag_ms": 100.085334,
+          "upper_ms": 101.1,
+          "read_p99_ms": 0.1,
+          "matched": true
+        },
+        {
+          "role": "must_fail",
+          "trial": 6,
+          "path": "recency",
+          "lag_ms": 100.083292,
+          "upper_ms": 101.083208,
+          "read_p99_ms": 0.083208,
+          "matched": true
+        },
+        {
+          "role": "must_fail",
+          "trial": 7,
+          "path": "search",
+          "lag_ms": 100.103708,
+          "upper_ms": 101.130708,
+          "read_p99_ms": 0.130708,
+          "matched": true
+        },
+        {
+          "role": "must_fail",
+          "trial": 8,
+          "path": "id",
+          "lag_ms": 100.067583,
+          "upper_ms": 101.082041,
+          "read_p99_ms": 0.082041,
+          "matched": true
+        },
+        {
+          "role": "must_fail",
+          "trial": 9,
+          "path": "filter",
+          "lag_ms": 100.06725,
+          "upper_ms": 101.084375,
+          "read_p99_ms": 0.084375,
+          "matched": true
+        },
+        {
+          "role": "must_fail",
+          "trial": 10,
+          "path": "recency",
+          "lag_ms": 100.055917,
+          "upper_ms": 101.059291,
+          "read_p99_ms": 0.059291,
+          "matched": true
+        },
+        {
+          "role": "must_fail",
+          "trial": 11,
+          "path": "search",
+          "lag_ms": 100.071291,
+          "upper_ms": 101.10725,
+          "read_p99_ms": 0.10725,
+          "matched": true
+        },
+        {
+          "role": "must_fail",
+          "trial": 12,
+          "path": "id",
+          "lag_ms": 100.070125,
+          "upper_ms": 101.072083,
+          "read_p99_ms": 0.072083,
+          "matched": true
+        },
+        {
+          "role": "must_fail",
+          "trial": 13,
+          "path": "filter",
+          "lag_ms": 100.061041,
+          "upper_ms": 101.073792,
+          "read_p99_ms": 0.073792,
+          "matched": true
+        },
+        {
+          "role": "must_fail",
+          "trial": 14,
+          "path": "recency",
+          "lag_ms": 100.064875,
+          "upper_ms": 101.064833,
+          "read_p99_ms": 0.064833,
+          "matched": true
+        },
+        {
+          "role": "must_fail",
+          "trial": 15,
+          "path": "search",
+          "lag_ms": 100.06525,
+          "upper_ms": 101.075958,
+          "read_p99_ms": 0.075958,
+          "matched": true
+        },
+        {
+          "role": "must_fail",
+          "trial": 16,
+          "path": "id",
+          "lag_ms": 100.066834,
+          "upper_ms": 101.081667,
+          "read_p99_ms": 0.081667,
+          "matched": true
+        },
+        {
+          "role": "must_fail",
+          "trial": 17,
+          "path": "filter",
+          "lag_ms": 100.064208,
+          "upper_ms": 101.068958,
+          "read_p99_ms": 0.068958,
+          "matched": true
+        },
+        {
+          "role": "must_fail",
+          "trial": 18,
+          "path": "recency",
+          "lag_ms": 100.063875,
+          "upper_ms": 101.063833,
+          "read_p99_ms": 0.063833,
+          "matched": true
+        },
+        {
+          "role": "must_fail",
+          "trial": 19,
+          "path": "search",
+          "lag_ms": 100.065542,
+          "upper_ms": 101.102583,
+          "read_p99_ms": 0.102583,
+          "matched": true
+        },
+        {
+          "role": "must_pass",
+          "trial": 0,
+          "path": "id",
+          "lag_ms": 0.142708,
+          "upper_ms": 101.118291,
+          "read_p99_ms": 0.118291,
+          "matched": true
+        },
+        {
+          "role": "must_pass",
+          "trial": 1,
+          "path": "filter",
+          "lag_ms": 0.1355,
+          "upper_ms": 101.109667,
+          "read_p99_ms": 0.109667,
+          "matched": true
+        },
+        {
+          "role": "must_pass",
+          "trial": 2,
+          "path": "recency",
+          "lag_ms": 0.085583,
+          "upper_ms": 101.071333,
+          "read_p99_ms": 0.071333,
+          "matched": true
+        },
+        {
+          "role": "must_pass",
+          "trial": 3,
+          "path": "search",
+          "lag_ms": 0.160459,
+          "upper_ms": 101.135167,
+          "read_p99_ms": 0.135167,
+          "matched": true
+        },
+        {
+          "role": "must_pass",
+          "trial": 4,
+          "path": "id",
+          "lag_ms": 0.1305,
+          "upper_ms": 101.104334,
+          "read_p99_ms": 0.104334,
+          "matched": true
+        },
+        {
+          "role": "must_pass",
+          "trial": 5,
+          "path": "filter",
+          "lag_ms": 0.098709,
+          "upper_ms": 101.08275,
+          "read_p99_ms": 0.08275,
+          "matched": true
+        },
+        {
+          "role": "must_pass",
+          "trial": 6,
+          "path": "recency",
+          "lag_ms": 0.125333,
+          "upper_ms": 101.101083,
+          "read_p99_ms": 0.101083,
+          "matched": true
+        },
+        {
+          "role": "must_pass",
+          "trial": 7,
+          "path": "search",
+          "lag_ms": 0.128125,
+          "upper_ms": 101.11325,
+          "read_p99_ms": 0.11325,
+          "matched": true
+        },
+        {
+          "role": "must_pass",
+          "trial": 8,
+          "path": "id",
+          "lag_ms": 0.096208,
+          "upper_ms": 101.082167,
+          "read_p99_ms": 0.082167,
+          "matched": true
+        },
+        {
+          "role": "must_pass",
+          "trial": 9,
+          "path": "filter",
+          "lag_ms": 0.140459,
+          "upper_ms": 101.115042,
+          "read_p99_ms": 0.115042,
+          "matched": true
+        },
+        {
+          "role": "must_pass",
+          "trial": 10,
+          "path": "recency",
+          "lag_ms": 0.131667,
+          "upper_ms": 101.105542,
+          "read_p99_ms": 0.105542,
+          "matched": true
+        },
+        {
+          "role": "must_pass",
+          "trial": 11,
+          "path": "search",
+          "lag_ms": 0.156833,
+          "upper_ms": 101.132666,
+          "read_p99_ms": 0.132666,
+          "matched": true
+        },
+        {
+          "role": "must_pass",
+          "trial": 12,
+          "path": "id",
+          "lag_ms": 0.126166,
+          "upper_ms": 101.104791,
+          "read_p99_ms": 0.104791,
+          "matched": true
+        },
+        {
+          "role": "must_pass",
+          "trial": 13,
+          "path": "filter",
+          "lag_ms": 0.115875,
+          "upper_ms": 101.09625,
+          "read_p99_ms": 0.09625,
+          "matched": true
+        },
+        {
+          "role": "must_pass",
+          "trial": 14,
+          "path": "recency",
+          "lag_ms": 0.12425,
+          "upper_ms": 101.099875,
+          "read_p99_ms": 0.099875,
+          "matched": true
+        },
+        {
+          "role": "must_pass",
+          "trial": 15,
+          "path": "search",
+          "lag_ms": 0.162792,
+          "upper_ms": 101.138083,
+          "read_p99_ms": 0.138083,
+          "matched": true
+        },
+        {
+          "role": "must_pass",
+          "trial": 16,
+          "path": "id",
+          "lag_ms": 0.132292,
+          "upper_ms": 101.109458,
+          "read_p99_ms": 0.109458,
+          "matched": true
+        },
+        {
+          "role": "must_pass",
+          "trial": 17,
+          "path": "filter",
+          "lag_ms": 0.131583,
+          "upper_ms": 101.108167,
+          "read_p99_ms": 0.108167,
+          "matched": true
+        },
+        {
+          "role": "must_pass",
+          "trial": 18,
+          "path": "recency",
+          "lag_ms": 0.125875,
+          "upper_ms": 101.102209,
+          "read_p99_ms": 0.102209,
+          "matched": true
+        },
+        {
+          "role": "must_pass",
+          "trial": 19,
+          "path": "search",
+          "lag_ms": 0.176334,
+          "upper_ms": 101.152667,
+          "read_p99_ms": 0.152667,
+          "matched": true
+        }
+      ],
+      "note": "Shares recall-delay timing calibration. The approved spec defines no scale-specific failure threshold. History reads also check loaded count and payload integrity."
+    }
+  },
+  "run_directory": "results/controls/full"
+}

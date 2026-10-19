@@ -1,0 +1,150 @@
+{
+  "command": [
+    "memproof",
+    "controls"
+  ],
+  "comparative_publication": "blocked pending outside review and reply window",
+  "control_summary": "gate.json",
+  "dependencies": {
+    "mcp": "1.26.0",
+    "qdrant-client": "1.16.2"
+  },
+  "hardware": {
+    "cpu_count": 10,
+    "machine": "arm64",
+    "processor": "arm",
+    "ram_bytes": 17179869184
+  },
+  "harness_commit": "64e68c1d112aabc50e9da2a6a602fca14bc71ea8",
+  "harness_dirty": true,
+  "methodology_sha256": "221c818f8beef6958c9f42be5740cc72c393f31229b9ad40cfc27c03f3aa849f",
+  "os": "macOS-27.0.1-arm64-arm-64bit",
+  "python": "3.12.12",
+  "sponsor": "Sponsored and built by the Clawdlinux team.",
+  "systems": [
+    {
+      "capabilities": [
+        "delete",
+        "emulated:delete",
+        "emulated:get",
+        "emulated:list_prefix",
+        "emulated:read_recent",
+        "emulated:upsert",
+        "get",
+        "get-id",
+        "keyed",
+        "list_prefix",
+        "read_recent",
+        "search",
+        "upsert",
+        "write"
+      ],
+      "config": "default",
+      "notes": "Ack before user-space flush. Flush interval 100 ms. No fsync.",
+      "runtime_versions": {},
+      "server_pid": null,
+      "system": "buffered",
+      "version": "stdlib-jsonl-v1"
+    },
+    {
+      "capabilities": [
+        "delete",
+        "get",
+        "get-id",
+        "keyed",
+        "list_prefix",
+        "read_recent",
+        "search",
+        "upsert",
+        "write"
+      ],
+      "config": "default",
+      "notes": "Fixed 100 ms asynchronous delay on every read path.",
+      "runtime_versions": {},
+      "server_pid": null,
+      "system": "delayed-index",
+      "version": "3.53.3"
+    },
+    {
+      "capabilities": [
+        "delete",
+        "emulated:delete",
+        "emulated:get",
+        "emulated:list_prefix",
+        "emulated:read_recent",
+        "emulated:upsert",
+        "get",
+        "get-id",
+        "keyed",
+        "list_prefix",
+        "read_recent",
+        "search",
+        "upsert",
+        "write"
+      ],
+      "config": "default",
+      "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
+      "runtime_versions": {},
+      "server_pid": null,
+      "system": "md-rmw-sleep",
+      "version": "stdlib-jsonl-v1"
+    },
+    {
+      "capabilities": [
+        "delete",
+        "get",
+        "get-id",
+        "keyed",
+        "list_prefix",
+        "read_recent",
+        "search",
+        "upsert",
+        "write"
+      ],
+      "config": "default",
+      "notes": "WAL synchronous=NORMAL. Busy timeout 30 seconds.",
+      "runtime_versions": {},
+      "server_pid": null,
+      "system": "sqlite-busy",
+      "version": "3.53.3"
+    },
+    {
+      "capabilities": [
+        "delete",
+        "get",
+        "get-id",
+        "keyed",
+        "list_prefix",
+        "read_recent",
+        "search",
+        "upsert",
+        "write"
+      ],
+      "config": "default",
+      "notes": "WAL synchronous=OFF. Commit before ack. Page cache survives SIGKILL.",
+      "runtime_versions": {},
+      "server_pid": null,
+      "system": "sqlite-off",
+      "version": "3.53.3"
+    },
+    {
+      "capabilities": [
+        "delete",
+        "get",
+        "get-id",
+        "keyed",
+        "list_prefix",
+        "read_recent",
+        "search",
+        "upsert",
+        "write"
+      ],
+      "config": "default",
+      "notes": "SQLite is visible on commit.",
+      "runtime_versions": {},
+      "server_pid": null,
+      "system": "sqlite-visible",
+      "version": "3.53.3"
+    }
+  ]
+}

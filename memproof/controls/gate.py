@@ -5,7 +5,7 @@ import shutil
 import uuid
 from pathlib import Path
 
-from memproof.results import ResultWriter
+from memproof.results import ResultWriter, hardware
 from memproof.suites import PATHS, concurrent, process_kill, recall_delay
 from memproof.types import NotSupported
 
@@ -18,6 +18,19 @@ def methodology_hash():
     for path in sorted(root.rglob("*.py")):
         digest.update(str(path.relative_to(root)).encode())
         digest.update(path.read_bytes())
+    for relative in (
+        "docs/METHODOLOGY.md",
+        "docs/design/0001-benchmark.md",
+        "pyproject.toml",
+        "uv.lock",
+        "scripts/qdrant.sha256",
+        "scripts/mcp/package-lock.json",
+        "scripts/mcp/scan-verdict.json",
+    ):
+        path = root.parent / relative
+        if path.exists():
+            digest.update(relative.encode())
+            digest.update(path.read_bytes())
     return digest.hexdigest()
 
 
@@ -31,6 +44,7 @@ def require_controls(suite, root=DEFAULT_ROOT):
         valid = (
             summary["methodology_sha256"] == methodology_hash()
             and summary["os"] == platform.platform()
+            and summary["hardware"] == hardware()
             and summary["suites"][suite]["discriminates"]
         )
     except (OSError, ValueError, KeyError):
@@ -41,6 +55,7 @@ def require_controls(suite, root=DEFAULT_ROOT):
 
 def run_controls(*, quick=False, root=DEFAULT_ROOT):
     root = Path(root)
+    run_root = root / ("quick" if quick else "full")
     trials = 5 if quick else 20
     work = root / ".work" / uuid.uuid4().hex
     work.mkdir(parents=True)
@@ -48,12 +63,14 @@ def run_controls(*, quick=False, root=DEFAULT_ROOT):
         "trials": trials,
         "quick": quick,
         "os": platform.platform(),
+        "hardware": hardware(),
         "methodology_sha256": methodology_hash(),
         "suites": {},
+        "run_directory": str(run_root),
     }
     try:
         with ResultWriter(
-            root, command=["memproof", "controls"] + (["--quick"] if quick else [])
+            run_root, command=["memproof", "controls"] + (["--quick"] if quick else [])
         ) as writer:
             for suite, fail_system, pass_system in (
                 ("recall-delay", "delayed-index", "sqlite-visible"),
@@ -170,6 +187,7 @@ def run_controls(*, quick=False, root=DEFAULT_ROOT):
             }
             writer.manifest["control_summary"] = "gate.json"
         (root / "gate.json").write_text(json.dumps(summary, indent=2) + "\n")
+        (run_root / "gate.json").write_text(json.dumps(summary, indent=2) + "\n")
     finally:
         shutil.rmtree(work)
     return summary

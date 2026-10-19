@@ -92,3 +92,26 @@ def test_native_qdrant_fault_targets(tmp_path):
         "server",
         "both",
     }
+
+
+def test_prepare_never_reinstalls_known_blocked_tree(monkeypatch, tmp_path):
+    from scripts import prepare_mcp
+
+    pin = tmp_path / "scripts/mcp"
+    pin.mkdir(parents=True)
+    (pin / "scan-verdict.json").write_text(
+        json.dumps(
+            {
+                "version": "2025.11.25",
+                "installed_dependency_tree": {"verdict": "DO_NOT_INSTALL"},
+            }
+        )
+    )
+
+    def forbidden_command(*args, **kwargs):
+        raise AssertionError("Known blocked pins must not run npm")
+
+    monkeypatch.setattr(prepare_mcp, "ROOT", tmp_path)
+    monkeypatch.setattr(prepare_mcp.subprocess, "run", forbidden_command)
+    assert prepare_mcp.main() == 1
+    assert "DO_NOT_INSTALL" in (tmp_path / ".tools/mcp/blocked.txt").read_text()

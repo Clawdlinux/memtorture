@@ -14,12 +14,51 @@ Python 3.12 and [uv](https://docs.astral.sh/uv/) are required.
 ```sh
 uv sync --locked
 uv run memproof controls --quick
-# Available after the B1 harness is complete:
 uv run memproof run --suite process-kill --system sqlite --config synchronous=FULL
+uv run memproof report
 ```
 
-The initial scaffold has no working control gate.
-It cannot publish benchmark cells.
+Run full controls before a local benchmark:
+
+```sh
+uv run memproof controls
+uv run memproof run --all
+```
+
+The quick gate uses 5 trials.
+The full gate uses 20.
+Cells refuse to run if controls are missing, stale, or not discriminating.
+Unsupported adapters show N/A with a reason.
+Local results are not cleared for comparative publication.
+
+See [methodology](docs/METHODOLOGY.md) for measurements and limits.
+
+## External adapters
+
+Node 22 is needed for the reference MCP server.
+Qdrant runs as a native binary.
+
+```sh
+uv run python -m scripts.prepare_mcp
+uv run python -m scripts.fetch_qdrant
+```
+
+The MCP preparation script scans pinned sources before installation.
+Only complete `SAFE` verdicts permit execution.
+Blocked scans disable the adapter.
+The Qdrant script checks a committed SHA-256 before extracting the binary.
+See [security notes](docs/SECURITY.md) for pins and scan rules.
+
+Use exact config rows:
+
+```sh
+uv run memproof run --suite recall-delay --system qdrant --config wait=true
+uv run memproof run --suite history-scale --system markdown --config append
+```
+
+`wait=true` controls visibility, not fsync.
+History grows to 100K records by default.
+`--extended` adds 1M.
 
 ## Governance
 
@@ -33,7 +72,7 @@ Sponsor marketing must link the full run.
 
 ## Dependencies
 
-`mcp` speaks the reference server's stdio protocol.
+`mcp` is reserved for the gated reference-server adapter.
 `qdrant-client` speaks the native Qdrant API.
 The test tools are pytest, Hypothesis, and Ruff.
 

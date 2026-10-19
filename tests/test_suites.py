@@ -1,9 +1,12 @@
 import json
+import time
+from types import SimpleNamespace
 
 import pytest
 
 from memproof.controls.gate import control_gate, require_controls
 from memproof.embed import embed
+from memproof.protocol import Worker
 from memproof.suites import concurrent, history_scale, process_kill, recall_delay
 from memproof.types import NotSupported
 
@@ -74,3 +77,53 @@ def test_control_gate_threshold_is_not_rounded():
     assert not control_gate(8, 10, 10)
     assert control_gate(9, 10, 10)
     assert not control_gate(10, 9, 10)
+
+
+def test_kill_has_no_post_ack_sleep(monkeypatch, tmp_path):
+    def forbidden_sleep(seconds):
+        raise AssertionError("A post-ack sleep can hide a short flush window")
+
+    monkeypatch.setattr(
+        "memproof.suites.time",
+        SimpleNamespace(monotonic_ns=time.monotonic_ns, sleep=forbidden_sleep),
+    )
+    assert process_kill("sqlite-off", "default", tmp_path, trials=1)["status"] == "ok"
+
+
+def test_fault_precedes_write_log_io(monkeypatch, tmp_path):
+    workers = []
+
+    class TrackingWorker(Worker):
+        def __init__(self, *args, **kwargs):
+            super().__init__(*args, **kwargs)
+            self.faulted = False
+            workers.append(self)
+
+        def kill(self, target):
+            super().kill(target)
+            self.faulted = True
+
+    def emit(data):
+        if data["operation"] == "write":
+            assert workers[-1].faulted, "Log IO must not hide a flush window"
+
+    monkeypatch.setattr("memproof.suites.Worker", TrackingWorker)
+    process_kill("sqlite-off", "default", tmp_path, trials=1, emit=emit)
+
+
+def test_recall_poll_timing_excludes_result_log_io(tmp_path):
+    def slow_log(data):
+        if data["operation"] == "poll":
+            time.sleep(0.03)
+
+    result = recall_delay(
+        "delayed-index",
+        "default",
+        tmp_path,
+        samples=1,
+        poll_ms=1,
+        paths=("id",),
+        emit=slow_log,
+    )
+    metric = result["paths"]["id"]
+    assert metric["visibility_lag_ms"]["p50"] <= 101 + metric["read_ms"]["p99"]
