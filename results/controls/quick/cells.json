@@ -27,31 +27,31 @@
           "dropped": 0,
           "observations": [
             {
-              "lag_ms": 100.121709,
+              "lag_ms": 100.110625,
               "polls": 101,
               "status": "visible",
-              "total_ms": 100.523875,
-              "write_ms": 0.402166
+              "total_ms": 100.503458,
+              "write_ms": 0.392833
             }
           ],
           "read_ms": {
-            "p50": 0.062958,
-            "p99": 0.231375
+            "p50": 0.066584,
+            "p99": 0.200417
           },
           "status": "measured",
           "time_to_visible_ms": {
-            "p50": 100.523875,
-            "p99": 100.523875
+            "p50": 100.503458,
+            "p99": 100.503458
           },
           "timeouts": 0,
           "visibility_lag_ms": {
-            "p50": 100.121709,
-            "p99": 100.121709
+            "p50": 100.110625,
+            "p99": 100.110625
           },
           "visible": 1,
           "write_latency_ms": {
-            "p50": 0.402166,
-            "p99": 0.402166
+            "p50": 0.392833,
+            "p99": 0.392833
           }
         }
       },
@@ -91,31 +91,31 @@
           "dropped": 0,
           "observations": [
             {
-              "lag_ms": 100.106167,
+              "lag_ms": 100.117709,
               "polls": 101,
               "status": "visible",
-              "total_ms": 100.442125,
-              "write_ms": 0.335958
+              "total_ms": 100.509875,
+              "write_ms": 0.392166
             }
           ],
           "read_ms": {
-            "p50": 0.061917,
-            "p99": 0.2765
+            "p50": 0.068833,
+            "p99": 0.181541
           },
           "status": "measured",
           "time_to_visible_ms": {
-            "p50": 100.442125,
-            "p99": 100.442125
+            "p50": 100.509875,
+            "p99": 100.509875
           },
           "timeouts": 0,
           "visibility_lag_ms": {
-            "p50": 100.106167,
-            "p99": 100.106167
+            "p50": 100.117709,
+            "p99": 100.117709
           },
           "visible": 1,
           "write_latency_ms": {
-            "p50": 0.335958,
-            "p99": 0.335958
+            "p50": 0.392166,
+            "p99": 0.392166
           }
         }
       },
@@ -155,31 +155,31 @@
           "dropped": 0,
           "observations": [
             {
-              "lag_ms": 100.099834,
+              "lag_ms": 100.120291,
               "polls": 101,
               "status": "visible",
-              "total_ms": 100.4145,
-              "write_ms": 0.314666
+              "total_ms": 100.479625,
+              "write_ms": 0.359334
             }
           ],
           "read_ms": {
-            "p50": 0.057584,
-            "p99": 0.201291
+            "p50": 0.067708,
+            "p99": 0.21975
           },
           "status": "measured",
           "time_to_visible_ms": {
-            "p50": 100.4145,
-            "p99": 100.4145
+            "p50": 100.479625,
+            "p99": 100.479625
           },
           "timeouts": 0,
           "visibility_lag_ms": {
-            "p50": 100.099834,
-            "p99": 100.099834
+            "p50": 100.120291,
+            "p99": 100.120291
           },
           "visible": 1,
           "write_latency_ms": {
-            "p50": 0.314666,
-            "p99": 0.314666
+            "p50": 0.359334,
+            "p99": 0.359334
           }
         }
       },
@@ -219,31 +219,31 @@
           "dropped": 0,
           "observations": [
             {
-              "lag_ms": 100.190542,
+              "lag_ms": 100.201875,
               "polls": 101,
               "status": "visible",
-              "total_ms": 100.552167,
-              "write_ms": 0.361625
+              "total_ms": 100.546958,
+              "write_ms": 0.345083
             }
           ],
           "read_ms": {
-            "p50": 0.143541,
-            "p99": 0.27625
+            "p50": 0.153334,
+            "p99": 0.351917
           },
           "status": "measured",
           "time_to_visible_ms": {
-            "p50": 100.552167,
-            "p99": 100.552167
+            "p50": 100.546958,
+            "p99": 100.546958
           },
           "timeouts": 0,
           "visibility_lag_ms": {
-            "p50": 100.190542,
-            "p99": 100.190542
+            "p50": 100.201875,
+            "p99": 100.201875
           },
           "visible": 1,
           "write_latency_ms": {
-            "p50": 0.361625,
-            "p99": 0.361625
+            "p50": 0.345083,
+            "p99": 0.345083
           }
         }
       },
@@ -283,31 +283,31 @@
           "dropped": 0,
           "observations": [
             {
-              "lag_ms": 100.656416,
-              "polls": 100,
+              "lag_ms": 100.111292,
+              "polls": 101,
               "status": "visible",
-              "total_ms": 101.049375,
-              "write_ms": 0.392959
+              "total_ms": 100.49525,
+              "write_ms": 0.383958
             }
           ],
           "read_ms": {
-            "p50": 0.099584,
-            "p99": 0.907125
+            "p50": 0.071583,
+            "p99": 0.169042
           },
           "status": "measured",
           "time_to_visible_ms": {
-            "p50": 101.049375,
-            "p99": 101.049375
+            "p50": 100.49525,
+            "p99": 100.49525
           },
           "timeouts": 0,
           "visibility_lag_ms": {
-            "p50": 100.656416,
-            "p99": 100.656416
+            "p50": 100.111292,
+            "p99": 100.111292
           },
           "visible": 1,
           "write_latency_ms": {
-            "p50": 0.392959,
-            "p99": 0.392959
+            "p50": 0.383958,
+            "p99": 0.383958
           }
         }
       },
@@ -347,31 +347,31 @@
           "dropped": 0,
           "observations": [
             {
-              "lag_ms": 0.209,
+              "lag_ms": 0.2225,
               "polls": 1,
               "status": "visible",
-              "total_ms": 0.599041,
-              "write_ms": 0.390041
+              "total_ms": 0.622917,
+              "write_ms": 0.400417
             }
           ],
           "read_ms": {
-            "p50": 0.164125,
-            "p99": 0.164125
+            "p50": 0.176125,
+            "p99": 0.176125
           },
           "status": "measured",
           "time_to_visible_ms": {
-            "p50": 0.599041,
-            "p99": 0.599041
+            "p50": 0.622917,
+            "p99": 0.622917
           },
           "timeouts": 0,
           "visibility_lag_ms": {
-            "p50": 0.209,
-            "p99": 0.209
+            "p50": 0.2225,
+            "p99": 0.2225
           },
           "visible": 1,
           "write_latency_ms": {
-            "p50": 0.390041,
-            "p99": 0.390041
+            "p50": 0.400417,
+            "p99": 0.400417
           }
         }
       },
@@ -411,31 +411,31 @@
           "dropped": 0,
           "observations": [
             {
-              "lag_ms": 0.226167,
+              "lag_ms": 0.171083,
               "polls": 1,
               "status": "visible",
-              "total_ms": 0.592625,
-              "write_ms": 0.366458
+              "total_ms": 0.519667,
+              "write_ms": 0.348584
             }
           ],
           "read_ms": {
-            "p50": 0.175209,
-            "p99": 0.175209
+            "p50": 0.133833,
+            "p99": 0.133833
           },
           "status": "measured",
           "time_to_visible_ms": {
-            "p50": 0.592625,
-            "p99": 0.592625
+            "p50": 0.519667,
+            "p99": 0.519667
           },
           "timeouts": 0,
           "visibility_lag_ms": {
-            "p50": 0.226167,
-            "p99": 0.226167
+            "p50": 0.171083,
+            "p99": 0.171083
           },
           "visible": 1,
           "write_latency_ms": {
-            "p50": 0.366458,
-            "p99": 0.366458
+            "p50": 0.348584,
+            "p99": 0.348584
           }
         }
       },
@@ -475,31 +475,31 @@
           "dropped": 0,
           "observations": [
             {
-              "lag_ms": 0.217084,
+              "lag_ms": 0.173792,
               "polls": 1,
               "status": "visible",
-              "total_ms": 0.601667,
-              "write_ms": 0.384583
+              "total_ms": 0.574792,
+              "write_ms": 0.401
             }
           ],
           "read_ms": {
-            "p50": 0.16675,
-            "p99": 0.16675
+            "p50": 0.136209,
+            "p99": 0.136209
           },
           "status": "measured",
           "time_to_visible_ms": {
-            "p50": 0.601667,
-            "p99": 0.601667
+            "p50": 0.574792,
+            "p99": 0.574792
           },
           "timeouts": 0,
           "visibility_lag_ms": {
-            "p50": 0.217084,
-            "p99": 0.217084
+            "p50": 0.173792,
+            "p99": 0.173792
           },
           "visible": 1,
           "write_latency_ms": {
-            "p50": 0.384583,
-            "p99": 0.384583
+            "p50": 0.401,
+            "p99": 0.401
           }
         }
       },
@@ -539,31 +539,31 @@
           "dropped": 0,
           "observations": [
             {
-              "lag_ms": 0.39925,
+              "lag_ms": 0.3935,
               "polls": 1,
               "status": "visible",
-              "total_ms": 0.799875,
-              "write_ms": 0.400625
+              "total_ms": 0.768584,
+              "write_ms": 0.375084
             }
           ],
           "read_ms": {
-            "p50": 0.349875,
-            "p99": 0.349875
+            "p50": 0.342917,
+            "p99": 0.342917
           },
           "status": "measured",
           "time_to_visible_ms": {
-            "p50": 0.799875,
-            "p99": 0.799875
+            "p50": 0.768584,
+            "p99": 0.768584
           },
           "timeouts": 0,
           "visibility_lag_ms": {
-            "p50": 0.39925,
-            "p99": 0.39925
+            "p50": 0.3935,
+            "p99": 0.3935
           },
           "visible": 1,
           "write_latency_ms": {
-            "p50": 0.400625,
-            "p99": 0.400625
+            "p50": 0.375084,
+            "p99": 0.375084
           }
         }
       },
@@ -603,31 +603,31 @@
           "dropped": 0,
           "observations": [
             {
-              "lag_ms": 0.216834,
+              "lag_ms": 0.166,
               "polls": 1,
               "status": "visible",
-              "total_ms": 0.631917,
-              "write_ms": 0.415083
+              "total_ms": 0.510417,
+              "write_ms": 0.344417
             }
           ],
           "read_ms": {
-            "p50": 0.169834,
-            "p99": 0.169834
+            "p50": 0.12875,
+            "p99": 0.12875
           },
           "status": "measured",
           "time_to_visible_ms": {
-            "p50": 0.631917,
-            "p99": 0.631917
+            "p50": 0.510417,
+            "p99": 0.510417
           },
           "timeouts": 0,
           "visibility_lag_ms": {
-            "p50": 0.216834,
-            "p99": 0.216834
+            "p50": 0.166,
+            "p99": 0.166
           },
           "visible": 1,
           "write_latency_ms": {
-            "p50": 0.415083,
-            "p99": 0.415083
+            "p50": 0.344417,
+            "p99": 0.344417
           }
         }
       },
@@ -684,7 +684,7 @@
           "acked": 6,
           "acked_missing": 6,
           "duplicates": 0,
-          "fault_ns": 173126589296541,
+          "fault_ns": 173686914688041,
           "target": "worker",
           "torn": 0,
           "trial": 0
@@ -739,7 +739,7 @@
           "acked": 8,
           "acked_missing": 8,
           "duplicates": 0,
-          "fault_ns": 173126748259375,
+          "fault_ns": 173687072055250,
           "target": "worker",
           "torn": 0,
           "trial": 0
@@ -794,7 +794,7 @@
           "acked": 7,
           "acked_missing": 7,
           "duplicates": 0,
-          "fault_ns": 173126902568541,
+          "fault_ns": 173687230318500,
           "target": "worker",
           "torn": 0,
           "trial": 0
@@ -849,7 +849,7 @@
           "acked": 6,
           "acked_missing": 6,
           "duplicates": 0,
-          "fault_ns": 173127056052125,
+          "fault_ns": 173687384753375,
           "target": "worker",
           "torn": 0,
           "trial": 0
@@ -904,7 +904,7 @@
           "acked": 5,
           "acked_missing": 5,
           "duplicates": 0,
-          "fault_ns": 173127209713791,
+          "fault_ns": 173687537830083,
           "target": "worker",
           "torn": 0,
           "trial": 0
@@ -954,7 +954,7 @@
           "acked": 6,
           "acked_missing": 0,
           "duplicates": 0,
-          "fault_ns": 173127367690541,
+          "fault_ns": 173687694677625,
           "target": "worker",
           "torn": 0,
           "trial": 0
@@ -1004,7 +1004,7 @@
           "acked": 8,
           "acked_missing": 0,
           "duplicates": 0,
-          "fault_ns": 173127523552958,
+          "fault_ns": 173687855673125,
           "target": "worker",
           "torn": 0,
           "trial": 0
@@ -1054,7 +1054,7 @@
           "acked": 7,
           "acked_missing": 0,
           "duplicates": 0,
-          "fault_ns": 173127677070666,
+          "fault_ns": 173688014650833,
           "target": "worker",
           "torn": 0,
           "trial": 0
@@ -1104,7 +1104,7 @@
           "acked": 6,
           "acked_missing": 0,
           "duplicates": 0,
-          "fault_ns": 173127832740541,
+          "fault_ns": 173688174483458,
           "target": "worker",
           "torn": 0,
           "trial": 0
@@ -1154,7 +1154,7 @@
           "acked": 5,
           "acked_missing": 0,
           "duplicates": 0,
-          "fault_ns": 173127983586916,
+          "fault_ns": 173688336631583,
           "target": "worker",
           "torn": 0,
           "trial": 0
@@ -1274,7 +1274,7 @@
     "config": "default;trial=2",
     "matched": true,
     "result": {
-      "acked_missing": 140,
+      "acked_missing": 139,
       "cas": "not measured in B1",
       "duplicates": 0,
       "history": {
@@ -1311,7 +1311,7 @@
       "torn": 0,
       "trials": [
         {
-          "acked_missing": 140,
+          "acked_missing": 139,
           "duplicates": 0,
           "invalid_final": 0,
           "phase": "distinct",
