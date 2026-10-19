@@ -1,9 +1,9 @@
 import threading
 import time
 
-from memproof.adapters.markdown import Markdown
-from memproof.adapters.sqlite import SQLite
-from memproof.types import Ack
+from memtorture.adapters.markdown import Markdown
+from memtorture.adapters.sqlite import SQLite
+from memtorture.types import Ack
 
 
 class Buffered(Markdown):

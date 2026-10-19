@@ -30,7 +30,7 @@ def hardware():
 
 class ResultWriter:
     def __init__(self, root: Path, command: list[str]):
-        from memproof.controls.gate import methodology_hash
+        from memtorture.controls.gate import methodology_hash
 
         self.root = Path(root)
         self.root.mkdir(parents=True, exist_ok=True)

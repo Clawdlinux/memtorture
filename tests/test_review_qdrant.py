@@ -1,10 +1,10 @@
 import sys
 from types import SimpleNamespace
 
-from memproof.adapters.qdrant import COLLECTION, Qdrant, point_id
-from memproof.protocol import Worker
-from memproof.suites import read_path
-from memproof.types import Ack, Record, Ref, Scope
+from memtorture.adapters.qdrant import COLLECTION, Qdrant, point_id
+from memtorture.protocol import Worker
+from memtorture.suites import read_path
+from memtorture.types import Ack, Record, Ref, Scope
 from tests.test_protocol import Probe
 
 
@@ -19,7 +19,7 @@ def test_worker_preserves_native_write_reference(tmp_path):
         sys.executable,
         "-c",
         "from tests.test_review_qdrant import ReferenceProbe; "
-        "from memproof.worker import serve; serve(ReferenceProbe())",
+        "from memtorture.worker import serve; serve(ReferenceProbe())",
     ]
     with Worker("probe", "default", tmp_path, command=command) as worker:
         record = Record.make(Scope("t", "s"), "key", "memory")

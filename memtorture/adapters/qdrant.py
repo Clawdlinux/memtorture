@@ -11,9 +11,9 @@ import time
 import uuid
 from pathlib import Path
 
-from memproof.adapters.base import Base
-from memproof.embed import DIMENSIONS, embed
-from memproof.types import Ack, NotSupported, Record, Ref, Scope
+from memtorture.adapters.base import Base
+from memtorture.embed import DIMENSIONS, embed
+from memtorture.types import Ack, NotSupported, Record, Ref, Scope
 
 VERSION = "1.16.3"
 ROOT = Path(__file__).resolve().parents[2]

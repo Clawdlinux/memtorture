@@ -4,11 +4,11 @@ from types import SimpleNamespace
 
 import pytest
 
-from memproof.controls.gate import control_gate, require_controls
-from memproof.embed import embed
-from memproof.protocol import Worker
-from memproof.suites import concurrent, history_scale, process_kill, recall_delay
-from memproof.types import NotSupported
+from memtorture.controls.gate import control_gate, require_controls
+from memtorture.embed import embed
+from memtorture.protocol import Worker
+from memtorture.suites import concurrent, history_scale, process_kill, recall_delay
+from memtorture.types import NotSupported
 
 
 def test_embed_is_seeded_and_normalized():
@@ -84,7 +84,7 @@ def test_kill_has_no_post_ack_sleep(monkeypatch, tmp_path):
         raise AssertionError("A post-ack sleep can hide a short flush window")
 
     monkeypatch.setattr(
-        "memproof.suites.time",
+        "memtorture.suites.time",
         SimpleNamespace(monotonic_ns=time.monotonic_ns, sleep=forbidden_sleep),
     )
     assert process_kill("sqlite-off", "default", tmp_path, trials=1)["status"] == "ok"
@@ -107,7 +107,7 @@ def test_fault_precedes_write_log_io(monkeypatch, tmp_path):
         if data["operation"] == "write":
             assert workers[-1].faulted, "Log IO must not hide a flush window"
 
-    monkeypatch.setattr("memproof.suites.Worker", TrackingWorker)
+    monkeypatch.setattr("memtorture.suites.Worker", TrackingWorker)
     process_kill("sqlite-off", "default", tmp_path, trials=1, emit=emit)
 
 

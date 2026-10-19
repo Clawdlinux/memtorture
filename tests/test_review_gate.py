@@ -3,10 +3,10 @@ import shutil
 
 import pytest
 
-from memproof.cli import main
-from memproof.controls import gate
-from memproof.suites import history_scale
-from memproof.types import NotSupported
+from memtorture.cli import main
+from memtorture.controls import gate
+from memtorture.suites import history_scale
+from memtorture.types import NotSupported
 
 HISTORY = {
     "discriminates": None,

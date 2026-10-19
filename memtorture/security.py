@@ -1,7 +1,7 @@
 import hashlib
 from pathlib import Path
 
-from memproof.types import NotSupported
+from memtorture.types import NotSupported
 
 
 def check_scan(report):

@@ -4,8 +4,8 @@ import pytest
 from hypothesis import given
 from hypothesis import strategies as st
 
-from memproof.adapters import load_adapter
-from memproof.types import NotSupported, Record, Ref, Scope
+from memtorture.adapters import load_adapter
+from memtorture.types import NotSupported, Record, Ref, Scope
 
 ROWS = [
     ("markdown", "append"),

@@ -1,5 +1,5 @@
-from memproof.adapters.sqlite import SQLite
-from memproof.types import Record, Scope
+from memtorture.adapters.sqlite import SQLite
+from memtorture.types import Record, Scope
 
 
 def test_point_and_prefix_queries_use_unique_indexes(tmp_path):

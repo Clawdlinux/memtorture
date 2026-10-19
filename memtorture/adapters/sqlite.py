@@ -1,7 +1,7 @@
 import sqlite3
 
-from memproof.adapters.base import Base
-from memproof.types import Ack, NotSupported, Record, Scope
+from memtorture.adapters.base import Base
+from memtorture.types import Ack, NotSupported, Record, Scope
 
 
 class SQLite(Base):

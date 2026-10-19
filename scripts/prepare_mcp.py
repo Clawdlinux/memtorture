@@ -9,14 +9,14 @@ import subprocess
 import tarfile
 from pathlib import Path
 
-from memproof.security import check_scan, tree_hash
-from memproof.types import NotSupported
+from memtorture.security import check_scan, tree_hash
+from memtorture.types import NotSupported
 
 ROOT = Path(__file__).resolve().parents[1]
-VERSION = "2025.11.25"
+VERSION = "2.0.0"
 INTEGRITY = (
-    "woL22c8U+9bvp+VQVxDatzg2pMr94jSp5Z+1GyTOvGmfZINjypkyA1ID8I/4HgR/"
-    "ecATRxFznSK85AESaV+1MA=="
+    "h+oxQCpK6FOuhlPB9hAcSihAAahcnijuGTZGcXStGOL4UzFYB4ap+pvtSelxchkZ"
+    "lz7tnpY/e0sONaAs24Rurw=="
 )
 
 
@@ -40,7 +40,7 @@ def scan(source, report_path, env):
 
 def main():
     tool = ROOT / ".tools/mcp"
-    scratch = ROOT / ".scratch/mcp-2025.11.25"
+    scratch = ROOT / f".scratch/mcp-{VERSION}"
     scratch.mkdir(parents=True, exist_ok=True)
     tool.mkdir(parents=True, exist_ok=True)
     env = os.environ | {

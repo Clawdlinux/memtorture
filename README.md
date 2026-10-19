@@ -1,8 +1,8 @@
 Sponsored and built by the Clawdlinux team, makers of zerodb, an agent memory engine. zerodb will be tested here from milestone B4, under the same rules as every other system.
 
-# memproof
+# memtorture
 
-Agent memory benchmarks. Evidence, not proof.
+Torture tests for agent memory engines. Evidence, not marketing.
 
 B1 measures recall delay, history growth, process recovery, concurrent append, and concurrent keyed writes.
 Process kills test user-space buffering and recovery, not disk durability.
@@ -13,16 +13,16 @@ Python 3.12 and [uv](https://docs.astral.sh/uv/) are required.
 
 ```sh
 uv sync --locked
-uv run memproof controls
-uv run memproof run --suite process-kill --system sqlite --config synchronous=FULL
-uv run memproof report
+uv run memtorture controls
+uv run memtorture run --suite process-kill --system sqlite --config synchronous=FULL
+uv run memtorture report
 ```
 
 Run full controls before a local benchmark:
 
 ```sh
-uv run memproof controls
-uv run memproof run --all
+uv run memtorture controls
+uv run memtorture run --all
 ```
 
 The quick check uses 5 trials and never authorizes benchmark cells.
@@ -54,8 +54,8 @@ See [security notes](docs/SECURITY.md) for pins and scan rules.
 Use exact config rows:
 
 ```sh
-uv run memproof run --suite recall-delay --system qdrant --config wait=true
-uv run memproof run --suite history-scale --system markdown --config append
+uv run memtorture run --suite recall-delay --system qdrant --config wait=true
+uv run memtorture run --suite history-scale --system markdown --config append
 ```
 
 `wait=true` controls visibility, not fsync.

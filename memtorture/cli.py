@@ -2,14 +2,14 @@ import argparse
 import sys
 from pathlib import Path
 
-from memproof.types import NotSupported
+from memtorture.types import NotSupported
 
 
 def main(argv=None):
-    from memproof.runner import ROWS, report, run
-    from memproof.suites import PROCESS_NOTE, SUITES
+    from memtorture.runner import ROWS, report, run
+    from memtorture.suites import PROCESS_NOTE, SUITES
 
-    parser = argparse.ArgumentParser(description="memproof: evidence, not proof.")
+    parser = argparse.ArgumentParser(description="memtorture: evidence, not proof.")
     commands = parser.add_subparsers(dest="command", required=True)
     controls = commands.add_parser("controls", help="Check suite controls.")
     controls.add_argument("--quick", action="store_true", help="Run 5 trials.")
@@ -31,7 +31,7 @@ def main(argv=None):
         "--input", type=Path, help="Run directory. Defaults to latest."
     )
     args = parser.parse_args(argv)
-    args.invocation = ["memproof", *(sys.argv[1:] if argv is None else argv)]
+    args.invocation = ["memtorture", *(sys.argv[1:] if argv is None else argv)]
     if args.command == "run":
         filters = (args.suite, args.system, args.config)
         if args.all and any(filters):
@@ -51,7 +51,7 @@ def main(argv=None):
             print(exc)
             return 1
     if args.command == "controls":
-        from memproof.controls.gate import run_controls
+        from memtorture.controls.gate import run_controls
 
         summary = run_controls(quick=args.quick)
         for suite, result in sorted(summary["suites"].items()):

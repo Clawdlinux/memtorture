@@ -5,10 +5,10 @@ import time
 
 import pytest
 
-from memproof.protocol import Worker, decode, encode
-from memproof.results import ResultWriter
-from memproof.types import Ack, Record, Scope
-from memproof.worker import serve
+from memtorture.protocol import Worker, decode, encode
+from memtorture.results import ResultWriter
+from memtorture.types import Ack, Record, Scope
+from memtorture.worker import serve
 
 
 class Probe:
@@ -36,7 +36,7 @@ def probe_command():
         sys.executable,
         "-c",
         "from tests.test_protocol import Probe; "
-        "from memproof.worker import serve; serve(Probe())",
+        "from memtorture.worker import serve; serve(Probe())",
     ]
 
 
@@ -76,7 +76,7 @@ def test_unread_reply_never_enters_ack_set(tmp_path):
 
 def test_worker_reports_unsupported(tmp_path):
     with Worker("probe", "default", tmp_path, command=probe_command()) as worker:
-        from memproof.types import NotSupported
+        from memtorture.types import NotSupported
 
         with pytest.raises(NotSupported):
             worker.call("search", scope=Scope("t", "s"), query="x", k=1)
@@ -90,14 +90,14 @@ def test_worker_survives_bad_request():
 
 
 def test_result_manifest_and_alphabetical_table(tmp_path):
-    with ResultWriter(tmp_path, command=["memproof", "test"]) as writer:
+    with ResultWriter(tmp_path, command=["memtorture", "test"]) as writer:
         writer.operation({"suite": "x", "system": "z", "latency_ms": 1})
         writer.cell({"suite": "x", "system": "z", "config": "default"})
         writer.cell({"suite": "x", "system": "a", "config": "default"})
     manifest = json.loads((tmp_path / "manifest.json").read_text())
     assert manifest["harness_commit"]
     assert manifest["hardware"]["machine"]
-    assert manifest["command"] == ["memproof", "test"]
+    assert manifest["command"] == ["memtorture", "test"]
     table = (tmp_path / "x.md").read_text()
     assert table.index("| a |") < table.index("| z |")
     assert json.loads((tmp_path / "operations.jsonl").read_text())["latency_ms"] == 1

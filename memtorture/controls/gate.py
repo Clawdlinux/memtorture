@@ -5,15 +5,15 @@ import shutil
 import uuid
 from pathlib import Path
 
-from memproof.results import ResultWriter, hardware
-from memproof.suites import (
+from memtorture.results import ResultWriter, hardware
+from memtorture.suites import (
     HISTORY_CONTROLS,
     PATHS,
     concurrent,
     process_kill,
     recall_delay,
 )
-from memproof.types import NotSupported
+from memtorture.types import NotSupported
 
 DEFAULT_ROOT = Path("results/controls")
 
@@ -80,7 +80,8 @@ def run_controls(*, quick=False, root=DEFAULT_ROOT):
     }
     try:
         with ResultWriter(
-            run_root, command=["memproof", "controls"] + (["--quick"] if quick else [])
+            run_root,
+            command=["memtorture", "controls"] + (["--quick"] if quick else []),
         ) as writer:
             for suite, fail_system, pass_system in (
                 ("recall-delay", "delayed-index", "sqlite-visible"),

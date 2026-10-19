@@ -1,9 +1,9 @@
 from dataclasses import replace
 
-from memproof.adapters.markdown import Markdown
-from memproof.protocol import Worker
-from memproof.suites import concurrent, inspect_records
-from memproof.types import Record, Scope
+from memtorture.adapters.markdown import Markdown
+from memtorture.protocol import Worker
+from memtorture.suites import concurrent, inspect_records
+from memtorture.types import Record, Scope
 
 
 def test_torn_markdown_rows_survive_prefix_and_limit(tmp_path):
@@ -33,7 +33,7 @@ def test_concurrent_readback_counts_torn_lines(monkeypatch, tmp_path):
                     output.write("torn first\n{torn second\n")
             return super().call(op, **kwargs)
 
-    monkeypatch.setattr("memproof.suites.Worker", TornWorker)
+    monkeypatch.setattr("memtorture.suites.Worker", TornWorker)
     result = concurrent(
         "concurrent-append",
         "markdown",
@@ -48,7 +48,7 @@ def test_concurrent_readback_counts_torn_lines(monkeypatch, tmp_path):
 
 
 def test_overlap_checks_duplicates_and_every_returned_row():
-    from memproof.suites import inspect_overlap
+    from memtorture.suites import inspect_overlap
 
     scope = Scope("t", "s")
     first = Record.make(scope, "shared", "first")
@@ -73,7 +73,7 @@ def test_overlap_phase_uses_returned_rows(monkeypatch, tmp_path):
                 return rows + [rows[0], Record.make(rows[0].scope, "extra", "unknown")]
             return rows
 
-    monkeypatch.setattr("memproof.suites.Worker", DuplicateWorker)
+    monkeypatch.setattr("memtorture.suites.Worker", DuplicateWorker)
     result = concurrent(
         "concurrent-kv",
         "sqlite-busy",

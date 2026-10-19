@@ -2,7 +2,7 @@
 
 Sponsored and built by the Clawdlinux team.
 
-This is evidence, not proof.
+This is evidence, not marketing.
 There is no combined score or leaderboard.
 Comparative publication remains blocked pending outside review and the 14-day reply window.
 
@@ -56,7 +56,7 @@ Qdrant clients share one server per data directory.
 
 ## Controls
 
-Run `uv run memproof controls` before measuring cells.
+Run `uv run memtorture controls` before measuring cells.
 It uses 20 trials per control.
 `--quick` uses 5.
 Quick runs write only under `results/controls/quick/`.
@@ -219,7 +219,7 @@ Dirty worktrees are identified.
 The methodology fingerprint identifies the exact code used.
 Per-suite Markdown tables sort systems alphabetically.
 Tables are local evidence only.
-`memproof report` never changes raw operations.
+`memtorture report` never changes raw operations.
 
 Only control results are committed.
 Comparative results remain gitignored.

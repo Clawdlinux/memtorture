@@ -7,8 +7,8 @@ from concurrent.futures import ThreadPoolExecutor
 from contextlib import ExitStack
 from dataclasses import asdict
 
-from memproof.protocol import Worker
-from memproof.types import NotSupported, Record, Scope
+from memtorture.protocol import Worker
+from memtorture.types import NotSupported, Record, Scope
 
 SUITES = (
     "recall-delay",
