@@ -1,85 +1,116 @@
-import json
-import shutil
-import subprocess
-import sys
-from pathlib import Path
+import shlex
 
 import pytest
 
 from memtorture.cli import main
-from memtorture.protocol import OPERATIONS, ProtocolError, Worker
-
-NODE = shutil.which("node")
-REFERENCE = "systems/reference-node/worker.mjs"
-
-
-def test_golden_transcripts_cover_every_operation():
-    path = Path("docs/protocol/v1/golden.jsonl")
-    cases = [json.loads(line) for line in path.read_text().splitlines()]
-    assert {case["request"]["op"] for case in cases} == OPERATIONS
-
-
-@pytest.mark.parametrize(
-    "command",
-    [
-        pytest.param(
-            f"{NODE} {REFERENCE}",
-            marks=pytest.mark.skipif(NODE is None, reason="Node is missing"),
-        ),
-        f"{sys.executable} -m memtorture.worker sqlite",
-        f"{sys.executable} -m memtorture.worker markdown",
-        f"{sys.executable} -m memtorture.worker delayed-index",
-    ],
+from memtorture.conformance import run_conformance
+from memtorture.protocol import ProtocolError, Worker, worker_command
+from tests.helpers import (
+    ADAPTER_ROWS,
+    KEYWORD_SEARCH,
+    NEIGHBOUR_SEARCH,
+    REFERENCE,
+    make_record,
+    variant_source,
 )
-def test_conformance_cli_passes_reference_and_baselines(command, capsys):
-    config = "append" if command.endswith("markdown") else "synchronous=NORMAL"
-    assert main(["conformance", "--command", command, "--config", config]) == 0
-    assert "PASS" in capsys.readouterr().out
 
 
-@pytest.mark.skipif(NODE is None, reason="Node is missing")
-def test_node_worker_does_not_import_python():
-    code = Path(REFERENCE).read_text()
-    assert "memtorture" not in code
-    assert "python" not in code.lower()
-    assert all(
-        "node:" in line for line in code.splitlines() if line.startswith("import ")
+@pytest.mark.parametrize("system,config", [*ADAPTER_ROWS, ("reference", "default")])
+def test_adapter_contract(
+    tmp_path, monkeypatch, capsys, available, system, config, request
+):
+    available(system)
+    command = (
+        [request.getfixturevalue("node"), str(REFERENCE)]
+        if system == "reference"
+        else worker_command(system)
     )
-    subprocess.run([NODE, "--check", REFERENCE], check=True)
-
-
-@pytest.mark.parametrize(
-    "result",
-    [
-        '{"id":2,"result":{"id":"r","dropped":false,"ref":null}}',
-        '{"id":2,"result":{"kind":"ack","id":"wrong","dropped":false,"ref":null}}',
-        "stray worker log",
-        "\\xff",
-    ],
-)
-def test_bad_stdout_invalidates_cell_without_ack(tmp_path, result):
-    raw = b"\xff\n" if result == "\\xff" else (result + "\n").encode()
-    script = (
-        "import json,sys; "
-        "sys.stdin.readline(); "
-        "print(json.dumps({'id':1,'result':{'protocol':1,'capabilities':['write'],"
-        "'version':'test','notes':'','servers':[]}}),flush=True); "
-        "sys.stdin.readline(); "
-        f"sys.stdout.buffer.write({raw!r}); "
-        "sys.stdout.buffer.flush()"
-    )
-    from memtorture.types import Record, Scope
-
-    with Worker(
-        "bad", "default", tmp_path, command=[sys.executable, "-c", script]
-    ) as worker:
-        record = Record.make(Scope("t", "s"), "k", "v", id="r")
-        with pytest.raises(ProtocolError):
-            worker.call("write", scope=record.scope, record=record)
-        assert worker.acked == {}
-
-
-def test_conformance_rejects_broken_worker(capsys, monkeypatch, tmp_path):
     monkeypatch.chdir(tmp_path)
-    assert main(["conformance", "--command", f"{sys.executable} -c 'print(123)'"]) == 1
-    assert "FAIL" in capsys.readouterr().out
+    assert (
+        main(
+            [
+                "conformance",
+                "--command",
+                shlex.join(command),
+                "--config",
+                config,
+            ]
+        )
+        == 0
+    )
+    output = capsys.readouterr().out
+    passed = next(line for line in output.splitlines() if line.startswith("PASS:"))
+    assert "malformed" not in passed
+    assert "HARNESS:" in output
+    if system == "reference":
+        with Worker(system, config, tmp_path / "storage", command=command) as worker:
+            record = make_record()
+            worker.call("write", scope=record.scope, record=record)
+            assert worker.call("get", scope=record.scope, key=record.key).vector is None
+
+
+@pytest.mark.parametrize(
+    "variant,valid",
+    [
+        *[
+            (f"{kind}:{op}", False)
+            for kind in ("scope", "deleted")
+            for op in ("get", "list_prefix", "search", "read_recent")
+        ],
+        ("duplicate-upsert", False),
+        ("constant-ref", False),
+        ("reject-unknown-scope", False),
+        ("stale-upsert-search", False),
+        ("duplicate-search", False),
+        ("echo-delete-ref", True),
+        ("dropped-foreign-delete", True),
+    ],
+)
+def test_worker_variants(tmp_path, node, capsys, variant, valid):
+    source = variant_source(variant)
+    assert source != REFERENCE.read_text()
+    worker = tmp_path / "variant.mjs"
+    worker.write_text(source)
+    directory = tmp_path / "run"
+    command = shlex.join([node, str(worker)])
+    if valid:
+        result = run_conformance(command, workdir=directory, visibility_timeout=0)
+        assert result["passed"] > 0
+        assert result["skipped"] == []
+    else:
+        message = {
+            "duplicate-search": "duplicate",
+            "stale-upsert-search": "golden case 26",
+        }.get(variant)
+        with pytest.raises(ProtocolError, match=message):
+            run_conformance(command, workdir=directory, visibility_timeout=0)
+        if variant == "duplicate-upsert":
+            assert "debug diagnostic" in (directory / "worker.stderr.log").read_text()
+            output = capsys.readouterr().out
+            assert str(directory) in output
+            assert "debug diagnostic" in output
+
+
+@pytest.mark.parametrize(
+    "variant", ["nearest", "wrong-first-match", "too-many-results"]
+)
+def test_search_variants(tmp_path, node, variant):
+    source = REFERENCE.read_text().replace(KEYWORD_SEARCH, NEIGHBOUR_SEARCH)
+    if variant == "wrong-first-match":
+        source = source.replace(
+            "Number(b.text === args.query) - Number(a.text === args.query)",
+            "Number(a.text === args.query) - Number(b.text === args.query)",
+        )
+    elif variant == "too-many-results":
+        source = source.replace(".slice(0, args.k);", ".slice(0, args.k + 1);")
+    worker = tmp_path / "nearest.mjs"
+    worker.write_text(source)
+    command = shlex.join([node, str(worker)])
+    if variant == "nearest":
+        result = run_conformance(
+            command, workdir=tmp_path / "run", visibility_timeout=0
+        )
+        assert result["skipped"] == []
+    else:
+        with pytest.raises(ProtocolError):
+            run_conformance(command, workdir=tmp_path / "run", visibility_timeout=0)
