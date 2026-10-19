@@ -64,10 +64,11 @@ class SQLite(Base):
     def _record(row):
         return Record(row[0], Scope(row[1], row[2]), row[3], row[4], row[5])
 
-    def _query(self, scope, where="", params=(), limit=1000001):
+    def _query(self, scope, where="", params=(), limit=1000001, *, ordered=True):
+        ordering = " ORDER BY seq DESC" if ordered else ""
         rows = self.db.execute(
             "SELECT id,tenant,session,path,text,payload_sha256 FROM records "
-            "WHERE tenant=? AND session=? " + where + " ORDER BY seq DESC LIMIT ?",
+            "WHERE tenant=? AND session=? " + where + ordering + " LIMIT ?",
             (scope.tenant, scope.session, *params, limit),
         )
         return [self._record(row) for row in rows]
@@ -90,7 +91,9 @@ class SQLite(Base):
         return Ack(record.id)
 
     def get(self, scope, key):
-        rows = self._query(scope, "AND (path=? OR id=?)", (key, key), 1)
+        rows = self._query(scope, "AND path=?", (key,), 1, ordered=False)
+        if not rows:
+            rows = self._query(scope, "AND id=?", (key,), 1, ordered=False)
         return rows[0] if rows else None
 
     def bulk_load(self, scope, records):
@@ -107,8 +110,14 @@ class SQLite(Base):
         return self._query(scope, limit=n)
 
     def list_prefix(self, scope, prefix, limit):
+        if not prefix:
+            return self._query(scope, limit=limit)
         return self._query(
-            scope, "AND substr(path,1,length(?))=?", (prefix, prefix), limit
+            scope,
+            "AND path >= ? AND path < ?",
+            (prefix, prefix + "\U0010ffff"),
+            limit,
+            ordered=False,
         )
 
     def search(self, scope, query, k):
