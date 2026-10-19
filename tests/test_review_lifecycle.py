@@ -7,10 +7,10 @@ from unittest.mock import Mock
 
 import pytest
 
-from memproof.adapters.markdown import Markdown
-from memproof.adapters.qdrant import Qdrant
-from memproof.protocol import Worker
-from memproof.types import Record, Scope
+from memtorture.adapters.markdown import Markdown
+from memtorture.adapters.qdrant import Qdrant
+from memtorture.protocol import Worker
+from memtorture.types import Record, Scope
 from tests.test_protocol import Probe
 
 
@@ -75,8 +75,8 @@ def test_server_kill_waits_for_pid_disappearance(monkeypatch):
         else:
             assert sig == signal.SIGKILL
 
-    monkeypatch.setattr("memproof.protocol.os.kill", kill)
-    monkeypatch.setattr("memproof.protocol.time.sleep", lambda _: None)
+    monkeypatch.setattr("memtorture.protocol.os.kill", kill)
+    monkeypatch.setattr("memtorture.protocol.time.sleep", lambda _: None)
     worker.kill("server")
     assert len(probes) == 3
 
@@ -84,9 +84,9 @@ def test_server_kill_waits_for_pid_disappearance(monkeypatch):
 def test_server_kill_wait_is_bounded(monkeypatch):
     worker = bare_worker()
     clock = iter(range(100))
-    monkeypatch.setattr("memproof.protocol.time.monotonic", lambda: next(clock))
-    monkeypatch.setattr("memproof.protocol.time.sleep", lambda _: None)
-    monkeypatch.setattr("memproof.protocol.os.kill", lambda *args: None)
+    monkeypatch.setattr("memtorture.protocol.time.monotonic", lambda: next(clock))
+    monkeypatch.setattr("memtorture.protocol.time.sleep", lambda _: None)
+    monkeypatch.setattr("memtorture.protocol.os.kill", lambda *args: None)
     with pytest.raises(TimeoutError, match="server"):
         worker.kill("server")
 
@@ -96,7 +96,7 @@ def test_server_child_is_reaped_before_restart(tmp_path):
         sys.executable,
         "-c",
         "from tests.test_review_lifecycle import ServerProbe; "
-        "from memproof.worker import serve; serve(ServerProbe())",
+        "from memtorture.worker import serve; serve(ServerProbe())",
     ]
     with Worker("probe", "default", tmp_path, command=command) as worker:
         worker.kill("server")
@@ -112,11 +112,11 @@ def test_qdrant_prefers_harness_sequence(monkeypatch, sequence):
     def forbidden_clock():
         raise AssertionError("Harness order must not depend on wall clock")
 
-    monkeypatch.setattr("memproof.adapters.qdrant.time.time_ns", forbidden_clock)
+    monkeypatch.setattr("memtorture.adapters.qdrant.time.time_ns", forbidden_clock)
     assert Qdrant._point(sequenced)["payload"]["_order"] == sequence
 
 
 def test_qdrant_wall_clock_fallback(monkeypatch):
     record = Record.make(Scope("t", "s"), "key", "memory")
-    monkeypatch.setattr("memproof.adapters.qdrant.time.time_ns", lambda: 123456)
+    monkeypatch.setattr("memtorture.adapters.qdrant.time.time_ns", lambda: 123456)
     assert Qdrant._point(record)["payload"]["_order"] == 123456

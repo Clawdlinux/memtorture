@@ -1,6 +1,6 @@
 {
   "command": [
-    "memproof",
+    "memtorture",
     "controls"
   ],
   "comparative_publication": "blocked pending outside review and reply window",
@@ -11,9 +11,9 @@
     "processor": "arm",
     "ram_bytes": 17179869184
   },
-  "harness_commit": "c7c19fdc883a67570599ea9b5c9c9c996af5c9f2",
+  "harness_commit": "f7318f6e49a1606a2d730b0c9533cc53b023e130",
   "harness_dirty": true,
-  "methodology_sha256": "da2cc7fc9237f621e31f3e180e78a1e393564014b69d9f9e09891bd2868d0176",
+  "methodology_sha256": "b837417f6e3377821f7724170c7d3c1ec293263b40c0862e9e4bb76849210a13",
   "os": "macOS-27.0.1-arm64-arm-64bit",
   "python": "3.12.12",
   "runtime_dependencies": "none (Python standard library only)",

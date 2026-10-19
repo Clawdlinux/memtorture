@@ -3,10 +3,10 @@ from pathlib import Path
 
 import pytest
 
-from memproof.adapters import load_adapter
-from memproof.security import check_scan
-from memproof.suites import process_kill
-from memproof.types import NotSupported, Record, Scope
+from memtorture.adapters import load_adapter
+from memtorture.security import check_scan
+from memtorture.suites import process_kill
+from memtorture.types import NotSupported, Record, Scope
 from scripts.fetch_qdrant import verify
 
 

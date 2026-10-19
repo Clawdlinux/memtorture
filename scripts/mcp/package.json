@@ -1,5 +1,5 @@
 {
-  "name": "memproof-mcp-pin",
+  "name": "memtorture-mcp-pin",
   "private": true,
   "version": "1.0.0",
   "dependencies": {

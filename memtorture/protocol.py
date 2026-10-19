@@ -9,7 +9,7 @@ import time
 from dataclasses import fields, is_dataclass
 from pathlib import Path
 
-from memproof.types import Ack, NotSupported, QueryContext, Record, Ref, Scope
+from memtorture.types import Ack, NotSupported, QueryContext, Record, Ref, Scope
 
 TYPES = {cls.__name__: cls for cls in (Ack, QueryContext, Record, Ref, Scope)}
 
@@ -54,7 +54,7 @@ class Worker:
         self.server_pid = None
         self.log = (self.workdir / "worker.stderr.log").open("ab")
         self.process = subprocess.Popen(
-            command or [sys.executable, "-m", "memproof.worker", system],
+            command or [sys.executable, "-m", "memtorture.worker", system],
             stdin=subprocess.PIPE,
             stdout=subprocess.PIPE,
             stderr=self.log,

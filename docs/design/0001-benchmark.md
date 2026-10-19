@@ -1,6 +1,6 @@
-# 0001: memproof, a benchmark for agent memory engines
+# 0001: memtorture, a benchmark for agent memory engines
 
-Status: Approved after 3 review rounds (Claude Opus 5.5 and Gemini 4 Argon, independent). Working name `memproof`: evidence, not proof.
+Status: Approved after 3 review rounds (Claude Opus 5.5 and Gemini 4 Argon, independent). Renamed from `memproof` to `memtorture` on 2026-10-19. `membench` was rejected because it collides with the MemBench agent-memory paper (arXiv 2506.21605).
 
 ## Why
 
@@ -18,11 +18,11 @@ Users also report problems that no harness measures as a number:
 
 No completed crash-safety test exists for any agent memory store or vector database (research, 2026-10-18).
 
-memproof measures these, reproducibly, with raw outputs, controls, and suites where any system can lose, including the sponsor's.
+memtorture measures these, reproducibly, with raw outputs, controls, and suites where any system can lose, including the sponsor's.
 
 ## Sponsor disclosure
 
-memproof is built by the team behind zerodb. That is stated at the top of the README and on every results page. The governance rules below exist to make the results trustworthy anyway.
+memtorture is built by the team behind zerodb. That is stated at the top of the README and on every results page. The governance rules below exist to make the results trustworthy anyway.
 
 ## Principles
 
@@ -116,7 +116,7 @@ SQLite WAL `synchronous=NORMAL` is reported in `power-loss` as an expected-loss 
 
 ## Tier 3: recall quality (delegated)
 
-A zerodb provider in `memorybench`. memproof links those results. It does not re-host LoCoMo (CC BY-NC).
+A zerodb provider in `memorybench`. memtorture links those results. It does not re-host LoCoMo (CC BY-NC).
 
 ## Systems
 
@@ -163,7 +163,7 @@ class Adapter(Protocol):
   - raw per-operation JSONL;
   - per-suite tables (systems in alphabetical order);
   - a manifest with versions, configs, hardware, OS and harness commit.
-- `memproof run --suite process-kill --system qdrant --config durable` reproduces one cell.
+- `memtorture run --suite process-kill --system qdrant --config durable` reproduces one cell.
 - Published results come from scripted CI or a documented machine, never hand runs. A methodology change reruns every system.
 
 ## Governance
@@ -203,4 +203,4 @@ B1 is worth open-sourcing alone. It would be the first public process-kill and c
 
 ## Open questions
 
-1. GitHub org. Both reviewers now favor a separate org (`memproof`) with "Sponsored and built by the Clawdlinux team" in the org bio and README. Waiting on the owner's call.
+1. GitHub org. Resolved: `Clawdlinux/memtorture`, with sponsor disclosure in the README.

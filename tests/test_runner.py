@@ -3,10 +3,10 @@ from argparse import Namespace
 
 import pytest
 
-from memproof.cli import main
-from memproof.results import ResultWriter
-from memproof.runner import ROWS, run, run_cell
-from memproof.types import NotSupported
+from memtorture.cli import main
+from memtorture.results import ResultWriter
+from memtorture.runner import ROWS, run, run_cell
+from memtorture.types import NotSupported
 
 
 def test_run_help_mentions_fault_scope(capsys):
@@ -36,13 +36,13 @@ def test_cell_requires_current_controls(monkeypatch, tmp_path):
     def blocked(suite):
         raise NotSupported("controls do not discriminate")
 
-    monkeypatch.setattr("memproof.runner.require_controls", blocked)
+    monkeypatch.setattr("memtorture.runner.require_controls", blocked)
     with pytest.raises(NotSupported, match="controls"):
         run_cell("process-kill", "sqlite", "synchronous=FULL", tmp_path)
 
 
 def test_report_preserves_raw_operations(monkeypatch, tmp_path, capsys):
-    monkeypatch.setattr("memproof.runner.require_controls", lambda suite: None)
+    monkeypatch.setattr("memtorture.runner.require_controls", lambda suite: None)
     with ResultWriter(tmp_path, ["test"]) as writer:
         writer.operation({"operation": "write", "suite": "recall-delay"})
         writer.cell(
@@ -65,17 +65,20 @@ def test_all_cell_rows_are_declared():
 
 def test_all_runs_35_cells(monkeypatch, tmp_path):
     calls = []
-    monkeypatch.setattr("memproof.runner.require_controls", lambda suite: None)
-    monkeypatch.setattr("memproof.runner.DEFAULT_ROOT", tmp_path / "controls")
+    monkeypatch.setattr("memtorture.runner.require_controls", lambda suite: None)
+    monkeypatch.setattr("memtorture.runner.DEFAULT_ROOT", tmp_path / "controls")
 
     def cell(suite, system, config, path, **kwargs):
         calls.append((suite, system, config))
         return {"status": "ok"}
 
-    monkeypatch.setattr("memproof.runner.run_cell", cell)
+    monkeypatch.setattr("memtorture.runner.run_cell", cell)
     output = tmp_path / "run"
     args = Namespace(
-        all=True, output=output, extended=False, invocation=["memproof", "run", "--all"]
+        all=True,
+        output=output,
+        extended=False,
+        invocation=["memtorture", "run", "--all"],
     )
     assert run(args) == 0
     assert len(calls) == 35
@@ -87,13 +90,13 @@ def test_bad_controls_publish_no_cells(monkeypatch, tmp_path):
     def blocked(suite):
         raise NotSupported("controls missing")
 
-    monkeypatch.setattr("memproof.runner.require_controls", blocked)
-    monkeypatch.setattr("memproof.runner.DEFAULT_ROOT", tmp_path / "controls")
+    monkeypatch.setattr("memtorture.runner.require_controls", blocked)
+    monkeypatch.setattr("memtorture.runner.DEFAULT_ROOT", tmp_path / "controls")
     args = Namespace(
         all=True,
         output=tmp_path / "run",
         extended=False,
-        invocation=["memproof", "run", "--all"],
+        invocation=["memtorture", "run", "--all"],
     )
     assert run(args) == 1
     assert json.loads((args.output / "cells.json").read_text()) == []

@@ -9,8 +9,8 @@ import subprocess
 import tarfile
 from pathlib import Path
 
-from memproof.security import check_scan, tree_hash
-from memproof.types import NotSupported
+from memtorture.security import check_scan, tree_hash
+from memtorture.types import NotSupported
 
 ROOT = Path(__file__).resolve().parents[1]
 VERSION = "2.0.0"

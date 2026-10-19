@@ -1,5 +1,5 @@
-from memproof.adapters.base import Base
-from memproof.types import NotSupported
+from memtorture.adapters.base import Base
+from memtorture.types import NotSupported
 
 VERSION = "2.0.0"
 BLOCK_REASON = (

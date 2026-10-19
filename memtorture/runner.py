@@ -3,16 +3,16 @@ import uuid
 from datetime import UTC, datetime
 from pathlib import Path
 
-from memproof.controls.gate import DEFAULT_ROOT, methodology_hash, require_controls
-from memproof.results import ResultWriter, render_tables
-from memproof.suites import (
+from memtorture.controls.gate import DEFAULT_ROOT, methodology_hash, require_controls
+from memtorture.results import ResultWriter, render_tables
+from memtorture.suites import (
     SUITES,
     concurrent,
     history_scale,
     process_kill,
     recall_delay,
 )
-from memproof.types import NotSupported
+from memtorture.types import NotSupported
 
 ROWS = {
     "markdown": ("append", "rewrite"),

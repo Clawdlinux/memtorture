@@ -3,8 +3,8 @@ import os
 import sys
 from pathlib import Path
 
-from memproof.protocol import decode, encode
-from memproof.types import NotSupported
+from memtorture.protocol import decode, encode
+from memtorture.types import NotSupported
 
 METHODS = {
     "write",
@@ -74,7 +74,7 @@ def serve(adapter, source=None, output=None):
 
 
 def main():
-    from memproof.adapters import load_adapter
+    from memtorture.adapters import load_adapter
 
     serve(load_adapter(sys.argv[1]))
 

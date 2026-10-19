@@ -1,4 +1,4 @@
-from memproof.types import NotSupported
+from memtorture.types import NotSupported
 
 
 class Base:

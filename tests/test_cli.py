@@ -6,7 +6,7 @@ import unittest
 class CliTest(unittest.TestCase):
     def test_help(self):
         result = subprocess.run(
-            [sys.executable, "-m", "memproof", "--help"],
+            [sys.executable, "-m", "memtorture", "--help"],
             capture_output=True,
             text=True,
         )
@@ -15,7 +15,7 @@ class CliTest(unittest.TestCase):
 
     def test_controls_help(self):
         result = subprocess.run(
-            [sys.executable, "-m", "memproof", "controls", "--help"],
+            [sys.executable, "-m", "memtorture", "controls", "--help"],
             capture_output=True,
             text=True,
         )
