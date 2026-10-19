@@ -1,0 +1,11 @@
+.venv/
+__pycache__/
+.pytest_cache/
+.ruff_cache/
+.hypothesis/
+.scratch/
+.tools/
+results/*
+!results/controls/
+results/controls/.work/
+*.egg-info/
