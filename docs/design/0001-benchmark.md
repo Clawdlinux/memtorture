@@ -45,13 +45,13 @@ memtorture is built by the team behind zerodb. That is stated at the top of the 
 - Every system under test runs in its own worker process (and its own server container if it has one). The harness talks to the worker over a pipe.
 - A write is **acked** only when the harness has read the worker's reply after the system's call returned.
 - Every payload carries a content hash written by the harness, so torn records are detected the same way for every system.
-- Fault targets are reported separately: application worker, storage server, both.
+- Fault targets are reported separately: application worker, and each server process by role (for example API server, task worker, storage). `start` reports `servers: [{role, pid}]`.
 - For client-server systems the main fault target is the server. The harness kills the server PID directly with `os.kill(pid, SIGKILL)` right after the ack. It never shells out to `docker kill`, whose delay can hide a short async flush window. Containers are resolved to a host PID with `docker inspect`. That only works on Linux, so the server fault target is Linux-only. On macOS, servers run as native binaries. Killing only the client worker of a server-backed system tests little, and results say so.
 - Like Jepsen's `:info`, writes that were in flight and not acked may be present or absent. Only acked writes missing, or torn records, are violations.
 
 ## Tier 1: engine properties (no LLM, deterministic, CI)
 
-All vector systems use one pinned deterministic embedder (a seeded hash embedder in CI, `BAAI/bge-small-en-v1.5` via fastembed for realistic runs). Setup data is bulk loaded without timing. Default scale caps at 100K records; `--extended` goes to 1M.
+All vector systems use one pinned deterministic embedder. It is defined byte for byte in `docs/PROTOCOL.md` (SHA-256 unpacked to floats, normalized) with test vectors, so any language reproduces it. The harness computes vectors. Systems that embed internally call a local OpenAI-compatible endpoint that serves the same embedder. `BAAI/bge-small-en-v1.5` via fastembed is an optional realistic-run mode. Setup data is bulk loaded without timing. Default scale caps at 100K records; `--extended` goes to 1M.
 
 | Suite | What it does | Metrics |
 |---|---|---|
@@ -132,6 +132,10 @@ A zerodb provider in `memorybench`. memtorture links those results. It does not 
 | Mem0 OSS | 1, 2 | `infer=False`; `infer=True` with pinned local LLM | LLM rows labeled and capped at 1K records |
 | Graphiti OSS | 1 (small N), 2 | pinned local LLM via Ollama | Capped at 1K records |
 | basic-memory | 2 | | MCP over markdown with SQLite index |
+| Postgres + pgvector | 1 | `synchronous_commit=on`, `synchronous_commit=off` | The "why not just Postgres" baseline. Mem0, Letta and LangGraph use it in production |
+| LangGraph store | 1 | the durable `BaseStore` of the pinned version | |
+| Redis agent-memory-server | 1 | shipped default, `appendfsync everysec`, `appendfsync always` | Needs RediSearch. Extraction off |
+| Letta | 1 | default | Memory blocks for keyed ops, archival passages for append and search. Moves to B4 if any write path calls an LLM |
 | zerodb | 1, 2 | | Only from a tagged release with `zerodb serve` (zerodb S3). Never through a shim |
 
 Rows are named by their exact setting. Each row cites the upstream doc line that says what is persisted before the call returns. A system with no documented fsync-before-ack mode gets "no documented durable mode" instead of a second row.
@@ -166,6 +170,16 @@ class Adapter(Protocol):
 - `memtorture run --suite process-kill --system qdrant --config durable` reproduces one cell.
 - Published results come from scripted CI or a documented machine, never hand runs. A methodology change reruns every system.
 
+## Running third-party systems
+
+Benchmarked systems (databases, memory libraries, servers) run under a named exception, approved by the owner on 2026-10-19. Agent skills and MCP packages are not covered. They stay under the strict scan gate.
+
+- Only upstream release artifacts: PyPI wheels with PyPI's published hashes, upstream release binaries with upstream checksums or signatures, or container images pinned by digest.
+- SkillSpector scans every artifact. Full reports stay out of Git. A scan outcome for a compared system is a result under governance.
+- The owner approves each system in a committed `systems/<name>/APPROVAL` file.
+- Runs are sandboxed: non-root, no external network, writes only inside the run's workdir.
+- An artifact that cannot be verified against an upstream checksum, signature or digest is not run.
+
 ## Governance
 
 - Sponsor disclosure on the README and every results page.
@@ -180,8 +194,10 @@ class Adapter(Protocol):
 | M | Scope | Publishes |
 |---|---|---|
 | B1 | Harness, process model, controls. Suites: `recall-delay`, `history-scale`, `process-kill`, `concurrent-append`, `concurrent-kv`. Adapters: markdown (flat), SQLite (both rows), MCP reference memory server, Qdrant (both rows) | Methodology, code and control results. Comparative tables only after an outside maintainer joins and the 14-day reply window closes. No zerodb cells |
-| B2 | `write-throughput`, `recovery`. `power-loss` on Linux with LazyFS (GitHub Actions or a Linux VM), with the `mmap` controls. `supersede-by-key`, `forget`, `forget-residue`. Adapters: Chroma, Mem0 (`infer=False`) | Results. Tier 2 corpus published for critique |
-| B3 | Tier 2 retrieval level. Adapters: nested markdown, rules files, basic-memory, SQLite FTS5 | Tier 2 results, once the outside maintainer and the corpus labels are in |
+| B2a | Protocol v1 with schemas, conformance kit, a Node reference worker, the language-neutral embedder. `write-throughput`, `recovery`, `supersede-by-key`, `forget`, `forget-residue`, with controls. Leak prevention. No new third-party code | Methodology and control results |
+| B2b | `power-loss` on Linux with LazyFS (GitHub Actions first, a Linux VM as fallback), with the `mmap` controls | Control results |
+| B2c | Sandbox runner and artifact policy. Adapters: Chroma, Postgres + pgvector, Mem0 (`infer=False`), Redis agent-memory-server, LangGraph store, Letta | Results, under governance. The Tier 2 corpus moves to B3 |
+| B3 | Tier 2 corpus published for critique. Tier 2 retrieval level. Adapters: nested markdown, rules files, basic-memory, SQLite FTS5 | Tier 2 results, once the outside maintainer and the corpus labels are in |
 | B4 | zerodb adapter (after zerodb S3 is tagged). Mem0 `infer=True` and Graphiti with a pinned local LLM, small N | zerodb cells, after the 14-day reply window |
 | B5 | Tier 2 end-to-end. zerodb provider for `memorybench` | End-to-end results |
 
