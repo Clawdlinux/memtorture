@@ -8,7 +8,7 @@
     "cpu_count": 10,
     "ram_bytes": 17179869184
   },
-  "methodology_sha256": "37e4b652276f2f07a4b0397f1a58fd054b913bff36921452bd3228535f168ad0",
+  "methodology_sha256": "cd2d6dba9db27ce7c8b2d9bd08b923a957e0175356c7988d3730585f6df093bf",
   "suites": {
     "recall-delay": {
       "must_fail": "delayed-index",
@@ -21,90 +21,90 @@
           "role": "must_fail",
           "trial": 0,
           "path": "id",
-          "lag_ms": 100.110625,
-          "upper_ms": 101.200417,
-          "read_p99_ms": 0.200417,
+          "lag_ms": 100.105625,
+          "upper_ms": 101.270042,
+          "read_p99_ms": 0.270042,
           "matched": true
         },
         {
           "role": "must_fail",
           "trial": 1,
           "path": "filter",
-          "lag_ms": 100.117709,
-          "upper_ms": 101.181541,
-          "read_p99_ms": 0.181541,
+          "lag_ms": 100.109708,
+          "upper_ms": 101.232958,
+          "read_p99_ms": 0.232958,
           "matched": true
         },
         {
           "role": "must_fail",
           "trial": 2,
           "path": "recency",
-          "lag_ms": 100.120291,
-          "upper_ms": 101.21975,
-          "read_p99_ms": 0.21975,
+          "lag_ms": 100.097708,
+          "upper_ms": 101.231875,
+          "read_p99_ms": 0.231875,
           "matched": true
         },
         {
           "role": "must_fail",
           "trial": 3,
           "path": "search",
-          "lag_ms": 100.201875,
-          "upper_ms": 101.351917,
-          "read_p99_ms": 0.351917,
+          "lag_ms": 100.204791,
+          "upper_ms": 101.450875,
+          "read_p99_ms": 0.450875,
           "matched": true
         },
         {
           "role": "must_fail",
           "trial": 4,
           "path": "id",
-          "lag_ms": 100.111292,
-          "upper_ms": 101.169042,
-          "read_p99_ms": 0.169042,
+          "lag_ms": 100.130041,
+          "upper_ms": 101.275791,
+          "read_p99_ms": 0.275791,
           "matched": true
         },
         {
           "role": "must_pass",
           "trial": 0,
           "path": "id",
-          "lag_ms": 0.2225,
-          "upper_ms": 101.176125,
-          "read_p99_ms": 0.176125,
+          "lag_ms": 0.2015,
+          "upper_ms": 101.155833,
+          "read_p99_ms": 0.155833,
           "matched": true
         },
         {
           "role": "must_pass",
           "trial": 1,
           "path": "filter",
-          "lag_ms": 0.171083,
-          "upper_ms": 101.133833,
-          "read_p99_ms": 0.133833,
+          "lag_ms": 0.17725,
+          "upper_ms": 101.140209,
+          "read_p99_ms": 0.140209,
           "matched": true
         },
         {
           "role": "must_pass",
           "trial": 2,
           "path": "recency",
-          "lag_ms": 0.173792,
-          "upper_ms": 101.136209,
-          "read_p99_ms": 0.136209,
+          "lag_ms": 0.177458,
+          "upper_ms": 101.139291,
+          "read_p99_ms": 0.139291,
           "matched": true
         },
         {
           "role": "must_pass",
           "trial": 3,
           "path": "search",
-          "lag_ms": 0.3935,
-          "upper_ms": 101.342917,
-          "read_p99_ms": 0.342917,
+          "lag_ms": 0.311541,
+          "upper_ms": 101.264666,
+          "read_p99_ms": 0.264666,
           "matched": true
         },
         {
           "role": "must_pass",
           "trial": 4,
           "path": "id",
-          "lag_ms": 0.166,
-          "upper_ms": 101.12875,
-          "read_p99_ms": 0.12875,
+          "lag_ms": 0.187208,
+          "upper_ms": 101.141708,
+          "read_p99_ms": 0.141708,
           "matched": true
         }
       ],
@@ -136,7 +136,7 @@
               "target": "worker",
               "trial": 0,
               "acked": 6,
-              "fault_ns": 173686914688041,
+              "fault_ns": 174716032300083,
               "acked_missing": 6,
               "duplicates": 0,
               "torn": 0
@@ -187,7 +187,7 @@
               "target": "worker",
               "trial": 0,
               "acked": 8,
-              "fault_ns": 173687072055250,
+              "fault_ns": 174716181174791,
               "acked_missing": 8,
               "duplicates": 0,
               "torn": 0
@@ -238,7 +238,7 @@
               "target": "worker",
               "trial": 0,
               "acked": 7,
-              "fault_ns": 173687230318500,
+              "fault_ns": 174716331320875,
               "acked_missing": 7,
               "duplicates": 0,
               "torn": 0
@@ -289,7 +289,7 @@
               "target": "worker",
               "trial": 0,
               "acked": 6,
-              "fault_ns": 173687384753375,
+              "fault_ns": 174716489627041,
               "acked_missing": 6,
               "duplicates": 0,
               "torn": 0
@@ -340,7 +340,7 @@
               "target": "worker",
               "trial": 0,
               "acked": 5,
-              "fault_ns": 173687537830083,
+              "fault_ns": 174716641420250,
               "acked_missing": 5,
               "duplicates": 0,
               "torn": 0
@@ -391,7 +391,7 @@
               "target": "worker",
               "trial": 0,
               "acked": 6,
-              "fault_ns": 173687694677625,
+              "fault_ns": 174716799209250,
               "acked_missing": 0,
               "duplicates": 0,
               "torn": 0
@@ -437,7 +437,7 @@
               "target": "worker",
               "trial": 0,
               "acked": 8,
-              "fault_ns": 173687855673125,
+              "fault_ns": 174716972108791,
               "acked_missing": 0,
               "duplicates": 0,
               "torn": 0
@@ -483,7 +483,7 @@
               "target": "worker",
               "trial": 0,
               "acked": 7,
-              "fault_ns": 173688014650833,
+              "fault_ns": 174717137454833,
               "acked_missing": 0,
               "duplicates": 0,
               "torn": 0
@@ -529,7 +529,7 @@
               "target": "worker",
               "trial": 0,
               "acked": 6,
-              "fault_ns": 173688174483458,
+              "fault_ns": 174717289409208,
               "acked_missing": 0,
               "duplicates": 0,
               "torn": 0
@@ -575,7 +575,7 @@
               "target": "worker",
               "trial": 0,
               "acked": 5,
-              "fault_ns": 173688336631583,
+              "fault_ns": 174717444510750,
               "acked_missing": 0,
               "duplicates": 0,
               "torn": 0
@@ -714,7 +714,7 @@
           "role": "must_fail",
           "trial": 2,
           "status": "violation",
-          "acked_missing": 139,
+          "acked_missing": 140,
           "duplicates": 0,
           "torn": 0,
           "invalid_final": 0,
@@ -722,7 +722,7 @@
             {
               "writers": 8,
               "phase": "distinct",
-              "acked_missing": 139,
+              "acked_missing": 140,
               "duplicates": 0,
               "torn": 0,
               "invalid_final": 0
@@ -1160,7 +1160,7 @@
           "role": "must_fail",
           "trial": 1,
           "status": "violation",
-          "acked_missing": 60,
+          "acked_missing": 59,
           "duplicates": 0,
           "torn": 0,
           "invalid_final": 0,
@@ -1169,7 +1169,7 @@
             {
               "writers": 4,
               "phase": "distinct",
-              "acked_missing": 60,
+              "acked_missing": 59,
               "duplicates": 0,
               "torn": 0,
               "invalid_final": 0
