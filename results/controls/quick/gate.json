@@ -8,7 +8,7 @@
     "cpu_count": 10,
     "ram_bytes": 17179869184
   },
-  "methodology_sha256": "48b5e1256275b4383dd758a0c72dd9504a67d231f813660356de920ac4baf938",
+  "methodology_sha256": "7e3373905700fce9fa46e4ecc8fb0c404999e27f08796e382f4a9061cb11d947",
   "suites": {
     "recall-delay": {
       "must_fail": "delayed-index",
@@ -21,90 +21,90 @@
           "role": "must_fail",
           "trial": 0,
           "path": "id",
-          "lag_ms": 100.1145,
-          "upper_ms": 101.242208,
-          "read_p99_ms": 0.242208,
+          "lag_ms": 100.121709,
+          "upper_ms": 101.231375,
+          "read_p99_ms": 0.231375,
           "matched": true
         },
         {
           "role": "must_fail",
           "trial": 1,
           "path": "filter",
-          "lag_ms": 100.107083,
-          "upper_ms": 101.184583,
-          "read_p99_ms": 0.184583,
+          "lag_ms": 100.106167,
+          "upper_ms": 101.2765,
+          "read_p99_ms": 0.2765,
           "matched": true
         },
         {
           "role": "must_fail",
           "trial": 2,
           "path": "recency",
-          "lag_ms": 100.105583,
-          "upper_ms": 101.208791,
-          "read_p99_ms": 0.208791,
+          "lag_ms": 100.099834,
+          "upper_ms": 101.201291,
+          "read_p99_ms": 0.201291,
           "matched": true
         },
         {
           "role": "must_fail",
           "trial": 3,
           "path": "search",
-          "lag_ms": 100.210375,
-          "upper_ms": 101.386,
-          "read_p99_ms": 0.386,
+          "lag_ms": 100.190542,
+          "upper_ms": 101.27625,
+          "read_p99_ms": 0.27625,
           "matched": true
         },
         {
           "role": "must_fail",
           "trial": 4,
           "path": "id",
-          "lag_ms": 100.103583,
-          "upper_ms": 101.200083,
-          "read_p99_ms": 0.200083,
+          "lag_ms": 100.656416,
+          "upper_ms": 101.907125,
+          "read_p99_ms": 0.907125,
           "matched": true
         },
         {
           "role": "must_pass",
           "trial": 0,
           "path": "id",
-          "lag_ms": 0.163458,
-          "upper_ms": 101.127375,
-          "read_p99_ms": 0.127375,
+          "lag_ms": 0.209,
+          "upper_ms": 101.164125,
+          "read_p99_ms": 0.164125,
           "matched": true
         },
         {
           "role": "must_pass",
           "trial": 1,
           "path": "filter",
-          "lag_ms": 0.238375,
-          "upper_ms": 101.189333,
-          "read_p99_ms": 0.189333,
+          "lag_ms": 0.226167,
+          "upper_ms": 101.175209,
+          "read_p99_ms": 0.175209,
           "matched": true
         },
         {
           "role": "must_pass",
           "trial": 2,
           "path": "recency",
-          "lag_ms": 0.22,
-          "upper_ms": 101.175667,
-          "read_p99_ms": 0.175667,
+          "lag_ms": 0.217084,
+          "upper_ms": 101.16675,
+          "read_p99_ms": 0.16675,
           "matched": true
         },
         {
           "role": "must_pass",
           "trial": 3,
           "path": "search",
-          "lag_ms": 0.35275,
-          "upper_ms": 101.307333,
-          "read_p99_ms": 0.307333,
+          "lag_ms": 0.39925,
+          "upper_ms": 101.349875,
+          "read_p99_ms": 0.349875,
           "matched": true
         },
         {
           "role": "must_pass",
           "trial": 4,
           "path": "id",
-          "lag_ms": 0.416917,
-          "upper_ms": 101.340042,
-          "read_p99_ms": 0.340042,
+          "lag_ms": 0.216834,
+          "upper_ms": 101.169834,
+          "read_p99_ms": 0.169834,
           "matched": true
         }
       ],
@@ -136,7 +136,7 @@
               "target": "worker",
               "trial": 0,
               "acked": 6,
-              "fault_ns": 172362563222208,
+              "fault_ns": 173126589296541,
               "acked_missing": 6,
               "duplicates": 0,
               "torn": 0
@@ -187,7 +187,7 @@
               "target": "worker",
               "trial": 0,
               "acked": 8,
-              "fault_ns": 172362729409083,
+              "fault_ns": 173126748259375,
               "acked_missing": 8,
               "duplicates": 0,
               "torn": 0
@@ -238,7 +238,7 @@
               "target": "worker",
               "trial": 0,
               "acked": 7,
-              "fault_ns": 172362906383750,
+              "fault_ns": 173126902568541,
               "acked_missing": 7,
               "duplicates": 0,
               "torn": 0
@@ -289,7 +289,7 @@
               "target": "worker",
               "trial": 0,
               "acked": 6,
-              "fault_ns": 172363103719166,
+              "fault_ns": 173127056052125,
               "acked_missing": 6,
               "duplicates": 0,
               "torn": 0
@@ -340,7 +340,7 @@
               "target": "worker",
               "trial": 0,
               "acked": 5,
-              "fault_ns": 172363303700666,
+              "fault_ns": 173127209713791,
               "acked_missing": 5,
               "duplicates": 0,
               "torn": 0
@@ -391,7 +391,7 @@
               "target": "worker",
               "trial": 0,
               "acked": 6,
-              "fault_ns": 172363506310208,
+              "fault_ns": 173127367690541,
               "acked_missing": 0,
               "duplicates": 0,
               "torn": 0
@@ -437,7 +437,7 @@
               "target": "worker",
               "trial": 0,
               "acked": 8,
-              "fault_ns": 172363770482583,
+              "fault_ns": 173127523552958,
               "acked_missing": 0,
               "duplicates": 0,
               "torn": 0
@@ -483,7 +483,7 @@
               "target": "worker",
               "trial": 0,
               "acked": 7,
-              "fault_ns": 172363991548041,
+              "fault_ns": 173127677070666,
               "acked_missing": 0,
               "duplicates": 0,
               "torn": 0
@@ -529,7 +529,7 @@
               "target": "worker",
               "trial": 0,
               "acked": 6,
-              "fault_ns": 172364214779791,
+              "fault_ns": 173127832740541,
               "acked_missing": 0,
               "duplicates": 0,
               "torn": 0
@@ -575,7 +575,7 @@
               "target": "worker",
               "trial": 0,
               "acked": 5,
-              "fault_ns": 172364432544416,
+              "fault_ns": 173127983586916,
               "acked_missing": 0,
               "duplicates": 0,
               "torn": 0
