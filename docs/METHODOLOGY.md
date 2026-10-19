@@ -40,6 +40,9 @@ Every read filters both.
 
 The harness uses `os.kill(pid, SIGKILL)` directly.
 It does not call `docker kill`.
+After a server kill, the harness waits until its PID no longer exists.
+The wait has a 10-second deadline.
+The worker reaps its dead server child before restart.
 Server faults work on macOS because the servers are native processes.
 Worker-only faults say little about server-backed storage.
 Process kills test user-space buffering and recovery, not disk durability.
@@ -136,7 +139,7 @@ The JSONL transport has an untimed `bulk_load` setup extension.
 It is not a new required Adapter method.
 Adapters may use native batches.
 The fallback calls the approved `write` method for every record.
-Markdown uses an equivalent file batch.
+Markdown appends setup batches without scanning or rewriting existing rows.
 SQLite uses a transaction.
 Qdrant waits for setup batches to apply, regardless of the timed row.
 
@@ -188,6 +191,8 @@ Emulated upsert is marked.
 | Qdrant | `wait=false`, `wait=true` | Native keyed points, scope indexes, and ordered recency. Prefix matching is local. |
 
 Rows use exact settings.
+Qdrant recency prefers a harness-supplied sequence when available.
+Without that sequence, wall time orders independent workers.
 There is no Qdrant row named `durable`.
 The approved design's example uses that nickname.
 Its row-naming rule takes precedence.

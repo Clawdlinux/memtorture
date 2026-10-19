@@ -1,4 +1,5 @@
 import json
+import os
 import sys
 from pathlib import Path
 
@@ -46,6 +47,15 @@ def serve(adapter, source=None, output=None):
                     for record in args["records"]:
                         adapter.write(args["scope"], record)
                     result = None
+            elif op == "reap_server":
+                pid = args["pid"]
+                if pid <= 0:
+                    raise ValueError("Expected a positive storage server PID")
+                try:
+                    os.waitpid(pid, 0)
+                except ChildProcessError:
+                    pass
+                result = None
             elif op in METHODS:
                 method = getattr(adapter, op, None)
                 if method is None:

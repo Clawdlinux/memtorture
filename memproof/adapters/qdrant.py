@@ -190,6 +190,10 @@ class Qdrant(Base):
     @staticmethod
     def _point(record):
         scope = record.scope
+        order = getattr(record, "sequence", None)
+        if order is None:
+            # Without a harness sequence, wall time orders independent worker processes.
+            order = time.time_ns()
         return models.PointStruct(
             id=point_id(scope, record.key),
             vector=embed(record.text),
@@ -200,7 +204,7 @@ class Qdrant(Base):
                 "key": record.key,
                 "text": record.text,
                 "payload_sha256": record.payload_sha256,
-                "_order": time.time_ns(),
+                "_order": order,
             },
         )
 

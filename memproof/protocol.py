@@ -140,6 +140,26 @@ class Worker:
         if target in {"worker", "both"} and self.process.poll() is None:
             os.kill(self.process.pid, signal.SIGKILL)
             self.process.wait(timeout=10)
+        if target in {"server", "both"}:
+            self._wait_server_exit()
+
+    def _wait_server_exit(self):
+        deadline = time.monotonic() + 10
+        if self.process.poll() is None:
+            original_timeout = self.timeout
+            self.timeout = min(original_timeout, 10)
+            try:
+                self.call("reap_server", pid=self.server_pid)
+            finally:
+                self.timeout = original_timeout
+        while True:
+            try:
+                os.kill(self.server_pid, 0)
+            except ProcessLookupError:
+                return
+            if time.monotonic() >= deadline:
+                raise TimeoutError(f"Storage server {self.server_pid} did not exit")
+            time.sleep(0.01)
 
     def close(self, *, preserve_server=False):
         if self.process.poll() is None:
