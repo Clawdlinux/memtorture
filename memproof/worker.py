@@ -35,6 +35,7 @@ def serve(adapter, source=None, output=None):
                     "server_pid": getattr(adapter, "server_pid", None),
                     "version": getattr(adapter, "version", "unreported"),
                     "notes": getattr(adapter, "notes", ""),
+                    "runtime_versions": getattr(adapter, "runtime_versions", {}),
                 }
             elif op == "bulk_load":
                 method = getattr(adapter, "bulk_load", None)

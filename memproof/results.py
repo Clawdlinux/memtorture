@@ -60,6 +60,17 @@ class ResultWriter:
 
     def cell(self, cell):
         self.cells.append(cell)
+        info = cell.get("info", cell.get("result", {}).get("info", {}))
+        system = {
+            "system": cell["system"],
+            "config": cell["config"].split(";trial=")[0],
+            **info,
+        }
+        if system not in self.manifest["systems"]:
+            self.manifest["systems"].append(system)
+            self.manifest["systems"].sort(
+                key=lambda row: (row["system"], row["config"])
+            )
 
     def close(self):
         self.raw.close()
@@ -69,30 +80,34 @@ class ResultWriter:
         (self.root / "cells.json").write_text(
             json.dumps(self.cells, sort_keys=True, indent=2) + "\n"
         )
-        for suite in sorted({c["suite"] for c in self.cells}):
-            lines = [
-                SPONSOR,
-                "",
-                f"# {suite}",
-                "",
-                "Local evidence, not proof. Not cleared for comparative publication.",
-                "",
-                "| System | Config | Result |",
-                "|---|---|---|",
-            ]
-            for cell in sorted(
-                (c for c in self.cells if c["suite"] == suite),
-                key=lambda c: (c["system"], c["config"]),
-            ):
-                detail = json.dumps(
-                    {k: v for k, v in cell.items() if k not in {"system", "config"}},
-                    sort_keys=True,
-                ).replace("|", "\\|")
-                lines.append(f"| {cell['system']} | {cell['config']} | {detail} |")
-            (self.root / f"{suite}.md").write_text("\n".join(lines) + "\n")
+        render_tables(self.root, self.cells)
 
     def __enter__(self):
         return self
 
     def __exit__(self, *args):
         self.close()
+
+
+def render_tables(root, cells):
+    for suite in sorted({c["suite"] for c in cells}):
+        lines = [
+            SPONSOR,
+            "",
+            f"# {suite}",
+            "",
+            "Local evidence, not proof. Not cleared for comparative publication.",
+            "",
+            "| System | Config | Result |",
+            "|---|---|---|",
+        ]
+        for cell in sorted(
+            (c for c in cells if c["suite"] == suite),
+            key=lambda c: (c["system"], c["config"]),
+        ):
+            detail = json.dumps(
+                {k: v for k, v in cell.items() if k not in {"system", "config"}},
+                sort_keys=True,
+            ).replace("|", "\\|")
+            lines.append(f"| {cell['system']} | {cell['config']} | {detail} |")
+        (Path(root) / f"{suite}.md").write_text("\n".join(lines) + "\n")

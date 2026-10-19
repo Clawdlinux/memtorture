@@ -1,0 +1,8 @@
+{
+  "name": "memproof-mcp-pin",
+  "private": true,
+  "version": "1.0.0",
+  "dependencies": {
+    "@modelcontextprotocol/server-memory": "2025.11.25"
+  }
+}
