@@ -76,9 +76,7 @@ def test_external_conformance(system, config, tmp_path):
 
 def test_external_pins():
     manifest = json.loads(Path("scripts/mcp/package.json").read_text())
-    assert (
-        manifest["dependencies"]["@modelcontextprotocol/server-memory"] == "2025.11.25"
-    )
+    assert manifest["dependencies"]["@modelcontextprotocol/server-memory"] == "2.0.0"
 
 
 def test_native_qdrant_fault_targets(tmp_path):
@@ -102,7 +100,7 @@ def test_prepare_never_reinstalls_known_blocked_tree(monkeypatch, tmp_path):
     (pin / "scan-verdict.json").write_text(
         json.dumps(
             {
-                "version": "2025.11.25",
+                "version": "2.0.0",
                 "installed_dependency_tree": {"verdict": "DO_NOT_INSTALL"},
             }
         )

@@ -8,7 +8,7 @@ Agent memory products mostly publish recall scores on LoCoMo and LongMemEval. Se
 
 Users also report problems that no harness measures as a number:
 
-- acked writes that are later missing (for example mem0 #5245, graphiti #1707, modelcontextprotocol/servers #4797);
+- acked writes that are later missing (for example mem0 #5245, graphiti #1707, and modelcontextprotocol/servers #4797, fixed in `server-memory` 2.0.0 with a lock file and atomic rename);
 - long delays between a write and when it can be recalled (mem0 #2813, graphiti #186, Zep and Redis docs);
 - slowdown as history grows;
 - concurrent writers losing updates (mem0 #4892, cognee #5254);

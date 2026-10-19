@@ -1,11 +1,11 @@
 from memproof.adapters.base import Base
 from memproof.types import NotSupported
 
-VERSION = "2025.11.25"
+VERSION = "2.0.0"
 BLOCK_REASON = (
-    "MCP memory 2025.11.25 is disabled. Package source: SAFE, 3/3 files. "
+    f"MCP memory {VERSION} is disabled. Package source: CAUTION, 3/4 files. "
     "Dependency scan: DO_NOT_INSTALL, score 100, incomplete coverage. "
-    "0/3630 dependency components fully inspected. "
+    "0/950 dependency files fully inspected. "
     "See docs/SECURITY.md and scripts/mcp/scan-verdict.json. "
     "No Node server was executed."
 )

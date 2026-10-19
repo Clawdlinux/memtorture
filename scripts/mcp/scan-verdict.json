@@ -1,32 +1,54 @@
 {
   "package": "@modelcontextprotocol/server-memory",
-  "version": "2025.11.25",
+  "version": "2.0.0",
+  "published": "2026-10-19",
   "scanner": "SkillSpector 2.11.2",
   "llm": false,
+  "tree": {
+    "packages": [
+      "@modelcontextprotocol/server-memory@2.0.0",
+      "@modelcontextprotocol/server@2.3.1",
+      "@modelcontextprotocol/core@2.3.1",
+      "zod@4.6.7"
+    ],
+    "files": 950,
+    "install_scripts": false
+  },
   "source": {
-    "verdict": "SAFE",
-    "score": 18,
-    "components": 3,
+    "verdict": "CAUTION",
+    "score": 19,
+    "components": 4,
     "fully_inspected": 3,
-    "complete": true
+    "complete": false,
+    "findings": [
+      "2 MEDIUM 'MCP Rug Pull' pattern hits in README.md.",
+      "dist/index.js partially inspected: obfuscated_instruction_text."
+    ]
   },
   "installed_dependency_tree": {
     "verdict": "DO_NOT_INSTALL",
     "score": 100,
     "severity": "CRITICAL",
-    "components": 3630,
+    "components": 950,
     "fully_inspected": 0,
-    "partially_inspected": 3630,
+    "partially_inspected": 950,
     "complete": false,
+    "per_package": {
+      "@modelcontextprotocol/server@2.3.1": "DO_NOT_INSTALL, 43 HIGH, 60/85 files fully inspected",
+      "@modelcontextprotocol/core@2.3.1": "DO_NOT_INSTALL, 11 HIGH, 21/21 files fully inspected",
+      "zod@4.6.7": "DO_NOT_INSTALL, 15 HIGH, 0/840 files fully inspected"
+    },
     "findings": [
-      "Credential-access indicators in SDK client middleware and auth providers.",
-      "Tool-misuse, YARA, prompt-injection, and SSRF indicators.",
-      "Obfuscated instruction text prevented complete deterministic inspection."
+      "Credential-access and prompt-extraction pattern hits on protocol type names (PromptArgumentSchema) and OAuth type definitions.",
+      "zod: YARA 'exploit_framework' hit on schemas keyof; hidden-instruction hits on Kannada and Persian locale strings.",
+      "Obfuscated instruction text prevented complete deterministic inspection of bundled ajv in @modelcontextprotocol/server."
     ]
   },
-  "decision": "Adapter remains a NotSupported stub. No Node server executed.",
-  "raw_reports": [
-    ".tools/mcp/source-scan.json",
-    ".tools/mcp/dependency-scan.json"
-  ]
+  "previous_pin": {
+    "version": "2025.11.25",
+    "packages": 96,
+    "files": 3630,
+    "verdict": "DO_NOT_INSTALL"
+  },
+  "decision": "Adapter remains a NotSupported stub. No Node server executed. Sampled HIGH findings look like false positives, but the gate has no override."
 }

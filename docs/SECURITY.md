@@ -5,7 +5,7 @@ All downloaded sources stay outside Git.
 
 ## MCP memory server
 
-The pin is `@modelcontextprotocol/server-memory@2025.11.25`.
+The pin is `@modelcontextprotocol/server-memory@2.0.0`.
 `scripts/mcp/package-lock.json` pins its dependency tree.
 The tarball SHA-512 is fixed in `scripts/prepare_mcp.py`.
 
@@ -22,33 +22,63 @@ The installed tree gets a second scan before execution.
 
 `CAUTION`, `DO_NOT_INSTALL`, scan failures, and incomplete coverage disable the adapter.
 The adapter raises `NotSupported` with the reason.
-There is no approval bypass.
+There is no approval bypass in the script.
 Changed sources need a new scan.
 The current adapter is a disabled stub.
 It does not execute Node.
 
-Source reports and attestations stay under `.tools/mcp/`.
-The source scan inspected all 3 package files.
-It returned `SAFE` with a risk score of 18.
-Findings included unpinned examples and an upstream SDK version range.
-We do not run those examples.
-The checked-in lockfile fixes the SDK version.
+### Why 2.0.0
 
-The installed dependency tree did not pass.
-SkillSpector returned `DO_NOT_INSTALL`, score 100, severity `CRITICAL`.
-All 3630 components had partial coverage.
-No component was fully inspected.
-Findings included credential-access indicators, tool misuse, YARA matches, and SSRF indicators.
-Obfuscated instruction text prevented complete deterministic inspection.
+The earlier pin `2025.11.25` used SDK 1.x.
+That tree had 96 packages and 3630 files, including express, hono, jose and OAuth code.
+A stdio memory server needs none of them.
+2.0.0 uses the split SDK 2.x.
+Its tree is 4 packages and 950 files: `server-memory`, `@modelcontextprotocol/server`, `@modelcontextprotocol/core` and `zod`.
+None has an install script.
+
+2.0.0 also changes storage behavior.
+Writes take a lock file and replace the graph with an atomic rename.
+That fixes servers #1819 and #4797.
+Testing the older pin would measure bugs upstream already fixed.
+2.0.0 does not call `fsync`, so power loss can still drop acked writes.
+
+2.0.0 was published on 2026-10-19.
+We do not run a release for published numbers until it is at least 7 days old.
+
+### Scan results for 2.0.0
+
+| Target | Verdict | HIGH | Fully inspected |
+|---|---|---:|---|
+| `server-memory@2.0.0` | `CAUTION` | 0 | 3 of 4 files |
+| `@modelcontextprotocol/server@2.3.1` | `DO_NOT_INSTALL` | 43 | 60 of 85 files |
+| `@modelcontextprotocol/core@2.3.1` | `DO_NOT_INSTALL` | 11 | 21 of 21 files |
+| `zod@4.6.7` | `DO_NOT_INSTALL` | 15 | 0 of 840 files |
+| Whole tree | `DO_NOT_INSTALL` | 60 | 0 of 950 files |
+
+The HIGH findings we sampled are pattern hits, not behavior:
+- credential-access and prompt-extraction hits on protocol names such as `PromptArgumentSchema` and on OAuth type definitions;
+- a YARA `exploit_framework` hit on zod's `keyof`;
+- hidden-instruction hits on zod's Kannada and Persian error strings;
+- partial coverage on the ajv validator bundled inside `@modelcontextprotocol/server`.
+
 These are scanner findings, not a claim of malicious upstream code.
 We did not override them.
-
 No Node server was executed.
-The blocked installed tree was removed.
 Raw reports stay under `.tools/mcp/`.
 The committed summary is `scripts/mcp/scan-verdict.json`.
-Re-enabling this adapter requires a complete safe scan and a new implementation review.
 The preparation script refuses known blocked pins before running npm.
+
+### Paths to enable it
+
+1. A SkillSpector run with LLM analysis on these 4 public packages.
+   It sends only public npm source to the LLM provider.
+   It needs the owner's approval.
+   The result must be a complete `SAFE`.
+2. Then run the server under the Node permission model.
+   Reads are limited to the package directory and the data directory.
+   Writes are limited to the data directory.
+   Child processes, workers and native addons are denied.
+   Network is not needed by a stdio server.
 
 ## Qdrant
 
