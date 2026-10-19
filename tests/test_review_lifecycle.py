@@ -113,10 +113,10 @@ def test_qdrant_prefers_harness_sequence(monkeypatch, sequence):
         raise AssertionError("Harness order must not depend on wall clock")
 
     monkeypatch.setattr("memproof.adapters.qdrant.time.time_ns", forbidden_clock)
-    assert Qdrant._point(sequenced).payload["_order"] == sequence
+    assert Qdrant._point(sequenced)["payload"]["_order"] == sequence
 
 
 def test_qdrant_wall_clock_fallback(monkeypatch):
     record = Record.make(Scope("t", "s"), "key", "memory")
     monkeypatch.setattr("memproof.adapters.qdrant.time.time_ns", lambda: 123456)
-    assert Qdrant._point(record).payload["_order"] == 123456
+    assert Qdrant._point(record)["payload"]["_order"] == 123456

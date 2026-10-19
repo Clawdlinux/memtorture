@@ -1,6 +1,7 @@
 import contextlib
 import fcntl
 import hashlib
+import http.client
 import json
 import os
 import signal
@@ -10,8 +11,6 @@ import time
 import uuid
 from pathlib import Path
 
-from qdrant_client import QdrantClient, models
-
 from memproof.adapters.base import Base
 from memproof.embed import DIMENSIONS, embed
 from memproof.types import Ack, NotSupported, Record, Ref, Scope
@@ -19,6 +18,48 @@ from memproof.types import Ack, NotSupported, Record, Ref, Scope
 VERSION = "1.16.3"
 ROOT = Path(__file__).resolve().parents[2]
 COLLECTION = "memory"
+
+
+class Rest:
+    """Qdrant REST over one keep-alive connection, so no request pays a TCP connect."""
+
+    def __init__(self, port, api_key, timeout=60):
+        self.port, self.api_key, self.timeout = port, api_key, timeout
+        self.conn = None
+
+    def call(self, method, path, body=None):
+        data = None if body is None else json.dumps(body).encode()
+        headers = {"api-key": self.api_key, "content-type": "application/json"}
+        for attempt in (0, 1):
+            if self.conn is None:
+                self.conn = http.client.HTTPConnection(
+                    "127.0.0.1", self.port, timeout=self.timeout
+                )
+            try:
+                self.conn.request(method, path, data, headers)
+                response = self.conn.getresponse()
+                payload = response.read()
+            except (http.client.RemoteDisconnected, ConnectionError):
+                # Stale keep-alive socket. Calls are idempotent, so one retry is safe.
+                self.close()
+                if attempt:
+                    raise
+                continue
+            if response.status >= 300:
+                raise RuntimeError(
+                    f"Qdrant {method} {path}: {response.status} {payload[:200]!r}"
+                )
+            return json.loads(payload)
+        raise AssertionError("unreachable")
+
+    def close(self):
+        if self.conn is not None:
+            self.conn.close()
+            self.conn = None
+
+
+def _wait(flag):
+    return "true" if flag else "false"
 
 
 def point_id(scope, key):
@@ -132,53 +173,47 @@ class Qdrant(Base):
                 descriptor.write_text(json.dumps(state))
                 descriptor.chmod(0o600)
             self.server_pid = state["pid"]
-            if not self.client.collection_exists(COLLECTION):
-                self.client.create_collection(
-                    COLLECTION,
-                    vectors_config=models.VectorParams(
-                        size=DIMENSIONS, distance=models.Distance.COSINE
-                    ),
+            base = f"/collections/{COLLECTION}"
+            if not self.client.call("GET", f"{base}/exists")["result"]["exists"]:
+                self.client.call(
+                    "PUT",
+                    base,
+                    {"vectors": {"size": DIMENSIONS, "distance": "Cosine"}},
                 )
-                for field in ("tenant", "session", "key", "id"):
-                    self.client.create_payload_index(
-                        COLLECTION, field, models.PayloadSchemaType.KEYWORD, wait=True
+                schemas = [(f, "keyword") for f in ("tenant", "session", "key", "id")]
+                for field, schema in [*schemas, ("_order", "integer")]:
+                    self.client.call(
+                        "PUT",
+                        f"{base}/index?wait=true",
+                        {"field_name": field, "field_schema": schema},
                     )
-                self.client.create_payload_index(
-                    COLLECTION, "_order", models.PayloadSchemaType.INTEGER, wait=True
-                )
 
     def _connect(self, state):
-        client = QdrantClient(
-            url=f"http://127.0.0.1:{state['port']}",
-            api_key=state["api_key"],
-            timeout=60,
-            check_compatibility=False,
-        )
+        client = Rest(state["port"], state["api_key"])
         try:
-            response = client.info()
-            if response.version != VERSION:
-                raise NotSupported(f"Expected Qdrant {VERSION}, got {response.version}")
-        except Exception as exc:
+            found = client.call("GET", "/")["version"]
+        except (OSError, RuntimeError, ValueError):
             client.close()
-            if isinstance(exc, NotSupported):
-                raise
             return False
+        if found != VERSION:
+            client.close()
+            raise NotSupported(f"Expected Qdrant {VERSION}, got {found}")
         self.client = client
         return True
+
+    def _points(self, op, body, wait=None, method="POST"):
+        query = "" if wait is None else f"?wait={_wait(wait)}"
+        path = f"/collections/{COLLECTION}/points{op}{query}"
+        return self.client.call(method, path, body)["result"]
 
     @staticmethod
     def _filter(scope, **fields):
         fields = {"tenant": scope.tenant, "session": scope.session, **fields}
-        return models.Filter(
-            must=[
-                models.FieldCondition(key=k, match=models.MatchValue(value=v))
-                for k, v in fields.items()
-            ]
-        )
+        return {"must": [{"key": k, "match": {"value": v}} for k, v in fields.items()]}
 
     @staticmethod
     def _record(point):
-        data = point.payload
+        data = point["payload"]
         return Record(
             data["id"],
             Scope(data["tenant"], data["session"]),
@@ -194,10 +229,10 @@ class Qdrant(Base):
         if order is None:
             # Without a harness sequence, wall time orders independent worker processes.
             order = time.time_ns()
-        return models.PointStruct(
-            id=point_id(scope, record.key),
-            vector=embed(record.text),
-            payload={
+        return {
+            "id": point_id(scope, record.key),
+            "vector": embed(record.text),
+            "payload": {
                 "id": record.id,
                 "tenant": scope.tenant,
                 "session": scope.session,
@@ -206,87 +241,78 @@ class Qdrant(Base):
                 "payload_sha256": record.payload_sha256,
                 "_order": order,
             },
-        )
+        }
 
     def write(self, scope, record):
         if record.scope != scope:
             raise ValueError("Scope mismatch")
-        self.client.upsert(COLLECTION, [self._point(record)], wait=self.wait)
+        self._points("", {"points": [self._point(record)]}, self.wait, "PUT")
         return Ack(record.id, ref=Ref(point_id(scope, record.key)))
 
     def bulk_load(self, scope, records):
         if any(r.scope != scope for r in records):
             raise ValueError("Scope mismatch")
-        self.client.upsert(COLLECTION, [self._point(r) for r in records], wait=True)
+        self._points("", {"points": [self._point(r) for r in records]}, True, "PUT")
 
     def get(self, scope, key):
-        points = self.client.retrieve(
-            COLLECTION, [point_id(scope, key)], with_payload=True
-        )
+        points = self._retrieve(point_id(scope, key))
         if points:
             return self._record(points[0])
-        points, _ = self.client.scroll(
-            COLLECTION,
-            scroll_filter=self._filter(scope, id=key),
-            limit=1,
-            with_payload=True,
-        )
+        body = {"filter": self._filter(scope, id=key), "limit": 1, "with_payload": True}
+        points = self._points("/scroll", body)["points"]
         return self._record(points[0]) if points else None
 
+    def _retrieve(self, pid):
+        return self._points("", {"ids": [pid], "with_payload": True})
+
     def get_by_id(self, scope, ref):
-        points = self.client.retrieve(COLLECTION, [ref.id], with_payload=True)
+        points = self._retrieve(ref.id)
         if not points:
             return None
         record = self._record(points[0])
         return record if record.scope == scope else None
 
     def read_recent(self, scope, n):
-        points, _ = self.client.scroll(
-            COLLECTION,
-            scroll_filter=self._filter(scope),
-            limit=n,
-            order_by=models.OrderBy(key="_order", direction=models.Direction.DESC),
-            with_payload=True,
-        )
-        return [self._record(p) for p in points]
+        body = {
+            "filter": self._filter(scope),
+            "limit": n,
+            "order_by": {"key": "_order", "direction": "desc"},
+            "with_payload": True,
+        }
+        return [self._record(p) for p in self._points("/scroll", body)["points"]]
 
     def list_prefix(self, scope, prefix, limit):
         rows, offset = [], None
         while len(rows) < limit:
-            points, offset = self.client.scroll(
-                COLLECTION,
-                scroll_filter=self._filter(scope),
-                limit=1000,
-                offset=offset,
-                with_payload=True,
-            )
+            body = {"filter": self._filter(scope), "limit": 1000, "with_payload": True}
+            if offset is not None:
+                body["offset"] = offset
+            page = self._points("/scroll", body)
+            points, offset = page["points"], page.get("next_page_offset")
             rows.extend(
-                self._record(p) for p in points if p.payload["key"].startswith(prefix)
+                self._record(p)
+                for p in points
+                if p["payload"]["key"].startswith(prefix)
             )
             if offset is None:
                 break
         return rows[:limit]
 
     def search(self, scope, query, k):
-        response = self.client.query_points(
-            COLLECTION,
-            query=embed(query),
-            query_filter=self._filter(scope),
-            limit=k,
-            with_payload=True,
-        )
-        return [self._record(p) for p in response.points]
+        body = {
+            "query": embed(query),
+            "filter": self._filter(scope),
+            "limit": k,
+            "with_payload": True,
+        }
+        return [self._record(p) for p in self._points("/query", body)["points"]]
 
     def upsert(self, scope, key, value):
         return self.write(scope, Record.from_value(scope, key, value))
 
     def delete(self, scope, ref):
-        self.client.delete(
-            COLLECTION,
-            points_selector=models.FilterSelector(
-                filter=self._filter(scope, id=ref.id)
-            ),
-            wait=self.wait,
+        self._points(
+            "/delete", {"filter": self._filter(scope, id=ref.id)}, wait=self.wait
         )
         return Ack(ref.id)
 

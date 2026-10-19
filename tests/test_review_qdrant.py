@@ -1,6 +1,5 @@
 import sys
 from types import SimpleNamespace
-from unittest.mock import Mock
 
 from memproof.adapters.qdrant import COLLECTION, Qdrant, point_id
 from memproof.protocol import Worker
@@ -31,30 +30,52 @@ def test_worker_preserves_native_write_reference(tmp_path):
 def test_id_read_path_uses_one_native_retrieve():
     adapter = Qdrant()
     adapter.wait = True
-    adapter.client = Mock()
     record = Record.make(Scope("t", "s"), "key", "memory")
     point = adapter._point(record)
-    adapter.client.retrieve.side_effect = lambda collection, ids, **kwargs: (
-        [SimpleNamespace(payload=point.payload)] if ids == [point.id] else []
-    )
-    adapter.client.scroll.return_value = (
-        [SimpleNamespace(payload=point.payload)],
-        None,
-    )
-    ack = adapter.write(record.scope, record)
+    calls = []
 
-    def call(op, **kwargs):
-        return getattr(adapter, op)(**kwargs)
+    def call(method, path, body=None):
+        calls.append((method, path, body))
+        if path.endswith("/points?wait=true"):
+            return {"result": {"status": "completed"}}
+        if path == f"/collections/{COLLECTION}/points":
+            hit = body["ids"] == [point["id"]]
+            return {"result": [{"payload": point["payload"]}] if hit else []}
+        raise AssertionError(f"unexpected call {method} {path}")
+
+    adapter.client = SimpleNamespace(call=call)
+    ack = adapter.write(record.scope, record)
+    calls.clear()
+
+    def op(name, **kwargs):
+        return getattr(adapter, name)(**kwargs)
 
     worker = SimpleNamespace(
-        call=call,
+        call=op,
         capabilities=adapter.capabilities(),
         refs={record.id: getattr(ack, "ref", None)},
     )
     assert read_path(worker, "id", record) == [record]
-    adapter.client.retrieve.assert_called_once_with(
-        COLLECTION,
-        [point_id(record.scope, record.key)],
-        with_payload=True,
-    )
-    adapter.client.scroll.assert_not_called()
+    assert calls == [
+        (
+            "POST",
+            f"/collections/{COLLECTION}/points",
+            {"ids": [point_id(record.scope, record.key)], "with_payload": True},
+        )
+    ]
+
+
+def test_write_uses_put_with_wait_flag():
+    for wait, flag in ((True, "true"), (False, "false")):
+        adapter = Qdrant()
+        adapter.wait = wait
+        calls = []
+
+        def call(method, path, body=None, calls=calls):
+            calls.append((method, path))
+            return {"result": {}}
+
+        adapter.client = SimpleNamespace(call=call)
+        record = Record.make(Scope("t", "s"), "key", "memory")
+        adapter.write(record.scope, record)
+        assert calls == [("PUT", f"/collections/{COLLECTION}/points?wait={flag}")]

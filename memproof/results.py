@@ -3,7 +3,6 @@ import os
 import platform
 import subprocess
 import threading
-from importlib.metadata import version
 from pathlib import Path
 
 SPONSOR = "Sponsored and built by the Clawdlinux team."
@@ -49,7 +48,7 @@ class ResultWriter:
             "os": platform.platform(),
             "python": platform.python_version(),
             "hardware": hardware(),
-            "dependencies": {name: version(name) for name in ("mcp", "qdrant-client")},
+            "runtime_dependencies": "none (Python standard library only)",
             "systems": [],
             "comparative_publication": (
                 "blocked pending outside review and reply window"
