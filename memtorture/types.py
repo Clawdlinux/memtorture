@@ -43,7 +43,16 @@ class Record:
         return self.digest() == self.payload_sha256
 
     def value(self) -> str:
-        return json.dumps(asdict(self), ensure_ascii=False)
+        return json.dumps(
+            {
+                "id": self.id,
+                "scope": {"tenant": self.scope.tenant, "session": self.scope.session},
+                "key": self.key,
+                "text": self.text,
+                "payload_sha256": self.payload_sha256,
+            },
+            ensure_ascii=False,
+        )
 
     @classmethod
     def from_value(cls, scope: Scope, key: str, value: str):

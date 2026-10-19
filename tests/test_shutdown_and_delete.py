@@ -113,6 +113,8 @@ for line in sys.stdin:
             time.sleep(60)
             continue
         reply = {{"id": request["id"], "result": {{}}}}
+        if {mode!r} == "nonzero":
+            reply = {{"id": request["id"], "result": None}}
         if {mode!r} == "error":
             reply = {{"id": request["id"], "error": {{
                 "type": "system_error", "message": "stop failed",
@@ -120,6 +122,8 @@ for line in sys.stdin:
     else:
         reply = {{"id": request["id"], "result": None}}
     print(json.dumps(reply), flush=True)
+    if op == "stop" and {mode!r} == "nonzero":
+        sys.exit(7)
 """
     return [sys.executable, "-c", script]
 
@@ -132,7 +136,7 @@ def pid_exists(pid):
     return True
 
 
-@pytest.mark.parametrize("mode", ["malformed", "error", "timeout"])
+@pytest.mark.parametrize("mode", ["malformed", "error", "timeout", "nonzero"])
 def test_failed_stop_kills_every_reported_server(tmp_path, mode):
     worker = Worker(
         "probe", "default", tmp_path, timeout=5, command=server_worker_command(mode)

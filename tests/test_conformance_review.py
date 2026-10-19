@@ -149,6 +149,59 @@ def test_each_semantic_bug_fails_the_kit(tmp_path, bug):
 
 
 @pytest.mark.skipif(NODE is None, reason="Node is missing")
+@pytest.mark.parametrize("variant", ["echo-delete-ref", "dropped-foreign-delete"])
+def test_valid_informational_delete_ack_variants_pass(tmp_path, variant):
+    source = REFERENCE.read_text()
+    original = "return ack(args.ref.id);"
+    assert original in source
+    replacement = (
+        "return ack(args.ref.id, args.ref);"
+        if variant == "echo-delete-ref"
+        else "return { ...ack(args.ref.id), dropped: !visible };"
+    )
+    worker = tmp_path / "valid.mjs"
+    worker.write_text(source.replace(original, replacement))
+    result = conformance.run_conformance(
+        shlex.join([NODE, str(worker)]),
+        workdir=tmp_path / "run",
+        visibility_timeout=0,
+    )
+    assert result["skipped"] == []
+
+
+@pytest.mark.parametrize(
+    "result",
+    [
+        {"kind": "ack", "id": "wrong", "dropped": True, "ref": None},
+        {"id": "native", "dropped": False, "ref": None},
+    ],
+)
+def test_delete_ack_still_requires_the_kind_and_requested_ref_id(result):
+    from memtorture.protocol import validate_reply
+    from memtorture.types import Ref
+
+    with pytest.raises(ProtocolError):
+        validate_reply({"id": 1, "result": result}, 1, "delete", {"ref": Ref("native")})
+
+
+@pytest.mark.skipif(NODE is None, reason="Node is missing")
+def test_reference_worker_ignores_vectors_and_the_legacy_id_capability(tmp_path):
+    from memtorture.protocol import Worker
+    from memtorture.types import Record, Scope
+
+    with Worker(
+        "reference",
+        "default",
+        tmp_path,
+        command=[NODE, str(REFERENCE)],
+    ) as worker:
+        record = Record.make(Scope("t", "s"), "key", "text")
+        worker.call("write", scope=record.scope, record=record)
+        assert worker.call("get", scope=record.scope, key=record.key).vector is None
+        assert "get-id" not in worker.capabilities
+
+
+@pytest.mark.skipif(NODE is None, reason="Node is missing")
 def test_failure_keeps_stderr_and_reports_tail(tmp_path, capsys):
     code = broken_source("duplicate-upsert").replace(
         "function dispatch(op, args) {",

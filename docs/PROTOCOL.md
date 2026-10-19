@@ -56,6 +56,10 @@ Its optional `vector` is null or an array of 64 finite numbers.
 The harness supplies vectors. Workers never embed text themselves.
 `search` also receives the harness vector alongside the original query.
 Non-vector workers can ignore vectors.
+Non-vector stores must not persist unused vectors.
+Markdown values exclude vectors. SQLite stores only its native columns and FTS text.
+The Node reference store also discards unused vectors.
+Vector stores keep vectors in their native index without duplicating them inside the text payload.
 Workers return text unchanged, including Unicode and newlines. Never normalize or trim it.
 Workers return the supplied digest. Only the harness checks or computes digests.
 Malformed digest strings remain torn-record evidence, not protocol errors.
@@ -65,10 +69,14 @@ Every ack requires `kind`, string `id`, boolean `dropped`, and `ref`.
 `write` and `upsert` ack IDs match the supplied record ID, even when dropped.
 Only a validated, received, non-dropped ack counts as an acknowledged write.
 `delete` ack IDs match the requested ref ID.
-Delete a missing ref idempotently.
+`delete` is idempotent. Missing and foreign-scope native refs always succeed as no-ops.
+Its `dropped` boolean and `ref` value are informational.
+`dropped` may be true or false. `ref` may be null or any valid ref.
+The kit checks the delete ack's kind and ID, not those informational values.
 
 Refs are opaque. They always mean what that system's write or upsert returned.
-Never substitute a record ID or key for a ref.
+The harness never builds a ref from a record ID or key.
+A worker may use its record ID as its native ref. The harness must still use the returned ref.
 `get` reads a key. `get_by_ref` reads a native reference.
 Both reads and deletes enforce scope isolation.
 Reference lifetimes follow the native store. A keyed store may reuse a ref after replacement.
@@ -118,7 +126,8 @@ Results must never exceed `k` or include another scope's records.
 `k: 0` returns no records.
 `stop` accepts optional `target: "all"` and `kill: false`.
 It closes storage gracefully unless `kill` requests forced shutdown.
-After replying to `stop`, a worker must accept stdin EOF and exit promptly.
+After a successful `stop` reply, a worker must accept stdin EOF and exit promptly with code 0.
+Any other exit code is unclean. The harness kills its reported servers.
 Malformed stop replies and trailing stdout invalidate the cell, including unterminated output.
 The harness still kills and reaps a worker after shutdown protocol errors.
 An unclean shutdown also kills every reported server and waits for PID absence.

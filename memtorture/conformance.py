@@ -212,7 +212,7 @@ def run_conformance(command, *, config="default", workdir=None, visibility_timeo
                 elif match == "capabilities":
                     if set(result) != worker.capabilities:
                         raise ProtocolError("Capabilities changed after start")
-                elif match != "shape":
+                elif match != "shape" and op != "delete":
                     value = case["reply"]["result"]
                     if isinstance(result, Ack) and result.ref is None and op == "write":
                         value = value | {"ref": None}

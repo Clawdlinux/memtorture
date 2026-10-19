@@ -4,7 +4,7 @@ import { createInterface } from "node:readline";
 // This in-memory reference demonstrates the wire contract, not crash durability.
 const capabilities = [
   "write", "bulk_load", "read_recent", "get", "get_by_ref", "list_prefix",
-  "search", "upsert", "delete", "data_dirs", "retrieve_for", "get-id", "keyed",
+  "search", "upsert", "delete", "data_dirs", "retrieve_for", "keyed",
 ];
 let rows = new Map();
 let directory = "";
@@ -41,7 +41,6 @@ function record(value, expectedScope) {
     kind: "record", id: value.id,
     scope: { tenant: value.scope.tenant, session: value.scope.session },
     key: value.key, text: value.text, payload_sha256: value.payload_sha256,
-    ...(value.vector == null ? {} : { vector: value.vector }),
   };
 }
 

@@ -22,7 +22,6 @@ class Markdown(Base):
         return {
             "write",
             "get",
-            "get-id",
             "get_by_ref",
             "read_recent",
             "list_prefix",

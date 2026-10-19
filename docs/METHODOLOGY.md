@@ -26,7 +26,8 @@ Hash failures count as torn records.
 Missing acked records count as losses.
 
 Keyed writes pass a full record through protocol v1.
-Native refs remain separate from record IDs and keys.
+The harness never builds a ref from a record ID.
+A system may use its record ID as its native ref.
 See [PROTOCOL.md](PROTOCOL.md) for wire shapes and validation rules.
 Adapters map that envelope onto native keyed operations where available.
 Scope includes both tenant and session.
@@ -224,6 +225,9 @@ It hashes a big-endian counter followed by exact UTF-8 text.
 Signed 32-bit words become normalized binary64 components.
 The byte layout and cross-language test vectors are in [PROTOCOL.md](PROTOCOL.md).
 The harness computes record and query vectors. Workers never embed text.
+Non-vector stores discard supplied vectors before persistence.
+Markdown and its controls store only the original record envelope, without vector components.
+SQLite and its controls keep the native record columns and FTS text, without vector storage.
 Protocol schemas, vectors, and worker manifests contribute to the control gate's methodology hash.
 It measures engine behavior, not semantic recall quality.
 The optional realistic embedder is outside B1.

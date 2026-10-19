@@ -13,7 +13,7 @@ def test_id_path_never_substitutes_a_record_id_for_a_key():
     record = Record.make(Scope("t", "s"), "key", "text")
     calls = []
     worker = SimpleNamespace(
-        capabilities={"get", "get-id"},
+        capabilities={"get"},
         refs={},
         call=lambda *args, **kwargs: calls.append((args, kwargs)),
     )
@@ -22,7 +22,7 @@ def test_id_path_never_substitutes_a_record_id_for_a_key():
     assert not calls
 
 
-@pytest.mark.parametrize("capabilities", [{"get", "get-id"}, {"get_by_ref"}])
+@pytest.mark.parametrize("capabilities", [{"get"}, {"get_by_ref"}])
 def test_recall_id_path_without_capability_or_ref_is_na(
     monkeypatch, tmp_path, capabilities
 ):
