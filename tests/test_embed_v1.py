@@ -2,6 +2,7 @@ import hashlib
 import json
 import math
 import re
+import shutil
 import subprocess
 from pathlib import Path
 
@@ -10,7 +11,7 @@ import pytest
 from memtorture.controls import gate
 from memtorture.embed import DIMENSIONS, embed
 
-NODE = "/opt/homebrew/opt/node@22/bin/node"
+NODE = shutil.which("node")
 VECTORS = Path("docs/protocol/v1/embed-vectors.json")
 
 
@@ -27,6 +28,7 @@ def test_embed_matches_independent_sha256_vector():
     )
 
 
+@pytest.mark.skipif(NODE is None, reason="Node is missing")
 def test_published_vectors_match_both_languages():
     fixtures = json.loads(VECTORS.read_text())
     texts = [case["text"] for case in fixtures["vectors"]]

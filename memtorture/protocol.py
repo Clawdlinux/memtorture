@@ -10,7 +10,13 @@ from dataclasses import fields, is_dataclass, replace
 from pathlib import Path
 
 from memtorture.types import Ack, NotSupported, Record, Ref
-from memtorture.wire import OPERATIONS, ProtocolError, decode, validate_reply
+from memtorture.wire import (
+    OPERATIONS,
+    ProtocolError,
+    decode,
+    decode_args,
+    validate_reply,
+)
 
 __all__ = [
     "OPERATIONS",
@@ -18,10 +24,20 @@ __all__ = [
     "Worker",
     "decode",
     "encode",
+    "parse_reply",
     "validate_reply",
     "worker_command",
 ]
 ROOT = Path(__file__).resolve().parents[1]
+
+
+def parse_reply(line, token, op, args):
+    try:
+        reply = json.loads(line.decode("utf-8"))
+    except (ValueError, UnicodeError) as exc:
+        raise ProtocolError("Worker stdout must contain UTF-8 JSONL only") from exc
+    validate_reply(reply, token, op, args)
+    return reply
 
 
 def encode(value):
@@ -93,7 +109,7 @@ class Worker:
             self.close()
             raise
 
-    def send(self, op, **kwargs):
+    def send(self, op, *, raw_args=None, **kwargs):
         from memtorture.embed import embed
 
         if self.pending:
@@ -110,7 +126,22 @@ class Worker:
             kwargs[name] = records if name == "records" else records[0]
         if op == "search":
             kwargs["vector"] = embed(kwargs["query"])
-        request = {"id": token, "op": op, "args": encode(kwargs)}
+        wire_args = encode(kwargs) if raw_args is None else dict(raw_args)
+        if raw_args is not None:
+            if op in {"write", "upsert"}:
+                wire_args["record"] = raw_args["record"] | {
+                    "vector": kwargs["record"].vector
+                }
+            elif op == "bulk_load":
+                wire_args["records"] = [
+                    raw | {"vector": record.vector}
+                    for raw, record in zip(
+                        raw_args["records"], kwargs["records"], strict=True
+                    )
+                ]
+            elif op == "search":
+                wire_args["vector"] = kwargs["vector"]
+        request = {"id": token, "op": op, "args": wire_args}
         self.pending[token] = (op, kwargs)
         self.last_sent_ns = time.monotonic_ns()
         data = (json.dumps(request, ensure_ascii=False) + "\n").encode()
@@ -135,11 +166,7 @@ class Worker:
         line, self.buffer = self.buffer.split(b"\n", 1)
         read_ns = time.monotonic_ns()
         op, kwargs = self.pending.pop(token)
-        try:
-            reply = json.loads(line.decode("utf-8"))
-        except (ValueError, UnicodeError) as exc:
-            raise ProtocolError("Worker stdout must contain UTF-8 JSONL only") from exc
-        validate_reply(reply, token, op, kwargs)
+        reply = parse_reply(line, token, op, kwargs)
         if b"\n" in self.buffer:
             raise ProtocolError("Unsolicited worker stdout line")
         if "error" in reply:
@@ -163,6 +190,9 @@ class Worker:
 
     def call(self, op, **kwargs):
         return self.receive(self.send(op, **kwargs))
+
+    def call_raw(self, op, args):
+        return self.receive(self.send(op, raw_args=args, **decode_args(args)))
 
     def kill(self, target):
         servers = getattr(self, "servers", {})

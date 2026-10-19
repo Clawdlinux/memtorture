@@ -7,7 +7,7 @@ import time
 import uuid
 from pathlib import Path
 
-from memtorture.protocol import ProtocolError, Worker, decode, encode, validate_reply
+from memtorture.protocol import ProtocolError, Worker, decode, encode, parse_reply
 from memtorture.types import Ack, NotSupported, Record
 from memtorture.wire import decode_args
 
@@ -27,10 +27,12 @@ def check_malformed():
     for case in fixtures:
         accepted = True
         try:
-            reply = case.get("reply")
-            if "raw_hex" in case:
-                reply = json.loads(bytes.fromhex(case["raw_hex"]).decode("utf-8"))
-            validate_reply(reply, 1, case["op"], decode_args(case["args"]))
+            line = (
+                bytes.fromhex(case["raw_hex"])
+                if "raw_hex" in case
+                else json.dumps(case["reply"]).encode()
+            )
+            reply = parse_reply(line, 1, case["op"], decode_args(case["args"]))
             decode(reply.get("result"))
         except (ProtocolError, ValueError, UnicodeError):
             accepted = False
@@ -39,7 +41,7 @@ def check_malformed():
     return len(fixtures)
 
 
-def run_conformance(command, *, config="default", workdir=None):
+def run_conformance(command, *, config="default", workdir=None, visibility_timeout=10):
     argv = shlex.split(command)
     if not argv:
         raise ValueError("--command must contain an executable")
@@ -47,9 +49,10 @@ def run_conformance(command, *, config="default", workdir=None):
     path = Path(workdir) if workdir else Path(".conformance-work") / uuid.uuid4().hex
     path = path.resolve()
     path.mkdir(parents=True, exist_ok=False)
-    records, refs = {}, {}
+    records, refs, ref_owners = {}, {}, {}
     passed, skipped = 0, []
     succeeded = {"start"}
+    success = False
 
     def expand(value):
         if isinstance(value, str) and value.startswith("$ref:"):
@@ -81,7 +84,8 @@ def run_conformance(command, *, config="default", workdir=None):
                     skipped.append(f"{request['id']}:{op}: prerequisite unsupported")
                     continue
                 try:
-                    args = decode_args(expand(request["args"]))
+                    raw_args = expand(request["args"])
+                    args = decode_args(raw_args)
                 except NotSupported:
                     if op in worker.capabilities:
                         raise ProtocolError(
@@ -96,7 +100,7 @@ def run_conformance(command, *, config="default", workdir=None):
                         raise ProtocolError("Golden record digest mismatch")
                     records[record.id] = encode(record)
                 try:
-                    result = worker.call(op, **args)
+                    result = worker.call_raw(op, raw_args)
                 except NotSupported:
                     if op in worker.capabilities or op in {
                         "capabilities",
@@ -113,13 +117,21 @@ def run_conformance(command, *, config="default", workdir=None):
                     if expected and str(exc).startswith(expected["type"] + ":"):
                         passed += 1
                         continue
-                    raise
+                    raise ProtocolError(f"{op} failed: {exc}") from exc
                 if "error" in case["reply"]:
                     raise ProtocolError(f"{op} accepted an unreported server PID")
                 if isinstance(result, Ack) and op in {"write", "upsert"}:
                     if result.dropped:
                         raise ProtocolError(f"{op} dropped the golden record")
                     if result.ref is not None:
+                        record = args["record"]
+                        owner = (record.scope.tenant, record.scope.session, record.key)
+                        prior = ref_owners.get(result.ref.id, owner)
+                        if prior != owner:
+                            raise ProtocolError(
+                                "Distinct writes returned the same native ref"
+                            )
+                        ref_owners[result.ref.id] = owner
                         refs[result.id] = result.ref.id
                     if "get_by_ref" in worker.capabilities and result.ref is None:
                         raise ProtocolError("get_by_ref requires native write refs")
@@ -132,7 +144,7 @@ def run_conformance(command, *, config="default", workdir=None):
                     if isinstance(result, Ack) and result.ref is None and op == "write":
                         value = value | {"ref": None}
                     expected = decode(expand(value))
-                    deadline = time.monotonic() + 10
+                    deadline = time.monotonic() + visibility_timeout
                     while (
                         result != expected
                         and op
@@ -140,7 +152,7 @@ def run_conformance(command, *, config="default", workdir=None):
                         and time.monotonic() < deadline
                     ):
                         time.sleep(0.01)
-                        result = worker.call(op, **args)
+                        result = worker.call_raw(op, raw_args)
                     if result != expected:
                         raise ProtocolError(
                             f"{op} disagrees with golden reply {request['id']}"
@@ -150,10 +162,24 @@ def run_conformance(command, *, config="default", workdir=None):
                         raise ProtocolError(f"{op} returned a torn golden record")
                 passed += 1
                 succeeded.add(op)
-        return {"passed": passed, "skipped": skipped, "malformed": malformed}
+        success = True
+        return {"passed": passed, "skipped": skipped, "harness_checks": malformed}
     finally:
-        shutil.rmtree(path)
-        if workdir is None:
+        if success:
+            shutil.rmtree(path)
+        else:
+            print(f"Work directory kept: {path}")
+            try:
+                with (path / "worker.stderr.log").open("rb") as log:
+                    log.seek(0, 2)
+                    log.seek(max(0, log.tell() - 16384))
+                    tail = (
+                        log.read().decode("utf-8", errors="replace").splitlines()[-30:]
+                    )
+                print("Worker stderr tail:\n" + ("\n".join(tail) or "(empty)"))
+            except OSError as exc:
+                print(f"Worker stderr unavailable: {exc}")
+        if success and workdir is None:
             try:
                 path.parent.rmdir()
             except OSError:

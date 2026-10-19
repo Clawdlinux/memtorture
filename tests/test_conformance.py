@@ -1,4 +1,5 @@
 import json
+import shutil
 import subprocess
 import sys
 from pathlib import Path
@@ -8,7 +9,7 @@ import pytest
 from memtorture.cli import main
 from memtorture.protocol import OPERATIONS, ProtocolError, Worker
 
-NODE = "/opt/homebrew/opt/node@22/bin/node"
+NODE = shutil.which("node")
 REFERENCE = "systems/reference-node/worker.mjs"
 
 
@@ -21,7 +22,10 @@ def test_golden_transcripts_cover_every_operation():
 @pytest.mark.parametrize(
     "command",
     [
-        f"{NODE} {REFERENCE}",
+        pytest.param(
+            f"{NODE} {REFERENCE}",
+            marks=pytest.mark.skipif(NODE is None, reason="Node is missing"),
+        ),
         f"{sys.executable} -m memtorture.worker sqlite",
         f"{sys.executable} -m memtorture.worker markdown",
         f"{sys.executable} -m memtorture.worker delayed-index",
@@ -33,6 +37,7 @@ def test_conformance_cli_passes_reference_and_baselines(command, capsys):
     assert "PASS" in capsys.readouterr().out
 
 
+@pytest.mark.skipif(NODE is None, reason="Node is missing")
 def test_node_worker_does_not_import_python():
     code = Path(REFERENCE).read_text()
     assert "memtorture" not in code
@@ -74,6 +79,7 @@ def test_bad_stdout_invalidates_cell_without_ack(tmp_path, result):
         assert worker.acked == {}
 
 
-def test_conformance_rejects_broken_worker(capsys):
+def test_conformance_rejects_broken_worker(capsys, monkeypatch, tmp_path):
+    monkeypatch.chdir(tmp_path)
     assert main(["conformance", "--command", f"{sys.executable} -c 'print(123)'"]) == 1
     assert "FAIL" in capsys.readouterr().out

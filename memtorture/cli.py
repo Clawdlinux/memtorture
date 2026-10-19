@@ -46,10 +46,10 @@ def main(argv=None):
             print(f"FAIL: {exc}")
             return 1
         print(
-            f"PASS: {result['passed']} transcript checks; "
-            f"{result['malformed']} malformed checks; "
+            f"PASS: {result['passed']} worker transcript checks; "
             f"{len(result['skipped'])} unsupported checks"
         )
+        print(f"HARNESS: {result['harness_checks']} decoder self-checks")
         for reason in result["skipped"]:
             print(f"SKIP: {reason}")
         return 0

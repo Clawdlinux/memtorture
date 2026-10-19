@@ -171,14 +171,23 @@ Unadvertised operations may return `not_supported`.
 Unsupported checks are printed as `SKIP`. They never count as passed coverage.
 Advertised operations must work. Ref read and delete checks require native write refs.
 The kit checks scope isolation, unchanged Unicode text, full-record upsert, and idempotent deletion.
+Cross-tenant reads must be empty through every advertised read path.
+After delete, every advertised path must exclude the deleted record.
+After upsert, prefix lookup must return only the new record for that key.
+Writes to distinct keys need distinct native refs. Each ref must resolve to its own record.
+Unknown scope and record fields travel unchanged to the worker during replay.
 Reported servers also receive per-role kill and exit checks before stop.
 Keep protocol conformance separate from durability or benchmark success.
 
-`malformed.jsonl` tests the harness validator before replay.
+`malformed.jsonl` tests the harness reply decoder before replay.
 It includes missing tags, wrong ack IDs, invalid UTF-8, stray stdout, and extra fields.
 The harness must reject malformed output and accept unknown fields.
 Worker stdout receives the same checks during replay.
-The kit creates a unique directory under `.conformance-work/` and removes it after completion.
+The PASS line counts only checks against the worker.
+The HARNESS line reports decoder self-checks separately.
+The kit creates a unique directory under `.conformance-work/` and removes it on success.
+Failures keep that directory and print its path plus the worker stderr tail.
+The tests mutate the Node worker to prove each scope, delete, upsert, and ref bug fails replay.
 
 ## Deterministic embedder
 
