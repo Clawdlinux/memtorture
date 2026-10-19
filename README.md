@@ -1,4 +1,4 @@
-Sponsored and built by the Clawdlinux team.
+Sponsored and built by the Clawdlinux team, makers of zerodb, an agent memory engine. zerodb will be tested here from milestone B4, under the same rules as every other system.
 
 # memproof
 
