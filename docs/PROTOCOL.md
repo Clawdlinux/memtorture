@@ -131,3 +131,43 @@ Capabilities name supported operations. `get-id` advertises the benchmark's nati
 `keyed` advertises native or documented emulated key lookup.
 `emulated:<operation>` labels non-native mappings.
 Tier 2 remains outside the current suites. Adapters may return `not_supported` for `retrieve_for`.
+
+## Conformance kit
+
+Run your worker from the repository root:
+
+```sh
+uv run memtorture conformance --command "node systems/reference-node/worker.mjs"
+uv run memtorture conformance --command "python -m memtorture.worker sqlite" --config synchronous=NORMAL
+```
+
+`--command` uses shell-style argv quoting. It never invokes a shell.
+Node 22 is sufficient. The reference worker imports only Node built-ins.
+It stores records in memory. It makes no persistence claims.
+It does not import harness code, compute digests, or embed text.
+Native refs are fresh opaque UUID strings, not record IDs.
+
+The kit replays `protocol/v1/golden.jsonl`.
+Each line contains a request and an expected reply.
+`$record:<id>` expands to a supplied record.
+`$ref:<id>` binds to the native reference from that record's ack.
+`$workdir` and `$config` describe per-run start arguments.
+The harness creates both arguments for the worker's actual start request.
+`match: "shape"` checks required reply fields instead of system-specific values.
+`match: "capabilities"` also checks equality with the start capabilities.
+Error messages may vary. Error types must match.
+`requires` lists prerequisite capabilities for dependent transcript steps.
+
+Start, capabilities, write, and stop are required.
+Unadvertised operations may return `not_supported`.
+Unsupported checks are printed as `SKIP`. They never count as passed coverage.
+Advertised operations must work. Ref read and delete checks require native write refs.
+The kit checks scope isolation, unchanged Unicode text, full-record upsert, and idempotent deletion.
+Reported servers also receive per-role kill and exit checks before stop.
+Keep protocol conformance separate from durability or benchmark success.
+
+`malformed.jsonl` tests the harness validator before replay.
+It includes missing tags, wrong ack IDs, invalid UTF-8, stray stdout, and extra fields.
+The harness must reject malformed output and accept unknown fields.
+Worker stdout receives the same checks during replay.
+The kit creates a unique directory under `.conformance-work/` and removes it after completion.

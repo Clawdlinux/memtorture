@@ -13,6 +13,11 @@ def main(argv=None):
     commands = parser.add_subparsers(dest="command", required=True)
     controls = commands.add_parser("controls", help="Check suite controls.")
     controls.add_argument("--quick", action="store_true", help="Run 5 trials.")
+    conformance = commands.add_parser(
+        "conformance", help="Replay protocol v1 fixtures."
+    )
+    conformance.add_argument("--command", dest="worker_command", required=True)
+    conformance.add_argument("--config", default="default")
     run_parser = commands.add_parser(
         "run", help="Run local cells.", description=PROCESS_NOTE
     )
@@ -32,6 +37,22 @@ def main(argv=None):
     )
     args = parser.parse_args(argv)
     args.invocation = ["memtorture", *(sys.argv[1:] if argv is None else argv)]
+    if args.command == "conformance":
+        from memtorture.conformance import run_conformance
+
+        try:
+            result = run_conformance(args.worker_command, config=args.config)
+        except (OSError, ValueError, RuntimeError, TimeoutError, NotSupported) as exc:
+            print(f"FAIL: {exc}")
+            return 1
+        print(
+            f"PASS: {result['passed']} transcript checks; "
+            f"{result['malformed']} malformed checks; "
+            f"{len(result['skipped'])} unsupported checks"
+        )
+        for reason in result["skipped"]:
+            print(f"SKIP: {reason}")
+        return 0
     if args.command == "run":
         filters = (args.suite, args.system, args.config)
         if args.all and any(filters):

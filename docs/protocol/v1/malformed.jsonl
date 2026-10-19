@@ -1,0 +1,9 @@
+{"name":"missing-kind","op":"write","args":{"record":{"kind":"record","id":"r","scope":{"tenant":"t","session":"s"},"key":"k","text":"v","payload_sha256":""}},"reply":{"id":1,"result":{"id":"r","dropped":false,"ref":null}},"valid":false}
+{"name":"wrong-ack-id","op":"write","args":{"record":{"kind":"record","id":"r","scope":{"tenant":"t","session":"s"},"key":"k","text":"v","payload_sha256":""}},"reply":{"id":1,"result":{"kind":"ack","id":"other","dropped":false,"ref":null}},"valid":false}
+{"name":"non-utf8","op":"stop","args":{},"raw_hex":"ff0a","valid":false}
+{"name":"stray-stdout","op":"stop","args":{},"raw_hex":"776f726b6572206c6f670a","valid":false}
+{"name":"unknown-error-enum","op":"get","args":{},"reply":{"id":1,"error":{"type":"ValueError","message":"bad"}},"valid":false}
+{"name":"wrong-request-id","op":"stop","args":{},"reply":{"id":2,"result":null},"valid":false}
+{"name":"boolean-request-id","op":"stop","args":{},"reply":{"id":true,"result":null},"valid":false}
+{"name":"missing-record-field","op":"get","args":{},"reply":{"id":1,"result":{"kind":"record","id":"r"}},"valid":false}
+{"name":"extra-fields","op":"write","args":{"record":{"kind":"record","id":"r","scope":{"tenant":"t","session":"s"},"key":"k","text":"v","payload_sha256":""}},"reply":{"id":1,"future":true,"result":{"kind":"ack","id":"r","dropped":false,"ref":{"kind":"ref","id":"opaque","future":123},"future":"ignored"}},"valid":true}

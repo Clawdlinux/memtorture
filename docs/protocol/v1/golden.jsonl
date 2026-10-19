@@ -1,0 +1,21 @@
+{"request":{"id":1,"op":"start","args":{"workdir":"$workdir","config":"$config"}},"reply":{"id":1,"result":{"protocol":1,"capabilities":[],"version":"reference","notes":"","servers":[]}},"match":"shape"}
+{"request":{"id":2,"op":"capabilities","args":{}},"reply":{"id":2,"result":[]},"match":"capabilities"}
+{"request":{"id":3,"op":"write","args":{"scope":{"tenant":"t","session":"s","future":true},"record":{"kind":"record","id":"r1","scope":{"tenant":"t","session":"s"},"key":"path/one","text":"café\nneedle","payload_sha256":"6f15674997546dcf669c717920e7a089fdfaf9b5d2129a5c4b5d9595632f78eb","future":"ignored"},"future":true}},"reply":{"id":3,"result":{"kind":"ack","id":"r1","dropped":false,"ref":{"kind":"ref","id":"$ref:r1"}}}}
+{"request":{"id":4,"op":"bulk_load","args":{"scope":{"tenant":"t","session":"s"},"records":[{"kind":"record","id":"r2","scope":{"tenant":"t","session":"s"},"key":"other/two","text":"second","payload_sha256":"404f38c2a4537467ba14b82e9fa9def56deed4a139ec7217a40dc8022270b05d"}]}},"reply":{"id":4,"result":null}}
+{"request":{"id":5,"op":"read_recent","args":{"scope":{"tenant":"t","session":"s"},"n":2}},"reply":{"id":5,"result":["$record:r2","$record:r1"]},"requires":["bulk_load"]}
+{"request":{"id":6,"op":"get","args":{"scope":{"tenant":"t","session":"s"},"key":"path/one"}},"reply":{"id":6,"result":"$record:r1"}}
+{"request":{"id":7,"op":"get_by_ref","args":{"scope":{"tenant":"t","session":"s"},"ref":{"kind":"ref","id":"$ref:r1"}}},"reply":{"id":7,"result":"$record:r1"}}
+{"request":{"id":8,"op":"get_by_ref","args":{"scope":{"tenant":"other","session":"s"},"ref":{"kind":"ref","id":"$ref:r1"}}},"reply":{"id":8,"result":null}}
+{"request":{"id":9,"op":"list_prefix","args":{"scope":{"tenant":"t","session":"s"},"prefix":"path/","limit":10}},"reply":{"id":9,"result":["$record:r1"]}}
+{"request":{"id":10,"op":"search","args":{"scope":{"tenant":"t","session":"s"},"query":"café\nneedle","k":1}},"reply":{"id":10,"result":["$record:r1"]}}
+{"request":{"id":11,"op":"upsert","args":{"scope":{"tenant":"t","session":"s"},"record":{"kind":"record","id":"r3","scope":{"tenant":"t","session":"s"},"key":"path/one","text":"replacement","payload_sha256":"ce3137008470483fe0260b0801635ac2dfa3b7566ab4aa0b22d6186e268622e6"}}},"reply":{"id":11,"result":{"kind":"ack","id":"r3","dropped":false,"ref":{"kind":"ref","id":"$ref:r3"}}}}
+{"request":{"id":12,"op":"get","args":{"scope":{"tenant":"t","session":"s"},"key":"path/one"}},"reply":{"id":12,"result":"$record:r3"},"requires":["upsert"]}
+{"request":{"id":13,"op":"delete","args":{"scope":{"tenant":"other","session":"s"},"ref":{"kind":"ref","id":"$ref:r3"}}},"reply":{"id":13,"result":{"kind":"ack","id":"$ref:r3","dropped":false,"ref":null}},"requires":["upsert"]}
+{"request":{"id":14,"op":"get_by_ref","args":{"scope":{"tenant":"t","session":"s"},"ref":{"kind":"ref","id":"$ref:r3"}}},"reply":{"id":14,"result":"$record:r3"},"requires":["upsert","delete"]}
+{"request":{"id":15,"op":"delete","args":{"scope":{"tenant":"t","session":"s"},"ref":{"kind":"ref","id":"$ref:r3"}}},"reply":{"id":15,"result":{"kind":"ack","id":"$ref:r3","dropped":false,"ref":null}},"requires":["upsert"]}
+{"request":{"id":16,"op":"get_by_ref","args":{"scope":{"tenant":"t","session":"s"},"ref":{"kind":"ref","id":"$ref:r3"}}},"reply":{"id":16,"result":null},"requires":["upsert","delete"]}
+{"request":{"id":17,"op":"delete","args":{"scope":{"tenant":"t","session":"s"},"ref":{"kind":"ref","id":"$ref:r3"}}},"reply":{"id":17,"result":{"kind":"ack","id":"$ref:r3","dropped":false,"ref":null}},"requires":["upsert","delete"]}
+{"request":{"id":18,"op":"data_dirs","args":{}},"reply":{"id":18,"result":["$workdir"]},"match":"shape"}
+{"request":{"id":19,"op":"retrieve_for","args":{"ctx":{"file_path":"path/one","task_text":"needle","recent_context":"","token_budget":10}}},"reply":{"id":19,"result":""},"match":"shape"}
+{"request":{"id":20,"op":"ensure_server_exited","args":{"pid":2147483647}},"reply":{"id":20,"error":{"type":"invalid_request","message":"Unreported server PID"}}}
+{"request":{"id":21,"op":"stop","args":{}},"reply":{"id":21,"result":null}}
