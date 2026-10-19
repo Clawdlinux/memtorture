@@ -1,4 +1,5 @@
 import threading
+import time
 
 from memproof.adapters.markdown import Markdown
 from memproof.adapters.sqlite import SQLite
@@ -74,30 +75,15 @@ class DelayedIndex(SQLiteBusy):
 
     def start(self, workdir, config):
         super().start(workdir, config)
-        self.hidden = set()
-        self.timers = []
-        self.lock = threading.Lock()
+        self.visible_at = {}
 
     def write(self, scope, record):
         ack = super().write(scope, record)
-        with self.lock:
-            self.hidden.add(record.id)
-        timer = threading.Timer(0.1, self._index, args=(record.id,))
-        self.timers.append(timer)
-        timer.start()
+        # A logical deadline isolates visibility delay from OS timer coalescing.
+        self.visible_at[record.id] = time.monotonic_ns() + 100_000_000
         return ack
-
-    def _index(self, id):
-        with self.lock:
-            self.hidden.discard(id)
 
     def _query(self, *args, **kwargs):
         rows = super()._query(*args, **kwargs)
-        with self.lock:
-            return [r for r in rows if r.id not in self.hidden]
-
-    def stop(self, target="all", kill=False):
-        for timer in self.timers:
-            timer.cancel()
-            timer.join()
-        super().stop(target, kill)
+        now = time.monotonic_ns()
+        return [r for r in rows if now >= self.visible_at.get(r.id, 0)]

@@ -8,5 +8,14 @@ def main(argv=None):
     controls.add_argument("--quick", action="store_true", help="Run 5 trials.")
     args = parser.parse_args(argv)
     if args.command == "controls":
-        print("Control gate not implemented. Scaffold only. No cells can publish.")
+        from memproof.controls.gate import run_controls
+
+        summary = run_controls(quick=args.quick)
+        for suite, result in sorted(summary["suites"].items()):
+            print(
+                f"{suite}: fail={result['must_fail_rate']:.0%} "
+                f"pass={result['must_pass_rate']:.0%} "
+                f"discriminates={result['discriminates']}"
+            )
+        return int(not all(r["discriminates"] for r in summary["suites"].values()))
     return 0

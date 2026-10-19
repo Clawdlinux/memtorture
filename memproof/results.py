@@ -2,6 +2,7 @@ import json
 import os
 import platform
 import subprocess
+import threading
 from importlib.metadata import version
 from pathlib import Path
 
@@ -34,6 +35,7 @@ class ResultWriter:
         self.root.mkdir(parents=True, exist_ok=True)
         self.raw = (self.root / "operations.jsonl").open("w")
         self.cells = []
+        self.lock = threading.Lock()
         self.manifest = {
             "sponsor": SPONSOR,
             "command": command,
@@ -52,8 +54,9 @@ class ResultWriter:
         }
 
     def operation(self, event):
-        self.raw.write(json.dumps(event, sort_keys=True, ensure_ascii=False) + "\n")
-        self.raw.flush()
+        with self.lock:
+            self.raw.write(json.dumps(event, sort_keys=True, ensure_ascii=False) + "\n")
+            self.raw.flush()
 
     def cell(self, cell):
         self.cells.append(cell)

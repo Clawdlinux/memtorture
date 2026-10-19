@@ -85,6 +85,11 @@ class Markdown(Base):
                 os.close(fd)
         return Ack(record.id)
 
+    def bulk_load(self, scope, records):
+        if any(r.scope != scope for r in records):
+            raise ValueError("Scope mismatch")
+        self._rewrite(lambda rows: rows + records)
+
     def read_recent(self, scope, n):
         return list(reversed(self._rows(scope)))[:n]
 

@@ -36,6 +36,14 @@ def serve(adapter, source=None, output=None):
                     "version": getattr(adapter, "version", "unreported"),
                     "notes": getattr(adapter, "notes", ""),
                 }
+            elif op == "bulk_load":
+                method = getattr(adapter, "bulk_load", None)
+                if method:
+                    result = method(**args)
+                else:
+                    for record in args["records"]:
+                        adapter.write(args["scope"], record)
+                    result = None
             elif op in METHODS:
                 method = getattr(adapter, op, None)
                 if method is None:

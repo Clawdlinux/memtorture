@@ -93,6 +93,16 @@ class SQLite(Base):
         rows = self._query(scope, "AND (path=? OR id=?)", (key, key), 1)
         return rows[0] if rows else None
 
+    def bulk_load(self, scope, records):
+        self.db.execute("BEGIN")
+        try:
+            for record in records:
+                self.write(scope, record)
+            self.db.execute("COMMIT")
+        except BaseException:
+            self.db.execute("ROLLBACK")
+            raise
+
     def read_recent(self, scope, n):
         return self._query(scope, limit=n)
 
