@@ -1,6 +1,6 @@
 # 0001: memproof, a benchmark for agent memory engines
 
-Status: Revised after review round 1 (Claude Opus 5.5 and Gemini 4 Argon, independent). Working name `memproof`: evidence, not proof.
+Status: Approved after 3 review rounds (Claude Opus 5.5 and Gemini 4 Argon, independent). Working name `memproof`: evidence, not proof.
 
 ## Why
 
