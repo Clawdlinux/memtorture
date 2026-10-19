@@ -193,6 +193,22 @@ def inspect_records(expected, rows, *, keyed=False):
     }
 
 
+def inspect_overlap(expected, rows, final):
+    intact = [r for r in rows if r.valid()]
+    counts = Counter((r.scope, r.key) for r in intact)
+    return {
+        "acked_missing": 0,
+        "duplicates": sum(max(0, count - 1) for count in counts.values()),
+        "torn": sum(
+            not r.valid() or (r.id in expected and r != expected[r.id]) for r in rows
+        ),
+        "invalid_rows": sum(r.id not in expected or r != expected[r.id] for r in rows),
+        "invalid_final": sum(
+            not r or r.id not in expected or r != expected[r.id] for r in final.values()
+        ),
+    }
+
+
 def process_kill(
     system, config, workdir, *, trials=20, seed=20261019, targets=None, emit=None
 ):
@@ -361,15 +377,7 @@ def concurrent(
                         key: workers[0].call("get", scope=scope, key=key)
                         for key in keys
                     }
-                    counts = {
-                        "acked_missing": 0,
-                        "duplicates": 0,
-                        "torn": sum(not r.valid() for r in rows),
-                        "invalid_final": sum(
-                            not r or r.id not in expected or r != expected[r.id]
-                            for r in final.values()
-                        ),
-                    }
+                    counts = inspect_overlap(expected, rows, final)
                 totals.update(counts)
                 detail = {"writers": count, "phase": phase, **counts}
                 trials.append(detail)
@@ -379,8 +387,8 @@ def concurrent(
         **dict(totals),
         "trials": trials,
         "info": info,
-        "cas": "cas" in capabilities,
-        "history": "history" in capabilities,
+        "cas": "not measured in B1",
+        "history": "not measured in B1",
     }
 
 

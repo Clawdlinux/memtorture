@@ -164,13 +164,18 @@ Runs use 2, 4, and 8 workers.
 A harness barrier starts each group.
 Only replies read by the harness enter the expected set.
 The final scan counts missing records, duplicates, and torn payloads.
+Malformed Markdown lines retain unique line-number ids.
+Prefix readback keeps invalid rows even when the valid-row limit is reached.
 
 ### Concurrent keyed writes
 
 Each group writes distinct keys, then overlapping keys.
 Distinct keys must all survive.
 Each overlapping key must end with one intact acked value.
-CAS and history are capabilities, not success criteria.
+Intact rows are checked for duplicate keys.
+Every returned row must match an acked write.
+Malformed rows count as torn, not duplicate keys.
+CAS and history report "not measured in B1", not false capability measurements.
 Emulated upsert is marked.
 
 ## Rows and mapping

@@ -46,7 +46,9 @@ class Markdown(Base):
 
     def _all(self):
         rows = []
-        for line in self.path.read_text().splitlines():
+        for lineno, line in enumerate(
+            self.path.read_text(errors="replace").splitlines(), 1
+        ):
             if not line:
                 continue
             try:
@@ -55,7 +57,9 @@ class Markdown(Base):
                 rows.append(Record(**data))
             except (ValueError, TypeError, KeyError):
                 # Preserve malformed rows as torn evidence, never silently drop them.
-                rows.append(Record("malformed", Scope("", ""), "", line, "invalid"))
+                rows.append(
+                    Record(f"malformed:{lineno}", Scope("", ""), "", line, "invalid")
+                )
         return rows
 
     def _rows(self, scope):
@@ -99,7 +103,10 @@ class Markdown(Base):
         )
 
     def list_prefix(self, scope, prefix, limit):
-        return [r for r in self._rows(scope) if r.key.startswith(prefix)][:limit]
+        rows = self._rows(scope)
+        invalid = [r for r in rows if not r.valid()]
+        valid = [r for r in rows if r.valid() and r.key.startswith(prefix)]
+        return valid[:limit] + invalid
 
     def search(self, scope, query, k):
         return [r for r in reversed(self._rows(scope)) if query in r.text][:k]
