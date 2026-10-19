@@ -212,8 +212,12 @@ describes WAL sync behavior.
 `FULL` syncs the WAL after each transaction commit.
 Markdown and MCP have no documented durable mode.
 
-Vector operations use seeded hash embedder v1.
-It has 64 dimensions and seed `20261019`.
+Vector operations use `sha256-counter-v1`, with 64 dimensions.
+It hashes a big-endian counter followed by exact UTF-8 text.
+Signed 32-bit words become normalized binary64 components.
+The byte layout and cross-language test vectors are in [PROTOCOL.md](PROTOCOL.md).
+The harness computes record and query vectors. Workers never embed text.
+Protocol schemas, vectors, and worker manifests contribute to the control gate's methodology hash.
 It measures engine behavior, not semantic recall quality.
 The optional realistic embedder is outside B1.
 

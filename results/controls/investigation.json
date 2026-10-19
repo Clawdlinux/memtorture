@@ -1,5 +1,5 @@
 {
-  "scope": "Control calibration only. No comparative measurements.",
+  "scope": "Historical B1 calibration. Not current control evidence. No comparative measurements.",
   "threshold_changed": false,
   "required_must_fail_rate": 0.9,
   "required_delay_bound_ms": "100 through 101 plus read p99",

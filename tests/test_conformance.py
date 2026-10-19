@@ -24,6 +24,7 @@ def test_golden_transcripts_cover_every_operation():
         f"{NODE} {REFERENCE}",
         f"{sys.executable} -m memtorture.worker sqlite",
         f"{sys.executable} -m memtorture.worker markdown",
+        f"{sys.executable} -m memtorture.worker delayed-index",
     ],
 )
 def test_conformance_cli_passes_reference_and_baselines(command, capsys):

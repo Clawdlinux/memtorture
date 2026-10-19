@@ -11,9 +11,9 @@ from memtorture.suites import concurrent, history_scale, process_kill, recall_de
 from memtorture.types import NotSupported
 
 
-def test_embed_is_seeded_and_normalized():
+def test_embed_is_deterministic_and_normalized():
     assert embed("memory") == embed("memory")
-    assert embed("memory", seed=1) != embed("memory", seed=2)
+    assert embed("first") != embed("second")
     assert sum(x * x for x in embed("memory")) == pytest.approx(1)
 
 

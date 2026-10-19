@@ -1,6 +1,6 @@
 {
   "$schema":"https://json-schema.org/draft/2020-12/schema",
-  "oneOf":[{"$ref":"#/$defs/request"},{"$ref":"#/$defs/reply"}],
+  "anyOf":[{"$ref":"#/$defs/request"},{"$ref":"#/$defs/reply"}],
   "$defs":{
     "request":{"allOf":[{"$ref":"common.json#/$defs/request"}],"properties":{"op":{"const":"retrieve_for"},"args":{"$ref":"common.json#/$defs/retrieve_args"}}},
     "reply":{"allOf":[{"$ref":"common.json#/$defs/reply"}],"properties":{"result":{"$ref":"common.json#/$defs/text"}}}

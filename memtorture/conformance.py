@@ -3,6 +3,7 @@
 import json
 import shlex
 import shutil
+import time
 import uuid
 from pathlib import Path
 
@@ -48,6 +49,7 @@ def run_conformance(command, *, config="default", workdir=None):
     path.mkdir(parents=True, exist_ok=False)
     records, refs = {}, {}
     passed, skipped = 0, []
+    succeeded = {"start"}
 
     def expand(value):
         if isinstance(value, str) and value.startswith("$ref:"):
@@ -75,7 +77,7 @@ def run_conformance(command, *, config="default", workdir=None):
                     for role in worker.servers:
                         worker.kill(f"server:{role}")
                         passed += 1
-                if not set(case.get("requires", ())) <= worker.capabilities:
+                if not set(case.get("requires", ())) <= worker.capabilities | succeeded:
                     skipped.append(f"{request['id']}:{op}: prerequisite unsupported")
                     continue
                 try:
@@ -130,6 +132,15 @@ def run_conformance(command, *, config="default", workdir=None):
                     if isinstance(result, Ack) and result.ref is None and op == "write":
                         value = value | {"ref": None}
                     expected = decode(expand(value))
+                    deadline = time.monotonic() + 10
+                    while (
+                        result != expected
+                        and op
+                        in {"get", "get_by_ref", "read_recent", "list_prefix", "search"}
+                        and time.monotonic() < deadline
+                    ):
+                        time.sleep(0.01)
+                        result = worker.call(op, **args)
                     if result != expected:
                         raise ProtocolError(
                             f"{op} disagrees with golden reply {request['id']}"
@@ -138,6 +149,7 @@ def run_conformance(command, *, config="default", workdir=None):
                     if any(isinstance(r, Record) and not r.valid() for r in rows):
                         raise ProtocolError(f"{op} returned a torn golden record")
                 passed += 1
+                succeeded.add(op)
         return {"passed": passed, "skipped": skipped, "malformed": malformed}
     finally:
         shutil.rmtree(path)

@@ -110,6 +110,11 @@ def test_protocol_schemas_cover_every_operation():
         schema = json.loads((root / f"{op}.json").read_text())
         assert schema["$schema"] == "https://json-schema.org/draft/2020-12/schema"
         assert schema["$defs"]["request"]["properties"]["op"] == {"const": op}
+        # Unknown request fields may also look like a reply envelope.
+        assert schema["anyOf"] == [
+            {"$ref": "#/$defs/request"},
+            {"$ref": "#/$defs/reply"},
+        ]
 
 
 def test_qdrant_delete_uses_native_point_ref_and_preserves_scope():
@@ -151,7 +156,7 @@ def test_python_worker_ignores_extra_fields_and_keeps_text():
     scope = Scope("t", "s")
     record = Record.make(scope, "key", "é\u0301\n\t完整")
     value = encode(record)
-    value["future"] = {"opaque": True}
+    value["future"] = {"kind": "record", "opaque": True}
     value["scope"]["future"] = 123
     requests = [
         {"id": 1, "op": "start", "args": {"workdir": ".", "config": "default"}},
@@ -162,7 +167,7 @@ def test_python_worker_ignores_extra_fields_and_keeps_text():
             "args": {
                 "scope": encode(scope),
                 "record": value,
-                "future": True,
+                "future": {"kind": "ack"},
             },
         },
         {"id": 3, "op": "get", "args": {"scope": encode(scope), "key": "key"}},

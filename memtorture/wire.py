@@ -83,7 +83,7 @@ def decode(value):
     if not isinstance(value, dict):
         return value
     kind = value.get("kind")
-    if kind in KINDS:
+    if isinstance(kind, str) and kind in KINDS:
         tagged(value, kind)
         cls = KINDS[kind]
         body = {f.name: decode(value[f.name]) for f in fields(cls) if f.name in value}
@@ -92,12 +92,15 @@ def decode(value):
                 **{k: value["scope"][k] for k in ("tenant", "session")}
             )
         return cls(**body)
-    return {k: decode(v) for k, v in value.items()}
+    return value
 
 
 def decode_args(args):
     require(isinstance(args, dict), "args must be an object")
-    body = decode(args)
+    body = dict(args)
+    for name in ("record", "records", "ref"):
+        if name in body:
+            body[name] = decode(body[name])
     if "scope" in body:
         scope(args["scope"])
         body["scope"] = Scope(**{k: args["scope"][k] for k in ("tenant", "session")})
