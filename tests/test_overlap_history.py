@@ -1,4 +1,7 @@
 import sys
+from pathlib import Path
+
+import pytest
 
 from memtorture.adapters.markdown import Markdown
 from memtorture.protocol import Worker
@@ -25,7 +28,22 @@ def test_versions_are_not_duplicate_record_ids():
     assert repeated["duplicates"] == 1
 
 
-def test_history_store_passes_and_reports_versions_per_key(monkeypatch, tmp_path):
+@pytest.mark.parametrize("elsewhere", [False, True])
+def test_history_store_passes_and_reports_versions_per_key(
+    monkeypatch, tmp_path, elsewhere
+):
+    if elsewhere:
+        monkeypatch.chdir(tmp_path)
+        from memtorture import protocol
+
+        original = protocol.subprocess.Popen
+
+        def spawn(*args, **kwargs):
+            assert kwargs.get("cwd") == Path(__file__).resolve().parents[1]
+            return original(*args, **kwargs)
+
+        monkeypatch.setattr(protocol.subprocess, "Popen", spawn)
+
     class HistoryWorker(Worker):
         def __init__(self, system, config, workdir, **kwargs):
             super().__init__(
@@ -38,6 +56,7 @@ def test_history_store_passes_and_reports_versions_per_key(monkeypatch, tmp_path
                     "from tests.test_overlap_history import HistoryMarkdown; "
                     "from memtorture.worker import serve; serve(HistoryMarkdown())",
                 ],
+                cwd=Path(__file__).resolve().parents[1],
                 **kwargs,
             )
 

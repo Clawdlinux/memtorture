@@ -180,11 +180,14 @@ Each group writes distinct keys, then overlapping keys.
 Distinct keys must all survive.
 Each overlapping key must end with one intact acked value.
 Rows are checked for duplicate record IDs, not duplicate keys.
+Only intact rows count toward duplicates.
+Corrupt copies count as torn, even when their IDs match intact records.
 Every returned row must match an acked write.
 Multiple intact versions of a key are allowed.
 Malformed rows count as torn.
 History reports the advertised `history` capability separately from observed versions per key.
 Observed versions count distinct intact acked record IDs per key.
+The first intact row for an ID is retained. Later corrupt copies cannot hide that version.
 History never changes pass or fail.
 CAS remains "not measured in B1".
 Emulated upsert is marked.

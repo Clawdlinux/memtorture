@@ -76,8 +76,8 @@ def worker_command(system):
 class Worker:
     """JSONL client. Only receive() can add a write to the harness ack set."""
 
-    def __init__(self, system, config, workdir, *, command=None, timeout=60):
-        self.workdir = Path(workdir)
+    def __init__(self, system, config, workdir, *, command=None, timeout=60, cwd=None):
+        self.workdir = Path(workdir).resolve() if cwd is not None else Path(workdir)
         self.workdir.mkdir(parents=True, exist_ok=True)
         self.timeout = timeout
         self.acked = {}
@@ -97,6 +97,7 @@ class Worker:
             stdout=subprocess.PIPE,
             stderr=self.log,
             bufsize=0,
+            cwd=cwd,
         )
         self.selector = selectors.DefaultSelector()
         self.selector.register(self.process.stdout, selectors.EVENT_READ)

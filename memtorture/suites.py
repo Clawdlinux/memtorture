@@ -193,26 +193,30 @@ def recall_delay(
     }
 
 
+def intact(record, expected):
+    return record.valid() and (
+        record.id not in expected or record == expected[record.id]
+    )
+
+
 def inspect_records(expected, rows, *, keyed=False):
     by_id = {r.id: r for r in rows}
-    counts = Counter(r.id for r in rows)
+    valid = [r for r in rows if intact(r, expected)]
+    counts = Counter(r.id for r in valid)
     return {
         "acked_missing": sum(r.id not in by_id for r in expected.values()),
         "duplicates": sum(max(0, count - 1) for count in counts.values()),
-        "torn": sum(
-            not r.valid() or (r.id in expected and r != expected[r.id]) for r in rows
-        ),
+        "torn": len(rows) - len(valid),
     }
 
 
 def inspect_overlap(expected, rows, final):
-    counts = Counter(r.id for r in rows)
+    valid = [r for r in rows if intact(r, expected)]
+    counts = Counter(r.id for r in valid)
     return {
         "acked_missing": 0,
         "duplicates": sum(max(0, count - 1) for count in counts.values()),
-        "torn": sum(
-            not r.valid() or (r.id in expected and r != expected[r.id]) for r in rows
-        ),
+        "torn": len(rows) - len(valid),
         "invalid_rows": sum(r.id not in expected or r != expected[r.id] for r in rows),
         "invalid_final": sum(
             not r or r.id not in expected or r != expected[r.id] for r in final.values()
@@ -388,11 +392,11 @@ def concurrent(
                         for key in keys
                     }
                     counts = inspect_overlap(expected, rows, final)
-                    versions = Counter(
-                        r.key
-                        for r in {r.id: r for r in rows}.values()
-                        if r.valid() and expected.get(r.id) == r
-                    )
+                    valid_by_id = {}
+                    for record in rows:
+                        if record.id in expected and intact(record, expected):
+                            valid_by_id.setdefault(record.id, record)
+                    versions = Counter(r.key for r in valid_by_id.values())
                     history_observations.append(
                         {
                             "writers": count,
