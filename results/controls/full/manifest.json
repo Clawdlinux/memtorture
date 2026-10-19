@@ -5,21 +5,18 @@
   ],
   "comparative_publication": "blocked pending outside review and reply window",
   "control_summary": "gate.json",
-  "dependencies": {
-    "mcp": "1.26.0",
-    "qdrant-client": "1.16.2"
-  },
   "hardware": {
     "cpu_count": 10,
     "machine": "arm64",
     "processor": "arm",
     "ram_bytes": 17179869184
   },
-  "harness_commit": "41424095fd4c49bcc2f7bbf84509427015e7a398",
+  "harness_commit": "2b422ddf6507e658b7c8fe6842798f77f7d18093",
   "harness_dirty": true,
-  "methodology_sha256": "81cfee10129da204d9c8f61870010ae69570f65e30c724de57a94553fc6da0a1",
+  "methodology_sha256": "c364b9c34997aa2c12762053f64f8737d04442bbcb5b7023f65cfc170838ea53",
   "os": "macOS-27.0.1-arm64-arm-64bit",
   "python": "3.12.12",
+  "runtime_dependencies": "none (Python standard library only)",
   "sponsor": "Sponsored and built by the Clawdlinux team.",
   "systems": [
     {

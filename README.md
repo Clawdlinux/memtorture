@@ -74,8 +74,9 @@ Sponsor marketing must link the full run.
 
 ## Dependencies
 
-`mcp` is reserved for the gated reference-server adapter.
-`qdrant-client` speaks the native Qdrant API.
+The harness has no runtime dependencies. It uses only the Python standard library.
+Qdrant is driven through its native REST API with `http.client` over one keep-alive connection.
+A new runtime dependency needs a written reason in its pull request.
 The test tools are pytest, Hypothesis, and Ruff.
 
 Code uses Apache-2.0.

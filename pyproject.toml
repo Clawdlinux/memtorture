@@ -4,10 +4,7 @@ version = "0.1.0"
 description = "Agent memory benchmarks. Evidence, not proof."
 requires-python = ">=3.12,<3.13"
 license = "Apache-2.0"
-dependencies = [
-    "mcp==1.26.0",
-    "qdrant-client==1.16.2",
-]
+dependencies = []
 
 [project.scripts]
 memproof = "memproof.cli:main"
