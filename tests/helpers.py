@@ -53,45 +53,44 @@ SELECTED = (
 )
 
 
+def replace_source(source, old, new):
+    assert old in source, f"Worker source no longer contains {old!r}"
+    return source.replace(old, new)
+
+
 def broken_source(bug):
     code = REFERENCE.read_text()
-    keyword_search = (
-        "return selected.reverse().filter(row => row.text.includes(args.query))"
-        ".slice(0, args.k);"
-    )
     if bug == "stale-upsert-search":
-        assert keyword_search in code
-        return (
-            code.replace(
+        replacements = [
+            (
                 "let rows = new Map();",
                 "let rows = new Map(); const stale = new Map();",
-            )
-            .replace(
+            ),
+            (
                 "rows.delete(ref);",
                 "{ stale.set(ref, row); rows.delete(ref); }",
-            )
-            .replace(
-                keyword_search,
+            ),
+            (
+                KEYWORD_SEARCH,
                 "return selected.reverse().filter(row => row.text.includes(args.query))"
                 ".concat([...stale.values()].filter(row => "
                 "sameScope(row.scope, args.scope)))"
                 ".slice(0, args.k);",
-            )
-        )
-    if bug == "duplicate-search":
-        assert keyword_search in code
-        return (
-            code.replace(
+            ),
+        ]
+    elif bug == "duplicate-search":
+        replacements = [
+            (
                 "let rows = new Map();",
                 "let rows = new Map(); const saved = new Map();",
-            )
-            .replace(
+            ),
+            (
                 "const value = record(args.record, args.scope);",
                 "const value = record(args.record, args.scope); "
                 "saved.set(value.id, value);",
-            )
-            .replace(
-                keyword_search,
+            ),
+            (
+                KEYWORD_SEARCH,
                 "const hits = selected.reverse()"
                 ".filter(row => row.text.includes(args.query));"
                 "const other = [...saved.values()].find(row => "
@@ -100,55 +99,67 @@ def broken_source(bug):
                 "if (args.k >= 3 && hits.length && other) "
                 "return [hits[0], hits[0], other];"
                 "return hits.slice(0, args.k);",
+            ),
+        ]
+    elif bug.startswith("scope:"):
+        op = bug.split(":")[1]
+        replacements = [
+            (
+                SELECTED,
+                "const selected = [...rows.values()].filter(row => "
+                f'op === "{op}" || sameScope(row.scope, args.scope));',
             )
-        )
-    if bug.startswith("scope:"):
+        ]
+    elif bug.startswith("deleted:"):
         op = bug.split(":")[1]
-        return code.replace(
-            SELECTED,
-            "const selected = [...rows.values()].filter(row => "
-            f'op === "{op}" || sameScope(row.scope, args.scope));',
-        )
-    if bug.startswith("deleted:"):
-        op = bug.split(":")[1]
-        code = code.replace(
-            "let rows = new Map();",
-            "let rows = new Map(); const deletedRows = new Map();",
-        ).replace(
-            "if (visible) rows.delete(args.ref.id);",
-            "if (visible) { deletedRows.set(args.ref.id, found); "
-            "rows.delete(args.ref.id); }",
-        )
-        return code.replace(
-            SELECTED,
-            "const selected = [...rows.values(), "
-            f'...(op === "{op}" ? deletedRows.values() : [])]'
-            ".filter(row => sameScope(row.scope, args.scope));",
-        )
-    if bug == "duplicate-upsert":
-        return code.replace("if (replace) {", "if (false) {")
-    if bug == "constant-ref":
-        return (
-            code.replace(
+        replacements = [
+            (
+                "let rows = new Map();",
+                "let rows = new Map(); const deletedRows = new Map();",
+            ),
+            (
+                "if (visible) rows.delete(args.ref.id);",
+                "if (visible) { deletedRows.set(args.ref.id, found); "
+                "rows.delete(args.ref.id); }",
+            ),
+            (
+                SELECTED,
+                "const selected = [...rows.values(), "
+                f'...(op === "{op}" ? deletedRows.values() : [])]'
+                ".filter(row => sameScope(row.scope, args.scope));",
+            ),
+        ]
+    elif bug == "duplicate-upsert":
+        replacements = [("if (replace) {", "if (false) {")]
+    elif bug == "constant-ref":
+        replacements = [
+            (
                 'return ack(value.id, { kind: "ref", id: ref });',
                 'return ack(value.id, { kind: "ref", id: "constant" });',
-            )
-            .replace(
+            ),
+            (
                 "const found = rows.get(args.ref.id);",
                 "const found = [...rows.values()].reverse()"
                 '.find(row => row.key === "path/one");',
-            )
-            .replace(
+            ),
+            (
                 "if (visible) rows.delete(args.ref.id);",
                 "if (visible) { for (const [id, row] of rows) "
                 "{ if (row.id === found.id) rows.delete(id); } }",
+            ),
+        ]
+    else:
+        assert bug == "reject-unknown-scope"
+        replacements = [
+            (
+                "scope(args.scope);",
+                'scope(args.scope); check(!("future" in args.scope), '
+                '"Unknown scope field");',
             )
-        )
-    assert bug == "reject-unknown-scope"
-    return code.replace(
-        "scope(args.scope);",
-        'scope(args.scope); check(!("future" in args.scope), "Unknown scope field");',
-    )
+        ]
+    for old, new in replacements:
+        code = replace_source(code, old, new)
+    return code
 
 
 def variant_source(variant):
@@ -158,11 +169,10 @@ def variant_source(variant):
             if variant == "echo-delete-ref"
             else "return { ...ack(args.ref.id), dropped: !visible };"
         )
-        return REFERENCE.read_text().replace("return ack(args.ref.id);", replacement)
-    return broken_source(variant).replace(
-        "function dispatch(op, args) {",
-        'function dispatch(op, args) { console.error("debug diagnostic", op);',
-    )
+        return replace_source(
+            REFERENCE.read_text(), "return ack(args.ref.id);", replacement
+        )
+    return broken_source(variant)
 
 
 def make_record(key="path/file", text="needle0001 text", scope=None, **kwargs):

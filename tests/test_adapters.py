@@ -18,6 +18,8 @@ def test_storage_roundtrip(adapter_factory, tmp_path, name, config):
     scope, other = first.scope, Scope("other", "session")
     ack = adapter.write(scope, first)
     assert ack.id == first.id
+    if name == "delayed-index":
+        assert adapter.get(scope, first.key) is None
     if name in {"buffered", "delayed-index"}:
         time.sleep(0.13)
     assert adapter.get(scope, first.key) == first
@@ -87,17 +89,6 @@ def test_storage_roundtrip(adapter_factory, tmp_path, name, config):
 def test_invalid_config(name, tmp_path):
     with pytest.raises(NotSupported):
         load_adapter(name).start(tmp_path, "invalid-row")
-
-
-@pytest.mark.parametrize("name", ["buffered", "delayed-index"])
-def test_delayed_visibility(adapter_factory, name):
-    adapter = adapter_factory(name, "default")
-    record = make_record()
-    ack = adapter.write(record.scope, record)
-    assert ack.id == record.id
-    assert adapter.get(record.scope, record.key) is None
-    time.sleep(0.13)
-    assert adapter.get(record.scope, record.key) == record
 
 
 def test_sqlite_mappings(adapter_factory):

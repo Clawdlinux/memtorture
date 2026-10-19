@@ -20,9 +20,10 @@ from tests.helpers import (
 
 
 def pytest_configure(config):
-    workspace = ROOT / ".pytest_cache"
-    workspace.mkdir(exist_ok=True)
-    config.option.basetemp = str(workspace / "work")
+    if config.option.basetemp is None:
+        workspace = ROOT / ".pytest_cache"
+        workspace.mkdir(exist_ok=True)
+        config.option.basetemp = str(workspace / "work")
 
 
 @pytest.fixture

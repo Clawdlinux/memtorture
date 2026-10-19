@@ -94,35 +94,55 @@ def test_ack_lifecycle(worker_factory, outcome):
 
 
 @pytest.mark.parametrize(
-    "raw",
+    "raw,message",
     [
-        b'{"id":2,"result":{"id":"r","dropped":false,"ref":null}}\n',
-        b'{"id":2,"result":{"kind":"ack","id":"wrong","dropped":false,"ref":null}}\n',
-        b"stray worker log\n",
-        b"\xff\n",
+        (
+            b'{"id":2,"result":{"id":"r","dropped":false,"ref":null}}\n',
+            "Expected ack",
+        ),
+        (
+            b'{"id":2,"result":{"kind":"ack","id":"wrong","dropped":false,"ref":null}}\n',
+            "Ack does not match request payload",
+        ),
+        (b"stray worker log\n", "Worker stdout must contain UTF-8 JSONL only"),
+        (b"\xff\n", "Worker stdout must contain UTF-8 JSONL only"),
     ],
+    ids=["missing-kind", "ack-id-mismatch", "non-json-stdout", "invalid-utf8"],
 )
-def test_unvalidated_reply_is_not_acked(worker_factory, raw):
+def test_unvalidated_reply_is_not_acked(worker_factory, raw, message):
     worker = worker_factory(command=reply_command(raw))
     record = make_record(id="r")
-    with pytest.raises(ProtocolError):
+    with pytest.raises(ProtocolError, match=message):
         worker.call("write", scope=record.scope, record=record)
     assert worker.acked == worker.refs == {}
     assert worker.last_ack_ns == 0
 
 
 @pytest.mark.parametrize(
-    "op,envelope",
+    "op,envelope,message",
     [
-        ("write", {"result": {"id": "r", "dropped": False, "ref": None}}),
+        (
+            "write",
+            {"result": {"id": "r", "dropped": False, "ref": None}},
+            "Expected ack",
+        ),
         (
             "write",
             {"result": {"kind": "ack", "id": "other", "dropped": True, "ref": None}},
+            "Ack does not match request payload",
         ),
-        ("get", {"result": {"kind": "record", "id": "r"}}),
-        ("read_recent", {"result": None}),
-        ("stop", {"result": {}}),
-        ("capabilities", {"result": ["write", 1]}),
+        (
+            "get",
+            {"result": {"kind": "record", "id": "r"}},
+            "Expected a plain scope object",
+        ),
+        ("read_recent", {"result": None}, "Expected record array"),
+        ("stop", {"result": {}}, "stop requires null"),
+        (
+            "capabilities",
+            {"result": ["write", 1]},
+            "capabilities requires a string array",
+        ),
         (
             "start",
             {
@@ -134,8 +154,9 @@ def test_unvalidated_reply_is_not_acked(worker_factory, raw):
                     "servers": [],
                 }
             },
+            "Expected protocol 1",
         ),
-        ("write", {"error": {"type": "ValueError", "message": "bad"}}),
+        ("write", {"error": {"type": "ValueError", "message": "bad"}}, "Invalid error"),
         (
             "delete",
             {
@@ -146,12 +167,29 @@ def test_unvalidated_reply_is_not_acked(worker_factory, raw):
                     "ref": None,
                 }
             },
+            "Ack does not match request payload",
         ),
-        ("delete", {"result": {"id": "native", "dropped": False, "ref": None}}),
+        (
+            "delete",
+            {"result": {"id": "native", "dropped": False, "ref": None}},
+            "Expected ack",
+        ),
+    ],
+    ids=[
+        "missing-kind",
+        "ack-id-mismatch",
+        "missing-scope",
+        "null-record-array",
+        "stop-object",
+        "capability-type",
+        "boolean-protocol",
+        "unknown-error-type",
+        "delete-id-mismatch",
+        "delete-missing-kind",
     ],
 )
-def test_invalid_reply(op, envelope):
-    with pytest.raises(ProtocolError):
+def test_invalid_reply(op, envelope, message):
+    with pytest.raises(ProtocolError, match=message):
         parse_reply(
             json.dumps({"id": 1, **envelope}).encode(),
             1,

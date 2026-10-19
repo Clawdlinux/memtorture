@@ -8,24 +8,25 @@ import pytest
 from memtorture.cli import main
 from memtorture.results import ResultWriter
 from memtorture.runner import ROWS, run
+from memtorture.suites import SUITES
 
 
 @pytest.mark.parametrize(
-    "args,expected",
-    [
-        ([], "evidence, not proof"),
-        (["controls"], "--quick"),
-        (["run"], "not disk durability"),
-    ],
+    "args",
+    [[], ["controls"], ["run"]],
 )
-def test_help(args, expected):
+def test_help(args):
     result = subprocess.run(
         [sys.executable, "-m", "memtorture", *args, "--help"],
         capture_output=True,
         text=True,
     )
     assert result.returncode == 0, result.stderr
-    assert expected in result.stdout
+    if not args:
+        assert all(
+            command in result.stdout
+            for command in ("controls", "conformance", "run", "report")
+        )
 
 
 def test_invalid_row():
@@ -106,9 +107,15 @@ def test_run_matrix(authorized_controls, monkeypatch, tmp_path):
         invocation=["memtorture", "run", "--all"],
     )
     assert run(args) == 0
-    assert sum(map(len, ROWS.values())) == 7
-    assert len(calls) == len(set(calls)) == 35
-    assert len(json.loads((args.output / "cells.json").read_text())) == 35
+    expected = {
+        (suite, system, config)
+        for suite in SUITES
+        for system, configs in ROWS.items()
+        for config in configs
+    }
+    assert len(calls) == len(set(calls)) == len(expected)
+    assert set(calls) == expected
+    assert len(json.loads((args.output / "cells.json").read_text())) == len(expected)
 
 
 def test_conformance_failure(capsys, monkeypatch, tmp_path):

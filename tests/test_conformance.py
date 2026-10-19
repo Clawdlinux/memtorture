@@ -11,6 +11,7 @@ from tests.helpers import (
     NEIGHBOUR_SEARCH,
     REFERENCE,
     make_record,
+    replace_source,
     variant_source,
 )
 
@@ -50,38 +51,46 @@ def test_adapter_contract(
 
 
 @pytest.mark.parametrize(
-    "variant,valid",
+    "variant,message",
     [
-        *[
-            (f"{kind}:{op}", False)
-            for kind in ("scope", "deleted")
-            for op in ("get", "list_prefix", "search", "read_recent")
-        ],
-        ("duplicate-upsert", False),
-        ("constant-ref", False),
-        ("reject-unknown-scope", False),
-        ("stale-upsert-search", False),
-        ("duplicate-search", False),
-        ("echo-delete-ref", True),
-        ("dropped-foreign-delete", True),
+        ("scope:get", "get disagrees with golden reply 11"),
+        ("scope:list_prefix", "list_prefix disagrees with golden reply 12"),
+        ("scope:search", "search returned a record from another scope"),
+        ("scope:read_recent", "read_recent disagrees with golden reply 14"),
+        ("deleted:get", "get disagrees with golden reply 24"),
+        ("deleted:list_prefix", "list_prefix disagrees with golden reply 25"),
+        ("deleted:search", "search membership or rank disagrees with golden case 26"),
+        ("deleted:read_recent", "read_recent disagrees with golden reply 27"),
+        ("duplicate-upsert", "list_prefix disagrees with golden reply 19"),
+        ("constant-ref", "Distinct writes returned the same native ref"),
+        ("reject-unknown-scope", "write failed: invalid_request: Unknown scope field"),
+        (
+            "stale-upsert-search",
+            "search membership or rank disagrees with golden case 26",
+        ),
+        ("duplicate-search", "search returned duplicate record ids"),
+        ("echo-delete-ref", None),
+        ("dropped-foreign-delete", None),
     ],
 )
-def test_worker_variants(tmp_path, node, capsys, variant, valid):
+def test_worker_variants(tmp_path, node, capsys, variant, message):
     source = variant_source(variant)
     assert source != REFERENCE.read_text()
+    if variant == "duplicate-upsert":
+        source = replace_source(
+            source,
+            "function dispatch(op, args) {",
+            'function dispatch(op, args) { console.error("debug diagnostic", op);',
+        )
     worker = tmp_path / "variant.mjs"
     worker.write_text(source)
     directory = tmp_path / "run"
     command = shlex.join([node, str(worker)])
-    if valid:
+    if message is None:
         result = run_conformance(command, workdir=directory, visibility_timeout=0)
         assert result["passed"] > 0
         assert result["skipped"] == []
     else:
-        message = {
-            "duplicate-search": "duplicate",
-            "stale-upsert-search": "golden case 26",
-        }.get(variant)
         with pytest.raises(ProtocolError, match=message):
             run_conformance(command, workdir=directory, visibility_timeout=0)
         if variant == "duplicate-upsert":
@@ -92,25 +101,34 @@ def test_worker_variants(tmp_path, node, capsys, variant, valid):
 
 
 @pytest.mark.parametrize(
-    "variant", ["nearest", "wrong-first-match", "too-many-results"]
+    "variant,message",
+    [
+        ("nearest", None),
+        (
+            "wrong-first-match",
+            "search membership or rank disagrees with golden case 16",
+        ),
+        ("too-many-results", "search returned more than k records"),
+    ],
 )
-def test_search_variants(tmp_path, node, variant):
-    source = REFERENCE.read_text().replace(KEYWORD_SEARCH, NEIGHBOUR_SEARCH)
+def test_search_variants(tmp_path, node, variant, message):
+    source = replace_source(REFERENCE.read_text(), KEYWORD_SEARCH, NEIGHBOUR_SEARCH)
     if variant == "wrong-first-match":
-        source = source.replace(
+        source = replace_source(
+            source,
             "Number(b.text === args.query) - Number(a.text === args.query)",
             "Number(a.text === args.query) - Number(b.text === args.query)",
         )
     elif variant == "too-many-results":
-        source = source.replace(".slice(0, args.k);", ".slice(0, args.k + 1);")
+        source = replace_source(source, ".slice(0, args.k);", ".slice(0, args.k + 1);")
     worker = tmp_path / "nearest.mjs"
     worker.write_text(source)
     command = shlex.join([node, str(worker)])
-    if variant == "nearest":
+    if message is None:
         result = run_conformance(
             command, workdir=tmp_path / "run", visibility_timeout=0
         )
         assert result["skipped"] == []
     else:
-        with pytest.raises(ProtocolError):
+        with pytest.raises(ProtocolError, match=message):
             run_conformance(command, workdir=tmp_path / "run", visibility_timeout=0)

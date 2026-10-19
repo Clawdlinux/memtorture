@@ -31,9 +31,17 @@ from tests.helpers import (
     ],
 )
 def test_recall_paths(tmp_path, system, config):
+    slow_poll_logged = False
+
     def emit(data):
-        if system == "delayed-index" and data["operation"] == "poll":
-            time.sleep(0.03)
+        nonlocal slow_poll_logged
+        if (
+            system == "delayed-index"
+            and data["operation"] == "poll"
+            and not slow_poll_logged
+        ):
+            slow_poll_logged = True
+            time.sleep(0.15)
 
     result = recall_delay(
         system,
@@ -45,6 +53,7 @@ def test_recall_paths(tmp_path, system, config):
         emit=emit,
     )
     assert result["status"] == "ok"
+    assert slow_poll_logged == (system == "delayed-index")
     assert result["torn"] == 0
     assert set(result["paths"]) == (
         {"id"} if system == "delayed-index" else {"id", "filter", "recency", "search"}
@@ -54,7 +63,8 @@ def test_recall_paths(tmp_path, system, config):
         assert metric["visible"] == 1
         assert metric["time_to_visible_ms"]["p50"] >= metric["write_latency_ms"]["p50"]
         if system == "delayed-index":
-            assert metric["visibility_lag_ms"]["p50"] <= 101 + metric["read_ms"]["p99"]
+            # The fault adds 100 ms of delay, plus scheduling headroom.
+            assert metric["visibility_lag_ms"]["p50"] < 130
 
 
 @pytest.mark.parametrize(
