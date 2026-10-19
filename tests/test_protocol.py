@@ -86,7 +86,7 @@ def test_worker_survives_bad_request():
     source = io.StringIO('{"id":1,"op":"nope","args":{}}\n')
     output = io.StringIO()
     serve(Probe(), source, output)
-    assert json.loads(output.getvalue())["error"]["type"] == "NotSupported"
+    assert json.loads(output.getvalue())["error"]["type"] == "not_supported"
 
 
 def test_result_manifest_and_alphabetical_table(tmp_path):

@@ -12,7 +12,7 @@ import uuid
 from pathlib import Path
 
 from memtorture.adapters.base import Base
-from memtorture.embed import DIMENSIONS, embed
+from memtorture.embed import DIMENSIONS
 from memtorture.types import Ack, NotSupported, Record, Ref, Scope
 
 VERSION = "1.16.3"
@@ -88,7 +88,7 @@ class Qdrant(Base):
             "write",
             "get",
             "get-id",
-            "get_by_id",
+            "get_by_ref",
             "read_recent",
             "list_prefix",
             "search",
@@ -231,7 +231,7 @@ class Qdrant(Base):
             order = time.time_ns()
         return {
             "id": point_id(scope, record.key),
-            "vector": embed(record.text),
+            "vector": record.vector,
             "payload": {
                 "id": record.id,
                 "tenant": scope.tenant,
@@ -258,14 +258,12 @@ class Qdrant(Base):
         points = self._retrieve(point_id(scope, key))
         if points:
             return self._record(points[0])
-        body = {"filter": self._filter(scope, id=key), "limit": 1, "with_payload": True}
-        points = self._points("/scroll", body)["points"]
-        return self._record(points[0]) if points else None
+        return None
 
     def _retrieve(self, pid):
         return self._points("", {"ids": [pid], "with_payload": True})
 
-    def get_by_id(self, scope, ref):
+    def get_by_ref(self, scope, ref):
         points = self._retrieve(ref.id)
         if not points:
             return None
@@ -298,22 +296,23 @@ class Qdrant(Base):
                 break
         return rows[:limit]
 
-    def search(self, scope, query, k):
+    def search(self, scope, query, k, vector=None):
+        if vector is None:
+            raise ValueError("The harness must supply a search vector")
         body = {
-            "query": embed(query),
+            "query": vector,
             "filter": self._filter(scope),
             "limit": k,
             "with_payload": True,
         }
         return [self._record(p) for p in self._points("/query", body)["points"]]
 
-    def upsert(self, scope, key, value):
-        return self.write(scope, Record.from_value(scope, key, value))
+    def upsert(self, scope, record):
+        return self.write(scope, record)
 
     def delete(self, scope, ref):
-        self._points(
-            "/delete", {"filter": self._filter(scope, id=ref.id)}, wait=self.wait
-        )
+        if self.get_by_ref(scope, ref) is not None:
+            self._points("/delete", {"points": [ref.id]}, wait=self.wait)
         return Ack(ref.id)
 
     def stop(self, target="all", kill=False):

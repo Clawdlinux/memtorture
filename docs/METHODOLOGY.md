@@ -25,7 +25,9 @@ Readback recomputes SHA-256 over the same canonical JSON.
 Hash failures count as torn records.
 Missing acked records count as losses.
 
-Keyed writes pass the record envelope through the protocol's string value.
+Keyed writes pass a full record through protocol v1.
+Native refs remain separate from record IDs and keys.
+See [PROTOCOL.md](PROTOCOL.md) for wire shapes and validation rules.
 Adapters map that envelope onto native keyed operations where available.
 Scope includes both tenant and session.
 Every read filters both.

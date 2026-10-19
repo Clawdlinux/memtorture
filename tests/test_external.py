@@ -51,7 +51,7 @@ def test_external_conformance(system, config, tmp_path):
         assert adapter.server_pid
         scope = Scope("t", "s")
         record = Record.make(scope, "key", "needle0001")
-        adapter.write(scope, record)
+        ack = adapter.write(scope, record)
         # Native async rows may not be visible at ack.
         import time
 
@@ -60,12 +60,12 @@ def test_external_conformance(system, config, tmp_path):
             assert time.monotonic() < deadline
             time.sleep(0.01)
         assert adapter.get(Scope("other", "s"), "key") is None
-        assert adapter.get(scope, record.id) == record
+        assert adapter.get_by_ref(scope, ack.ref) == record
         assert adapter.list_prefix(scope, "k", 10) == [record]
         assert adapter.read_recent(scope, 10) == [record]
-        assert record in adapter.search(scope, record.text, 10)
+        assert record in adapter.search(scope, record.text, 10, vector=record.vector)
         replacement = Record.make(scope, "key", "replacement")
-        adapter.upsert(scope, "key", replacement.value())
+        adapter.upsert(scope, replacement)
         deadline = time.monotonic() + 5
         while adapter.get(scope, "key") != replacement:
             assert time.monotonic() < deadline
@@ -87,7 +87,7 @@ def test_native_qdrant_fault_targets(tmp_path):
     assert result["status"] == "ok"
     assert {trial["target"] for trial in result["trials"]} == {
         "worker",
-        "server",
+        "server:storage",
         "both",
     }
 

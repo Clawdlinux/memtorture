@@ -52,8 +52,8 @@ def event(emit, **data):
 def read_path(worker, path, record, limit=20):
     scope = record.scope
     if path == "id":
-        if "get_by_id" in worker.capabilities:
-            found = worker.call("get_by_id", scope=scope, ref=worker.refs[record.id])
+        if "get_by_ref" in worker.capabilities:
+            found = worker.call("get_by_ref", scope=scope, ref=worker.refs[record.id])
         else:
             found = worker.call("get", scope=scope, key=record.id)
         return [found] if found else []
@@ -220,7 +220,9 @@ def process_kill(
     with Worker(system, config, workdir / "probe") as probe:
         info = probe.info
         targets = targets or (
-            ("worker", "server", "both") if probe.server_pid else ("worker",)
+            ("worker", *(f"server:{role}" for role in probe.servers), "both")
+            if probe.servers
+            else ("worker",)
         )
     for target in targets:
         for trial in range(trials):
@@ -338,11 +340,7 @@ def concurrent(
                         record = Record.make(
                             scope, key, f"memory writer{index} value{sequence}"
                         )
-                        args = (
-                            {"scope": scope, "key": key, "value": record.value()}
-                            if method == "upsert"
-                            else {"scope": scope, "record": record}
-                        )
+                        args = {"scope": scope, "record": record}
                         ack = worker.call(method, **args)
                         if not ack.dropped:
                             records.append(record)

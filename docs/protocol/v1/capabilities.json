@@ -1,0 +1,8 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "oneOf":[{"$ref":"#/$defs/request"},{"$ref":"#/$defs/reply"}],
+  "$defs":{
+    "request":{"allOf":[{"$ref":"common.json#/$defs/request"}],"properties":{"op":{"const":"capabilities"},"args":{"$ref":"common.json#/$defs/empty_args"}}},
+    "reply":{"allOf":[{"$ref":"common.json#/$defs/reply"}],"properties":{"result":{"$ref":"common.json#/$defs/strings"}}}
+  }
+}

@@ -1,5 +1,5 @@
 from memtorture.adapters.sqlite import SQLite
-from memtorture.types import Record, Scope
+from memtorture.types import Record, Ref, Scope
 
 
 def test_point_and_prefix_queries_use_unique_indexes(tmp_path):
@@ -20,13 +20,13 @@ def test_point_and_prefix_queries_use_unique_indexes(tmp_path):
         adapter.db.set_trace_callback(statements.append)
         assert adapter.get(scope, record.key) == record
         assert adapter.list_prefix(scope, "path/", 20) == [record]
-        assert adapter.get(scope, record.id) == record
+        assert adapter.get_by_ref(scope, Ref(record.id)) == record
         adapter.db.set_trace_callback(None)
         selects = [sql for sql in statements if sql.startswith("SELECT")]
-        assert len(selects) == 4
+        assert len(selects) == 3
         for sql, columns in zip(
             selects,
-            [("tenant", "session", "path")] * 3 + [("id",)],
+            [("tenant", "session", "path")] * 2 + [("id",)],
             strict=True,
         ):
             plan = " ".join(
@@ -40,7 +40,7 @@ def test_point_and_prefix_queries_use_unique_indexes(tmp_path):
         adapter.stop()
 
 
-def test_key_lookup_precedes_id_fallback_and_preserves_scope(tmp_path):
+def test_key_lookup_is_separate_from_ref_and_preserves_scope(tmp_path):
     adapter = SQLite()
     adapter.start(tmp_path, "synchronous=NORMAL")
     try:
@@ -50,6 +50,7 @@ def test_key_lookup_precedes_id_fallback_and_preserves_scope(tmp_path):
         adapter.write(scope, keyed)
         adapter.write(scope, by_id)
         assert adapter.get(scope, "collision") == keyed
+        assert adapter.get_by_ref(scope, Ref("collision")) == by_id
         assert adapter.get(Scope("other", "s"), by_id.id) is None
     finally:
         adapter.stop()

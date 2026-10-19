@@ -5,7 +5,7 @@ from hypothesis import given
 from hypothesis import strategies as st
 
 from memtorture.adapters import load_adapter
-from memtorture.types import NotSupported, Record, Ref, Scope
+from memtorture.types import NotSupported, Record, Scope
 
 ROWS = [
     ("markdown", "append"),
@@ -27,21 +27,22 @@ def test_shared_conformance(name, config, tmp_path):
         scope = Scope("tenant", "session")
         other = Scope("other", "session")
         record = Record.make(scope, "path/file", "needle0001 text")
-        assert adapter.write(scope, record).id == record.id
+        ack = adapter.write(scope, record)
+        assert ack.id == record.id
         assert adapter.get(scope, record.key) == record
-        assert adapter.get(scope, record.id) == record
+        assert adapter.get_by_ref(scope, ack.ref) == record
+        assert adapter.get_by_ref(other, ack.ref) is None
         assert adapter.get(other, record.key) is None
         assert adapter.read_recent(scope, 20) == [record]
         assert adapter.list_prefix(scope, "path/", 20) == [record]
         assert adapter.search(scope, "needle0001", 20) == [record]
         assert adapter.search(other, "needle0001", 20) == []
         replacement = Record.make(scope, record.key, "replacement")
-        assert (
-            adapter.upsert(scope, record.key, replacement.value()).id == replacement.id
-        )
+        updated = adapter.upsert(scope, replacement)
+        assert updated.id == replacement.id
         assert adapter.get(scope, record.key) == replacement
-        adapter.delete(scope, Ref(replacement.id))
-        assert adapter.get(scope, replacement.id) is None
+        adapter.delete(scope, updated.ref)
+        assert adapter.get_by_ref(scope, updated.ref) is None
         assert adapter.data_dirs() == [tmp_path]
         with pytest.raises(NotSupported):
             adapter.retrieve_for(None)

@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$defs": {
+    "scope": {"type":"object","required":["tenant","session"],"properties":{"tenant":{"type":"string"},"session":{"type":"string"}}},
+    "vector": {"type":"array","minItems":64,"maxItems":64,"items":{"type":"number"}},
+    "ref": {"type":"object","required":["kind","id"],"properties":{"kind":{"const":"ref"},"id":{"type":"string"}}},
+    "record": {
+      "type":"object","required":["kind","id","scope","key","text","payload_sha256"],
+      "properties":{"kind":{"const":"record"},"id":{"type":"string"},"scope":{"$ref":"#/$defs/scope"},"key":{"type":"string"},"text":{"type":"string"},"payload_sha256":{"type":"string"},"vector":{"oneOf":[{"type":"null"},{"$ref":"#/$defs/vector"}]}}
+    },
+    "ack": {"type":"object","required":["kind","id","dropped","ref"],"properties":{"kind":{"const":"ack"},"id":{"type":"string"},"dropped":{"type":"boolean"},"ref":{"oneOf":[{"type":"null"},{"$ref":"#/$defs/ref"}]}}},
+    "records": {"type":"array","items":{"$ref":"#/$defs/record"}},
+    "nullable_record": {"oneOf":[{"type":"null"},{"$ref":"#/$defs/record"}]},
+    "strings": {"type":"array","items":{"type":"string"}},
+    "null": {"type":"null"},
+    "text": {"type":"string"},
+    "start_result": {
+      "type":"object","required":["protocol","capabilities","version","notes","servers"],
+      "properties":{"protocol":{"type":"integer","const":1},"capabilities":{"$ref":"#/$defs/strings"},"version":{"type":"string"},"notes":{"type":"string"},"servers":{"type":"array","items":{"type":"object","required":["role","pid"],"properties":{"role":{"type":"string","minLength":1},"pid":{"type":"integer","minimum":1}}}}}
+    },
+    "request": {"type":"object","required":["id","op","args"],"properties":{"id":{"type":"integer"},"op":{"type":"string"},"args":{"type":"object"}}},
+    "reply": {
+      "type":"object","required":["id"],"properties":{"id":{"type":"integer"},"error":{"type":"object","required":["type","message"],"properties":{"type":{"enum":["not_supported","invalid_request","system_error","timeout"]},"message":{"type":"string"}}}},
+      "oneOf":[{"required":["result"],"not":{"required":["error"]}},{"required":["error"],"not":{"required":["result"]}}]
+    },
+    "start_args": {"type":"object","required":["workdir","config"],"properties":{"workdir":{"type":"string"},"config":{"type":"string"}}},
+    "empty_args": {"type":"object"},
+    "write_args": {"type":"object","required":["scope","record"],"properties":{"scope":{"$ref":"#/$defs/scope"},"record":{"$ref":"#/$defs/record"}}},
+    "bulk_args": {"type":"object","required":["scope","records"],"properties":{"scope":{"$ref":"#/$defs/scope"},"records":{"$ref":"#/$defs/records"}}},
+    "recent_args": {"type":"object","required":["scope","n"],"properties":{"scope":{"$ref":"#/$defs/scope"},"n":{"type":"integer","minimum":0}}},
+    "get_args": {"type":"object","required":["scope","key"],"properties":{"scope":{"$ref":"#/$defs/scope"},"key":{"type":"string"}}},
+    "ref_args": {"type":"object","required":["scope","ref"],"properties":{"scope":{"$ref":"#/$defs/scope"},"ref":{"$ref":"#/$defs/ref"}}},
+    "prefix_args": {"type":"object","required":["scope","prefix","limit"],"properties":{"scope":{"$ref":"#/$defs/scope"},"prefix":{"type":"string"},"limit":{"type":"integer","minimum":0}}},
+    "search_args": {"type":"object","required":["scope","query","k"],"properties":{"scope":{"$ref":"#/$defs/scope"},"query":{"type":"string"},"k":{"type":"integer","minimum":0},"vector":{"$ref":"#/$defs/vector"}}},
+    "retrieve_args": {"type":"object","required":["ctx"],"properties":{"ctx":{"type":"object","required":["file_path","task_text","recent_context","token_budget"],"properties":{"file_path":{"type":"string"},"task_text":{"type":"string"},"recent_context":{"type":"string"},"token_budget":{"type":"integer","minimum":0}}}}},
+    "stop_args": {"type":"object","properties":{"target":{"enum":["all"]},"kill":{"type":"boolean"}}},
+    "exit_args": {"type":"object","required":["pid"],"properties":{"pid":{"type":"integer","minimum":1}}}
+  }
+}
