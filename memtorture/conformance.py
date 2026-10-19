@@ -1,6 +1,8 @@
 """Replay public protocol transcripts without third-party packages."""
 
+import contextlib
 import json
+import os
 import shlex
 import shutil
 import time
@@ -12,6 +14,44 @@ from memtorture.types import Ack, NotSupported, Record
 from memtorture.wire import decode_args
 
 FIXTURES = Path(__file__).resolve().parents[1] / "docs/protocol/v1"
+
+
+def active_run(directory):
+    try:
+        pid = int((directory / ".running").read_text())
+    except (FileNotFoundError, ValueError):
+        return False
+    except OSError:
+        return True
+    if pid <= 0:
+        return False
+    try:
+        os.kill(pid, 0)
+    except (ProcessLookupError, OverflowError):
+        return False
+    except OSError:
+        return True
+    return True
+
+
+def prune_failed_runs(root, keep=10):
+    if not root.is_dir():
+        return
+    try:
+        directories = list(root.iterdir())
+    except FileNotFoundError:
+        return
+    candidates = []
+    for directory in directories:
+        if directory.is_symlink() or not directory.is_dir() or active_run(directory):
+            continue
+        try:
+            candidates.append((directory.stat().st_mtime_ns, directory.name, directory))
+        except FileNotFoundError:
+            continue
+    for _, _, directory in sorted(candidates, reverse=True)[keep:]:
+        with contextlib.suppress(FileNotFoundError):
+            shutil.rmtree(directory)
 
 
 def cases(name):
@@ -44,6 +84,8 @@ def check_malformed():
 def search_matches(rows, args, *, first=None, absent=()):
     if len(rows) > args["k"]:
         raise ProtocolError("search returned more than k records")
+    if len({record.id for record in rows}) != len(rows):
+        raise ProtocolError("search returned duplicate record ids")
     if any(record.scope != args["scope"] for record in rows):
         raise ProtocolError("search returned a record from another scope")
     if any(not record.valid() for record in rows):
@@ -57,13 +99,16 @@ def search_matches(rows, args, *, first=None, absent=()):
 
 
 def run_conformance(command, *, config="default", workdir=None, visibility_timeout=10):
+    root = Path(".conformance-work").resolve()
+    prune_failed_runs(root)
     argv = shlex.split(command)
     if not argv:
         raise ValueError("--command must contain an executable")
     malformed = check_malformed()
-    path = Path(workdir) if workdir else Path(".conformance-work") / uuid.uuid4().hex
+    path = Path(workdir) if workdir else root / uuid.uuid4().hex
     path = path.resolve()
     path.mkdir(parents=True, exist_ok=False)
+    marker = path / ".running"
     records, refs, ref_owners = {}, {}, {}
     passed, skipped = 0, []
     succeeded = {"start"}
@@ -84,6 +129,7 @@ def run_conformance(command, *, config="default", workdir=None, visibility_timeo
         return value
 
     try:
+        marker.write_text(str(os.getpid()))
         with Worker("conformance", config, path, command=argv, timeout=10) as worker:
             for case in cases("golden.jsonl"):
                 request = case["request"]
@@ -191,6 +237,7 @@ def run_conformance(command, *, config="default", workdir=None, visibility_timeo
         success = True
         return {"passed": passed, "skipped": skipped, "harness_checks": malformed}
     finally:
+        marker.unlink(missing_ok=True)
         if success:
             shutil.rmtree(path)
         else:
@@ -205,6 +252,7 @@ def run_conformance(command, *, config="default", workdir=None, visibility_timeo
                 print("Worker stderr tail:\n" + ("\n".join(tail) or "(empty)"))
             except OSError as exc:
                 print(f"Worker stderr unavailable: {exc}")
+            prune_failed_runs(root)
         if success and workdir is None:
             try:
                 path.parent.rmdir()

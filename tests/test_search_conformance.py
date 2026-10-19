@@ -5,10 +5,10 @@ from pathlib import Path
 
 import pytest
 
-from memtorture.conformance import run_conformance
+from memtorture.conformance import cases, run_conformance, search_matches
 from memtorture.protocol import ProtocolError
 from memtorture.runner import ROWS
-from memtorture.types import Scope
+from memtorture.types import Record, Scope
 
 NODE = shutil.which("node")
 REFERENCE = Path(__file__).resolve().parents[1] / "systems/reference-node/worker.mjs"
@@ -20,6 +20,23 @@ NEIGHBOUR_SEARCH = (
     "return selected.sort((a, b) => "
     "Number(b.text === args.query) - Number(a.text === args.query)).slice(0, args.k);"
 )
+
+
+def test_post_delete_search_forbids_superseded_and_deleted_records():
+    case = next(c for c in cases("golden.jsonl") if c["request"]["id"] == 26)
+    assert case["absent"] == ["$record:r1", "$record:r3"]
+
+
+def test_search_rejects_duplicate_ids_even_when_rank_and_limit_are_valid():
+    scope = Scope("t", "s")
+    first = Record.make(scope, "one", "first")
+    second = Record.make(scope, "two", "second")
+    with pytest.raises(ProtocolError, match="duplicate"):
+        search_matches(
+            [second, second, first],
+            {"scope": scope, "query": second.text, "k": 3},
+            first=second,
+        )
 
 
 def test_qdrant_zero_k_is_empty_without_querying_a_server():

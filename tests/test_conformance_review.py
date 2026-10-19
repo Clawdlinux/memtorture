@@ -19,6 +19,53 @@ SELECTED = (
 
 def broken_source(bug):
     code = REFERENCE.read_text()
+    keyword_search = (
+        "return selected.reverse().filter(row => row.text.includes(args.query))"
+        ".slice(0, args.k);"
+    )
+    if bug == "stale-upsert-search":
+        assert keyword_search in code
+        return (
+            code.replace(
+                "let rows = new Map();",
+                "let rows = new Map(); const stale = new Map();",
+            )
+            .replace(
+                "rows.delete(ref);",
+                "{ stale.set(ref, row); rows.delete(ref); }",
+            )
+            .replace(
+                keyword_search,
+                "return selected.reverse().filter(row => row.text.includes(args.query))"
+                ".concat([...stale.values()].filter(row => "
+                "sameScope(row.scope, args.scope)))"
+                ".slice(0, args.k);",
+            )
+        )
+    if bug == "duplicate-search":
+        assert keyword_search in code
+        return (
+            code.replace(
+                "let rows = new Map();",
+                "let rows = new Map(); const saved = new Map();",
+            )
+            .replace(
+                "const value = record(args.record, args.scope);",
+                "const value = record(args.record, args.scope); "
+                "saved.set(value.id, value);",
+            )
+            .replace(
+                keyword_search,
+                "const hits = selected.reverse()"
+                ".filter(row => row.text.includes(args.query));"
+                "const other = [...saved.values()].find(row => "
+                "hits.length && row.id !== hits[0].id "
+                "&& sameScope(row.scope, args.scope));"
+                "if (args.k >= 3 && hits.length && other) "
+                "return [hits[0], hits[0], other];"
+                "return hits.slice(0, args.k);",
+            )
+        )
     if bug.startswith("scope:"):
         op = bug.split(":")[1]
         return code.replace(
@@ -76,14 +123,24 @@ def broken_source(bug):
         for kind in ("scope", "deleted")
         for op in ("get", "list_prefix", "search", "read_recent")
     ]
-    + ["duplicate-upsert", "constant-ref", "reject-unknown-scope"],
+    + [
+        "duplicate-upsert",
+        "constant-ref",
+        "reject-unknown-scope",
+        "stale-upsert-search",
+        "duplicate-search",
+    ],
 )
 def test_each_semantic_bug_fails_the_kit(tmp_path, bug):
     source = broken_source(bug)
     assert source != REFERENCE.read_text()
     worker = tmp_path / "broken.mjs"
     worker.write_text(source)
-    with pytest.raises(ProtocolError):
+    message = {
+        "duplicate-search": "duplicate",
+        "stale-upsert-search": "golden case 26",
+    }.get(bug)
+    with pytest.raises(ProtocolError, match=message):
         conformance.run_conformance(
             shlex.join([NODE, str(worker)]),
             workdir=tmp_path / "run",

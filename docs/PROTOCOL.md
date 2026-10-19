@@ -112,7 +112,9 @@ Search returns up to `k` records from the requested scope, ranked by the system'
 Results may include nearest neighbours without sharing query words.
 The kit checks search membership and the rank of exact-text matches, never exact result-list equality.
 An exact-text query must rank its own stored record first when `k` is positive.
-Deleted records must be absent. Results must never exceed `k` or include another scope's records.
+Deleted and superseded records must be absent.
+Search results must have unique record IDs.
+Results must never exceed `k` or include another scope's records.
 `k: 0` returns no records.
 `stop` accepts optional `target: "all"` and `kill: false`.
 It closes storage gracefully unless `kill` requests forced shutdown.
@@ -200,7 +202,11 @@ The PASS line counts only checks against the worker.
 The HARNESS line reports decoder self-checks separately.
 The kit creates a unique directory under `.conformance-work/` and removes it on success.
 Failures keep that directory and print its path plus the worker stderr tail.
-The tests mutate the Node worker to prove each scope, delete, upsert, and ref bug fails replay.
+Only the newest 10 failed directories under `.conformance-work/` are retained.
+Older failures are deleted at each run's start and after a new failure.
+Managed runs carry a harness PID marker. Active runs and directory symlinks are never pruned.
+Custom work directories outside `.conformance-work/` remain caller-managed.
+The tests reject 13 mutated Node workers, including stale superseded search entries and duplicate search results.
 
 ## Deterministic embedder
 

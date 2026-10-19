@@ -50,6 +50,7 @@ uv run memtorture conformance --command "node systems/reference-node/worker.mjs"
 Cross-language tests find Node on PATH and skip when it is missing.
 CI installs Node 22 so those tests run.
 Conformance failures keep `.conformance-work/` logs and print a stderr tail.
+Only the newest 10 failed runs are retained. Active runs are preserved.
 
 ## External adapters
 

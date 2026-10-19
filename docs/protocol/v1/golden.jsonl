@@ -23,7 +23,7 @@
 {"request":{"id":23,"op":"get_by_ref","args":{"scope":{"tenant":"t","session":"s"},"ref":{"kind":"ref","id":"$ref:r3"}}},"reply":{"id":23,"result":null},"requires":["upsert","delete"]}
 {"request":{"id":24,"op":"get","args":{"scope":{"tenant":"t","session":"s"},"key":"path/one"}},"reply":{"id":24,"result":null},"requires":["upsert","delete"]}
 {"request":{"id":25,"op":"list_prefix","args":{"scope":{"tenant":"t","session":"s"},"prefix":"path/","limit":10}},"reply":{"id":25,"result":[]},"requires":["upsert","delete"]}
-{"request":{"id":26,"op":"search","args":{"scope":{"tenant":"t","session":"s"},"query":"replacement","k":10}},"reply":{"id":26,"result":["$record:r2","$record:r4"]},"match":"search","absent":["$record:r3"],"requires":["upsert","delete"]}
+{"request":{"id":26,"op":"search","args":{"scope":{"tenant":"t","session":"s"},"query":"replacement","k":10}},"reply":{"id":26,"result":["$record:r2","$record:r4"]},"match":"search","absent":["$record:r1","$record:r3"],"requires":["upsert","delete"]}
 {"request":{"id":27,"op":"read_recent","args":{"scope":{"tenant":"t","session":"s"},"n":10}},"reply":{"id":27,"result":["$record:r4","$record:r2"]},"requires":["upsert","delete","bulk_load"]}
 {"request":{"id":28,"op":"delete","args":{"scope":{"tenant":"t","session":"s"},"ref":{"kind":"ref","id":"$ref:r3"}}},"reply":{"id":28,"result":{"kind":"ack","id":"$ref:r3","dropped":false,"ref":null}},"requires":["upsert","delete"]}
 {"request":{"id":29,"op":"data_dirs","args":{}},"reply":{"id":29,"result":["$workdir"]},"match":"shape"}
