@@ -3,6 +3,9 @@ import { readFileSync } from "node:fs";
 
 // Standalone vector verifier. The worker does not import this module.
 function embed(text) {
+  if (typeof text !== "string" || !text.isWellFormed()) {
+    throw new TypeError("Input must contain only Unicode scalar values");
+  }
   const values = [];
   for (let counter = 0; counter !== 8; counter++) {
     const prefix = Buffer.alloc(4);

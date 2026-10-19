@@ -228,6 +228,10 @@ The optional realistic embedder is outside B1.
 `operations.jsonl` records individual writes, reads, faults, and checks.
 `manifest.json` records the command, machine, OS, versions, config rows, and harness commit.
 Dirty worktrees are identified.
+Control manifests capture source provenance before opening output files.
+Generated files under `results/controls/` do not mark the harness source dirty.
+Other source and documentation changes still do.
+Commit code before regenerating evidence, then commit only the generated evidence.
 The methodology fingerprint identifies the exact code used.
 Per-suite Markdown tables sort systems alphabetically.
 Tables are local evidence only.

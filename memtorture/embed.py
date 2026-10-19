@@ -8,7 +8,7 @@ VERSION = "sha256-counter-v1"
 
 def embed(text: str) -> list[float]:
     """Language-neutral hash vectors. Byte layout is pinned in PROTOCOL.md."""
-    encoded = text.encode("utf-8")
+    encoded = text.encode("utf-8", errors="strict")
     values = []
     for counter in range(DIMENSIONS // 8):
         digest = hashlib.sha256(struct.pack(">I", counter) + encoded).digest()

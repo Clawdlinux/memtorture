@@ -88,6 +88,7 @@ def run_controls(*, quick=False, root=DEFAULT_ROOT):
         with ResultWriter(
             run_root,
             command=["memtorture", "controls"] + (["--quick"] if quick else []),
+            control_evidence=True,
         ) as writer:
             for suite, fail_system, pass_system in (
                 ("recall-delay", "delayed-index", "sqlite-visible"),
