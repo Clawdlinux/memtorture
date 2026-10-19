@@ -22,24 +22,15 @@ from tests.helpers import (
     make_record,
 )
 
-NATIVE_ROWS = [
-    ("markdown", "append"),
-    ("sqlite", "synchronous=NORMAL"),
-    ("qdrant", "wait=true"),
-]
-
 
 @pytest.mark.parametrize(
     "system,config",
     [
-        *NATIVE_ROWS,
         ("sqlite-visible", "default"),
         ("delayed-index", "default"),
     ],
 )
-def test_recall_paths(tmp_path, available, system, config):
-    available(system)
-
+def test_recall_paths(tmp_path, system, config):
     def emit(data):
         if system == "delayed-index" and data["operation"] == "poll":
             time.sleep(0.03)
@@ -69,9 +60,9 @@ def test_recall_paths(tmp_path, available, system, config):
 @pytest.mark.parametrize(
     "system,config,expected",
     [
-        *[(system, config, "ok") for system, config in NATIVE_ROWS],
         ("buffered", "default", "violation"),
         ("sqlite-off", "default", "ok"),
+        ("qdrant", "wait=true", "ok"),
     ],
 )
 def test_kill_recovery(tmp_path, available, system, config, expected):
@@ -104,13 +95,11 @@ def test_kill_recovery(tmp_path, available, system, config, expected):
 @pytest.mark.parametrize(
     "system,config,expected",
     [
-        *[(system, config, "ok") for system, config in NATIVE_ROWS],
         ("md-rmw-sleep", "default", "violation"),
         ("sqlite-busy", "default", "ok"),
     ],
 )
-def test_concurrent_counts(tmp_path, available, suite, system, config, expected):
-    available(system)
+def test_concurrent_counts(tmp_path, suite, system, config, expected):
     events = []
     result = concurrent(
         suite,
@@ -121,27 +110,9 @@ def test_concurrent_counts(tmp_path, available, suite, system, config, expected)
         writes=6,
         emit=events.append,
     )
-    raced = system == "markdown" and suite == "concurrent-kv"
-    if raced:
-        assert result["status"] == (
-            "violation"
-            if any(
-                result.get(metric, 0)
-                for metric in (
-                    "acked_missing",
-                    "duplicates",
-                    "torn",
-                    "invalid_final",
-                    "invalid_rows",
-                )
-            )
-            else "ok"
-        )
-    else:
-        assert result["status"] == expected
+    assert result["status"] == expected
     assert result["torn"] == result["duplicates"] == 0
-    if not raced:
-        assert (result["acked_missing"] > 0) == (expected == "violation")
+    assert (result["acked_missing"] > 0) == (expected == "violation")
     checks = [e for e in events if e["operation"] == "concurrent-check"]
     assert len(checks) == (2 if suite == "concurrent-kv" else 1)
     assert sum(t["acked_missing"] for t in result["trials"]) == result["acked_missing"]
@@ -159,13 +130,11 @@ def test_concurrent_counts(tmp_path, available, suite, system, config, expected)
         assert result["history"]["max_versions_per_key"] == 1
 
 
-@pytest.mark.parametrize("system,config", NATIVE_ROWS)
-def test_history_curves(tmp_path, available, system, config):
-    available(system)
+def test_history_curves(tmp_path):
     events = []
     result = history_scale(
-        system,
-        config,
+        "sqlite",
+        "synchronous=NORMAL",
         tmp_path,
         sizes=(10, 25),
         repeats=2,

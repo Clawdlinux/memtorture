@@ -354,6 +354,25 @@ class QdrantClient:
         return {"result": {"status": "acknowledged"}}
 
 
+class GitProvenance:
+    def __init__(self, directory, source_dirty):
+        self.directory = directory
+        self.source_dirty = source_dirty
+        self.status_commands = []
+
+    def __call__(self, command, **kwargs):
+        assert not self.directory.exists(), "Capture provenance before creating output"
+        if command == ["git", "rev-parse", "HEAD"]:
+            return "a" * 40 + "\n"
+        assert command[:3] == ["git", "status", "--porcelain"]
+        self.status_commands.append(command)
+        if self.source_dirty:
+            return " M memtorture/embed.py\n"
+        if ":(top,exclude)results/controls" in command:
+            return ""
+        return " M results/controls/full/operations.jsonl\n"
+
+
 def stub_recall(system, config, path, *, paths, **kwargs):
     return {
         "paths": {

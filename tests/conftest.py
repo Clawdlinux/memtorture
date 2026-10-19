@@ -10,6 +10,7 @@ from memtorture.types import NotSupported
 from tests.helpers import (
     NODE,
     ROOT,
+    GitProvenance,
     cleanup_worker,
     probe_command,
     stub_concurrent,
@@ -101,3 +102,15 @@ def blocked_controls(monkeypatch, tmp_path):
 def authorized_controls(monkeypatch, tmp_path):
     monkeypatch.setattr("memtorture.runner.require_controls", lambda suite: None)
     monkeypatch.setattr("memtorture.runner.DEFAULT_ROOT", tmp_path / "controls")
+
+
+@pytest.fixture
+def provenance(monkeypatch):
+    def configure(directory, source_dirty):
+        git = GitProvenance(directory, source_dirty)
+        monkeypatch.setattr("memtorture.results.subprocess.check_output", git)
+        monkeypatch.setattr("memtorture.results.hardware", lambda: {"machine": "test"})
+        monkeypatch.setattr("memtorture.results.platform.platform", lambda: "test-os")
+        return git
+
+    return configure
