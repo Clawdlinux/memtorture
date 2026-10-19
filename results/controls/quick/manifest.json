@@ -16,9 +16,9 @@
     "processor": "arm",
     "ram_bytes": 17179869184
   },
-  "harness_commit": "64e68c1d112aabc50e9da2a6a602fca14bc71ea8",
+  "harness_commit": "41424095fd4c49bcc2f7bbf84509427015e7a398",
   "harness_dirty": true,
-  "methodology_sha256": "221c818f8beef6958c9f42be5740cc72c393f31229b9ad40cfc27c03f3aa849f",
+  "methodology_sha256": "81cfee10129da204d9c8f61870010ae69570f65e30c724de57a94553fc6da0a1",
   "os": "macOS-27.0.1-arm64-arm-64bit",
   "python": "3.12.12",
   "sponsor": "Sponsored and built by the Clawdlinux team.",

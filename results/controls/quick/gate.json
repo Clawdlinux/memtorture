@@ -8,7 +8,7 @@
     "cpu_count": 10,
     "ram_bytes": 17179869184
   },
-  "methodology_sha256": "221c818f8beef6958c9f42be5740cc72c393f31229b9ad40cfc27c03f3aa849f",
+  "methodology_sha256": "81cfee10129da204d9c8f61870010ae69570f65e30c724de57a94553fc6da0a1",
   "suites": {
     "recall-delay": {
       "must_fail": "delayed-index",
@@ -21,93 +21,94 @@
           "role": "must_fail",
           "trial": 0,
           "path": "id",
-          "lag_ms": 100.0665,
-          "upper_ms": 101.081166,
-          "read_p99_ms": 0.081166,
+          "lag_ms": 100.079416,
+          "upper_ms": 101.099083,
+          "read_p99_ms": 0.099083,
           "matched": true
         },
         {
           "role": "must_fail",
           "trial": 1,
           "path": "filter",
-          "lag_ms": 100.067625,
-          "upper_ms": 101.08,
-          "read_p99_ms": 0.08,
+          "lag_ms": 100.084667,
+          "upper_ms": 101.105792,
+          "read_p99_ms": 0.105792,
           "matched": true
         },
         {
           "role": "must_fail",
           "trial": 2,
           "path": "recency",
-          "lag_ms": 100.064041,
-          "upper_ms": 101.072875,
-          "read_p99_ms": 0.072875,
+          "lag_ms": 100.071541,
+          "upper_ms": 101.093875,
+          "read_p99_ms": 0.093875,
           "matched": true
         },
         {
           "role": "must_fail",
           "trial": 3,
           "path": "search",
-          "lag_ms": 100.069333,
-          "upper_ms": 101.085333,
-          "read_p99_ms": 0.085333,
+          "lag_ms": 100.084,
+          "upper_ms": 101.11575,
+          "read_p99_ms": 0.11575,
           "matched": true
         },
         {
           "role": "must_fail",
           "trial": 4,
           "path": "id",
-          "lag_ms": 100.062542,
-          "upper_ms": 101.067,
-          "read_p99_ms": 0.067,
+          "lag_ms": 100.088125,
+          "upper_ms": 101.128375,
+          "read_p99_ms": 0.128375,
           "matched": true
         },
         {
           "role": "must_pass",
           "trial": 0,
           "path": "id",
-          "lag_ms": 0.11975,
-          "upper_ms": 101.101,
-          "read_p99_ms": 0.101,
+          "lag_ms": 0.157166,
+          "upper_ms": 101.12975,
+          "read_p99_ms": 0.12975,
           "matched": true
         },
         {
           "role": "must_pass",
           "trial": 1,
           "path": "filter",
-          "lag_ms": 0.114167,
-          "upper_ms": 101.096209,
-          "read_p99_ms": 0.096209,
+          "lag_ms": 0.104584,
+          "upper_ms": 101.085417,
+          "read_p99_ms": 0.085417,
           "matched": true
         },
         {
           "role": "must_pass",
           "trial": 2,
           "path": "recency",
-          "lag_ms": 0.131459,
-          "upper_ms": 101.11025,
-          "read_p99_ms": 0.11025,
+          "lag_ms": 0.1335,
+          "upper_ms": 101.104875,
+          "read_p99_ms": 0.104875,
           "matched": true
         },
         {
           "role": "must_pass",
           "trial": 3,
           "path": "search",
-          "lag_ms": 0.1615,
-          "upper_ms": 101.138167,
-          "read_p99_ms": 0.138167,
+          "lag_ms": 0.158167,
+          "upper_ms": 101.134292,
+          "read_p99_ms": 0.134292,
           "matched": true
         },
         {
           "role": "must_pass",
           "trial": 4,
           "path": "id",
-          "lag_ms": 0.102,
-          "upper_ms": 101.085042,
-          "read_p99_ms": 0.085042,
+          "lag_ms": 0.146542,
+          "upper_ms": 101.116792,
+          "read_p99_ms": 0.116792,
           "matched": true
         }
-      ]
+      ],
+      "gated": true
     },
     "process-kill": {
       "must_fail": "buffered",
@@ -135,7 +136,7 @@
               "target": "worker",
               "trial": 0,
               "acked": 6,
-              "fault_ns": 148013376004083,
+              "fault_ns": 149777611108833,
               "acked_missing": 6,
               "duplicates": 0,
               "torn": 0
@@ -184,7 +185,7 @@
               "target": "worker",
               "trial": 0,
               "acked": 8,
-              "fault_ns": 148013508676125,
+              "fault_ns": 149777717651916,
               "acked_missing": 8,
               "duplicates": 0,
               "torn": 0
@@ -233,7 +234,7 @@
               "target": "worker",
               "trial": 0,
               "acked": 7,
-              "fault_ns": 148013638834208,
+              "fault_ns": 149777823045625,
               "acked_missing": 7,
               "duplicates": 0,
               "torn": 0
@@ -282,7 +283,7 @@
               "target": "worker",
               "trial": 0,
               "acked": 6,
-              "fault_ns": 148013771677125,
+              "fault_ns": 149777928478333,
               "acked_missing": 6,
               "duplicates": 0,
               "torn": 0
@@ -331,7 +332,7 @@
               "target": "worker",
               "trial": 0,
               "acked": 5,
-              "fault_ns": 148013905474458,
+              "fault_ns": 149778058487083,
               "acked_missing": 5,
               "duplicates": 0,
               "torn": 0
@@ -380,7 +381,7 @@
               "target": "worker",
               "trial": 0,
               "acked": 6,
-              "fault_ns": 148014042009416,
+              "fault_ns": 149778194337708,
               "acked_missing": 0,
               "duplicates": 0,
               "torn": 0
@@ -424,7 +425,7 @@
               "target": "worker",
               "trial": 0,
               "acked": 8,
-              "fault_ns": 148014184682041,
+              "fault_ns": 149778478133958,
               "acked_missing": 0,
               "duplicates": 0,
               "torn": 0
@@ -468,7 +469,7 @@
               "target": "worker",
               "trial": 0,
               "acked": 7,
-              "fault_ns": 148014379499333,
+              "fault_ns": 149778660465083,
               "acked_missing": 0,
               "duplicates": 0,
               "torn": 0
@@ -512,7 +513,7 @@
               "target": "worker",
               "trial": 0,
               "acked": 6,
-              "fault_ns": 148014534555500,
+              "fault_ns": 149778801317833,
               "acked_missing": 0,
               "duplicates": 0,
               "torn": 0
@@ -556,7 +557,7 @@
               "target": "worker",
               "trial": 0,
               "acked": 5,
-              "fault_ns": 148014675946000,
+              "fault_ns": 149778978114750,
               "acked_missing": 0,
               "duplicates": 0,
               "torn": 0
@@ -581,7 +582,8 @@
             "runtime_versions": {}
           }
         }
-      ]
+      ],
+      "gated": true
     },
     "concurrent-append": {
       "must_fail": "md-rmw-sleep",
@@ -630,8 +632,8 @@
             "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
             "runtime_versions": {}
           },
-          "cas": false,
-          "history": false
+          "cas": "not measured in B1",
+          "history": "not measured in B1"
         },
         {
           "role": "must_fail",
@@ -673,8 +675,8 @@
             "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
             "runtime_versions": {}
           },
-          "cas": false,
-          "history": false
+          "cas": "not measured in B1",
+          "history": "not measured in B1"
         },
         {
           "role": "must_fail",
@@ -716,8 +718,8 @@
             "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
             "runtime_versions": {}
           },
-          "cas": false,
-          "history": false
+          "cas": "not measured in B1",
+          "history": "not measured in B1"
         },
         {
           "role": "must_fail",
@@ -759,8 +761,8 @@
             "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
             "runtime_versions": {}
           },
-          "cas": false,
-          "history": false
+          "cas": "not measured in B1",
+          "history": "not measured in B1"
         },
         {
           "role": "must_fail",
@@ -802,8 +804,8 @@
             "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
             "runtime_versions": {}
           },
-          "cas": false,
-          "history": false
+          "cas": "not measured in B1",
+          "history": "not measured in B1"
         },
         {
           "role": "must_pass",
@@ -840,8 +842,8 @@
             "notes": "WAL synchronous=NORMAL. Busy timeout 30 seconds.",
             "runtime_versions": {}
           },
-          "cas": false,
-          "history": false
+          "cas": "not measured in B1",
+          "history": "not measured in B1"
         },
         {
           "role": "must_pass",
@@ -878,8 +880,8 @@
             "notes": "WAL synchronous=NORMAL. Busy timeout 30 seconds.",
             "runtime_versions": {}
           },
-          "cas": false,
-          "history": false
+          "cas": "not measured in B1",
+          "history": "not measured in B1"
         },
         {
           "role": "must_pass",
@@ -916,8 +918,8 @@
             "notes": "WAL synchronous=NORMAL. Busy timeout 30 seconds.",
             "runtime_versions": {}
           },
-          "cas": false,
-          "history": false
+          "cas": "not measured in B1",
+          "history": "not measured in B1"
         },
         {
           "role": "must_pass",
@@ -954,8 +956,8 @@
             "notes": "WAL synchronous=NORMAL. Busy timeout 30 seconds.",
             "runtime_versions": {}
           },
-          "cas": false,
-          "history": false
+          "cas": "not measured in B1",
+          "history": "not measured in B1"
         },
         {
           "role": "must_pass",
@@ -992,10 +994,11 @@
             "notes": "WAL synchronous=NORMAL. Busy timeout 30 seconds.",
             "runtime_versions": {}
           },
-          "cas": false,
-          "history": false
+          "cas": "not measured in B1",
+          "history": "not measured in B1"
         }
-      ]
+      ],
+      "gated": true
     },
     "concurrent-kv": {
       "must_fail": "md-rmw-sleep",
@@ -1012,6 +1015,7 @@
           "duplicates": 0,
           "torn": 0,
           "invalid_final": 0,
+          "invalid_rows": 0,
           "trials": [
             {
               "writers": 2,
@@ -1027,6 +1031,7 @@
               "acked_missing": 0,
               "duplicates": 0,
               "torn": 0,
+              "invalid_rows": 0,
               "invalid_final": 0
             }
           ],
@@ -1052,8 +1057,8 @@
             "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
             "runtime_versions": {}
           },
-          "cas": false,
-          "history": false
+          "cas": "not measured in B1",
+          "history": "not measured in B1"
         },
         {
           "role": "must_fail",
@@ -1063,6 +1068,7 @@
           "duplicates": 0,
           "torn": 0,
           "invalid_final": 0,
+          "invalid_rows": 0,
           "trials": [
             {
               "writers": 4,
@@ -1078,6 +1084,7 @@
               "acked_missing": 0,
               "duplicates": 0,
               "torn": 0,
+              "invalid_rows": 0,
               "invalid_final": 0
             }
           ],
@@ -1103,8 +1110,8 @@
             "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
             "runtime_versions": {}
           },
-          "cas": false,
-          "history": false
+          "cas": "not measured in B1",
+          "history": "not measured in B1"
         },
         {
           "role": "must_fail",
@@ -1114,6 +1121,7 @@
           "duplicates": 0,
           "torn": 0,
           "invalid_final": 0,
+          "invalid_rows": 0,
           "trials": [
             {
               "writers": 8,
@@ -1129,6 +1137,7 @@
               "acked_missing": 0,
               "duplicates": 0,
               "torn": 0,
+              "invalid_rows": 0,
               "invalid_final": 0
             }
           ],
@@ -1154,8 +1163,8 @@
             "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
             "runtime_versions": {}
           },
-          "cas": false,
-          "history": false
+          "cas": "not measured in B1",
+          "history": "not measured in B1"
         },
         {
           "role": "must_fail",
@@ -1165,6 +1174,7 @@
           "duplicates": 0,
           "torn": 0,
           "invalid_final": 0,
+          "invalid_rows": 0,
           "trials": [
             {
               "writers": 2,
@@ -1180,6 +1190,7 @@
               "acked_missing": 0,
               "duplicates": 0,
               "torn": 0,
+              "invalid_rows": 0,
               "invalid_final": 0
             }
           ],
@@ -1205,8 +1216,8 @@
             "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
             "runtime_versions": {}
           },
-          "cas": false,
-          "history": false
+          "cas": "not measured in B1",
+          "history": "not measured in B1"
         },
         {
           "role": "must_fail",
@@ -1216,6 +1227,7 @@
           "duplicates": 0,
           "torn": 0,
           "invalid_final": 0,
+          "invalid_rows": 0,
           "trials": [
             {
               "writers": 4,
@@ -1231,6 +1243,7 @@
               "acked_missing": 0,
               "duplicates": 0,
               "torn": 0,
+              "invalid_rows": 0,
               "invalid_final": 0
             }
           ],
@@ -1256,8 +1269,8 @@
             "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
             "runtime_versions": {}
           },
-          "cas": false,
-          "history": false
+          "cas": "not measured in B1",
+          "history": "not measured in B1"
         },
         {
           "role": "must_pass",
@@ -1267,6 +1280,7 @@
           "duplicates": 0,
           "torn": 0,
           "invalid_final": 0,
+          "invalid_rows": 0,
           "trials": [
             {
               "writers": 2,
@@ -1282,6 +1296,7 @@
               "acked_missing": 0,
               "duplicates": 0,
               "torn": 0,
+              "invalid_rows": 0,
               "invalid_final": 0
             }
           ],
@@ -1302,8 +1317,8 @@
             "notes": "WAL synchronous=NORMAL. Busy timeout 30 seconds.",
             "runtime_versions": {}
           },
-          "cas": false,
-          "history": false
+          "cas": "not measured in B1",
+          "history": "not measured in B1"
         },
         {
           "role": "must_pass",
@@ -1313,6 +1328,7 @@
           "duplicates": 0,
           "torn": 0,
           "invalid_final": 0,
+          "invalid_rows": 0,
           "trials": [
             {
               "writers": 4,
@@ -1328,6 +1344,7 @@
               "acked_missing": 0,
               "duplicates": 0,
               "torn": 0,
+              "invalid_rows": 0,
               "invalid_final": 0
             }
           ],
@@ -1348,8 +1365,8 @@
             "notes": "WAL synchronous=NORMAL. Busy timeout 30 seconds.",
             "runtime_versions": {}
           },
-          "cas": false,
-          "history": false
+          "cas": "not measured in B1",
+          "history": "not measured in B1"
         },
         {
           "role": "must_pass",
@@ -1359,6 +1376,7 @@
           "duplicates": 0,
           "torn": 0,
           "invalid_final": 0,
+          "invalid_rows": 0,
           "trials": [
             {
               "writers": 8,
@@ -1374,6 +1392,7 @@
               "acked_missing": 0,
               "duplicates": 0,
               "torn": 0,
+              "invalid_rows": 0,
               "invalid_final": 0
             }
           ],
@@ -1394,8 +1413,8 @@
             "notes": "WAL synchronous=NORMAL. Busy timeout 30 seconds.",
             "runtime_versions": {}
           },
-          "cas": false,
-          "history": false
+          "cas": "not measured in B1",
+          "history": "not measured in B1"
         },
         {
           "role": "must_pass",
@@ -1405,6 +1424,7 @@
           "duplicates": 0,
           "torn": 0,
           "invalid_final": 0,
+          "invalid_rows": 0,
           "trials": [
             {
               "writers": 2,
@@ -1420,6 +1440,7 @@
               "acked_missing": 0,
               "duplicates": 0,
               "torn": 0,
+              "invalid_rows": 0,
               "invalid_final": 0
             }
           ],
@@ -1440,8 +1461,8 @@
             "notes": "WAL synchronous=NORMAL. Busy timeout 30 seconds.",
             "runtime_versions": {}
           },
-          "cas": false,
-          "history": false
+          "cas": "not measured in B1",
+          "history": "not measured in B1"
         },
         {
           "role": "must_pass",
@@ -1451,6 +1472,7 @@
           "duplicates": 0,
           "torn": 0,
           "invalid_final": 0,
+          "invalid_rows": 0,
           "trials": [
             {
               "writers": 4,
@@ -1466,6 +1488,7 @@
               "acked_missing": 0,
               "duplicates": 0,
               "torn": 0,
+              "invalid_rows": 0,
               "invalid_final": 0
             }
           ],
@@ -1486,110 +1509,16 @@
             "notes": "WAL synchronous=NORMAL. Busy timeout 30 seconds.",
             "runtime_versions": {}
           },
-          "cas": false,
-          "history": false
-        }
-      ]
-    },
-    "history-scale": {
-      "must_fail": "delayed-index",
-      "must_pass": "sqlite-visible",
-      "must_fail_rate": 1.0,
-      "must_pass_rate": 1.0,
-      "discriminates": true,
-      "details": [
-        {
-          "role": "must_fail",
-          "trial": 0,
-          "path": "id",
-          "lag_ms": 100.0665,
-          "upper_ms": 101.081166,
-          "read_p99_ms": 0.081166,
-          "matched": true
-        },
-        {
-          "role": "must_fail",
-          "trial": 1,
-          "path": "filter",
-          "lag_ms": 100.067625,
-          "upper_ms": 101.08,
-          "read_p99_ms": 0.08,
-          "matched": true
-        },
-        {
-          "role": "must_fail",
-          "trial": 2,
-          "path": "recency",
-          "lag_ms": 100.064041,
-          "upper_ms": 101.072875,
-          "read_p99_ms": 0.072875,
-          "matched": true
-        },
-        {
-          "role": "must_fail",
-          "trial": 3,
-          "path": "search",
-          "lag_ms": 100.069333,
-          "upper_ms": 101.085333,
-          "read_p99_ms": 0.085333,
-          "matched": true
-        },
-        {
-          "role": "must_fail",
-          "trial": 4,
-          "path": "id",
-          "lag_ms": 100.062542,
-          "upper_ms": 101.067,
-          "read_p99_ms": 0.067,
-          "matched": true
-        },
-        {
-          "role": "must_pass",
-          "trial": 0,
-          "path": "id",
-          "lag_ms": 0.11975,
-          "upper_ms": 101.101,
-          "read_p99_ms": 0.101,
-          "matched": true
-        },
-        {
-          "role": "must_pass",
-          "trial": 1,
-          "path": "filter",
-          "lag_ms": 0.114167,
-          "upper_ms": 101.096209,
-          "read_p99_ms": 0.096209,
-          "matched": true
-        },
-        {
-          "role": "must_pass",
-          "trial": 2,
-          "path": "recency",
-          "lag_ms": 0.131459,
-          "upper_ms": 101.11025,
-          "read_p99_ms": 0.11025,
-          "matched": true
-        },
-        {
-          "role": "must_pass",
-          "trial": 3,
-          "path": "search",
-          "lag_ms": 0.1615,
-          "upper_ms": 101.138167,
-          "read_p99_ms": 0.138167,
-          "matched": true
-        },
-        {
-          "role": "must_pass",
-          "trial": 4,
-          "path": "id",
-          "lag_ms": 0.102,
-          "upper_ms": 101.085042,
-          "read_p99_ms": 0.085042,
-          "matched": true
+          "cas": "not measured in B1",
+          "history": "not measured in B1"
         }
       ],
-      "note": "Shares recall-delay timing calibration. The approved spec defines no scale-specific failure threshold. History reads also check loaded count and payload integrity."
+      "gated": true
+    },
+    "history-scale": {
+      "discriminates": null,
+      "gated": false,
+      "controls": "none defined in approved spec; measurement suite"
     }
   },
   "run_directory": "results/controls/quick"

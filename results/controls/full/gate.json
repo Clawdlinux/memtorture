@@ -8,7 +8,7 @@
     "cpu_count": 10,
     "ram_bytes": 17179869184
   },
-  "methodology_sha256": "221c818f8beef6958c9f42be5740cc72c393f31229b9ad40cfc27c03f3aa849f",
+  "methodology_sha256": "81cfee10129da204d9c8f61870010ae69570f65e30c724de57a94553fc6da0a1",
   "suites": {
     "recall-delay": {
       "must_fail": "delayed-index",
@@ -21,363 +21,364 @@
           "role": "must_fail",
           "trial": 0,
           "path": "id",
-          "lag_ms": 100.083791,
-          "upper_ms": 101.102916,
-          "read_p99_ms": 0.102916,
+          "lag_ms": 100.117166,
+          "upper_ms": 101.136583,
+          "read_p99_ms": 0.136583,
           "matched": true
         },
         {
           "role": "must_fail",
           "trial": 1,
           "path": "filter",
-          "lag_ms": 100.083959,
-          "upper_ms": 101.099334,
-          "read_p99_ms": 0.099334,
+          "lag_ms": 100.117791,
+          "upper_ms": 101.153834,
+          "read_p99_ms": 0.153834,
           "matched": true
         },
         {
           "role": "must_fail",
           "trial": 2,
           "path": "recency",
-          "lag_ms": 100.096417,
-          "upper_ms": 101.104875,
-          "read_p99_ms": 0.104875,
+          "lag_ms": 100.105542,
+          "upper_ms": 101.164625,
+          "read_p99_ms": 0.164625,
           "matched": true
         },
         {
           "role": "must_fail",
           "trial": 3,
           "path": "search",
-          "lag_ms": 100.13725,
-          "upper_ms": 101.137167,
-          "read_p99_ms": 0.137167,
+          "lag_ms": 100.147208,
+          "upper_ms": 101.22125,
+          "read_p99_ms": 0.22125,
           "matched": true
         },
         {
           "role": "must_fail",
           "trial": 4,
           "path": "id",
-          "lag_ms": 100.085167,
-          "upper_ms": 101.102375,
-          "read_p99_ms": 0.102375,
+          "lag_ms": 100.159583,
+          "upper_ms": 101.188917,
+          "read_p99_ms": 0.188917,
           "matched": true
         },
         {
           "role": "must_fail",
           "trial": 5,
           "path": "filter",
-          "lag_ms": 100.085334,
-          "upper_ms": 101.1,
-          "read_p99_ms": 0.1,
+          "lag_ms": 100.154709,
+          "upper_ms": 101.191041,
+          "read_p99_ms": 0.191041,
           "matched": true
         },
         {
           "role": "must_fail",
           "trial": 6,
           "path": "recency",
-          "lag_ms": 100.083292,
-          "upper_ms": 101.083208,
-          "read_p99_ms": 0.083208,
+          "lag_ms": 100.142667,
+          "upper_ms": 101.197917,
+          "read_p99_ms": 0.197917,
           "matched": true
         },
         {
           "role": "must_fail",
           "trial": 7,
           "path": "search",
-          "lag_ms": 100.103708,
-          "upper_ms": 101.130708,
-          "read_p99_ms": 0.130708,
+          "lag_ms": 100.152375,
+          "upper_ms": 101.253125,
+          "read_p99_ms": 0.253125,
           "matched": true
         },
         {
           "role": "must_fail",
           "trial": 8,
           "path": "id",
-          "lag_ms": 100.067583,
-          "upper_ms": 101.082041,
-          "read_p99_ms": 0.082041,
+          "lag_ms": 100.142292,
+          "upper_ms": 101.203792,
+          "read_p99_ms": 0.203792,
           "matched": true
         },
         {
           "role": "must_fail",
           "trial": 9,
           "path": "filter",
-          "lag_ms": 100.06725,
-          "upper_ms": 101.084375,
-          "read_p99_ms": 0.084375,
+          "lag_ms": 100.12725,
+          "upper_ms": 101.170708,
+          "read_p99_ms": 0.170708,
           "matched": true
         },
         {
           "role": "must_fail",
           "trial": 10,
           "path": "recency",
-          "lag_ms": 100.055917,
-          "upper_ms": 101.059291,
-          "read_p99_ms": 0.059291,
+          "lag_ms": 100.116584,
+          "upper_ms": 101.221875,
+          "read_p99_ms": 0.221875,
           "matched": true
         },
         {
           "role": "must_fail",
           "trial": 11,
           "path": "search",
-          "lag_ms": 100.071291,
-          "upper_ms": 101.10725,
-          "read_p99_ms": 0.10725,
+          "lag_ms": 100.144125,
+          "upper_ms": 101.203709,
+          "read_p99_ms": 0.203709,
           "matched": true
         },
         {
           "role": "must_fail",
           "trial": 12,
           "path": "id",
-          "lag_ms": 100.070125,
-          "upper_ms": 101.072083,
-          "read_p99_ms": 0.072083,
+          "lag_ms": 100.115041,
+          "upper_ms": 101.140708,
+          "read_p99_ms": 0.140708,
           "matched": true
         },
         {
           "role": "must_fail",
           "trial": 13,
           "path": "filter",
-          "lag_ms": 100.061041,
-          "upper_ms": 101.073792,
-          "read_p99_ms": 0.073792,
+          "lag_ms": 100.124292,
+          "upper_ms": 101.152584,
+          "read_p99_ms": 0.152584,
           "matched": true
         },
         {
           "role": "must_fail",
           "trial": 14,
           "path": "recency",
-          "lag_ms": 100.064875,
-          "upper_ms": 101.064833,
-          "read_p99_ms": 0.064833,
+          "lag_ms": 100.175208,
+          "upper_ms": 101.262,
+          "read_p99_ms": 0.262,
           "matched": true
         },
         {
           "role": "must_fail",
           "trial": 15,
           "path": "search",
-          "lag_ms": 100.06525,
-          "upper_ms": 101.075958,
-          "read_p99_ms": 0.075958,
+          "lag_ms": 100.304583,
+          "upper_ms": 101.304375,
+          "read_p99_ms": 0.304375,
           "matched": true
         },
         {
           "role": "must_fail",
           "trial": 16,
           "path": "id",
-          "lag_ms": 100.066834,
-          "upper_ms": 101.081667,
-          "read_p99_ms": 0.081667,
+          "lag_ms": 100.174917,
+          "upper_ms": 101.202291,
+          "read_p99_ms": 0.202291,
           "matched": true
         },
         {
           "role": "must_fail",
           "trial": 17,
           "path": "filter",
-          "lag_ms": 100.064208,
-          "upper_ms": 101.068958,
-          "read_p99_ms": 0.068958,
+          "lag_ms": 100.120375,
+          "upper_ms": 101.161916,
+          "read_p99_ms": 0.161916,
           "matched": true
         },
         {
           "role": "must_fail",
           "trial": 18,
           "path": "recency",
-          "lag_ms": 100.063875,
-          "upper_ms": 101.063833,
-          "read_p99_ms": 0.063833,
+          "lag_ms": 100.133667,
+          "upper_ms": 101.153042,
+          "read_p99_ms": 0.153042,
           "matched": true
         },
         {
           "role": "must_fail",
           "trial": 19,
           "path": "search",
-          "lag_ms": 100.065542,
-          "upper_ms": 101.102583,
-          "read_p99_ms": 0.102583,
+          "lag_ms": 100.155958,
+          "upper_ms": 101.202791,
+          "read_p99_ms": 0.202791,
           "matched": true
         },
         {
           "role": "must_pass",
           "trial": 0,
           "path": "id",
-          "lag_ms": 0.142708,
-          "upper_ms": 101.118291,
-          "read_p99_ms": 0.118291,
+          "lag_ms": 0.268708,
+          "upper_ms": 101.216292,
+          "read_p99_ms": 0.216292,
           "matched": true
         },
         {
           "role": "must_pass",
           "trial": 1,
           "path": "filter",
-          "lag_ms": 0.1355,
-          "upper_ms": 101.109667,
-          "read_p99_ms": 0.109667,
+          "lag_ms": 0.247458,
+          "upper_ms": 101.195042,
+          "read_p99_ms": 0.195042,
           "matched": true
         },
         {
           "role": "must_pass",
           "trial": 2,
           "path": "recency",
-          "lag_ms": 0.085583,
-          "upper_ms": 101.071333,
-          "read_p99_ms": 0.071333,
+          "lag_ms": 0.212541,
+          "upper_ms": 101.16275,
+          "read_p99_ms": 0.16275,
           "matched": true
         },
         {
           "role": "must_pass",
           "trial": 3,
           "path": "search",
-          "lag_ms": 0.160459,
-          "upper_ms": 101.135167,
-          "read_p99_ms": 0.135167,
+          "lag_ms": 0.234583,
+          "upper_ms": 101.2015,
+          "read_p99_ms": 0.2015,
           "matched": true
         },
         {
           "role": "must_pass",
           "trial": 4,
           "path": "id",
-          "lag_ms": 0.1305,
-          "upper_ms": 101.104334,
-          "read_p99_ms": 0.104334,
+          "lag_ms": 0.227,
+          "upper_ms": 101.184125,
+          "read_p99_ms": 0.184125,
           "matched": true
         },
         {
           "role": "must_pass",
           "trial": 5,
           "path": "filter",
-          "lag_ms": 0.098709,
-          "upper_ms": 101.08275,
-          "read_p99_ms": 0.08275,
+          "lag_ms": 0.254,
+          "upper_ms": 101.204417,
+          "read_p99_ms": 0.204417,
           "matched": true
         },
         {
           "role": "must_pass",
           "trial": 6,
           "path": "recency",
-          "lag_ms": 0.125333,
-          "upper_ms": 101.101083,
-          "read_p99_ms": 0.101083,
+          "lag_ms": 0.174291,
+          "upper_ms": 101.140458,
+          "read_p99_ms": 0.140458,
           "matched": true
         },
         {
           "role": "must_pass",
           "trial": 7,
           "path": "search",
-          "lag_ms": 0.128125,
-          "upper_ms": 101.11325,
-          "read_p99_ms": 0.11325,
+          "lag_ms": 0.378084,
+          "upper_ms": 101.32225,
+          "read_p99_ms": 0.32225,
           "matched": true
         },
         {
           "role": "must_pass",
           "trial": 8,
           "path": "id",
-          "lag_ms": 0.096208,
-          "upper_ms": 101.082167,
-          "read_p99_ms": 0.082167,
+          "lag_ms": 0.272209,
+          "upper_ms": 101.236042,
+          "read_p99_ms": 0.236042,
           "matched": true
         },
         {
           "role": "must_pass",
           "trial": 9,
           "path": "filter",
-          "lag_ms": 0.140459,
-          "upper_ms": 101.115042,
-          "read_p99_ms": 0.115042,
+          "lag_ms": 0.249875,
+          "upper_ms": 101.212833,
+          "read_p99_ms": 0.212833,
           "matched": true
         },
         {
           "role": "must_pass",
           "trial": 10,
           "path": "recency",
-          "lag_ms": 0.131667,
-          "upper_ms": 101.105542,
-          "read_p99_ms": 0.105542,
+          "lag_ms": 0.251167,
+          "upper_ms": 101.202584,
+          "read_p99_ms": 0.202584,
           "matched": true
         },
         {
           "role": "must_pass",
           "trial": 11,
           "path": "search",
-          "lag_ms": 0.156833,
-          "upper_ms": 101.132666,
-          "read_p99_ms": 0.132666,
+          "lag_ms": 0.273708,
+          "upper_ms": 101.233791,
+          "read_p99_ms": 0.233791,
           "matched": true
         },
         {
           "role": "must_pass",
           "trial": 12,
           "path": "id",
-          "lag_ms": 0.126166,
-          "upper_ms": 101.104791,
-          "read_p99_ms": 0.104791,
+          "lag_ms": 0.194208,
+          "upper_ms": 101.160958,
+          "read_p99_ms": 0.160958,
           "matched": true
         },
         {
           "role": "must_pass",
           "trial": 13,
           "path": "filter",
-          "lag_ms": 0.115875,
-          "upper_ms": 101.09625,
-          "read_p99_ms": 0.09625,
+          "lag_ms": 0.251958,
+          "upper_ms": 101.202625,
+          "read_p99_ms": 0.202625,
           "matched": true
         },
         {
           "role": "must_pass",
           "trial": 14,
           "path": "recency",
-          "lag_ms": 0.12425,
-          "upper_ms": 101.099875,
-          "read_p99_ms": 0.099875,
+          "lag_ms": 0.17625,
+          "upper_ms": 101.143208,
+          "read_p99_ms": 0.143208,
           "matched": true
         },
         {
           "role": "must_pass",
           "trial": 15,
           "path": "search",
-          "lag_ms": 0.162792,
-          "upper_ms": 101.138083,
-          "read_p99_ms": 0.138083,
+          "lag_ms": 0.234208,
+          "upper_ms": 101.201875,
+          "read_p99_ms": 0.201875,
           "matched": true
         },
         {
           "role": "must_pass",
           "trial": 16,
           "path": "id",
-          "lag_ms": 0.132292,
-          "upper_ms": 101.109458,
-          "read_p99_ms": 0.109458,
+          "lag_ms": 0.183167,
+          "upper_ms": 101.151667,
+          "read_p99_ms": 0.151667,
           "matched": true
         },
         {
           "role": "must_pass",
           "trial": 17,
           "path": "filter",
-          "lag_ms": 0.131583,
-          "upper_ms": 101.108167,
-          "read_p99_ms": 0.108167,
+          "lag_ms": 0.182917,
+          "upper_ms": 101.151542,
+          "read_p99_ms": 0.151542,
           "matched": true
         },
         {
           "role": "must_pass",
           "trial": 18,
           "path": "recency",
-          "lag_ms": 0.125875,
-          "upper_ms": 101.102209,
-          "read_p99_ms": 0.102209,
+          "lag_ms": 0.182042,
+          "upper_ms": 101.146625,
+          "read_p99_ms": 0.146625,
           "matched": true
         },
         {
           "role": "must_pass",
           "trial": 19,
           "path": "search",
-          "lag_ms": 0.176334,
-          "upper_ms": 101.152667,
-          "read_p99_ms": 0.152667,
+          "lag_ms": 0.236875,
+          "upper_ms": 101.203209,
+          "read_p99_ms": 0.203209,
           "matched": true
         }
-      ]
+      ],
+      "gated": true
     },
     "process-kill": {
       "must_fail": "buffered",
@@ -405,7 +406,7 @@
               "target": "worker",
               "trial": 0,
               "acked": 6,
-              "fault_ns": 147408662170791,
+              "fault_ns": 149705232578916,
               "acked_missing": 6,
               "duplicates": 0,
               "torn": 0
@@ -454,7 +455,7 @@
               "target": "worker",
               "trial": 0,
               "acked": 8,
-              "fault_ns": 147408779073500,
+              "fault_ns": 149705457165791,
               "acked_missing": 8,
               "duplicates": 0,
               "torn": 0
@@ -503,7 +504,7 @@
               "target": "worker",
               "trial": 0,
               "acked": 7,
-              "fault_ns": 147408895363708,
+              "fault_ns": 149705694593791,
               "acked_missing": 7,
               "duplicates": 0,
               "torn": 0
@@ -552,7 +553,7 @@
               "target": "worker",
               "trial": 0,
               "acked": 6,
-              "fault_ns": 147409001171916,
+              "fault_ns": 149705916885250,
               "acked_missing": 6,
               "duplicates": 0,
               "torn": 0
@@ -601,7 +602,7 @@
               "target": "worker",
               "trial": 0,
               "acked": 5,
-              "fault_ns": 147409107016083,
+              "fault_ns": 149706131790375,
               "acked_missing": 5,
               "duplicates": 0,
               "torn": 0
@@ -650,7 +651,7 @@
               "target": "worker",
               "trial": 0,
               "acked": 3,
-              "fault_ns": 147409212699916,
+              "fault_ns": 149706321700750,
               "acked_missing": 3,
               "duplicates": 0,
               "torn": 0
@@ -699,7 +700,7 @@
               "target": "worker",
               "trial": 0,
               "acked": 7,
-              "fault_ns": 147409323541375,
+              "fault_ns": 149706501908708,
               "acked_missing": 7,
               "duplicates": 0,
               "torn": 0
@@ -748,7 +749,7 @@
               "target": "worker",
               "trial": 0,
               "acked": 2,
-              "fault_ns": 147409429311375,
+              "fault_ns": 149706681375750,
               "acked_missing": 2,
               "duplicates": 0,
               "torn": 0
@@ -797,7 +798,7 @@
               "target": "worker",
               "trial": 0,
               "acked": 3,
-              "fault_ns": 147409534673375,
+              "fault_ns": 149706859834416,
               "acked_missing": 3,
               "duplicates": 0,
               "torn": 0
@@ -846,7 +847,7 @@
               "target": "worker",
               "trial": 0,
               "acked": 1,
-              "fault_ns": 147409645001375,
+              "fault_ns": 149707053374958,
               "acked_missing": 1,
               "duplicates": 0,
               "torn": 0
@@ -895,7 +896,7 @@
               "target": "worker",
               "trial": 0,
               "acked": 8,
-              "fault_ns": 147409756053916,
+              "fault_ns": 149707255333875,
               "acked_missing": 8,
               "duplicates": 0,
               "torn": 0
@@ -944,7 +945,7 @@
               "target": "worker",
               "trial": 0,
               "acked": 4,
-              "fault_ns": 147409861658375,
+              "fault_ns": 149707454812875,
               "acked_missing": 4,
               "duplicates": 0,
               "torn": 0
@@ -993,7 +994,7 @@
               "target": "worker",
               "trial": 0,
               "acked": 5,
-              "fault_ns": 147409972784916,
+              "fault_ns": 149707654733958,
               "acked_missing": 5,
               "duplicates": 0,
               "torn": 0
@@ -1042,7 +1043,7 @@
               "target": "worker",
               "trial": 0,
               "acked": 4,
-              "fault_ns": 147410078618666,
+              "fault_ns": 149707857443916,
               "acked_missing": 4,
               "duplicates": 0,
               "torn": 0
@@ -1091,7 +1092,7 @@
               "target": "worker",
               "trial": 0,
               "acked": 6,
-              "fault_ns": 147410191184416,
+              "fault_ns": 149708071477291,
               "acked_missing": 6,
               "duplicates": 0,
               "torn": 0
@@ -1140,7 +1141,7 @@
               "target": "worker",
               "trial": 0,
               "acked": 2,
-              "fault_ns": 147410303658958,
+              "fault_ns": 149708286796125,
               "acked_missing": 2,
               "duplicates": 0,
               "torn": 0
@@ -1189,7 +1190,7 @@
               "target": "worker",
               "trial": 0,
               "acked": 6,
-              "fault_ns": 147410414582125,
+              "fault_ns": 149708510228833,
               "acked_missing": 6,
               "duplicates": 0,
               "torn": 0
@@ -1238,7 +1239,7 @@
               "target": "worker",
               "trial": 0,
               "acked": 3,
-              "fault_ns": 147410520201541,
+              "fault_ns": 149708727899916,
               "acked_missing": 3,
               "duplicates": 0,
               "torn": 0
@@ -1287,7 +1288,7 @@
               "target": "worker",
               "trial": 0,
               "acked": 8,
-              "fault_ns": 147410625932458,
+              "fault_ns": 149708954845625,
               "acked_missing": 8,
               "duplicates": 0,
               "torn": 0
@@ -1336,7 +1337,7 @@
               "target": "worker",
               "trial": 0,
               "acked": 5,
-              "fault_ns": 147410736655541,
+              "fault_ns": 149709176115666,
               "acked_missing": 5,
               "duplicates": 0,
               "torn": 0
@@ -1385,7 +1386,7 @@
               "target": "worker",
               "trial": 0,
               "acked": 6,
-              "fault_ns": 147410855534875,
+              "fault_ns": 149709408261125,
               "acked_missing": 0,
               "duplicates": 0,
               "torn": 0
@@ -1429,7 +1430,7 @@
               "target": "worker",
               "trial": 0,
               "acked": 8,
-              "fault_ns": 147410971236916,
+              "fault_ns": 149709633911375,
               "acked_missing": 0,
               "duplicates": 0,
               "torn": 0
@@ -1473,7 +1474,7 @@
               "target": "worker",
               "trial": 0,
               "acked": 7,
-              "fault_ns": 147411080952166,
+              "fault_ns": 149709858244541,
               "acked_missing": 0,
               "duplicates": 0,
               "torn": 0
@@ -1517,7 +1518,7 @@
               "target": "worker",
               "trial": 0,
               "acked": 6,
-              "fault_ns": 147411194852041,
+              "fault_ns": 149710083447000,
               "acked_missing": 0,
               "duplicates": 0,
               "torn": 0
@@ -1561,7 +1562,7 @@
               "target": "worker",
               "trial": 0,
               "acked": 5,
-              "fault_ns": 147411308762041,
+              "fault_ns": 149710310241416,
               "acked_missing": 0,
               "duplicates": 0,
               "torn": 0
@@ -1605,7 +1606,7 @@
               "target": "worker",
               "trial": 0,
               "acked": 3,
-              "fault_ns": 147411426970541,
+              "fault_ns": 149710549788708,
               "acked_missing": 0,
               "duplicates": 0,
               "torn": 0
@@ -1649,7 +1650,7 @@
               "target": "worker",
               "trial": 0,
               "acked": 7,
-              "fault_ns": 147411546356458,
+              "fault_ns": 149710775682541,
               "acked_missing": 0,
               "duplicates": 0,
               "torn": 0
@@ -1693,7 +1694,7 @@
               "target": "worker",
               "trial": 0,
               "acked": 2,
-              "fault_ns": 147411661096375,
+              "fault_ns": 149710982298458,
               "acked_missing": 0,
               "duplicates": 0,
               "torn": 0
@@ -1737,7 +1738,7 @@
               "target": "worker",
               "trial": 0,
               "acked": 3,
-              "fault_ns": 147411775704875,
+              "fault_ns": 149711166178291,
               "acked_missing": 0,
               "duplicates": 0,
               "torn": 0
@@ -1781,7 +1782,7 @@
               "target": "worker",
               "trial": 0,
               "acked": 1,
-              "fault_ns": 147411884286750,
+              "fault_ns": 149711350163208,
               "acked_missing": 0,
               "duplicates": 0,
               "torn": 0
@@ -1825,7 +1826,7 @@
               "target": "worker",
               "trial": 0,
               "acked": 8,
-              "fault_ns": 147411993249166,
+              "fault_ns": 149711535762708,
               "acked_missing": 0,
               "duplicates": 0,
               "torn": 0
@@ -1869,7 +1870,7 @@
               "target": "worker",
               "trial": 0,
               "acked": 4,
-              "fault_ns": 147412107842333,
+              "fault_ns": 149711720540125,
               "acked_missing": 0,
               "duplicates": 0,
               "torn": 0
@@ -1913,7 +1914,7 @@
               "target": "worker",
               "trial": 0,
               "acked": 5,
-              "fault_ns": 147412228738291,
+              "fault_ns": 149711906557041,
               "acked_missing": 0,
               "duplicates": 0,
               "torn": 0
@@ -1957,7 +1958,7 @@
               "target": "worker",
               "trial": 0,
               "acked": 4,
-              "fault_ns": 147412338495375,
+              "fault_ns": 149712080008041,
               "acked_missing": 0,
               "duplicates": 0,
               "torn": 0
@@ -2001,7 +2002,7 @@
               "target": "worker",
               "trial": 0,
               "acked": 6,
-              "fault_ns": 147412457384166,
+              "fault_ns": 149712249092333,
               "acked_missing": 0,
               "duplicates": 0,
               "torn": 0
@@ -2045,7 +2046,7 @@
               "target": "worker",
               "trial": 0,
               "acked": 2,
-              "fault_ns": 147412571967708,
+              "fault_ns": 149712417231166,
               "acked_missing": 0,
               "duplicates": 0,
               "torn": 0
@@ -2089,7 +2090,7 @@
               "target": "worker",
               "trial": 0,
               "acked": 6,
-              "fault_ns": 147412685964416,
+              "fault_ns": 149712586992750,
               "acked_missing": 0,
               "duplicates": 0,
               "torn": 0
@@ -2133,7 +2134,7 @@
               "target": "worker",
               "trial": 0,
               "acked": 3,
-              "fault_ns": 147412800530125,
+              "fault_ns": 149712754089625,
               "acked_missing": 0,
               "duplicates": 0,
               "torn": 0
@@ -2177,7 +2178,7 @@
               "target": "worker",
               "trial": 0,
               "acked": 8,
-              "fault_ns": 147412919952041,
+              "fault_ns": 149712919834541,
               "acked_missing": 0,
               "duplicates": 0,
               "torn": 0
@@ -2221,7 +2222,7 @@
               "target": "worker",
               "trial": 0,
               "acked": 5,
-              "fault_ns": 147413040559708,
+              "fault_ns": 149713081463458,
               "acked_missing": 0,
               "duplicates": 0,
               "torn": 0
@@ -2246,7 +2247,8 @@
             "runtime_versions": {}
           }
         }
-      ]
+      ],
+      "gated": true
     },
     "concurrent-append": {
       "must_fail": "md-rmw-sleep",
@@ -2295,8 +2297,8 @@
             "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
             "runtime_versions": {}
           },
-          "cas": false,
-          "history": false
+          "cas": "not measured in B1",
+          "history": "not measured in B1"
         },
         {
           "role": "must_fail",
@@ -2338,8 +2340,8 @@
             "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
             "runtime_versions": {}
           },
-          "cas": false,
-          "history": false
+          "cas": "not measured in B1",
+          "history": "not measured in B1"
         },
         {
           "role": "must_fail",
@@ -2381,8 +2383,8 @@
             "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
             "runtime_versions": {}
           },
-          "cas": false,
-          "history": false
+          "cas": "not measured in B1",
+          "history": "not measured in B1"
         },
         {
           "role": "must_fail",
@@ -2424,8 +2426,8 @@
             "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
             "runtime_versions": {}
           },
-          "cas": false,
-          "history": false
+          "cas": "not measured in B1",
+          "history": "not measured in B1"
         },
         {
           "role": "must_fail",
@@ -2467,8 +2469,8 @@
             "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
             "runtime_versions": {}
           },
-          "cas": false,
-          "history": false
+          "cas": "not measured in B1",
+          "history": "not measured in B1"
         },
         {
           "role": "must_fail",
@@ -2510,8 +2512,8 @@
             "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
             "runtime_versions": {}
           },
-          "cas": false,
-          "history": false
+          "cas": "not measured in B1",
+          "history": "not measured in B1"
         },
         {
           "role": "must_fail",
@@ -2553,8 +2555,8 @@
             "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
             "runtime_versions": {}
           },
-          "cas": false,
-          "history": false
+          "cas": "not measured in B1",
+          "history": "not measured in B1"
         },
         {
           "role": "must_fail",
@@ -2596,8 +2598,8 @@
             "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
             "runtime_versions": {}
           },
-          "cas": false,
-          "history": false
+          "cas": "not measured in B1",
+          "history": "not measured in B1"
         },
         {
           "role": "must_fail",
@@ -2639,8 +2641,8 @@
             "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
             "runtime_versions": {}
           },
-          "cas": false,
-          "history": false
+          "cas": "not measured in B1",
+          "history": "not measured in B1"
         },
         {
           "role": "must_fail",
@@ -2682,8 +2684,8 @@
             "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
             "runtime_versions": {}
           },
-          "cas": false,
-          "history": false
+          "cas": "not measured in B1",
+          "history": "not measured in B1"
         },
         {
           "role": "must_fail",
@@ -2725,8 +2727,8 @@
             "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
             "runtime_versions": {}
           },
-          "cas": false,
-          "history": false
+          "cas": "not measured in B1",
+          "history": "not measured in B1"
         },
         {
           "role": "must_fail",
@@ -2768,8 +2770,8 @@
             "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
             "runtime_versions": {}
           },
-          "cas": false,
-          "history": false
+          "cas": "not measured in B1",
+          "history": "not measured in B1"
         },
         {
           "role": "must_fail",
@@ -2811,8 +2813,8 @@
             "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
             "runtime_versions": {}
           },
-          "cas": false,
-          "history": false
+          "cas": "not measured in B1",
+          "history": "not measured in B1"
         },
         {
           "role": "must_fail",
@@ -2854,8 +2856,8 @@
             "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
             "runtime_versions": {}
           },
-          "cas": false,
-          "history": false
+          "cas": "not measured in B1",
+          "history": "not measured in B1"
         },
         {
           "role": "must_fail",
@@ -2897,8 +2899,8 @@
             "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
             "runtime_versions": {}
           },
-          "cas": false,
-          "history": false
+          "cas": "not measured in B1",
+          "history": "not measured in B1"
         },
         {
           "role": "must_fail",
@@ -2940,8 +2942,8 @@
             "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
             "runtime_versions": {}
           },
-          "cas": false,
-          "history": false
+          "cas": "not measured in B1",
+          "history": "not measured in B1"
         },
         {
           "role": "must_fail",
@@ -2983,8 +2985,8 @@
             "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
             "runtime_versions": {}
           },
-          "cas": false,
-          "history": false
+          "cas": "not measured in B1",
+          "history": "not measured in B1"
         },
         {
           "role": "must_fail",
@@ -3026,8 +3028,8 @@
             "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
             "runtime_versions": {}
           },
-          "cas": false,
-          "history": false
+          "cas": "not measured in B1",
+          "history": "not measured in B1"
         },
         {
           "role": "must_fail",
@@ -3069,8 +3071,8 @@
             "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
             "runtime_versions": {}
           },
-          "cas": false,
-          "history": false
+          "cas": "not measured in B1",
+          "history": "not measured in B1"
         },
         {
           "role": "must_fail",
@@ -3112,8 +3114,8 @@
             "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
             "runtime_versions": {}
           },
-          "cas": false,
-          "history": false
+          "cas": "not measured in B1",
+          "history": "not measured in B1"
         },
         {
           "role": "must_pass",
@@ -3150,8 +3152,8 @@
             "notes": "WAL synchronous=NORMAL. Busy timeout 30 seconds.",
             "runtime_versions": {}
           },
-          "cas": false,
-          "history": false
+          "cas": "not measured in B1",
+          "history": "not measured in B1"
         },
         {
           "role": "must_pass",
@@ -3188,8 +3190,8 @@
             "notes": "WAL synchronous=NORMAL. Busy timeout 30 seconds.",
             "runtime_versions": {}
           },
-          "cas": false,
-          "history": false
+          "cas": "not measured in B1",
+          "history": "not measured in B1"
         },
         {
           "role": "must_pass",
@@ -3226,8 +3228,8 @@
             "notes": "WAL synchronous=NORMAL. Busy timeout 30 seconds.",
             "runtime_versions": {}
           },
-          "cas": false,
-          "history": false
+          "cas": "not measured in B1",
+          "history": "not measured in B1"
         },
         {
           "role": "must_pass",
@@ -3264,8 +3266,8 @@
             "notes": "WAL synchronous=NORMAL. Busy timeout 30 seconds.",
             "runtime_versions": {}
           },
-          "cas": false,
-          "history": false
+          "cas": "not measured in B1",
+          "history": "not measured in B1"
         },
         {
           "role": "must_pass",
@@ -3302,8 +3304,8 @@
             "notes": "WAL synchronous=NORMAL. Busy timeout 30 seconds.",
             "runtime_versions": {}
           },
-          "cas": false,
-          "history": false
+          "cas": "not measured in B1",
+          "history": "not measured in B1"
         },
         {
           "role": "must_pass",
@@ -3340,8 +3342,8 @@
             "notes": "WAL synchronous=NORMAL. Busy timeout 30 seconds.",
             "runtime_versions": {}
           },
-          "cas": false,
-          "history": false
+          "cas": "not measured in B1",
+          "history": "not measured in B1"
         },
         {
           "role": "must_pass",
@@ -3378,8 +3380,8 @@
             "notes": "WAL synchronous=NORMAL. Busy timeout 30 seconds.",
             "runtime_versions": {}
           },
-          "cas": false,
-          "history": false
+          "cas": "not measured in B1",
+          "history": "not measured in B1"
         },
         {
           "role": "must_pass",
@@ -3416,8 +3418,8 @@
             "notes": "WAL synchronous=NORMAL. Busy timeout 30 seconds.",
             "runtime_versions": {}
           },
-          "cas": false,
-          "history": false
+          "cas": "not measured in B1",
+          "history": "not measured in B1"
         },
         {
           "role": "must_pass",
@@ -3454,8 +3456,8 @@
             "notes": "WAL synchronous=NORMAL. Busy timeout 30 seconds.",
             "runtime_versions": {}
           },
-          "cas": false,
-          "history": false
+          "cas": "not measured in B1",
+          "history": "not measured in B1"
         },
         {
           "role": "must_pass",
@@ -3492,8 +3494,8 @@
             "notes": "WAL synchronous=NORMAL. Busy timeout 30 seconds.",
             "runtime_versions": {}
           },
-          "cas": false,
-          "history": false
+          "cas": "not measured in B1",
+          "history": "not measured in B1"
         },
         {
           "role": "must_pass",
@@ -3530,8 +3532,8 @@
             "notes": "WAL synchronous=NORMAL. Busy timeout 30 seconds.",
             "runtime_versions": {}
           },
-          "cas": false,
-          "history": false
+          "cas": "not measured in B1",
+          "history": "not measured in B1"
         },
         {
           "role": "must_pass",
@@ -3568,8 +3570,8 @@
             "notes": "WAL synchronous=NORMAL. Busy timeout 30 seconds.",
             "runtime_versions": {}
           },
-          "cas": false,
-          "history": false
+          "cas": "not measured in B1",
+          "history": "not measured in B1"
         },
         {
           "role": "must_pass",
@@ -3606,8 +3608,8 @@
             "notes": "WAL synchronous=NORMAL. Busy timeout 30 seconds.",
             "runtime_versions": {}
           },
-          "cas": false,
-          "history": false
+          "cas": "not measured in B1",
+          "history": "not measured in B1"
         },
         {
           "role": "must_pass",
@@ -3644,8 +3646,8 @@
             "notes": "WAL synchronous=NORMAL. Busy timeout 30 seconds.",
             "runtime_versions": {}
           },
-          "cas": false,
-          "history": false
+          "cas": "not measured in B1",
+          "history": "not measured in B1"
         },
         {
           "role": "must_pass",
@@ -3682,8 +3684,8 @@
             "notes": "WAL synchronous=NORMAL. Busy timeout 30 seconds.",
             "runtime_versions": {}
           },
-          "cas": false,
-          "history": false
+          "cas": "not measured in B1",
+          "history": "not measured in B1"
         },
         {
           "role": "must_pass",
@@ -3720,8 +3722,8 @@
             "notes": "WAL synchronous=NORMAL. Busy timeout 30 seconds.",
             "runtime_versions": {}
           },
-          "cas": false,
-          "history": false
+          "cas": "not measured in B1",
+          "history": "not measured in B1"
         },
         {
           "role": "must_pass",
@@ -3758,8 +3760,8 @@
             "notes": "WAL synchronous=NORMAL. Busy timeout 30 seconds.",
             "runtime_versions": {}
           },
-          "cas": false,
-          "history": false
+          "cas": "not measured in B1",
+          "history": "not measured in B1"
         },
         {
           "role": "must_pass",
@@ -3796,8 +3798,8 @@
             "notes": "WAL synchronous=NORMAL. Busy timeout 30 seconds.",
             "runtime_versions": {}
           },
-          "cas": false,
-          "history": false
+          "cas": "not measured in B1",
+          "history": "not measured in B1"
         },
         {
           "role": "must_pass",
@@ -3834,8 +3836,8 @@
             "notes": "WAL synchronous=NORMAL. Busy timeout 30 seconds.",
             "runtime_versions": {}
           },
-          "cas": false,
-          "history": false
+          "cas": "not measured in B1",
+          "history": "not measured in B1"
         },
         {
           "role": "must_pass",
@@ -3872,10 +3874,11 @@
             "notes": "WAL synchronous=NORMAL. Busy timeout 30 seconds.",
             "runtime_versions": {}
           },
-          "cas": false,
-          "history": false
+          "cas": "not measured in B1",
+          "history": "not measured in B1"
         }
-      ]
+      ],
+      "gated": true
     },
     "concurrent-kv": {
       "must_fail": "md-rmw-sleep",
@@ -3892,6 +3895,7 @@
           "duplicates": 0,
           "torn": 0,
           "invalid_final": 0,
+          "invalid_rows": 0,
           "trials": [
             {
               "writers": 2,
@@ -3907,6 +3911,7 @@
               "acked_missing": 0,
               "duplicates": 0,
               "torn": 0,
+              "invalid_rows": 0,
               "invalid_final": 0
             }
           ],
@@ -3932,8 +3937,8 @@
             "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
             "runtime_versions": {}
           },
-          "cas": false,
-          "history": false
+          "cas": "not measured in B1",
+          "history": "not measured in B1"
         },
         {
           "role": "must_fail",
@@ -3943,6 +3948,7 @@
           "duplicates": 0,
           "torn": 0,
           "invalid_final": 0,
+          "invalid_rows": 0,
           "trials": [
             {
               "writers": 4,
@@ -3958,6 +3964,7 @@
               "acked_missing": 0,
               "duplicates": 0,
               "torn": 0,
+              "invalid_rows": 0,
               "invalid_final": 0
             }
           ],
@@ -3983,8 +3990,8 @@
             "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
             "runtime_versions": {}
           },
-          "cas": false,
-          "history": false
+          "cas": "not measured in B1",
+          "history": "not measured in B1"
         },
         {
           "role": "must_fail",
@@ -3994,6 +4001,7 @@
           "duplicates": 0,
           "torn": 0,
           "invalid_final": 0,
+          "invalid_rows": 0,
           "trials": [
             {
               "writers": 8,
@@ -4009,6 +4017,7 @@
               "acked_missing": 0,
               "duplicates": 0,
               "torn": 0,
+              "invalid_rows": 0,
               "invalid_final": 0
             }
           ],
@@ -4034,8 +4043,8 @@
             "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
             "runtime_versions": {}
           },
-          "cas": false,
-          "history": false
+          "cas": "not measured in B1",
+          "history": "not measured in B1"
         },
         {
           "role": "must_fail",
@@ -4045,6 +4054,7 @@
           "duplicates": 0,
           "torn": 0,
           "invalid_final": 0,
+          "invalid_rows": 0,
           "trials": [
             {
               "writers": 2,
@@ -4060,6 +4070,7 @@
               "acked_missing": 0,
               "duplicates": 0,
               "torn": 0,
+              "invalid_rows": 0,
               "invalid_final": 0
             }
           ],
@@ -4085,8 +4096,8 @@
             "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
             "runtime_versions": {}
           },
-          "cas": false,
-          "history": false
+          "cas": "not measured in B1",
+          "history": "not measured in B1"
         },
         {
           "role": "must_fail",
@@ -4096,6 +4107,7 @@
           "duplicates": 0,
           "torn": 0,
           "invalid_final": 0,
+          "invalid_rows": 0,
           "trials": [
             {
               "writers": 4,
@@ -4111,6 +4123,7 @@
               "acked_missing": 0,
               "duplicates": 0,
               "torn": 0,
+              "invalid_rows": 0,
               "invalid_final": 0
             }
           ],
@@ -4136,8 +4149,8 @@
             "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
             "runtime_versions": {}
           },
-          "cas": false,
-          "history": false
+          "cas": "not measured in B1",
+          "history": "not measured in B1"
         },
         {
           "role": "must_fail",
@@ -4147,6 +4160,7 @@
           "duplicates": 0,
           "torn": 0,
           "invalid_final": 0,
+          "invalid_rows": 0,
           "trials": [
             {
               "writers": 8,
@@ -4162,6 +4176,7 @@
               "acked_missing": 0,
               "duplicates": 0,
               "torn": 0,
+              "invalid_rows": 0,
               "invalid_final": 0
             }
           ],
@@ -4187,8 +4202,8 @@
             "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
             "runtime_versions": {}
           },
-          "cas": false,
-          "history": false
+          "cas": "not measured in B1",
+          "history": "not measured in B1"
         },
         {
           "role": "must_fail",
@@ -4198,6 +4213,7 @@
           "duplicates": 0,
           "torn": 0,
           "invalid_final": 0,
+          "invalid_rows": 0,
           "trials": [
             {
               "writers": 2,
@@ -4213,6 +4229,7 @@
               "acked_missing": 0,
               "duplicates": 0,
               "torn": 0,
+              "invalid_rows": 0,
               "invalid_final": 0
             }
           ],
@@ -4238,8 +4255,8 @@
             "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
             "runtime_versions": {}
           },
-          "cas": false,
-          "history": false
+          "cas": "not measured in B1",
+          "history": "not measured in B1"
         },
         {
           "role": "must_fail",
@@ -4249,6 +4266,7 @@
           "duplicates": 0,
           "torn": 0,
           "invalid_final": 0,
+          "invalid_rows": 0,
           "trials": [
             {
               "writers": 4,
@@ -4264,6 +4282,7 @@
               "acked_missing": 0,
               "duplicates": 0,
               "torn": 0,
+              "invalid_rows": 0,
               "invalid_final": 0
             }
           ],
@@ -4289,22 +4308,23 @@
             "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
             "runtime_versions": {}
           },
-          "cas": false,
-          "history": false
+          "cas": "not measured in B1",
+          "history": "not measured in B1"
         },
         {
           "role": "must_fail",
           "trial": 8,
           "status": "violation",
-          "acked_missing": 139,
+          "acked_missing": 140,
           "duplicates": 0,
           "torn": 0,
           "invalid_final": 0,
+          "invalid_rows": 0,
           "trials": [
             {
               "writers": 8,
               "phase": "distinct",
-              "acked_missing": 139,
+              "acked_missing": 140,
               "duplicates": 0,
               "torn": 0,
               "invalid_final": 0
@@ -4315,6 +4335,7 @@
               "acked_missing": 0,
               "duplicates": 0,
               "torn": 0,
+              "invalid_rows": 0,
               "invalid_final": 0
             }
           ],
@@ -4340,8 +4361,8 @@
             "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
             "runtime_versions": {}
           },
-          "cas": false,
-          "history": false
+          "cas": "not measured in B1",
+          "history": "not measured in B1"
         },
         {
           "role": "must_fail",
@@ -4351,6 +4372,7 @@
           "duplicates": 0,
           "torn": 0,
           "invalid_final": 0,
+          "invalid_rows": 0,
           "trials": [
             {
               "writers": 2,
@@ -4366,6 +4388,7 @@
               "acked_missing": 0,
               "duplicates": 0,
               "torn": 0,
+              "invalid_rows": 0,
               "invalid_final": 0
             }
           ],
@@ -4391,8 +4414,8 @@
             "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
             "runtime_versions": {}
           },
-          "cas": false,
-          "history": false
+          "cas": "not measured in B1",
+          "history": "not measured in B1"
         },
         {
           "role": "must_fail",
@@ -4402,6 +4425,7 @@
           "duplicates": 0,
           "torn": 0,
           "invalid_final": 0,
+          "invalid_rows": 0,
           "trials": [
             {
               "writers": 4,
@@ -4417,6 +4441,7 @@
               "acked_missing": 0,
               "duplicates": 0,
               "torn": 0,
+              "invalid_rows": 0,
               "invalid_final": 0
             }
           ],
@@ -4442,8 +4467,8 @@
             "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
             "runtime_versions": {}
           },
-          "cas": false,
-          "history": false
+          "cas": "not measured in B1",
+          "history": "not measured in B1"
         },
         {
           "role": "must_fail",
@@ -4453,6 +4478,7 @@
           "duplicates": 0,
           "torn": 0,
           "invalid_final": 0,
+          "invalid_rows": 0,
           "trials": [
             {
               "writers": 8,
@@ -4468,6 +4494,7 @@
               "acked_missing": 0,
               "duplicates": 0,
               "torn": 0,
+              "invalid_rows": 0,
               "invalid_final": 0
             }
           ],
@@ -4493,8 +4520,8 @@
             "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
             "runtime_versions": {}
           },
-          "cas": false,
-          "history": false
+          "cas": "not measured in B1",
+          "history": "not measured in B1"
         },
         {
           "role": "must_fail",
@@ -4504,6 +4531,7 @@
           "duplicates": 0,
           "torn": 0,
           "invalid_final": 0,
+          "invalid_rows": 0,
           "trials": [
             {
               "writers": 2,
@@ -4519,6 +4547,7 @@
               "acked_missing": 0,
               "duplicates": 0,
               "torn": 0,
+              "invalid_rows": 0,
               "invalid_final": 0
             }
           ],
@@ -4544,8 +4573,8 @@
             "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
             "runtime_versions": {}
           },
-          "cas": false,
-          "history": false
+          "cas": "not measured in B1",
+          "history": "not measured in B1"
         },
         {
           "role": "must_fail",
@@ -4555,6 +4584,7 @@
           "duplicates": 0,
           "torn": 0,
           "invalid_final": 0,
+          "invalid_rows": 0,
           "trials": [
             {
               "writers": 4,
@@ -4570,6 +4600,7 @@
               "acked_missing": 0,
               "duplicates": 0,
               "torn": 0,
+              "invalid_rows": 0,
               "invalid_final": 0
             }
           ],
@@ -4595,8 +4626,8 @@
             "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
             "runtime_versions": {}
           },
-          "cas": false,
-          "history": false
+          "cas": "not measured in B1",
+          "history": "not measured in B1"
         },
         {
           "role": "must_fail",
@@ -4606,6 +4637,7 @@
           "duplicates": 0,
           "torn": 0,
           "invalid_final": 0,
+          "invalid_rows": 0,
           "trials": [
             {
               "writers": 8,
@@ -4621,6 +4653,7 @@
               "acked_missing": 0,
               "duplicates": 0,
               "torn": 0,
+              "invalid_rows": 0,
               "invalid_final": 0
             }
           ],
@@ -4646,8 +4679,8 @@
             "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
             "runtime_versions": {}
           },
-          "cas": false,
-          "history": false
+          "cas": "not measured in B1",
+          "history": "not measured in B1"
         },
         {
           "role": "must_fail",
@@ -4657,6 +4690,7 @@
           "duplicates": 0,
           "torn": 0,
           "invalid_final": 0,
+          "invalid_rows": 0,
           "trials": [
             {
               "writers": 2,
@@ -4672,6 +4706,7 @@
               "acked_missing": 0,
               "duplicates": 0,
               "torn": 0,
+              "invalid_rows": 0,
               "invalid_final": 0
             }
           ],
@@ -4697,8 +4732,8 @@
             "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
             "runtime_versions": {}
           },
-          "cas": false,
-          "history": false
+          "cas": "not measured in B1",
+          "history": "not measured in B1"
         },
         {
           "role": "must_fail",
@@ -4708,6 +4743,7 @@
           "duplicates": 0,
           "torn": 0,
           "invalid_final": 0,
+          "invalid_rows": 0,
           "trials": [
             {
               "writers": 4,
@@ -4723,6 +4759,7 @@
               "acked_missing": 0,
               "duplicates": 0,
               "torn": 0,
+              "invalid_rows": 0,
               "invalid_final": 0
             }
           ],
@@ -4748,8 +4785,8 @@
             "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
             "runtime_versions": {}
           },
-          "cas": false,
-          "history": false
+          "cas": "not measured in B1",
+          "history": "not measured in B1"
         },
         {
           "role": "must_fail",
@@ -4759,6 +4796,7 @@
           "duplicates": 0,
           "torn": 0,
           "invalid_final": 0,
+          "invalid_rows": 0,
           "trials": [
             {
               "writers": 8,
@@ -4774,6 +4812,7 @@
               "acked_missing": 0,
               "duplicates": 0,
               "torn": 0,
+              "invalid_rows": 0,
               "invalid_final": 0
             }
           ],
@@ -4799,8 +4838,8 @@
             "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
             "runtime_versions": {}
           },
-          "cas": false,
-          "history": false
+          "cas": "not measured in B1",
+          "history": "not measured in B1"
         },
         {
           "role": "must_fail",
@@ -4810,6 +4849,7 @@
           "duplicates": 0,
           "torn": 0,
           "invalid_final": 0,
+          "invalid_rows": 0,
           "trials": [
             {
               "writers": 2,
@@ -4825,6 +4865,7 @@
               "acked_missing": 0,
               "duplicates": 0,
               "torn": 0,
+              "invalid_rows": 0,
               "invalid_final": 0
             }
           ],
@@ -4850,8 +4891,8 @@
             "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
             "runtime_versions": {}
           },
-          "cas": false,
-          "history": false
+          "cas": "not measured in B1",
+          "history": "not measured in B1"
         },
         {
           "role": "must_fail",
@@ -4861,6 +4902,7 @@
           "duplicates": 0,
           "torn": 0,
           "invalid_final": 0,
+          "invalid_rows": 0,
           "trials": [
             {
               "writers": 4,
@@ -4876,6 +4918,7 @@
               "acked_missing": 0,
               "duplicates": 0,
               "torn": 0,
+              "invalid_rows": 0,
               "invalid_final": 0
             }
           ],
@@ -4901,8 +4944,8 @@
             "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
             "runtime_versions": {}
           },
-          "cas": false,
-          "history": false
+          "cas": "not measured in B1",
+          "history": "not measured in B1"
         },
         {
           "role": "must_pass",
@@ -4912,6 +4955,7 @@
           "duplicates": 0,
           "torn": 0,
           "invalid_final": 0,
+          "invalid_rows": 0,
           "trials": [
             {
               "writers": 2,
@@ -4927,6 +4971,7 @@
               "acked_missing": 0,
               "duplicates": 0,
               "torn": 0,
+              "invalid_rows": 0,
               "invalid_final": 0
             }
           ],
@@ -4947,8 +4992,8 @@
             "notes": "WAL synchronous=NORMAL. Busy timeout 30 seconds.",
             "runtime_versions": {}
           },
-          "cas": false,
-          "history": false
+          "cas": "not measured in B1",
+          "history": "not measured in B1"
         },
         {
           "role": "must_pass",
@@ -4958,6 +5003,7 @@
           "duplicates": 0,
           "torn": 0,
           "invalid_final": 0,
+          "invalid_rows": 0,
           "trials": [
             {
               "writers": 4,
@@ -4973,6 +5019,7 @@
               "acked_missing": 0,
               "duplicates": 0,
               "torn": 0,
+              "invalid_rows": 0,
               "invalid_final": 0
             }
           ],
@@ -4993,8 +5040,8 @@
             "notes": "WAL synchronous=NORMAL. Busy timeout 30 seconds.",
             "runtime_versions": {}
           },
-          "cas": false,
-          "history": false
+          "cas": "not measured in B1",
+          "history": "not measured in B1"
         },
         {
           "role": "must_pass",
@@ -5004,6 +5051,7 @@
           "duplicates": 0,
           "torn": 0,
           "invalid_final": 0,
+          "invalid_rows": 0,
           "trials": [
             {
               "writers": 8,
@@ -5019,6 +5067,7 @@
               "acked_missing": 0,
               "duplicates": 0,
               "torn": 0,
+              "invalid_rows": 0,
               "invalid_final": 0
             }
           ],
@@ -5039,8 +5088,8 @@
             "notes": "WAL synchronous=NORMAL. Busy timeout 30 seconds.",
             "runtime_versions": {}
           },
-          "cas": false,
-          "history": false
+          "cas": "not measured in B1",
+          "history": "not measured in B1"
         },
         {
           "role": "must_pass",
@@ -5050,6 +5099,7 @@
           "duplicates": 0,
           "torn": 0,
           "invalid_final": 0,
+          "invalid_rows": 0,
           "trials": [
             {
               "writers": 2,
@@ -5065,6 +5115,7 @@
               "acked_missing": 0,
               "duplicates": 0,
               "torn": 0,
+              "invalid_rows": 0,
               "invalid_final": 0
             }
           ],
@@ -5085,8 +5136,8 @@
             "notes": "WAL synchronous=NORMAL. Busy timeout 30 seconds.",
             "runtime_versions": {}
           },
-          "cas": false,
-          "history": false
+          "cas": "not measured in B1",
+          "history": "not measured in B1"
         },
         {
           "role": "must_pass",
@@ -5096,6 +5147,7 @@
           "duplicates": 0,
           "torn": 0,
           "invalid_final": 0,
+          "invalid_rows": 0,
           "trials": [
             {
               "writers": 4,
@@ -5111,6 +5163,7 @@
               "acked_missing": 0,
               "duplicates": 0,
               "torn": 0,
+              "invalid_rows": 0,
               "invalid_final": 0
             }
           ],
@@ -5131,8 +5184,8 @@
             "notes": "WAL synchronous=NORMAL. Busy timeout 30 seconds.",
             "runtime_versions": {}
           },
-          "cas": false,
-          "history": false
+          "cas": "not measured in B1",
+          "history": "not measured in B1"
         },
         {
           "role": "must_pass",
@@ -5142,6 +5195,7 @@
           "duplicates": 0,
           "torn": 0,
           "invalid_final": 0,
+          "invalid_rows": 0,
           "trials": [
             {
               "writers": 8,
@@ -5157,6 +5211,7 @@
               "acked_missing": 0,
               "duplicates": 0,
               "torn": 0,
+              "invalid_rows": 0,
               "invalid_final": 0
             }
           ],
@@ -5177,8 +5232,8 @@
             "notes": "WAL synchronous=NORMAL. Busy timeout 30 seconds.",
             "runtime_versions": {}
           },
-          "cas": false,
-          "history": false
+          "cas": "not measured in B1",
+          "history": "not measured in B1"
         },
         {
           "role": "must_pass",
@@ -5188,6 +5243,7 @@
           "duplicates": 0,
           "torn": 0,
           "invalid_final": 0,
+          "invalid_rows": 0,
           "trials": [
             {
               "writers": 2,
@@ -5203,6 +5259,7 @@
               "acked_missing": 0,
               "duplicates": 0,
               "torn": 0,
+              "invalid_rows": 0,
               "invalid_final": 0
             }
           ],
@@ -5223,8 +5280,8 @@
             "notes": "WAL synchronous=NORMAL. Busy timeout 30 seconds.",
             "runtime_versions": {}
           },
-          "cas": false,
-          "history": false
+          "cas": "not measured in B1",
+          "history": "not measured in B1"
         },
         {
           "role": "must_pass",
@@ -5234,6 +5291,7 @@
           "duplicates": 0,
           "torn": 0,
           "invalid_final": 0,
+          "invalid_rows": 0,
           "trials": [
             {
               "writers": 4,
@@ -5249,6 +5307,7 @@
               "acked_missing": 0,
               "duplicates": 0,
               "torn": 0,
+              "invalid_rows": 0,
               "invalid_final": 0
             }
           ],
@@ -5269,8 +5328,8 @@
             "notes": "WAL synchronous=NORMAL. Busy timeout 30 seconds.",
             "runtime_versions": {}
           },
-          "cas": false,
-          "history": false
+          "cas": "not measured in B1",
+          "history": "not measured in B1"
         },
         {
           "role": "must_pass",
@@ -5280,6 +5339,7 @@
           "duplicates": 0,
           "torn": 0,
           "invalid_final": 0,
+          "invalid_rows": 0,
           "trials": [
             {
               "writers": 8,
@@ -5295,6 +5355,7 @@
               "acked_missing": 0,
               "duplicates": 0,
               "torn": 0,
+              "invalid_rows": 0,
               "invalid_final": 0
             }
           ],
@@ -5315,8 +5376,8 @@
             "notes": "WAL synchronous=NORMAL. Busy timeout 30 seconds.",
             "runtime_versions": {}
           },
-          "cas": false,
-          "history": false
+          "cas": "not measured in B1",
+          "history": "not measured in B1"
         },
         {
           "role": "must_pass",
@@ -5326,6 +5387,7 @@
           "duplicates": 0,
           "torn": 0,
           "invalid_final": 0,
+          "invalid_rows": 0,
           "trials": [
             {
               "writers": 2,
@@ -5341,6 +5403,7 @@
               "acked_missing": 0,
               "duplicates": 0,
               "torn": 0,
+              "invalid_rows": 0,
               "invalid_final": 0
             }
           ],
@@ -5361,8 +5424,8 @@
             "notes": "WAL synchronous=NORMAL. Busy timeout 30 seconds.",
             "runtime_versions": {}
           },
-          "cas": false,
-          "history": false
+          "cas": "not measured in B1",
+          "history": "not measured in B1"
         },
         {
           "role": "must_pass",
@@ -5372,6 +5435,7 @@
           "duplicates": 0,
           "torn": 0,
           "invalid_final": 0,
+          "invalid_rows": 0,
           "trials": [
             {
               "writers": 4,
@@ -5387,6 +5451,7 @@
               "acked_missing": 0,
               "duplicates": 0,
               "torn": 0,
+              "invalid_rows": 0,
               "invalid_final": 0
             }
           ],
@@ -5407,8 +5472,8 @@
             "notes": "WAL synchronous=NORMAL. Busy timeout 30 seconds.",
             "runtime_versions": {}
           },
-          "cas": false,
-          "history": false
+          "cas": "not measured in B1",
+          "history": "not measured in B1"
         },
         {
           "role": "must_pass",
@@ -5418,6 +5483,7 @@
           "duplicates": 0,
           "torn": 0,
           "invalid_final": 0,
+          "invalid_rows": 0,
           "trials": [
             {
               "writers": 8,
@@ -5433,6 +5499,7 @@
               "acked_missing": 0,
               "duplicates": 0,
               "torn": 0,
+              "invalid_rows": 0,
               "invalid_final": 0
             }
           ],
@@ -5453,8 +5520,8 @@
             "notes": "WAL synchronous=NORMAL. Busy timeout 30 seconds.",
             "runtime_versions": {}
           },
-          "cas": false,
-          "history": false
+          "cas": "not measured in B1",
+          "history": "not measured in B1"
         },
         {
           "role": "must_pass",
@@ -5464,6 +5531,7 @@
           "duplicates": 0,
           "torn": 0,
           "invalid_final": 0,
+          "invalid_rows": 0,
           "trials": [
             {
               "writers": 2,
@@ -5479,6 +5547,7 @@
               "acked_missing": 0,
               "duplicates": 0,
               "torn": 0,
+              "invalid_rows": 0,
               "invalid_final": 0
             }
           ],
@@ -5499,8 +5568,8 @@
             "notes": "WAL synchronous=NORMAL. Busy timeout 30 seconds.",
             "runtime_versions": {}
           },
-          "cas": false,
-          "history": false
+          "cas": "not measured in B1",
+          "history": "not measured in B1"
         },
         {
           "role": "must_pass",
@@ -5510,6 +5579,7 @@
           "duplicates": 0,
           "torn": 0,
           "invalid_final": 0,
+          "invalid_rows": 0,
           "trials": [
             {
               "writers": 4,
@@ -5525,6 +5595,7 @@
               "acked_missing": 0,
               "duplicates": 0,
               "torn": 0,
+              "invalid_rows": 0,
               "invalid_final": 0
             }
           ],
@@ -5545,8 +5616,8 @@
             "notes": "WAL synchronous=NORMAL. Busy timeout 30 seconds.",
             "runtime_versions": {}
           },
-          "cas": false,
-          "history": false
+          "cas": "not measured in B1",
+          "history": "not measured in B1"
         },
         {
           "role": "must_pass",
@@ -5556,6 +5627,7 @@
           "duplicates": 0,
           "torn": 0,
           "invalid_final": 0,
+          "invalid_rows": 0,
           "trials": [
             {
               "writers": 8,
@@ -5571,6 +5643,7 @@
               "acked_missing": 0,
               "duplicates": 0,
               "torn": 0,
+              "invalid_rows": 0,
               "invalid_final": 0
             }
           ],
@@ -5591,8 +5664,8 @@
             "notes": "WAL synchronous=NORMAL. Busy timeout 30 seconds.",
             "runtime_versions": {}
           },
-          "cas": false,
-          "history": false
+          "cas": "not measured in B1",
+          "history": "not measured in B1"
         },
         {
           "role": "must_pass",
@@ -5602,6 +5675,7 @@
           "duplicates": 0,
           "torn": 0,
           "invalid_final": 0,
+          "invalid_rows": 0,
           "trials": [
             {
               "writers": 2,
@@ -5617,6 +5691,7 @@
               "acked_missing": 0,
               "duplicates": 0,
               "torn": 0,
+              "invalid_rows": 0,
               "invalid_final": 0
             }
           ],
@@ -5637,8 +5712,8 @@
             "notes": "WAL synchronous=NORMAL. Busy timeout 30 seconds.",
             "runtime_versions": {}
           },
-          "cas": false,
-          "history": false
+          "cas": "not measured in B1",
+          "history": "not measured in B1"
         },
         {
           "role": "must_pass",
@@ -5648,6 +5723,7 @@
           "duplicates": 0,
           "torn": 0,
           "invalid_final": 0,
+          "invalid_rows": 0,
           "trials": [
             {
               "writers": 4,
@@ -5663,6 +5739,7 @@
               "acked_missing": 0,
               "duplicates": 0,
               "torn": 0,
+              "invalid_rows": 0,
               "invalid_final": 0
             }
           ],
@@ -5683,8 +5760,8 @@
             "notes": "WAL synchronous=NORMAL. Busy timeout 30 seconds.",
             "runtime_versions": {}
           },
-          "cas": false,
-          "history": false
+          "cas": "not measured in B1",
+          "history": "not measured in B1"
         },
         {
           "role": "must_pass",
@@ -5694,6 +5771,7 @@
           "duplicates": 0,
           "torn": 0,
           "invalid_final": 0,
+          "invalid_rows": 0,
           "trials": [
             {
               "writers": 8,
@@ -5709,6 +5787,7 @@
               "acked_missing": 0,
               "duplicates": 0,
               "torn": 0,
+              "invalid_rows": 0,
               "invalid_final": 0
             }
           ],
@@ -5729,8 +5808,8 @@
             "notes": "WAL synchronous=NORMAL. Busy timeout 30 seconds.",
             "runtime_versions": {}
           },
-          "cas": false,
-          "history": false
+          "cas": "not measured in B1",
+          "history": "not measured in B1"
         },
         {
           "role": "must_pass",
@@ -5740,6 +5819,7 @@
           "duplicates": 0,
           "torn": 0,
           "invalid_final": 0,
+          "invalid_rows": 0,
           "trials": [
             {
               "writers": 2,
@@ -5755,6 +5835,7 @@
               "acked_missing": 0,
               "duplicates": 0,
               "torn": 0,
+              "invalid_rows": 0,
               "invalid_final": 0
             }
           ],
@@ -5775,8 +5856,8 @@
             "notes": "WAL synchronous=NORMAL. Busy timeout 30 seconds.",
             "runtime_versions": {}
           },
-          "cas": false,
-          "history": false
+          "cas": "not measured in B1",
+          "history": "not measured in B1"
         },
         {
           "role": "must_pass",
@@ -5786,6 +5867,7 @@
           "duplicates": 0,
           "torn": 0,
           "invalid_final": 0,
+          "invalid_rows": 0,
           "trials": [
             {
               "writers": 4,
@@ -5801,6 +5883,7 @@
               "acked_missing": 0,
               "duplicates": 0,
               "torn": 0,
+              "invalid_rows": 0,
               "invalid_final": 0
             }
           ],
@@ -5821,380 +5904,16 @@
             "notes": "WAL synchronous=NORMAL. Busy timeout 30 seconds.",
             "runtime_versions": {}
           },
-          "cas": false,
-          "history": false
-        }
-      ]
-    },
-    "history-scale": {
-      "must_fail": "delayed-index",
-      "must_pass": "sqlite-visible",
-      "must_fail_rate": 1.0,
-      "must_pass_rate": 1.0,
-      "discriminates": true,
-      "details": [
-        {
-          "role": "must_fail",
-          "trial": 0,
-          "path": "id",
-          "lag_ms": 100.083791,
-          "upper_ms": 101.102916,
-          "read_p99_ms": 0.102916,
-          "matched": true
-        },
-        {
-          "role": "must_fail",
-          "trial": 1,
-          "path": "filter",
-          "lag_ms": 100.083959,
-          "upper_ms": 101.099334,
-          "read_p99_ms": 0.099334,
-          "matched": true
-        },
-        {
-          "role": "must_fail",
-          "trial": 2,
-          "path": "recency",
-          "lag_ms": 100.096417,
-          "upper_ms": 101.104875,
-          "read_p99_ms": 0.104875,
-          "matched": true
-        },
-        {
-          "role": "must_fail",
-          "trial": 3,
-          "path": "search",
-          "lag_ms": 100.13725,
-          "upper_ms": 101.137167,
-          "read_p99_ms": 0.137167,
-          "matched": true
-        },
-        {
-          "role": "must_fail",
-          "trial": 4,
-          "path": "id",
-          "lag_ms": 100.085167,
-          "upper_ms": 101.102375,
-          "read_p99_ms": 0.102375,
-          "matched": true
-        },
-        {
-          "role": "must_fail",
-          "trial": 5,
-          "path": "filter",
-          "lag_ms": 100.085334,
-          "upper_ms": 101.1,
-          "read_p99_ms": 0.1,
-          "matched": true
-        },
-        {
-          "role": "must_fail",
-          "trial": 6,
-          "path": "recency",
-          "lag_ms": 100.083292,
-          "upper_ms": 101.083208,
-          "read_p99_ms": 0.083208,
-          "matched": true
-        },
-        {
-          "role": "must_fail",
-          "trial": 7,
-          "path": "search",
-          "lag_ms": 100.103708,
-          "upper_ms": 101.130708,
-          "read_p99_ms": 0.130708,
-          "matched": true
-        },
-        {
-          "role": "must_fail",
-          "trial": 8,
-          "path": "id",
-          "lag_ms": 100.067583,
-          "upper_ms": 101.082041,
-          "read_p99_ms": 0.082041,
-          "matched": true
-        },
-        {
-          "role": "must_fail",
-          "trial": 9,
-          "path": "filter",
-          "lag_ms": 100.06725,
-          "upper_ms": 101.084375,
-          "read_p99_ms": 0.084375,
-          "matched": true
-        },
-        {
-          "role": "must_fail",
-          "trial": 10,
-          "path": "recency",
-          "lag_ms": 100.055917,
-          "upper_ms": 101.059291,
-          "read_p99_ms": 0.059291,
-          "matched": true
-        },
-        {
-          "role": "must_fail",
-          "trial": 11,
-          "path": "search",
-          "lag_ms": 100.071291,
-          "upper_ms": 101.10725,
-          "read_p99_ms": 0.10725,
-          "matched": true
-        },
-        {
-          "role": "must_fail",
-          "trial": 12,
-          "path": "id",
-          "lag_ms": 100.070125,
-          "upper_ms": 101.072083,
-          "read_p99_ms": 0.072083,
-          "matched": true
-        },
-        {
-          "role": "must_fail",
-          "trial": 13,
-          "path": "filter",
-          "lag_ms": 100.061041,
-          "upper_ms": 101.073792,
-          "read_p99_ms": 0.073792,
-          "matched": true
-        },
-        {
-          "role": "must_fail",
-          "trial": 14,
-          "path": "recency",
-          "lag_ms": 100.064875,
-          "upper_ms": 101.064833,
-          "read_p99_ms": 0.064833,
-          "matched": true
-        },
-        {
-          "role": "must_fail",
-          "trial": 15,
-          "path": "search",
-          "lag_ms": 100.06525,
-          "upper_ms": 101.075958,
-          "read_p99_ms": 0.075958,
-          "matched": true
-        },
-        {
-          "role": "must_fail",
-          "trial": 16,
-          "path": "id",
-          "lag_ms": 100.066834,
-          "upper_ms": 101.081667,
-          "read_p99_ms": 0.081667,
-          "matched": true
-        },
-        {
-          "role": "must_fail",
-          "trial": 17,
-          "path": "filter",
-          "lag_ms": 100.064208,
-          "upper_ms": 101.068958,
-          "read_p99_ms": 0.068958,
-          "matched": true
-        },
-        {
-          "role": "must_fail",
-          "trial": 18,
-          "path": "recency",
-          "lag_ms": 100.063875,
-          "upper_ms": 101.063833,
-          "read_p99_ms": 0.063833,
-          "matched": true
-        },
-        {
-          "role": "must_fail",
-          "trial": 19,
-          "path": "search",
-          "lag_ms": 100.065542,
-          "upper_ms": 101.102583,
-          "read_p99_ms": 0.102583,
-          "matched": true
-        },
-        {
-          "role": "must_pass",
-          "trial": 0,
-          "path": "id",
-          "lag_ms": 0.142708,
-          "upper_ms": 101.118291,
-          "read_p99_ms": 0.118291,
-          "matched": true
-        },
-        {
-          "role": "must_pass",
-          "trial": 1,
-          "path": "filter",
-          "lag_ms": 0.1355,
-          "upper_ms": 101.109667,
-          "read_p99_ms": 0.109667,
-          "matched": true
-        },
-        {
-          "role": "must_pass",
-          "trial": 2,
-          "path": "recency",
-          "lag_ms": 0.085583,
-          "upper_ms": 101.071333,
-          "read_p99_ms": 0.071333,
-          "matched": true
-        },
-        {
-          "role": "must_pass",
-          "trial": 3,
-          "path": "search",
-          "lag_ms": 0.160459,
-          "upper_ms": 101.135167,
-          "read_p99_ms": 0.135167,
-          "matched": true
-        },
-        {
-          "role": "must_pass",
-          "trial": 4,
-          "path": "id",
-          "lag_ms": 0.1305,
-          "upper_ms": 101.104334,
-          "read_p99_ms": 0.104334,
-          "matched": true
-        },
-        {
-          "role": "must_pass",
-          "trial": 5,
-          "path": "filter",
-          "lag_ms": 0.098709,
-          "upper_ms": 101.08275,
-          "read_p99_ms": 0.08275,
-          "matched": true
-        },
-        {
-          "role": "must_pass",
-          "trial": 6,
-          "path": "recency",
-          "lag_ms": 0.125333,
-          "upper_ms": 101.101083,
-          "read_p99_ms": 0.101083,
-          "matched": true
-        },
-        {
-          "role": "must_pass",
-          "trial": 7,
-          "path": "search",
-          "lag_ms": 0.128125,
-          "upper_ms": 101.11325,
-          "read_p99_ms": 0.11325,
-          "matched": true
-        },
-        {
-          "role": "must_pass",
-          "trial": 8,
-          "path": "id",
-          "lag_ms": 0.096208,
-          "upper_ms": 101.082167,
-          "read_p99_ms": 0.082167,
-          "matched": true
-        },
-        {
-          "role": "must_pass",
-          "trial": 9,
-          "path": "filter",
-          "lag_ms": 0.140459,
-          "upper_ms": 101.115042,
-          "read_p99_ms": 0.115042,
-          "matched": true
-        },
-        {
-          "role": "must_pass",
-          "trial": 10,
-          "path": "recency",
-          "lag_ms": 0.131667,
-          "upper_ms": 101.105542,
-          "read_p99_ms": 0.105542,
-          "matched": true
-        },
-        {
-          "role": "must_pass",
-          "trial": 11,
-          "path": "search",
-          "lag_ms": 0.156833,
-          "upper_ms": 101.132666,
-          "read_p99_ms": 0.132666,
-          "matched": true
-        },
-        {
-          "role": "must_pass",
-          "trial": 12,
-          "path": "id",
-          "lag_ms": 0.126166,
-          "upper_ms": 101.104791,
-          "read_p99_ms": 0.104791,
-          "matched": true
-        },
-        {
-          "role": "must_pass",
-          "trial": 13,
-          "path": "filter",
-          "lag_ms": 0.115875,
-          "upper_ms": 101.09625,
-          "read_p99_ms": 0.09625,
-          "matched": true
-        },
-        {
-          "role": "must_pass",
-          "trial": 14,
-          "path": "recency",
-          "lag_ms": 0.12425,
-          "upper_ms": 101.099875,
-          "read_p99_ms": 0.099875,
-          "matched": true
-        },
-        {
-          "role": "must_pass",
-          "trial": 15,
-          "path": "search",
-          "lag_ms": 0.162792,
-          "upper_ms": 101.138083,
-          "read_p99_ms": 0.138083,
-          "matched": true
-        },
-        {
-          "role": "must_pass",
-          "trial": 16,
-          "path": "id",
-          "lag_ms": 0.132292,
-          "upper_ms": 101.109458,
-          "read_p99_ms": 0.109458,
-          "matched": true
-        },
-        {
-          "role": "must_pass",
-          "trial": 17,
-          "path": "filter",
-          "lag_ms": 0.131583,
-          "upper_ms": 101.108167,
-          "read_p99_ms": 0.108167,
-          "matched": true
-        },
-        {
-          "role": "must_pass",
-          "trial": 18,
-          "path": "recency",
-          "lag_ms": 0.125875,
-          "upper_ms": 101.102209,
-          "read_p99_ms": 0.102209,
-          "matched": true
-        },
-        {
-          "role": "must_pass",
-          "trial": 19,
-          "path": "search",
-          "lag_ms": 0.176334,
-          "upper_ms": 101.152667,
-          "read_p99_ms": 0.152667,
-          "matched": true
+          "cas": "not measured in B1",
+          "history": "not measured in B1"
         }
       ],
-      "note": "Shares recall-delay timing calibration. The approved spec defines no scale-specific failure threshold. History reads also check loaded count and payload integrity."
+      "gated": true
+    },
+    "history-scale": {
+      "discriminates": null,
+      "gated": false,
+      "controls": "none defined in approved spec; measurement suite"
     }
   },
   "run_directory": "results/controls/full"
