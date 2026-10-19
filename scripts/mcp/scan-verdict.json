@@ -1,0 +1,32 @@
+{
+  "package": "@modelcontextprotocol/server-memory",
+  "version": "2025.11.25",
+  "scanner": "SkillSpector 2.11.2",
+  "llm": false,
+  "source": {
+    "verdict": "SAFE",
+    "score": 18,
+    "components": 3,
+    "fully_inspected": 3,
+    "complete": true
+  },
+  "installed_dependency_tree": {
+    "verdict": "DO_NOT_INSTALL",
+    "score": 100,
+    "severity": "CRITICAL",
+    "components": 3630,
+    "fully_inspected": 0,
+    "partially_inspected": 3630,
+    "complete": false,
+    "findings": [
+      "Credential-access indicators in SDK client middleware and auth providers.",
+      "Tool-misuse, YARA, prompt-injection, and SSRF indicators.",
+      "Obfuscated instruction text prevented complete deterministic inspection."
+    ]
+  },
+  "decision": "Adapter remains a NotSupported stub. No Node server executed.",
+  "raw_reports": [
+    ".tools/mcp/source-scan.json",
+    ".tools/mcp/dependency-scan.json"
+  ]
+}

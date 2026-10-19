@@ -1,0 +1,34 @@
+{
+  "scope": "Control calibration only. No comparative measurements.",
+  "threshold_changed": false,
+  "required_must_fail_rate": 0.9,
+  "required_delay_bound_ms": "100 through 101 plus read p99",
+  "observations": [
+    {
+      "stage": "threading.Timer and sleeping 1 ms polls",
+      "matched_trials": 1,
+      "trials": 5,
+      "maximum_visibility_lag_ms": 105.478833,
+      "cause": "Timer coalescing contaminated the fixed visibility-delay control.",
+      "fix": "Use a monotonic visibility deadline and precise 1 ms calibration polling."
+    },
+    {
+      "stage": "synchronous result logging during polling",
+      "matched_trials": 4,
+      "trials": 5,
+      "path": "search",
+      "last_negative_read_end_ms_after_ack": 79.911375,
+      "next_read_start_ms_after_ack": 115.347833,
+      "next_read_end_ms_after_ack": 115.4565,
+      "inter_read_gap_ms": 35.436458,
+      "next_rpc_ms": 0.108667,
+      "read_p99_ms": 0.11675,
+      "upper_bound_ms": 101.11675,
+      "cause": "The harness paused outside the read RPC. Logging ran inside this timing window.",
+      "regression": "A slow result sink reproduced the failure. The test failed before deferred logging.",
+      "fix": "Buffer write and poll events until each observation finishes."
+    }
+  ],
+  "provenance": "Implementation command observations. Superseded raw mode outputs were overwritten.",
+  "current_raw_outputs": ["full/operations.jsonl", "quick/operations.jsonl"]
+}

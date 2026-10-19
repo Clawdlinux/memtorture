@@ -1,0 +1,5 @@
+# Upstream maintainers can replace each placeholder with their GitHub handle.
+# /memproof/adapters/markdown.py @markdown-maintainer
+# /memproof/adapters/sqlite.py @sqlite-maintainer
+# /memproof/adapters/mcp_memory.py @mcp-memory-maintainer
+# /memproof/adapters/qdrant.py @qdrant-maintainer
