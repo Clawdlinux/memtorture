@@ -86,11 +86,13 @@ def decode(value):
     if isinstance(kind, str) and kind in KINDS:
         tagged(value, kind)
         cls = KINDS[kind]
-        body = {f.name: decode(value[f.name]) for f in fields(cls) if f.name in value}
+        body = {f.name: value[f.name] for f in fields(cls) if f.name in value}
         if cls is Record:
             body["scope"] = Scope(
                 **{k: value["scope"][k] for k in ("tenant", "session")}
             )
+        elif cls is Ack:
+            body["ref"] = decode(value["ref"])
         return cls(**body)
     return value
 

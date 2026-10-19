@@ -23,7 +23,7 @@ HISTORY_CONTROLS = {
     "controls": "none defined in approved spec; measurement suite",
 }
 PATHS = {
-    "id": "get-id",
+    "id": "get_by_ref",
     "filter": "list_prefix",
     "recency": "read_recent",
     "search": "search",
@@ -52,10 +52,12 @@ def event(emit, **data):
 def read_path(worker, path, record, limit=20):
     scope = record.scope
     if path == "id":
-        if "get_by_ref" in worker.capabilities:
-            found = worker.call("get_by_ref", scope=scope, ref=worker.refs[record.id])
-        else:
-            found = worker.call("get", scope=scope, key=record.id)
+        if "get_by_ref" not in worker.capabilities:
+            raise NotSupported("Missing get_by_ref")
+        ref = worker.refs.get(record.id)
+        if ref is None:
+            raise NotSupported("Write returned no native ref")
+        found = worker.call("get_by_ref", scope=scope, ref=ref)
         return [found] if found else []
     if path == "filter":
         return worker.call("list_prefix", scope=scope, prefix=record.key, limit=limit)
@@ -109,6 +111,14 @@ def recall_delay(
                     for data in buffered_events:
                         emit(data)
                     continue
+                if path == "id" and record.id not in worker.refs:
+                    metrics[path] = {
+                        "status": "N/A",
+                        "reason": "Write returned no native ref",
+                    }
+                    for data in buffered_events:
+                        emit(data)
+                    break
                 deadline = ack_ns + int(timeout_s * 1e9)
                 next_poll, polls = ack_ns, 0
                 while True:
@@ -159,6 +169,8 @@ def recall_delay(
                         next_poll = read_end
                 for data in buffered_events:
                     emit(data)
+            if metrics.get(path, {}).get("status") == "N/A":
+                continue
             visible = [o for o in observations if o["status"] == "visible"]
             metrics[path] = {
                 "status": "measured",

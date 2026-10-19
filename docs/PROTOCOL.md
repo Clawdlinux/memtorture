@@ -111,6 +111,8 @@ The record's scope must match the request scope.
 `stop` accepts optional `target: "all"` and `kill: false`.
 It closes storage gracefully unless `kill` requests forced shutdown.
 After replying to `stop`, a worker must accept stdin EOF and exit promptly.
+Malformed stop replies and trailing stdout invalidate the cell, including unterminated output.
+The harness still kills and reaps a worker after shutdown protocol errors.
 
 ```json
 {"id":1,"result":{"protocol":1,"capabilities":["write","get_by_ref"],"version":"1.0","notes":"","servers":[{"role":"storage","pid":123}]}}
@@ -127,7 +129,9 @@ It returns `timeout` if the server remains alive after 10 seconds.
 It returns `invalid_request` for an unreported PID.
 The harness also checks process absence before restarting storage.
 
-Capabilities name supported operations. `get-id` advertises the benchmark's native-ref read path.
+Capabilities name supported operations. `get_by_ref` enables the benchmark's native-ref read path.
+Without that capability or a returned native ref, the path is N/A.
+The harness never falls back to a key lookup using a record ID.
 `keyed` advertises native or documented emulated key lookup.
 `emulated:<operation>` labels non-native mappings.
 `history` advertises retained versions per key.

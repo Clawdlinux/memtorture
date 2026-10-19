@@ -71,6 +71,8 @@ class Worker:
         self.sequence = 0
         self.last_sent_ns = 0
         self.last_ack_ns = 0
+        self.stopped = False
+        self.closed = False
         self.server_pid = None
         self.log = (self.workdir / "worker.stderr.log").open("ab")
         self.process = subprocess.Popen(
@@ -148,6 +150,8 @@ class Worker:
                 raise TimeoutError(error["message"])
             raise RuntimeError(f"{error['type']}: {error['message']}")
         result = decode(reply["result"])
+        if op == "stop":
+            self.stopped = True
         if op in {"write", "upsert"} and isinstance(result, Ack):
             self.last_ack_ns = read_ns
             if not result.dropped:
@@ -207,19 +211,37 @@ class Worker:
             time.sleep(0.01)
 
     def close(self, *, preserve_server=False):
-        if self.process.poll() is None:
-            try:
-                if preserve_server:
+        if self.closed:
+            return
+        try:
+            if self.process.poll() is None:
+                try:
+                    if preserve_server:
+                        self.kill("worker")
+                    else:
+                        if not self.stopped:
+                            self.call("stop")
+                        self.process.stdin.close()
+                        self.process.wait(timeout=10)
+                except ProtocolError:
+                    raise
+                except (OSError, RuntimeError, TimeoutError, subprocess.TimeoutExpired):
                     self.kill("worker")
-                else:
-                    self.call("stop")
-                    self.process.stdin.close()
-                    self.process.wait(timeout=10)
-            except (OSError, RuntimeError, TimeoutError, subprocess.TimeoutExpired):
+            if self.stopped and not preserve_server:
+                os.set_blocking(self.process.stdout.fileno(), False)
+                try:
+                    trailing = os.read(self.process.stdout.fileno(), 65536)
+                except BlockingIOError:
+                    trailing = b""
+                if self.buffer or trailing:
+                    raise ProtocolError("Unsolicited worker stdout after stop")
+        finally:
+            if self.process.poll() is None:
                 self.kill("worker")
-        self.selector.close()
-        for stream in (self.process.stdin, self.process.stdout, self.log):
-            stream.close()
+            self.selector.close()
+            for stream in (self.process.stdin, self.process.stdout, self.log):
+                stream.close()
+            self.closed = True
 
     def __enter__(self):
         return self
