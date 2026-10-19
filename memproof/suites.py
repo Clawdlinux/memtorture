@@ -47,7 +47,10 @@ def event(emit, **data):
 def read_path(worker, path, record, limit=20):
     scope = record.scope
     if path == "id":
-        found = worker.call("get", scope=scope, key=record.id)
+        if "get_by_id" in worker.capabilities:
+            found = worker.call("get_by_id", scope=scope, ref=worker.refs[record.id])
+        else:
+            found = worker.call("get", scope=scope, key=record.id)
         return [found] if found else []
     if path == "filter":
         return worker.call("list_prefix", scope=scope, prefix=record.key, limit=limit)

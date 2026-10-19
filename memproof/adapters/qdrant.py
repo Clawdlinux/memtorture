@@ -14,7 +14,7 @@ from qdrant_client import QdrantClient, models
 
 from memproof.adapters.base import Base
 from memproof.embed import DIMENSIONS, embed
-from memproof.types import Ack, NotSupported, Record, Scope
+from memproof.types import Ack, NotSupported, Record, Ref, Scope
 
 VERSION = "1.16.3"
 ROOT = Path(__file__).resolve().parents[2]
@@ -47,6 +47,7 @@ class Qdrant(Base):
             "write",
             "get",
             "get-id",
+            "get_by_id",
             "read_recent",
             "list_prefix",
             "search",
@@ -207,7 +208,7 @@ class Qdrant(Base):
         if record.scope != scope:
             raise ValueError("Scope mismatch")
         self.client.upsert(COLLECTION, [self._point(record)], wait=self.wait)
-        return Ack(record.id)
+        return Ack(record.id, ref=Ref(point_id(scope, record.key)))
 
     def bulk_load(self, scope, records):
         if any(r.scope != scope for r in records):
@@ -227,6 +228,13 @@ class Qdrant(Base):
             with_payload=True,
         )
         return self._record(points[0]) if points else None
+
+    def get_by_id(self, scope, ref):
+        points = self.client.retrieve(COLLECTION, [ref.id], with_payload=True)
+        if not points:
+            return None
+        record = self._record(points[0])
+        return record if record.scope == scope else None
 
     def read_recent(self, scope, n):
         points, _ = self.client.scroll(

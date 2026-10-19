@@ -53,14 +53,15 @@ class Record:
 
 
 @dataclass(frozen=True)
-class Ack:
+class Ref:
     id: str
-    dropped: bool = False
 
 
 @dataclass(frozen=True)
-class Ref:
+class Ack:
     id: str
+    dropped: bool = False
+    ref: Ref | None = None
 
 
 @dataclass(frozen=True)

@@ -116,6 +116,9 @@ The harness polls every 10 ms for at most 60 seconds.
 Timeouts and dropped writes are separate counts.
 Each poll records its latency and integrity result.
 Unsupported paths show N/A.
+Native write references travel in the ack when supported.
+The Qdrant id path retrieves that point reference with 1 native call.
+It does not hash the logical record id or perform a filtered-scroll fallback.
 Latency is observed read completion time, not the engine's internal index timestamp.
 
 ### History scale

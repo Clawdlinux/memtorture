@@ -45,6 +45,7 @@ class Worker:
         self.workdir.mkdir(parents=True, exist_ok=True)
         self.timeout = timeout
         self.acked = {}
+        self.refs = {}
         self.pending = {}
         self.buffer = b""
         self.sequence = 0
@@ -121,6 +122,8 @@ class Worker:
                 if result.id != record.id:
                     raise RuntimeError("Ack does not match the written payload")
                 self.acked[record.id] = record
+                if result.ref is not None:
+                    self.refs[record.id] = result.ref
         return result
 
     def call(self, op, **kwargs):

@@ -9,6 +9,7 @@ METHODS = {
     "write",
     "read_recent",
     "get",
+    "get_by_id",
     "list_prefix",
     "search",
     "upsert",
