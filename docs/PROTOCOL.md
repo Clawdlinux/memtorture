@@ -119,6 +119,8 @@ It closes storage gracefully unless `kill` requests forced shutdown.
 After replying to `stop`, a worker must accept stdin EOF and exit promptly.
 Malformed stop replies and trailing stdout invalidate the cell, including unterminated output.
 The harness still kills and reaps a worker after shutdown protocol errors.
+An unclean shutdown also kills every reported server and waits for PID absence.
+Intentional worker-only faults can preserve servers.
 
 ```json
 {"id":1,"result":{"protocol":1,"capabilities":["write","get_by_ref"],"version":"1.0","notes":"","servers":[{"role":"storage","pid":123}]}}
@@ -132,6 +134,7 @@ The harness faults each role independently using `server:<role>`.
 `ensure_server_exited` waits for a reported PID to disappear, including reaping a child when needed.
 It replaces `reap_server`. No language-specific process API crosses the protocol.
 It returns `timeout` if the server remains alive after 10 seconds.
+The harness allows 12 seconds for that reply, so the worker's timeout can arrive first.
 It returns `invalid_request` for an unreported PID.
 The harness also checks process absence before restarting storage.
 

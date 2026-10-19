@@ -313,8 +313,9 @@ class Qdrant(Base):
         return self.write(scope, record)
 
     def delete(self, scope, ref):
-        if self.get_by_ref(scope, ref) is not None:
-            self._points("/delete", {"points": [ref.id]}, wait=self.wait)
+        condition = self._filter(scope)
+        condition["must"].append({"has_id": [ref.id]})
+        self._points("/delete", {"filter": condition}, wait=self.wait)
         return Ack(ref.id)
 
     def stop(self, target="all", kill=False):

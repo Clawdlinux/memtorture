@@ -146,10 +146,38 @@ def test_qdrant_delete_uses_native_point_ref_and_preserves_scope():
     adapter._points = points
     ref = Ref("native-point-not-record-id")
     assert adapter.delete(scope, ref).id == ref.id
-    assert calls[-1] == ("/delete", {"points": [ref.id]}, True)
+    assert calls == [
+        (
+            "/delete",
+            {
+                "filter": {
+                    "must": [
+                        {"key": "tenant", "match": {"value": "t"}},
+                        {"key": "session", "match": {"value": "s"}},
+                        {"has_id": [ref.id]},
+                    ]
+                }
+            },
+            True,
+        )
+    ]
     calls.clear()
     adapter.delete(Scope("other", "s"), ref)
-    assert all(op != "/delete" for op, _, _ in calls)
+    assert calls == [
+        (
+            "/delete",
+            {
+                "filter": {
+                    "must": [
+                        {"key": "tenant", "match": {"value": "other"}},
+                        {"key": "session", "match": {"value": "s"}},
+                        {"has_id": [ref.id]},
+                    ]
+                }
+            },
+            True,
+        )
+    ]
 
 
 def test_python_worker_ignores_extra_fields_and_keeps_text():

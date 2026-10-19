@@ -208,6 +208,8 @@ There is no Qdrant row named `durable`.
 The approved design's example uses that nickname.
 Its row-naming rule takes precedence.
 `wait` controls when writes are applied and visible, not fsync.
+Qdrant deletes use 1 filter RPC matching the native point ID, tenant, and session.
+Deletes never depend on a visibility read, including `wait=false`.
 The [v1.16 API](https://api.qdrant.tech/v-1-16-x/api-reference/points/upsert-points)
 says: "If true, wait for changes to actually happen".
 

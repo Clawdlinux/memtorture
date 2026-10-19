@@ -227,7 +227,7 @@ class Worker:
         deadline = time.monotonic() + 10
         if self.process.poll() is None:
             original_timeout = self.timeout
-            self.timeout = min(original_timeout, 10)
+            self.timeout = 12
             try:
                 self.call("ensure_server_exited", pid=pid)
             finally:
@@ -244,6 +244,7 @@ class Worker:
     def close(self, *, preserve_server=False):
         if self.closed:
             return
+        clean_stop = False
         try:
             if self.process.poll() is None:
                 try:
@@ -266,13 +267,28 @@ class Worker:
                     trailing = b""
                 if self.buffer or trailing:
                     raise ProtocolError("Unsolicited worker stdout after stop")
+                clean_stop = self.process.returncode == 0
         finally:
-            if self.process.poll() is None:
-                self.kill("worker")
-            self.selector.close()
-            for stream in (self.process.stdin, self.process.stdout, self.log):
-                stream.close()
-            self.closed = True
+            pids = (
+                list(getattr(self, "servers", {}).values())
+                if not clean_stop and not preserve_server
+                else []
+            )
+            try:
+                try:
+                    for pid in pids:
+                        with contextlib.suppress(ProcessLookupError):
+                            os.kill(pid, signal.SIGKILL)
+                finally:
+                    if self.process.poll() is None:
+                        self.kill("worker")
+                for pid in pids:
+                    self._wait_server_exit(pid)
+            finally:
+                self.selector.close()
+                for stream in (self.process.stdin, self.process.stdout, self.log):
+                    stream.close()
+                self.closed = True
 
     def __enter__(self):
         return self
