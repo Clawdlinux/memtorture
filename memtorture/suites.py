@@ -194,8 +194,7 @@ def inspect_records(expected, rows, *, keyed=False):
 
 
 def inspect_overlap(expected, rows, final):
-    intact = [r for r in rows if r.valid()]
-    counts = Counter((r.scope, r.key) for r in intact)
+    counts = Counter(r.id for r in rows)
     return {
         "acked_missing": 0,
         "duplicates": sum(max(0, count - 1) for count in counts.values()),
@@ -305,6 +304,7 @@ def concurrent(
 ):
     scope = Scope("benchmark", suite)
     totals, trials = Counter(), []
+    history_observations = []
     for count in writer_counts:
         path = workdir / f"writers-{count}"
         with ExitStack() as stack:
@@ -376,6 +376,17 @@ def concurrent(
                         for key in keys
                     }
                     counts = inspect_overlap(expected, rows, final)
+                    versions = Counter(
+                        r.key
+                        for r in {r.id: r for r in rows}.values()
+                        if r.valid() and expected.get(r.id) == r
+                    )
+                    history_observations.append(
+                        {
+                            "writers": count,
+                            "versions_per_key": dict(sorted(versions.items())),
+                        }
+                    )
                 totals.update(counts)
                 detail = {"writers": count, "phase": phase, **counts}
                 trials.append(detail)
@@ -386,7 +397,18 @@ def concurrent(
         "trials": trials,
         "info": info,
         "cas": "not measured in B1",
-        "history": "not measured in B1",
+        "history": {
+            "advertised": "history" in capabilities,
+            "max_versions_per_key": max(
+                (
+                    n
+                    for observation in history_observations
+                    for n in observation["versions_per_key"].values()
+                ),
+                default=0,
+            ),
+            "observations": history_observations,
+        },
     }
 
 

@@ -130,6 +130,8 @@ The harness also checks process absence before restarting storage.
 Capabilities name supported operations. `get-id` advertises the benchmark's native-ref read path.
 `keyed` advertises native or documented emulated key lookup.
 `emulated:<operation>` labels non-native mappings.
+`history` advertises retained versions per key.
+The harness reports observed version counts separately. Versions are not duplicate record IDs.
 Tier 2 remains outside the current suites. Adapters may return `not_supported` for `retrieve_for`.
 
 ## Conformance kit

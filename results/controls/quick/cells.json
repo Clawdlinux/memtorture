@@ -27,31 +27,31 @@
           "dropped": 0,
           "observations": [
             {
-              "lag_ms": 100.109958,
+              "lag_ms": 100.095291,
               "polls": 101,
               "status": "visible",
-              "total_ms": 100.463292,
-              "write_ms": 0.353334
+              "total_ms": 100.411333,
+              "write_ms": 0.316042
             }
           ],
           "read_ms": {
-            "p50": 0.060958,
-            "p99": 0.266458
+            "p50": 0.054042,
+            "p99": 0.132541
           },
           "status": "measured",
           "time_to_visible_ms": {
-            "p50": 100.463292,
-            "p99": 100.463292
+            "p50": 100.411333,
+            "p99": 100.411333
           },
           "timeouts": 0,
           "visibility_lag_ms": {
-            "p50": 100.109958,
-            "p99": 100.109958
+            "p50": 100.095291,
+            "p99": 100.095291
           },
           "visible": 1,
           "write_latency_ms": {
-            "p50": 0.353334,
-            "p99": 0.353334
+            "p50": 0.316042,
+            "p99": 0.316042
           }
         }
       },
@@ -91,31 +91,31 @@
           "dropped": 0,
           "observations": [
             {
-              "lag_ms": 100.126958,
+              "lag_ms": 100.092083,
               "polls": 101,
               "status": "visible",
-              "total_ms": 100.492416,
-              "write_ms": 0.365458
+              "total_ms": 100.415458,
+              "write_ms": 0.323375
             }
           ],
           "read_ms": {
-            "p50": 0.062459,
-            "p99": 0.272667
+            "p50": 0.056333,
+            "p99": 0.116958
           },
           "status": "measured",
           "time_to_visible_ms": {
-            "p50": 100.492416,
-            "p99": 100.492416
+            "p50": 100.415458,
+            "p99": 100.415458
           },
           "timeouts": 0,
           "visibility_lag_ms": {
-            "p50": 100.126958,
-            "p99": 100.126958
+            "p50": 100.092083,
+            "p99": 100.092083
           },
           "visible": 1,
           "write_latency_ms": {
-            "p50": 0.365458,
-            "p99": 0.365458
+            "p50": 0.323375,
+            "p99": 0.323375
           }
         }
       },
@@ -155,31 +155,31 @@
           "dropped": 0,
           "observations": [
             {
-              "lag_ms": 100.110834,
+              "lag_ms": 100.097708,
               "polls": 101,
               "status": "visible",
-              "total_ms": 100.492417,
-              "write_ms": 0.381583
+              "total_ms": 100.41475,
+              "write_ms": 0.317042
             }
           ],
           "read_ms": {
-            "p50": 0.0675,
-            "p99": 0.206458
+            "p50": 0.052042,
+            "p99": 0.113542
           },
           "status": "measured",
           "time_to_visible_ms": {
-            "p50": 100.492417,
-            "p99": 100.492417
+            "p50": 100.41475,
+            "p99": 100.41475
           },
           "timeouts": 0,
           "visibility_lag_ms": {
-            "p50": 100.110834,
-            "p99": 100.110834
+            "p50": 100.097708,
+            "p99": 100.097708
           },
           "visible": 1,
           "write_latency_ms": {
-            "p50": 0.381583,
-            "p99": 0.381583
+            "p50": 0.317042,
+            "p99": 0.317042
           }
         }
       },
@@ -219,31 +219,31 @@
           "dropped": 0,
           "observations": [
             {
-              "lag_ms": 100.184542,
+              "lag_ms": 100.191791,
               "polls": 101,
               "status": "visible",
-              "total_ms": 100.496458,
-              "write_ms": 0.311916
+              "total_ms": 100.482708,
+              "write_ms": 0.290917
             }
           ],
           "read_ms": {
-            "p50": 0.157084,
-            "p99": 0.389166
+            "p50": 0.127167,
+            "p99": 0.196458
           },
           "status": "measured",
           "time_to_visible_ms": {
-            "p50": 100.496458,
-            "p99": 100.496458
+            "p50": 100.482708,
+            "p99": 100.482708
           },
           "timeouts": 0,
           "visibility_lag_ms": {
-            "p50": 100.184542,
-            "p99": 100.184542
+            "p50": 100.191791,
+            "p99": 100.191791
           },
           "visible": 1,
           "write_latency_ms": {
-            "p50": 0.311916,
-            "p99": 0.311916
+            "p50": 0.290917,
+            "p99": 0.290917
           }
         }
       },
@@ -283,31 +283,31 @@
           "dropped": 0,
           "observations": [
             {
-              "lag_ms": 100.102875,
+              "lag_ms": 100.085791,
               "polls": 101,
               "status": "visible",
-              "total_ms": 100.459333,
-              "write_ms": 0.356458
+              "total_ms": 100.379,
+              "write_ms": 0.293209
             }
           ],
           "read_ms": {
-            "p50": 0.065708,
-            "p99": 0.230666
+            "p50": 0.05725,
+            "p99": 0.111
           },
           "status": "measured",
           "time_to_visible_ms": {
-            "p50": 100.459333,
-            "p99": 100.459333
+            "p50": 100.379,
+            "p99": 100.379
           },
           "timeouts": 0,
           "visibility_lag_ms": {
-            "p50": 100.102875,
-            "p99": 100.102875
+            "p50": 100.085791,
+            "p99": 100.085791
           },
           "visible": 1,
           "write_latency_ms": {
-            "p50": 0.356458,
-            "p99": 0.356458
+            "p50": 0.293209,
+            "p99": 0.293209
           }
         }
       },
@@ -347,31 +347,31 @@
           "dropped": 0,
           "observations": [
             {
-              "lag_ms": 0.208375,
+              "lag_ms": 0.16775,
               "polls": 1,
               "status": "visible",
-              "total_ms": 0.525,
-              "write_ms": 0.316625
+              "total_ms": 0.4895,
+              "write_ms": 0.32175
             }
           ],
           "read_ms": {
-            "p50": 0.16775,
-            "p99": 0.16775
+            "p50": 0.133791,
+            "p99": 0.133791
           },
           "status": "measured",
           "time_to_visible_ms": {
-            "p50": 0.525,
-            "p99": 0.525
+            "p50": 0.4895,
+            "p99": 0.4895
           },
           "timeouts": 0,
           "visibility_lag_ms": {
-            "p50": 0.208375,
-            "p99": 0.208375
+            "p50": 0.16775,
+            "p99": 0.16775
           },
           "visible": 1,
           "write_latency_ms": {
-            "p50": 0.316625,
-            "p99": 0.316625
+            "p50": 0.32175,
+            "p99": 0.32175
           }
         }
       },
@@ -411,31 +411,31 @@
           "dropped": 0,
           "observations": [
             {
-              "lag_ms": 0.183166,
+              "lag_ms": 0.165792,
               "polls": 1,
               "status": "visible",
-              "total_ms": 0.51525,
-              "write_ms": 0.332084
+              "total_ms": 0.459958,
+              "write_ms": 0.294166
             }
           ],
           "read_ms": {
-            "p50": 0.144458,
-            "p99": 0.144458
+            "p50": 0.128208,
+            "p99": 0.128208
           },
           "status": "measured",
           "time_to_visible_ms": {
-            "p50": 0.51525,
-            "p99": 0.51525
+            "p50": 0.459958,
+            "p99": 0.459958
           },
           "timeouts": 0,
           "visibility_lag_ms": {
-            "p50": 0.183166,
-            "p99": 0.183166
+            "p50": 0.165792,
+            "p99": 0.165792
           },
           "visible": 1,
           "write_latency_ms": {
-            "p50": 0.332084,
-            "p99": 0.332084
+            "p50": 0.294166,
+            "p99": 0.294166
           }
         }
       },
@@ -475,31 +475,31 @@
           "dropped": 0,
           "observations": [
             {
-              "lag_ms": 0.171583,
+              "lag_ms": 0.131417,
               "polls": 1,
               "status": "visible",
-              "total_ms": 0.478958,
-              "write_ms": 0.307375
+              "total_ms": 0.424417,
+              "write_ms": 0.293
             }
           ],
           "read_ms": {
-            "p50": 0.136292,
-            "p99": 0.136292
+            "p50": 0.103834,
+            "p99": 0.103834
           },
           "status": "measured",
           "time_to_visible_ms": {
-            "p50": 0.478958,
-            "p99": 0.478958
+            "p50": 0.424417,
+            "p99": 0.424417
           },
           "timeouts": 0,
           "visibility_lag_ms": {
-            "p50": 0.171583,
-            "p99": 0.171583
+            "p50": 0.131417,
+            "p99": 0.131417
           },
           "visible": 1,
           "write_latency_ms": {
-            "p50": 0.307375,
-            "p99": 0.307375
+            "p50": 0.293,
+            "p99": 0.293
           }
         }
       },
@@ -539,31 +539,31 @@
           "dropped": 0,
           "observations": [
             {
-              "lag_ms": 0.373458,
+              "lag_ms": 0.29525,
               "polls": 1,
               "status": "visible",
-              "total_ms": 0.840791,
-              "write_ms": 0.467333
+              "total_ms": 0.646292,
+              "write_ms": 0.351042
             }
           ],
           "read_ms": {
-            "p50": 0.315583,
-            "p99": 0.315583
+            "p50": 0.258167,
+            "p99": 0.258167
           },
           "status": "measured",
           "time_to_visible_ms": {
-            "p50": 0.840791,
-            "p99": 0.840791
+            "p50": 0.646292,
+            "p99": 0.646292
           },
           "timeouts": 0,
           "visibility_lag_ms": {
-            "p50": 0.373458,
-            "p99": 0.373458
+            "p50": 0.29525,
+            "p99": 0.29525
           },
           "visible": 1,
           "write_latency_ms": {
-            "p50": 0.467333,
-            "p99": 0.467333
+            "p50": 0.351042,
+            "p99": 0.351042
           }
         }
       },
@@ -603,31 +603,31 @@
           "dropped": 0,
           "observations": [
             {
-              "lag_ms": 0.172667,
+              "lag_ms": 0.179083,
               "polls": 1,
               "status": "visible",
-              "total_ms": 0.477875,
-              "write_ms": 0.305208
+              "total_ms": 0.5295,
+              "write_ms": 0.350417
             }
           ],
           "read_ms": {
-            "p50": 0.134333,
-            "p99": 0.134333
+            "p50": 0.139916,
+            "p99": 0.139916
           },
           "status": "measured",
           "time_to_visible_ms": {
-            "p50": 0.477875,
-            "p99": 0.477875
+            "p50": 0.5295,
+            "p99": 0.5295
           },
           "timeouts": 0,
           "visibility_lag_ms": {
-            "p50": 0.172667,
-            "p99": 0.172667
+            "p50": 0.179083,
+            "p99": 0.179083
           },
           "visible": 1,
           "write_latency_ms": {
-            "p50": 0.305208,
-            "p99": 0.305208
+            "p50": 0.350417,
+            "p99": 0.350417
           }
         }
       },
@@ -684,7 +684,7 @@
           "acked": 6,
           "acked_missing": 6,
           "duplicates": 0,
-          "fault_ns": 168133182208500,
+          "fault_ns": 168233095338750,
           "target": "worker",
           "torn": 0,
           "trial": 0
@@ -739,7 +739,7 @@
           "acked": 8,
           "acked_missing": 8,
           "duplicates": 0,
-          "fault_ns": 168133296548500,
+          "fault_ns": 168233228882250,
           "target": "worker",
           "torn": 0,
           "trial": 0
@@ -794,7 +794,7 @@
           "acked": 7,
           "acked_missing": 7,
           "duplicates": 0,
-          "fault_ns": 168133410893875,
+          "fault_ns": 168233342646291,
           "target": "worker",
           "torn": 0,
           "trial": 0
@@ -849,7 +849,7 @@
           "acked": 6,
           "acked_missing": 6,
           "duplicates": 0,
-          "fault_ns": 168133550664375,
+          "fault_ns": 168233459510916,
           "target": "worker",
           "torn": 0,
           "trial": 0
@@ -904,7 +904,7 @@
           "acked": 5,
           "acked_missing": 5,
           "duplicates": 0,
-          "fault_ns": 168133695092166,
+          "fault_ns": 168233573925291,
           "target": "worker",
           "torn": 0,
           "trial": 0
@@ -954,7 +954,7 @@
           "acked": 6,
           "acked_missing": 0,
           "duplicates": 0,
-          "fault_ns": 168133843014916,
+          "fault_ns": 168233692430666,
           "target": "worker",
           "torn": 0,
           "trial": 0
@@ -1004,7 +1004,7 @@
           "acked": 8,
           "acked_missing": 0,
           "duplicates": 0,
-          "fault_ns": 168133991377666,
+          "fault_ns": 168233812653541,
           "target": "worker",
           "torn": 0,
           "trial": 0
@@ -1054,7 +1054,7 @@
           "acked": 7,
           "acked_missing": 0,
           "duplicates": 0,
-          "fault_ns": 168134139733541,
+          "fault_ns": 168233945005625,
           "target": "worker",
           "torn": 0,
           "trial": 0
@@ -1104,7 +1104,7 @@
           "acked": 6,
           "acked_missing": 0,
           "duplicates": 0,
-          "fault_ns": 168134289783916,
+          "fault_ns": 168234067875291,
           "target": "worker",
           "torn": 0,
           "trial": 0
@@ -1154,7 +1154,7 @@
           "acked": 5,
           "acked_missing": 0,
           "duplicates": 0,
-          "fault_ns": 168134437756750,
+          "fault_ns": 168234196149375,
           "target": "worker",
           "torn": 0,
           "trial": 0
@@ -1171,7 +1171,11 @@
       "acked_missing": 20,
       "cas": "not measured in B1",
       "duplicates": 0,
-      "history": "not measured in B1",
+      "history": {
+        "advertised": false,
+        "max_versions_per_key": 0,
+        "observations": []
+      },
       "info": {
         "capabilities": [
           "delete",
@@ -1220,7 +1224,11 @@
       "acked_missing": 60,
       "cas": "not measured in B1",
       "duplicates": 0,
-      "history": "not measured in B1",
+      "history": {
+        "advertised": false,
+        "max_versions_per_key": 0,
+        "observations": []
+      },
       "info": {
         "capabilities": [
           "delete",
@@ -1266,10 +1274,14 @@
     "config": "default;trial=2",
     "matched": true,
     "result": {
-      "acked_missing": 140,
+      "acked_missing": 139,
       "cas": "not measured in B1",
       "duplicates": 0,
-      "history": "not measured in B1",
+      "history": {
+        "advertised": false,
+        "max_versions_per_key": 0,
+        "observations": []
+      },
       "info": {
         "capabilities": [
           "delete",
@@ -1295,6 +1307,562 @@
         "version": "stdlib-jsonl-v1"
       },
       "invalid_final": 0,
+      "status": "violation",
+      "torn": 0,
+      "trials": [
+        {
+          "acked_missing": 139,
+          "duplicates": 0,
+          "invalid_final": 0,
+          "phase": "distinct",
+          "torn": 0,
+          "writers": 8
+        }
+      ]
+    },
+    "suite": "concurrent-append",
+    "system": "md-rmw-sleep"
+  },
+  {
+    "config": "default;trial=3",
+    "matched": true,
+    "result": {
+      "acked_missing": 20,
+      "cas": "not measured in B1",
+      "duplicates": 0,
+      "history": {
+        "advertised": false,
+        "max_versions_per_key": 0,
+        "observations": []
+      },
+      "info": {
+        "capabilities": [
+          "delete",
+          "emulated:delete",
+          "emulated:get",
+          "emulated:list_prefix",
+          "emulated:read_recent",
+          "emulated:upsert",
+          "get",
+          "get-id",
+          "get_by_ref",
+          "keyed",
+          "list_prefix",
+          "read_recent",
+          "search",
+          "upsert",
+          "write"
+        ],
+        "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
+        "protocol": 1,
+        "runtime_versions": {},
+        "servers": [],
+        "version": "stdlib-jsonl-v1"
+      },
+      "invalid_final": 0,
+      "status": "violation",
+      "torn": 0,
+      "trials": [
+        {
+          "acked_missing": 20,
+          "duplicates": 0,
+          "invalid_final": 0,
+          "phase": "distinct",
+          "torn": 0,
+          "writers": 2
+        }
+      ]
+    },
+    "suite": "concurrent-append",
+    "system": "md-rmw-sleep"
+  },
+  {
+    "config": "default;trial=4",
+    "matched": true,
+    "result": {
+      "acked_missing": 60,
+      "cas": "not measured in B1",
+      "duplicates": 0,
+      "history": {
+        "advertised": false,
+        "max_versions_per_key": 0,
+        "observations": []
+      },
+      "info": {
+        "capabilities": [
+          "delete",
+          "emulated:delete",
+          "emulated:get",
+          "emulated:list_prefix",
+          "emulated:read_recent",
+          "emulated:upsert",
+          "get",
+          "get-id",
+          "get_by_ref",
+          "keyed",
+          "list_prefix",
+          "read_recent",
+          "search",
+          "upsert",
+          "write"
+        ],
+        "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
+        "protocol": 1,
+        "runtime_versions": {},
+        "servers": [],
+        "version": "stdlib-jsonl-v1"
+      },
+      "invalid_final": 0,
+      "status": "violation",
+      "torn": 0,
+      "trials": [
+        {
+          "acked_missing": 60,
+          "duplicates": 0,
+          "invalid_final": 0,
+          "phase": "distinct",
+          "torn": 0,
+          "writers": 4
+        }
+      ]
+    },
+    "suite": "concurrent-append",
+    "system": "md-rmw-sleep"
+  },
+  {
+    "config": "default;trial=0",
+    "matched": true,
+    "result": {
+      "acked_missing": 0,
+      "cas": "not measured in B1",
+      "duplicates": 0,
+      "history": {
+        "advertised": false,
+        "max_versions_per_key": 0,
+        "observations": []
+      },
+      "info": {
+        "capabilities": [
+          "delete",
+          "get",
+          "get-id",
+          "get_by_ref",
+          "keyed",
+          "list_prefix",
+          "read_recent",
+          "search",
+          "upsert",
+          "write"
+        ],
+        "notes": "WAL synchronous=NORMAL. Busy timeout 30 seconds.",
+        "protocol": 1,
+        "runtime_versions": {},
+        "servers": [],
+        "version": "3.53.3"
+      },
+      "invalid_final": 0,
+      "status": "ok",
+      "torn": 0,
+      "trials": [
+        {
+          "acked_missing": 0,
+          "duplicates": 0,
+          "invalid_final": 0,
+          "phase": "distinct",
+          "torn": 0,
+          "writers": 2
+        }
+      ]
+    },
+    "suite": "concurrent-append",
+    "system": "sqlite-busy"
+  },
+  {
+    "config": "default;trial=1",
+    "matched": true,
+    "result": {
+      "acked_missing": 0,
+      "cas": "not measured in B1",
+      "duplicates": 0,
+      "history": {
+        "advertised": false,
+        "max_versions_per_key": 0,
+        "observations": []
+      },
+      "info": {
+        "capabilities": [
+          "delete",
+          "get",
+          "get-id",
+          "get_by_ref",
+          "keyed",
+          "list_prefix",
+          "read_recent",
+          "search",
+          "upsert",
+          "write"
+        ],
+        "notes": "WAL synchronous=NORMAL. Busy timeout 30 seconds.",
+        "protocol": 1,
+        "runtime_versions": {},
+        "servers": [],
+        "version": "3.53.3"
+      },
+      "invalid_final": 0,
+      "status": "ok",
+      "torn": 0,
+      "trials": [
+        {
+          "acked_missing": 0,
+          "duplicates": 0,
+          "invalid_final": 0,
+          "phase": "distinct",
+          "torn": 0,
+          "writers": 4
+        }
+      ]
+    },
+    "suite": "concurrent-append",
+    "system": "sqlite-busy"
+  },
+  {
+    "config": "default;trial=2",
+    "matched": true,
+    "result": {
+      "acked_missing": 0,
+      "cas": "not measured in B1",
+      "duplicates": 0,
+      "history": {
+        "advertised": false,
+        "max_versions_per_key": 0,
+        "observations": []
+      },
+      "info": {
+        "capabilities": [
+          "delete",
+          "get",
+          "get-id",
+          "get_by_ref",
+          "keyed",
+          "list_prefix",
+          "read_recent",
+          "search",
+          "upsert",
+          "write"
+        ],
+        "notes": "WAL synchronous=NORMAL. Busy timeout 30 seconds.",
+        "protocol": 1,
+        "runtime_versions": {},
+        "servers": [],
+        "version": "3.53.3"
+      },
+      "invalid_final": 0,
+      "status": "ok",
+      "torn": 0,
+      "trials": [
+        {
+          "acked_missing": 0,
+          "duplicates": 0,
+          "invalid_final": 0,
+          "phase": "distinct",
+          "torn": 0,
+          "writers": 8
+        }
+      ]
+    },
+    "suite": "concurrent-append",
+    "system": "sqlite-busy"
+  },
+  {
+    "config": "default;trial=3",
+    "matched": true,
+    "result": {
+      "acked_missing": 0,
+      "cas": "not measured in B1",
+      "duplicates": 0,
+      "history": {
+        "advertised": false,
+        "max_versions_per_key": 0,
+        "observations": []
+      },
+      "info": {
+        "capabilities": [
+          "delete",
+          "get",
+          "get-id",
+          "get_by_ref",
+          "keyed",
+          "list_prefix",
+          "read_recent",
+          "search",
+          "upsert",
+          "write"
+        ],
+        "notes": "WAL synchronous=NORMAL. Busy timeout 30 seconds.",
+        "protocol": 1,
+        "runtime_versions": {},
+        "servers": [],
+        "version": "3.53.3"
+      },
+      "invalid_final": 0,
+      "status": "ok",
+      "torn": 0,
+      "trials": [
+        {
+          "acked_missing": 0,
+          "duplicates": 0,
+          "invalid_final": 0,
+          "phase": "distinct",
+          "torn": 0,
+          "writers": 2
+        }
+      ]
+    },
+    "suite": "concurrent-append",
+    "system": "sqlite-busy"
+  },
+  {
+    "config": "default;trial=4",
+    "matched": true,
+    "result": {
+      "acked_missing": 0,
+      "cas": "not measured in B1",
+      "duplicates": 0,
+      "history": {
+        "advertised": false,
+        "max_versions_per_key": 0,
+        "observations": []
+      },
+      "info": {
+        "capabilities": [
+          "delete",
+          "get",
+          "get-id",
+          "get_by_ref",
+          "keyed",
+          "list_prefix",
+          "read_recent",
+          "search",
+          "upsert",
+          "write"
+        ],
+        "notes": "WAL synchronous=NORMAL. Busy timeout 30 seconds.",
+        "protocol": 1,
+        "runtime_versions": {},
+        "servers": [],
+        "version": "3.53.3"
+      },
+      "invalid_final": 0,
+      "status": "ok",
+      "torn": 0,
+      "trials": [
+        {
+          "acked_missing": 0,
+          "duplicates": 0,
+          "invalid_final": 0,
+          "phase": "distinct",
+          "torn": 0,
+          "writers": 4
+        }
+      ]
+    },
+    "suite": "concurrent-append",
+    "system": "sqlite-busy"
+  },
+  {
+    "config": "default;trial=0",
+    "matched": true,
+    "result": {
+      "acked_missing": 20,
+      "cas": "not measured in B1",
+      "duplicates": 0,
+      "history": {
+        "advertised": false,
+        "max_versions_per_key": 1,
+        "observations": [
+          {
+            "versions_per_key": {
+              "shared-0": 1,
+              "shared-1": 1,
+              "shared-2": 1,
+              "shared-3": 1
+            },
+            "writers": 2
+          }
+        ]
+      },
+      "info": {
+        "capabilities": [
+          "delete",
+          "emulated:delete",
+          "emulated:get",
+          "emulated:list_prefix",
+          "emulated:read_recent",
+          "emulated:upsert",
+          "get",
+          "get-id",
+          "get_by_ref",
+          "keyed",
+          "list_prefix",
+          "read_recent",
+          "search",
+          "upsert",
+          "write"
+        ],
+        "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
+        "protocol": 1,
+        "runtime_versions": {},
+        "servers": [],
+        "version": "stdlib-jsonl-v1"
+      },
+      "invalid_final": 0,
+      "invalid_rows": 0,
+      "status": "violation",
+      "torn": 0,
+      "trials": [
+        {
+          "acked_missing": 20,
+          "duplicates": 0,
+          "invalid_final": 0,
+          "phase": "distinct",
+          "torn": 0,
+          "writers": 2
+        },
+        {
+          "acked_missing": 0,
+          "duplicates": 0,
+          "invalid_final": 0,
+          "invalid_rows": 0,
+          "phase": "overlap",
+          "torn": 0,
+          "writers": 2
+        }
+      ]
+    },
+    "suite": "concurrent-kv",
+    "system": "md-rmw-sleep"
+  },
+  {
+    "config": "default;trial=1",
+    "matched": true,
+    "result": {
+      "acked_missing": 60,
+      "cas": "not measured in B1",
+      "duplicates": 0,
+      "history": {
+        "advertised": false,
+        "max_versions_per_key": 1,
+        "observations": [
+          {
+            "versions_per_key": {
+              "shared-0": 1,
+              "shared-1": 1,
+              "shared-2": 1,
+              "shared-3": 1
+            },
+            "writers": 4
+          }
+        ]
+      },
+      "info": {
+        "capabilities": [
+          "delete",
+          "emulated:delete",
+          "emulated:get",
+          "emulated:list_prefix",
+          "emulated:read_recent",
+          "emulated:upsert",
+          "get",
+          "get-id",
+          "get_by_ref",
+          "keyed",
+          "list_prefix",
+          "read_recent",
+          "search",
+          "upsert",
+          "write"
+        ],
+        "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
+        "protocol": 1,
+        "runtime_versions": {},
+        "servers": [],
+        "version": "stdlib-jsonl-v1"
+      },
+      "invalid_final": 0,
+      "invalid_rows": 0,
+      "status": "violation",
+      "torn": 0,
+      "trials": [
+        {
+          "acked_missing": 60,
+          "duplicates": 0,
+          "invalid_final": 0,
+          "phase": "distinct",
+          "torn": 0,
+          "writers": 4
+        },
+        {
+          "acked_missing": 0,
+          "duplicates": 0,
+          "invalid_final": 0,
+          "invalid_rows": 0,
+          "phase": "overlap",
+          "torn": 0,
+          "writers": 4
+        }
+      ]
+    },
+    "suite": "concurrent-kv",
+    "system": "md-rmw-sleep"
+  },
+  {
+    "config": "default;trial=2",
+    "matched": true,
+    "result": {
+      "acked_missing": 140,
+      "cas": "not measured in B1",
+      "duplicates": 0,
+      "history": {
+        "advertised": false,
+        "max_versions_per_key": 1,
+        "observations": [
+          {
+            "versions_per_key": {
+              "shared-0": 1,
+              "shared-1": 1,
+              "shared-2": 1,
+              "shared-3": 1
+            },
+            "writers": 8
+          }
+        ]
+      },
+      "info": {
+        "capabilities": [
+          "delete",
+          "emulated:delete",
+          "emulated:get",
+          "emulated:list_prefix",
+          "emulated:read_recent",
+          "emulated:upsert",
+          "get",
+          "get-id",
+          "get_by_ref",
+          "keyed",
+          "list_prefix",
+          "read_recent",
+          "search",
+          "upsert",
+          "write"
+        ],
+        "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
+        "protocol": 1,
+        "runtime_versions": {},
+        "servers": [],
+        "version": "stdlib-jsonl-v1"
+      },
+      "invalid_final": 0,
+      "invalid_rows": 0,
       "status": "violation",
       "torn": 0,
       "trials": [
@@ -1305,492 +1873,6 @@
           "phase": "distinct",
           "torn": 0,
           "writers": 8
-        }
-      ]
-    },
-    "suite": "concurrent-append",
-    "system": "md-rmw-sleep"
-  },
-  {
-    "config": "default;trial=3",
-    "matched": true,
-    "result": {
-      "acked_missing": 20,
-      "cas": "not measured in B1",
-      "duplicates": 0,
-      "history": "not measured in B1",
-      "info": {
-        "capabilities": [
-          "delete",
-          "emulated:delete",
-          "emulated:get",
-          "emulated:list_prefix",
-          "emulated:read_recent",
-          "emulated:upsert",
-          "get",
-          "get-id",
-          "get_by_ref",
-          "keyed",
-          "list_prefix",
-          "read_recent",
-          "search",
-          "upsert",
-          "write"
-        ],
-        "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
-        "protocol": 1,
-        "runtime_versions": {},
-        "servers": [],
-        "version": "stdlib-jsonl-v1"
-      },
-      "invalid_final": 0,
-      "status": "violation",
-      "torn": 0,
-      "trials": [
-        {
-          "acked_missing": 20,
-          "duplicates": 0,
-          "invalid_final": 0,
-          "phase": "distinct",
-          "torn": 0,
-          "writers": 2
-        }
-      ]
-    },
-    "suite": "concurrent-append",
-    "system": "md-rmw-sleep"
-  },
-  {
-    "config": "default;trial=4",
-    "matched": true,
-    "result": {
-      "acked_missing": 60,
-      "cas": "not measured in B1",
-      "duplicates": 0,
-      "history": "not measured in B1",
-      "info": {
-        "capabilities": [
-          "delete",
-          "emulated:delete",
-          "emulated:get",
-          "emulated:list_prefix",
-          "emulated:read_recent",
-          "emulated:upsert",
-          "get",
-          "get-id",
-          "get_by_ref",
-          "keyed",
-          "list_prefix",
-          "read_recent",
-          "search",
-          "upsert",
-          "write"
-        ],
-        "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
-        "protocol": 1,
-        "runtime_versions": {},
-        "servers": [],
-        "version": "stdlib-jsonl-v1"
-      },
-      "invalid_final": 0,
-      "status": "violation",
-      "torn": 0,
-      "trials": [
-        {
-          "acked_missing": 60,
-          "duplicates": 0,
-          "invalid_final": 0,
-          "phase": "distinct",
-          "torn": 0,
-          "writers": 4
-        }
-      ]
-    },
-    "suite": "concurrent-append",
-    "system": "md-rmw-sleep"
-  },
-  {
-    "config": "default;trial=0",
-    "matched": true,
-    "result": {
-      "acked_missing": 0,
-      "cas": "not measured in B1",
-      "duplicates": 0,
-      "history": "not measured in B1",
-      "info": {
-        "capabilities": [
-          "delete",
-          "get",
-          "get-id",
-          "get_by_ref",
-          "keyed",
-          "list_prefix",
-          "read_recent",
-          "search",
-          "upsert",
-          "write"
-        ],
-        "notes": "WAL synchronous=NORMAL. Busy timeout 30 seconds.",
-        "protocol": 1,
-        "runtime_versions": {},
-        "servers": [],
-        "version": "3.53.3"
-      },
-      "invalid_final": 0,
-      "status": "ok",
-      "torn": 0,
-      "trials": [
-        {
-          "acked_missing": 0,
-          "duplicates": 0,
-          "invalid_final": 0,
-          "phase": "distinct",
-          "torn": 0,
-          "writers": 2
-        }
-      ]
-    },
-    "suite": "concurrent-append",
-    "system": "sqlite-busy"
-  },
-  {
-    "config": "default;trial=1",
-    "matched": true,
-    "result": {
-      "acked_missing": 0,
-      "cas": "not measured in B1",
-      "duplicates": 0,
-      "history": "not measured in B1",
-      "info": {
-        "capabilities": [
-          "delete",
-          "get",
-          "get-id",
-          "get_by_ref",
-          "keyed",
-          "list_prefix",
-          "read_recent",
-          "search",
-          "upsert",
-          "write"
-        ],
-        "notes": "WAL synchronous=NORMAL. Busy timeout 30 seconds.",
-        "protocol": 1,
-        "runtime_versions": {},
-        "servers": [],
-        "version": "3.53.3"
-      },
-      "invalid_final": 0,
-      "status": "ok",
-      "torn": 0,
-      "trials": [
-        {
-          "acked_missing": 0,
-          "duplicates": 0,
-          "invalid_final": 0,
-          "phase": "distinct",
-          "torn": 0,
-          "writers": 4
-        }
-      ]
-    },
-    "suite": "concurrent-append",
-    "system": "sqlite-busy"
-  },
-  {
-    "config": "default;trial=2",
-    "matched": true,
-    "result": {
-      "acked_missing": 0,
-      "cas": "not measured in B1",
-      "duplicates": 0,
-      "history": "not measured in B1",
-      "info": {
-        "capabilities": [
-          "delete",
-          "get",
-          "get-id",
-          "get_by_ref",
-          "keyed",
-          "list_prefix",
-          "read_recent",
-          "search",
-          "upsert",
-          "write"
-        ],
-        "notes": "WAL synchronous=NORMAL. Busy timeout 30 seconds.",
-        "protocol": 1,
-        "runtime_versions": {},
-        "servers": [],
-        "version": "3.53.3"
-      },
-      "invalid_final": 0,
-      "status": "ok",
-      "torn": 0,
-      "trials": [
-        {
-          "acked_missing": 0,
-          "duplicates": 0,
-          "invalid_final": 0,
-          "phase": "distinct",
-          "torn": 0,
-          "writers": 8
-        }
-      ]
-    },
-    "suite": "concurrent-append",
-    "system": "sqlite-busy"
-  },
-  {
-    "config": "default;trial=3",
-    "matched": true,
-    "result": {
-      "acked_missing": 0,
-      "cas": "not measured in B1",
-      "duplicates": 0,
-      "history": "not measured in B1",
-      "info": {
-        "capabilities": [
-          "delete",
-          "get",
-          "get-id",
-          "get_by_ref",
-          "keyed",
-          "list_prefix",
-          "read_recent",
-          "search",
-          "upsert",
-          "write"
-        ],
-        "notes": "WAL synchronous=NORMAL. Busy timeout 30 seconds.",
-        "protocol": 1,
-        "runtime_versions": {},
-        "servers": [],
-        "version": "3.53.3"
-      },
-      "invalid_final": 0,
-      "status": "ok",
-      "torn": 0,
-      "trials": [
-        {
-          "acked_missing": 0,
-          "duplicates": 0,
-          "invalid_final": 0,
-          "phase": "distinct",
-          "torn": 0,
-          "writers": 2
-        }
-      ]
-    },
-    "suite": "concurrent-append",
-    "system": "sqlite-busy"
-  },
-  {
-    "config": "default;trial=4",
-    "matched": true,
-    "result": {
-      "acked_missing": 0,
-      "cas": "not measured in B1",
-      "duplicates": 0,
-      "history": "not measured in B1",
-      "info": {
-        "capabilities": [
-          "delete",
-          "get",
-          "get-id",
-          "get_by_ref",
-          "keyed",
-          "list_prefix",
-          "read_recent",
-          "search",
-          "upsert",
-          "write"
-        ],
-        "notes": "WAL synchronous=NORMAL. Busy timeout 30 seconds.",
-        "protocol": 1,
-        "runtime_versions": {},
-        "servers": [],
-        "version": "3.53.3"
-      },
-      "invalid_final": 0,
-      "status": "ok",
-      "torn": 0,
-      "trials": [
-        {
-          "acked_missing": 0,
-          "duplicates": 0,
-          "invalid_final": 0,
-          "phase": "distinct",
-          "torn": 0,
-          "writers": 4
-        }
-      ]
-    },
-    "suite": "concurrent-append",
-    "system": "sqlite-busy"
-  },
-  {
-    "config": "default;trial=0",
-    "matched": true,
-    "result": {
-      "acked_missing": 20,
-      "cas": "not measured in B1",
-      "duplicates": 0,
-      "history": "not measured in B1",
-      "info": {
-        "capabilities": [
-          "delete",
-          "emulated:delete",
-          "emulated:get",
-          "emulated:list_prefix",
-          "emulated:read_recent",
-          "emulated:upsert",
-          "get",
-          "get-id",
-          "get_by_ref",
-          "keyed",
-          "list_prefix",
-          "read_recent",
-          "search",
-          "upsert",
-          "write"
-        ],
-        "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
-        "protocol": 1,
-        "runtime_versions": {},
-        "servers": [],
-        "version": "stdlib-jsonl-v1"
-      },
-      "invalid_final": 0,
-      "invalid_rows": 0,
-      "status": "violation",
-      "torn": 0,
-      "trials": [
-        {
-          "acked_missing": 20,
-          "duplicates": 0,
-          "invalid_final": 0,
-          "phase": "distinct",
-          "torn": 0,
-          "writers": 2
-        },
-        {
-          "acked_missing": 0,
-          "duplicates": 0,
-          "invalid_final": 0,
-          "invalid_rows": 0,
-          "phase": "overlap",
-          "torn": 0,
-          "writers": 2
-        }
-      ]
-    },
-    "suite": "concurrent-kv",
-    "system": "md-rmw-sleep"
-  },
-  {
-    "config": "default;trial=1",
-    "matched": true,
-    "result": {
-      "acked_missing": 60,
-      "cas": "not measured in B1",
-      "duplicates": 0,
-      "history": "not measured in B1",
-      "info": {
-        "capabilities": [
-          "delete",
-          "emulated:delete",
-          "emulated:get",
-          "emulated:list_prefix",
-          "emulated:read_recent",
-          "emulated:upsert",
-          "get",
-          "get-id",
-          "get_by_ref",
-          "keyed",
-          "list_prefix",
-          "read_recent",
-          "search",
-          "upsert",
-          "write"
-        ],
-        "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
-        "protocol": 1,
-        "runtime_versions": {},
-        "servers": [],
-        "version": "stdlib-jsonl-v1"
-      },
-      "invalid_final": 0,
-      "invalid_rows": 0,
-      "status": "violation",
-      "torn": 0,
-      "trials": [
-        {
-          "acked_missing": 60,
-          "duplicates": 0,
-          "invalid_final": 0,
-          "phase": "distinct",
-          "torn": 0,
-          "writers": 4
-        },
-        {
-          "acked_missing": 0,
-          "duplicates": 0,
-          "invalid_final": 0,
-          "invalid_rows": 0,
-          "phase": "overlap",
-          "torn": 0,
-          "writers": 4
-        }
-      ]
-    },
-    "suite": "concurrent-kv",
-    "system": "md-rmw-sleep"
-  },
-  {
-    "config": "default;trial=2",
-    "matched": true,
-    "result": {
-      "acked_missing": 140,
-      "cas": "not measured in B1",
-      "duplicates": 0,
-      "history": "not measured in B1",
-      "info": {
-        "capabilities": [
-          "delete",
-          "emulated:delete",
-          "emulated:get",
-          "emulated:list_prefix",
-          "emulated:read_recent",
-          "emulated:upsert",
-          "get",
-          "get-id",
-          "get_by_ref",
-          "keyed",
-          "list_prefix",
-          "read_recent",
-          "search",
-          "upsert",
-          "write"
-        ],
-        "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
-        "protocol": 1,
-        "runtime_versions": {},
-        "servers": [],
-        "version": "stdlib-jsonl-v1"
-      },
-      "invalid_final": 0,
-      "invalid_rows": 0,
-      "status": "violation",
-      "torn": 0,
-      "trials": [
-        {
-          "acked_missing": 140,
-          "duplicates": 0,
-          "invalid_final": 0,
-          "phase": "distinct",
-          "torn": 0,
-          "writers": 8
         },
         {
           "acked_missing": 0,
@@ -1813,7 +1895,21 @@
       "acked_missing": 20,
       "cas": "not measured in B1",
       "duplicates": 0,
-      "history": "not measured in B1",
+      "history": {
+        "advertised": false,
+        "max_versions_per_key": 1,
+        "observations": [
+          {
+            "versions_per_key": {
+              "shared-0": 1,
+              "shared-1": 1,
+              "shared-2": 1,
+              "shared-3": 1
+            },
+            "writers": 2
+          }
+        ]
+      },
       "info": {
         "capabilities": [
           "delete",
@@ -1872,7 +1968,21 @@
       "acked_missing": 60,
       "cas": "not measured in B1",
       "duplicates": 0,
-      "history": "not measured in B1",
+      "history": {
+        "advertised": false,
+        "max_versions_per_key": 1,
+        "observations": [
+          {
+            "versions_per_key": {
+              "shared-0": 1,
+              "shared-1": 1,
+              "shared-2": 1,
+              "shared-3": 1
+            },
+            "writers": 4
+          }
+        ]
+      },
       "info": {
         "capabilities": [
           "delete",
@@ -1931,7 +2041,21 @@
       "acked_missing": 0,
       "cas": "not measured in B1",
       "duplicates": 0,
-      "history": "not measured in B1",
+      "history": {
+        "advertised": false,
+        "max_versions_per_key": 1,
+        "observations": [
+          {
+            "versions_per_key": {
+              "shared-0": 1,
+              "shared-1": 1,
+              "shared-2": 1,
+              "shared-3": 1
+            },
+            "writers": 2
+          }
+        ]
+      },
       "info": {
         "capabilities": [
           "delete",
@@ -1985,7 +2109,21 @@
       "acked_missing": 0,
       "cas": "not measured in B1",
       "duplicates": 0,
-      "history": "not measured in B1",
+      "history": {
+        "advertised": false,
+        "max_versions_per_key": 1,
+        "observations": [
+          {
+            "versions_per_key": {
+              "shared-0": 1,
+              "shared-1": 1,
+              "shared-2": 1,
+              "shared-3": 1
+            },
+            "writers": 4
+          }
+        ]
+      },
       "info": {
         "capabilities": [
           "delete",
@@ -2039,7 +2177,21 @@
       "acked_missing": 0,
       "cas": "not measured in B1",
       "duplicates": 0,
-      "history": "not measured in B1",
+      "history": {
+        "advertised": false,
+        "max_versions_per_key": 1,
+        "observations": [
+          {
+            "versions_per_key": {
+              "shared-0": 1,
+              "shared-1": 1,
+              "shared-2": 1,
+              "shared-3": 1
+            },
+            "writers": 8
+          }
+        ]
+      },
       "info": {
         "capabilities": [
           "delete",
@@ -2093,7 +2245,21 @@
       "acked_missing": 0,
       "cas": "not measured in B1",
       "duplicates": 0,
-      "history": "not measured in B1",
+      "history": {
+        "advertised": false,
+        "max_versions_per_key": 1,
+        "observations": [
+          {
+            "versions_per_key": {
+              "shared-0": 1,
+              "shared-1": 1,
+              "shared-2": 1,
+              "shared-3": 1
+            },
+            "writers": 2
+          }
+        ]
+      },
       "info": {
         "capabilities": [
           "delete",
@@ -2147,7 +2313,21 @@
       "acked_missing": 0,
       "cas": "not measured in B1",
       "duplicates": 0,
-      "history": "not measured in B1",
+      "history": {
+        "advertised": false,
+        "max_versions_per_key": 1,
+        "observations": [
+          {
+            "versions_per_key": {
+              "shared-0": 1,
+              "shared-1": 1,
+              "shared-2": 1,
+              "shared-3": 1
+            },
+            "writers": 4
+          }
+        ]
+      },
       "info": {
         "capabilities": [
           "delete",

@@ -59,7 +59,7 @@ def test_overlap_checks_duplicates_and_every_returned_row():
     counts = inspect_overlap(
         expected, [first, second, unknown, changed], {"shared": second}
     )
-    assert counts["duplicates"] == 1
+    assert counts["duplicates"] == 0
     assert counts["invalid_rows"] == 2
     assert counts["torn"] == 1
     assert counts["invalid_final"] == 0
@@ -96,4 +96,6 @@ def test_capabilities_are_not_false_measurements(tmp_path):
         writer_counts=(2,),
         writes=2,
     )
-    assert result["cas"] == result["history"] == "not measured in B1"
+    assert result["cas"] == "not measured in B1"
+    assert result["history"]["advertised"] is False
+    assert result["history"]["max_versions_per_key"] == 1

@@ -12,9 +12,9 @@
     "processor": "arm",
     "ram_bytes": 17179869184
   },
-  "harness_commit": "cbfdef94e9c5436461d29133d176f4cef99b3f3e",
+  "harness_commit": "0f7b89958fe50ed637c4c4cfcf347cb2eddbe16e",
   "harness_dirty": true,
-  "methodology_sha256": "0bff3613bc5e43780a4bb7ccd33f739edc85aabd0ea0b0d14fd999dbc90fd814",
+  "methodology_sha256": "3468d0339f05da4d47567199c6bcf09d1ff1b60cc71f40dc2fb5a95a1f243059",
   "os": "macOS-27.0.1-arm64-arm-64bit",
   "python": "3.12.12",
   "runtime_dependencies": "none (Python standard library only)",

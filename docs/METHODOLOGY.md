@@ -177,10 +177,14 @@ Prefix readback keeps invalid rows even when the valid-row limit is reached.
 Each group writes distinct keys, then overlapping keys.
 Distinct keys must all survive.
 Each overlapping key must end with one intact acked value.
-Intact rows are checked for duplicate keys.
+Rows are checked for duplicate record IDs, not duplicate keys.
 Every returned row must match an acked write.
-Malformed rows count as torn, not duplicate keys.
-CAS and history report "not measured in B1", not false capability measurements.
+Multiple intact versions of a key are allowed.
+Malformed rows count as torn.
+History reports the advertised `history` capability separately from observed versions per key.
+Observed versions count distinct intact acked record IDs per key.
+History never changes pass or fail.
+CAS remains "not measured in B1".
 Emulated upsert is marked.
 
 ## Rows and mapping
