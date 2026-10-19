@@ -55,6 +55,10 @@ We do not run a release for published numbers until it is at least 7 days old.
 | `zod@4.6.7` | `DO_NOT_INSTALL` | 15 | 0 of 840 files |
 | Whole tree | `DO_NOT_INSTALL` | 60 | 0 of 950 files |
 
+The whole-tree row is a separate scan run over the same 950 files.
+Its totals differ from the sum of the per-package runs, which is 69 HIGH and 84 files fully inspected.
+We report both as SkillSpector printed them.
+
 The HIGH findings we sampled are pattern hits, not behavior:
 - credential-access and prompt-extraction hits on protocol names such as `PromptArgumentSchema` and on OAuth type definitions;
 - a YARA `exploit_framework` hit on zod's `keyof`;

@@ -42,7 +42,9 @@
       "Credential-access and prompt-extraction pattern hits on protocol type names (PromptArgumentSchema) and OAuth type definitions.",
       "zod: YARA 'exploit_framework' hit on schemas keyof; hidden-instruction hits on Kannada and Persian locale strings.",
       "Obfuscated instruction text prevented complete deterministic inspection of bundled ajv in @modelcontextprotocol/server."
-    ]
+    ],
+    "high": 60,
+    "note": "Whole-tree row is a separate scan run over all 950 files. SkillSpector's totals for it differ from the sum of the per-package runs (69 HIGH, 84 files fully inspected). Both are reported as printed."
   },
   "previous_pin": {
     "version": "2025.11.25",
