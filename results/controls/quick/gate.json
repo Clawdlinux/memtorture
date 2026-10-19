@@ -8,7 +8,7 @@
     "cpu_count": 10,
     "ram_bytes": 17179869184
   },
-  "methodology_sha256": "cd2d6dba9db27ce7c8b2d9bd08b923a957e0175356c7988d3730585f6df093bf",
+  "methodology_sha256": "2e445e8d732bd4ca93e9f15b9b3397754965671b9a37caf4aab0b0d9a04a3462",
   "suites": {
     "recall-delay": {
       "must_fail": "delayed-index",
@@ -21,90 +21,90 @@
           "role": "must_fail",
           "trial": 0,
           "path": "id",
-          "lag_ms": 100.105625,
-          "upper_ms": 101.270042,
-          "read_p99_ms": 0.270042,
+          "lag_ms": 100.150125,
+          "upper_ms": 101.26975,
+          "read_p99_ms": 0.26975,
           "matched": true
         },
         {
           "role": "must_fail",
           "trial": 1,
           "path": "filter",
-          "lag_ms": 100.109708,
-          "upper_ms": 101.232958,
-          "read_p99_ms": 0.232958,
+          "lag_ms": 100.154209,
+          "upper_ms": 101.264709,
+          "read_p99_ms": 0.264709,
           "matched": true
         },
         {
           "role": "must_fail",
           "trial": 2,
           "path": "recency",
-          "lag_ms": 100.097708,
-          "upper_ms": 101.231875,
-          "read_p99_ms": 0.231875,
+          "lag_ms": 100.132583,
+          "upper_ms": 101.311708,
+          "read_p99_ms": 0.311708,
           "matched": true
         },
         {
           "role": "must_fail",
           "trial": 3,
           "path": "search",
-          "lag_ms": 100.204791,
-          "upper_ms": 101.450875,
-          "read_p99_ms": 0.450875,
+          "lag_ms": 100.296083,
+          "upper_ms": 101.451833,
+          "read_p99_ms": 0.451833,
           "matched": true
         },
         {
           "role": "must_fail",
           "trial": 4,
           "path": "id",
-          "lag_ms": 100.130041,
-          "upper_ms": 101.275791,
-          "read_p99_ms": 0.275791,
+          "lag_ms": 100.161541,
+          "upper_ms": 101.32745800000001,
+          "read_p99_ms": 0.327458,
           "matched": true
         },
         {
           "role": "must_pass",
           "trial": 0,
           "path": "id",
-          "lag_ms": 0.2015,
-          "upper_ms": 101.155833,
-          "read_p99_ms": 0.155833,
+          "lag_ms": 0.309292,
+          "upper_ms": 101.240625,
+          "read_p99_ms": 0.240625,
           "matched": true
         },
         {
           "role": "must_pass",
           "trial": 1,
           "path": "filter",
-          "lag_ms": 0.17725,
-          "upper_ms": 101.140209,
-          "read_p99_ms": 0.140209,
+          "lag_ms": 0.368917,
+          "upper_ms": 101.301208,
+          "read_p99_ms": 0.301208,
           "matched": true
         },
         {
           "role": "must_pass",
           "trial": 2,
           "path": "recency",
-          "lag_ms": 0.177458,
-          "upper_ms": 101.139291,
-          "read_p99_ms": 0.139291,
+          "lag_ms": 0.292208,
+          "upper_ms": 101.228291,
+          "read_p99_ms": 0.228291,
           "matched": true
         },
         {
           "role": "must_pass",
           "trial": 3,
           "path": "search",
-          "lag_ms": 0.311541,
-          "upper_ms": 101.264666,
-          "read_p99_ms": 0.264666,
+          "lag_ms": 0.477292,
+          "upper_ms": 101.420583,
+          "read_p99_ms": 0.420583,
           "matched": true
         },
         {
           "role": "must_pass",
           "trial": 4,
           "path": "id",
-          "lag_ms": 0.187208,
-          "upper_ms": 101.141708,
-          "read_p99_ms": 0.141708,
+          "lag_ms": 0.383917,
+          "upper_ms": 101.291542,
+          "read_p99_ms": 0.291542,
           "matched": true
         }
       ],
@@ -136,7 +136,7 @@
               "target": "worker",
               "trial": 0,
               "acked": 6,
-              "fault_ns": 174716032300083,
+              "fault_ns": 176100689590333,
               "acked_missing": 6,
               "duplicates": 0,
               "torn": 0
@@ -153,7 +153,6 @@
               "emulated:read_recent",
               "emulated:upsert",
               "get",
-              "get-id",
               "get_by_ref",
               "keyed",
               "list_prefix",
@@ -187,7 +186,7 @@
               "target": "worker",
               "trial": 0,
               "acked": 8,
-              "fault_ns": 174716181174791,
+              "fault_ns": 176100893725916,
               "acked_missing": 8,
               "duplicates": 0,
               "torn": 0
@@ -204,7 +203,6 @@
               "emulated:read_recent",
               "emulated:upsert",
               "get",
-              "get-id",
               "get_by_ref",
               "keyed",
               "list_prefix",
@@ -238,7 +236,7 @@
               "target": "worker",
               "trial": 0,
               "acked": 7,
-              "fault_ns": 174716331320875,
+              "fault_ns": 176101096161166,
               "acked_missing": 7,
               "duplicates": 0,
               "torn": 0
@@ -255,7 +253,6 @@
               "emulated:read_recent",
               "emulated:upsert",
               "get",
-              "get-id",
               "get_by_ref",
               "keyed",
               "list_prefix",
@@ -289,7 +286,7 @@
               "target": "worker",
               "trial": 0,
               "acked": 6,
-              "fault_ns": 174716489627041,
+              "fault_ns": 176101303703791,
               "acked_missing": 6,
               "duplicates": 0,
               "torn": 0
@@ -306,7 +303,6 @@
               "emulated:read_recent",
               "emulated:upsert",
               "get",
-              "get-id",
               "get_by_ref",
               "keyed",
               "list_prefix",
@@ -340,7 +336,7 @@
               "target": "worker",
               "trial": 0,
               "acked": 5,
-              "fault_ns": 174716641420250,
+              "fault_ns": 176101507377291,
               "acked_missing": 5,
               "duplicates": 0,
               "torn": 0
@@ -357,7 +353,6 @@
               "emulated:read_recent",
               "emulated:upsert",
               "get",
-              "get-id",
               "get_by_ref",
               "keyed",
               "list_prefix",
@@ -391,7 +386,7 @@
               "target": "worker",
               "trial": 0,
               "acked": 6,
-              "fault_ns": 174716799209250,
+              "fault_ns": 176101723600750,
               "acked_missing": 0,
               "duplicates": 0,
               "torn": 0
@@ -403,7 +398,6 @@
             "capabilities": [
               "delete",
               "get",
-              "get-id",
               "get_by_ref",
               "keyed",
               "list_prefix",
@@ -437,7 +431,7 @@
               "target": "worker",
               "trial": 0,
               "acked": 8,
-              "fault_ns": 174716972108791,
+              "fault_ns": 176101971957541,
               "acked_missing": 0,
               "duplicates": 0,
               "torn": 0
@@ -449,7 +443,6 @@
             "capabilities": [
               "delete",
               "get",
-              "get-id",
               "get_by_ref",
               "keyed",
               "list_prefix",
@@ -483,7 +476,7 @@
               "target": "worker",
               "trial": 0,
               "acked": 7,
-              "fault_ns": 174717137454833,
+              "fault_ns": 176102219394708,
               "acked_missing": 0,
               "duplicates": 0,
               "torn": 0
@@ -495,7 +488,6 @@
             "capabilities": [
               "delete",
               "get",
-              "get-id",
               "get_by_ref",
               "keyed",
               "list_prefix",
@@ -529,7 +521,7 @@
               "target": "worker",
               "trial": 0,
               "acked": 6,
-              "fault_ns": 174717289409208,
+              "fault_ns": 176102476316541,
               "acked_missing": 0,
               "duplicates": 0,
               "torn": 0
@@ -541,7 +533,6 @@
             "capabilities": [
               "delete",
               "get",
-              "get-id",
               "get_by_ref",
               "keyed",
               "list_prefix",
@@ -575,7 +566,7 @@
               "target": "worker",
               "trial": 0,
               "acked": 5,
-              "fault_ns": 174717444510750,
+              "fault_ns": 176102750522666,
               "acked_missing": 0,
               "duplicates": 0,
               "torn": 0
@@ -587,7 +578,6 @@
             "capabilities": [
               "delete",
               "get",
-              "get-id",
               "get_by_ref",
               "keyed",
               "list_prefix",
@@ -640,7 +630,6 @@
               "emulated:read_recent",
               "emulated:upsert",
               "get",
-              "get-id",
               "get_by_ref",
               "keyed",
               "list_prefix",
@@ -689,7 +678,6 @@
               "emulated:read_recent",
               "emulated:upsert",
               "get",
-              "get-id",
               "get_by_ref",
               "keyed",
               "list_prefix",
@@ -714,7 +702,7 @@
           "role": "must_fail",
           "trial": 2,
           "status": "violation",
-          "acked_missing": 140,
+          "acked_missing": 139,
           "duplicates": 0,
           "torn": 0,
           "invalid_final": 0,
@@ -722,7 +710,7 @@
             {
               "writers": 8,
               "phase": "distinct",
-              "acked_missing": 140,
+              "acked_missing": 139,
               "duplicates": 0,
               "torn": 0,
               "invalid_final": 0
@@ -738,7 +726,6 @@
               "emulated:read_recent",
               "emulated:upsert",
               "get",
-              "get-id",
               "get_by_ref",
               "keyed",
               "list_prefix",
@@ -787,7 +774,6 @@
               "emulated:read_recent",
               "emulated:upsert",
               "get",
-              "get-id",
               "get_by_ref",
               "keyed",
               "list_prefix",
@@ -836,7 +822,6 @@
               "emulated:read_recent",
               "emulated:upsert",
               "get",
-              "get-id",
               "get_by_ref",
               "keyed",
               "list_prefix",
@@ -880,7 +865,6 @@
             "capabilities": [
               "delete",
               "get",
-              "get-id",
               "get_by_ref",
               "keyed",
               "list_prefix",
@@ -924,7 +908,6 @@
             "capabilities": [
               "delete",
               "get",
-              "get-id",
               "get_by_ref",
               "keyed",
               "list_prefix",
@@ -968,7 +951,6 @@
             "capabilities": [
               "delete",
               "get",
-              "get-id",
               "get_by_ref",
               "keyed",
               "list_prefix",
@@ -1012,7 +994,6 @@
             "capabilities": [
               "delete",
               "get",
-              "get-id",
               "get_by_ref",
               "keyed",
               "list_prefix",
@@ -1056,7 +1037,6 @@
             "capabilities": [
               "delete",
               "get",
-              "get-id",
               "get_by_ref",
               "keyed",
               "list_prefix",
@@ -1125,7 +1105,6 @@
               "emulated:read_recent",
               "emulated:upsert",
               "get",
-              "get-id",
               "get_by_ref",
               "keyed",
               "list_prefix",
@@ -1160,7 +1139,7 @@
           "role": "must_fail",
           "trial": 1,
           "status": "violation",
-          "acked_missing": 59,
+          "acked_missing": 60,
           "duplicates": 0,
           "torn": 0,
           "invalid_final": 0,
@@ -1169,7 +1148,7 @@
             {
               "writers": 4,
               "phase": "distinct",
-              "acked_missing": 59,
+              "acked_missing": 60,
               "duplicates": 0,
               "torn": 0,
               "invalid_final": 0
@@ -1194,7 +1173,6 @@
               "emulated:read_recent",
               "emulated:upsert",
               "get",
-              "get-id",
               "get_by_ref",
               "keyed",
               "list_prefix",
@@ -1263,7 +1241,6 @@
               "emulated:read_recent",
               "emulated:upsert",
               "get",
-              "get-id",
               "get_by_ref",
               "keyed",
               "list_prefix",
@@ -1332,7 +1309,6 @@
               "emulated:read_recent",
               "emulated:upsert",
               "get",
-              "get-id",
               "get_by_ref",
               "keyed",
               "list_prefix",
@@ -1367,7 +1343,7 @@
           "role": "must_fail",
           "trial": 4,
           "status": "violation",
-          "acked_missing": 60,
+          "acked_missing": 59,
           "duplicates": 0,
           "torn": 0,
           "invalid_final": 0,
@@ -1376,7 +1352,7 @@
             {
               "writers": 4,
               "phase": "distinct",
-              "acked_missing": 60,
+              "acked_missing": 59,
               "duplicates": 0,
               "torn": 0,
               "invalid_final": 0
@@ -1401,7 +1377,6 @@
               "emulated:read_recent",
               "emulated:upsert",
               "get",
-              "get-id",
               "get_by_ref",
               "keyed",
               "list_prefix",
@@ -1465,7 +1440,6 @@
             "capabilities": [
               "delete",
               "get",
-              "get-id",
               "get_by_ref",
               "keyed",
               "list_prefix",
@@ -1529,7 +1503,6 @@
             "capabilities": [
               "delete",
               "get",
-              "get-id",
               "get_by_ref",
               "keyed",
               "list_prefix",
@@ -1593,7 +1566,6 @@
             "capabilities": [
               "delete",
               "get",
-              "get-id",
               "get_by_ref",
               "keyed",
               "list_prefix",
@@ -1657,7 +1629,6 @@
             "capabilities": [
               "delete",
               "get",
-              "get-id",
               "get_by_ref",
               "keyed",
               "list_prefix",
@@ -1721,7 +1692,6 @@
             "capabilities": [
               "delete",
               "get",
-              "get-id",
               "get_by_ref",
               "keyed",
               "list_prefix",

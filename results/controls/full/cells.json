@@ -7,7 +7,6 @@
         "capabilities": [
           "delete",
           "get",
-          "get-id",
           "get_by_ref",
           "keyed",
           "list_prefix",
@@ -27,31 +26,31 @@
           "dropped": 0,
           "observations": [
             {
-              "lag_ms": 100.099709,
+              "lag_ms": 100.195208,
               "polls": 101,
               "status": "visible",
-              "total_ms": 100.407792,
-              "write_ms": 0.308083
+              "total_ms": 100.828583,
+              "write_ms": 0.633375
             }
           ],
           "read_ms": {
-            "p50": 0.0555,
-            "p99": 0.121333
+            "p50": 0.11425,
+            "p99": 0.308167
           },
           "status": "measured",
           "time_to_visible_ms": {
-            "p50": 100.407792,
-            "p99": 100.407792
+            "p50": 100.828583,
+            "p99": 100.828583
           },
           "timeouts": 0,
           "visibility_lag_ms": {
-            "p50": 100.099709,
-            "p99": 100.099709
+            "p50": 100.195208,
+            "p99": 100.195208
           },
           "visible": 1,
           "write_latency_ms": {
-            "p50": 0.308083,
-            "p99": 0.308083
+            "p50": 0.633375,
+            "p99": 0.633375
           }
         }
       },
@@ -71,7 +70,6 @@
         "capabilities": [
           "delete",
           "get",
-          "get-id",
           "get_by_ref",
           "keyed",
           "list_prefix",
@@ -91,31 +89,31 @@
           "dropped": 0,
           "observations": [
             {
-              "lag_ms": 100.089,
+              "lag_ms": 100.160375,
               "polls": 101,
               "status": "visible",
-              "total_ms": 100.382542,
-              "write_ms": 0.293542
+              "total_ms": 100.720916,
+              "write_ms": 0.560541
             }
           ],
           "read_ms": {
-            "p50": 0.056958,
-            "p99": 0.124167
+            "p50": 0.133458,
+            "p99": 0.311375
           },
           "status": "measured",
           "time_to_visible_ms": {
-            "p50": 100.382542,
-            "p99": 100.382542
+            "p50": 100.720916,
+            "p99": 100.720916
           },
           "timeouts": 0,
           "visibility_lag_ms": {
-            "p50": 100.089,
-            "p99": 100.089
+            "p50": 100.160375,
+            "p99": 100.160375
           },
           "visible": 1,
           "write_latency_ms": {
-            "p50": 0.293542,
-            "p99": 0.293542
+            "p50": 0.560541,
+            "p99": 0.560541
           }
         }
       },
@@ -135,7 +133,6 @@
         "capabilities": [
           "delete",
           "get",
-          "get-id",
           "get_by_ref",
           "keyed",
           "list_prefix",
@@ -155,31 +152,31 @@
           "dropped": 0,
           "observations": [
             {
-              "lag_ms": 100.120959,
+              "lag_ms": 100.186583,
               "polls": 101,
               "status": "visible",
-              "total_ms": 100.437667,
-              "write_ms": 0.316708
+              "total_ms": 100.785583,
+              "write_ms": 0.599
             }
           ],
           "read_ms": {
-            "p50": 0.055083,
-            "p99": 0.120875
+            "p50": 0.131542,
+            "p99": 0.369084
           },
           "status": "measured",
           "time_to_visible_ms": {
-            "p50": 100.437667,
-            "p99": 100.437667
+            "p50": 100.785583,
+            "p99": 100.785583
           },
           "timeouts": 0,
           "visibility_lag_ms": {
-            "p50": 100.120959,
-            "p99": 100.120959
+            "p50": 100.186583,
+            "p99": 100.186583
           },
           "visible": 1,
           "write_latency_ms": {
-            "p50": 0.316708,
-            "p99": 0.316708
+            "p50": 0.599,
+            "p99": 0.599
           }
         }
       },
@@ -199,7 +196,6 @@
         "capabilities": [
           "delete",
           "get",
-          "get-id",
           "get_by_ref",
           "keyed",
           "list_prefix",
@@ -219,31 +215,31 @@
           "dropped": 0,
           "observations": [
             {
-              "lag_ms": 100.14325,
+              "lag_ms": 100.346958,
               "polls": 101,
               "status": "visible",
-              "total_ms": 100.432166,
-              "write_ms": 0.288916
+              "total_ms": 101.023625,
+              "write_ms": 0.676667
             }
           ],
           "read_ms": {
-            "p50": 0.11525,
-            "p99": 0.216083
+            "p50": 0.314375,
+            "p99": 0.613333
           },
           "status": "measured",
           "time_to_visible_ms": {
-            "p50": 100.432166,
-            "p99": 100.432166
+            "p50": 101.023625,
+            "p99": 101.023625
           },
           "timeouts": 0,
           "visibility_lag_ms": {
-            "p50": 100.14325,
-            "p99": 100.14325
+            "p50": 100.346958,
+            "p99": 100.346958
           },
           "visible": 1,
           "write_latency_ms": {
-            "p50": 0.288916,
-            "p99": 0.288916
+            "p50": 0.676667,
+            "p99": 0.676667
           }
         }
       },
@@ -263,7 +259,6 @@
         "capabilities": [
           "delete",
           "get",
-          "get-id",
           "get_by_ref",
           "keyed",
           "list_prefix",
@@ -283,31 +278,31 @@
           "dropped": 0,
           "observations": [
             {
-              "lag_ms": 100.0945,
+              "lag_ms": 100.200041,
               "polls": 101,
               "status": "visible",
-              "total_ms": 100.418792,
-              "write_ms": 0.324292
+              "total_ms": 100.756083,
+              "write_ms": 0.556042
             }
           ],
           "read_ms": {
-            "p50": 0.057458,
-            "p99": 0.169125
+            "p50": 0.13475,
+            "p99": 0.3175
           },
           "status": "measured",
           "time_to_visible_ms": {
-            "p50": 100.418792,
-            "p99": 100.418792
+            "p50": 100.756083,
+            "p99": 100.756083
           },
           "timeouts": 0,
           "visibility_lag_ms": {
-            "p50": 100.0945,
-            "p99": 100.0945
+            "p50": 100.200041,
+            "p99": 100.200041
           },
           "visible": 1,
           "write_latency_ms": {
-            "p50": 0.324292,
-            "p99": 0.324292
+            "p50": 0.556042,
+            "p99": 0.556042
           }
         }
       },
@@ -327,7 +322,6 @@
         "capabilities": [
           "delete",
           "get",
-          "get-id",
           "get_by_ref",
           "keyed",
           "list_prefix",
@@ -347,31 +341,31 @@
           "dropped": 0,
           "observations": [
             {
-              "lag_ms": 100.089791,
+              "lag_ms": 100.266333,
               "polls": 101,
               "status": "visible",
-              "total_ms": 100.416125,
-              "write_ms": 0.326334
+              "total_ms": 100.850167,
+              "write_ms": 0.583834
             }
           ],
           "read_ms": {
-            "p50": 0.051875,
-            "p99": 0.130417
+            "p50": 0.127083,
+            "p99": 0.318417
           },
           "status": "measured",
           "time_to_visible_ms": {
-            "p50": 100.416125,
-            "p99": 100.416125
+            "p50": 100.850167,
+            "p99": 100.850167
           },
           "timeouts": 0,
           "visibility_lag_ms": {
-            "p50": 100.089791,
-            "p99": 100.089791
+            "p50": 100.266333,
+            "p99": 100.266333
           },
           "visible": 1,
           "write_latency_ms": {
-            "p50": 0.326334,
-            "p99": 0.326334
+            "p50": 0.583834,
+            "p99": 0.583834
           }
         }
       },
@@ -391,7 +385,6 @@
         "capabilities": [
           "delete",
           "get",
-          "get-id",
           "get_by_ref",
           "keyed",
           "list_prefix",
@@ -411,31 +404,31 @@
           "dropped": 0,
           "observations": [
             {
-              "lag_ms": 100.08675,
+              "lag_ms": 100.2095,
               "polls": 101,
               "status": "visible",
-              "total_ms": 100.395541,
-              "write_ms": 0.308791
+              "total_ms": 100.764541,
+              "write_ms": 0.555041
             }
           ],
           "read_ms": {
-            "p50": 0.052375,
-            "p99": 0.144708
+            "p50": 0.137375,
+            "p99": 0.306542
           },
           "status": "measured",
           "time_to_visible_ms": {
-            "p50": 100.395541,
-            "p99": 100.395541
+            "p50": 100.764541,
+            "p99": 100.764541
           },
           "timeouts": 0,
           "visibility_lag_ms": {
-            "p50": 100.08675,
-            "p99": 100.08675
+            "p50": 100.2095,
+            "p99": 100.2095
           },
           "visible": 1,
           "write_latency_ms": {
-            "p50": 0.308791,
-            "p99": 0.308791
+            "p50": 0.555041,
+            "p99": 0.555041
           }
         }
       },
@@ -455,7 +448,6 @@
         "capabilities": [
           "delete",
           "get",
-          "get-id",
           "get_by_ref",
           "keyed",
           "list_prefix",
@@ -475,31 +467,31 @@
           "dropped": 0,
           "observations": [
             {
-              "lag_ms": 100.163875,
+              "lag_ms": 100.395917,
               "polls": 101,
               "status": "visible",
-              "total_ms": 100.462541,
-              "write_ms": 0.298666
+              "total_ms": 101.056959,
+              "write_ms": 0.661042
             }
           ],
           "read_ms": {
-            "p50": 0.119792,
-            "p99": 0.24875
+            "p50": 0.268167,
+            "p99": 0.527834
           },
           "status": "measured",
           "time_to_visible_ms": {
-            "p50": 100.462541,
-            "p99": 100.462541
+            "p50": 101.056959,
+            "p99": 101.056959
           },
           "timeouts": 0,
           "visibility_lag_ms": {
-            "p50": 100.163875,
-            "p99": 100.163875
+            "p50": 100.395917,
+            "p99": 100.395917
           },
           "visible": 1,
           "write_latency_ms": {
-            "p50": 0.298666,
-            "p99": 0.298666
+            "p50": 0.661042,
+            "p99": 0.661042
           }
         }
       },
@@ -519,7 +511,6 @@
         "capabilities": [
           "delete",
           "get",
-          "get-id",
           "get_by_ref",
           "keyed",
           "list_prefix",
@@ -539,31 +530,31 @@
           "dropped": 0,
           "observations": [
             {
-              "lag_ms": 100.1,
+              "lag_ms": 100.157916,
               "polls": 101,
               "status": "visible",
-              "total_ms": 100.388959,
-              "write_ms": 0.288959
+              "total_ms": 100.817833,
+              "write_ms": 0.659917
             }
           ],
           "read_ms": {
-            "p50": 0.066375,
-            "p99": 0.222125
+            "p50": 0.12575,
+            "p99": 0.319834
           },
           "status": "measured",
           "time_to_visible_ms": {
-            "p50": 100.388959,
-            "p99": 100.388959
+            "p50": 100.817833,
+            "p99": 100.817833
           },
           "timeouts": 0,
           "visibility_lag_ms": {
-            "p50": 100.1,
-            "p99": 100.1
+            "p50": 100.157916,
+            "p99": 100.157916
           },
           "visible": 1,
           "write_latency_ms": {
-            "p50": 0.288959,
-            "p99": 0.288959
+            "p50": 0.659917,
+            "p99": 0.659917
           }
         }
       },
@@ -583,7 +574,6 @@
         "capabilities": [
           "delete",
           "get",
-          "get-id",
           "get_by_ref",
           "keyed",
           "list_prefix",
@@ -603,31 +593,31 @@
           "dropped": 0,
           "observations": [
             {
-              "lag_ms": 100.258709,
+              "lag_ms": 100.179458,
               "polls": 101,
               "status": "visible",
-              "total_ms": 100.804667,
-              "write_ms": 0.545958
+              "total_ms": 100.771875,
+              "write_ms": 0.592417
             }
           ],
           "read_ms": {
-            "p50": 0.058875,
-            "p99": 0.251333
+            "p50": 0.126083,
+            "p99": 0.344583
           },
           "status": "measured",
           "time_to_visible_ms": {
-            "p50": 100.804667,
-            "p99": 100.804667
+            "p50": 100.771875,
+            "p99": 100.771875
           },
           "timeouts": 0,
           "visibility_lag_ms": {
-            "p50": 100.258709,
-            "p99": 100.258709
+            "p50": 100.179458,
+            "p99": 100.179458
           },
           "visible": 1,
           "write_latency_ms": {
-            "p50": 0.545958,
-            "p99": 0.545958
+            "p50": 0.592417,
+            "p99": 0.592417
           }
         }
       },
@@ -647,7 +637,6 @@
         "capabilities": [
           "delete",
           "get",
-          "get-id",
           "get_by_ref",
           "keyed",
           "list_prefix",
@@ -667,31 +656,31 @@
           "dropped": 0,
           "observations": [
             {
-              "lag_ms": 100.094167,
+              "lag_ms": 100.243166,
               "polls": 101,
               "status": "visible",
-              "total_ms": 100.436958,
-              "write_ms": 0.342791
+              "total_ms": 100.88525,
+              "write_ms": 0.642084
             }
           ],
           "read_ms": {
-            "p50": 0.059083,
-            "p99": 0.204042
+            "p50": 0.170042,
+            "p99": 0.503292
           },
           "status": "measured",
           "time_to_visible_ms": {
-            "p50": 100.436958,
-            "p99": 100.436958
+            "p50": 100.88525,
+            "p99": 100.88525
           },
           "timeouts": 0,
           "visibility_lag_ms": {
-            "p50": 100.094167,
-            "p99": 100.094167
+            "p50": 100.243166,
+            "p99": 100.243166
           },
           "visible": 1,
           "write_latency_ms": {
-            "p50": 0.342791,
-            "p99": 0.342791
+            "p50": 0.642084,
+            "p99": 0.642084
           }
         }
       },
@@ -711,7 +700,6 @@
         "capabilities": [
           "delete",
           "get",
-          "get-id",
           "get_by_ref",
           "keyed",
           "list_prefix",
@@ -731,31 +719,31 @@
           "dropped": 0,
           "observations": [
             {
-              "lag_ms": 100.16325,
+              "lag_ms": 100.329208,
               "polls": 101,
               "status": "visible",
-              "total_ms": 100.504917,
-              "write_ms": 0.341667
+              "total_ms": 100.959792,
+              "write_ms": 0.630584
             }
           ],
           "read_ms": {
-            "p50": 0.127084,
-            "p99": 0.482209
+            "p50": 0.282416,
+            "p99": 0.5385
           },
           "status": "measured",
           "time_to_visible_ms": {
-            "p50": 100.504917,
-            "p99": 100.504917
+            "p50": 100.959792,
+            "p99": 100.959792
           },
           "timeouts": 0,
           "visibility_lag_ms": {
-            "p50": 100.16325,
-            "p99": 100.16325
+            "p50": 100.329208,
+            "p99": 100.329208
           },
           "visible": 1,
           "write_latency_ms": {
-            "p50": 0.341667,
-            "p99": 0.341667
+            "p50": 0.630584,
+            "p99": 0.630584
           }
         }
       },
@@ -775,7 +763,6 @@
         "capabilities": [
           "delete",
           "get",
-          "get-id",
           "get_by_ref",
           "keyed",
           "list_prefix",
@@ -795,31 +782,31 @@
           "dropped": 0,
           "observations": [
             {
-              "lag_ms": 100.096333,
+              "lag_ms": 100.210667,
               "polls": 101,
               "status": "visible",
-              "total_ms": 100.434916,
-              "write_ms": 0.338583
+              "total_ms": 100.841042,
+              "write_ms": 0.630375
             }
           ],
           "read_ms": {
-            "p50": 0.058791,
-            "p99": 0.242459
+            "p50": 0.132958,
+            "p99": 0.328292
           },
           "status": "measured",
           "time_to_visible_ms": {
-            "p50": 100.434916,
-            "p99": 100.434916
+            "p50": 100.841042,
+            "p99": 100.841042
           },
           "timeouts": 0,
           "visibility_lag_ms": {
-            "p50": 100.096333,
-            "p99": 100.096333
+            "p50": 100.210667,
+            "p99": 100.210667
           },
           "visible": 1,
           "write_latency_ms": {
-            "p50": 0.338583,
-            "p99": 0.338583
+            "p50": 0.630375,
+            "p99": 0.630375
           }
         }
       },
@@ -839,7 +826,6 @@
         "capabilities": [
           "delete",
           "get",
-          "get-id",
           "get_by_ref",
           "keyed",
           "list_prefix",
@@ -859,31 +845,31 @@
           "dropped": 0,
           "observations": [
             {
-              "lag_ms": 100.235917,
+              "lag_ms": 100.1875,
               "polls": 101,
               "status": "visible",
-              "total_ms": 100.762834,
-              "write_ms": 0.526917
+              "total_ms": 100.753334,
+              "write_ms": 0.565834
             }
           ],
           "read_ms": {
-            "p50": 0.06175,
-            "p99": 0.284417
+            "p50": 0.122708,
+            "p99": 0.283333
           },
           "status": "measured",
           "time_to_visible_ms": {
-            "p50": 100.762834,
-            "p99": 100.762834
+            "p50": 100.753334,
+            "p99": 100.753334
           },
           "timeouts": 0,
           "visibility_lag_ms": {
-            "p50": 100.235917,
-            "p99": 100.235917
+            "p50": 100.1875,
+            "p99": 100.1875
           },
           "visible": 1,
           "write_latency_ms": {
-            "p50": 0.526917,
-            "p99": 0.526917
+            "p50": 0.565834,
+            "p99": 0.565834
           }
         }
       },
@@ -903,7 +889,6 @@
         "capabilities": [
           "delete",
           "get",
-          "get-id",
           "get_by_ref",
           "keyed",
           "list_prefix",
@@ -923,31 +908,31 @@
           "dropped": 0,
           "observations": [
             {
-              "lag_ms": 100.101292,
+              "lag_ms": 100.158042,
               "polls": 101,
               "status": "visible",
-              "total_ms": 100.474917,
-              "write_ms": 0.373625
+              "total_ms": 100.761083,
+              "write_ms": 0.603041
             }
           ],
           "read_ms": {
-            "p50": 0.060833,
-            "p99": 0.260375
+            "p50": 0.135459,
+            "p99": 0.405125
           },
           "status": "measured",
           "time_to_visible_ms": {
-            "p50": 100.474917,
-            "p99": 100.474917
+            "p50": 100.761083,
+            "p99": 100.761083
           },
           "timeouts": 0,
           "visibility_lag_ms": {
-            "p50": 100.101292,
-            "p99": 100.101292
+            "p50": 100.158042,
+            "p99": 100.158042
           },
           "visible": 1,
           "write_latency_ms": {
-            "p50": 0.373625,
-            "p99": 0.373625
+            "p50": 0.603041,
+            "p99": 0.603041
           }
         }
       },
@@ -967,7 +952,6 @@
         "capabilities": [
           "delete",
           "get",
-          "get-id",
           "get_by_ref",
           "keyed",
           "list_prefix",
@@ -987,31 +971,31 @@
           "dropped": 0,
           "observations": [
             {
-              "lag_ms": 100.163792,
+              "lag_ms": 100.267208,
               "polls": 101,
               "status": "visible",
-              "total_ms": 100.504792,
-              "write_ms": 0.341
+              "total_ms": 100.876083,
+              "write_ms": 0.608875
             }
           ],
           "read_ms": {
-            "p50": 0.132,
-            "p99": 0.379667
+            "p50": 0.276,
+            "p99": 0.539
           },
           "status": "measured",
           "time_to_visible_ms": {
-            "p50": 100.504792,
-            "p99": 100.504792
+            "p50": 100.876083,
+            "p99": 100.876083
           },
           "timeouts": 0,
           "visibility_lag_ms": {
-            "p50": 100.163792,
-            "p99": 100.163792
+            "p50": 100.267208,
+            "p99": 100.267208
           },
           "visible": 1,
           "write_latency_ms": {
-            "p50": 0.341,
-            "p99": 0.341
+            "p50": 0.608875,
+            "p99": 0.608875
           }
         }
       },
@@ -1031,7 +1015,6 @@
         "capabilities": [
           "delete",
           "get",
-          "get-id",
           "get_by_ref",
           "keyed",
           "list_prefix",
@@ -1051,31 +1034,31 @@
           "dropped": 0,
           "observations": [
             {
-              "lag_ms": 100.139583,
+              "lag_ms": 100.143375,
               "polls": 101,
               "status": "visible",
-              "total_ms": 100.482958,
-              "write_ms": 0.343375
+              "total_ms": 100.734292,
+              "write_ms": 0.590917
             }
           ],
           "read_ms": {
-            "p50": 0.066625,
-            "p99": 0.235542
+            "p50": 0.094917,
+            "p99": 0.324333
           },
           "status": "measured",
           "time_to_visible_ms": {
-            "p50": 100.482958,
-            "p99": 100.482958
+            "p50": 100.734292,
+            "p99": 100.734292
           },
           "timeouts": 0,
           "visibility_lag_ms": {
-            "p50": 100.139583,
-            "p99": 100.139583
+            "p50": 100.143375,
+            "p99": 100.143375
           },
           "visible": 1,
           "write_latency_ms": {
-            "p50": 0.343375,
-            "p99": 0.343375
+            "p50": 0.590917,
+            "p99": 0.590917
           }
         }
       },
@@ -1095,7 +1078,6 @@
         "capabilities": [
           "delete",
           "get",
-          "get-id",
           "get_by_ref",
           "keyed",
           "list_prefix",
@@ -1115,31 +1097,31 @@
           "dropped": 0,
           "observations": [
             {
-              "lag_ms": 100.106625,
+              "lag_ms": 100.146667,
               "polls": 101,
               "status": "visible",
-              "total_ms": 100.437167,
-              "write_ms": 0.330542
+              "total_ms": 100.698417,
+              "write_ms": 0.55175
             }
           ],
           "read_ms": {
-            "p50": 0.067958,
-            "p99": 0.257791
+            "p50": 0.093209,
+            "p99": 0.257208
           },
           "status": "measured",
           "time_to_visible_ms": {
-            "p50": 100.437167,
-            "p99": 100.437167
+            "p50": 100.698417,
+            "p99": 100.698417
           },
           "timeouts": 0,
           "visibility_lag_ms": {
-            "p50": 100.106625,
-            "p99": 100.106625
+            "p50": 100.146667,
+            "p99": 100.146667
           },
           "visible": 1,
           "write_latency_ms": {
-            "p50": 0.330542,
-            "p99": 0.330542
+            "p50": 0.55175,
+            "p99": 0.55175
           }
         }
       },
@@ -1159,7 +1141,6 @@
         "capabilities": [
           "delete",
           "get",
-          "get-id",
           "get_by_ref",
           "keyed",
           "list_prefix",
@@ -1179,31 +1160,31 @@
           "dropped": 0,
           "observations": [
             {
-              "lag_ms": 100.093125,
+              "lag_ms": 100.26625,
               "polls": 101,
               "status": "visible",
-              "total_ms": 100.398584,
-              "write_ms": 0.305459
+              "total_ms": 100.787667,
+              "write_ms": 0.521417
             }
           ],
           "read_ms": {
-            "p50": 0.059459,
-            "p99": 0.288292
+            "p50": 0.103125,
+            "p99": 0.303
           },
           "status": "measured",
           "time_to_visible_ms": {
-            "p50": 100.398584,
-            "p99": 100.398584
+            "p50": 100.787667,
+            "p99": 100.787667
           },
           "timeouts": 0,
           "visibility_lag_ms": {
-            "p50": 100.093125,
-            "p99": 100.093125
+            "p50": 100.26625,
+            "p99": 100.26625
           },
           "visible": 1,
           "write_latency_ms": {
-            "p50": 0.305459,
-            "p99": 0.305459
+            "p50": 0.521417,
+            "p99": 0.521417
           }
         }
       },
@@ -1223,7 +1204,6 @@
         "capabilities": [
           "delete",
           "get",
-          "get-id",
           "get_by_ref",
           "keyed",
           "list_prefix",
@@ -1243,31 +1223,31 @@
           "dropped": 0,
           "observations": [
             {
-              "lag_ms": 100.167875,
+              "lag_ms": 100.318083,
               "polls": 101,
               "status": "visible",
-              "total_ms": 100.520042,
-              "write_ms": 0.352167
+              "total_ms": 100.835333,
+              "write_ms": 0.51725
             }
           ],
           "read_ms": {
-            "p50": 0.128834,
-            "p99": 0.386417
+            "p50": 0.241417,
+            "p99": 0.450042
           },
           "status": "measured",
           "time_to_visible_ms": {
-            "p50": 100.520042,
-            "p99": 100.520042
+            "p50": 100.835333,
+            "p99": 100.835333
           },
           "timeouts": 0,
           "visibility_lag_ms": {
-            "p50": 100.167875,
-            "p99": 100.167875
+            "p50": 100.318083,
+            "p99": 100.318083
           },
           "visible": 1,
           "write_latency_ms": {
-            "p50": 0.352167,
-            "p99": 0.352167
+            "p50": 0.51725,
+            "p99": 0.51725
           }
         }
       },
@@ -1287,7 +1267,6 @@
         "capabilities": [
           "delete",
           "get",
-          "get-id",
           "get_by_ref",
           "keyed",
           "list_prefix",
@@ -1307,31 +1286,31 @@
           "dropped": 0,
           "observations": [
             {
-              "lag_ms": 0.215125,
+              "lag_ms": 0.301333,
               "polls": 1,
               "status": "visible",
-              "total_ms": 0.839666,
-              "write_ms": 0.624541
+              "total_ms": 0.85175,
+              "write_ms": 0.550417
             }
           ],
           "read_ms": {
-            "p50": 0.16025,
-            "p99": 0.16025
+            "p50": 0.235125,
+            "p99": 0.235125
           },
           "status": "measured",
           "time_to_visible_ms": {
-            "p50": 0.839666,
-            "p99": 0.839666
+            "p50": 0.85175,
+            "p99": 0.85175
           },
           "timeouts": 0,
           "visibility_lag_ms": {
-            "p50": 0.215125,
-            "p99": 0.215125
+            "p50": 0.301333,
+            "p99": 0.301333
           },
           "visible": 1,
           "write_latency_ms": {
-            "p50": 0.624541,
-            "p99": 0.624541
+            "p50": 0.550417,
+            "p99": 0.550417
           }
         }
       },
@@ -1351,7 +1330,6 @@
         "capabilities": [
           "delete",
           "get",
-          "get-id",
           "get_by_ref",
           "keyed",
           "list_prefix",
@@ -1371,31 +1349,31 @@
           "dropped": 0,
           "observations": [
             {
-              "lag_ms": 0.184708,
+              "lag_ms": 0.297542,
               "polls": 1,
               "status": "visible",
-              "total_ms": 0.5235,
-              "write_ms": 0.338792
+              "total_ms": 0.840333,
+              "write_ms": 0.542791
             }
           ],
           "read_ms": {
-            "p50": 0.138958,
-            "p99": 0.138958
+            "p50": 0.235,
+            "p99": 0.235
           },
           "status": "measured",
           "time_to_visible_ms": {
-            "p50": 0.5235,
-            "p99": 0.5235
+            "p50": 0.840333,
+            "p99": 0.840333
           },
           "timeouts": 0,
           "visibility_lag_ms": {
-            "p50": 0.184708,
-            "p99": 0.184708
+            "p50": 0.297542,
+            "p99": 0.297542
           },
           "visible": 1,
           "write_latency_ms": {
-            "p50": 0.338792,
-            "p99": 0.338792
+            "p50": 0.542791,
+            "p99": 0.542791
           }
         }
       },
@@ -1415,7 +1393,6 @@
         "capabilities": [
           "delete",
           "get",
-          "get-id",
           "get_by_ref",
           "keyed",
           "list_prefix",
@@ -1435,31 +1412,31 @@
           "dropped": 0,
           "observations": [
             {
-              "lag_ms": 0.198333,
+              "lag_ms": 0.296417,
               "polls": 1,
               "status": "visible",
-              "total_ms": 0.543667,
-              "write_ms": 0.345334
+              "total_ms": 0.874958,
+              "write_ms": 0.578541
             }
           ],
           "read_ms": {
-            "p50": 0.149,
-            "p99": 0.149
+            "p50": 0.234042,
+            "p99": 0.234042
           },
           "status": "measured",
           "time_to_visible_ms": {
-            "p50": 0.543667,
-            "p99": 0.543667
+            "p50": 0.874958,
+            "p99": 0.874958
           },
           "timeouts": 0,
           "visibility_lag_ms": {
-            "p50": 0.198333,
-            "p99": 0.198333
+            "p50": 0.296417,
+            "p99": 0.296417
           },
           "visible": 1,
           "write_latency_ms": {
-            "p50": 0.345334,
-            "p99": 0.345334
+            "p50": 0.578541,
+            "p99": 0.578541
           }
         }
       },
@@ -1479,7 +1456,6 @@
         "capabilities": [
           "delete",
           "get",
-          "get-id",
           "get_by_ref",
           "keyed",
           "list_prefix",
@@ -1499,31 +1475,31 @@
           "dropped": 0,
           "observations": [
             {
-              "lag_ms": 0.2975,
+              "lag_ms": 0.489292,
               "polls": 1,
               "status": "visible",
-              "total_ms": 0.633459,
-              "write_ms": 0.335959
+              "total_ms": 1.028917,
+              "write_ms": 0.539625
             }
           ],
           "read_ms": {
-            "p50": 0.252875,
-            "p99": 0.252875
+            "p50": 0.426333,
+            "p99": 0.426333
           },
           "status": "measured",
           "time_to_visible_ms": {
-            "p50": 0.633459,
-            "p99": 0.633459
+            "p50": 1.028917,
+            "p99": 1.028917
           },
           "timeouts": 0,
           "visibility_lag_ms": {
-            "p50": 0.2975,
-            "p99": 0.2975
+            "p50": 0.489292,
+            "p99": 0.489292
           },
           "visible": 1,
           "write_latency_ms": {
-            "p50": 0.335959,
-            "p99": 0.335959
+            "p50": 0.539625,
+            "p99": 0.539625
           }
         }
       },
@@ -1543,7 +1519,6 @@
         "capabilities": [
           "delete",
           "get",
-          "get-id",
           "get_by_ref",
           "keyed",
           "list_prefix",
@@ -1563,31 +1538,31 @@
           "dropped": 0,
           "observations": [
             {
-              "lag_ms": 0.136834,
+              "lag_ms": 0.27175,
               "polls": 1,
               "status": "visible",
-              "total_ms": 0.423959,
-              "write_ms": 0.287125
+              "total_ms": 0.8165,
+              "write_ms": 0.54475
             }
           ],
           "read_ms": {
-            "p50": 0.102125,
-            "p99": 0.102125
+            "p50": 0.217125,
+            "p99": 0.217125
           },
           "status": "measured",
           "time_to_visible_ms": {
-            "p50": 0.423959,
-            "p99": 0.423959
+            "p50": 0.8165,
+            "p99": 0.8165
           },
           "timeouts": 0,
           "visibility_lag_ms": {
-            "p50": 0.136834,
-            "p99": 0.136834
+            "p50": 0.27175,
+            "p99": 0.27175
           },
           "visible": 1,
           "write_latency_ms": {
-            "p50": 0.287125,
-            "p99": 0.287125
+            "p50": 0.54475,
+            "p99": 0.54475
           }
         }
       },
@@ -1607,7 +1582,6 @@
         "capabilities": [
           "delete",
           "get",
-          "get-id",
           "get_by_ref",
           "keyed",
           "list_prefix",
@@ -1627,31 +1601,31 @@
           "dropped": 0,
           "observations": [
             {
-              "lag_ms": 0.215333,
+              "lag_ms": 0.422375,
               "polls": 1,
               "status": "visible",
-              "total_ms": 0.56175,
-              "write_ms": 0.346417
+              "total_ms": 1.129209,
+              "write_ms": 0.706834
             }
           ],
           "read_ms": {
-            "p50": 0.157333,
-            "p99": 0.157333
+            "p50": 0.321042,
+            "p99": 0.321042
           },
           "status": "measured",
           "time_to_visible_ms": {
-            "p50": 0.56175,
-            "p99": 0.56175
+            "p50": 1.129209,
+            "p99": 1.129209
           },
           "timeouts": 0,
           "visibility_lag_ms": {
-            "p50": 0.215333,
-            "p99": 0.215333
+            "p50": 0.422375,
+            "p99": 0.422375
           },
           "visible": 1,
           "write_latency_ms": {
-            "p50": 0.346417,
-            "p99": 0.346417
+            "p50": 0.706834,
+            "p99": 0.706834
           }
         }
       },
@@ -1671,7 +1645,6 @@
         "capabilities": [
           "delete",
           "get",
-          "get-id",
           "get_by_ref",
           "keyed",
           "list_prefix",
@@ -1691,31 +1664,31 @@
           "dropped": 0,
           "observations": [
             {
-              "lag_ms": 0.142417,
+              "lag_ms": 0.293583,
               "polls": 1,
               "status": "visible",
-              "total_ms": 0.4415,
-              "write_ms": 0.299083
+              "total_ms": 0.8695,
+              "write_ms": 0.575917
             }
           ],
           "read_ms": {
-            "p50": 0.105833,
-            "p99": 0.105833
+            "p50": 0.227916,
+            "p99": 0.227916
           },
           "status": "measured",
           "time_to_visible_ms": {
-            "p50": 0.4415,
-            "p99": 0.4415
+            "p50": 0.8695,
+            "p99": 0.8695
           },
           "timeouts": 0,
           "visibility_lag_ms": {
-            "p50": 0.142417,
-            "p99": 0.142417
+            "p50": 0.293583,
+            "p99": 0.293583
           },
           "visible": 1,
           "write_latency_ms": {
-            "p50": 0.299083,
-            "p99": 0.299083
+            "p50": 0.575917,
+            "p99": 0.575917
           }
         }
       },
@@ -1735,7 +1708,6 @@
         "capabilities": [
           "delete",
           "get",
-          "get-id",
           "get_by_ref",
           "keyed",
           "list_prefix",
@@ -1755,31 +1727,31 @@
           "dropped": 0,
           "observations": [
             {
-              "lag_ms": 0.32075,
+              "lag_ms": 0.517542,
               "polls": 1,
               "status": "visible",
-              "total_ms": 0.703708,
-              "write_ms": 0.382958
+              "total_ms": 1.165834,
+              "write_ms": 0.648292
             }
           ],
           "read_ms": {
-            "p50": 0.273458,
-            "p99": 0.273458
+            "p50": 0.450625,
+            "p99": 0.450625
           },
           "status": "measured",
           "time_to_visible_ms": {
-            "p50": 0.703708,
-            "p99": 0.703708
+            "p50": 1.165834,
+            "p99": 1.165834
           },
           "timeouts": 0,
           "visibility_lag_ms": {
-            "p50": 0.32075,
-            "p99": 0.32075
+            "p50": 0.517542,
+            "p99": 0.517542
           },
           "visible": 1,
           "write_latency_ms": {
-            "p50": 0.382958,
-            "p99": 0.382958
+            "p50": 0.648292,
+            "p99": 0.648292
           }
         }
       },
@@ -1799,7 +1771,6 @@
         "capabilities": [
           "delete",
           "get",
-          "get-id",
           "get_by_ref",
           "keyed",
           "list_prefix",
@@ -1819,31 +1790,31 @@
           "dropped": 0,
           "observations": [
             {
-              "lag_ms": 0.193875,
+              "lag_ms": 0.394042,
               "polls": 1,
               "status": "visible",
-              "total_ms": 0.534333,
-              "write_ms": 0.340458
+              "total_ms": 0.987167,
+              "write_ms": 0.593125
             }
           ],
           "read_ms": {
-            "p50": 0.149958,
-            "p99": 0.149958
+            "p50": 0.3305,
+            "p99": 0.3305
           },
           "status": "measured",
           "time_to_visible_ms": {
-            "p50": 0.534333,
-            "p99": 0.534333
+            "p50": 0.987167,
+            "p99": 0.987167
           },
           "timeouts": 0,
           "visibility_lag_ms": {
-            "p50": 0.193875,
-            "p99": 0.193875
+            "p50": 0.394042,
+            "p99": 0.394042
           },
           "visible": 1,
           "write_latency_ms": {
-            "p50": 0.340458,
-            "p99": 0.340458
+            "p50": 0.593125,
+            "p99": 0.593125
           }
         }
       },
@@ -1863,7 +1834,6 @@
         "capabilities": [
           "delete",
           "get",
-          "get-id",
           "get_by_ref",
           "keyed",
           "list_prefix",
@@ -1883,31 +1853,31 @@
           "dropped": 0,
           "observations": [
             {
-              "lag_ms": 0.200583,
+              "lag_ms": 0.323791,
               "polls": 1,
               "status": "visible",
-              "total_ms": 0.504291,
-              "write_ms": 0.303708
+              "total_ms": 1.059,
+              "write_ms": 0.735209
             }
           ],
           "read_ms": {
-            "p50": 0.1565,
-            "p99": 0.1565
+            "p50": 0.254416,
+            "p99": 0.254416
           },
           "status": "measured",
           "time_to_visible_ms": {
-            "p50": 0.504291,
-            "p99": 0.504291
+            "p50": 1.059,
+            "p99": 1.059
           },
           "timeouts": 0,
           "visibility_lag_ms": {
-            "p50": 0.200583,
-            "p99": 0.200583
+            "p50": 0.323791,
+            "p99": 0.323791
           },
           "visible": 1,
           "write_latency_ms": {
-            "p50": 0.303708,
-            "p99": 0.303708
+            "p50": 0.735209,
+            "p99": 0.735209
           }
         }
       },
@@ -1927,7 +1897,6 @@
         "capabilities": [
           "delete",
           "get",
-          "get-id",
           "get_by_ref",
           "keyed",
           "list_prefix",
@@ -1947,31 +1916,31 @@
           "dropped": 0,
           "observations": [
             {
-              "lag_ms": 0.208875,
+              "lag_ms": 0.309125,
               "polls": 1,
               "status": "visible",
-              "total_ms": 0.532167,
-              "write_ms": 0.323292
+              "total_ms": 0.967791,
+              "write_ms": 0.658666
             }
           ],
           "read_ms": {
-            "p50": 0.158542,
-            "p99": 0.158542
+            "p50": 0.24525,
+            "p99": 0.24525
           },
           "status": "measured",
           "time_to_visible_ms": {
-            "p50": 0.532167,
-            "p99": 0.532167
+            "p50": 0.967791,
+            "p99": 0.967791
           },
           "timeouts": 0,
           "visibility_lag_ms": {
-            "p50": 0.208875,
-            "p99": 0.208875
+            "p50": 0.309125,
+            "p99": 0.309125
           },
           "visible": 1,
           "write_latency_ms": {
-            "p50": 0.323292,
-            "p99": 0.323292
+            "p50": 0.658666,
+            "p99": 0.658666
           }
         }
       },
@@ -1991,7 +1960,6 @@
         "capabilities": [
           "delete",
           "get",
-          "get-id",
           "get_by_ref",
           "keyed",
           "list_prefix",
@@ -2011,31 +1979,31 @@
           "dropped": 0,
           "observations": [
             {
-              "lag_ms": 0.313125,
+              "lag_ms": 0.524583,
               "polls": 1,
               "status": "visible",
-              "total_ms": 0.638833,
-              "write_ms": 0.325708
+              "total_ms": 1.182833,
+              "write_ms": 0.65825
             }
           ],
           "read_ms": {
-            "p50": 0.266917,
-            "p99": 0.266917
+            "p50": 0.446833,
+            "p99": 0.446833
           },
           "status": "measured",
           "time_to_visible_ms": {
-            "p50": 0.638833,
-            "p99": 0.638833
+            "p50": 1.182833,
+            "p99": 1.182833
           },
           "timeouts": 0,
           "visibility_lag_ms": {
-            "p50": 0.313125,
-            "p99": 0.313125
+            "p50": 0.524583,
+            "p99": 0.524583
           },
           "visible": 1,
           "write_latency_ms": {
-            "p50": 0.325708,
-            "p99": 0.325708
+            "p50": 0.65825,
+            "p99": 0.65825
           }
         }
       },
@@ -2055,7 +2023,6 @@
         "capabilities": [
           "delete",
           "get",
-          "get-id",
           "get_by_ref",
           "keyed",
           "list_prefix",
@@ -2075,31 +2042,31 @@
           "dropped": 0,
           "observations": [
             {
-              "lag_ms": 0.189125,
+              "lag_ms": 0.27625,
               "polls": 1,
               "status": "visible",
-              "total_ms": 0.506958,
-              "write_ms": 0.317833
+              "total_ms": 0.815625,
+              "write_ms": 0.539375
             }
           ],
           "read_ms": {
-            "p50": 0.14325,
-            "p99": 0.14325
+            "p50": 0.218584,
+            "p99": 0.218584
           },
           "status": "measured",
           "time_to_visible_ms": {
-            "p50": 0.506958,
-            "p99": 0.506958
+            "p50": 0.815625,
+            "p99": 0.815625
           },
           "timeouts": 0,
           "visibility_lag_ms": {
-            "p50": 0.189125,
-            "p99": 0.189125
+            "p50": 0.27625,
+            "p99": 0.27625
           },
           "visible": 1,
           "write_latency_ms": {
-            "p50": 0.317833,
-            "p99": 0.317833
+            "p50": 0.539375,
+            "p99": 0.539375
           }
         }
       },
@@ -2119,7 +2086,6 @@
         "capabilities": [
           "delete",
           "get",
-          "get-id",
           "get_by_ref",
           "keyed",
           "list_prefix",
@@ -2139,31 +2105,31 @@
           "dropped": 0,
           "observations": [
             {
-              "lag_ms": 0.187875,
+              "lag_ms": 0.326291,
               "polls": 1,
               "status": "visible",
-              "total_ms": 0.517625,
-              "write_ms": 0.32975
+              "total_ms": 0.936,
+              "write_ms": 0.609709
             }
           ],
           "read_ms": {
-            "p50": 0.140375,
-            "p99": 0.140375
+            "p50": 0.25575,
+            "p99": 0.25575
           },
           "status": "measured",
           "time_to_visible_ms": {
-            "p50": 0.517625,
-            "p99": 0.517625
+            "p50": 0.936,
+            "p99": 0.936
           },
           "timeouts": 0,
           "visibility_lag_ms": {
-            "p50": 0.187875,
-            "p99": 0.187875
+            "p50": 0.326291,
+            "p99": 0.326291
           },
           "visible": 1,
           "write_latency_ms": {
-            "p50": 0.32975,
-            "p99": 0.32975
+            "p50": 0.609709,
+            "p99": 0.609709
           }
         }
       },
@@ -2183,7 +2149,6 @@
         "capabilities": [
           "delete",
           "get",
-          "get-id",
           "get_by_ref",
           "keyed",
           "list_prefix",
@@ -2203,31 +2168,31 @@
           "dropped": 0,
           "observations": [
             {
-              "lag_ms": 0.19875,
+              "lag_ms": 0.350708,
               "polls": 1,
               "status": "visible",
-              "total_ms": 0.538625,
-              "write_ms": 0.339875
+              "total_ms": 0.976375,
+              "write_ms": 0.625667
             }
           ],
           "read_ms": {
-            "p50": 0.158333,
-            "p99": 0.158333
+            "p50": 0.279167,
+            "p99": 0.279167
           },
           "status": "measured",
           "time_to_visible_ms": {
-            "p50": 0.538625,
-            "p99": 0.538625
+            "p50": 0.976375,
+            "p99": 0.976375
           },
           "timeouts": 0,
           "visibility_lag_ms": {
-            "p50": 0.19875,
-            "p99": 0.19875
+            "p50": 0.350708,
+            "p99": 0.350708
           },
           "visible": 1,
           "write_latency_ms": {
-            "p50": 0.339875,
-            "p99": 0.339875
+            "p50": 0.625667,
+            "p99": 0.625667
           }
         }
       },
@@ -2247,7 +2212,6 @@
         "capabilities": [
           "delete",
           "get",
-          "get-id",
           "get_by_ref",
           "keyed",
           "list_prefix",
@@ -2267,31 +2231,31 @@
           "dropped": 0,
           "observations": [
             {
-              "lag_ms": 0.322792,
+              "lag_ms": 0.743667,
               "polls": 1,
               "status": "visible",
-              "total_ms": 0.647292,
-              "write_ms": 0.3245
+              "total_ms": 1.657625,
+              "write_ms": 0.913958
             }
           ],
           "read_ms": {
-            "p50": 0.273,
-            "p99": 0.273
+            "p50": 0.649959,
+            "p99": 0.649959
           },
           "status": "measured",
           "time_to_visible_ms": {
-            "p50": 0.647292,
-            "p99": 0.647292
+            "p50": 1.657625,
+            "p99": 1.657625
           },
           "timeouts": 0,
           "visibility_lag_ms": {
-            "p50": 0.322792,
-            "p99": 0.322792
+            "p50": 0.743667,
+            "p99": 0.743667
           },
           "visible": 1,
           "write_latency_ms": {
-            "p50": 0.3245,
-            "p99": 0.3245
+            "p50": 0.913958,
+            "p99": 0.913958
           }
         }
       },
@@ -2311,7 +2275,6 @@
         "capabilities": [
           "delete",
           "get",
-          "get-id",
           "get_by_ref",
           "keyed",
           "list_prefix",
@@ -2331,31 +2294,31 @@
           "dropped": 0,
           "observations": [
             {
-              "lag_ms": 0.193417,
+              "lag_ms": 0.285875,
               "polls": 1,
               "status": "visible",
-              "total_ms": 0.504209,
-              "write_ms": 0.310792
+              "total_ms": 0.836208,
+              "write_ms": 0.550333
             }
           ],
           "read_ms": {
-            "p50": 0.149375,
-            "p99": 0.149375
+            "p50": 0.224,
+            "p99": 0.224
           },
           "status": "measured",
           "time_to_visible_ms": {
-            "p50": 0.504209,
-            "p99": 0.504209
+            "p50": 0.836208,
+            "p99": 0.836208
           },
           "timeouts": 0,
           "visibility_lag_ms": {
-            "p50": 0.193417,
-            "p99": 0.193417
+            "p50": 0.285875,
+            "p99": 0.285875
           },
           "visible": 1,
           "write_latency_ms": {
-            "p50": 0.310792,
-            "p99": 0.310792
+            "p50": 0.550333,
+            "p99": 0.550333
           }
         }
       },
@@ -2375,7 +2338,6 @@
         "capabilities": [
           "delete",
           "get",
-          "get-id",
           "get_by_ref",
           "keyed",
           "list_prefix",
@@ -2395,31 +2357,31 @@
           "dropped": 0,
           "observations": [
             {
-              "lag_ms": 0.199792,
+              "lag_ms": 0.455292,
               "polls": 1,
               "status": "visible",
-              "total_ms": 0.555708,
-              "write_ms": 0.355916
+              "total_ms": 1.253667,
+              "write_ms": 0.798375
             }
           ],
           "read_ms": {
-            "p50": 0.151292,
-            "p99": 0.151292
+            "p50": 0.375375,
+            "p99": 0.375375
           },
           "status": "measured",
           "time_to_visible_ms": {
-            "p50": 0.555708,
-            "p99": 0.555708
+            "p50": 1.253667,
+            "p99": 1.253667
           },
           "timeouts": 0,
           "visibility_lag_ms": {
-            "p50": 0.199792,
-            "p99": 0.199792
+            "p50": 0.455292,
+            "p99": 0.455292
           },
           "visible": 1,
           "write_latency_ms": {
-            "p50": 0.355916,
-            "p99": 0.355916
+            "p50": 0.798375,
+            "p99": 0.798375
           }
         }
       },
@@ -2439,7 +2401,6 @@
         "capabilities": [
           "delete",
           "get",
-          "get-id",
           "get_by_ref",
           "keyed",
           "list_prefix",
@@ -2459,31 +2420,31 @@
           "dropped": 0,
           "observations": [
             {
-              "lag_ms": 0.362084,
+              "lag_ms": 0.334417,
               "polls": 1,
               "status": "visible",
-              "total_ms": 0.958875,
-              "write_ms": 0.596791
+              "total_ms": 1.002333,
+              "write_ms": 0.667916
             }
           ],
           "read_ms": {
-            "p50": 0.310709,
-            "p99": 0.310709
+            "p50": 0.254125,
+            "p99": 0.254125
           },
           "status": "measured",
           "time_to_visible_ms": {
-            "p50": 0.958875,
-            "p99": 0.958875
+            "p50": 1.002333,
+            "p99": 1.002333
           },
           "timeouts": 0,
           "visibility_lag_ms": {
-            "p50": 0.362084,
-            "p99": 0.362084
+            "p50": 0.334417,
+            "p99": 0.334417
           },
           "visible": 1,
           "write_latency_ms": {
-            "p50": 0.596791,
-            "p99": 0.596791
+            "p50": 0.667916,
+            "p99": 0.667916
           }
         }
       },
@@ -2503,7 +2464,6 @@
         "capabilities": [
           "delete",
           "get",
-          "get-id",
           "get_by_ref",
           "keyed",
           "list_prefix",
@@ -2523,31 +2483,31 @@
           "dropped": 0,
           "observations": [
             {
-              "lag_ms": 0.243958,
+              "lag_ms": 1.854166,
               "polls": 1,
               "status": "visible",
-              "total_ms": 0.534583,
-              "write_ms": 0.290625
+              "total_ms": 2.89725,
+              "write_ms": 1.043084
             }
           ],
           "read_ms": {
-            "p50": 0.210625,
-            "p99": 0.210625
+            "p50": 0.998583,
+            "p99": 0.998583
           },
           "status": "measured",
           "time_to_visible_ms": {
-            "p50": 0.534583,
-            "p99": 0.534583
+            "p50": 2.89725,
+            "p99": 2.89725
           },
           "timeouts": 0,
           "visibility_lag_ms": {
-            "p50": 0.243958,
-            "p99": 0.243958
+            "p50": 1.854166,
+            "p99": 1.854166
           },
           "visible": 1,
           "write_latency_ms": {
-            "p50": 0.290625,
-            "p99": 0.290625
+            "p50": 1.043084,
+            "p99": 1.043084
           }
         }
       },
@@ -2574,7 +2534,6 @@
           "emulated:read_recent",
           "emulated:upsert",
           "get",
-          "get-id",
           "get_by_ref",
           "keyed",
           "list_prefix",
@@ -2604,7 +2563,7 @@
           "acked": 6,
           "acked_missing": 6,
           "duplicates": 0,
-          "fault_ns": 174679017848583,
+          "fault_ns": 176044019408375,
           "target": "worker",
           "torn": 0,
           "trial": 0
@@ -2629,7 +2588,6 @@
           "emulated:read_recent",
           "emulated:upsert",
           "get",
-          "get-id",
           "get_by_ref",
           "keyed",
           "list_prefix",
@@ -2659,7 +2617,7 @@
           "acked": 8,
           "acked_missing": 8,
           "duplicates": 0,
-          "fault_ns": 174679165646708,
+          "fault_ns": 176044275824791,
           "target": "worker",
           "torn": 0,
           "trial": 0
@@ -2684,7 +2642,6 @@
           "emulated:read_recent",
           "emulated:upsert",
           "get",
-          "get-id",
           "get_by_ref",
           "keyed",
           "list_prefix",
@@ -2714,7 +2671,7 @@
           "acked": 7,
           "acked_missing": 7,
           "duplicates": 0,
-          "fault_ns": 174679312487916,
+          "fault_ns": 176044531686541,
           "target": "worker",
           "torn": 0,
           "trial": 0
@@ -2739,7 +2696,6 @@
           "emulated:read_recent",
           "emulated:upsert",
           "get",
-          "get-id",
           "get_by_ref",
           "keyed",
           "list_prefix",
@@ -2769,7 +2725,7 @@
           "acked": 6,
           "acked_missing": 6,
           "duplicates": 0,
-          "fault_ns": 174679456615166,
+          "fault_ns": 176044803160083,
           "target": "worker",
           "torn": 0,
           "trial": 0
@@ -2794,7 +2750,6 @@
           "emulated:read_recent",
           "emulated:upsert",
           "get",
-          "get-id",
           "get_by_ref",
           "keyed",
           "list_prefix",
@@ -2824,7 +2779,7 @@
           "acked": 5,
           "acked_missing": 5,
           "duplicates": 0,
-          "fault_ns": 174679601187333,
+          "fault_ns": 176045055497750,
           "target": "worker",
           "torn": 0,
           "trial": 0
@@ -2849,7 +2804,6 @@
           "emulated:read_recent",
           "emulated:upsert",
           "get",
-          "get-id",
           "get_by_ref",
           "keyed",
           "list_prefix",
@@ -2879,7 +2833,7 @@
           "acked": 3,
           "acked_missing": 3,
           "duplicates": 0,
-          "fault_ns": 174679747800250,
+          "fault_ns": 176045312553666,
           "target": "worker",
           "torn": 0,
           "trial": 0
@@ -2904,7 +2858,6 @@
           "emulated:read_recent",
           "emulated:upsert",
           "get",
-          "get-id",
           "get_by_ref",
           "keyed",
           "list_prefix",
@@ -2934,7 +2887,7 @@
           "acked": 7,
           "acked_missing": 7,
           "duplicates": 0,
-          "fault_ns": 174679878793208,
+          "fault_ns": 176045558045750,
           "target": "worker",
           "torn": 0,
           "trial": 0
@@ -2959,7 +2912,6 @@
           "emulated:read_recent",
           "emulated:upsert",
           "get",
-          "get-id",
           "get_by_ref",
           "keyed",
           "list_prefix",
@@ -2989,7 +2941,7 @@
           "acked": 2,
           "acked_missing": 2,
           "duplicates": 0,
-          "fault_ns": 174679999899666,
+          "fault_ns": 176045804425291,
           "target": "worker",
           "torn": 0,
           "trial": 0
@@ -3014,7 +2966,6 @@
           "emulated:read_recent",
           "emulated:upsert",
           "get",
-          "get-id",
           "get_by_ref",
           "keyed",
           "list_prefix",
@@ -3044,7 +2995,7 @@
           "acked": 3,
           "acked_missing": 3,
           "duplicates": 0,
-          "fault_ns": 174680148188458,
+          "fault_ns": 176046053258625,
           "target": "worker",
           "torn": 0,
           "trial": 0
@@ -3069,7 +3020,6 @@
           "emulated:read_recent",
           "emulated:upsert",
           "get",
-          "get-id",
           "get_by_ref",
           "keyed",
           "list_prefix",
@@ -3099,7 +3049,7 @@
           "acked": 1,
           "acked_missing": 1,
           "duplicates": 0,
-          "fault_ns": 174680295240333,
+          "fault_ns": 176046299748416,
           "target": "worker",
           "torn": 0,
           "trial": 0
@@ -3124,7 +3074,6 @@
           "emulated:read_recent",
           "emulated:upsert",
           "get",
-          "get-id",
           "get_by_ref",
           "keyed",
           "list_prefix",
@@ -3154,7 +3103,7 @@
           "acked": 8,
           "acked_missing": 8,
           "duplicates": 0,
-          "fault_ns": 174680445082416,
+          "fault_ns": 176046558578791,
           "target": "worker",
           "torn": 0,
           "trial": 0
@@ -3179,7 +3128,6 @@
           "emulated:read_recent",
           "emulated:upsert",
           "get",
-          "get-id",
           "get_by_ref",
           "keyed",
           "list_prefix",
@@ -3209,7 +3157,7 @@
           "acked": 4,
           "acked_missing": 4,
           "duplicates": 0,
-          "fault_ns": 174680604910541,
+          "fault_ns": 176046804628333,
           "target": "worker",
           "torn": 0,
           "trial": 0
@@ -3234,7 +3182,6 @@
           "emulated:read_recent",
           "emulated:upsert",
           "get",
-          "get-id",
           "get_by_ref",
           "keyed",
           "list_prefix",
@@ -3264,7 +3211,7 @@
           "acked": 5,
           "acked_missing": 5,
           "duplicates": 0,
-          "fault_ns": 174680748933833,
+          "fault_ns": 176047051857333,
           "target": "worker",
           "torn": 0,
           "trial": 0
@@ -3289,7 +3236,6 @@
           "emulated:read_recent",
           "emulated:upsert",
           "get",
-          "get-id",
           "get_by_ref",
           "keyed",
           "list_prefix",
@@ -3319,7 +3265,7 @@
           "acked": 4,
           "acked_missing": 4,
           "duplicates": 0,
-          "fault_ns": 174680893315875,
+          "fault_ns": 176047305984791,
           "target": "worker",
           "torn": 0,
           "trial": 0
@@ -3344,7 +3290,6 @@
           "emulated:read_recent",
           "emulated:upsert",
           "get",
-          "get-id",
           "get_by_ref",
           "keyed",
           "list_prefix",
@@ -3374,7 +3319,7 @@
           "acked": 6,
           "acked_missing": 6,
           "duplicates": 0,
-          "fault_ns": 174681038739541,
+          "fault_ns": 176047534422208,
           "target": "worker",
           "torn": 0,
           "trial": 0
@@ -3399,7 +3344,6 @@
           "emulated:read_recent",
           "emulated:upsert",
           "get",
-          "get-id",
           "get_by_ref",
           "keyed",
           "list_prefix",
@@ -3429,7 +3373,7 @@
           "acked": 2,
           "acked_missing": 2,
           "duplicates": 0,
-          "fault_ns": 174681181507375,
+          "fault_ns": 176047778616833,
           "target": "worker",
           "torn": 0,
           "trial": 0
@@ -3454,7 +3398,6 @@
           "emulated:read_recent",
           "emulated:upsert",
           "get",
-          "get-id",
           "get_by_ref",
           "keyed",
           "list_prefix",
@@ -3484,7 +3427,7 @@
           "acked": 6,
           "acked_missing": 6,
           "duplicates": 0,
-          "fault_ns": 174681327508833,
+          "fault_ns": 176048028490500,
           "target": "worker",
           "torn": 0,
           "trial": 0
@@ -3509,7 +3452,6 @@
           "emulated:read_recent",
           "emulated:upsert",
           "get",
-          "get-id",
           "get_by_ref",
           "keyed",
           "list_prefix",
@@ -3539,7 +3481,7 @@
           "acked": 3,
           "acked_missing": 3,
           "duplicates": 0,
-          "fault_ns": 174681470586958,
+          "fault_ns": 176048269650000,
           "target": "worker",
           "torn": 0,
           "trial": 0
@@ -3564,7 +3506,6 @@
           "emulated:read_recent",
           "emulated:upsert",
           "get",
-          "get-id",
           "get_by_ref",
           "keyed",
           "list_prefix",
@@ -3594,7 +3535,7 @@
           "acked": 8,
           "acked_missing": 8,
           "duplicates": 0,
-          "fault_ns": 174681614764375,
+          "fault_ns": 176048537691916,
           "target": "worker",
           "torn": 0,
           "trial": 0
@@ -3619,7 +3560,6 @@
           "emulated:read_recent",
           "emulated:upsert",
           "get",
-          "get-id",
           "get_by_ref",
           "keyed",
           "list_prefix",
@@ -3649,7 +3589,7 @@
           "acked": 5,
           "acked_missing": 5,
           "duplicates": 0,
-          "fault_ns": 174681761527791,
+          "fault_ns": 176048781799708,
           "target": "worker",
           "torn": 0,
           "trial": 0
@@ -3669,7 +3609,6 @@
         "capabilities": [
           "delete",
           "get",
-          "get-id",
           "get_by_ref",
           "keyed",
           "list_prefix",
@@ -3699,7 +3638,7 @@
           "acked": 6,
           "acked_missing": 0,
           "duplicates": 0,
-          "fault_ns": 174681910109000,
+          "fault_ns": 176049057206791,
           "target": "worker",
           "torn": 0,
           "trial": 0
@@ -3719,7 +3658,6 @@
         "capabilities": [
           "delete",
           "get",
-          "get-id",
           "get_by_ref",
           "keyed",
           "list_prefix",
@@ -3749,7 +3687,7 @@
           "acked": 8,
           "acked_missing": 0,
           "duplicates": 0,
-          "fault_ns": 174682070555666,
+          "fault_ns": 176049306572500,
           "target": "worker",
           "torn": 0,
           "trial": 0
@@ -3769,7 +3707,6 @@
         "capabilities": [
           "delete",
           "get",
-          "get-id",
           "get_by_ref",
           "keyed",
           "list_prefix",
@@ -3799,7 +3736,7 @@
           "acked": 7,
           "acked_missing": 0,
           "duplicates": 0,
-          "fault_ns": 174682223214458,
+          "fault_ns": 176049591023375,
           "target": "worker",
           "torn": 0,
           "trial": 0
@@ -3819,7 +3756,6 @@
         "capabilities": [
           "delete",
           "get",
-          "get-id",
           "get_by_ref",
           "keyed",
           "list_prefix",
@@ -3849,7 +3785,7 @@
           "acked": 6,
           "acked_missing": 0,
           "duplicates": 0,
-          "fault_ns": 174682379325083,
+          "fault_ns": 176049852839291,
           "target": "worker",
           "torn": 0,
           "trial": 0
@@ -3869,7 +3805,6 @@
         "capabilities": [
           "delete",
           "get",
-          "get-id",
           "get_by_ref",
           "keyed",
           "list_prefix",
@@ -3899,7 +3834,7 @@
           "acked": 5,
           "acked_missing": 0,
           "duplicates": 0,
-          "fault_ns": 174682533098000,
+          "fault_ns": 176050137252833,
           "target": "worker",
           "torn": 0,
           "trial": 0
@@ -3919,7 +3854,6 @@
         "capabilities": [
           "delete",
           "get",
-          "get-id",
           "get_by_ref",
           "keyed",
           "list_prefix",
@@ -3949,7 +3883,7 @@
           "acked": 3,
           "acked_missing": 0,
           "duplicates": 0,
-          "fault_ns": 174682688073333,
+          "fault_ns": 176050388351375,
           "target": "worker",
           "torn": 0,
           "trial": 0
@@ -3969,7 +3903,6 @@
         "capabilities": [
           "delete",
           "get",
-          "get-id",
           "get_by_ref",
           "keyed",
           "list_prefix",
@@ -3999,7 +3932,7 @@
           "acked": 7,
           "acked_missing": 0,
           "duplicates": 0,
-          "fault_ns": 174682838601666,
+          "fault_ns": 176050648128791,
           "target": "worker",
           "torn": 0,
           "trial": 0
@@ -4019,7 +3952,6 @@
         "capabilities": [
           "delete",
           "get",
-          "get-id",
           "get_by_ref",
           "keyed",
           "list_prefix",
@@ -4049,7 +3981,7 @@
           "acked": 2,
           "acked_missing": 0,
           "duplicates": 0,
-          "fault_ns": 174682989640541,
+          "fault_ns": 176050924793208,
           "target": "worker",
           "torn": 0,
           "trial": 0
@@ -4069,7 +4001,6 @@
         "capabilities": [
           "delete",
           "get",
-          "get-id",
           "get_by_ref",
           "keyed",
           "list_prefix",
@@ -4099,7 +4030,7 @@
           "acked": 3,
           "acked_missing": 0,
           "duplicates": 0,
-          "fault_ns": 174683182517416,
+          "fault_ns": 176051179963416,
           "target": "worker",
           "torn": 0,
           "trial": 0
@@ -4119,7 +4050,6 @@
         "capabilities": [
           "delete",
           "get",
-          "get-id",
           "get_by_ref",
           "keyed",
           "list_prefix",
@@ -4149,7 +4079,7 @@
           "acked": 1,
           "acked_missing": 0,
           "duplicates": 0,
-          "fault_ns": 174683331703416,
+          "fault_ns": 176051461118416,
           "target": "worker",
           "torn": 0,
           "trial": 0
@@ -4169,7 +4099,6 @@
         "capabilities": [
           "delete",
           "get",
-          "get-id",
           "get_by_ref",
           "keyed",
           "list_prefix",
@@ -4199,7 +4128,7 @@
           "acked": 8,
           "acked_missing": 0,
           "duplicates": 0,
-          "fault_ns": 174683483068833,
+          "fault_ns": 176051726847958,
           "target": "worker",
           "torn": 0,
           "trial": 0
@@ -4219,7 +4148,6 @@
         "capabilities": [
           "delete",
           "get",
-          "get-id",
           "get_by_ref",
           "keyed",
           "list_prefix",
@@ -4249,7 +4177,7 @@
           "acked": 4,
           "acked_missing": 0,
           "duplicates": 0,
-          "fault_ns": 174683633975958,
+          "fault_ns": 176052011772541,
           "target": "worker",
           "torn": 0,
           "trial": 0
@@ -4269,7 +4197,6 @@
         "capabilities": [
           "delete",
           "get",
-          "get-id",
           "get_by_ref",
           "keyed",
           "list_prefix",
@@ -4299,7 +4226,7 @@
           "acked": 5,
           "acked_missing": 0,
           "duplicates": 0,
-          "fault_ns": 174683782459833,
+          "fault_ns": 176052264736833,
           "target": "worker",
           "torn": 0,
           "trial": 0
@@ -4319,7 +4246,6 @@
         "capabilities": [
           "delete",
           "get",
-          "get-id",
           "get_by_ref",
           "keyed",
           "list_prefix",
@@ -4349,7 +4275,7 @@
           "acked": 4,
           "acked_missing": 0,
           "duplicates": 0,
-          "fault_ns": 174683931656208,
+          "fault_ns": 176052551765500,
           "target": "worker",
           "torn": 0,
           "trial": 0
@@ -4369,7 +4295,6 @@
         "capabilities": [
           "delete",
           "get",
-          "get-id",
           "get_by_ref",
           "keyed",
           "list_prefix",
@@ -4399,7 +4324,7 @@
           "acked": 6,
           "acked_missing": 0,
           "duplicates": 0,
-          "fault_ns": 174684054435791,
+          "fault_ns": 176052807027208,
           "target": "worker",
           "torn": 0,
           "trial": 0
@@ -4419,7 +4344,6 @@
         "capabilities": [
           "delete",
           "get",
-          "get-id",
           "get_by_ref",
           "keyed",
           "list_prefix",
@@ -4449,7 +4373,7 @@
           "acked": 2,
           "acked_missing": 0,
           "duplicates": 0,
-          "fault_ns": 174684199627666,
+          "fault_ns": 176053090831541,
           "target": "worker",
           "torn": 0,
           "trial": 0
@@ -4469,7 +4393,6 @@
         "capabilities": [
           "delete",
           "get",
-          "get-id",
           "get_by_ref",
           "keyed",
           "list_prefix",
@@ -4499,7 +4422,7 @@
           "acked": 6,
           "acked_missing": 0,
           "duplicates": 0,
-          "fault_ns": 174684350517250,
+          "fault_ns": 176053339846500,
           "target": "worker",
           "torn": 0,
           "trial": 0
@@ -4519,7 +4442,6 @@
         "capabilities": [
           "delete",
           "get",
-          "get-id",
           "get_by_ref",
           "keyed",
           "list_prefix",
@@ -4549,7 +4471,7 @@
           "acked": 3,
           "acked_missing": 0,
           "duplicates": 0,
-          "fault_ns": 174684499890000,
+          "fault_ns": 176053621009416,
           "target": "worker",
           "torn": 0,
           "trial": 0
@@ -4569,7 +4491,6 @@
         "capabilities": [
           "delete",
           "get",
-          "get-id",
           "get_by_ref",
           "keyed",
           "list_prefix",
@@ -4599,7 +4520,7 @@
           "acked": 8,
           "acked_missing": 0,
           "duplicates": 0,
-          "fault_ns": 174684649601833,
+          "fault_ns": 176053892287500,
           "target": "worker",
           "torn": 0,
           "trial": 0
@@ -4619,7 +4540,6 @@
         "capabilities": [
           "delete",
           "get",
-          "get-id",
           "get_by_ref",
           "keyed",
           "list_prefix",
@@ -4649,7 +4569,7 @@
           "acked": 5,
           "acked_missing": 0,
           "duplicates": 0,
-          "fault_ns": 174684801491583,
+          "fault_ns": 176054158522666,
           "target": "worker",
           "torn": 0,
           "trial": 0
@@ -4680,7 +4600,6 @@
           "emulated:read_recent",
           "emulated:upsert",
           "get",
-          "get-id",
           "get_by_ref",
           "keyed",
           "list_prefix",
@@ -4716,7 +4635,7 @@
     "config": "default;trial=1",
     "matched": true,
     "result": {
-      "acked_missing": 60,
+      "acked_missing": 59,
       "cas": "not measured in B1",
       "duplicates": 0,
       "history": {
@@ -4733,7 +4652,6 @@
           "emulated:read_recent",
           "emulated:upsert",
           "get",
-          "get-id",
           "get_by_ref",
           "keyed",
           "list_prefix",
@@ -4753,7 +4671,7 @@
       "torn": 0,
       "trials": [
         {
-          "acked_missing": 60,
+          "acked_missing": 59,
           "duplicates": 0,
           "invalid_final": 0,
           "phase": "distinct",
@@ -4767,801 +4685,6 @@
   },
   {
     "config": "default;trial=2",
-    "matched": true,
-    "result": {
-      "acked_missing": 140,
-      "cas": "not measured in B1",
-      "duplicates": 0,
-      "history": {
-        "advertised": false,
-        "max_versions_per_key": 0,
-        "observations": []
-      },
-      "info": {
-        "capabilities": [
-          "delete",
-          "emulated:delete",
-          "emulated:get",
-          "emulated:list_prefix",
-          "emulated:read_recent",
-          "emulated:upsert",
-          "get",
-          "get-id",
-          "get_by_ref",
-          "keyed",
-          "list_prefix",
-          "read_recent",
-          "search",
-          "upsert",
-          "write"
-        ],
-        "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
-        "protocol": 1,
-        "runtime_versions": {},
-        "servers": [],
-        "version": "stdlib-jsonl-v1"
-      },
-      "invalid_final": 0,
-      "status": "violation",
-      "torn": 0,
-      "trials": [
-        {
-          "acked_missing": 140,
-          "duplicates": 0,
-          "invalid_final": 0,
-          "phase": "distinct",
-          "torn": 0,
-          "writers": 8
-        }
-      ]
-    },
-    "suite": "concurrent-append",
-    "system": "md-rmw-sleep"
-  },
-  {
-    "config": "default;trial=3",
-    "matched": true,
-    "result": {
-      "acked_missing": 19,
-      "cas": "not measured in B1",
-      "duplicates": 0,
-      "history": {
-        "advertised": false,
-        "max_versions_per_key": 0,
-        "observations": []
-      },
-      "info": {
-        "capabilities": [
-          "delete",
-          "emulated:delete",
-          "emulated:get",
-          "emulated:list_prefix",
-          "emulated:read_recent",
-          "emulated:upsert",
-          "get",
-          "get-id",
-          "get_by_ref",
-          "keyed",
-          "list_prefix",
-          "read_recent",
-          "search",
-          "upsert",
-          "write"
-        ],
-        "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
-        "protocol": 1,
-        "runtime_versions": {},
-        "servers": [],
-        "version": "stdlib-jsonl-v1"
-      },
-      "invalid_final": 0,
-      "status": "violation",
-      "torn": 0,
-      "trials": [
-        {
-          "acked_missing": 19,
-          "duplicates": 0,
-          "invalid_final": 0,
-          "phase": "distinct",
-          "torn": 0,
-          "writers": 2
-        }
-      ]
-    },
-    "suite": "concurrent-append",
-    "system": "md-rmw-sleep"
-  },
-  {
-    "config": "default;trial=4",
-    "matched": true,
-    "result": {
-      "acked_missing": 60,
-      "cas": "not measured in B1",
-      "duplicates": 0,
-      "history": {
-        "advertised": false,
-        "max_versions_per_key": 0,
-        "observations": []
-      },
-      "info": {
-        "capabilities": [
-          "delete",
-          "emulated:delete",
-          "emulated:get",
-          "emulated:list_prefix",
-          "emulated:read_recent",
-          "emulated:upsert",
-          "get",
-          "get-id",
-          "get_by_ref",
-          "keyed",
-          "list_prefix",
-          "read_recent",
-          "search",
-          "upsert",
-          "write"
-        ],
-        "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
-        "protocol": 1,
-        "runtime_versions": {},
-        "servers": [],
-        "version": "stdlib-jsonl-v1"
-      },
-      "invalid_final": 0,
-      "status": "violation",
-      "torn": 0,
-      "trials": [
-        {
-          "acked_missing": 60,
-          "duplicates": 0,
-          "invalid_final": 0,
-          "phase": "distinct",
-          "torn": 0,
-          "writers": 4
-        }
-      ]
-    },
-    "suite": "concurrent-append",
-    "system": "md-rmw-sleep"
-  },
-  {
-    "config": "default;trial=5",
-    "matched": true,
-    "result": {
-      "acked_missing": 140,
-      "cas": "not measured in B1",
-      "duplicates": 0,
-      "history": {
-        "advertised": false,
-        "max_versions_per_key": 0,
-        "observations": []
-      },
-      "info": {
-        "capabilities": [
-          "delete",
-          "emulated:delete",
-          "emulated:get",
-          "emulated:list_prefix",
-          "emulated:read_recent",
-          "emulated:upsert",
-          "get",
-          "get-id",
-          "get_by_ref",
-          "keyed",
-          "list_prefix",
-          "read_recent",
-          "search",
-          "upsert",
-          "write"
-        ],
-        "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
-        "protocol": 1,
-        "runtime_versions": {},
-        "servers": [],
-        "version": "stdlib-jsonl-v1"
-      },
-      "invalid_final": 0,
-      "status": "violation",
-      "torn": 0,
-      "trials": [
-        {
-          "acked_missing": 140,
-          "duplicates": 0,
-          "invalid_final": 0,
-          "phase": "distinct",
-          "torn": 0,
-          "writers": 8
-        }
-      ]
-    },
-    "suite": "concurrent-append",
-    "system": "md-rmw-sleep"
-  },
-  {
-    "config": "default;trial=6",
-    "matched": true,
-    "result": {
-      "acked_missing": 20,
-      "cas": "not measured in B1",
-      "duplicates": 0,
-      "history": {
-        "advertised": false,
-        "max_versions_per_key": 0,
-        "observations": []
-      },
-      "info": {
-        "capabilities": [
-          "delete",
-          "emulated:delete",
-          "emulated:get",
-          "emulated:list_prefix",
-          "emulated:read_recent",
-          "emulated:upsert",
-          "get",
-          "get-id",
-          "get_by_ref",
-          "keyed",
-          "list_prefix",
-          "read_recent",
-          "search",
-          "upsert",
-          "write"
-        ],
-        "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
-        "protocol": 1,
-        "runtime_versions": {},
-        "servers": [],
-        "version": "stdlib-jsonl-v1"
-      },
-      "invalid_final": 0,
-      "status": "violation",
-      "torn": 0,
-      "trials": [
-        {
-          "acked_missing": 20,
-          "duplicates": 0,
-          "invalid_final": 0,
-          "phase": "distinct",
-          "torn": 0,
-          "writers": 2
-        }
-      ]
-    },
-    "suite": "concurrent-append",
-    "system": "md-rmw-sleep"
-  },
-  {
-    "config": "default;trial=7",
-    "matched": true,
-    "result": {
-      "acked_missing": 59,
-      "cas": "not measured in B1",
-      "duplicates": 0,
-      "history": {
-        "advertised": false,
-        "max_versions_per_key": 0,
-        "observations": []
-      },
-      "info": {
-        "capabilities": [
-          "delete",
-          "emulated:delete",
-          "emulated:get",
-          "emulated:list_prefix",
-          "emulated:read_recent",
-          "emulated:upsert",
-          "get",
-          "get-id",
-          "get_by_ref",
-          "keyed",
-          "list_prefix",
-          "read_recent",
-          "search",
-          "upsert",
-          "write"
-        ],
-        "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
-        "protocol": 1,
-        "runtime_versions": {},
-        "servers": [],
-        "version": "stdlib-jsonl-v1"
-      },
-      "invalid_final": 0,
-      "status": "violation",
-      "torn": 0,
-      "trials": [
-        {
-          "acked_missing": 59,
-          "duplicates": 0,
-          "invalid_final": 0,
-          "phase": "distinct",
-          "torn": 0,
-          "writers": 4
-        }
-      ]
-    },
-    "suite": "concurrent-append",
-    "system": "md-rmw-sleep"
-  },
-  {
-    "config": "default;trial=8",
-    "matched": true,
-    "result": {
-      "acked_missing": 140,
-      "cas": "not measured in B1",
-      "duplicates": 0,
-      "history": {
-        "advertised": false,
-        "max_versions_per_key": 0,
-        "observations": []
-      },
-      "info": {
-        "capabilities": [
-          "delete",
-          "emulated:delete",
-          "emulated:get",
-          "emulated:list_prefix",
-          "emulated:read_recent",
-          "emulated:upsert",
-          "get",
-          "get-id",
-          "get_by_ref",
-          "keyed",
-          "list_prefix",
-          "read_recent",
-          "search",
-          "upsert",
-          "write"
-        ],
-        "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
-        "protocol": 1,
-        "runtime_versions": {},
-        "servers": [],
-        "version": "stdlib-jsonl-v1"
-      },
-      "invalid_final": 0,
-      "status": "violation",
-      "torn": 0,
-      "trials": [
-        {
-          "acked_missing": 140,
-          "duplicates": 0,
-          "invalid_final": 0,
-          "phase": "distinct",
-          "torn": 0,
-          "writers": 8
-        }
-      ]
-    },
-    "suite": "concurrent-append",
-    "system": "md-rmw-sleep"
-  },
-  {
-    "config": "default;trial=9",
-    "matched": true,
-    "result": {
-      "acked_missing": 20,
-      "cas": "not measured in B1",
-      "duplicates": 0,
-      "history": {
-        "advertised": false,
-        "max_versions_per_key": 0,
-        "observations": []
-      },
-      "info": {
-        "capabilities": [
-          "delete",
-          "emulated:delete",
-          "emulated:get",
-          "emulated:list_prefix",
-          "emulated:read_recent",
-          "emulated:upsert",
-          "get",
-          "get-id",
-          "get_by_ref",
-          "keyed",
-          "list_prefix",
-          "read_recent",
-          "search",
-          "upsert",
-          "write"
-        ],
-        "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
-        "protocol": 1,
-        "runtime_versions": {},
-        "servers": [],
-        "version": "stdlib-jsonl-v1"
-      },
-      "invalid_final": 0,
-      "status": "violation",
-      "torn": 0,
-      "trials": [
-        {
-          "acked_missing": 20,
-          "duplicates": 0,
-          "invalid_final": 0,
-          "phase": "distinct",
-          "torn": 0,
-          "writers": 2
-        }
-      ]
-    },
-    "suite": "concurrent-append",
-    "system": "md-rmw-sleep"
-  },
-  {
-    "config": "default;trial=10",
-    "matched": true,
-    "result": {
-      "acked_missing": 59,
-      "cas": "not measured in B1",
-      "duplicates": 0,
-      "history": {
-        "advertised": false,
-        "max_versions_per_key": 0,
-        "observations": []
-      },
-      "info": {
-        "capabilities": [
-          "delete",
-          "emulated:delete",
-          "emulated:get",
-          "emulated:list_prefix",
-          "emulated:read_recent",
-          "emulated:upsert",
-          "get",
-          "get-id",
-          "get_by_ref",
-          "keyed",
-          "list_prefix",
-          "read_recent",
-          "search",
-          "upsert",
-          "write"
-        ],
-        "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
-        "protocol": 1,
-        "runtime_versions": {},
-        "servers": [],
-        "version": "stdlib-jsonl-v1"
-      },
-      "invalid_final": 0,
-      "status": "violation",
-      "torn": 0,
-      "trials": [
-        {
-          "acked_missing": 59,
-          "duplicates": 0,
-          "invalid_final": 0,
-          "phase": "distinct",
-          "torn": 0,
-          "writers": 4
-        }
-      ]
-    },
-    "suite": "concurrent-append",
-    "system": "md-rmw-sleep"
-  },
-  {
-    "config": "default;trial=11",
-    "matched": true,
-    "result": {
-      "acked_missing": 140,
-      "cas": "not measured in B1",
-      "duplicates": 0,
-      "history": {
-        "advertised": false,
-        "max_versions_per_key": 0,
-        "observations": []
-      },
-      "info": {
-        "capabilities": [
-          "delete",
-          "emulated:delete",
-          "emulated:get",
-          "emulated:list_prefix",
-          "emulated:read_recent",
-          "emulated:upsert",
-          "get",
-          "get-id",
-          "get_by_ref",
-          "keyed",
-          "list_prefix",
-          "read_recent",
-          "search",
-          "upsert",
-          "write"
-        ],
-        "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
-        "protocol": 1,
-        "runtime_versions": {},
-        "servers": [],
-        "version": "stdlib-jsonl-v1"
-      },
-      "invalid_final": 0,
-      "status": "violation",
-      "torn": 0,
-      "trials": [
-        {
-          "acked_missing": 140,
-          "duplicates": 0,
-          "invalid_final": 0,
-          "phase": "distinct",
-          "torn": 0,
-          "writers": 8
-        }
-      ]
-    },
-    "suite": "concurrent-append",
-    "system": "md-rmw-sleep"
-  },
-  {
-    "config": "default;trial=12",
-    "matched": true,
-    "result": {
-      "acked_missing": 20,
-      "cas": "not measured in B1",
-      "duplicates": 0,
-      "history": {
-        "advertised": false,
-        "max_versions_per_key": 0,
-        "observations": []
-      },
-      "info": {
-        "capabilities": [
-          "delete",
-          "emulated:delete",
-          "emulated:get",
-          "emulated:list_prefix",
-          "emulated:read_recent",
-          "emulated:upsert",
-          "get",
-          "get-id",
-          "get_by_ref",
-          "keyed",
-          "list_prefix",
-          "read_recent",
-          "search",
-          "upsert",
-          "write"
-        ],
-        "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
-        "protocol": 1,
-        "runtime_versions": {},
-        "servers": [],
-        "version": "stdlib-jsonl-v1"
-      },
-      "invalid_final": 0,
-      "status": "violation",
-      "torn": 0,
-      "trials": [
-        {
-          "acked_missing": 20,
-          "duplicates": 0,
-          "invalid_final": 0,
-          "phase": "distinct",
-          "torn": 0,
-          "writers": 2
-        }
-      ]
-    },
-    "suite": "concurrent-append",
-    "system": "md-rmw-sleep"
-  },
-  {
-    "config": "default;trial=13",
-    "matched": true,
-    "result": {
-      "acked_missing": 60,
-      "cas": "not measured in B1",
-      "duplicates": 0,
-      "history": {
-        "advertised": false,
-        "max_versions_per_key": 0,
-        "observations": []
-      },
-      "info": {
-        "capabilities": [
-          "delete",
-          "emulated:delete",
-          "emulated:get",
-          "emulated:list_prefix",
-          "emulated:read_recent",
-          "emulated:upsert",
-          "get",
-          "get-id",
-          "get_by_ref",
-          "keyed",
-          "list_prefix",
-          "read_recent",
-          "search",
-          "upsert",
-          "write"
-        ],
-        "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
-        "protocol": 1,
-        "runtime_versions": {},
-        "servers": [],
-        "version": "stdlib-jsonl-v1"
-      },
-      "invalid_final": 0,
-      "status": "violation",
-      "torn": 0,
-      "trials": [
-        {
-          "acked_missing": 60,
-          "duplicates": 0,
-          "invalid_final": 0,
-          "phase": "distinct",
-          "torn": 0,
-          "writers": 4
-        }
-      ]
-    },
-    "suite": "concurrent-append",
-    "system": "md-rmw-sleep"
-  },
-  {
-    "config": "default;trial=14",
-    "matched": true,
-    "result": {
-      "acked_missing": 140,
-      "cas": "not measured in B1",
-      "duplicates": 0,
-      "history": {
-        "advertised": false,
-        "max_versions_per_key": 0,
-        "observations": []
-      },
-      "info": {
-        "capabilities": [
-          "delete",
-          "emulated:delete",
-          "emulated:get",
-          "emulated:list_prefix",
-          "emulated:read_recent",
-          "emulated:upsert",
-          "get",
-          "get-id",
-          "get_by_ref",
-          "keyed",
-          "list_prefix",
-          "read_recent",
-          "search",
-          "upsert",
-          "write"
-        ],
-        "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
-        "protocol": 1,
-        "runtime_versions": {},
-        "servers": [],
-        "version": "stdlib-jsonl-v1"
-      },
-      "invalid_final": 0,
-      "status": "violation",
-      "torn": 0,
-      "trials": [
-        {
-          "acked_missing": 140,
-          "duplicates": 0,
-          "invalid_final": 0,
-          "phase": "distinct",
-          "torn": 0,
-          "writers": 8
-        }
-      ]
-    },
-    "suite": "concurrent-append",
-    "system": "md-rmw-sleep"
-  },
-  {
-    "config": "default;trial=15",
-    "matched": true,
-    "result": {
-      "acked_missing": 20,
-      "cas": "not measured in B1",
-      "duplicates": 0,
-      "history": {
-        "advertised": false,
-        "max_versions_per_key": 0,
-        "observations": []
-      },
-      "info": {
-        "capabilities": [
-          "delete",
-          "emulated:delete",
-          "emulated:get",
-          "emulated:list_prefix",
-          "emulated:read_recent",
-          "emulated:upsert",
-          "get",
-          "get-id",
-          "get_by_ref",
-          "keyed",
-          "list_prefix",
-          "read_recent",
-          "search",
-          "upsert",
-          "write"
-        ],
-        "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
-        "protocol": 1,
-        "runtime_versions": {},
-        "servers": [],
-        "version": "stdlib-jsonl-v1"
-      },
-      "invalid_final": 0,
-      "status": "violation",
-      "torn": 0,
-      "trials": [
-        {
-          "acked_missing": 20,
-          "duplicates": 0,
-          "invalid_final": 0,
-          "phase": "distinct",
-          "torn": 0,
-          "writers": 2
-        }
-      ]
-    },
-    "suite": "concurrent-append",
-    "system": "md-rmw-sleep"
-  },
-  {
-    "config": "default;trial=16",
-    "matched": true,
-    "result": {
-      "acked_missing": 60,
-      "cas": "not measured in B1",
-      "duplicates": 0,
-      "history": {
-        "advertised": false,
-        "max_versions_per_key": 0,
-        "observations": []
-      },
-      "info": {
-        "capabilities": [
-          "delete",
-          "emulated:delete",
-          "emulated:get",
-          "emulated:list_prefix",
-          "emulated:read_recent",
-          "emulated:upsert",
-          "get",
-          "get-id",
-          "get_by_ref",
-          "keyed",
-          "list_prefix",
-          "read_recent",
-          "search",
-          "upsert",
-          "write"
-        ],
-        "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
-        "protocol": 1,
-        "runtime_versions": {},
-        "servers": [],
-        "version": "stdlib-jsonl-v1"
-      },
-      "invalid_final": 0,
-      "status": "violation",
-      "torn": 0,
-      "trials": [
-        {
-          "acked_missing": 60,
-          "duplicates": 0,
-          "invalid_final": 0,
-          "phase": "distinct",
-          "torn": 0,
-          "writers": 4
-        }
-      ]
-    },
-    "suite": "concurrent-append",
-    "system": "md-rmw-sleep"
-  },
-  {
-    "config": "default;trial=17",
     "matched": true,
     "result": {
       "acked_missing": 139,
@@ -5581,7 +4704,6 @@
           "emulated:read_recent",
           "emulated:upsert",
           "get",
-          "get-id",
           "get_by_ref",
           "keyed",
           "list_prefix",
@@ -5614,6 +4736,786 @@
     "system": "md-rmw-sleep"
   },
   {
+    "config": "default;trial=3",
+    "matched": true,
+    "result": {
+      "acked_missing": 20,
+      "cas": "not measured in B1",
+      "duplicates": 0,
+      "history": {
+        "advertised": false,
+        "max_versions_per_key": 0,
+        "observations": []
+      },
+      "info": {
+        "capabilities": [
+          "delete",
+          "emulated:delete",
+          "emulated:get",
+          "emulated:list_prefix",
+          "emulated:read_recent",
+          "emulated:upsert",
+          "get",
+          "get_by_ref",
+          "keyed",
+          "list_prefix",
+          "read_recent",
+          "search",
+          "upsert",
+          "write"
+        ],
+        "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
+        "protocol": 1,
+        "runtime_versions": {},
+        "servers": [],
+        "version": "stdlib-jsonl-v1"
+      },
+      "invalid_final": 0,
+      "status": "violation",
+      "torn": 0,
+      "trials": [
+        {
+          "acked_missing": 20,
+          "duplicates": 0,
+          "invalid_final": 0,
+          "phase": "distinct",
+          "torn": 0,
+          "writers": 2
+        }
+      ]
+    },
+    "suite": "concurrent-append",
+    "system": "md-rmw-sleep"
+  },
+  {
+    "config": "default;trial=4",
+    "matched": true,
+    "result": {
+      "acked_missing": 60,
+      "cas": "not measured in B1",
+      "duplicates": 0,
+      "history": {
+        "advertised": false,
+        "max_versions_per_key": 0,
+        "observations": []
+      },
+      "info": {
+        "capabilities": [
+          "delete",
+          "emulated:delete",
+          "emulated:get",
+          "emulated:list_prefix",
+          "emulated:read_recent",
+          "emulated:upsert",
+          "get",
+          "get_by_ref",
+          "keyed",
+          "list_prefix",
+          "read_recent",
+          "search",
+          "upsert",
+          "write"
+        ],
+        "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
+        "protocol": 1,
+        "runtime_versions": {},
+        "servers": [],
+        "version": "stdlib-jsonl-v1"
+      },
+      "invalid_final": 0,
+      "status": "violation",
+      "torn": 0,
+      "trials": [
+        {
+          "acked_missing": 60,
+          "duplicates": 0,
+          "invalid_final": 0,
+          "phase": "distinct",
+          "torn": 0,
+          "writers": 4
+        }
+      ]
+    },
+    "suite": "concurrent-append",
+    "system": "md-rmw-sleep"
+  },
+  {
+    "config": "default;trial=5",
+    "matched": true,
+    "result": {
+      "acked_missing": 139,
+      "cas": "not measured in B1",
+      "duplicates": 0,
+      "history": {
+        "advertised": false,
+        "max_versions_per_key": 0,
+        "observations": []
+      },
+      "info": {
+        "capabilities": [
+          "delete",
+          "emulated:delete",
+          "emulated:get",
+          "emulated:list_prefix",
+          "emulated:read_recent",
+          "emulated:upsert",
+          "get",
+          "get_by_ref",
+          "keyed",
+          "list_prefix",
+          "read_recent",
+          "search",
+          "upsert",
+          "write"
+        ],
+        "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
+        "protocol": 1,
+        "runtime_versions": {},
+        "servers": [],
+        "version": "stdlib-jsonl-v1"
+      },
+      "invalid_final": 0,
+      "status": "violation",
+      "torn": 0,
+      "trials": [
+        {
+          "acked_missing": 139,
+          "duplicates": 0,
+          "invalid_final": 0,
+          "phase": "distinct",
+          "torn": 0,
+          "writers": 8
+        }
+      ]
+    },
+    "suite": "concurrent-append",
+    "system": "md-rmw-sleep"
+  },
+  {
+    "config": "default;trial=6",
+    "matched": true,
+    "result": {
+      "acked_missing": 20,
+      "cas": "not measured in B1",
+      "duplicates": 0,
+      "history": {
+        "advertised": false,
+        "max_versions_per_key": 0,
+        "observations": []
+      },
+      "info": {
+        "capabilities": [
+          "delete",
+          "emulated:delete",
+          "emulated:get",
+          "emulated:list_prefix",
+          "emulated:read_recent",
+          "emulated:upsert",
+          "get",
+          "get_by_ref",
+          "keyed",
+          "list_prefix",
+          "read_recent",
+          "search",
+          "upsert",
+          "write"
+        ],
+        "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
+        "protocol": 1,
+        "runtime_versions": {},
+        "servers": [],
+        "version": "stdlib-jsonl-v1"
+      },
+      "invalid_final": 0,
+      "status": "violation",
+      "torn": 0,
+      "trials": [
+        {
+          "acked_missing": 20,
+          "duplicates": 0,
+          "invalid_final": 0,
+          "phase": "distinct",
+          "torn": 0,
+          "writers": 2
+        }
+      ]
+    },
+    "suite": "concurrent-append",
+    "system": "md-rmw-sleep"
+  },
+  {
+    "config": "default;trial=7",
+    "matched": true,
+    "result": {
+      "acked_missing": 59,
+      "cas": "not measured in B1",
+      "duplicates": 0,
+      "history": {
+        "advertised": false,
+        "max_versions_per_key": 0,
+        "observations": []
+      },
+      "info": {
+        "capabilities": [
+          "delete",
+          "emulated:delete",
+          "emulated:get",
+          "emulated:list_prefix",
+          "emulated:read_recent",
+          "emulated:upsert",
+          "get",
+          "get_by_ref",
+          "keyed",
+          "list_prefix",
+          "read_recent",
+          "search",
+          "upsert",
+          "write"
+        ],
+        "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
+        "protocol": 1,
+        "runtime_versions": {},
+        "servers": [],
+        "version": "stdlib-jsonl-v1"
+      },
+      "invalid_final": 0,
+      "status": "violation",
+      "torn": 0,
+      "trials": [
+        {
+          "acked_missing": 59,
+          "duplicates": 0,
+          "invalid_final": 0,
+          "phase": "distinct",
+          "torn": 0,
+          "writers": 4
+        }
+      ]
+    },
+    "suite": "concurrent-append",
+    "system": "md-rmw-sleep"
+  },
+  {
+    "config": "default;trial=8",
+    "matched": true,
+    "result": {
+      "acked_missing": 139,
+      "cas": "not measured in B1",
+      "duplicates": 0,
+      "history": {
+        "advertised": false,
+        "max_versions_per_key": 0,
+        "observations": []
+      },
+      "info": {
+        "capabilities": [
+          "delete",
+          "emulated:delete",
+          "emulated:get",
+          "emulated:list_prefix",
+          "emulated:read_recent",
+          "emulated:upsert",
+          "get",
+          "get_by_ref",
+          "keyed",
+          "list_prefix",
+          "read_recent",
+          "search",
+          "upsert",
+          "write"
+        ],
+        "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
+        "protocol": 1,
+        "runtime_versions": {},
+        "servers": [],
+        "version": "stdlib-jsonl-v1"
+      },
+      "invalid_final": 0,
+      "status": "violation",
+      "torn": 0,
+      "trials": [
+        {
+          "acked_missing": 139,
+          "duplicates": 0,
+          "invalid_final": 0,
+          "phase": "distinct",
+          "torn": 0,
+          "writers": 8
+        }
+      ]
+    },
+    "suite": "concurrent-append",
+    "system": "md-rmw-sleep"
+  },
+  {
+    "config": "default;trial=9",
+    "matched": true,
+    "result": {
+      "acked_missing": 20,
+      "cas": "not measured in B1",
+      "duplicates": 0,
+      "history": {
+        "advertised": false,
+        "max_versions_per_key": 0,
+        "observations": []
+      },
+      "info": {
+        "capabilities": [
+          "delete",
+          "emulated:delete",
+          "emulated:get",
+          "emulated:list_prefix",
+          "emulated:read_recent",
+          "emulated:upsert",
+          "get",
+          "get_by_ref",
+          "keyed",
+          "list_prefix",
+          "read_recent",
+          "search",
+          "upsert",
+          "write"
+        ],
+        "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
+        "protocol": 1,
+        "runtime_versions": {},
+        "servers": [],
+        "version": "stdlib-jsonl-v1"
+      },
+      "invalid_final": 0,
+      "status": "violation",
+      "torn": 0,
+      "trials": [
+        {
+          "acked_missing": 20,
+          "duplicates": 0,
+          "invalid_final": 0,
+          "phase": "distinct",
+          "torn": 0,
+          "writers": 2
+        }
+      ]
+    },
+    "suite": "concurrent-append",
+    "system": "md-rmw-sleep"
+  },
+  {
+    "config": "default;trial=10",
+    "matched": true,
+    "result": {
+      "acked_missing": 60,
+      "cas": "not measured in B1",
+      "duplicates": 0,
+      "history": {
+        "advertised": false,
+        "max_versions_per_key": 0,
+        "observations": []
+      },
+      "info": {
+        "capabilities": [
+          "delete",
+          "emulated:delete",
+          "emulated:get",
+          "emulated:list_prefix",
+          "emulated:read_recent",
+          "emulated:upsert",
+          "get",
+          "get_by_ref",
+          "keyed",
+          "list_prefix",
+          "read_recent",
+          "search",
+          "upsert",
+          "write"
+        ],
+        "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
+        "protocol": 1,
+        "runtime_versions": {},
+        "servers": [],
+        "version": "stdlib-jsonl-v1"
+      },
+      "invalid_final": 0,
+      "status": "violation",
+      "torn": 0,
+      "trials": [
+        {
+          "acked_missing": 60,
+          "duplicates": 0,
+          "invalid_final": 0,
+          "phase": "distinct",
+          "torn": 0,
+          "writers": 4
+        }
+      ]
+    },
+    "suite": "concurrent-append",
+    "system": "md-rmw-sleep"
+  },
+  {
+    "config": "default;trial=11",
+    "matched": true,
+    "result": {
+      "acked_missing": 138,
+      "cas": "not measured in B1",
+      "duplicates": 0,
+      "history": {
+        "advertised": false,
+        "max_versions_per_key": 0,
+        "observations": []
+      },
+      "info": {
+        "capabilities": [
+          "delete",
+          "emulated:delete",
+          "emulated:get",
+          "emulated:list_prefix",
+          "emulated:read_recent",
+          "emulated:upsert",
+          "get",
+          "get_by_ref",
+          "keyed",
+          "list_prefix",
+          "read_recent",
+          "search",
+          "upsert",
+          "write"
+        ],
+        "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
+        "protocol": 1,
+        "runtime_versions": {},
+        "servers": [],
+        "version": "stdlib-jsonl-v1"
+      },
+      "invalid_final": 0,
+      "status": "violation",
+      "torn": 0,
+      "trials": [
+        {
+          "acked_missing": 138,
+          "duplicates": 0,
+          "invalid_final": 0,
+          "phase": "distinct",
+          "torn": 0,
+          "writers": 8
+        }
+      ]
+    },
+    "suite": "concurrent-append",
+    "system": "md-rmw-sleep"
+  },
+  {
+    "config": "default;trial=12",
+    "matched": true,
+    "result": {
+      "acked_missing": 20,
+      "cas": "not measured in B1",
+      "duplicates": 0,
+      "history": {
+        "advertised": false,
+        "max_versions_per_key": 0,
+        "observations": []
+      },
+      "info": {
+        "capabilities": [
+          "delete",
+          "emulated:delete",
+          "emulated:get",
+          "emulated:list_prefix",
+          "emulated:read_recent",
+          "emulated:upsert",
+          "get",
+          "get_by_ref",
+          "keyed",
+          "list_prefix",
+          "read_recent",
+          "search",
+          "upsert",
+          "write"
+        ],
+        "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
+        "protocol": 1,
+        "runtime_versions": {},
+        "servers": [],
+        "version": "stdlib-jsonl-v1"
+      },
+      "invalid_final": 0,
+      "status": "violation",
+      "torn": 0,
+      "trials": [
+        {
+          "acked_missing": 20,
+          "duplicates": 0,
+          "invalid_final": 0,
+          "phase": "distinct",
+          "torn": 0,
+          "writers": 2
+        }
+      ]
+    },
+    "suite": "concurrent-append",
+    "system": "md-rmw-sleep"
+  },
+  {
+    "config": "default;trial=13",
+    "matched": true,
+    "result": {
+      "acked_missing": 59,
+      "cas": "not measured in B1",
+      "duplicates": 0,
+      "history": {
+        "advertised": false,
+        "max_versions_per_key": 0,
+        "observations": []
+      },
+      "info": {
+        "capabilities": [
+          "delete",
+          "emulated:delete",
+          "emulated:get",
+          "emulated:list_prefix",
+          "emulated:read_recent",
+          "emulated:upsert",
+          "get",
+          "get_by_ref",
+          "keyed",
+          "list_prefix",
+          "read_recent",
+          "search",
+          "upsert",
+          "write"
+        ],
+        "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
+        "protocol": 1,
+        "runtime_versions": {},
+        "servers": [],
+        "version": "stdlib-jsonl-v1"
+      },
+      "invalid_final": 0,
+      "status": "violation",
+      "torn": 0,
+      "trials": [
+        {
+          "acked_missing": 59,
+          "duplicates": 0,
+          "invalid_final": 0,
+          "phase": "distinct",
+          "torn": 0,
+          "writers": 4
+        }
+      ]
+    },
+    "suite": "concurrent-append",
+    "system": "md-rmw-sleep"
+  },
+  {
+    "config": "default;trial=14",
+    "matched": true,
+    "result": {
+      "acked_missing": 139,
+      "cas": "not measured in B1",
+      "duplicates": 0,
+      "history": {
+        "advertised": false,
+        "max_versions_per_key": 0,
+        "observations": []
+      },
+      "info": {
+        "capabilities": [
+          "delete",
+          "emulated:delete",
+          "emulated:get",
+          "emulated:list_prefix",
+          "emulated:read_recent",
+          "emulated:upsert",
+          "get",
+          "get_by_ref",
+          "keyed",
+          "list_prefix",
+          "read_recent",
+          "search",
+          "upsert",
+          "write"
+        ],
+        "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
+        "protocol": 1,
+        "runtime_versions": {},
+        "servers": [],
+        "version": "stdlib-jsonl-v1"
+      },
+      "invalid_final": 0,
+      "status": "violation",
+      "torn": 0,
+      "trials": [
+        {
+          "acked_missing": 139,
+          "duplicates": 0,
+          "invalid_final": 0,
+          "phase": "distinct",
+          "torn": 0,
+          "writers": 8
+        }
+      ]
+    },
+    "suite": "concurrent-append",
+    "system": "md-rmw-sleep"
+  },
+  {
+    "config": "default;trial=15",
+    "matched": true,
+    "result": {
+      "acked_missing": 20,
+      "cas": "not measured in B1",
+      "duplicates": 0,
+      "history": {
+        "advertised": false,
+        "max_versions_per_key": 0,
+        "observations": []
+      },
+      "info": {
+        "capabilities": [
+          "delete",
+          "emulated:delete",
+          "emulated:get",
+          "emulated:list_prefix",
+          "emulated:read_recent",
+          "emulated:upsert",
+          "get",
+          "get_by_ref",
+          "keyed",
+          "list_prefix",
+          "read_recent",
+          "search",
+          "upsert",
+          "write"
+        ],
+        "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
+        "protocol": 1,
+        "runtime_versions": {},
+        "servers": [],
+        "version": "stdlib-jsonl-v1"
+      },
+      "invalid_final": 0,
+      "status": "violation",
+      "torn": 0,
+      "trials": [
+        {
+          "acked_missing": 20,
+          "duplicates": 0,
+          "invalid_final": 0,
+          "phase": "distinct",
+          "torn": 0,
+          "writers": 2
+        }
+      ]
+    },
+    "suite": "concurrent-append",
+    "system": "md-rmw-sleep"
+  },
+  {
+    "config": "default;trial=16",
+    "matched": true,
+    "result": {
+      "acked_missing": 60,
+      "cas": "not measured in B1",
+      "duplicates": 0,
+      "history": {
+        "advertised": false,
+        "max_versions_per_key": 0,
+        "observations": []
+      },
+      "info": {
+        "capabilities": [
+          "delete",
+          "emulated:delete",
+          "emulated:get",
+          "emulated:list_prefix",
+          "emulated:read_recent",
+          "emulated:upsert",
+          "get",
+          "get_by_ref",
+          "keyed",
+          "list_prefix",
+          "read_recent",
+          "search",
+          "upsert",
+          "write"
+        ],
+        "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
+        "protocol": 1,
+        "runtime_versions": {},
+        "servers": [],
+        "version": "stdlib-jsonl-v1"
+      },
+      "invalid_final": 0,
+      "status": "violation",
+      "torn": 0,
+      "trials": [
+        {
+          "acked_missing": 60,
+          "duplicates": 0,
+          "invalid_final": 0,
+          "phase": "distinct",
+          "torn": 0,
+          "writers": 4
+        }
+      ]
+    },
+    "suite": "concurrent-append",
+    "system": "md-rmw-sleep"
+  },
+  {
+    "config": "default;trial=17",
+    "matched": true,
+    "result": {
+      "acked_missing": 140,
+      "cas": "not measured in B1",
+      "duplicates": 0,
+      "history": {
+        "advertised": false,
+        "max_versions_per_key": 0,
+        "observations": []
+      },
+      "info": {
+        "capabilities": [
+          "delete",
+          "emulated:delete",
+          "emulated:get",
+          "emulated:list_prefix",
+          "emulated:read_recent",
+          "emulated:upsert",
+          "get",
+          "get_by_ref",
+          "keyed",
+          "list_prefix",
+          "read_recent",
+          "search",
+          "upsert",
+          "write"
+        ],
+        "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
+        "protocol": 1,
+        "runtime_versions": {},
+        "servers": [],
+        "version": "stdlib-jsonl-v1"
+      },
+      "invalid_final": 0,
+      "status": "violation",
+      "torn": 0,
+      "trials": [
+        {
+          "acked_missing": 140,
+          "duplicates": 0,
+          "invalid_final": 0,
+          "phase": "distinct",
+          "torn": 0,
+          "writers": 8
+        }
+      ]
+    },
+    "suite": "concurrent-append",
+    "system": "md-rmw-sleep"
+  },
+  {
     "config": "default;trial=18",
     "matched": true,
     "result": {
@@ -5634,7 +5536,6 @@
           "emulated:read_recent",
           "emulated:upsert",
           "get",
-          "get-id",
           "get_by_ref",
           "keyed",
           "list_prefix",
@@ -5687,7 +5588,6 @@
           "emulated:read_recent",
           "emulated:upsert",
           "get",
-          "get-id",
           "get_by_ref",
           "keyed",
           "list_prefix",
@@ -5735,7 +5635,6 @@
         "capabilities": [
           "delete",
           "get",
-          "get-id",
           "get_by_ref",
           "keyed",
           "list_prefix",
@@ -5783,7 +5682,6 @@
         "capabilities": [
           "delete",
           "get",
-          "get-id",
           "get_by_ref",
           "keyed",
           "list_prefix",
@@ -5831,7 +5729,6 @@
         "capabilities": [
           "delete",
           "get",
-          "get-id",
           "get_by_ref",
           "keyed",
           "list_prefix",
@@ -5879,7 +5776,6 @@
         "capabilities": [
           "delete",
           "get",
-          "get-id",
           "get_by_ref",
           "keyed",
           "list_prefix",
@@ -5927,7 +5823,6 @@
         "capabilities": [
           "delete",
           "get",
-          "get-id",
           "get_by_ref",
           "keyed",
           "list_prefix",
@@ -5975,7 +5870,6 @@
         "capabilities": [
           "delete",
           "get",
-          "get-id",
           "get_by_ref",
           "keyed",
           "list_prefix",
@@ -6023,7 +5917,6 @@
         "capabilities": [
           "delete",
           "get",
-          "get-id",
           "get_by_ref",
           "keyed",
           "list_prefix",
@@ -6071,7 +5964,6 @@
         "capabilities": [
           "delete",
           "get",
-          "get-id",
           "get_by_ref",
           "keyed",
           "list_prefix",
@@ -6119,7 +6011,6 @@
         "capabilities": [
           "delete",
           "get",
-          "get-id",
           "get_by_ref",
           "keyed",
           "list_prefix",
@@ -6167,7 +6058,6 @@
         "capabilities": [
           "delete",
           "get",
-          "get-id",
           "get_by_ref",
           "keyed",
           "list_prefix",
@@ -6215,7 +6105,6 @@
         "capabilities": [
           "delete",
           "get",
-          "get-id",
           "get_by_ref",
           "keyed",
           "list_prefix",
@@ -6263,7 +6152,6 @@
         "capabilities": [
           "delete",
           "get",
-          "get-id",
           "get_by_ref",
           "keyed",
           "list_prefix",
@@ -6311,7 +6199,6 @@
         "capabilities": [
           "delete",
           "get",
-          "get-id",
           "get_by_ref",
           "keyed",
           "list_prefix",
@@ -6359,7 +6246,6 @@
         "capabilities": [
           "delete",
           "get",
-          "get-id",
           "get_by_ref",
           "keyed",
           "list_prefix",
@@ -6407,7 +6293,6 @@
         "capabilities": [
           "delete",
           "get",
-          "get-id",
           "get_by_ref",
           "keyed",
           "list_prefix",
@@ -6455,7 +6340,6 @@
         "capabilities": [
           "delete",
           "get",
-          "get-id",
           "get_by_ref",
           "keyed",
           "list_prefix",
@@ -6503,7 +6387,6 @@
         "capabilities": [
           "delete",
           "get",
-          "get-id",
           "get_by_ref",
           "keyed",
           "list_prefix",
@@ -6551,7 +6434,6 @@
         "capabilities": [
           "delete",
           "get",
-          "get-id",
           "get_by_ref",
           "keyed",
           "list_prefix",
@@ -6599,7 +6481,6 @@
         "capabilities": [
           "delete",
           "get",
-          "get-id",
           "get_by_ref",
           "keyed",
           "list_prefix",
@@ -6647,7 +6528,6 @@
         "capabilities": [
           "delete",
           "get",
-          "get-id",
           "get_by_ref",
           "keyed",
           "list_prefix",
@@ -6710,7 +6590,6 @@
           "emulated:read_recent",
           "emulated:upsert",
           "get",
-          "get-id",
           "get_by_ref",
           "keyed",
           "list_prefix",
@@ -6756,882 +6635,6 @@
     "config": "default;trial=1",
     "matched": true,
     "result": {
-      "acked_missing": 60,
-      "cas": "not measured in B1",
-      "duplicates": 0,
-      "history": {
-        "advertised": false,
-        "max_versions_per_key": 1,
-        "observations": [
-          {
-            "versions_per_key": {
-              "shared-0": 1,
-              "shared-1": 1,
-              "shared-2": 1,
-              "shared-3": 1
-            },
-            "writers": 4
-          }
-        ]
-      },
-      "info": {
-        "capabilities": [
-          "delete",
-          "emulated:delete",
-          "emulated:get",
-          "emulated:list_prefix",
-          "emulated:read_recent",
-          "emulated:upsert",
-          "get",
-          "get-id",
-          "get_by_ref",
-          "keyed",
-          "list_prefix",
-          "read_recent",
-          "search",
-          "upsert",
-          "write"
-        ],
-        "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
-        "protocol": 1,
-        "runtime_versions": {},
-        "servers": [],
-        "version": "stdlib-jsonl-v1"
-      },
-      "invalid_final": 0,
-      "invalid_rows": 0,
-      "status": "violation",
-      "torn": 0,
-      "trials": [
-        {
-          "acked_missing": 60,
-          "duplicates": 0,
-          "invalid_final": 0,
-          "phase": "distinct",
-          "torn": 0,
-          "writers": 4
-        },
-        {
-          "acked_missing": 0,
-          "duplicates": 0,
-          "invalid_final": 0,
-          "invalid_rows": 0,
-          "phase": "overlap",
-          "torn": 0,
-          "writers": 4
-        }
-      ]
-    },
-    "suite": "concurrent-kv",
-    "system": "md-rmw-sleep"
-  },
-  {
-    "config": "default;trial=2",
-    "matched": true,
-    "result": {
-      "acked_missing": 140,
-      "cas": "not measured in B1",
-      "duplicates": 0,
-      "history": {
-        "advertised": false,
-        "max_versions_per_key": 1,
-        "observations": [
-          {
-            "versions_per_key": {
-              "shared-0": 1,
-              "shared-1": 1,
-              "shared-2": 1,
-              "shared-3": 1
-            },
-            "writers": 8
-          }
-        ]
-      },
-      "info": {
-        "capabilities": [
-          "delete",
-          "emulated:delete",
-          "emulated:get",
-          "emulated:list_prefix",
-          "emulated:read_recent",
-          "emulated:upsert",
-          "get",
-          "get-id",
-          "get_by_ref",
-          "keyed",
-          "list_prefix",
-          "read_recent",
-          "search",
-          "upsert",
-          "write"
-        ],
-        "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
-        "protocol": 1,
-        "runtime_versions": {},
-        "servers": [],
-        "version": "stdlib-jsonl-v1"
-      },
-      "invalid_final": 0,
-      "invalid_rows": 0,
-      "status": "violation",
-      "torn": 0,
-      "trials": [
-        {
-          "acked_missing": 140,
-          "duplicates": 0,
-          "invalid_final": 0,
-          "phase": "distinct",
-          "torn": 0,
-          "writers": 8
-        },
-        {
-          "acked_missing": 0,
-          "duplicates": 0,
-          "invalid_final": 0,
-          "invalid_rows": 0,
-          "phase": "overlap",
-          "torn": 0,
-          "writers": 8
-        }
-      ]
-    },
-    "suite": "concurrent-kv",
-    "system": "md-rmw-sleep"
-  },
-  {
-    "config": "default;trial=3",
-    "matched": true,
-    "result": {
-      "acked_missing": 20,
-      "cas": "not measured in B1",
-      "duplicates": 0,
-      "history": {
-        "advertised": false,
-        "max_versions_per_key": 1,
-        "observations": [
-          {
-            "versions_per_key": {
-              "shared-0": 1,
-              "shared-1": 1,
-              "shared-2": 1,
-              "shared-3": 1
-            },
-            "writers": 2
-          }
-        ]
-      },
-      "info": {
-        "capabilities": [
-          "delete",
-          "emulated:delete",
-          "emulated:get",
-          "emulated:list_prefix",
-          "emulated:read_recent",
-          "emulated:upsert",
-          "get",
-          "get-id",
-          "get_by_ref",
-          "keyed",
-          "list_prefix",
-          "read_recent",
-          "search",
-          "upsert",
-          "write"
-        ],
-        "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
-        "protocol": 1,
-        "runtime_versions": {},
-        "servers": [],
-        "version": "stdlib-jsonl-v1"
-      },
-      "invalid_final": 0,
-      "invalid_rows": 0,
-      "status": "violation",
-      "torn": 0,
-      "trials": [
-        {
-          "acked_missing": 20,
-          "duplicates": 0,
-          "invalid_final": 0,
-          "phase": "distinct",
-          "torn": 0,
-          "writers": 2
-        },
-        {
-          "acked_missing": 0,
-          "duplicates": 0,
-          "invalid_final": 0,
-          "invalid_rows": 0,
-          "phase": "overlap",
-          "torn": 0,
-          "writers": 2
-        }
-      ]
-    },
-    "suite": "concurrent-kv",
-    "system": "md-rmw-sleep"
-  },
-  {
-    "config": "default;trial=4",
-    "matched": true,
-    "result": {
-      "acked_missing": 60,
-      "cas": "not measured in B1",
-      "duplicates": 0,
-      "history": {
-        "advertised": false,
-        "max_versions_per_key": 1,
-        "observations": [
-          {
-            "versions_per_key": {
-              "shared-0": 1,
-              "shared-1": 1,
-              "shared-2": 1,
-              "shared-3": 1
-            },
-            "writers": 4
-          }
-        ]
-      },
-      "info": {
-        "capabilities": [
-          "delete",
-          "emulated:delete",
-          "emulated:get",
-          "emulated:list_prefix",
-          "emulated:read_recent",
-          "emulated:upsert",
-          "get",
-          "get-id",
-          "get_by_ref",
-          "keyed",
-          "list_prefix",
-          "read_recent",
-          "search",
-          "upsert",
-          "write"
-        ],
-        "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
-        "protocol": 1,
-        "runtime_versions": {},
-        "servers": [],
-        "version": "stdlib-jsonl-v1"
-      },
-      "invalid_final": 0,
-      "invalid_rows": 0,
-      "status": "violation",
-      "torn": 0,
-      "trials": [
-        {
-          "acked_missing": 60,
-          "duplicates": 0,
-          "invalid_final": 0,
-          "phase": "distinct",
-          "torn": 0,
-          "writers": 4
-        },
-        {
-          "acked_missing": 0,
-          "duplicates": 0,
-          "invalid_final": 0,
-          "invalid_rows": 0,
-          "phase": "overlap",
-          "torn": 0,
-          "writers": 4
-        }
-      ]
-    },
-    "suite": "concurrent-kv",
-    "system": "md-rmw-sleep"
-  },
-  {
-    "config": "default;trial=5",
-    "matched": true,
-    "result": {
-      "acked_missing": 140,
-      "cas": "not measured in B1",
-      "duplicates": 0,
-      "history": {
-        "advertised": false,
-        "max_versions_per_key": 1,
-        "observations": [
-          {
-            "versions_per_key": {
-              "shared-0": 1,
-              "shared-1": 1,
-              "shared-2": 1,
-              "shared-3": 1
-            },
-            "writers": 8
-          }
-        ]
-      },
-      "info": {
-        "capabilities": [
-          "delete",
-          "emulated:delete",
-          "emulated:get",
-          "emulated:list_prefix",
-          "emulated:read_recent",
-          "emulated:upsert",
-          "get",
-          "get-id",
-          "get_by_ref",
-          "keyed",
-          "list_prefix",
-          "read_recent",
-          "search",
-          "upsert",
-          "write"
-        ],
-        "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
-        "protocol": 1,
-        "runtime_versions": {},
-        "servers": [],
-        "version": "stdlib-jsonl-v1"
-      },
-      "invalid_final": 0,
-      "invalid_rows": 0,
-      "status": "violation",
-      "torn": 0,
-      "trials": [
-        {
-          "acked_missing": 140,
-          "duplicates": 0,
-          "invalid_final": 0,
-          "phase": "distinct",
-          "torn": 0,
-          "writers": 8
-        },
-        {
-          "acked_missing": 0,
-          "duplicates": 0,
-          "invalid_final": 0,
-          "invalid_rows": 0,
-          "phase": "overlap",
-          "torn": 0,
-          "writers": 8
-        }
-      ]
-    },
-    "suite": "concurrent-kv",
-    "system": "md-rmw-sleep"
-  },
-  {
-    "config": "default;trial=6",
-    "matched": true,
-    "result": {
-      "acked_missing": 20,
-      "cas": "not measured in B1",
-      "duplicates": 0,
-      "history": {
-        "advertised": false,
-        "max_versions_per_key": 1,
-        "observations": [
-          {
-            "versions_per_key": {
-              "shared-0": 1,
-              "shared-1": 1,
-              "shared-2": 1,
-              "shared-3": 1
-            },
-            "writers": 2
-          }
-        ]
-      },
-      "info": {
-        "capabilities": [
-          "delete",
-          "emulated:delete",
-          "emulated:get",
-          "emulated:list_prefix",
-          "emulated:read_recent",
-          "emulated:upsert",
-          "get",
-          "get-id",
-          "get_by_ref",
-          "keyed",
-          "list_prefix",
-          "read_recent",
-          "search",
-          "upsert",
-          "write"
-        ],
-        "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
-        "protocol": 1,
-        "runtime_versions": {},
-        "servers": [],
-        "version": "stdlib-jsonl-v1"
-      },
-      "invalid_final": 0,
-      "invalid_rows": 0,
-      "status": "violation",
-      "torn": 0,
-      "trials": [
-        {
-          "acked_missing": 20,
-          "duplicates": 0,
-          "invalid_final": 0,
-          "phase": "distinct",
-          "torn": 0,
-          "writers": 2
-        },
-        {
-          "acked_missing": 0,
-          "duplicates": 0,
-          "invalid_final": 0,
-          "invalid_rows": 0,
-          "phase": "overlap",
-          "torn": 0,
-          "writers": 2
-        }
-      ]
-    },
-    "suite": "concurrent-kv",
-    "system": "md-rmw-sleep"
-  },
-  {
-    "config": "default;trial=7",
-    "matched": true,
-    "result": {
-      "acked_missing": 60,
-      "cas": "not measured in B1",
-      "duplicates": 0,
-      "history": {
-        "advertised": false,
-        "max_versions_per_key": 1,
-        "observations": [
-          {
-            "versions_per_key": {
-              "shared-0": 1,
-              "shared-1": 1,
-              "shared-2": 1,
-              "shared-3": 1
-            },
-            "writers": 4
-          }
-        ]
-      },
-      "info": {
-        "capabilities": [
-          "delete",
-          "emulated:delete",
-          "emulated:get",
-          "emulated:list_prefix",
-          "emulated:read_recent",
-          "emulated:upsert",
-          "get",
-          "get-id",
-          "get_by_ref",
-          "keyed",
-          "list_prefix",
-          "read_recent",
-          "search",
-          "upsert",
-          "write"
-        ],
-        "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
-        "protocol": 1,
-        "runtime_versions": {},
-        "servers": [],
-        "version": "stdlib-jsonl-v1"
-      },
-      "invalid_final": 0,
-      "invalid_rows": 0,
-      "status": "violation",
-      "torn": 0,
-      "trials": [
-        {
-          "acked_missing": 60,
-          "duplicates": 0,
-          "invalid_final": 0,
-          "phase": "distinct",
-          "torn": 0,
-          "writers": 4
-        },
-        {
-          "acked_missing": 0,
-          "duplicates": 0,
-          "invalid_final": 0,
-          "invalid_rows": 0,
-          "phase": "overlap",
-          "torn": 0,
-          "writers": 4
-        }
-      ]
-    },
-    "suite": "concurrent-kv",
-    "system": "md-rmw-sleep"
-  },
-  {
-    "config": "default;trial=8",
-    "matched": true,
-    "result": {
-      "acked_missing": 140,
-      "cas": "not measured in B1",
-      "duplicates": 0,
-      "history": {
-        "advertised": false,
-        "max_versions_per_key": 1,
-        "observations": [
-          {
-            "versions_per_key": {
-              "shared-0": 1,
-              "shared-1": 1,
-              "shared-2": 1,
-              "shared-3": 1
-            },
-            "writers": 8
-          }
-        ]
-      },
-      "info": {
-        "capabilities": [
-          "delete",
-          "emulated:delete",
-          "emulated:get",
-          "emulated:list_prefix",
-          "emulated:read_recent",
-          "emulated:upsert",
-          "get",
-          "get-id",
-          "get_by_ref",
-          "keyed",
-          "list_prefix",
-          "read_recent",
-          "search",
-          "upsert",
-          "write"
-        ],
-        "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
-        "protocol": 1,
-        "runtime_versions": {},
-        "servers": [],
-        "version": "stdlib-jsonl-v1"
-      },
-      "invalid_final": 0,
-      "invalid_rows": 0,
-      "status": "violation",
-      "torn": 0,
-      "trials": [
-        {
-          "acked_missing": 140,
-          "duplicates": 0,
-          "invalid_final": 0,
-          "phase": "distinct",
-          "torn": 0,
-          "writers": 8
-        },
-        {
-          "acked_missing": 0,
-          "duplicates": 0,
-          "invalid_final": 0,
-          "invalid_rows": 0,
-          "phase": "overlap",
-          "torn": 0,
-          "writers": 8
-        }
-      ]
-    },
-    "suite": "concurrent-kv",
-    "system": "md-rmw-sleep"
-  },
-  {
-    "config": "default;trial=9",
-    "matched": true,
-    "result": {
-      "acked_missing": 20,
-      "cas": "not measured in B1",
-      "duplicates": 0,
-      "history": {
-        "advertised": false,
-        "max_versions_per_key": 1,
-        "observations": [
-          {
-            "versions_per_key": {
-              "shared-0": 1,
-              "shared-1": 1,
-              "shared-2": 1,
-              "shared-3": 1
-            },
-            "writers": 2
-          }
-        ]
-      },
-      "info": {
-        "capabilities": [
-          "delete",
-          "emulated:delete",
-          "emulated:get",
-          "emulated:list_prefix",
-          "emulated:read_recent",
-          "emulated:upsert",
-          "get",
-          "get-id",
-          "get_by_ref",
-          "keyed",
-          "list_prefix",
-          "read_recent",
-          "search",
-          "upsert",
-          "write"
-        ],
-        "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
-        "protocol": 1,
-        "runtime_versions": {},
-        "servers": [],
-        "version": "stdlib-jsonl-v1"
-      },
-      "invalid_final": 0,
-      "invalid_rows": 0,
-      "status": "violation",
-      "torn": 0,
-      "trials": [
-        {
-          "acked_missing": 20,
-          "duplicates": 0,
-          "invalid_final": 0,
-          "phase": "distinct",
-          "torn": 0,
-          "writers": 2
-        },
-        {
-          "acked_missing": 0,
-          "duplicates": 0,
-          "invalid_final": 0,
-          "invalid_rows": 0,
-          "phase": "overlap",
-          "torn": 0,
-          "writers": 2
-        }
-      ]
-    },
-    "suite": "concurrent-kv",
-    "system": "md-rmw-sleep"
-  },
-  {
-    "config": "default;trial=10",
-    "matched": true,
-    "result": {
-      "acked_missing": 60,
-      "cas": "not measured in B1",
-      "duplicates": 0,
-      "history": {
-        "advertised": false,
-        "max_versions_per_key": 1,
-        "observations": [
-          {
-            "versions_per_key": {
-              "shared-0": 1,
-              "shared-1": 1,
-              "shared-2": 1,
-              "shared-3": 1
-            },
-            "writers": 4
-          }
-        ]
-      },
-      "info": {
-        "capabilities": [
-          "delete",
-          "emulated:delete",
-          "emulated:get",
-          "emulated:list_prefix",
-          "emulated:read_recent",
-          "emulated:upsert",
-          "get",
-          "get-id",
-          "get_by_ref",
-          "keyed",
-          "list_prefix",
-          "read_recent",
-          "search",
-          "upsert",
-          "write"
-        ],
-        "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
-        "protocol": 1,
-        "runtime_versions": {},
-        "servers": [],
-        "version": "stdlib-jsonl-v1"
-      },
-      "invalid_final": 0,
-      "invalid_rows": 0,
-      "status": "violation",
-      "torn": 0,
-      "trials": [
-        {
-          "acked_missing": 60,
-          "duplicates": 0,
-          "invalid_final": 0,
-          "phase": "distinct",
-          "torn": 0,
-          "writers": 4
-        },
-        {
-          "acked_missing": 0,
-          "duplicates": 0,
-          "invalid_final": 0,
-          "invalid_rows": 0,
-          "phase": "overlap",
-          "torn": 0,
-          "writers": 4
-        }
-      ]
-    },
-    "suite": "concurrent-kv",
-    "system": "md-rmw-sleep"
-  },
-  {
-    "config": "default;trial=11",
-    "matched": true,
-    "result": {
-      "acked_missing": 140,
-      "cas": "not measured in B1",
-      "duplicates": 0,
-      "history": {
-        "advertised": false,
-        "max_versions_per_key": 1,
-        "observations": [
-          {
-            "versions_per_key": {
-              "shared-0": 1,
-              "shared-1": 1,
-              "shared-2": 1,
-              "shared-3": 1
-            },
-            "writers": 8
-          }
-        ]
-      },
-      "info": {
-        "capabilities": [
-          "delete",
-          "emulated:delete",
-          "emulated:get",
-          "emulated:list_prefix",
-          "emulated:read_recent",
-          "emulated:upsert",
-          "get",
-          "get-id",
-          "get_by_ref",
-          "keyed",
-          "list_prefix",
-          "read_recent",
-          "search",
-          "upsert",
-          "write"
-        ],
-        "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
-        "protocol": 1,
-        "runtime_versions": {},
-        "servers": [],
-        "version": "stdlib-jsonl-v1"
-      },
-      "invalid_final": 0,
-      "invalid_rows": 0,
-      "status": "violation",
-      "torn": 0,
-      "trials": [
-        {
-          "acked_missing": 140,
-          "duplicates": 0,
-          "invalid_final": 0,
-          "phase": "distinct",
-          "torn": 0,
-          "writers": 8
-        },
-        {
-          "acked_missing": 0,
-          "duplicates": 0,
-          "invalid_final": 0,
-          "invalid_rows": 0,
-          "phase": "overlap",
-          "torn": 0,
-          "writers": 8
-        }
-      ]
-    },
-    "suite": "concurrent-kv",
-    "system": "md-rmw-sleep"
-  },
-  {
-    "config": "default;trial=12",
-    "matched": true,
-    "result": {
-      "acked_missing": 20,
-      "cas": "not measured in B1",
-      "duplicates": 0,
-      "history": {
-        "advertised": false,
-        "max_versions_per_key": 1,
-        "observations": [
-          {
-            "versions_per_key": {
-              "shared-0": 1,
-              "shared-1": 1,
-              "shared-2": 1,
-              "shared-3": 1
-            },
-            "writers": 2
-          }
-        ]
-      },
-      "info": {
-        "capabilities": [
-          "delete",
-          "emulated:delete",
-          "emulated:get",
-          "emulated:list_prefix",
-          "emulated:read_recent",
-          "emulated:upsert",
-          "get",
-          "get-id",
-          "get_by_ref",
-          "keyed",
-          "list_prefix",
-          "read_recent",
-          "search",
-          "upsert",
-          "write"
-        ],
-        "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
-        "protocol": 1,
-        "runtime_versions": {},
-        "servers": [],
-        "version": "stdlib-jsonl-v1"
-      },
-      "invalid_final": 0,
-      "invalid_rows": 0,
-      "status": "violation",
-      "torn": 0,
-      "trials": [
-        {
-          "acked_missing": 20,
-          "duplicates": 0,
-          "invalid_final": 0,
-          "phase": "distinct",
-          "torn": 0,
-          "writers": 2
-        },
-        {
-          "acked_missing": 0,
-          "duplicates": 0,
-          "invalid_final": 0,
-          "invalid_rows": 0,
-          "phase": "overlap",
-          "torn": 0,
-          "writers": 2
-        }
-      ]
-    },
-    "suite": "concurrent-kv",
-    "system": "md-rmw-sleep"
-  },
-  {
-    "config": "default;trial=13",
-    "matched": true,
-    "result": {
       "acked_missing": 59,
       "cas": "not measured in B1",
       "duplicates": 0,
@@ -7659,7 +6662,6 @@
           "emulated:read_recent",
           "emulated:upsert",
           "get",
-          "get-id",
           "get_by_ref",
           "keyed",
           "list_prefix",
@@ -7702,7 +6704,439 @@
     "system": "md-rmw-sleep"
   },
   {
-    "config": "default;trial=14",
+    "config": "default;trial=2",
+    "matched": true,
+    "result": {
+      "acked_missing": 139,
+      "cas": "not measured in B1",
+      "duplicates": 0,
+      "history": {
+        "advertised": false,
+        "max_versions_per_key": 1,
+        "observations": [
+          {
+            "versions_per_key": {
+              "shared-0": 1,
+              "shared-1": 1,
+              "shared-2": 1,
+              "shared-3": 1
+            },
+            "writers": 8
+          }
+        ]
+      },
+      "info": {
+        "capabilities": [
+          "delete",
+          "emulated:delete",
+          "emulated:get",
+          "emulated:list_prefix",
+          "emulated:read_recent",
+          "emulated:upsert",
+          "get",
+          "get_by_ref",
+          "keyed",
+          "list_prefix",
+          "read_recent",
+          "search",
+          "upsert",
+          "write"
+        ],
+        "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
+        "protocol": 1,
+        "runtime_versions": {},
+        "servers": [],
+        "version": "stdlib-jsonl-v1"
+      },
+      "invalid_final": 0,
+      "invalid_rows": 0,
+      "status": "violation",
+      "torn": 0,
+      "trials": [
+        {
+          "acked_missing": 139,
+          "duplicates": 0,
+          "invalid_final": 0,
+          "phase": "distinct",
+          "torn": 0,
+          "writers": 8
+        },
+        {
+          "acked_missing": 0,
+          "duplicates": 0,
+          "invalid_final": 0,
+          "invalid_rows": 0,
+          "phase": "overlap",
+          "torn": 0,
+          "writers": 8
+        }
+      ]
+    },
+    "suite": "concurrent-kv",
+    "system": "md-rmw-sleep"
+  },
+  {
+    "config": "default;trial=3",
+    "matched": true,
+    "result": {
+      "acked_missing": 20,
+      "cas": "not measured in B1",
+      "duplicates": 0,
+      "history": {
+        "advertised": false,
+        "max_versions_per_key": 1,
+        "observations": [
+          {
+            "versions_per_key": {
+              "shared-0": 1,
+              "shared-1": 1,
+              "shared-2": 1,
+              "shared-3": 1
+            },
+            "writers": 2
+          }
+        ]
+      },
+      "info": {
+        "capabilities": [
+          "delete",
+          "emulated:delete",
+          "emulated:get",
+          "emulated:list_prefix",
+          "emulated:read_recent",
+          "emulated:upsert",
+          "get",
+          "get_by_ref",
+          "keyed",
+          "list_prefix",
+          "read_recent",
+          "search",
+          "upsert",
+          "write"
+        ],
+        "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
+        "protocol": 1,
+        "runtime_versions": {},
+        "servers": [],
+        "version": "stdlib-jsonl-v1"
+      },
+      "invalid_final": 0,
+      "invalid_rows": 0,
+      "status": "violation",
+      "torn": 0,
+      "trials": [
+        {
+          "acked_missing": 20,
+          "duplicates": 0,
+          "invalid_final": 0,
+          "phase": "distinct",
+          "torn": 0,
+          "writers": 2
+        },
+        {
+          "acked_missing": 0,
+          "duplicates": 0,
+          "invalid_final": 0,
+          "invalid_rows": 0,
+          "phase": "overlap",
+          "torn": 0,
+          "writers": 2
+        }
+      ]
+    },
+    "suite": "concurrent-kv",
+    "system": "md-rmw-sleep"
+  },
+  {
+    "config": "default;trial=4",
+    "matched": true,
+    "result": {
+      "acked_missing": 60,
+      "cas": "not measured in B1",
+      "duplicates": 0,
+      "history": {
+        "advertised": false,
+        "max_versions_per_key": 1,
+        "observations": [
+          {
+            "versions_per_key": {
+              "shared-0": 1,
+              "shared-1": 1,
+              "shared-2": 1,
+              "shared-3": 1
+            },
+            "writers": 4
+          }
+        ]
+      },
+      "info": {
+        "capabilities": [
+          "delete",
+          "emulated:delete",
+          "emulated:get",
+          "emulated:list_prefix",
+          "emulated:read_recent",
+          "emulated:upsert",
+          "get",
+          "get_by_ref",
+          "keyed",
+          "list_prefix",
+          "read_recent",
+          "search",
+          "upsert",
+          "write"
+        ],
+        "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
+        "protocol": 1,
+        "runtime_versions": {},
+        "servers": [],
+        "version": "stdlib-jsonl-v1"
+      },
+      "invalid_final": 0,
+      "invalid_rows": 0,
+      "status": "violation",
+      "torn": 0,
+      "trials": [
+        {
+          "acked_missing": 60,
+          "duplicates": 0,
+          "invalid_final": 0,
+          "phase": "distinct",
+          "torn": 0,
+          "writers": 4
+        },
+        {
+          "acked_missing": 0,
+          "duplicates": 0,
+          "invalid_final": 0,
+          "invalid_rows": 0,
+          "phase": "overlap",
+          "torn": 0,
+          "writers": 4
+        }
+      ]
+    },
+    "suite": "concurrent-kv",
+    "system": "md-rmw-sleep"
+  },
+  {
+    "config": "default;trial=5",
+    "matched": true,
+    "result": {
+      "acked_missing": 139,
+      "cas": "not measured in B1",
+      "duplicates": 0,
+      "history": {
+        "advertised": false,
+        "max_versions_per_key": 1,
+        "observations": [
+          {
+            "versions_per_key": {
+              "shared-0": 1,
+              "shared-1": 1,
+              "shared-2": 1,
+              "shared-3": 1
+            },
+            "writers": 8
+          }
+        ]
+      },
+      "info": {
+        "capabilities": [
+          "delete",
+          "emulated:delete",
+          "emulated:get",
+          "emulated:list_prefix",
+          "emulated:read_recent",
+          "emulated:upsert",
+          "get",
+          "get_by_ref",
+          "keyed",
+          "list_prefix",
+          "read_recent",
+          "search",
+          "upsert",
+          "write"
+        ],
+        "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
+        "protocol": 1,
+        "runtime_versions": {},
+        "servers": [],
+        "version": "stdlib-jsonl-v1"
+      },
+      "invalid_final": 0,
+      "invalid_rows": 0,
+      "status": "violation",
+      "torn": 0,
+      "trials": [
+        {
+          "acked_missing": 139,
+          "duplicates": 0,
+          "invalid_final": 0,
+          "phase": "distinct",
+          "torn": 0,
+          "writers": 8
+        },
+        {
+          "acked_missing": 0,
+          "duplicates": 0,
+          "invalid_final": 0,
+          "invalid_rows": 0,
+          "phase": "overlap",
+          "torn": 0,
+          "writers": 8
+        }
+      ]
+    },
+    "suite": "concurrent-kv",
+    "system": "md-rmw-sleep"
+  },
+  {
+    "config": "default;trial=6",
+    "matched": true,
+    "result": {
+      "acked_missing": 20,
+      "cas": "not measured in B1",
+      "duplicates": 0,
+      "history": {
+        "advertised": false,
+        "max_versions_per_key": 1,
+        "observations": [
+          {
+            "versions_per_key": {
+              "shared-0": 1,
+              "shared-1": 1,
+              "shared-2": 1,
+              "shared-3": 1
+            },
+            "writers": 2
+          }
+        ]
+      },
+      "info": {
+        "capabilities": [
+          "delete",
+          "emulated:delete",
+          "emulated:get",
+          "emulated:list_prefix",
+          "emulated:read_recent",
+          "emulated:upsert",
+          "get",
+          "get_by_ref",
+          "keyed",
+          "list_prefix",
+          "read_recent",
+          "search",
+          "upsert",
+          "write"
+        ],
+        "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
+        "protocol": 1,
+        "runtime_versions": {},
+        "servers": [],
+        "version": "stdlib-jsonl-v1"
+      },
+      "invalid_final": 0,
+      "invalid_rows": 0,
+      "status": "violation",
+      "torn": 0,
+      "trials": [
+        {
+          "acked_missing": 20,
+          "duplicates": 0,
+          "invalid_final": 0,
+          "phase": "distinct",
+          "torn": 0,
+          "writers": 2
+        },
+        {
+          "acked_missing": 0,
+          "duplicates": 0,
+          "invalid_final": 0,
+          "invalid_rows": 0,
+          "phase": "overlap",
+          "torn": 0,
+          "writers": 2
+        }
+      ]
+    },
+    "suite": "concurrent-kv",
+    "system": "md-rmw-sleep"
+  },
+  {
+    "config": "default;trial=7",
+    "matched": true,
+    "result": {
+      "acked_missing": 59,
+      "cas": "not measured in B1",
+      "duplicates": 0,
+      "history": {
+        "advertised": false,
+        "max_versions_per_key": 1,
+        "observations": [
+          {
+            "versions_per_key": {
+              "shared-0": 1,
+              "shared-1": 1,
+              "shared-2": 1,
+              "shared-3": 1
+            },
+            "writers": 4
+          }
+        ]
+      },
+      "info": {
+        "capabilities": [
+          "delete",
+          "emulated:delete",
+          "emulated:get",
+          "emulated:list_prefix",
+          "emulated:read_recent",
+          "emulated:upsert",
+          "get",
+          "get_by_ref",
+          "keyed",
+          "list_prefix",
+          "read_recent",
+          "search",
+          "upsert",
+          "write"
+        ],
+        "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
+        "protocol": 1,
+        "runtime_versions": {},
+        "servers": [],
+        "version": "stdlib-jsonl-v1"
+      },
+      "invalid_final": 0,
+      "invalid_rows": 0,
+      "status": "violation",
+      "torn": 0,
+      "trials": [
+        {
+          "acked_missing": 59,
+          "duplicates": 0,
+          "invalid_final": 0,
+          "phase": "distinct",
+          "torn": 0,
+          "writers": 4
+        },
+        {
+          "acked_missing": 0,
+          "duplicates": 0,
+          "invalid_final": 0,
+          "invalid_rows": 0,
+          "phase": "overlap",
+          "torn": 0,
+          "writers": 4
+        }
+      ]
+    },
+    "suite": "concurrent-kv",
+    "system": "md-rmw-sleep"
+  },
+  {
+    "config": "default;trial=8",
     "matched": true,
     "result": {
       "acked_missing": 140,
@@ -7732,7 +7166,6 @@
           "emulated:read_recent",
           "emulated:upsert",
           "get",
-          "get-id",
           "get_by_ref",
           "keyed",
           "list_prefix",
@@ -7754,6 +7187,438 @@
       "trials": [
         {
           "acked_missing": 140,
+          "duplicates": 0,
+          "invalid_final": 0,
+          "phase": "distinct",
+          "torn": 0,
+          "writers": 8
+        },
+        {
+          "acked_missing": 0,
+          "duplicates": 0,
+          "invalid_final": 0,
+          "invalid_rows": 0,
+          "phase": "overlap",
+          "torn": 0,
+          "writers": 8
+        }
+      ]
+    },
+    "suite": "concurrent-kv",
+    "system": "md-rmw-sleep"
+  },
+  {
+    "config": "default;trial=9",
+    "matched": true,
+    "result": {
+      "acked_missing": 19,
+      "cas": "not measured in B1",
+      "duplicates": 0,
+      "history": {
+        "advertised": false,
+        "max_versions_per_key": 1,
+        "observations": [
+          {
+            "versions_per_key": {
+              "shared-0": 1,
+              "shared-1": 1,
+              "shared-2": 1,
+              "shared-3": 1
+            },
+            "writers": 2
+          }
+        ]
+      },
+      "info": {
+        "capabilities": [
+          "delete",
+          "emulated:delete",
+          "emulated:get",
+          "emulated:list_prefix",
+          "emulated:read_recent",
+          "emulated:upsert",
+          "get",
+          "get_by_ref",
+          "keyed",
+          "list_prefix",
+          "read_recent",
+          "search",
+          "upsert",
+          "write"
+        ],
+        "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
+        "protocol": 1,
+        "runtime_versions": {},
+        "servers": [],
+        "version": "stdlib-jsonl-v1"
+      },
+      "invalid_final": 0,
+      "invalid_rows": 0,
+      "status": "violation",
+      "torn": 0,
+      "trials": [
+        {
+          "acked_missing": 19,
+          "duplicates": 0,
+          "invalid_final": 0,
+          "phase": "distinct",
+          "torn": 0,
+          "writers": 2
+        },
+        {
+          "acked_missing": 0,
+          "duplicates": 0,
+          "invalid_final": 0,
+          "invalid_rows": 0,
+          "phase": "overlap",
+          "torn": 0,
+          "writers": 2
+        }
+      ]
+    },
+    "suite": "concurrent-kv",
+    "system": "md-rmw-sleep"
+  },
+  {
+    "config": "default;trial=10",
+    "matched": true,
+    "result": {
+      "acked_missing": 59,
+      "cas": "not measured in B1",
+      "duplicates": 0,
+      "history": {
+        "advertised": false,
+        "max_versions_per_key": 1,
+        "observations": [
+          {
+            "versions_per_key": {
+              "shared-0": 1,
+              "shared-1": 1,
+              "shared-2": 1,
+              "shared-3": 1
+            },
+            "writers": 4
+          }
+        ]
+      },
+      "info": {
+        "capabilities": [
+          "delete",
+          "emulated:delete",
+          "emulated:get",
+          "emulated:list_prefix",
+          "emulated:read_recent",
+          "emulated:upsert",
+          "get",
+          "get_by_ref",
+          "keyed",
+          "list_prefix",
+          "read_recent",
+          "search",
+          "upsert",
+          "write"
+        ],
+        "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
+        "protocol": 1,
+        "runtime_versions": {},
+        "servers": [],
+        "version": "stdlib-jsonl-v1"
+      },
+      "invalid_final": 0,
+      "invalid_rows": 0,
+      "status": "violation",
+      "torn": 0,
+      "trials": [
+        {
+          "acked_missing": 59,
+          "duplicates": 0,
+          "invalid_final": 0,
+          "phase": "distinct",
+          "torn": 0,
+          "writers": 4
+        },
+        {
+          "acked_missing": 0,
+          "duplicates": 0,
+          "invalid_final": 0,
+          "invalid_rows": 0,
+          "phase": "overlap",
+          "torn": 0,
+          "writers": 4
+        }
+      ]
+    },
+    "suite": "concurrent-kv",
+    "system": "md-rmw-sleep"
+  },
+  {
+    "config": "default;trial=11",
+    "matched": true,
+    "result": {
+      "acked_missing": 139,
+      "cas": "not measured in B1",
+      "duplicates": 0,
+      "history": {
+        "advertised": false,
+        "max_versions_per_key": 1,
+        "observations": [
+          {
+            "versions_per_key": {
+              "shared-0": 1,
+              "shared-1": 1,
+              "shared-2": 1,
+              "shared-3": 1
+            },
+            "writers": 8
+          }
+        ]
+      },
+      "info": {
+        "capabilities": [
+          "delete",
+          "emulated:delete",
+          "emulated:get",
+          "emulated:list_prefix",
+          "emulated:read_recent",
+          "emulated:upsert",
+          "get",
+          "get_by_ref",
+          "keyed",
+          "list_prefix",
+          "read_recent",
+          "search",
+          "upsert",
+          "write"
+        ],
+        "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
+        "protocol": 1,
+        "runtime_versions": {},
+        "servers": [],
+        "version": "stdlib-jsonl-v1"
+      },
+      "invalid_final": 0,
+      "invalid_rows": 0,
+      "status": "violation",
+      "torn": 0,
+      "trials": [
+        {
+          "acked_missing": 139,
+          "duplicates": 0,
+          "invalid_final": 0,
+          "phase": "distinct",
+          "torn": 0,
+          "writers": 8
+        },
+        {
+          "acked_missing": 0,
+          "duplicates": 0,
+          "invalid_final": 0,
+          "invalid_rows": 0,
+          "phase": "overlap",
+          "torn": 0,
+          "writers": 8
+        }
+      ]
+    },
+    "suite": "concurrent-kv",
+    "system": "md-rmw-sleep"
+  },
+  {
+    "config": "default;trial=12",
+    "matched": true,
+    "result": {
+      "acked_missing": 20,
+      "cas": "not measured in B1",
+      "duplicates": 0,
+      "history": {
+        "advertised": false,
+        "max_versions_per_key": 1,
+        "observations": [
+          {
+            "versions_per_key": {
+              "shared-0": 1,
+              "shared-1": 1,
+              "shared-2": 1,
+              "shared-3": 1
+            },
+            "writers": 2
+          }
+        ]
+      },
+      "info": {
+        "capabilities": [
+          "delete",
+          "emulated:delete",
+          "emulated:get",
+          "emulated:list_prefix",
+          "emulated:read_recent",
+          "emulated:upsert",
+          "get",
+          "get_by_ref",
+          "keyed",
+          "list_prefix",
+          "read_recent",
+          "search",
+          "upsert",
+          "write"
+        ],
+        "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
+        "protocol": 1,
+        "runtime_versions": {},
+        "servers": [],
+        "version": "stdlib-jsonl-v1"
+      },
+      "invalid_final": 0,
+      "invalid_rows": 0,
+      "status": "violation",
+      "torn": 0,
+      "trials": [
+        {
+          "acked_missing": 20,
+          "duplicates": 0,
+          "invalid_final": 0,
+          "phase": "distinct",
+          "torn": 0,
+          "writers": 2
+        },
+        {
+          "acked_missing": 0,
+          "duplicates": 0,
+          "invalid_final": 0,
+          "invalid_rows": 0,
+          "phase": "overlap",
+          "torn": 0,
+          "writers": 2
+        }
+      ]
+    },
+    "suite": "concurrent-kv",
+    "system": "md-rmw-sleep"
+  },
+  {
+    "config": "default;trial=13",
+    "matched": true,
+    "result": {
+      "acked_missing": 60,
+      "cas": "not measured in B1",
+      "duplicates": 0,
+      "history": {
+        "advertised": false,
+        "max_versions_per_key": 1,
+        "observations": [
+          {
+            "versions_per_key": {
+              "shared-0": 1,
+              "shared-1": 1,
+              "shared-2": 1,
+              "shared-3": 1
+            },
+            "writers": 4
+          }
+        ]
+      },
+      "info": {
+        "capabilities": [
+          "delete",
+          "emulated:delete",
+          "emulated:get",
+          "emulated:list_prefix",
+          "emulated:read_recent",
+          "emulated:upsert",
+          "get",
+          "get_by_ref",
+          "keyed",
+          "list_prefix",
+          "read_recent",
+          "search",
+          "upsert",
+          "write"
+        ],
+        "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
+        "protocol": 1,
+        "runtime_versions": {},
+        "servers": [],
+        "version": "stdlib-jsonl-v1"
+      },
+      "invalid_final": 0,
+      "invalid_rows": 0,
+      "status": "violation",
+      "torn": 0,
+      "trials": [
+        {
+          "acked_missing": 60,
+          "duplicates": 0,
+          "invalid_final": 0,
+          "phase": "distinct",
+          "torn": 0,
+          "writers": 4
+        },
+        {
+          "acked_missing": 0,
+          "duplicates": 0,
+          "invalid_final": 0,
+          "invalid_rows": 0,
+          "phase": "overlap",
+          "torn": 0,
+          "writers": 4
+        }
+      ]
+    },
+    "suite": "concurrent-kv",
+    "system": "md-rmw-sleep"
+  },
+  {
+    "config": "default;trial=14",
+    "matched": true,
+    "result": {
+      "acked_missing": 139,
+      "cas": "not measured in B1",
+      "duplicates": 0,
+      "history": {
+        "advertised": false,
+        "max_versions_per_key": 1,
+        "observations": [
+          {
+            "versions_per_key": {
+              "shared-0": 1,
+              "shared-1": 1,
+              "shared-2": 1,
+              "shared-3": 1
+            },
+            "writers": 8
+          }
+        ]
+      },
+      "info": {
+        "capabilities": [
+          "delete",
+          "emulated:delete",
+          "emulated:get",
+          "emulated:list_prefix",
+          "emulated:read_recent",
+          "emulated:upsert",
+          "get",
+          "get_by_ref",
+          "keyed",
+          "list_prefix",
+          "read_recent",
+          "search",
+          "upsert",
+          "write"
+        ],
+        "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
+        "protocol": 1,
+        "runtime_versions": {},
+        "servers": [],
+        "version": "stdlib-jsonl-v1"
+      },
+      "invalid_final": 0,
+      "invalid_rows": 0,
+      "status": "violation",
+      "torn": 0,
+      "trials": [
+        {
+          "acked_missing": 139,
           "duplicates": 0,
           "invalid_final": 0,
           "phase": "distinct",
@@ -7805,7 +7670,6 @@
           "emulated:read_recent",
           "emulated:upsert",
           "get",
-          "get-id",
           "get_by_ref",
           "keyed",
           "list_prefix",
@@ -7851,7 +7715,7 @@
     "config": "default;trial=16",
     "matched": true,
     "result": {
-      "acked_missing": 60,
+      "acked_missing": 59,
       "cas": "not measured in B1",
       "duplicates": 0,
       "history": {
@@ -7878,7 +7742,6 @@
           "emulated:read_recent",
           "emulated:upsert",
           "get",
-          "get-id",
           "get_by_ref",
           "keyed",
           "list_prefix",
@@ -7899,7 +7762,7 @@
       "torn": 0,
       "trials": [
         {
-          "acked_missing": 60,
+          "acked_missing": 59,
           "duplicates": 0,
           "invalid_final": 0,
           "phase": "distinct",
@@ -7951,7 +7814,6 @@
           "emulated:read_recent",
           "emulated:upsert",
           "get",
-          "get-id",
           "get_by_ref",
           "keyed",
           "list_prefix",
@@ -7997,7 +7859,7 @@
     "config": "default;trial=18",
     "matched": true,
     "result": {
-      "acked_missing": 20,
+      "acked_missing": 19,
       "cas": "not measured in B1",
       "duplicates": 0,
       "history": {
@@ -8024,7 +7886,6 @@
           "emulated:read_recent",
           "emulated:upsert",
           "get",
-          "get-id",
           "get_by_ref",
           "keyed",
           "list_prefix",
@@ -8045,7 +7906,7 @@
       "torn": 0,
       "trials": [
         {
-          "acked_missing": 20,
+          "acked_missing": 19,
           "duplicates": 0,
           "invalid_final": 0,
           "phase": "distinct",
@@ -8097,7 +7958,6 @@
           "emulated:read_recent",
           "emulated:upsert",
           "get",
-          "get-id",
           "get_by_ref",
           "keyed",
           "list_prefix",
@@ -8165,7 +8025,6 @@
         "capabilities": [
           "delete",
           "get",
-          "get-id",
           "get_by_ref",
           "keyed",
           "list_prefix",
@@ -8233,7 +8092,6 @@
         "capabilities": [
           "delete",
           "get",
-          "get-id",
           "get_by_ref",
           "keyed",
           "list_prefix",
@@ -8301,7 +8159,6 @@
         "capabilities": [
           "delete",
           "get",
-          "get-id",
           "get_by_ref",
           "keyed",
           "list_prefix",
@@ -8369,7 +8226,6 @@
         "capabilities": [
           "delete",
           "get",
-          "get-id",
           "get_by_ref",
           "keyed",
           "list_prefix",
@@ -8437,7 +8293,6 @@
         "capabilities": [
           "delete",
           "get",
-          "get-id",
           "get_by_ref",
           "keyed",
           "list_prefix",
@@ -8505,7 +8360,6 @@
         "capabilities": [
           "delete",
           "get",
-          "get-id",
           "get_by_ref",
           "keyed",
           "list_prefix",
@@ -8573,7 +8427,6 @@
         "capabilities": [
           "delete",
           "get",
-          "get-id",
           "get_by_ref",
           "keyed",
           "list_prefix",
@@ -8641,7 +8494,6 @@
         "capabilities": [
           "delete",
           "get",
-          "get-id",
           "get_by_ref",
           "keyed",
           "list_prefix",
@@ -8709,7 +8561,6 @@
         "capabilities": [
           "delete",
           "get",
-          "get-id",
           "get_by_ref",
           "keyed",
           "list_prefix",
@@ -8777,7 +8628,6 @@
         "capabilities": [
           "delete",
           "get",
-          "get-id",
           "get_by_ref",
           "keyed",
           "list_prefix",
@@ -8845,7 +8695,6 @@
         "capabilities": [
           "delete",
           "get",
-          "get-id",
           "get_by_ref",
           "keyed",
           "list_prefix",
@@ -8913,7 +8762,6 @@
         "capabilities": [
           "delete",
           "get",
-          "get-id",
           "get_by_ref",
           "keyed",
           "list_prefix",
@@ -8981,7 +8829,6 @@
         "capabilities": [
           "delete",
           "get",
-          "get-id",
           "get_by_ref",
           "keyed",
           "list_prefix",
@@ -9049,7 +8896,6 @@
         "capabilities": [
           "delete",
           "get",
-          "get-id",
           "get_by_ref",
           "keyed",
           "list_prefix",
@@ -9117,7 +8963,6 @@
         "capabilities": [
           "delete",
           "get",
-          "get-id",
           "get_by_ref",
           "keyed",
           "list_prefix",
@@ -9185,7 +9030,6 @@
         "capabilities": [
           "delete",
           "get",
-          "get-id",
           "get_by_ref",
           "keyed",
           "list_prefix",
@@ -9253,7 +9097,6 @@
         "capabilities": [
           "delete",
           "get",
-          "get-id",
           "get_by_ref",
           "keyed",
           "list_prefix",
@@ -9321,7 +9164,6 @@
         "capabilities": [
           "delete",
           "get",
-          "get-id",
           "get_by_ref",
           "keyed",
           "list_prefix",
@@ -9389,7 +9231,6 @@
         "capabilities": [
           "delete",
           "get",
-          "get-id",
           "get_by_ref",
           "keyed",
           "list_prefix",
@@ -9457,7 +9298,6 @@
         "capabilities": [
           "delete",
           "get",
-          "get-id",
           "get_by_ref",
           "keyed",
           "list_prefix",

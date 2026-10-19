@@ -11,9 +11,9 @@
     "processor": "arm",
     "ram_bytes": 17179869184
   },
-  "harness_commit": "084f6715d7b5842fcaa5f9b039ce13f6e761d808",
+  "harness_commit": "eb7b5e017da33653e21353e14ae3b9837395eb8d",
   "harness_dirty": false,
-  "methodology_sha256": "cd2d6dba9db27ce7c8b2d9bd08b923a957e0175356c7988d3730585f6df093bf",
+  "methodology_sha256": "2e445e8d732bd4ca93e9f15b9b3397754965671b9a37caf4aab0b0d9a04a3462",
   "os": "macOS-27.0.1-arm64-arm-64bit",
   "python": "3.12.12",
   "runtime_dependencies": "none (Python standard library only)",
@@ -28,7 +28,6 @@
         "emulated:read_recent",
         "emulated:upsert",
         "get",
-        "get-id",
         "get_by_ref",
         "keyed",
         "list_prefix",
@@ -49,7 +48,6 @@
       "capabilities": [
         "delete",
         "get",
-        "get-id",
         "get_by_ref",
         "keyed",
         "list_prefix",
@@ -75,7 +73,6 @@
         "emulated:read_recent",
         "emulated:upsert",
         "get",
-        "get-id",
         "get_by_ref",
         "keyed",
         "list_prefix",
@@ -96,7 +93,6 @@
       "capabilities": [
         "delete",
         "get",
-        "get-id",
         "get_by_ref",
         "keyed",
         "list_prefix",
@@ -117,7 +113,6 @@
       "capabilities": [
         "delete",
         "get",
-        "get-id",
         "get_by_ref",
         "keyed",
         "list_prefix",
@@ -138,7 +133,6 @@
       "capabilities": [
         "delete",
         "get",
-        "get-id",
         "get_by_ref",
         "keyed",
         "list_prefix",
