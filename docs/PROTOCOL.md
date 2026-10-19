@@ -108,6 +108,12 @@ The record's scope must match the request scope.
 `bulk_load` is untimed setup. The harness validates loaded records separately.
 `list_prefix` matches key prefixes, not record IDs.
 `search.args.vector` is optional in the schema. Vector stores require it.
+Search returns up to `k` records from the requested scope, ranked by the system's own relevance.
+Results may include nearest neighbours without sharing query words.
+The kit checks search membership and the rank of exact-text matches, never exact result-list equality.
+An exact-text query must rank its own stored record first when `k` is positive.
+Deleted records must be absent. Results must never exceed `k` or include another scope's records.
+`k: 0` returns no records.
 `stop` accepts optional `target: "all"` and `kill: false`.
 It closes storage gracefully unless `kill` requests forced shutdown.
 After replying to `stop`, a worker must accept stdin EOF and exit promptly.
@@ -161,6 +167,10 @@ Each line contains a request and an expected reply.
 The harness creates both arguments for the worker's actual start request.
 `match: "shape"` checks required reply fields instead of system-specific values.
 `match: "capabilities"` also checks equality with the start capabilities.
+Search reply arrays are valid examples, not exhaustive expected results.
+`match: "search"` uses membership assertions with optional `first` and `absent` records.
+`first` checks rank 1 only for an exact-text query. `absent` excludes deleted records by ID.
+Other neighbours and their relevance order remain system-specific.
 Error messages may vary. Error types must match.
 `requires` lists prerequisites for dependent transcript steps.
 An advertised or already successful operation satisfies a prerequisite.

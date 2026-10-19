@@ -10,10 +10,10 @@
 {"request":{"id":10,"op":"get_by_ref","args":{"scope":{"tenant":"other","session":"s"},"ref":{"kind":"ref","id":"$ref:r1"}}},"reply":{"id":10,"result":null}}
 {"request":{"id":11,"op":"get","args":{"scope":{"tenant":"other","session":"s"},"key":"path/one"}},"reply":{"id":11,"result":null}}
 {"request":{"id":12,"op":"list_prefix","args":{"scope":{"tenant":"other","session":"s"},"prefix":"","limit":10}},"reply":{"id":12,"result":[]}}
-{"request":{"id":13,"op":"search","args":{"scope":{"tenant":"other","session":"s"},"query":"café\nneedle","k":10}},"reply":{"id":13,"result":[]}}
+{"request":{"id":13,"op":"search","args":{"scope":{"tenant":"other","session":"s"},"query":"café\nneedle","k":10}},"reply":{"id":13,"result":[]},"match":"search"}
 {"request":{"id":14,"op":"read_recent","args":{"scope":{"tenant":"other","session":"s"},"n":10}},"reply":{"id":14,"result":[]}}
 {"request":{"id":15,"op":"list_prefix","args":{"scope":{"tenant":"t","session":"s"},"prefix":"path/","limit":10}},"reply":{"id":15,"result":["$record:r1"]}}
-{"request":{"id":16,"op":"search","args":{"scope":{"tenant":"t","session":"s"},"query":"café\nneedle","k":1}},"reply":{"id":16,"result":["$record:r1"]}}
+{"request":{"id":16,"op":"search","args":{"scope":{"tenant":"t","session":"s"},"query":"café\nneedle","k":1}},"reply":{"id":16,"result":["$record:r1"]},"match":"search","first":"$record:r1"}
 {"request":{"id":17,"op":"upsert","args":{"scope":{"tenant":"t","session":"s"},"record":{"kind":"record","id":"r3","scope":{"tenant":"t","session":"s"},"key":"path/one","text":"replacement","payload_sha256":"ce3137008470483fe0260b0801635ac2dfa3b7566ab4aa0b22d6186e268622e6"}}},"reply":{"id":17,"result":{"kind":"ack","id":"r3","dropped":false,"ref":{"kind":"ref","id":"$ref:r3"}}}}
 {"request":{"id":18,"op":"get","args":{"scope":{"tenant":"t","session":"s"},"key":"path/one"}},"reply":{"id":18,"result":"$record:r3"},"requires":["upsert"]}
 {"request":{"id":19,"op":"list_prefix","args":{"scope":{"tenant":"t","session":"s"},"prefix":"path/","limit":10}},"reply":{"id":19,"result":["$record:r3"]},"requires":["upsert"]}
@@ -23,10 +23,12 @@
 {"request":{"id":23,"op":"get_by_ref","args":{"scope":{"tenant":"t","session":"s"},"ref":{"kind":"ref","id":"$ref:r3"}}},"reply":{"id":23,"result":null},"requires":["upsert","delete"]}
 {"request":{"id":24,"op":"get","args":{"scope":{"tenant":"t","session":"s"},"key":"path/one"}},"reply":{"id":24,"result":null},"requires":["upsert","delete"]}
 {"request":{"id":25,"op":"list_prefix","args":{"scope":{"tenant":"t","session":"s"},"prefix":"path/","limit":10}},"reply":{"id":25,"result":[]},"requires":["upsert","delete"]}
-{"request":{"id":26,"op":"search","args":{"scope":{"tenant":"t","session":"s"},"query":"replacement","k":10}},"reply":{"id":26,"result":[]},"requires":["upsert","delete"]}
+{"request":{"id":26,"op":"search","args":{"scope":{"tenant":"t","session":"s"},"query":"replacement","k":10}},"reply":{"id":26,"result":["$record:r2","$record:r4"]},"match":"search","absent":["$record:r3"],"requires":["upsert","delete"]}
 {"request":{"id":27,"op":"read_recent","args":{"scope":{"tenant":"t","session":"s"},"n":10}},"reply":{"id":27,"result":["$record:r4","$record:r2"]},"requires":["upsert","delete","bulk_load"]}
 {"request":{"id":28,"op":"delete","args":{"scope":{"tenant":"t","session":"s"},"ref":{"kind":"ref","id":"$ref:r3"}}},"reply":{"id":28,"result":{"kind":"ack","id":"$ref:r3","dropped":false,"ref":null}},"requires":["upsert","delete"]}
 {"request":{"id":29,"op":"data_dirs","args":{}},"reply":{"id":29,"result":["$workdir"]},"match":"shape"}
 {"request":{"id":30,"op":"retrieve_for","args":{"ctx":{"file_path":"path/one","task_text":"needle","recent_context":"","token_budget":10}}},"reply":{"id":30,"result":""},"match":"shape"}
 {"request":{"id":31,"op":"ensure_server_exited","args":{"pid":2147483647}},"reply":{"id":31,"error":{"type":"invalid_request","message":"Unreported server PID"}}}
-{"request":{"id":32,"op":"stop","args":{}},"reply":{"id":32,"result":null}}
+{"request":{"id":32,"op":"search","args":{"scope":{"tenant":"t","session":"s"},"query":"second","k":3}},"reply":{"id":32,"result":["$record:r2"]},"match":"search","first":"$record:r2"}
+{"request":{"id":33,"op":"search","args":{"scope":{"tenant":"t","session":"s"},"query":"second","k":0}},"reply":{"id":33,"result":[]},"match":"search"}
+{"request":{"id":34,"op":"stop","args":{}},"reply":{"id":34,"result":null}}

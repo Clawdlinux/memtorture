@@ -41,6 +41,21 @@ def check_malformed():
     return len(fixtures)
 
 
+def search_matches(rows, args, *, first=None, absent=()):
+    if len(rows) > args["k"]:
+        raise ProtocolError("search returned more than k records")
+    if any(record.scope != args["scope"] for record in rows):
+        raise ProtocolError("search returned a record from another scope")
+    if any(not record.valid() for record in rows):
+        raise ProtocolError("search returned a torn record")
+    if first is not None and first.text != args["query"]:
+        raise ProtocolError("Golden search rank checks require exact query text")
+    forbidden = {record.id for record in absent}
+    if any(record.id in forbidden for record in rows):
+        return False
+    return first is None or args["k"] == 0 or bool(rows) and rows[0] == first
+
+
 def run_conformance(command, *, config="default", workdir=None, visibility_timeout=10):
     argv = shlex.split(command)
     if not argv:
@@ -136,7 +151,19 @@ def run_conformance(command, *, config="default", workdir=None, visibility_timeo
                     if "get_by_ref" in worker.capabilities and result.ref is None:
                         raise ProtocolError("get_by_ref requires native write refs")
                 match = case.get("match")
-                if match == "capabilities":
+                if op == "search":
+                    first = decode(expand(case.get("first")))
+                    absent = decode(expand(case.get("absent", [])))
+                    deadline = time.monotonic() + visibility_timeout
+                    while not search_matches(result, args, first=first, absent=absent):
+                        if time.monotonic() >= deadline:
+                            raise ProtocolError(
+                                f"search membership or rank disagrees with golden case "
+                                f"{request['id']}"
+                            )
+                        time.sleep(0.01)
+                        result = worker.call_raw(op, raw_args)
+                elif match == "capabilities":
                     if set(result) != worker.capabilities:
                         raise ProtocolError("Capabilities changed after start")
                 elif match != "shape":
@@ -147,8 +174,7 @@ def run_conformance(command, *, config="default", workdir=None, visibility_timeo
                     deadline = time.monotonic() + visibility_timeout
                     while (
                         result != expected
-                        and op
-                        in {"get", "get_by_ref", "read_recent", "list_prefix", "search"}
+                        and op in {"get", "get_by_ref", "read_recent", "list_prefix"}
                         and time.monotonic() < deadline
                     ):
                         time.sleep(0.01)

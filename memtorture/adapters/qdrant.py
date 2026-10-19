@@ -297,6 +297,8 @@ class Qdrant(Base):
         return rows[:limit]
 
     def search(self, scope, query, k, vector=None):
+        if k == 0:
+            return []
         if vector is None:
             raise ValueError("The harness must supply a search vector")
         body = {
