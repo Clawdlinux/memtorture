@@ -168,14 +168,14 @@ EXPORT_FIELDS = (
 
 def load_run(root=None):
     if root is None:
-        manifests = sorted(
+        runs = sorted(
             path
             for path in RUNS_ROOT.glob("*/manifest.json")
-            if "exported_from" not in json.loads(path.read_text())
+            if path.parent.name != "exports"
         )
-        if not manifests:
+        if not runs:
             raise ValueError("No local runs found")
-        root = manifests[-1].parent
+        root = runs[-1].parent
     root = Path(root)
     allowed_output(root)
     manifest = json.loads((root / "manifest.json").read_text())
@@ -195,17 +195,12 @@ def report(root=None, *, local=False):
     for suite in {cell["suite"] for cell in cells}:
         require_controls(suite)
     tables = render_tables(cells)
-    if local:
-        print(LOCAL_BANNER)
-        for table in tables.values():
-            print()
-            print(table, end="")
+    print(LOCAL_BANNER)
+    for table in tables.values():
         print()
-        print(LOCAL_BANNER)
-        return 0
-    for suite, table in tables.items():
-        (root / f"{suite}.md").write_text(table)
-    print(f"Local tables: {root}.")
+        print(table, end="")
+    print()
+    print(LOCAL_BANNER)
     return 0
 
 

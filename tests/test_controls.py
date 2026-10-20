@@ -8,8 +8,14 @@ import pytest
 from memtorture.cli import main
 from memtorture.controls import gate
 from memtorture.runner import run, run_cell
-from memtorture.suites import HISTORY_CONTROLS, check_supersede_by_key, history_scale
+from memtorture.suites import (
+    HISTORY_CONTROLS,
+    check_supersede_by_key,
+    history_scale,
+    supersede_by_key,
+)
 from memtorture.types import NotSupported
+from tests.helpers import LastRowWorker
 
 
 @pytest.mark.parametrize(
@@ -164,10 +170,17 @@ def test_control_evidence(stub_controls, tmp_path, workspace, monkeypatch, capsy
         ("last-row", 5, "violation"),
     ],
 )
-def test_latest_keyed_value(keyed_worker, system, versions, expected):
+def test_latest_keyed_value(tmp_path, system, versions, expected):
     events = []
-    with keyed_worker(system) as worker:
-        result = check_supersede_by_key(worker, versions=versions, emit=events.append)
+    if system == "last-row":
+        result = check_supersede_by_key(
+            LastRowWorker(), versions=versions, emit=events.append
+        )
+    else:
+        result = supersede_by_key(
+            system, "default", tmp_path, versions=versions, emit=events.append
+        )
+        assert result["info"]["version"], system
     assert result["status"] == expected
     assert result["versions"] == versions
     assert result["acked"] == 2 * versions

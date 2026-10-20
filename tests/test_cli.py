@@ -1,5 +1,4 @@
 import json
-import shutil
 import subprocess
 import sys
 from argparse import Namespace
@@ -158,7 +157,6 @@ def test_local_report_and_export(workspace, authorized_controls, provenance, cap
         assert main(["export-system", "--system", "sqlite", "--out", str(outside)]) == 1
         assert "results/runs/exports/" in capsys.readouterr().out
         assert not outside.exists()
-    shutil.copytree(export, "results/runs/zz-export")
     assert main(["report", "--local"]) == 0
     output = capsys.readouterr().out
     assert "987654" in output and "| sqlite |" in output

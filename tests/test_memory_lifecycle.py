@@ -67,17 +67,6 @@ def test_throughput_keeps_loss_visible(tmp_path, system, missing):
 
 
 @pytest.mark.parametrize(
-    "system,expected", [("append-oldest", "violation"), ("sqlite-upsert", "ok")]
-)
-def test_supersession_suite(tmp_path, system, expected):
-    result = supersede_by_key(system, "default", tmp_path)
-    assert result["status"] == expected
-    assert result["versions"] == 5
-    assert result["acked"] == 10 and result["dropped"] == 0
-    assert result["info"]["version"]
-
-
-@pytest.mark.parametrize(
     "system,expected",
     [
         ("sqlite-forget-fts", "violation"),

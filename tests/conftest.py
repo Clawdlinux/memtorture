@@ -1,4 +1,4 @@
-from contextlib import ExitStack, nullcontext
+from contextlib import ExitStack
 
 import pytest
 
@@ -11,7 +11,6 @@ from tests.helpers import (
     NODE,
     ROOT,
     GitProvenance,
-    LastRowWorker,
     cleanup_worker,
     probe_command,
     recovery_reply_command,
@@ -101,16 +100,6 @@ def worker_factory(tmp_path):
     yield start
     for worker in reversed(workers):
         cleanup_worker(worker)
-
-
-@pytest.fixture
-def keyed_worker(tmp_path):
-    def start(system):
-        if system == "last-row":
-            return nullcontext(LastRowWorker())
-        return Worker(system, "default", tmp_path)
-
-    return start
 
 
 @pytest.fixture
