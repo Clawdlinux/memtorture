@@ -4,7 +4,7 @@ import time
 import uuid
 
 from memtorture.adapters.base import Base
-from memtorture.types import Ack, NotSupported, Record, Scope
+from memtorture.types import Ack, NotSupported, Record, Ref, Scope
 
 
 class Markdown(Base):
@@ -22,7 +22,7 @@ class Markdown(Base):
         return {
             "write",
             "get",
-            "get-id",
+            "get_by_ref",
             "read_recent",
             "list_prefix",
             "search",
@@ -87,7 +87,7 @@ class Markdown(Base):
                     raise OSError("Short append")
             finally:
                 os.close(fd)
-        return Ack(record.id)
+        return Ack(record.id, ref=Ref(record.id))
 
     def bulk_load(self, scope, records):
         if any(r.scope != scope for r in records):
@@ -100,9 +100,10 @@ class Markdown(Base):
         return list(reversed(self._rows(scope)))[:n]
 
     def get(self, scope, key):
-        return next(
-            (r for r in reversed(self._rows(scope)) if key in (r.key, r.id)), None
-        )
+        return next((r for r in reversed(self._rows(scope)) if key == r.key), None)
+
+    def get_by_ref(self, scope, ref):
+        return next((r for r in reversed(self._rows(scope)) if r.id == ref.id), None)
 
     def list_prefix(self, scope, prefix, limit):
         rows = self._rows(scope)
@@ -110,17 +111,18 @@ class Markdown(Base):
         valid = [r for r in rows if r.valid() and r.key.startswith(prefix)]
         return valid[:limit] + invalid
 
-    def search(self, scope, query, k):
+    def search(self, scope, query, k, vector=None):
         return [r for r in reversed(self._rows(scope)) if query in r.text][:k]
 
-    def upsert(self, scope, key, value):
-        record = Record.from_value(scope, key, value)
+    def upsert(self, scope, record):
+        if record.scope != scope:
+            raise ValueError("Scope mismatch")
         self._rewrite(
             lambda rows: (
-                [r for r in rows if (r.scope, r.key) != (scope, key)] + [record]
+                [r for r in rows if (r.scope, r.key) != (scope, record.key)] + [record]
             )
         )
-        return Ack(record.id)
+        return Ack(record.id, ref=Ref(record.id))
 
     def delete(self, scope, ref):
         self._rewrite(

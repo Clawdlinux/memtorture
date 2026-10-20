@@ -1,7 +1,7 @@
 import sqlite3
 
 from memtorture.adapters.base import Base
-from memtorture.types import Ack, NotSupported, Record, Scope
+from memtorture.types import Ack, NotSupported, Record, Ref, Scope
 
 
 class SQLite(Base):
@@ -18,7 +18,7 @@ class SQLite(Base):
         return {
             "write",
             "get",
-            "get-id",
+            "get_by_ref",
             "read_recent",
             "list_prefix",
             "search",
@@ -88,12 +88,14 @@ class SQLite(Base):
                 record.payload_sha256,
             ),
         )
-        return Ack(record.id)
+        return Ack(record.id, ref=Ref(record.id))
 
     def get(self, scope, key):
         rows = self._query(scope, "AND path=?", (key,), 1, ordered=False)
-        if not rows:
-            rows = self._query(scope, "AND id=?", (key,), 1, ordered=False)
+        return rows[0] if rows else None
+
+    def get_by_ref(self, scope, ref):
+        rows = self._query(scope, "AND id=?", (ref.id,), 1, ordered=False)
         return rows[0] if rows else None
 
     def bulk_load(self, scope, records):
@@ -120,7 +122,7 @@ class SQLite(Base):
             ordered=False,
         )
 
-    def search(self, scope, query, k):
+    def search(self, scope, query, k, vector=None):
         if not query.strip():
             return []
         escaped = '"' + query.replace('"', '""') + '"'
@@ -131,8 +133,8 @@ class SQLite(Base):
             k,
         )
 
-    def upsert(self, scope, key, value):
-        return self.write(scope, Record.from_value(scope, key, value))
+    def upsert(self, scope, record):
+        return self.write(scope, record)
 
     def delete(self, scope, ref):
         self.db.execute(

@@ -29,9 +29,16 @@ def hardware():
 
 
 class ResultWriter:
-    def __init__(self, root: Path, command: list[str]):
+    def __init__(self, root: Path, command: list[str], *, control_evidence=False):
         from memtorture.controls.gate import methodology_hash
 
+        status_command = ["git", "status", "--porcelain"]
+        if control_evidence:
+            status_command += ["--", ":/", ":(top,exclude)results/controls"]
+        provenance = {
+            "harness_commit": commit(),
+            "harness_dirty": bool(subprocess.check_output(status_command, text=True)),
+        }
         self.root = Path(root)
         self.root.mkdir(parents=True, exist_ok=True)
         self.raw = (self.root / "operations.jsonl").open("w")
@@ -40,10 +47,7 @@ class ResultWriter:
         self.manifest = {
             "sponsor": SPONSOR,
             "command": command,
-            "harness_commit": commit(),
-            "harness_dirty": bool(
-                subprocess.check_output(["git", "status", "--porcelain"], text=True)
-            ),
+            **provenance,
             "methodology_sha256": methodology_hash(),
             "os": platform.platform(),
             "python": platform.python_version(),

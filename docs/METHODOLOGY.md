@@ -25,7 +25,10 @@ Readback recomputes SHA-256 over the same canonical JSON.
 Hash failures count as torn records.
 Missing acked records count as losses.
 
-Keyed writes pass the record envelope through the protocol's string value.
+Keyed writes pass a full record through protocol v1.
+The harness never builds a ref from a record ID.
+A system may use its record ID as its native ref.
+See [PROTOCOL.md](PROTOCOL.md) for wire shapes and validation rules.
 Adapters map that envelope onto native keyed operations where available.
 Scope includes both tenant and session.
 Every read filters both.
@@ -124,6 +127,8 @@ Timeouts and dropped writes are separate counts.
 Each poll records its latency and integrity result.
 Unsupported paths show N/A.
 Native write references travel in the ack when supported.
+The id path uses only `get_by_ref`. It never treats a record ID as a key.
+Missing support or a missing write ref makes that path N/A.
 The Qdrant id path retrieves that point reference with 1 native call.
 It does not hash the logical record id or perform a filtered-scroll fallback.
 Latency is observed read completion time, not the engine's internal index timestamp.
@@ -175,10 +180,17 @@ Prefix readback keeps invalid rows even when the valid-row limit is reached.
 Each group writes distinct keys, then overlapping keys.
 Distinct keys must all survive.
 Each overlapping key must end with one intact acked value.
-Intact rows are checked for duplicate keys.
+Rows are checked for duplicate record IDs, not duplicate keys.
+Only intact rows count toward duplicates.
+Corrupt copies count as torn, even when their IDs match intact records.
 Every returned row must match an acked write.
-Malformed rows count as torn, not duplicate keys.
-CAS and history report "not measured in B1", not false capability measurements.
+Multiple intact versions of a key are allowed.
+Malformed rows count as torn.
+History reports the advertised `history` capability separately from observed versions per key.
+Observed versions count distinct intact acked record IDs per key.
+The first intact row for an ID is retained. Later corrupt copies cannot hide that version.
+History never changes pass or fail.
+CAS remains "not measured in B1".
 Emulated upsert is marked.
 
 ## Rows and mapping
@@ -197,6 +209,8 @@ There is no Qdrant row named `durable`.
 The approved design's example uses that nickname.
 Its row-naming rule takes precedence.
 `wait` controls when writes are applied and visible, not fsync.
+Qdrant deletes use 1 filter RPC matching the native point ID, tenant, and session.
+Deletes never depend on a visibility read, including `wait=false`.
 The [v1.16 API](https://api.qdrant.tech/v-1-16-x/api-reference/points/upsert-points)
 says: "If true, wait for changes to actually happen".
 
@@ -206,8 +220,15 @@ describes WAL sync behavior.
 `FULL` syncs the WAL after each transaction commit.
 Markdown and MCP have no documented durable mode.
 
-Vector operations use seeded hash embedder v1.
-It has 64 dimensions and seed `20261019`.
+Vector operations use `sha256-counter-v1`, with 64 dimensions.
+It hashes a big-endian counter followed by exact UTF-8 text.
+Signed 32-bit words become normalized binary64 components.
+The byte layout and cross-language test vectors are in [PROTOCOL.md](PROTOCOL.md).
+The harness computes record and query vectors. Workers never embed text.
+Non-vector stores discard supplied vectors before persistence.
+Markdown and its controls store only the original record envelope, without vector components.
+SQLite and its controls keep the native record columns and FTS text, without vector storage.
+Protocol schemas, vectors, and worker manifests contribute to the control gate's methodology hash.
 It measures engine behavior, not semantic recall quality.
 The optional realistic embedder is outside B1.
 
@@ -216,6 +237,10 @@ The optional realistic embedder is outside B1.
 `operations.jsonl` records individual writes, reads, faults, and checks.
 `manifest.json` records the command, machine, OS, versions, config rows, and harness commit.
 Dirty worktrees are identified.
+Control manifests capture source provenance before opening output files.
+Generated files under `results/controls/` do not mark the harness source dirty.
+Other source and documentation changes still do.
+Commit code before regenerating evidence, then commit only the generated evidence.
 The methodology fingerprint identifies the exact code used.
 Per-suite Markdown tables sort systems alphabetically.
 Tables are local evidence only.

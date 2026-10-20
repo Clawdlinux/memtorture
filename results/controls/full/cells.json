@@ -7,7 +7,7 @@
         "capabilities": [
           "delete",
           "get",
-          "get-id",
+          "get_by_ref",
           "keyed",
           "list_prefix",
           "read_recent",
@@ -16,8 +16,9 @@
           "write"
         ],
         "notes": "Fixed 100 ms asynchronous delay on every read path.",
+        "protocol": 1,
         "runtime_versions": {},
-        "server_pid": null,
+        "servers": [],
         "version": "3.53.3"
       },
       "paths": {
@@ -25,31 +26,31 @@
           "dropped": 0,
           "observations": [
             {
-              "lag_ms": 100.134333,
+              "lag_ms": 100.195208,
               "polls": 101,
               "status": "visible",
-              "total_ms": 100.479791,
-              "write_ms": 0.345458
+              "total_ms": 100.828583,
+              "write_ms": 0.633375
             }
           ],
           "read_ms": {
-            "p50": 0.0855,
-            "p99": 0.253334
+            "p50": 0.11425,
+            "p99": 0.308167
           },
           "status": "measured",
           "time_to_visible_ms": {
-            "p50": 100.479791,
-            "p99": 100.479791
+            "p50": 100.828583,
+            "p99": 100.828583
           },
           "timeouts": 0,
           "visibility_lag_ms": {
-            "p50": 100.134333,
-            "p99": 100.134333
+            "p50": 100.195208,
+            "p99": 100.195208
           },
           "visible": 1,
           "write_latency_ms": {
-            "p50": 0.345458,
-            "p99": 0.345458
+            "p50": 0.633375,
+            "p99": 0.633375
           }
         }
       },
@@ -69,7 +70,7 @@
         "capabilities": [
           "delete",
           "get",
-          "get-id",
+          "get_by_ref",
           "keyed",
           "list_prefix",
           "read_recent",
@@ -78,8 +79,9 @@
           "write"
         ],
         "notes": "Fixed 100 ms asynchronous delay on every read path.",
+        "protocol": 1,
         "runtime_versions": {},
-        "server_pid": null,
+        "servers": [],
         "version": "3.53.3"
       },
       "paths": {
@@ -87,31 +89,31 @@
           "dropped": 0,
           "observations": [
             {
-              "lag_ms": 100.133459,
+              "lag_ms": 100.160375,
               "polls": 101,
               "status": "visible",
-              "total_ms": 100.402709,
-              "write_ms": 0.26925
+              "total_ms": 100.720916,
+              "write_ms": 0.560541
             }
           ],
           "read_ms": {
-            "p50": 0.073625,
-            "p99": 0.218167
+            "p50": 0.133458,
+            "p99": 0.311375
           },
           "status": "measured",
           "time_to_visible_ms": {
-            "p50": 100.402709,
-            "p99": 100.402709
+            "p50": 100.720916,
+            "p99": 100.720916
           },
           "timeouts": 0,
           "visibility_lag_ms": {
-            "p50": 100.133459,
-            "p99": 100.133459
+            "p50": 100.160375,
+            "p99": 100.160375
           },
           "visible": 1,
           "write_latency_ms": {
-            "p50": 0.26925,
-            "p99": 0.26925
+            "p50": 0.560541,
+            "p99": 0.560541
           }
         }
       },
@@ -131,7 +133,7 @@
         "capabilities": [
           "delete",
           "get",
-          "get-id",
+          "get_by_ref",
           "keyed",
           "list_prefix",
           "read_recent",
@@ -140,8 +142,9 @@
           "write"
         ],
         "notes": "Fixed 100 ms asynchronous delay on every read path.",
+        "protocol": 1,
         "runtime_versions": {},
-        "server_pid": null,
+        "servers": [],
         "version": "3.53.3"
       },
       "paths": {
@@ -149,31 +152,31 @@
           "dropped": 0,
           "observations": [
             {
-              "lag_ms": 100.103583,
+              "lag_ms": 100.186583,
               "polls": 101,
               "status": "visible",
-              "total_ms": 100.436625,
-              "write_ms": 0.333042
+              "total_ms": 100.785583,
+              "write_ms": 0.599
             }
           ],
           "read_ms": {
-            "p50": 0.074667,
-            "p99": 0.230625
+            "p50": 0.131542,
+            "p99": 0.369084
           },
           "status": "measured",
           "time_to_visible_ms": {
-            "p50": 100.436625,
-            "p99": 100.436625
+            "p50": 100.785583,
+            "p99": 100.785583
           },
           "timeouts": 0,
           "visibility_lag_ms": {
-            "p50": 100.103583,
-            "p99": 100.103583
+            "p50": 100.186583,
+            "p99": 100.186583
           },
           "visible": 1,
           "write_latency_ms": {
-            "p50": 0.333042,
-            "p99": 0.333042
+            "p50": 0.599,
+            "p99": 0.599
           }
         }
       },
@@ -193,7 +196,7 @@
         "capabilities": [
           "delete",
           "get",
-          "get-id",
+          "get_by_ref",
           "keyed",
           "list_prefix",
           "read_recent",
@@ -202,8 +205,9 @@
           "write"
         ],
         "notes": "Fixed 100 ms asynchronous delay on every read path.",
+        "protocol": 1,
         "runtime_versions": {},
-        "server_pid": null,
+        "servers": [],
         "version": "3.53.3"
       },
       "paths": {
@@ -211,31 +215,31 @@
           "dropped": 0,
           "observations": [
             {
-              "lag_ms": 100.210833,
+              "lag_ms": 100.346958,
               "polls": 101,
               "status": "visible",
-              "total_ms": 100.593375,
-              "write_ms": 0.382542
+              "total_ms": 101.023625,
+              "write_ms": 0.676667
             }
           ],
           "read_ms": {
-            "p50": 0.213916,
-            "p99": 0.405458
+            "p50": 0.314375,
+            "p99": 0.613333
           },
           "status": "measured",
           "time_to_visible_ms": {
-            "p50": 100.593375,
-            "p99": 100.593375
+            "p50": 101.023625,
+            "p99": 101.023625
           },
           "timeouts": 0,
           "visibility_lag_ms": {
-            "p50": 100.210833,
-            "p99": 100.210833
+            "p50": 100.346958,
+            "p99": 100.346958
           },
           "visible": 1,
           "write_latency_ms": {
-            "p50": 0.382542,
-            "p99": 0.382542
+            "p50": 0.676667,
+            "p99": 0.676667
           }
         }
       },
@@ -255,7 +259,7 @@
         "capabilities": [
           "delete",
           "get",
-          "get-id",
+          "get_by_ref",
           "keyed",
           "list_prefix",
           "read_recent",
@@ -264,8 +268,9 @@
           "write"
         ],
         "notes": "Fixed 100 ms asynchronous delay on every read path.",
+        "protocol": 1,
         "runtime_versions": {},
-        "server_pid": null,
+        "servers": [],
         "version": "3.53.3"
       },
       "paths": {
@@ -273,31 +278,31 @@
           "dropped": 0,
           "observations": [
             {
-              "lag_ms": 100.120834,
+              "lag_ms": 100.200041,
               "polls": 101,
               "status": "visible",
-              "total_ms": 100.63075,
-              "write_ms": 0.509916
+              "total_ms": 100.756083,
+              "write_ms": 0.556042
             }
           ],
           "read_ms": {
-            "p50": 0.130417,
-            "p99": 0.30425
+            "p50": 0.13475,
+            "p99": 0.3175
           },
           "status": "measured",
           "time_to_visible_ms": {
-            "p50": 100.63075,
-            "p99": 100.63075
+            "p50": 100.756083,
+            "p99": 100.756083
           },
           "timeouts": 0,
           "visibility_lag_ms": {
-            "p50": 100.120834,
-            "p99": 100.120834
+            "p50": 100.200041,
+            "p99": 100.200041
           },
           "visible": 1,
           "write_latency_ms": {
-            "p50": 0.509916,
-            "p99": 0.509916
+            "p50": 0.556042,
+            "p99": 0.556042
           }
         }
       },
@@ -317,7 +322,7 @@
         "capabilities": [
           "delete",
           "get",
-          "get-id",
+          "get_by_ref",
           "keyed",
           "list_prefix",
           "read_recent",
@@ -326,8 +331,9 @@
           "write"
         ],
         "notes": "Fixed 100 ms asynchronous delay on every read path.",
+        "protocol": 1,
         "runtime_versions": {},
-        "server_pid": null,
+        "servers": [],
         "version": "3.53.3"
       },
       "paths": {
@@ -335,31 +341,31 @@
           "dropped": 0,
           "observations": [
             {
-              "lag_ms": 100.095334,
+              "lag_ms": 100.266333,
               "polls": 101,
               "status": "visible",
-              "total_ms": 100.426834,
-              "write_ms": 0.3315
+              "total_ms": 100.850167,
+              "write_ms": 0.583834
             }
           ],
           "read_ms": {
-            "p50": 0.056834,
-            "p99": 0.253084
+            "p50": 0.127083,
+            "p99": 0.318417
           },
           "status": "measured",
           "time_to_visible_ms": {
-            "p50": 100.426834,
-            "p99": 100.426834
+            "p50": 100.850167,
+            "p99": 100.850167
           },
           "timeouts": 0,
           "visibility_lag_ms": {
-            "p50": 100.095334,
-            "p99": 100.095334
+            "p50": 100.266333,
+            "p99": 100.266333
           },
           "visible": 1,
           "write_latency_ms": {
-            "p50": 0.3315,
-            "p99": 0.3315
+            "p50": 0.583834,
+            "p99": 0.583834
           }
         }
       },
@@ -379,7 +385,7 @@
         "capabilities": [
           "delete",
           "get",
-          "get-id",
+          "get_by_ref",
           "keyed",
           "list_prefix",
           "read_recent",
@@ -388,8 +394,9 @@
           "write"
         ],
         "notes": "Fixed 100 ms asynchronous delay on every read path.",
+        "protocol": 1,
         "runtime_versions": {},
-        "server_pid": null,
+        "servers": [],
         "version": "3.53.3"
       },
       "paths": {
@@ -397,31 +404,31 @@
           "dropped": 0,
           "observations": [
             {
-              "lag_ms": 100.123458,
+              "lag_ms": 100.2095,
               "polls": 101,
               "status": "visible",
-              "total_ms": 100.500083,
-              "write_ms": 0.376625
+              "total_ms": 100.764541,
+              "write_ms": 0.555041
             }
           ],
           "read_ms": {
-            "p50": 0.0575,
-            "p99": 0.262792
+            "p50": 0.137375,
+            "p99": 0.306542
           },
           "status": "measured",
           "time_to_visible_ms": {
-            "p50": 100.500083,
-            "p99": 100.500083
+            "p50": 100.764541,
+            "p99": 100.764541
           },
           "timeouts": 0,
           "visibility_lag_ms": {
-            "p50": 100.123458,
-            "p99": 100.123458
+            "p50": 100.2095,
+            "p99": 100.2095
           },
           "visible": 1,
           "write_latency_ms": {
-            "p50": 0.376625,
-            "p99": 0.376625
+            "p50": 0.555041,
+            "p99": 0.555041
           }
         }
       },
@@ -441,7 +448,7 @@
         "capabilities": [
           "delete",
           "get",
-          "get-id",
+          "get_by_ref",
           "keyed",
           "list_prefix",
           "read_recent",
@@ -450,8 +457,9 @@
           "write"
         ],
         "notes": "Fixed 100 ms asynchronous delay on every read path.",
+        "protocol": 1,
         "runtime_versions": {},
-        "server_pid": null,
+        "servers": [],
         "version": "3.53.3"
       },
       "paths": {
@@ -459,31 +467,31 @@
           "dropped": 0,
           "observations": [
             {
-              "lag_ms": 100.112541,
+              "lag_ms": 100.395917,
               "polls": 101,
               "status": "visible",
-              "total_ms": 100.447416,
-              "write_ms": 0.334875
+              "total_ms": 101.056959,
+              "write_ms": 0.661042
             }
           ],
           "read_ms": {
-            "p50": 0.075542,
-            "p99": 0.270583
+            "p50": 0.268167,
+            "p99": 0.527834
           },
           "status": "measured",
           "time_to_visible_ms": {
-            "p50": 100.447416,
-            "p99": 100.447416
+            "p50": 101.056959,
+            "p99": 101.056959
           },
           "timeouts": 0,
           "visibility_lag_ms": {
-            "p50": 100.112541,
-            "p99": 100.112541
+            "p50": 100.395917,
+            "p99": 100.395917
           },
           "visible": 1,
           "write_latency_ms": {
-            "p50": 0.334875,
-            "p99": 0.334875
+            "p50": 0.661042,
+            "p99": 0.661042
           }
         }
       },
@@ -503,7 +511,7 @@
         "capabilities": [
           "delete",
           "get",
-          "get-id",
+          "get_by_ref",
           "keyed",
           "list_prefix",
           "read_recent",
@@ -512,8 +520,9 @@
           "write"
         ],
         "notes": "Fixed 100 ms asynchronous delay on every read path.",
+        "protocol": 1,
         "runtime_versions": {},
-        "server_pid": null,
+        "servers": [],
         "version": "3.53.3"
       },
       "paths": {
@@ -521,31 +530,31 @@
           "dropped": 0,
           "observations": [
             {
-              "lag_ms": 100.10875,
+              "lag_ms": 100.157916,
               "polls": 101,
               "status": "visible",
-              "total_ms": 100.440375,
-              "write_ms": 0.331625
+              "total_ms": 100.817833,
+              "write_ms": 0.659917
             }
           ],
           "read_ms": {
-            "p50": 0.065958,
-            "p99": 0.302834
+            "p50": 0.12575,
+            "p99": 0.319834
           },
           "status": "measured",
           "time_to_visible_ms": {
-            "p50": 100.440375,
-            "p99": 100.440375
+            "p50": 100.817833,
+            "p99": 100.817833
           },
           "timeouts": 0,
           "visibility_lag_ms": {
-            "p50": 100.10875,
-            "p99": 100.10875
+            "p50": 100.157916,
+            "p99": 100.157916
           },
           "visible": 1,
           "write_latency_ms": {
-            "p50": 0.331625,
-            "p99": 0.331625
+            "p50": 0.659917,
+            "p99": 0.659917
           }
         }
       },
@@ -565,7 +574,7 @@
         "capabilities": [
           "delete",
           "get",
-          "get-id",
+          "get_by_ref",
           "keyed",
           "list_prefix",
           "read_recent",
@@ -574,8 +583,9 @@
           "write"
         ],
         "notes": "Fixed 100 ms asynchronous delay on every read path.",
+        "protocol": 1,
         "runtime_versions": {},
-        "server_pid": null,
+        "servers": [],
         "version": "3.53.3"
       },
       "paths": {
@@ -583,31 +593,31 @@
           "dropped": 0,
           "observations": [
             {
-              "lag_ms": 100.096209,
+              "lag_ms": 100.179458,
               "polls": 101,
               "status": "visible",
-              "total_ms": 100.367959,
-              "write_ms": 0.27175
+              "total_ms": 100.771875,
+              "write_ms": 0.592417
             }
           ],
           "read_ms": {
-            "p50": 0.061916,
-            "p99": 0.1805
+            "p50": 0.126083,
+            "p99": 0.344583
           },
           "status": "measured",
           "time_to_visible_ms": {
-            "p50": 100.367959,
-            "p99": 100.367959
+            "p50": 100.771875,
+            "p99": 100.771875
           },
           "timeouts": 0,
           "visibility_lag_ms": {
-            "p50": 100.096209,
-            "p99": 100.096209
+            "p50": 100.179458,
+            "p99": 100.179458
           },
           "visible": 1,
           "write_latency_ms": {
-            "p50": 0.27175,
-            "p99": 0.27175
+            "p50": 0.592417,
+            "p99": 0.592417
           }
         }
       },
@@ -627,7 +637,7 @@
         "capabilities": [
           "delete",
           "get",
-          "get-id",
+          "get_by_ref",
           "keyed",
           "list_prefix",
           "read_recent",
@@ -636,8 +646,9 @@
           "write"
         ],
         "notes": "Fixed 100 ms asynchronous delay on every read path.",
+        "protocol": 1,
         "runtime_versions": {},
-        "server_pid": null,
+        "servers": [],
         "version": "3.53.3"
       },
       "paths": {
@@ -645,31 +656,31 @@
           "dropped": 0,
           "observations": [
             {
-              "lag_ms": 100.088333,
+              "lag_ms": 100.243166,
               "polls": 101,
               "status": "visible",
-              "total_ms": 100.376167,
-              "write_ms": 0.287834
+              "total_ms": 100.88525,
+              "write_ms": 0.642084
             }
           ],
           "read_ms": {
-            "p50": 0.055291,
-            "p99": 0.204125
+            "p50": 0.170042,
+            "p99": 0.503292
           },
           "status": "measured",
           "time_to_visible_ms": {
-            "p50": 100.376167,
-            "p99": 100.376167
+            "p50": 100.88525,
+            "p99": 100.88525
           },
           "timeouts": 0,
           "visibility_lag_ms": {
-            "p50": 100.088333,
-            "p99": 100.088333
+            "p50": 100.243166,
+            "p99": 100.243166
           },
           "visible": 1,
           "write_latency_ms": {
-            "p50": 0.287834,
-            "p99": 0.287834
+            "p50": 0.642084,
+            "p99": 0.642084
           }
         }
       },
@@ -689,7 +700,7 @@
         "capabilities": [
           "delete",
           "get",
-          "get-id",
+          "get_by_ref",
           "keyed",
           "list_prefix",
           "read_recent",
@@ -698,8 +709,9 @@
           "write"
         ],
         "notes": "Fixed 100 ms asynchronous delay on every read path.",
+        "protocol": 1,
         "runtime_versions": {},
-        "server_pid": null,
+        "servers": [],
         "version": "3.53.3"
       },
       "paths": {
@@ -707,31 +719,31 @@
           "dropped": 0,
           "observations": [
             {
-              "lag_ms": 100.100667,
+              "lag_ms": 100.329208,
               "polls": 101,
               "status": "visible",
-              "total_ms": 100.6505,
-              "write_ms": 0.549833
+              "total_ms": 100.959792,
+              "write_ms": 0.630584
             }
           ],
           "read_ms": {
-            "p50": 0.063375,
-            "p99": 0.275208
+            "p50": 0.282416,
+            "p99": 0.5385
           },
           "status": "measured",
           "time_to_visible_ms": {
-            "p50": 100.6505,
-            "p99": 100.6505
+            "p50": 100.959792,
+            "p99": 100.959792
           },
           "timeouts": 0,
           "visibility_lag_ms": {
-            "p50": 100.100667,
-            "p99": 100.100667
+            "p50": 100.329208,
+            "p99": 100.329208
           },
           "visible": 1,
           "write_latency_ms": {
-            "p50": 0.549833,
-            "p99": 0.549833
+            "p50": 0.630584,
+            "p99": 0.630584
           }
         }
       },
@@ -751,7 +763,7 @@
         "capabilities": [
           "delete",
           "get",
-          "get-id",
+          "get_by_ref",
           "keyed",
           "list_prefix",
           "read_recent",
@@ -760,8 +772,9 @@
           "write"
         ],
         "notes": "Fixed 100 ms asynchronous delay on every read path.",
+        "protocol": 1,
         "runtime_versions": {},
-        "server_pid": null,
+        "servers": [],
         "version": "3.53.3"
       },
       "paths": {
@@ -769,31 +782,31 @@
           "dropped": 0,
           "observations": [
             {
-              "lag_ms": 100.099083,
+              "lag_ms": 100.210667,
               "polls": 101,
               "status": "visible",
-              "total_ms": 100.391958,
-              "write_ms": 0.292875
+              "total_ms": 100.841042,
+              "write_ms": 0.630375
             }
           ],
           "read_ms": {
-            "p50": 0.0645,
-            "p99": 0.224792
+            "p50": 0.132958,
+            "p99": 0.328292
           },
           "status": "measured",
           "time_to_visible_ms": {
-            "p50": 100.391958,
-            "p99": 100.391958
+            "p50": 100.841042,
+            "p99": 100.841042
           },
           "timeouts": 0,
           "visibility_lag_ms": {
-            "p50": 100.099083,
-            "p99": 100.099083
+            "p50": 100.210667,
+            "p99": 100.210667
           },
           "visible": 1,
           "write_latency_ms": {
-            "p50": 0.292875,
-            "p99": 0.292875
+            "p50": 0.630375,
+            "p99": 0.630375
           }
         }
       },
@@ -813,7 +826,7 @@
         "capabilities": [
           "delete",
           "get",
-          "get-id",
+          "get_by_ref",
           "keyed",
           "list_prefix",
           "read_recent",
@@ -822,8 +835,9 @@
           "write"
         ],
         "notes": "Fixed 100 ms asynchronous delay on every read path.",
+        "protocol": 1,
         "runtime_versions": {},
-        "server_pid": null,
+        "servers": [],
         "version": "3.53.3"
       },
       "paths": {
@@ -831,31 +845,31 @@
           "dropped": 0,
           "observations": [
             {
-              "lag_ms": 100.086417,
+              "lag_ms": 100.1875,
               "polls": 101,
               "status": "visible",
-              "total_ms": 100.392833,
-              "write_ms": 0.306416
+              "total_ms": 100.753334,
+              "write_ms": 0.565834
             }
           ],
           "read_ms": {
-            "p50": 0.050875,
-            "p99": 0.206625
+            "p50": 0.122708,
+            "p99": 0.283333
           },
           "status": "measured",
           "time_to_visible_ms": {
-            "p50": 100.392833,
-            "p99": 100.392833
+            "p50": 100.753334,
+            "p99": 100.753334
           },
           "timeouts": 0,
           "visibility_lag_ms": {
-            "p50": 100.086417,
-            "p99": 100.086417
+            "p50": 100.1875,
+            "p99": 100.1875
           },
           "visible": 1,
           "write_latency_ms": {
-            "p50": 0.306416,
-            "p99": 0.306416
+            "p50": 0.565834,
+            "p99": 0.565834
           }
         }
       },
@@ -875,7 +889,7 @@
         "capabilities": [
           "delete",
           "get",
-          "get-id",
+          "get_by_ref",
           "keyed",
           "list_prefix",
           "read_recent",
@@ -884,8 +898,9 @@
           "write"
         ],
         "notes": "Fixed 100 ms asynchronous delay on every read path.",
+        "protocol": 1,
         "runtime_versions": {},
-        "server_pid": null,
+        "servers": [],
         "version": "3.53.3"
       },
       "paths": {
@@ -893,31 +908,31 @@
           "dropped": 0,
           "observations": [
             {
-              "lag_ms": 100.108833,
+              "lag_ms": 100.158042,
               "polls": 101,
               "status": "visible",
-              "total_ms": 100.394167,
-              "write_ms": 0.285334
+              "total_ms": 100.761083,
+              "write_ms": 0.603041
             }
           ],
           "read_ms": {
-            "p50": 0.049667,
-            "p99": 0.21
+            "p50": 0.135459,
+            "p99": 0.405125
           },
           "status": "measured",
           "time_to_visible_ms": {
-            "p50": 100.394167,
-            "p99": 100.394167
+            "p50": 100.761083,
+            "p99": 100.761083
           },
           "timeouts": 0,
           "visibility_lag_ms": {
-            "p50": 100.108833,
-            "p99": 100.108833
+            "p50": 100.158042,
+            "p99": 100.158042
           },
           "visible": 1,
           "write_latency_ms": {
-            "p50": 0.285334,
-            "p99": 0.285334
+            "p50": 0.603041,
+            "p99": 0.603041
           }
         }
       },
@@ -937,7 +952,7 @@
         "capabilities": [
           "delete",
           "get",
-          "get-id",
+          "get_by_ref",
           "keyed",
           "list_prefix",
           "read_recent",
@@ -946,8 +961,9 @@
           "write"
         ],
         "notes": "Fixed 100 ms asynchronous delay on every read path.",
+        "protocol": 1,
         "runtime_versions": {},
-        "server_pid": null,
+        "servers": [],
         "version": "3.53.3"
       },
       "paths": {
@@ -955,31 +971,31 @@
           "dropped": 0,
           "observations": [
             {
-              "lag_ms": 100.098709,
+              "lag_ms": 100.267208,
               "polls": 101,
               "status": "visible",
-              "total_ms": 100.322042,
-              "write_ms": 0.223333
+              "total_ms": 100.876083,
+              "write_ms": 0.608875
             }
           ],
           "read_ms": {
-            "p50": 0.059541,
-            "p99": 0.241541
+            "p50": 0.276,
+            "p99": 0.539
           },
           "status": "measured",
           "time_to_visible_ms": {
-            "p50": 100.322042,
-            "p99": 100.322042
+            "p50": 100.876083,
+            "p99": 100.876083
           },
           "timeouts": 0,
           "visibility_lag_ms": {
-            "p50": 100.098709,
-            "p99": 100.098709
+            "p50": 100.267208,
+            "p99": 100.267208
           },
           "visible": 1,
           "write_latency_ms": {
-            "p50": 0.223333,
-            "p99": 0.223333
+            "p50": 0.608875,
+            "p99": 0.608875
           }
         }
       },
@@ -999,7 +1015,7 @@
         "capabilities": [
           "delete",
           "get",
-          "get-id",
+          "get_by_ref",
           "keyed",
           "list_prefix",
           "read_recent",
@@ -1008,8 +1024,9 @@
           "write"
         ],
         "notes": "Fixed 100 ms asynchronous delay on every read path.",
+        "protocol": 1,
         "runtime_versions": {},
-        "server_pid": null,
+        "servers": [],
         "version": "3.53.3"
       },
       "paths": {
@@ -1017,31 +1034,31 @@
           "dropped": 0,
           "observations": [
             {
-              "lag_ms": 100.095625,
+              "lag_ms": 100.143375,
               "polls": 101,
               "status": "visible",
-              "total_ms": 100.346084,
-              "write_ms": 0.250459
+              "total_ms": 100.734292,
+              "write_ms": 0.590917
             }
           ],
           "read_ms": {
-            "p50": 0.057666,
-            "p99": 0.29975
+            "p50": 0.094917,
+            "p99": 0.324333
           },
           "status": "measured",
           "time_to_visible_ms": {
-            "p50": 100.346084,
-            "p99": 100.346084
+            "p50": 100.734292,
+            "p99": 100.734292
           },
           "timeouts": 0,
           "visibility_lag_ms": {
-            "p50": 100.095625,
-            "p99": 100.095625
+            "p50": 100.143375,
+            "p99": 100.143375
           },
           "visible": 1,
           "write_latency_ms": {
-            "p50": 0.250459,
-            "p99": 0.250459
+            "p50": 0.590917,
+            "p99": 0.590917
           }
         }
       },
@@ -1061,7 +1078,7 @@
         "capabilities": [
           "delete",
           "get",
-          "get-id",
+          "get_by_ref",
           "keyed",
           "list_prefix",
           "read_recent",
@@ -1070,8 +1087,9 @@
           "write"
         ],
         "notes": "Fixed 100 ms asynchronous delay on every read path.",
+        "protocol": 1,
         "runtime_versions": {},
-        "server_pid": null,
+        "servers": [],
         "version": "3.53.3"
       },
       "paths": {
@@ -1079,31 +1097,31 @@
           "dropped": 0,
           "observations": [
             {
-              "lag_ms": 100.095583,
+              "lag_ms": 100.146667,
               "polls": 101,
               "status": "visible",
-              "total_ms": 100.362833,
-              "write_ms": 0.26725
+              "total_ms": 100.698417,
+              "write_ms": 0.55175
             }
           ],
           "read_ms": {
-            "p50": 0.07075,
-            "p99": 0.321417
+            "p50": 0.093209,
+            "p99": 0.257208
           },
           "status": "measured",
           "time_to_visible_ms": {
-            "p50": 100.362833,
-            "p99": 100.362833
+            "p50": 100.698417,
+            "p99": 100.698417
           },
           "timeouts": 0,
           "visibility_lag_ms": {
-            "p50": 100.095583,
-            "p99": 100.095583
+            "p50": 100.146667,
+            "p99": 100.146667
           },
           "visible": 1,
           "write_latency_ms": {
-            "p50": 0.26725,
-            "p99": 0.26725
+            "p50": 0.55175,
+            "p99": 0.55175
           }
         }
       },
@@ -1123,7 +1141,7 @@
         "capabilities": [
           "delete",
           "get",
-          "get-id",
+          "get_by_ref",
           "keyed",
           "list_prefix",
           "read_recent",
@@ -1132,8 +1150,9 @@
           "write"
         ],
         "notes": "Fixed 100 ms asynchronous delay on every read path.",
+        "protocol": 1,
         "runtime_versions": {},
-        "server_pid": null,
+        "servers": [],
         "version": "3.53.3"
       },
       "paths": {
@@ -1141,31 +1160,31 @@
           "dropped": 0,
           "observations": [
             {
-              "lag_ms": 100.091792,
+              "lag_ms": 100.26625,
               "polls": 101,
               "status": "visible",
-              "total_ms": 100.396917,
-              "write_ms": 0.305125
+              "total_ms": 100.787667,
+              "write_ms": 0.521417
             }
           ],
           "read_ms": {
-            "p50": 0.049709,
-            "p99": 0.241333
+            "p50": 0.103125,
+            "p99": 0.303
           },
           "status": "measured",
           "time_to_visible_ms": {
-            "p50": 100.396917,
-            "p99": 100.396917
+            "p50": 100.787667,
+            "p99": 100.787667
           },
           "timeouts": 0,
           "visibility_lag_ms": {
-            "p50": 100.091792,
-            "p99": 100.091792
+            "p50": 100.26625,
+            "p99": 100.26625
           },
           "visible": 1,
           "write_latency_ms": {
-            "p50": 0.305125,
-            "p99": 0.305125
+            "p50": 0.521417,
+            "p99": 0.521417
           }
         }
       },
@@ -1185,7 +1204,7 @@
         "capabilities": [
           "delete",
           "get",
-          "get-id",
+          "get_by_ref",
           "keyed",
           "list_prefix",
           "read_recent",
@@ -1194,8 +1213,9 @@
           "write"
         ],
         "notes": "Fixed 100 ms asynchronous delay on every read path.",
+        "protocol": 1,
         "runtime_versions": {},
-        "server_pid": null,
+        "servers": [],
         "version": "3.53.3"
       },
       "paths": {
@@ -1203,31 +1223,31 @@
           "dropped": 0,
           "observations": [
             {
-              "lag_ms": 100.085625,
+              "lag_ms": 100.318083,
               "polls": 101,
               "status": "visible",
-              "total_ms": 100.37125,
-              "write_ms": 0.285625
+              "total_ms": 100.835333,
+              "write_ms": 0.51725
             }
           ],
           "read_ms": {
-            "p50": 0.060042,
-            "p99": 0.264625
+            "p50": 0.241417,
+            "p99": 0.450042
           },
           "status": "measured",
           "time_to_visible_ms": {
-            "p50": 100.37125,
-            "p99": 100.37125
+            "p50": 100.835333,
+            "p99": 100.835333
           },
           "timeouts": 0,
           "visibility_lag_ms": {
-            "p50": 100.085625,
-            "p99": 100.085625
+            "p50": 100.318083,
+            "p99": 100.318083
           },
           "visible": 1,
           "write_latency_ms": {
-            "p50": 0.285625,
-            "p99": 0.285625
+            "p50": 0.51725,
+            "p99": 0.51725
           }
         }
       },
@@ -1247,7 +1267,7 @@
         "capabilities": [
           "delete",
           "get",
-          "get-id",
+          "get_by_ref",
           "keyed",
           "list_prefix",
           "read_recent",
@@ -1256,8 +1276,9 @@
           "write"
         ],
         "notes": "SQLite is visible on commit.",
+        "protocol": 1,
         "runtime_versions": {},
-        "server_pid": null,
+        "servers": [],
         "version": "3.53.3"
       },
       "paths": {
@@ -1265,31 +1286,31 @@
           "dropped": 0,
           "observations": [
             {
-              "lag_ms": 0.132417,
+              "lag_ms": 0.301333,
               "polls": 1,
               "status": "visible",
-              "total_ms": 0.354,
-              "write_ms": 0.221583
+              "total_ms": 0.85175,
+              "write_ms": 0.550417
             }
           ],
           "read_ms": {
-            "p50": 0.112042,
-            "p99": 0.112042
+            "p50": 0.235125,
+            "p99": 0.235125
           },
           "status": "measured",
           "time_to_visible_ms": {
-            "p50": 0.354,
-            "p99": 0.354
+            "p50": 0.85175,
+            "p99": 0.85175
           },
           "timeouts": 0,
           "visibility_lag_ms": {
-            "p50": 0.132417,
-            "p99": 0.132417
+            "p50": 0.301333,
+            "p99": 0.301333
           },
           "visible": 1,
           "write_latency_ms": {
-            "p50": 0.221583,
-            "p99": 0.221583
+            "p50": 0.550417,
+            "p99": 0.550417
           }
         }
       },
@@ -1309,7 +1330,7 @@
         "capabilities": [
           "delete",
           "get",
-          "get-id",
+          "get_by_ref",
           "keyed",
           "list_prefix",
           "read_recent",
@@ -1318,8 +1339,9 @@
           "write"
         ],
         "notes": "SQLite is visible on commit.",
+        "protocol": 1,
         "runtime_versions": {},
-        "server_pid": null,
+        "servers": [],
         "version": "3.53.3"
       },
       "paths": {
@@ -1327,31 +1349,31 @@
           "dropped": 0,
           "observations": [
             {
-              "lag_ms": 0.372125,
+              "lag_ms": 0.297542,
               "polls": 1,
               "status": "visible",
-              "total_ms": 0.615,
-              "write_ms": 0.242875
+              "total_ms": 0.840333,
+              "write_ms": 0.542791
             }
           ],
           "read_ms": {
-            "p50": 0.350541,
-            "p99": 0.350541
+            "p50": 0.235,
+            "p99": 0.235
           },
           "status": "measured",
           "time_to_visible_ms": {
-            "p50": 0.615,
-            "p99": 0.615
+            "p50": 0.840333,
+            "p99": 0.840333
           },
           "timeouts": 0,
           "visibility_lag_ms": {
-            "p50": 0.372125,
-            "p99": 0.372125
+            "p50": 0.297542,
+            "p99": 0.297542
           },
           "visible": 1,
           "write_latency_ms": {
-            "p50": 0.242875,
-            "p99": 0.242875
+            "p50": 0.542791,
+            "p99": 0.542791
           }
         }
       },
@@ -1371,7 +1393,7 @@
         "capabilities": [
           "delete",
           "get",
-          "get-id",
+          "get_by_ref",
           "keyed",
           "list_prefix",
           "read_recent",
@@ -1380,8 +1402,9 @@
           "write"
         ],
         "notes": "SQLite is visible on commit.",
+        "protocol": 1,
         "runtime_versions": {},
-        "server_pid": null,
+        "servers": [],
         "version": "3.53.3"
       },
       "paths": {
@@ -1389,31 +1412,31 @@
           "dropped": 0,
           "observations": [
             {
-              "lag_ms": 0.121208,
+              "lag_ms": 0.296417,
               "polls": 1,
               "status": "visible",
-              "total_ms": 0.368083,
-              "write_ms": 0.246875
+              "total_ms": 0.874958,
+              "write_ms": 0.578541
             }
           ],
           "read_ms": {
-            "p50": 0.099041,
-            "p99": 0.099041
+            "p50": 0.234042,
+            "p99": 0.234042
           },
           "status": "measured",
           "time_to_visible_ms": {
-            "p50": 0.368083,
-            "p99": 0.368083
+            "p50": 0.874958,
+            "p99": 0.874958
           },
           "timeouts": 0,
           "visibility_lag_ms": {
-            "p50": 0.121208,
-            "p99": 0.121208
+            "p50": 0.296417,
+            "p99": 0.296417
           },
           "visible": 1,
           "write_latency_ms": {
-            "p50": 0.246875,
-            "p99": 0.246875
+            "p50": 0.578541,
+            "p99": 0.578541
           }
         }
       },
@@ -1433,7 +1456,7 @@
         "capabilities": [
           "delete",
           "get",
-          "get-id",
+          "get_by_ref",
           "keyed",
           "list_prefix",
           "read_recent",
@@ -1442,8 +1465,9 @@
           "write"
         ],
         "notes": "SQLite is visible on commit.",
+        "protocol": 1,
         "runtime_versions": {},
-        "server_pid": null,
+        "servers": [],
         "version": "3.53.3"
       },
       "paths": {
@@ -1451,31 +1475,31 @@
           "dropped": 0,
           "observations": [
             {
-              "lag_ms": 0.204,
+              "lag_ms": 0.489292,
               "polls": 1,
               "status": "visible",
-              "total_ms": 0.535209,
-              "write_ms": 0.331209
+              "total_ms": 1.028917,
+              "write_ms": 0.539625
             }
           ],
           "read_ms": {
-            "p50": 0.170084,
-            "p99": 0.170084
+            "p50": 0.426333,
+            "p99": 0.426333
           },
           "status": "measured",
           "time_to_visible_ms": {
-            "p50": 0.535209,
-            "p99": 0.535209
+            "p50": 1.028917,
+            "p99": 1.028917
           },
           "timeouts": 0,
           "visibility_lag_ms": {
-            "p50": 0.204,
-            "p99": 0.204
+            "p50": 0.489292,
+            "p99": 0.489292
           },
           "visible": 1,
           "write_latency_ms": {
-            "p50": 0.331209,
-            "p99": 0.331209
+            "p50": 0.539625,
+            "p99": 0.539625
           }
         }
       },
@@ -1495,7 +1519,7 @@
         "capabilities": [
           "delete",
           "get",
-          "get-id",
+          "get_by_ref",
           "keyed",
           "list_prefix",
           "read_recent",
@@ -1504,8 +1528,9 @@
           "write"
         ],
         "notes": "SQLite is visible on commit.",
+        "protocol": 1,
         "runtime_versions": {},
-        "server_pid": null,
+        "servers": [],
         "version": "3.53.3"
       },
       "paths": {
@@ -1513,31 +1538,31 @@
           "dropped": 0,
           "observations": [
             {
-              "lag_ms": 0.166208,
+              "lag_ms": 0.27175,
               "polls": 1,
               "status": "visible",
-              "total_ms": 0.437833,
-              "write_ms": 0.271625
+              "total_ms": 0.8165,
+              "write_ms": 0.54475
             }
           ],
           "read_ms": {
-            "p50": 0.135541,
-            "p99": 0.135541
+            "p50": 0.217125,
+            "p99": 0.217125
           },
           "status": "measured",
           "time_to_visible_ms": {
-            "p50": 0.437833,
-            "p99": 0.437833
+            "p50": 0.8165,
+            "p99": 0.8165
           },
           "timeouts": 0,
           "visibility_lag_ms": {
-            "p50": 0.166208,
-            "p99": 0.166208
+            "p50": 0.27175,
+            "p99": 0.27175
           },
           "visible": 1,
           "write_latency_ms": {
-            "p50": 0.271625,
-            "p99": 0.271625
+            "p50": 0.54475,
+            "p99": 0.54475
           }
         }
       },
@@ -1557,7 +1582,7 @@
         "capabilities": [
           "delete",
           "get",
-          "get-id",
+          "get_by_ref",
           "keyed",
           "list_prefix",
           "read_recent",
@@ -1566,8 +1591,9 @@
           "write"
         ],
         "notes": "SQLite is visible on commit.",
+        "protocol": 1,
         "runtime_versions": {},
-        "server_pid": null,
+        "servers": [],
         "version": "3.53.3"
       },
       "paths": {
@@ -1575,31 +1601,31 @@
           "dropped": 0,
           "observations": [
             {
-              "lag_ms": 0.171125,
+              "lag_ms": 0.422375,
               "polls": 1,
               "status": "visible",
-              "total_ms": 0.441917,
-              "write_ms": 0.270792
+              "total_ms": 1.129209,
+              "write_ms": 0.706834
             }
           ],
           "read_ms": {
-            "p50": 0.135333,
-            "p99": 0.135333
+            "p50": 0.321042,
+            "p99": 0.321042
           },
           "status": "measured",
           "time_to_visible_ms": {
-            "p50": 0.441917,
-            "p99": 0.441917
+            "p50": 1.129209,
+            "p99": 1.129209
           },
           "timeouts": 0,
           "visibility_lag_ms": {
-            "p50": 0.171125,
-            "p99": 0.171125
+            "p50": 0.422375,
+            "p99": 0.422375
           },
           "visible": 1,
           "write_latency_ms": {
-            "p50": 0.270792,
-            "p99": 0.270792
+            "p50": 0.706834,
+            "p99": 0.706834
           }
         }
       },
@@ -1619,7 +1645,7 @@
         "capabilities": [
           "delete",
           "get",
-          "get-id",
+          "get_by_ref",
           "keyed",
           "list_prefix",
           "read_recent",
@@ -1628,8 +1654,9 @@
           "write"
         ],
         "notes": "SQLite is visible on commit.",
+        "protocol": 1,
         "runtime_versions": {},
-        "server_pid": null,
+        "servers": [],
         "version": "3.53.3"
       },
       "paths": {
@@ -1637,31 +1664,31 @@
           "dropped": 0,
           "observations": [
             {
-              "lag_ms": 0.152292,
+              "lag_ms": 0.293583,
               "polls": 1,
               "status": "visible",
-              "total_ms": 0.424875,
-              "write_ms": 0.272583
+              "total_ms": 0.8695,
+              "write_ms": 0.575917
             }
           ],
           "read_ms": {
-            "p50": 0.123667,
-            "p99": 0.123667
+            "p50": 0.227916,
+            "p99": 0.227916
           },
           "status": "measured",
           "time_to_visible_ms": {
-            "p50": 0.424875,
-            "p99": 0.424875
+            "p50": 0.8695,
+            "p99": 0.8695
           },
           "timeouts": 0,
           "visibility_lag_ms": {
-            "p50": 0.152292,
-            "p99": 0.152292
+            "p50": 0.293583,
+            "p99": 0.293583
           },
           "visible": 1,
           "write_latency_ms": {
-            "p50": 0.272583,
-            "p99": 0.272583
+            "p50": 0.575917,
+            "p99": 0.575917
           }
         }
       },
@@ -1681,7 +1708,7 @@
         "capabilities": [
           "delete",
           "get",
-          "get-id",
+          "get_by_ref",
           "keyed",
           "list_prefix",
           "read_recent",
@@ -1690,8 +1717,9 @@
           "write"
         ],
         "notes": "SQLite is visible on commit.",
+        "protocol": 1,
         "runtime_versions": {},
-        "server_pid": null,
+        "servers": [],
         "version": "3.53.3"
       },
       "paths": {
@@ -1699,31 +1727,31 @@
           "dropped": 0,
           "observations": [
             {
-              "lag_ms": 0.213417,
+              "lag_ms": 0.517542,
               "polls": 1,
               "status": "visible",
-              "total_ms": 0.50125,
-              "write_ms": 0.287833
+              "total_ms": 1.165834,
+              "write_ms": 0.648292
             }
           ],
           "read_ms": {
-            "p50": 0.182917,
-            "p99": 0.182917
+            "p50": 0.450625,
+            "p99": 0.450625
           },
           "status": "measured",
           "time_to_visible_ms": {
-            "p50": 0.50125,
-            "p99": 0.50125
+            "p50": 1.165834,
+            "p99": 1.165834
           },
           "timeouts": 0,
           "visibility_lag_ms": {
-            "p50": 0.213417,
-            "p99": 0.213417
+            "p50": 0.517542,
+            "p99": 0.517542
           },
           "visible": 1,
           "write_latency_ms": {
-            "p50": 0.287833,
-            "p99": 0.287833
+            "p50": 0.648292,
+            "p99": 0.648292
           }
         }
       },
@@ -1743,7 +1771,7 @@
         "capabilities": [
           "delete",
           "get",
-          "get-id",
+          "get_by_ref",
           "keyed",
           "list_prefix",
           "read_recent",
@@ -1752,8 +1780,9 @@
           "write"
         ],
         "notes": "SQLite is visible on commit.",
+        "protocol": 1,
         "runtime_versions": {},
-        "server_pid": null,
+        "servers": [],
         "version": "3.53.3"
       },
       "paths": {
@@ -1761,31 +1790,31 @@
           "dropped": 0,
           "observations": [
             {
-              "lag_ms": 0.172583,
+              "lag_ms": 0.394042,
               "polls": 1,
               "status": "visible",
-              "total_ms": 0.440625,
-              "write_ms": 0.268042
+              "total_ms": 0.987167,
+              "write_ms": 0.593125
             }
           ],
           "read_ms": {
-            "p50": 0.141125,
-            "p99": 0.141125
+            "p50": 0.3305,
+            "p99": 0.3305
           },
           "status": "measured",
           "time_to_visible_ms": {
-            "p50": 0.440625,
-            "p99": 0.440625
+            "p50": 0.987167,
+            "p99": 0.987167
           },
           "timeouts": 0,
           "visibility_lag_ms": {
-            "p50": 0.172583,
-            "p99": 0.172583
+            "p50": 0.394042,
+            "p99": 0.394042
           },
           "visible": 1,
           "write_latency_ms": {
-            "p50": 0.268042,
-            "p99": 0.268042
+            "p50": 0.593125,
+            "p99": 0.593125
           }
         }
       },
@@ -1805,7 +1834,7 @@
         "capabilities": [
           "delete",
           "get",
-          "get-id",
+          "get_by_ref",
           "keyed",
           "list_prefix",
           "read_recent",
@@ -1814,8 +1843,9 @@
           "write"
         ],
         "notes": "SQLite is visible on commit.",
+        "protocol": 1,
         "runtime_versions": {},
-        "server_pid": null,
+        "servers": [],
         "version": "3.53.3"
       },
       "paths": {
@@ -1823,31 +1853,31 @@
           "dropped": 0,
           "observations": [
             {
-              "lag_ms": 0.175625,
+              "lag_ms": 0.323791,
               "polls": 1,
               "status": "visible",
-              "total_ms": 0.457584,
-              "write_ms": 0.281959
+              "total_ms": 1.059,
+              "write_ms": 0.735209
             }
           ],
           "read_ms": {
-            "p50": 0.144167,
-            "p99": 0.144167
+            "p50": 0.254416,
+            "p99": 0.254416
           },
           "status": "measured",
           "time_to_visible_ms": {
-            "p50": 0.457584,
-            "p99": 0.457584
+            "p50": 1.059,
+            "p99": 1.059
           },
           "timeouts": 0,
           "visibility_lag_ms": {
-            "p50": 0.175625,
-            "p99": 0.175625
+            "p50": 0.323791,
+            "p99": 0.323791
           },
           "visible": 1,
           "write_latency_ms": {
-            "p50": 0.281959,
-            "p99": 0.281959
+            "p50": 0.735209,
+            "p99": 0.735209
           }
         }
       },
@@ -1867,7 +1897,7 @@
         "capabilities": [
           "delete",
           "get",
-          "get-id",
+          "get_by_ref",
           "keyed",
           "list_prefix",
           "read_recent",
@@ -1876,8 +1906,9 @@
           "write"
         ],
         "notes": "SQLite is visible on commit.",
+        "protocol": 1,
         "runtime_versions": {},
-        "server_pid": null,
+        "servers": [],
         "version": "3.53.3"
       },
       "paths": {
@@ -1885,31 +1916,31 @@
           "dropped": 0,
           "observations": [
             {
-              "lag_ms": 0.156833,
+              "lag_ms": 0.309125,
               "polls": 1,
               "status": "visible",
-              "total_ms": 0.486,
-              "write_ms": 0.329167
+              "total_ms": 0.967791,
+              "write_ms": 0.658666
             }
           ],
           "read_ms": {
-            "p50": 0.124958,
-            "p99": 0.124958
+            "p50": 0.24525,
+            "p99": 0.24525
           },
           "status": "measured",
           "time_to_visible_ms": {
-            "p50": 0.486,
-            "p99": 0.486
+            "p50": 0.967791,
+            "p99": 0.967791
           },
           "timeouts": 0,
           "visibility_lag_ms": {
-            "p50": 0.156833,
-            "p99": 0.156833
+            "p50": 0.309125,
+            "p99": 0.309125
           },
           "visible": 1,
           "write_latency_ms": {
-            "p50": 0.329167,
-            "p99": 0.329167
+            "p50": 0.658666,
+            "p99": 0.658666
           }
         }
       },
@@ -1929,7 +1960,7 @@
         "capabilities": [
           "delete",
           "get",
-          "get-id",
+          "get_by_ref",
           "keyed",
           "list_prefix",
           "read_recent",
@@ -1938,8 +1969,9 @@
           "write"
         ],
         "notes": "SQLite is visible on commit.",
+        "protocol": 1,
         "runtime_versions": {},
-        "server_pid": null,
+        "servers": [],
         "version": "3.53.3"
       },
       "paths": {
@@ -1947,31 +1979,31 @@
           "dropped": 0,
           "observations": [
             {
-              "lag_ms": 0.166292,
+              "lag_ms": 0.524583,
               "polls": 1,
               "status": "visible",
-              "total_ms": 0.424,
-              "write_ms": 0.257708
+              "total_ms": 1.182833,
+              "write_ms": 0.65825
             }
           ],
           "read_ms": {
-            "p50": 0.146375,
-            "p99": 0.146375
+            "p50": 0.446833,
+            "p99": 0.446833
           },
           "status": "measured",
           "time_to_visible_ms": {
-            "p50": 0.424,
-            "p99": 0.424
+            "p50": 1.182833,
+            "p99": 1.182833
           },
           "timeouts": 0,
           "visibility_lag_ms": {
-            "p50": 0.166292,
-            "p99": 0.166292
+            "p50": 0.524583,
+            "p99": 0.524583
           },
           "visible": 1,
           "write_latency_ms": {
-            "p50": 0.257708,
-            "p99": 0.257708
+            "p50": 0.65825,
+            "p99": 0.65825
           }
         }
       },
@@ -1991,7 +2023,7 @@
         "capabilities": [
           "delete",
           "get",
-          "get-id",
+          "get_by_ref",
           "keyed",
           "list_prefix",
           "read_recent",
@@ -2000,8 +2032,9 @@
           "write"
         ],
         "notes": "SQLite is visible on commit.",
+        "protocol": 1,
         "runtime_versions": {},
-        "server_pid": null,
+        "servers": [],
         "version": "3.53.3"
       },
       "paths": {
@@ -2009,31 +2042,31 @@
           "dropped": 0,
           "observations": [
             {
-              "lag_ms": 0.20725,
+              "lag_ms": 0.27625,
               "polls": 1,
               "status": "visible",
-              "total_ms": 0.472,
-              "write_ms": 0.26475
+              "total_ms": 0.815625,
+              "write_ms": 0.539375
             }
           ],
           "read_ms": {
-            "p50": 0.177833,
-            "p99": 0.177833
+            "p50": 0.218584,
+            "p99": 0.218584
           },
           "status": "measured",
           "time_to_visible_ms": {
-            "p50": 0.472,
-            "p99": 0.472
+            "p50": 0.815625,
+            "p99": 0.815625
           },
           "timeouts": 0,
           "visibility_lag_ms": {
-            "p50": 0.20725,
-            "p99": 0.20725
+            "p50": 0.27625,
+            "p99": 0.27625
           },
           "visible": 1,
           "write_latency_ms": {
-            "p50": 0.26475,
-            "p99": 0.26475
+            "p50": 0.539375,
+            "p99": 0.539375
           }
         }
       },
@@ -2053,7 +2086,7 @@
         "capabilities": [
           "delete",
           "get",
-          "get-id",
+          "get_by_ref",
           "keyed",
           "list_prefix",
           "read_recent",
@@ -2062,8 +2095,9 @@
           "write"
         ],
         "notes": "SQLite is visible on commit.",
+        "protocol": 1,
         "runtime_versions": {},
-        "server_pid": null,
+        "servers": [],
         "version": "3.53.3"
       },
       "paths": {
@@ -2071,31 +2105,31 @@
           "dropped": 0,
           "observations": [
             {
-              "lag_ms": 0.119792,
+              "lag_ms": 0.326291,
               "polls": 1,
               "status": "visible",
-              "total_ms": 0.337584,
-              "write_ms": 0.217792
+              "total_ms": 0.936,
+              "write_ms": 0.609709
             }
           ],
           "read_ms": {
-            "p50": 0.1005,
-            "p99": 0.1005
+            "p50": 0.25575,
+            "p99": 0.25575
           },
           "status": "measured",
           "time_to_visible_ms": {
-            "p50": 0.337584,
-            "p99": 0.337584
+            "p50": 0.936,
+            "p99": 0.936
           },
           "timeouts": 0,
           "visibility_lag_ms": {
-            "p50": 0.119792,
-            "p99": 0.119792
+            "p50": 0.326291,
+            "p99": 0.326291
           },
           "visible": 1,
           "write_latency_ms": {
-            "p50": 0.217792,
-            "p99": 0.217792
+            "p50": 0.609709,
+            "p99": 0.609709
           }
         }
       },
@@ -2115,7 +2149,7 @@
         "capabilities": [
           "delete",
           "get",
-          "get-id",
+          "get_by_ref",
           "keyed",
           "list_prefix",
           "read_recent",
@@ -2124,8 +2158,9 @@
           "write"
         ],
         "notes": "SQLite is visible on commit.",
+        "protocol": 1,
         "runtime_versions": {},
-        "server_pid": null,
+        "servers": [],
         "version": "3.53.3"
       },
       "paths": {
@@ -2133,31 +2168,31 @@
           "dropped": 0,
           "observations": [
             {
-              "lag_ms": 0.145833,
+              "lag_ms": 0.350708,
               "polls": 1,
               "status": "visible",
-              "total_ms": 0.425958,
-              "write_ms": 0.280125
+              "total_ms": 0.976375,
+              "write_ms": 0.625667
             }
           ],
           "read_ms": {
-            "p50": 0.116458,
-            "p99": 0.116458
+            "p50": 0.279167,
+            "p99": 0.279167
           },
           "status": "measured",
           "time_to_visible_ms": {
-            "p50": 0.425958,
-            "p99": 0.425958
+            "p50": 0.976375,
+            "p99": 0.976375
           },
           "timeouts": 0,
           "visibility_lag_ms": {
-            "p50": 0.145833,
-            "p99": 0.145833
+            "p50": 0.350708,
+            "p99": 0.350708
           },
           "visible": 1,
           "write_latency_ms": {
-            "p50": 0.280125,
-            "p99": 0.280125
+            "p50": 0.625667,
+            "p99": 0.625667
           }
         }
       },
@@ -2177,7 +2212,7 @@
         "capabilities": [
           "delete",
           "get",
-          "get-id",
+          "get_by_ref",
           "keyed",
           "list_prefix",
           "read_recent",
@@ -2186,8 +2221,9 @@
           "write"
         ],
         "notes": "SQLite is visible on commit.",
+        "protocol": 1,
         "runtime_versions": {},
-        "server_pid": null,
+        "servers": [],
         "version": "3.53.3"
       },
       "paths": {
@@ -2195,31 +2231,31 @@
           "dropped": 0,
           "observations": [
             {
-              "lag_ms": 0.204542,
+              "lag_ms": 0.743667,
               "polls": 1,
               "status": "visible",
-              "total_ms": 0.496375,
-              "write_ms": 0.291833
+              "total_ms": 1.657625,
+              "write_ms": 0.913958
             }
           ],
           "read_ms": {
-            "p50": 0.17175,
-            "p99": 0.17175
+            "p50": 0.649959,
+            "p99": 0.649959
           },
           "status": "measured",
           "time_to_visible_ms": {
-            "p50": 0.496375,
-            "p99": 0.496375
+            "p50": 1.657625,
+            "p99": 1.657625
           },
           "timeouts": 0,
           "visibility_lag_ms": {
-            "p50": 0.204542,
-            "p99": 0.204542
+            "p50": 0.743667,
+            "p99": 0.743667
           },
           "visible": 1,
           "write_latency_ms": {
-            "p50": 0.291833,
-            "p99": 0.291833
+            "p50": 0.913958,
+            "p99": 0.913958
           }
         }
       },
@@ -2239,7 +2275,7 @@
         "capabilities": [
           "delete",
           "get",
-          "get-id",
+          "get_by_ref",
           "keyed",
           "list_prefix",
           "read_recent",
@@ -2248,8 +2284,9 @@
           "write"
         ],
         "notes": "SQLite is visible on commit.",
+        "protocol": 1,
         "runtime_versions": {},
-        "server_pid": null,
+        "servers": [],
         "version": "3.53.3"
       },
       "paths": {
@@ -2257,31 +2294,31 @@
           "dropped": 0,
           "observations": [
             {
-              "lag_ms": 0.168375,
+              "lag_ms": 0.285875,
               "polls": 1,
               "status": "visible",
-              "total_ms": 0.42425,
-              "write_ms": 0.255875
+              "total_ms": 0.836208,
+              "write_ms": 0.550333
             }
           ],
           "read_ms": {
-            "p50": 0.137167,
-            "p99": 0.137167
+            "p50": 0.224,
+            "p99": 0.224
           },
           "status": "measured",
           "time_to_visible_ms": {
-            "p50": 0.42425,
-            "p99": 0.42425
+            "p50": 0.836208,
+            "p99": 0.836208
           },
           "timeouts": 0,
           "visibility_lag_ms": {
-            "p50": 0.168375,
-            "p99": 0.168375
+            "p50": 0.285875,
+            "p99": 0.285875
           },
           "visible": 1,
           "write_latency_ms": {
-            "p50": 0.255875,
-            "p99": 0.255875
+            "p50": 0.550333,
+            "p99": 0.550333
           }
         }
       },
@@ -2301,7 +2338,7 @@
         "capabilities": [
           "delete",
           "get",
-          "get-id",
+          "get_by_ref",
           "keyed",
           "list_prefix",
           "read_recent",
@@ -2310,8 +2347,9 @@
           "write"
         ],
         "notes": "SQLite is visible on commit.",
+        "protocol": 1,
         "runtime_versions": {},
-        "server_pid": null,
+        "servers": [],
         "version": "3.53.3"
       },
       "paths": {
@@ -2319,31 +2357,31 @@
           "dropped": 0,
           "observations": [
             {
-              "lag_ms": 0.152792,
+              "lag_ms": 0.455292,
               "polls": 1,
               "status": "visible",
-              "total_ms": 0.43175,
-              "write_ms": 0.278958
+              "total_ms": 1.253667,
+              "write_ms": 0.798375
             }
           ],
           "read_ms": {
-            "p50": 0.122625,
-            "p99": 0.122625
+            "p50": 0.375375,
+            "p99": 0.375375
           },
           "status": "measured",
           "time_to_visible_ms": {
-            "p50": 0.43175,
-            "p99": 0.43175
+            "p50": 1.253667,
+            "p99": 1.253667
           },
           "timeouts": 0,
           "visibility_lag_ms": {
-            "p50": 0.152792,
-            "p99": 0.152792
+            "p50": 0.455292,
+            "p99": 0.455292
           },
           "visible": 1,
           "write_latency_ms": {
-            "p50": 0.278958,
-            "p99": 0.278958
+            "p50": 0.798375,
+            "p99": 0.798375
           }
         }
       },
@@ -2363,7 +2401,7 @@
         "capabilities": [
           "delete",
           "get",
-          "get-id",
+          "get_by_ref",
           "keyed",
           "list_prefix",
           "read_recent",
@@ -2372,8 +2410,9 @@
           "write"
         ],
         "notes": "SQLite is visible on commit.",
+        "protocol": 1,
         "runtime_versions": {},
-        "server_pid": null,
+        "servers": [],
         "version": "3.53.3"
       },
       "paths": {
@@ -2381,31 +2420,31 @@
           "dropped": 0,
           "observations": [
             {
-              "lag_ms": 0.164875,
+              "lag_ms": 0.334417,
               "polls": 1,
               "status": "visible",
-              "total_ms": 0.412458,
-              "write_ms": 0.247583
+              "total_ms": 1.002333,
+              "write_ms": 0.667916
             }
           ],
           "read_ms": {
-            "p50": 0.132667,
-            "p99": 0.132667
+            "p50": 0.254125,
+            "p99": 0.254125
           },
           "status": "measured",
           "time_to_visible_ms": {
-            "p50": 0.412458,
-            "p99": 0.412458
+            "p50": 1.002333,
+            "p99": 1.002333
           },
           "timeouts": 0,
           "visibility_lag_ms": {
-            "p50": 0.164875,
-            "p99": 0.164875
+            "p50": 0.334417,
+            "p99": 0.334417
           },
           "visible": 1,
           "write_latency_ms": {
-            "p50": 0.247583,
-            "p99": 0.247583
+            "p50": 0.667916,
+            "p99": 0.667916
           }
         }
       },
@@ -2425,7 +2464,7 @@
         "capabilities": [
           "delete",
           "get",
-          "get-id",
+          "get_by_ref",
           "keyed",
           "list_prefix",
           "read_recent",
@@ -2434,8 +2473,9 @@
           "write"
         ],
         "notes": "SQLite is visible on commit.",
+        "protocol": 1,
         "runtime_versions": {},
-        "server_pid": null,
+        "servers": [],
         "version": "3.53.3"
       },
       "paths": {
@@ -2443,31 +2483,31 @@
           "dropped": 0,
           "observations": [
             {
-              "lag_ms": 0.20475,
+              "lag_ms": 1.854166,
               "polls": 1,
               "status": "visible",
-              "total_ms": 0.472333,
-              "write_ms": 0.267583
+              "total_ms": 2.89725,
+              "write_ms": 1.043084
             }
           ],
           "read_ms": {
-            "p50": 0.175291,
-            "p99": 0.175291
+            "p50": 0.998583,
+            "p99": 0.998583
           },
           "status": "measured",
           "time_to_visible_ms": {
-            "p50": 0.472333,
-            "p99": 0.472333
+            "p50": 2.89725,
+            "p99": 2.89725
           },
           "timeouts": 0,
           "visibility_lag_ms": {
-            "p50": 0.20475,
-            "p99": 0.20475
+            "p50": 1.854166,
+            "p99": 1.854166
           },
           "visible": 1,
           "write_latency_ms": {
-            "p50": 0.267583,
-            "p99": 0.267583
+            "p50": 1.043084,
+            "p99": 1.043084
           }
         }
       },
@@ -2494,7 +2534,7 @@
           "emulated:read_recent",
           "emulated:upsert",
           "get",
-          "get-id",
+          "get_by_ref",
           "keyed",
           "list_prefix",
           "read_recent",
@@ -2503,8 +2543,9 @@
           "write"
         ],
         "notes": "Ack before user-space flush. Flush interval 100 ms. No fsync.",
+        "protocol": 1,
         "runtime_versions": {},
-        "server_pid": null,
+        "servers": [],
         "version": "stdlib-jsonl-v1"
       },
       "note": "Tests user-space buffering and recovery, not disk durability. Worker-only faults test little for server-backed systems.",
@@ -2522,7 +2563,7 @@
           "acked": 6,
           "acked_missing": 6,
           "duplicates": 0,
-          "fault_ns": 166083867549541,
+          "fault_ns": 176044019408375,
           "target": "worker",
           "torn": 0,
           "trial": 0
@@ -2547,7 +2588,7 @@
           "emulated:read_recent",
           "emulated:upsert",
           "get",
-          "get-id",
+          "get_by_ref",
           "keyed",
           "list_prefix",
           "read_recent",
@@ -2556,8 +2597,9 @@
           "write"
         ],
         "notes": "Ack before user-space flush. Flush interval 100 ms. No fsync.",
+        "protocol": 1,
         "runtime_versions": {},
-        "server_pid": null,
+        "servers": [],
         "version": "stdlib-jsonl-v1"
       },
       "note": "Tests user-space buffering and recovery, not disk durability. Worker-only faults test little for server-backed systems.",
@@ -2575,7 +2617,7 @@
           "acked": 8,
           "acked_missing": 8,
           "duplicates": 0,
-          "fault_ns": 166084027992666,
+          "fault_ns": 176044275824791,
           "target": "worker",
           "torn": 0,
           "trial": 0
@@ -2600,7 +2642,7 @@
           "emulated:read_recent",
           "emulated:upsert",
           "get",
-          "get-id",
+          "get_by_ref",
           "keyed",
           "list_prefix",
           "read_recent",
@@ -2609,8 +2651,9 @@
           "write"
         ],
         "notes": "Ack before user-space flush. Flush interval 100 ms. No fsync.",
+        "protocol": 1,
         "runtime_versions": {},
-        "server_pid": null,
+        "servers": [],
         "version": "stdlib-jsonl-v1"
       },
       "note": "Tests user-space buffering and recovery, not disk durability. Worker-only faults test little for server-backed systems.",
@@ -2628,7 +2671,7 @@
           "acked": 7,
           "acked_missing": 7,
           "duplicates": 0,
-          "fault_ns": 166084185993291,
+          "fault_ns": 176044531686541,
           "target": "worker",
           "torn": 0,
           "trial": 0
@@ -2653,7 +2696,7 @@
           "emulated:read_recent",
           "emulated:upsert",
           "get",
-          "get-id",
+          "get_by_ref",
           "keyed",
           "list_prefix",
           "read_recent",
@@ -2662,8 +2705,9 @@
           "write"
         ],
         "notes": "Ack before user-space flush. Flush interval 100 ms. No fsync.",
+        "protocol": 1,
         "runtime_versions": {},
-        "server_pid": null,
+        "servers": [],
         "version": "stdlib-jsonl-v1"
       },
       "note": "Tests user-space buffering and recovery, not disk durability. Worker-only faults test little for server-backed systems.",
@@ -2681,7 +2725,7 @@
           "acked": 6,
           "acked_missing": 6,
           "duplicates": 0,
-          "fault_ns": 166084347197000,
+          "fault_ns": 176044803160083,
           "target": "worker",
           "torn": 0,
           "trial": 0
@@ -2706,7 +2750,7 @@
           "emulated:read_recent",
           "emulated:upsert",
           "get",
-          "get-id",
+          "get_by_ref",
           "keyed",
           "list_prefix",
           "read_recent",
@@ -2715,8 +2759,9 @@
           "write"
         ],
         "notes": "Ack before user-space flush. Flush interval 100 ms. No fsync.",
+        "protocol": 1,
         "runtime_versions": {},
-        "server_pid": null,
+        "servers": [],
         "version": "stdlib-jsonl-v1"
       },
       "note": "Tests user-space buffering and recovery, not disk durability. Worker-only faults test little for server-backed systems.",
@@ -2734,7 +2779,7 @@
           "acked": 5,
           "acked_missing": 5,
           "duplicates": 0,
-          "fault_ns": 166084509979958,
+          "fault_ns": 176045055497750,
           "target": "worker",
           "torn": 0,
           "trial": 0
@@ -2759,7 +2804,7 @@
           "emulated:read_recent",
           "emulated:upsert",
           "get",
-          "get-id",
+          "get_by_ref",
           "keyed",
           "list_prefix",
           "read_recent",
@@ -2768,8 +2813,9 @@
           "write"
         ],
         "notes": "Ack before user-space flush. Flush interval 100 ms. No fsync.",
+        "protocol": 1,
         "runtime_versions": {},
-        "server_pid": null,
+        "servers": [],
         "version": "stdlib-jsonl-v1"
       },
       "note": "Tests user-space buffering and recovery, not disk durability. Worker-only faults test little for server-backed systems.",
@@ -2787,7 +2833,7 @@
           "acked": 3,
           "acked_missing": 3,
           "duplicates": 0,
-          "fault_ns": 166084669618750,
+          "fault_ns": 176045312553666,
           "target": "worker",
           "torn": 0,
           "trial": 0
@@ -2812,7 +2858,7 @@
           "emulated:read_recent",
           "emulated:upsert",
           "get",
-          "get-id",
+          "get_by_ref",
           "keyed",
           "list_prefix",
           "read_recent",
@@ -2821,8 +2867,9 @@
           "write"
         ],
         "notes": "Ack before user-space flush. Flush interval 100 ms. No fsync.",
+        "protocol": 1,
         "runtime_versions": {},
-        "server_pid": null,
+        "servers": [],
         "version": "stdlib-jsonl-v1"
       },
       "note": "Tests user-space buffering and recovery, not disk durability. Worker-only faults test little for server-backed systems.",
@@ -2840,7 +2887,7 @@
           "acked": 7,
           "acked_missing": 7,
           "duplicates": 0,
-          "fault_ns": 166084828391375,
+          "fault_ns": 176045558045750,
           "target": "worker",
           "torn": 0,
           "trial": 0
@@ -2865,7 +2912,7 @@
           "emulated:read_recent",
           "emulated:upsert",
           "get",
-          "get-id",
+          "get_by_ref",
           "keyed",
           "list_prefix",
           "read_recent",
@@ -2874,8 +2921,9 @@
           "write"
         ],
         "notes": "Ack before user-space flush. Flush interval 100 ms. No fsync.",
+        "protocol": 1,
         "runtime_versions": {},
-        "server_pid": null,
+        "servers": [],
         "version": "stdlib-jsonl-v1"
       },
       "note": "Tests user-space buffering and recovery, not disk durability. Worker-only faults test little for server-backed systems.",
@@ -2893,7 +2941,7 @@
           "acked": 2,
           "acked_missing": 2,
           "duplicates": 0,
-          "fault_ns": 166084986269208,
+          "fault_ns": 176045804425291,
           "target": "worker",
           "torn": 0,
           "trial": 0
@@ -2918,7 +2966,7 @@
           "emulated:read_recent",
           "emulated:upsert",
           "get",
-          "get-id",
+          "get_by_ref",
           "keyed",
           "list_prefix",
           "read_recent",
@@ -2927,8 +2975,9 @@
           "write"
         ],
         "notes": "Ack before user-space flush. Flush interval 100 ms. No fsync.",
+        "protocol": 1,
         "runtime_versions": {},
-        "server_pid": null,
+        "servers": [],
         "version": "stdlib-jsonl-v1"
       },
       "note": "Tests user-space buffering and recovery, not disk durability. Worker-only faults test little for server-backed systems.",
@@ -2946,7 +2995,7 @@
           "acked": 3,
           "acked_missing": 3,
           "duplicates": 0,
-          "fault_ns": 166085144034458,
+          "fault_ns": 176046053258625,
           "target": "worker",
           "torn": 0,
           "trial": 0
@@ -2971,7 +3020,7 @@
           "emulated:read_recent",
           "emulated:upsert",
           "get",
-          "get-id",
+          "get_by_ref",
           "keyed",
           "list_prefix",
           "read_recent",
@@ -2980,8 +3029,9 @@
           "write"
         ],
         "notes": "Ack before user-space flush. Flush interval 100 ms. No fsync.",
+        "protocol": 1,
         "runtime_versions": {},
-        "server_pid": null,
+        "servers": [],
         "version": "stdlib-jsonl-v1"
       },
       "note": "Tests user-space buffering and recovery, not disk durability. Worker-only faults test little for server-backed systems.",
@@ -2999,7 +3049,7 @@
           "acked": 1,
           "acked_missing": 1,
           "duplicates": 0,
-          "fault_ns": 166085303241000,
+          "fault_ns": 176046299748416,
           "target": "worker",
           "torn": 0,
           "trial": 0
@@ -3024,7 +3074,7 @@
           "emulated:read_recent",
           "emulated:upsert",
           "get",
-          "get-id",
+          "get_by_ref",
           "keyed",
           "list_prefix",
           "read_recent",
@@ -3033,8 +3083,9 @@
           "write"
         ],
         "notes": "Ack before user-space flush. Flush interval 100 ms. No fsync.",
+        "protocol": 1,
         "runtime_versions": {},
-        "server_pid": null,
+        "servers": [],
         "version": "stdlib-jsonl-v1"
       },
       "note": "Tests user-space buffering and recovery, not disk durability. Worker-only faults test little for server-backed systems.",
@@ -3052,7 +3103,7 @@
           "acked": 8,
           "acked_missing": 8,
           "duplicates": 0,
-          "fault_ns": 166085467043291,
+          "fault_ns": 176046558578791,
           "target": "worker",
           "torn": 0,
           "trial": 0
@@ -3077,7 +3128,7 @@
           "emulated:read_recent",
           "emulated:upsert",
           "get",
-          "get-id",
+          "get_by_ref",
           "keyed",
           "list_prefix",
           "read_recent",
@@ -3086,8 +3137,9 @@
           "write"
         ],
         "notes": "Ack before user-space flush. Flush interval 100 ms. No fsync.",
+        "protocol": 1,
         "runtime_versions": {},
-        "server_pid": null,
+        "servers": [],
         "version": "stdlib-jsonl-v1"
       },
       "note": "Tests user-space buffering and recovery, not disk durability. Worker-only faults test little for server-backed systems.",
@@ -3105,7 +3157,7 @@
           "acked": 4,
           "acked_missing": 4,
           "duplicates": 0,
-          "fault_ns": 166085628898500,
+          "fault_ns": 176046804628333,
           "target": "worker",
           "torn": 0,
           "trial": 0
@@ -3130,7 +3182,7 @@
           "emulated:read_recent",
           "emulated:upsert",
           "get",
-          "get-id",
+          "get_by_ref",
           "keyed",
           "list_prefix",
           "read_recent",
@@ -3139,8 +3191,9 @@
           "write"
         ],
         "notes": "Ack before user-space flush. Flush interval 100 ms. No fsync.",
+        "protocol": 1,
         "runtime_versions": {},
-        "server_pid": null,
+        "servers": [],
         "version": "stdlib-jsonl-v1"
       },
       "note": "Tests user-space buffering and recovery, not disk durability. Worker-only faults test little for server-backed systems.",
@@ -3158,7 +3211,7 @@
           "acked": 5,
           "acked_missing": 5,
           "duplicates": 0,
-          "fault_ns": 166085811807291,
+          "fault_ns": 176047051857333,
           "target": "worker",
           "torn": 0,
           "trial": 0
@@ -3183,7 +3236,7 @@
           "emulated:read_recent",
           "emulated:upsert",
           "get",
-          "get-id",
+          "get_by_ref",
           "keyed",
           "list_prefix",
           "read_recent",
@@ -3192,8 +3245,9 @@
           "write"
         ],
         "notes": "Ack before user-space flush. Flush interval 100 ms. No fsync.",
+        "protocol": 1,
         "runtime_versions": {},
-        "server_pid": null,
+        "servers": [],
         "version": "stdlib-jsonl-v1"
       },
       "note": "Tests user-space buffering and recovery, not disk durability. Worker-only faults test little for server-backed systems.",
@@ -3211,7 +3265,7 @@
           "acked": 4,
           "acked_missing": 4,
           "duplicates": 0,
-          "fault_ns": 166086008747833,
+          "fault_ns": 176047305984791,
           "target": "worker",
           "torn": 0,
           "trial": 0
@@ -3236,7 +3290,7 @@
           "emulated:read_recent",
           "emulated:upsert",
           "get",
-          "get-id",
+          "get_by_ref",
           "keyed",
           "list_prefix",
           "read_recent",
@@ -3245,8 +3299,9 @@
           "write"
         ],
         "notes": "Ack before user-space flush. Flush interval 100 ms. No fsync.",
+        "protocol": 1,
         "runtime_versions": {},
-        "server_pid": null,
+        "servers": [],
         "version": "stdlib-jsonl-v1"
       },
       "note": "Tests user-space buffering and recovery, not disk durability. Worker-only faults test little for server-backed systems.",
@@ -3264,7 +3319,7 @@
           "acked": 6,
           "acked_missing": 6,
           "duplicates": 0,
-          "fault_ns": 166086206274875,
+          "fault_ns": 176047534422208,
           "target": "worker",
           "torn": 0,
           "trial": 0
@@ -3289,7 +3344,7 @@
           "emulated:read_recent",
           "emulated:upsert",
           "get",
-          "get-id",
+          "get_by_ref",
           "keyed",
           "list_prefix",
           "read_recent",
@@ -3298,8 +3353,9 @@
           "write"
         ],
         "notes": "Ack before user-space flush. Flush interval 100 ms. No fsync.",
+        "protocol": 1,
         "runtime_versions": {},
-        "server_pid": null,
+        "servers": [],
         "version": "stdlib-jsonl-v1"
       },
       "note": "Tests user-space buffering and recovery, not disk durability. Worker-only faults test little for server-backed systems.",
@@ -3317,7 +3373,7 @@
           "acked": 2,
           "acked_missing": 2,
           "duplicates": 0,
-          "fault_ns": 166086401549333,
+          "fault_ns": 176047778616833,
           "target": "worker",
           "torn": 0,
           "trial": 0
@@ -3342,7 +3398,7 @@
           "emulated:read_recent",
           "emulated:upsert",
           "get",
-          "get-id",
+          "get_by_ref",
           "keyed",
           "list_prefix",
           "read_recent",
@@ -3351,8 +3407,9 @@
           "write"
         ],
         "notes": "Ack before user-space flush. Flush interval 100 ms. No fsync.",
+        "protocol": 1,
         "runtime_versions": {},
-        "server_pid": null,
+        "servers": [],
         "version": "stdlib-jsonl-v1"
       },
       "note": "Tests user-space buffering and recovery, not disk durability. Worker-only faults test little for server-backed systems.",
@@ -3370,7 +3427,7 @@
           "acked": 6,
           "acked_missing": 6,
           "duplicates": 0,
-          "fault_ns": 166086598765625,
+          "fault_ns": 176048028490500,
           "target": "worker",
           "torn": 0,
           "trial": 0
@@ -3395,7 +3452,7 @@
           "emulated:read_recent",
           "emulated:upsert",
           "get",
-          "get-id",
+          "get_by_ref",
           "keyed",
           "list_prefix",
           "read_recent",
@@ -3404,8 +3461,9 @@
           "write"
         ],
         "notes": "Ack before user-space flush. Flush interval 100 ms. No fsync.",
+        "protocol": 1,
         "runtime_versions": {},
-        "server_pid": null,
+        "servers": [],
         "version": "stdlib-jsonl-v1"
       },
       "note": "Tests user-space buffering and recovery, not disk durability. Worker-only faults test little for server-backed systems.",
@@ -3423,7 +3481,7 @@
           "acked": 3,
           "acked_missing": 3,
           "duplicates": 0,
-          "fault_ns": 166086809662500,
+          "fault_ns": 176048269650000,
           "target": "worker",
           "torn": 0,
           "trial": 0
@@ -3448,7 +3506,7 @@
           "emulated:read_recent",
           "emulated:upsert",
           "get",
-          "get-id",
+          "get_by_ref",
           "keyed",
           "list_prefix",
           "read_recent",
@@ -3457,8 +3515,9 @@
           "write"
         ],
         "notes": "Ack before user-space flush. Flush interval 100 ms. No fsync.",
+        "protocol": 1,
         "runtime_versions": {},
-        "server_pid": null,
+        "servers": [],
         "version": "stdlib-jsonl-v1"
       },
       "note": "Tests user-space buffering and recovery, not disk durability. Worker-only faults test little for server-backed systems.",
@@ -3476,7 +3535,7 @@
           "acked": 8,
           "acked_missing": 8,
           "duplicates": 0,
-          "fault_ns": 166087030858458,
+          "fault_ns": 176048537691916,
           "target": "worker",
           "torn": 0,
           "trial": 0
@@ -3501,7 +3560,7 @@
           "emulated:read_recent",
           "emulated:upsert",
           "get",
-          "get-id",
+          "get_by_ref",
           "keyed",
           "list_prefix",
           "read_recent",
@@ -3510,8 +3569,9 @@
           "write"
         ],
         "notes": "Ack before user-space flush. Flush interval 100 ms. No fsync.",
+        "protocol": 1,
         "runtime_versions": {},
-        "server_pid": null,
+        "servers": [],
         "version": "stdlib-jsonl-v1"
       },
       "note": "Tests user-space buffering and recovery, not disk durability. Worker-only faults test little for server-backed systems.",
@@ -3529,7 +3589,7 @@
           "acked": 5,
           "acked_missing": 5,
           "duplicates": 0,
-          "fault_ns": 166087242107125,
+          "fault_ns": 176048781799708,
           "target": "worker",
           "torn": 0,
           "trial": 0
@@ -3549,7 +3609,7 @@
         "capabilities": [
           "delete",
           "get",
-          "get-id",
+          "get_by_ref",
           "keyed",
           "list_prefix",
           "read_recent",
@@ -3558,8 +3618,9 @@
           "write"
         ],
         "notes": "WAL synchronous=OFF. Commit before ack. Page cache survives SIGKILL.",
+        "protocol": 1,
         "runtime_versions": {},
-        "server_pid": null,
+        "servers": [],
         "version": "3.53.3"
       },
       "note": "Tests user-space buffering and recovery, not disk durability. Worker-only faults test little for server-backed systems.",
@@ -3577,7 +3638,7 @@
           "acked": 6,
           "acked_missing": 0,
           "duplicates": 0,
-          "fault_ns": 166087469354333,
+          "fault_ns": 176049057206791,
           "target": "worker",
           "torn": 0,
           "trial": 0
@@ -3597,7 +3658,7 @@
         "capabilities": [
           "delete",
           "get",
-          "get-id",
+          "get_by_ref",
           "keyed",
           "list_prefix",
           "read_recent",
@@ -3606,8 +3667,9 @@
           "write"
         ],
         "notes": "WAL synchronous=OFF. Commit before ack. Page cache survives SIGKILL.",
+        "protocol": 1,
         "runtime_versions": {},
-        "server_pid": null,
+        "servers": [],
         "version": "3.53.3"
       },
       "note": "Tests user-space buffering and recovery, not disk durability. Worker-only faults test little for server-backed systems.",
@@ -3625,7 +3687,7 @@
           "acked": 8,
           "acked_missing": 0,
           "duplicates": 0,
-          "fault_ns": 166087691286666,
+          "fault_ns": 176049306572500,
           "target": "worker",
           "torn": 0,
           "trial": 0
@@ -3645,7 +3707,7 @@
         "capabilities": [
           "delete",
           "get",
-          "get-id",
+          "get_by_ref",
           "keyed",
           "list_prefix",
           "read_recent",
@@ -3654,8 +3716,9 @@
           "write"
         ],
         "notes": "WAL synchronous=OFF. Commit before ack. Page cache survives SIGKILL.",
+        "protocol": 1,
         "runtime_versions": {},
-        "server_pid": null,
+        "servers": [],
         "version": "3.53.3"
       },
       "note": "Tests user-space buffering and recovery, not disk durability. Worker-only faults test little for server-backed systems.",
@@ -3673,7 +3736,7 @@
           "acked": 7,
           "acked_missing": 0,
           "duplicates": 0,
-          "fault_ns": 166087914001500,
+          "fault_ns": 176049591023375,
           "target": "worker",
           "torn": 0,
           "trial": 0
@@ -3693,7 +3756,7 @@
         "capabilities": [
           "delete",
           "get",
-          "get-id",
+          "get_by_ref",
           "keyed",
           "list_prefix",
           "read_recent",
@@ -3702,8 +3765,9 @@
           "write"
         ],
         "notes": "WAL synchronous=OFF. Commit before ack. Page cache survives SIGKILL.",
+        "protocol": 1,
         "runtime_versions": {},
-        "server_pid": null,
+        "servers": [],
         "version": "3.53.3"
       },
       "note": "Tests user-space buffering and recovery, not disk durability. Worker-only faults test little for server-backed systems.",
@@ -3721,7 +3785,7 @@
           "acked": 6,
           "acked_missing": 0,
           "duplicates": 0,
-          "fault_ns": 166088163214125,
+          "fault_ns": 176049852839291,
           "target": "worker",
           "torn": 0,
           "trial": 0
@@ -3741,7 +3805,7 @@
         "capabilities": [
           "delete",
           "get",
-          "get-id",
+          "get_by_ref",
           "keyed",
           "list_prefix",
           "read_recent",
@@ -3750,8 +3814,9 @@
           "write"
         ],
         "notes": "WAL synchronous=OFF. Commit before ack. Page cache survives SIGKILL.",
+        "protocol": 1,
         "runtime_versions": {},
-        "server_pid": null,
+        "servers": [],
         "version": "3.53.3"
       },
       "note": "Tests user-space buffering and recovery, not disk durability. Worker-only faults test little for server-backed systems.",
@@ -3769,7 +3834,7 @@
           "acked": 5,
           "acked_missing": 0,
           "duplicates": 0,
-          "fault_ns": 166088421635958,
+          "fault_ns": 176050137252833,
           "target": "worker",
           "torn": 0,
           "trial": 0
@@ -3789,7 +3854,7 @@
         "capabilities": [
           "delete",
           "get",
-          "get-id",
+          "get_by_ref",
           "keyed",
           "list_prefix",
           "read_recent",
@@ -3798,8 +3863,9 @@
           "write"
         ],
         "notes": "WAL synchronous=OFF. Commit before ack. Page cache survives SIGKILL.",
+        "protocol": 1,
         "runtime_versions": {},
-        "server_pid": null,
+        "servers": [],
         "version": "3.53.3"
       },
       "note": "Tests user-space buffering and recovery, not disk durability. Worker-only faults test little for server-backed systems.",
@@ -3817,7 +3883,7 @@
           "acked": 3,
           "acked_missing": 0,
           "duplicates": 0,
-          "fault_ns": 166088656770750,
+          "fault_ns": 176050388351375,
           "target": "worker",
           "torn": 0,
           "trial": 0
@@ -3837,7 +3903,7 @@
         "capabilities": [
           "delete",
           "get",
-          "get-id",
+          "get_by_ref",
           "keyed",
           "list_prefix",
           "read_recent",
@@ -3846,8 +3912,9 @@
           "write"
         ],
         "notes": "WAL synchronous=OFF. Commit before ack. Page cache survives SIGKILL.",
+        "protocol": 1,
         "runtime_versions": {},
-        "server_pid": null,
+        "servers": [],
         "version": "3.53.3"
       },
       "note": "Tests user-space buffering and recovery, not disk durability. Worker-only faults test little for server-backed systems.",
@@ -3865,7 +3932,7 @@
           "acked": 7,
           "acked_missing": 0,
           "duplicates": 0,
-          "fault_ns": 166088899779875,
+          "fault_ns": 176050648128791,
           "target": "worker",
           "torn": 0,
           "trial": 0
@@ -3885,7 +3952,7 @@
         "capabilities": [
           "delete",
           "get",
-          "get-id",
+          "get_by_ref",
           "keyed",
           "list_prefix",
           "read_recent",
@@ -3894,8 +3961,9 @@
           "write"
         ],
         "notes": "WAL synchronous=OFF. Commit before ack. Page cache survives SIGKILL.",
+        "protocol": 1,
         "runtime_versions": {},
-        "server_pid": null,
+        "servers": [],
         "version": "3.53.3"
       },
       "note": "Tests user-space buffering and recovery, not disk durability. Worker-only faults test little for server-backed systems.",
@@ -3913,7 +3981,7 @@
           "acked": 2,
           "acked_missing": 0,
           "duplicates": 0,
-          "fault_ns": 166089157731708,
+          "fault_ns": 176050924793208,
           "target": "worker",
           "torn": 0,
           "trial": 0
@@ -3933,7 +4001,7 @@
         "capabilities": [
           "delete",
           "get",
-          "get-id",
+          "get_by_ref",
           "keyed",
           "list_prefix",
           "read_recent",
@@ -3942,8 +4010,9 @@
           "write"
         ],
         "notes": "WAL synchronous=OFF. Commit before ack. Page cache survives SIGKILL.",
+        "protocol": 1,
         "runtime_versions": {},
-        "server_pid": null,
+        "servers": [],
         "version": "3.53.3"
       },
       "note": "Tests user-space buffering and recovery, not disk durability. Worker-only faults test little for server-backed systems.",
@@ -3961,7 +4030,7 @@
           "acked": 3,
           "acked_missing": 0,
           "duplicates": 0,
-          "fault_ns": 166089401286750,
+          "fault_ns": 176051179963416,
           "target": "worker",
           "torn": 0,
           "trial": 0
@@ -3981,7 +4050,7 @@
         "capabilities": [
           "delete",
           "get",
-          "get-id",
+          "get_by_ref",
           "keyed",
           "list_prefix",
           "read_recent",
@@ -3990,8 +4059,9 @@
           "write"
         ],
         "notes": "WAL synchronous=OFF. Commit before ack. Page cache survives SIGKILL.",
+        "protocol": 1,
         "runtime_versions": {},
-        "server_pid": null,
+        "servers": [],
         "version": "3.53.3"
       },
       "note": "Tests user-space buffering and recovery, not disk durability. Worker-only faults test little for server-backed systems.",
@@ -4009,7 +4079,7 @@
           "acked": 1,
           "acked_missing": 0,
           "duplicates": 0,
-          "fault_ns": 166089654842125,
+          "fault_ns": 176051461118416,
           "target": "worker",
           "torn": 0,
           "trial": 0
@@ -4029,7 +4099,7 @@
         "capabilities": [
           "delete",
           "get",
-          "get-id",
+          "get_by_ref",
           "keyed",
           "list_prefix",
           "read_recent",
@@ -4038,8 +4108,9 @@
           "write"
         ],
         "notes": "WAL synchronous=OFF. Commit before ack. Page cache survives SIGKILL.",
+        "protocol": 1,
         "runtime_versions": {},
-        "server_pid": null,
+        "servers": [],
         "version": "3.53.3"
       },
       "note": "Tests user-space buffering and recovery, not disk durability. Worker-only faults test little for server-backed systems.",
@@ -4057,7 +4128,7 @@
           "acked": 8,
           "acked_missing": 0,
           "duplicates": 0,
-          "fault_ns": 166089886711875,
+          "fault_ns": 176051726847958,
           "target": "worker",
           "torn": 0,
           "trial": 0
@@ -4077,7 +4148,7 @@
         "capabilities": [
           "delete",
           "get",
-          "get-id",
+          "get_by_ref",
           "keyed",
           "list_prefix",
           "read_recent",
@@ -4086,8 +4157,9 @@
           "write"
         ],
         "notes": "WAL synchronous=OFF. Commit before ack. Page cache survives SIGKILL.",
+        "protocol": 1,
         "runtime_versions": {},
-        "server_pid": null,
+        "servers": [],
         "version": "3.53.3"
       },
       "note": "Tests user-space buffering and recovery, not disk durability. Worker-only faults test little for server-backed systems.",
@@ -4105,7 +4177,7 @@
           "acked": 4,
           "acked_missing": 0,
           "duplicates": 0,
-          "fault_ns": 166090138586708,
+          "fault_ns": 176052011772541,
           "target": "worker",
           "torn": 0,
           "trial": 0
@@ -4125,7 +4197,7 @@
         "capabilities": [
           "delete",
           "get",
-          "get-id",
+          "get_by_ref",
           "keyed",
           "list_prefix",
           "read_recent",
@@ -4134,8 +4206,9 @@
           "write"
         ],
         "notes": "WAL synchronous=OFF. Commit before ack. Page cache survives SIGKILL.",
+        "protocol": 1,
         "runtime_versions": {},
-        "server_pid": null,
+        "servers": [],
         "version": "3.53.3"
       },
       "note": "Tests user-space buffering and recovery, not disk durability. Worker-only faults test little for server-backed systems.",
@@ -4153,7 +4226,7 @@
           "acked": 5,
           "acked_missing": 0,
           "duplicates": 0,
-          "fault_ns": 166090368824500,
+          "fault_ns": 176052264736833,
           "target": "worker",
           "torn": 0,
           "trial": 0
@@ -4173,7 +4246,7 @@
         "capabilities": [
           "delete",
           "get",
-          "get-id",
+          "get_by_ref",
           "keyed",
           "list_prefix",
           "read_recent",
@@ -4182,8 +4255,9 @@
           "write"
         ],
         "notes": "WAL synchronous=OFF. Commit before ack. Page cache survives SIGKILL.",
+        "protocol": 1,
         "runtime_versions": {},
-        "server_pid": null,
+        "servers": [],
         "version": "3.53.3"
       },
       "note": "Tests user-space buffering and recovery, not disk durability. Worker-only faults test little for server-backed systems.",
@@ -4201,7 +4275,7 @@
           "acked": 4,
           "acked_missing": 0,
           "duplicates": 0,
-          "fault_ns": 166090619749750,
+          "fault_ns": 176052551765500,
           "target": "worker",
           "torn": 0,
           "trial": 0
@@ -4221,7 +4295,7 @@
         "capabilities": [
           "delete",
           "get",
-          "get-id",
+          "get_by_ref",
           "keyed",
           "list_prefix",
           "read_recent",
@@ -4230,8 +4304,9 @@
           "write"
         ],
         "notes": "WAL synchronous=OFF. Commit before ack. Page cache survives SIGKILL.",
+        "protocol": 1,
         "runtime_versions": {},
-        "server_pid": null,
+        "servers": [],
         "version": "3.53.3"
       },
       "note": "Tests user-space buffering and recovery, not disk durability. Worker-only faults test little for server-backed systems.",
@@ -4249,7 +4324,7 @@
           "acked": 6,
           "acked_missing": 0,
           "duplicates": 0,
-          "fault_ns": 166090841855416,
+          "fault_ns": 176052807027208,
           "target": "worker",
           "torn": 0,
           "trial": 0
@@ -4269,7 +4344,7 @@
         "capabilities": [
           "delete",
           "get",
-          "get-id",
+          "get_by_ref",
           "keyed",
           "list_prefix",
           "read_recent",
@@ -4278,8 +4353,9 @@
           "write"
         ],
         "notes": "WAL synchronous=OFF. Commit before ack. Page cache survives SIGKILL.",
+        "protocol": 1,
         "runtime_versions": {},
-        "server_pid": null,
+        "servers": [],
         "version": "3.53.3"
       },
       "note": "Tests user-space buffering and recovery, not disk durability. Worker-only faults test little for server-backed systems.",
@@ -4297,7 +4373,7 @@
           "acked": 2,
           "acked_missing": 0,
           "duplicates": 0,
-          "fault_ns": 166091084188375,
+          "fault_ns": 176053090831541,
           "target": "worker",
           "torn": 0,
           "trial": 0
@@ -4317,7 +4393,7 @@
         "capabilities": [
           "delete",
           "get",
-          "get-id",
+          "get_by_ref",
           "keyed",
           "list_prefix",
           "read_recent",
@@ -4326,8 +4402,9 @@
           "write"
         ],
         "notes": "WAL synchronous=OFF. Commit before ack. Page cache survives SIGKILL.",
+        "protocol": 1,
         "runtime_versions": {},
-        "server_pid": null,
+        "servers": [],
         "version": "3.53.3"
       },
       "note": "Tests user-space buffering and recovery, not disk durability. Worker-only faults test little for server-backed systems.",
@@ -4345,7 +4422,7 @@
           "acked": 6,
           "acked_missing": 0,
           "duplicates": 0,
-          "fault_ns": 166091329481500,
+          "fault_ns": 176053339846500,
           "target": "worker",
           "torn": 0,
           "trial": 0
@@ -4365,7 +4442,7 @@
         "capabilities": [
           "delete",
           "get",
-          "get-id",
+          "get_by_ref",
           "keyed",
           "list_prefix",
           "read_recent",
@@ -4374,8 +4451,9 @@
           "write"
         ],
         "notes": "WAL synchronous=OFF. Commit before ack. Page cache survives SIGKILL.",
+        "protocol": 1,
         "runtime_versions": {},
-        "server_pid": null,
+        "servers": [],
         "version": "3.53.3"
       },
       "note": "Tests user-space buffering and recovery, not disk durability. Worker-only faults test little for server-backed systems.",
@@ -4393,7 +4471,7 @@
           "acked": 3,
           "acked_missing": 0,
           "duplicates": 0,
-          "fault_ns": 166091592886500,
+          "fault_ns": 176053621009416,
           "target": "worker",
           "torn": 0,
           "trial": 0
@@ -4413,7 +4491,7 @@
         "capabilities": [
           "delete",
           "get",
-          "get-id",
+          "get_by_ref",
           "keyed",
           "list_prefix",
           "read_recent",
@@ -4422,8 +4500,9 @@
           "write"
         ],
         "notes": "WAL synchronous=OFF. Commit before ack. Page cache survives SIGKILL.",
+        "protocol": 1,
         "runtime_versions": {},
-        "server_pid": null,
+        "servers": [],
         "version": "3.53.3"
       },
       "note": "Tests user-space buffering and recovery, not disk durability. Worker-only faults test little for server-backed systems.",
@@ -4441,7 +4520,7 @@
           "acked": 8,
           "acked_missing": 0,
           "duplicates": 0,
-          "fault_ns": 166091869499083,
+          "fault_ns": 176053892287500,
           "target": "worker",
           "torn": 0,
           "trial": 0
@@ -4461,7 +4540,7 @@
         "capabilities": [
           "delete",
           "get",
-          "get-id",
+          "get_by_ref",
           "keyed",
           "list_prefix",
           "read_recent",
@@ -4470,8 +4549,9 @@
           "write"
         ],
         "notes": "WAL synchronous=OFF. Commit before ack. Page cache survives SIGKILL.",
+        "protocol": 1,
         "runtime_versions": {},
-        "server_pid": null,
+        "servers": [],
         "version": "3.53.3"
       },
       "note": "Tests user-space buffering and recovery, not disk durability. Worker-only faults test little for server-backed systems.",
@@ -4489,7 +4569,7 @@
           "acked": 5,
           "acked_missing": 0,
           "duplicates": 0,
-          "fault_ns": 166092111741916,
+          "fault_ns": 176054158522666,
           "target": "worker",
           "torn": 0,
           "trial": 0
@@ -4506,7 +4586,11 @@
       "acked_missing": 20,
       "cas": "not measured in B1",
       "duplicates": 0,
-      "history": "not measured in B1",
+      "history": {
+        "advertised": false,
+        "max_versions_per_key": 0,
+        "observations": []
+      },
       "info": {
         "capabilities": [
           "delete",
@@ -4516,7 +4600,7 @@
           "emulated:read_recent",
           "emulated:upsert",
           "get",
-          "get-id",
+          "get_by_ref",
           "keyed",
           "list_prefix",
           "read_recent",
@@ -4525,8 +4609,9 @@
           "write"
         ],
         "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
+        "protocol": 1,
         "runtime_versions": {},
-        "server_pid": null,
+        "servers": [],
         "version": "stdlib-jsonl-v1"
       },
       "invalid_final": 0,
@@ -4550,10 +4635,14 @@
     "config": "default;trial=1",
     "matched": true,
     "result": {
-      "acked_missing": 60,
+      "acked_missing": 59,
       "cas": "not measured in B1",
       "duplicates": 0,
-      "history": "not measured in B1",
+      "history": {
+        "advertised": false,
+        "max_versions_per_key": 0,
+        "observations": []
+      },
       "info": {
         "capabilities": [
           "delete",
@@ -4563,7 +4652,7 @@
           "emulated:read_recent",
           "emulated:upsert",
           "get",
-          "get-id",
+          "get_by_ref",
           "keyed",
           "list_prefix",
           "read_recent",
@@ -4572,8 +4661,9 @@
           "write"
         ],
         "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
+        "protocol": 1,
         "runtime_versions": {},
-        "server_pid": null,
+        "servers": [],
         "version": "stdlib-jsonl-v1"
       },
       "invalid_final": 0,
@@ -4581,7 +4671,7 @@
       "torn": 0,
       "trials": [
         {
-          "acked_missing": 60,
+          "acked_missing": 59,
           "duplicates": 0,
           "invalid_final": 0,
           "phase": "distinct",
@@ -4597,10 +4687,14 @@
     "config": "default;trial=2",
     "matched": true,
     "result": {
-      "acked_missing": 140,
+      "acked_missing": 139,
       "cas": "not measured in B1",
       "duplicates": 0,
-      "history": "not measured in B1",
+      "history": {
+        "advertised": false,
+        "max_versions_per_key": 0,
+        "observations": []
+      },
       "info": {
         "capabilities": [
           "delete",
@@ -4610,7 +4704,7 @@
           "emulated:read_recent",
           "emulated:upsert",
           "get",
-          "get-id",
+          "get_by_ref",
           "keyed",
           "list_prefix",
           "read_recent",
@@ -4619,8 +4713,9 @@
           "write"
         ],
         "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
+        "protocol": 1,
         "runtime_versions": {},
-        "server_pid": null,
+        "servers": [],
         "version": "stdlib-jsonl-v1"
       },
       "invalid_final": 0,
@@ -4628,7 +4723,7 @@
       "torn": 0,
       "trials": [
         {
-          "acked_missing": 140,
+          "acked_missing": 139,
           "duplicates": 0,
           "invalid_final": 0,
           "phase": "distinct",
@@ -4647,7 +4742,11 @@
       "acked_missing": 20,
       "cas": "not measured in B1",
       "duplicates": 0,
-      "history": "not measured in B1",
+      "history": {
+        "advertised": false,
+        "max_versions_per_key": 0,
+        "observations": []
+      },
       "info": {
         "capabilities": [
           "delete",
@@ -4657,7 +4756,7 @@
           "emulated:read_recent",
           "emulated:upsert",
           "get",
-          "get-id",
+          "get_by_ref",
           "keyed",
           "list_prefix",
           "read_recent",
@@ -4666,8 +4765,9 @@
           "write"
         ],
         "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
+        "protocol": 1,
         "runtime_versions": {},
-        "server_pid": null,
+        "servers": [],
         "version": "stdlib-jsonl-v1"
       },
       "invalid_final": 0,
@@ -4694,7 +4794,11 @@
       "acked_missing": 60,
       "cas": "not measured in B1",
       "duplicates": 0,
-      "history": "not measured in B1",
+      "history": {
+        "advertised": false,
+        "max_versions_per_key": 0,
+        "observations": []
+      },
       "info": {
         "capabilities": [
           "delete",
@@ -4704,7 +4808,7 @@
           "emulated:read_recent",
           "emulated:upsert",
           "get",
-          "get-id",
+          "get_by_ref",
           "keyed",
           "list_prefix",
           "read_recent",
@@ -4713,8 +4817,9 @@
           "write"
         ],
         "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
+        "protocol": 1,
         "runtime_versions": {},
-        "server_pid": null,
+        "servers": [],
         "version": "stdlib-jsonl-v1"
       },
       "invalid_final": 0,
@@ -4738,10 +4843,14 @@
     "config": "default;trial=5",
     "matched": true,
     "result": {
-      "acked_missing": 140,
+      "acked_missing": 139,
       "cas": "not measured in B1",
       "duplicates": 0,
-      "history": "not measured in B1",
+      "history": {
+        "advertised": false,
+        "max_versions_per_key": 0,
+        "observations": []
+      },
       "info": {
         "capabilities": [
           "delete",
@@ -4751,7 +4860,7 @@
           "emulated:read_recent",
           "emulated:upsert",
           "get",
-          "get-id",
+          "get_by_ref",
           "keyed",
           "list_prefix",
           "read_recent",
@@ -4760,8 +4869,9 @@
           "write"
         ],
         "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
+        "protocol": 1,
         "runtime_versions": {},
-        "server_pid": null,
+        "servers": [],
         "version": "stdlib-jsonl-v1"
       },
       "invalid_final": 0,
@@ -4769,7 +4879,7 @@
       "torn": 0,
       "trials": [
         {
-          "acked_missing": 140,
+          "acked_missing": 139,
           "duplicates": 0,
           "invalid_final": 0,
           "phase": "distinct",
@@ -4788,7 +4898,11 @@
       "acked_missing": 20,
       "cas": "not measured in B1",
       "duplicates": 0,
-      "history": "not measured in B1",
+      "history": {
+        "advertised": false,
+        "max_versions_per_key": 0,
+        "observations": []
+      },
       "info": {
         "capabilities": [
           "delete",
@@ -4798,7 +4912,7 @@
           "emulated:read_recent",
           "emulated:upsert",
           "get",
-          "get-id",
+          "get_by_ref",
           "keyed",
           "list_prefix",
           "read_recent",
@@ -4807,8 +4921,9 @@
           "write"
         ],
         "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
+        "protocol": 1,
         "runtime_versions": {},
-        "server_pid": null,
+        "servers": [],
         "version": "stdlib-jsonl-v1"
       },
       "invalid_final": 0,
@@ -4832,10 +4947,14 @@
     "config": "default;trial=7",
     "matched": true,
     "result": {
-      "acked_missing": 60,
+      "acked_missing": 59,
       "cas": "not measured in B1",
       "duplicates": 0,
-      "history": "not measured in B1",
+      "history": {
+        "advertised": false,
+        "max_versions_per_key": 0,
+        "observations": []
+      },
       "info": {
         "capabilities": [
           "delete",
@@ -4845,7 +4964,7 @@
           "emulated:read_recent",
           "emulated:upsert",
           "get",
-          "get-id",
+          "get_by_ref",
           "keyed",
           "list_prefix",
           "read_recent",
@@ -4854,8 +4973,9 @@
           "write"
         ],
         "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
+        "protocol": 1,
         "runtime_versions": {},
-        "server_pid": null,
+        "servers": [],
         "version": "stdlib-jsonl-v1"
       },
       "invalid_final": 0,
@@ -4863,7 +4983,7 @@
       "torn": 0,
       "trials": [
         {
-          "acked_missing": 60,
+          "acked_missing": 59,
           "duplicates": 0,
           "invalid_final": 0,
           "phase": "distinct",
@@ -4882,7 +5002,11 @@
       "acked_missing": 139,
       "cas": "not measured in B1",
       "duplicates": 0,
-      "history": "not measured in B1",
+      "history": {
+        "advertised": false,
+        "max_versions_per_key": 0,
+        "observations": []
+      },
       "info": {
         "capabilities": [
           "delete",
@@ -4892,7 +5016,7 @@
           "emulated:read_recent",
           "emulated:upsert",
           "get",
-          "get-id",
+          "get_by_ref",
           "keyed",
           "list_prefix",
           "read_recent",
@@ -4901,8 +5025,9 @@
           "write"
         ],
         "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
+        "protocol": 1,
         "runtime_versions": {},
-        "server_pid": null,
+        "servers": [],
         "version": "stdlib-jsonl-v1"
       },
       "invalid_final": 0,
@@ -4929,7 +5054,11 @@
       "acked_missing": 20,
       "cas": "not measured in B1",
       "duplicates": 0,
-      "history": "not measured in B1",
+      "history": {
+        "advertised": false,
+        "max_versions_per_key": 0,
+        "observations": []
+      },
       "info": {
         "capabilities": [
           "delete",
@@ -4939,7 +5068,7 @@
           "emulated:read_recent",
           "emulated:upsert",
           "get",
-          "get-id",
+          "get_by_ref",
           "keyed",
           "list_prefix",
           "read_recent",
@@ -4948,8 +5077,9 @@
           "write"
         ],
         "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
+        "protocol": 1,
         "runtime_versions": {},
-        "server_pid": null,
+        "servers": [],
         "version": "stdlib-jsonl-v1"
       },
       "invalid_final": 0,
@@ -4976,7 +5106,11 @@
       "acked_missing": 60,
       "cas": "not measured in B1",
       "duplicates": 0,
-      "history": "not measured in B1",
+      "history": {
+        "advertised": false,
+        "max_versions_per_key": 0,
+        "observations": []
+      },
       "info": {
         "capabilities": [
           "delete",
@@ -4986,7 +5120,7 @@
           "emulated:read_recent",
           "emulated:upsert",
           "get",
-          "get-id",
+          "get_by_ref",
           "keyed",
           "list_prefix",
           "read_recent",
@@ -4995,8 +5129,9 @@
           "write"
         ],
         "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
+        "protocol": 1,
         "runtime_versions": {},
-        "server_pid": null,
+        "servers": [],
         "version": "stdlib-jsonl-v1"
       },
       "invalid_final": 0,
@@ -5020,10 +5155,14 @@
     "config": "default;trial=11",
     "matched": true,
     "result": {
-      "acked_missing": 140,
+      "acked_missing": 138,
       "cas": "not measured in B1",
       "duplicates": 0,
-      "history": "not measured in B1",
+      "history": {
+        "advertised": false,
+        "max_versions_per_key": 0,
+        "observations": []
+      },
       "info": {
         "capabilities": [
           "delete",
@@ -5033,7 +5172,7 @@
           "emulated:read_recent",
           "emulated:upsert",
           "get",
-          "get-id",
+          "get_by_ref",
           "keyed",
           "list_prefix",
           "read_recent",
@@ -5042,8 +5181,9 @@
           "write"
         ],
         "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
+        "protocol": 1,
         "runtime_versions": {},
-        "server_pid": null,
+        "servers": [],
         "version": "stdlib-jsonl-v1"
       },
       "invalid_final": 0,
@@ -5051,7 +5191,7 @@
       "torn": 0,
       "trials": [
         {
-          "acked_missing": 140,
+          "acked_missing": 138,
           "duplicates": 0,
           "invalid_final": 0,
           "phase": "distinct",
@@ -5070,7 +5210,11 @@
       "acked_missing": 20,
       "cas": "not measured in B1",
       "duplicates": 0,
-      "history": "not measured in B1",
+      "history": {
+        "advertised": false,
+        "max_versions_per_key": 0,
+        "observations": []
+      },
       "info": {
         "capabilities": [
           "delete",
@@ -5080,7 +5224,7 @@
           "emulated:read_recent",
           "emulated:upsert",
           "get",
-          "get-id",
+          "get_by_ref",
           "keyed",
           "list_prefix",
           "read_recent",
@@ -5089,8 +5233,9 @@
           "write"
         ],
         "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
+        "protocol": 1,
         "runtime_versions": {},
-        "server_pid": null,
+        "servers": [],
         "version": "stdlib-jsonl-v1"
       },
       "invalid_final": 0,
@@ -5114,10 +5259,14 @@
     "config": "default;trial=13",
     "matched": true,
     "result": {
-      "acked_missing": 60,
+      "acked_missing": 59,
       "cas": "not measured in B1",
       "duplicates": 0,
-      "history": "not measured in B1",
+      "history": {
+        "advertised": false,
+        "max_versions_per_key": 0,
+        "observations": []
+      },
       "info": {
         "capabilities": [
           "delete",
@@ -5127,7 +5276,7 @@
           "emulated:read_recent",
           "emulated:upsert",
           "get",
-          "get-id",
+          "get_by_ref",
           "keyed",
           "list_prefix",
           "read_recent",
@@ -5136,8 +5285,9 @@
           "write"
         ],
         "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
+        "protocol": 1,
         "runtime_versions": {},
-        "server_pid": null,
+        "servers": [],
         "version": "stdlib-jsonl-v1"
       },
       "invalid_final": 0,
@@ -5145,7 +5295,7 @@
       "torn": 0,
       "trials": [
         {
-          "acked_missing": 60,
+          "acked_missing": 59,
           "duplicates": 0,
           "invalid_final": 0,
           "phase": "distinct",
@@ -5164,7 +5314,11 @@
       "acked_missing": 139,
       "cas": "not measured in B1",
       "duplicates": 0,
-      "history": "not measured in B1",
+      "history": {
+        "advertised": false,
+        "max_versions_per_key": 0,
+        "observations": []
+      },
       "info": {
         "capabilities": [
           "delete",
@@ -5174,7 +5328,7 @@
           "emulated:read_recent",
           "emulated:upsert",
           "get",
-          "get-id",
+          "get_by_ref",
           "keyed",
           "list_prefix",
           "read_recent",
@@ -5183,8 +5337,9 @@
           "write"
         ],
         "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
+        "protocol": 1,
         "runtime_versions": {},
-        "server_pid": null,
+        "servers": [],
         "version": "stdlib-jsonl-v1"
       },
       "invalid_final": 0,
@@ -5211,7 +5366,11 @@
       "acked_missing": 20,
       "cas": "not measured in B1",
       "duplicates": 0,
-      "history": "not measured in B1",
+      "history": {
+        "advertised": false,
+        "max_versions_per_key": 0,
+        "observations": []
+      },
       "info": {
         "capabilities": [
           "delete",
@@ -5221,7 +5380,7 @@
           "emulated:read_recent",
           "emulated:upsert",
           "get",
-          "get-id",
+          "get_by_ref",
           "keyed",
           "list_prefix",
           "read_recent",
@@ -5230,8 +5389,9 @@
           "write"
         ],
         "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
+        "protocol": 1,
         "runtime_versions": {},
-        "server_pid": null,
+        "servers": [],
         "version": "stdlib-jsonl-v1"
       },
       "invalid_final": 0,
@@ -5258,7 +5418,11 @@
       "acked_missing": 60,
       "cas": "not measured in B1",
       "duplicates": 0,
-      "history": "not measured in B1",
+      "history": {
+        "advertised": false,
+        "max_versions_per_key": 0,
+        "observations": []
+      },
       "info": {
         "capabilities": [
           "delete",
@@ -5268,7 +5432,7 @@
           "emulated:read_recent",
           "emulated:upsert",
           "get",
-          "get-id",
+          "get_by_ref",
           "keyed",
           "list_prefix",
           "read_recent",
@@ -5277,8 +5441,9 @@
           "write"
         ],
         "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
+        "protocol": 1,
         "runtime_versions": {},
-        "server_pid": null,
+        "servers": [],
         "version": "stdlib-jsonl-v1"
       },
       "invalid_final": 0,
@@ -5305,7 +5470,11 @@
       "acked_missing": 140,
       "cas": "not measured in B1",
       "duplicates": 0,
-      "history": "not measured in B1",
+      "history": {
+        "advertised": false,
+        "max_versions_per_key": 0,
+        "observations": []
+      },
       "info": {
         "capabilities": [
           "delete",
@@ -5315,7 +5484,7 @@
           "emulated:read_recent",
           "emulated:upsert",
           "get",
-          "get-id",
+          "get_by_ref",
           "keyed",
           "list_prefix",
           "read_recent",
@@ -5324,8 +5493,9 @@
           "write"
         ],
         "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
+        "protocol": 1,
         "runtime_versions": {},
-        "server_pid": null,
+        "servers": [],
         "version": "stdlib-jsonl-v1"
       },
       "invalid_final": 0,
@@ -5352,7 +5522,11 @@
       "acked_missing": 20,
       "cas": "not measured in B1",
       "duplicates": 0,
-      "history": "not measured in B1",
+      "history": {
+        "advertised": false,
+        "max_versions_per_key": 0,
+        "observations": []
+      },
       "info": {
         "capabilities": [
           "delete",
@@ -5362,7 +5536,7 @@
           "emulated:read_recent",
           "emulated:upsert",
           "get",
-          "get-id",
+          "get_by_ref",
           "keyed",
           "list_prefix",
           "read_recent",
@@ -5371,8 +5545,9 @@
           "write"
         ],
         "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
+        "protocol": 1,
         "runtime_versions": {},
-        "server_pid": null,
+        "servers": [],
         "version": "stdlib-jsonl-v1"
       },
       "invalid_final": 0,
@@ -5399,7 +5574,11 @@
       "acked_missing": 60,
       "cas": "not measured in B1",
       "duplicates": 0,
-      "history": "not measured in B1",
+      "history": {
+        "advertised": false,
+        "max_versions_per_key": 0,
+        "observations": []
+      },
       "info": {
         "capabilities": [
           "delete",
@@ -5409,7 +5588,7 @@
           "emulated:read_recent",
           "emulated:upsert",
           "get",
-          "get-id",
+          "get_by_ref",
           "keyed",
           "list_prefix",
           "read_recent",
@@ -5418,8 +5597,9 @@
           "write"
         ],
         "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
+        "protocol": 1,
         "runtime_versions": {},
-        "server_pid": null,
+        "servers": [],
         "version": "stdlib-jsonl-v1"
       },
       "invalid_final": 0,
@@ -5446,12 +5626,16 @@
       "acked_missing": 0,
       "cas": "not measured in B1",
       "duplicates": 0,
-      "history": "not measured in B1",
+      "history": {
+        "advertised": false,
+        "max_versions_per_key": 0,
+        "observations": []
+      },
       "info": {
         "capabilities": [
           "delete",
           "get",
-          "get-id",
+          "get_by_ref",
           "keyed",
           "list_prefix",
           "read_recent",
@@ -5460,8 +5644,9 @@
           "write"
         ],
         "notes": "WAL synchronous=NORMAL. Busy timeout 30 seconds.",
+        "protocol": 1,
         "runtime_versions": {},
-        "server_pid": null,
+        "servers": [],
         "version": "3.53.3"
       },
       "invalid_final": 0,
@@ -5488,12 +5673,16 @@
       "acked_missing": 0,
       "cas": "not measured in B1",
       "duplicates": 0,
-      "history": "not measured in B1",
+      "history": {
+        "advertised": false,
+        "max_versions_per_key": 0,
+        "observations": []
+      },
       "info": {
         "capabilities": [
           "delete",
           "get",
-          "get-id",
+          "get_by_ref",
           "keyed",
           "list_prefix",
           "read_recent",
@@ -5502,8 +5691,9 @@
           "write"
         ],
         "notes": "WAL synchronous=NORMAL. Busy timeout 30 seconds.",
+        "protocol": 1,
         "runtime_versions": {},
-        "server_pid": null,
+        "servers": [],
         "version": "3.53.3"
       },
       "invalid_final": 0,
@@ -5530,12 +5720,16 @@
       "acked_missing": 0,
       "cas": "not measured in B1",
       "duplicates": 0,
-      "history": "not measured in B1",
+      "history": {
+        "advertised": false,
+        "max_versions_per_key": 0,
+        "observations": []
+      },
       "info": {
         "capabilities": [
           "delete",
           "get",
-          "get-id",
+          "get_by_ref",
           "keyed",
           "list_prefix",
           "read_recent",
@@ -5544,8 +5738,9 @@
           "write"
         ],
         "notes": "WAL synchronous=NORMAL. Busy timeout 30 seconds.",
+        "protocol": 1,
         "runtime_versions": {},
-        "server_pid": null,
+        "servers": [],
         "version": "3.53.3"
       },
       "invalid_final": 0,
@@ -5572,12 +5767,16 @@
       "acked_missing": 0,
       "cas": "not measured in B1",
       "duplicates": 0,
-      "history": "not measured in B1",
+      "history": {
+        "advertised": false,
+        "max_versions_per_key": 0,
+        "observations": []
+      },
       "info": {
         "capabilities": [
           "delete",
           "get",
-          "get-id",
+          "get_by_ref",
           "keyed",
           "list_prefix",
           "read_recent",
@@ -5586,8 +5785,9 @@
           "write"
         ],
         "notes": "WAL synchronous=NORMAL. Busy timeout 30 seconds.",
+        "protocol": 1,
         "runtime_versions": {},
-        "server_pid": null,
+        "servers": [],
         "version": "3.53.3"
       },
       "invalid_final": 0,
@@ -5614,12 +5814,16 @@
       "acked_missing": 0,
       "cas": "not measured in B1",
       "duplicates": 0,
-      "history": "not measured in B1",
+      "history": {
+        "advertised": false,
+        "max_versions_per_key": 0,
+        "observations": []
+      },
       "info": {
         "capabilities": [
           "delete",
           "get",
-          "get-id",
+          "get_by_ref",
           "keyed",
           "list_prefix",
           "read_recent",
@@ -5628,8 +5832,9 @@
           "write"
         ],
         "notes": "WAL synchronous=NORMAL. Busy timeout 30 seconds.",
+        "protocol": 1,
         "runtime_versions": {},
-        "server_pid": null,
+        "servers": [],
         "version": "3.53.3"
       },
       "invalid_final": 0,
@@ -5656,12 +5861,16 @@
       "acked_missing": 0,
       "cas": "not measured in B1",
       "duplicates": 0,
-      "history": "not measured in B1",
+      "history": {
+        "advertised": false,
+        "max_versions_per_key": 0,
+        "observations": []
+      },
       "info": {
         "capabilities": [
           "delete",
           "get",
-          "get-id",
+          "get_by_ref",
           "keyed",
           "list_prefix",
           "read_recent",
@@ -5670,8 +5879,9 @@
           "write"
         ],
         "notes": "WAL synchronous=NORMAL. Busy timeout 30 seconds.",
+        "protocol": 1,
         "runtime_versions": {},
-        "server_pid": null,
+        "servers": [],
         "version": "3.53.3"
       },
       "invalid_final": 0,
@@ -5698,12 +5908,16 @@
       "acked_missing": 0,
       "cas": "not measured in B1",
       "duplicates": 0,
-      "history": "not measured in B1",
+      "history": {
+        "advertised": false,
+        "max_versions_per_key": 0,
+        "observations": []
+      },
       "info": {
         "capabilities": [
           "delete",
           "get",
-          "get-id",
+          "get_by_ref",
           "keyed",
           "list_prefix",
           "read_recent",
@@ -5712,8 +5926,9 @@
           "write"
         ],
         "notes": "WAL synchronous=NORMAL. Busy timeout 30 seconds.",
+        "protocol": 1,
         "runtime_versions": {},
-        "server_pid": null,
+        "servers": [],
         "version": "3.53.3"
       },
       "invalid_final": 0,
@@ -5740,12 +5955,16 @@
       "acked_missing": 0,
       "cas": "not measured in B1",
       "duplicates": 0,
-      "history": "not measured in B1",
+      "history": {
+        "advertised": false,
+        "max_versions_per_key": 0,
+        "observations": []
+      },
       "info": {
         "capabilities": [
           "delete",
           "get",
-          "get-id",
+          "get_by_ref",
           "keyed",
           "list_prefix",
           "read_recent",
@@ -5754,8 +5973,9 @@
           "write"
         ],
         "notes": "WAL synchronous=NORMAL. Busy timeout 30 seconds.",
+        "protocol": 1,
         "runtime_versions": {},
-        "server_pid": null,
+        "servers": [],
         "version": "3.53.3"
       },
       "invalid_final": 0,
@@ -5782,12 +6002,16 @@
       "acked_missing": 0,
       "cas": "not measured in B1",
       "duplicates": 0,
-      "history": "not measured in B1",
+      "history": {
+        "advertised": false,
+        "max_versions_per_key": 0,
+        "observations": []
+      },
       "info": {
         "capabilities": [
           "delete",
           "get",
-          "get-id",
+          "get_by_ref",
           "keyed",
           "list_prefix",
           "read_recent",
@@ -5796,8 +6020,9 @@
           "write"
         ],
         "notes": "WAL synchronous=NORMAL. Busy timeout 30 seconds.",
+        "protocol": 1,
         "runtime_versions": {},
-        "server_pid": null,
+        "servers": [],
         "version": "3.53.3"
       },
       "invalid_final": 0,
@@ -5824,12 +6049,16 @@
       "acked_missing": 0,
       "cas": "not measured in B1",
       "duplicates": 0,
-      "history": "not measured in B1",
+      "history": {
+        "advertised": false,
+        "max_versions_per_key": 0,
+        "observations": []
+      },
       "info": {
         "capabilities": [
           "delete",
           "get",
-          "get-id",
+          "get_by_ref",
           "keyed",
           "list_prefix",
           "read_recent",
@@ -5838,8 +6067,9 @@
           "write"
         ],
         "notes": "WAL synchronous=NORMAL. Busy timeout 30 seconds.",
+        "protocol": 1,
         "runtime_versions": {},
-        "server_pid": null,
+        "servers": [],
         "version": "3.53.3"
       },
       "invalid_final": 0,
@@ -5866,12 +6096,16 @@
       "acked_missing": 0,
       "cas": "not measured in B1",
       "duplicates": 0,
-      "history": "not measured in B1",
+      "history": {
+        "advertised": false,
+        "max_versions_per_key": 0,
+        "observations": []
+      },
       "info": {
         "capabilities": [
           "delete",
           "get",
-          "get-id",
+          "get_by_ref",
           "keyed",
           "list_prefix",
           "read_recent",
@@ -5880,8 +6114,9 @@
           "write"
         ],
         "notes": "WAL synchronous=NORMAL. Busy timeout 30 seconds.",
+        "protocol": 1,
         "runtime_versions": {},
-        "server_pid": null,
+        "servers": [],
         "version": "3.53.3"
       },
       "invalid_final": 0,
@@ -5908,12 +6143,16 @@
       "acked_missing": 0,
       "cas": "not measured in B1",
       "duplicates": 0,
-      "history": "not measured in B1",
+      "history": {
+        "advertised": false,
+        "max_versions_per_key": 0,
+        "observations": []
+      },
       "info": {
         "capabilities": [
           "delete",
           "get",
-          "get-id",
+          "get_by_ref",
           "keyed",
           "list_prefix",
           "read_recent",
@@ -5922,8 +6161,9 @@
           "write"
         ],
         "notes": "WAL synchronous=NORMAL. Busy timeout 30 seconds.",
+        "protocol": 1,
         "runtime_versions": {},
-        "server_pid": null,
+        "servers": [],
         "version": "3.53.3"
       },
       "invalid_final": 0,
@@ -5950,12 +6190,16 @@
       "acked_missing": 0,
       "cas": "not measured in B1",
       "duplicates": 0,
-      "history": "not measured in B1",
+      "history": {
+        "advertised": false,
+        "max_versions_per_key": 0,
+        "observations": []
+      },
       "info": {
         "capabilities": [
           "delete",
           "get",
-          "get-id",
+          "get_by_ref",
           "keyed",
           "list_prefix",
           "read_recent",
@@ -5964,8 +6208,9 @@
           "write"
         ],
         "notes": "WAL synchronous=NORMAL. Busy timeout 30 seconds.",
+        "protocol": 1,
         "runtime_versions": {},
-        "server_pid": null,
+        "servers": [],
         "version": "3.53.3"
       },
       "invalid_final": 0,
@@ -5992,12 +6237,16 @@
       "acked_missing": 0,
       "cas": "not measured in B1",
       "duplicates": 0,
-      "history": "not measured in B1",
+      "history": {
+        "advertised": false,
+        "max_versions_per_key": 0,
+        "observations": []
+      },
       "info": {
         "capabilities": [
           "delete",
           "get",
-          "get-id",
+          "get_by_ref",
           "keyed",
           "list_prefix",
           "read_recent",
@@ -6006,8 +6255,9 @@
           "write"
         ],
         "notes": "WAL synchronous=NORMAL. Busy timeout 30 seconds.",
+        "protocol": 1,
         "runtime_versions": {},
-        "server_pid": null,
+        "servers": [],
         "version": "3.53.3"
       },
       "invalid_final": 0,
@@ -6034,12 +6284,16 @@
       "acked_missing": 0,
       "cas": "not measured in B1",
       "duplicates": 0,
-      "history": "not measured in B1",
+      "history": {
+        "advertised": false,
+        "max_versions_per_key": 0,
+        "observations": []
+      },
       "info": {
         "capabilities": [
           "delete",
           "get",
-          "get-id",
+          "get_by_ref",
           "keyed",
           "list_prefix",
           "read_recent",
@@ -6048,8 +6302,9 @@
           "write"
         ],
         "notes": "WAL synchronous=NORMAL. Busy timeout 30 seconds.",
+        "protocol": 1,
         "runtime_versions": {},
-        "server_pid": null,
+        "servers": [],
         "version": "3.53.3"
       },
       "invalid_final": 0,
@@ -6076,12 +6331,16 @@
       "acked_missing": 0,
       "cas": "not measured in B1",
       "duplicates": 0,
-      "history": "not measured in B1",
+      "history": {
+        "advertised": false,
+        "max_versions_per_key": 0,
+        "observations": []
+      },
       "info": {
         "capabilities": [
           "delete",
           "get",
-          "get-id",
+          "get_by_ref",
           "keyed",
           "list_prefix",
           "read_recent",
@@ -6090,8 +6349,9 @@
           "write"
         ],
         "notes": "WAL synchronous=NORMAL. Busy timeout 30 seconds.",
+        "protocol": 1,
         "runtime_versions": {},
-        "server_pid": null,
+        "servers": [],
         "version": "3.53.3"
       },
       "invalid_final": 0,
@@ -6118,12 +6378,16 @@
       "acked_missing": 0,
       "cas": "not measured in B1",
       "duplicates": 0,
-      "history": "not measured in B1",
+      "history": {
+        "advertised": false,
+        "max_versions_per_key": 0,
+        "observations": []
+      },
       "info": {
         "capabilities": [
           "delete",
           "get",
-          "get-id",
+          "get_by_ref",
           "keyed",
           "list_prefix",
           "read_recent",
@@ -6132,8 +6396,9 @@
           "write"
         ],
         "notes": "WAL synchronous=NORMAL. Busy timeout 30 seconds.",
+        "protocol": 1,
         "runtime_versions": {},
-        "server_pid": null,
+        "servers": [],
         "version": "3.53.3"
       },
       "invalid_final": 0,
@@ -6160,12 +6425,16 @@
       "acked_missing": 0,
       "cas": "not measured in B1",
       "duplicates": 0,
-      "history": "not measured in B1",
+      "history": {
+        "advertised": false,
+        "max_versions_per_key": 0,
+        "observations": []
+      },
       "info": {
         "capabilities": [
           "delete",
           "get",
-          "get-id",
+          "get_by_ref",
           "keyed",
           "list_prefix",
           "read_recent",
@@ -6174,8 +6443,9 @@
           "write"
         ],
         "notes": "WAL synchronous=NORMAL. Busy timeout 30 seconds.",
+        "protocol": 1,
         "runtime_versions": {},
-        "server_pid": null,
+        "servers": [],
         "version": "3.53.3"
       },
       "invalid_final": 0,
@@ -6202,12 +6472,16 @@
       "acked_missing": 0,
       "cas": "not measured in B1",
       "duplicates": 0,
-      "history": "not measured in B1",
+      "history": {
+        "advertised": false,
+        "max_versions_per_key": 0,
+        "observations": []
+      },
       "info": {
         "capabilities": [
           "delete",
           "get",
-          "get-id",
+          "get_by_ref",
           "keyed",
           "list_prefix",
           "read_recent",
@@ -6216,8 +6490,9 @@
           "write"
         ],
         "notes": "WAL synchronous=NORMAL. Busy timeout 30 seconds.",
+        "protocol": 1,
         "runtime_versions": {},
-        "server_pid": null,
+        "servers": [],
         "version": "3.53.3"
       },
       "invalid_final": 0,
@@ -6244,12 +6519,16 @@
       "acked_missing": 0,
       "cas": "not measured in B1",
       "duplicates": 0,
-      "history": "not measured in B1",
+      "history": {
+        "advertised": false,
+        "max_versions_per_key": 0,
+        "observations": []
+      },
       "info": {
         "capabilities": [
           "delete",
           "get",
-          "get-id",
+          "get_by_ref",
           "keyed",
           "list_prefix",
           "read_recent",
@@ -6258,8 +6537,9 @@
           "write"
         ],
         "notes": "WAL synchronous=NORMAL. Busy timeout 30 seconds.",
+        "protocol": 1,
         "runtime_versions": {},
-        "server_pid": null,
+        "servers": [],
         "version": "3.53.3"
       },
       "invalid_final": 0,
@@ -6286,7 +6566,21 @@
       "acked_missing": 20,
       "cas": "not measured in B1",
       "duplicates": 0,
-      "history": "not measured in B1",
+      "history": {
+        "advertised": false,
+        "max_versions_per_key": 1,
+        "observations": [
+          {
+            "versions_per_key": {
+              "shared-0": 1,
+              "shared-1": 1,
+              "shared-2": 1,
+              "shared-3": 1
+            },
+            "writers": 2
+          }
+        ]
+      },
       "info": {
         "capabilities": [
           "delete",
@@ -6296,7 +6590,7 @@
           "emulated:read_recent",
           "emulated:upsert",
           "get",
-          "get-id",
+          "get_by_ref",
           "keyed",
           "list_prefix",
           "read_recent",
@@ -6305,8 +6599,9 @@
           "write"
         ],
         "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
+        "protocol": 1,
         "runtime_versions": {},
-        "server_pid": null,
+        "servers": [],
         "version": "stdlib-jsonl-v1"
       },
       "invalid_final": 0,
@@ -6340,10 +6635,24 @@
     "config": "default;trial=1",
     "matched": true,
     "result": {
-      "acked_missing": 60,
+      "acked_missing": 59,
       "cas": "not measured in B1",
       "duplicates": 0,
-      "history": "not measured in B1",
+      "history": {
+        "advertised": false,
+        "max_versions_per_key": 1,
+        "observations": [
+          {
+            "versions_per_key": {
+              "shared-0": 1,
+              "shared-1": 1,
+              "shared-2": 1,
+              "shared-3": 1
+            },
+            "writers": 4
+          }
+        ]
+      },
       "info": {
         "capabilities": [
           "delete",
@@ -6353,7 +6662,7 @@
           "emulated:read_recent",
           "emulated:upsert",
           "get",
-          "get-id",
+          "get_by_ref",
           "keyed",
           "list_prefix",
           "read_recent",
@@ -6362,8 +6671,9 @@
           "write"
         ],
         "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
+        "protocol": 1,
         "runtime_versions": {},
-        "server_pid": null,
+        "servers": [],
         "version": "stdlib-jsonl-v1"
       },
       "invalid_final": 0,
@@ -6372,7 +6682,7 @@
       "torn": 0,
       "trials": [
         {
-          "acked_missing": 60,
+          "acked_missing": 59,
           "duplicates": 0,
           "invalid_final": 0,
           "phase": "distinct",
@@ -6400,7 +6710,21 @@
       "acked_missing": 139,
       "cas": "not measured in B1",
       "duplicates": 0,
-      "history": "not measured in B1",
+      "history": {
+        "advertised": false,
+        "max_versions_per_key": 1,
+        "observations": [
+          {
+            "versions_per_key": {
+              "shared-0": 1,
+              "shared-1": 1,
+              "shared-2": 1,
+              "shared-3": 1
+            },
+            "writers": 8
+          }
+        ]
+      },
       "info": {
         "capabilities": [
           "delete",
@@ -6410,7 +6734,7 @@
           "emulated:read_recent",
           "emulated:upsert",
           "get",
-          "get-id",
+          "get_by_ref",
           "keyed",
           "list_prefix",
           "read_recent",
@@ -6419,8 +6743,9 @@
           "write"
         ],
         "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
+        "protocol": 1,
         "runtime_versions": {},
-        "server_pid": null,
+        "servers": [],
         "version": "stdlib-jsonl-v1"
       },
       "invalid_final": 0,
@@ -6457,7 +6782,21 @@
       "acked_missing": 20,
       "cas": "not measured in B1",
       "duplicates": 0,
-      "history": "not measured in B1",
+      "history": {
+        "advertised": false,
+        "max_versions_per_key": 1,
+        "observations": [
+          {
+            "versions_per_key": {
+              "shared-0": 1,
+              "shared-1": 1,
+              "shared-2": 1,
+              "shared-3": 1
+            },
+            "writers": 2
+          }
+        ]
+      },
       "info": {
         "capabilities": [
           "delete",
@@ -6467,7 +6806,7 @@
           "emulated:read_recent",
           "emulated:upsert",
           "get",
-          "get-id",
+          "get_by_ref",
           "keyed",
           "list_prefix",
           "read_recent",
@@ -6476,8 +6815,9 @@
           "write"
         ],
         "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
+        "protocol": 1,
         "runtime_versions": {},
-        "server_pid": null,
+        "servers": [],
         "version": "stdlib-jsonl-v1"
       },
       "invalid_final": 0,
@@ -6514,7 +6854,21 @@
       "acked_missing": 60,
       "cas": "not measured in B1",
       "duplicates": 0,
-      "history": "not measured in B1",
+      "history": {
+        "advertised": false,
+        "max_versions_per_key": 1,
+        "observations": [
+          {
+            "versions_per_key": {
+              "shared-0": 1,
+              "shared-1": 1,
+              "shared-2": 1,
+              "shared-3": 1
+            },
+            "writers": 4
+          }
+        ]
+      },
       "info": {
         "capabilities": [
           "delete",
@@ -6524,7 +6878,7 @@
           "emulated:read_recent",
           "emulated:upsert",
           "get",
-          "get-id",
+          "get_by_ref",
           "keyed",
           "list_prefix",
           "read_recent",
@@ -6533,8 +6887,9 @@
           "write"
         ],
         "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
+        "protocol": 1,
         "runtime_versions": {},
-        "server_pid": null,
+        "servers": [],
         "version": "stdlib-jsonl-v1"
       },
       "invalid_final": 0,
@@ -6571,7 +6926,21 @@
       "acked_missing": 139,
       "cas": "not measured in B1",
       "duplicates": 0,
-      "history": "not measured in B1",
+      "history": {
+        "advertised": false,
+        "max_versions_per_key": 1,
+        "observations": [
+          {
+            "versions_per_key": {
+              "shared-0": 1,
+              "shared-1": 1,
+              "shared-2": 1,
+              "shared-3": 1
+            },
+            "writers": 8
+          }
+        ]
+      },
       "info": {
         "capabilities": [
           "delete",
@@ -6581,7 +6950,7 @@
           "emulated:read_recent",
           "emulated:upsert",
           "get",
-          "get-id",
+          "get_by_ref",
           "keyed",
           "list_prefix",
           "read_recent",
@@ -6590,8 +6959,9 @@
           "write"
         ],
         "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
+        "protocol": 1,
         "runtime_versions": {},
-        "server_pid": null,
+        "servers": [],
         "version": "stdlib-jsonl-v1"
       },
       "invalid_final": 0,
@@ -6628,7 +6998,21 @@
       "acked_missing": 20,
       "cas": "not measured in B1",
       "duplicates": 0,
-      "history": "not measured in B1",
+      "history": {
+        "advertised": false,
+        "max_versions_per_key": 1,
+        "observations": [
+          {
+            "versions_per_key": {
+              "shared-0": 1,
+              "shared-1": 1,
+              "shared-2": 1,
+              "shared-3": 1
+            },
+            "writers": 2
+          }
+        ]
+      },
       "info": {
         "capabilities": [
           "delete",
@@ -6638,7 +7022,7 @@
           "emulated:read_recent",
           "emulated:upsert",
           "get",
-          "get-id",
+          "get_by_ref",
           "keyed",
           "list_prefix",
           "read_recent",
@@ -6647,8 +7031,9 @@
           "write"
         ],
         "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
+        "protocol": 1,
         "runtime_versions": {},
-        "server_pid": null,
+        "servers": [],
         "version": "stdlib-jsonl-v1"
       },
       "invalid_final": 0,
@@ -6685,7 +7070,21 @@
       "acked_missing": 59,
       "cas": "not measured in B1",
       "duplicates": 0,
-      "history": "not measured in B1",
+      "history": {
+        "advertised": false,
+        "max_versions_per_key": 1,
+        "observations": [
+          {
+            "versions_per_key": {
+              "shared-0": 1,
+              "shared-1": 1,
+              "shared-2": 1,
+              "shared-3": 1
+            },
+            "writers": 4
+          }
+        ]
+      },
       "info": {
         "capabilities": [
           "delete",
@@ -6695,7 +7094,7 @@
           "emulated:read_recent",
           "emulated:upsert",
           "get",
-          "get-id",
+          "get_by_ref",
           "keyed",
           "list_prefix",
           "read_recent",
@@ -6704,8 +7103,9 @@
           "write"
         ],
         "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
+        "protocol": 1,
         "runtime_versions": {},
-        "server_pid": null,
+        "servers": [],
         "version": "stdlib-jsonl-v1"
       },
       "invalid_final": 0,
@@ -6739,10 +7139,24 @@
     "config": "default;trial=8",
     "matched": true,
     "result": {
-      "acked_missing": 139,
+      "acked_missing": 140,
       "cas": "not measured in B1",
       "duplicates": 0,
-      "history": "not measured in B1",
+      "history": {
+        "advertised": false,
+        "max_versions_per_key": 1,
+        "observations": [
+          {
+            "versions_per_key": {
+              "shared-0": 1,
+              "shared-1": 1,
+              "shared-2": 1,
+              "shared-3": 1
+            },
+            "writers": 8
+          }
+        ]
+      },
       "info": {
         "capabilities": [
           "delete",
@@ -6752,7 +7166,7 @@
           "emulated:read_recent",
           "emulated:upsert",
           "get",
-          "get-id",
+          "get_by_ref",
           "keyed",
           "list_prefix",
           "read_recent",
@@ -6761,8 +7175,9 @@
           "write"
         ],
         "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
+        "protocol": 1,
         "runtime_versions": {},
-        "server_pid": null,
+        "servers": [],
         "version": "stdlib-jsonl-v1"
       },
       "invalid_final": 0,
@@ -6771,7 +7186,7 @@
       "torn": 0,
       "trials": [
         {
-          "acked_missing": 139,
+          "acked_missing": 140,
           "duplicates": 0,
           "invalid_final": 0,
           "phase": "distinct",
@@ -6796,10 +7211,24 @@
     "config": "default;trial=9",
     "matched": true,
     "result": {
-      "acked_missing": 20,
+      "acked_missing": 19,
       "cas": "not measured in B1",
       "duplicates": 0,
-      "history": "not measured in B1",
+      "history": {
+        "advertised": false,
+        "max_versions_per_key": 1,
+        "observations": [
+          {
+            "versions_per_key": {
+              "shared-0": 1,
+              "shared-1": 1,
+              "shared-2": 1,
+              "shared-3": 1
+            },
+            "writers": 2
+          }
+        ]
+      },
       "info": {
         "capabilities": [
           "delete",
@@ -6809,7 +7238,7 @@
           "emulated:read_recent",
           "emulated:upsert",
           "get",
-          "get-id",
+          "get_by_ref",
           "keyed",
           "list_prefix",
           "read_recent",
@@ -6818,8 +7247,9 @@
           "write"
         ],
         "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
+        "protocol": 1,
         "runtime_versions": {},
-        "server_pid": null,
+        "servers": [],
         "version": "stdlib-jsonl-v1"
       },
       "invalid_final": 0,
@@ -6828,7 +7258,7 @@
       "torn": 0,
       "trials": [
         {
-          "acked_missing": 20,
+          "acked_missing": 19,
           "duplicates": 0,
           "invalid_final": 0,
           "phase": "distinct",
@@ -6856,7 +7286,21 @@
       "acked_missing": 59,
       "cas": "not measured in B1",
       "duplicates": 0,
-      "history": "not measured in B1",
+      "history": {
+        "advertised": false,
+        "max_versions_per_key": 1,
+        "observations": [
+          {
+            "versions_per_key": {
+              "shared-0": 1,
+              "shared-1": 1,
+              "shared-2": 1,
+              "shared-3": 1
+            },
+            "writers": 4
+          }
+        ]
+      },
       "info": {
         "capabilities": [
           "delete",
@@ -6866,7 +7310,7 @@
           "emulated:read_recent",
           "emulated:upsert",
           "get",
-          "get-id",
+          "get_by_ref",
           "keyed",
           "list_prefix",
           "read_recent",
@@ -6875,8 +7319,9 @@
           "write"
         ],
         "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
+        "protocol": 1,
         "runtime_versions": {},
-        "server_pid": null,
+        "servers": [],
         "version": "stdlib-jsonl-v1"
       },
       "invalid_final": 0,
@@ -6913,7 +7358,21 @@
       "acked_missing": 139,
       "cas": "not measured in B1",
       "duplicates": 0,
-      "history": "not measured in B1",
+      "history": {
+        "advertised": false,
+        "max_versions_per_key": 1,
+        "observations": [
+          {
+            "versions_per_key": {
+              "shared-0": 1,
+              "shared-1": 1,
+              "shared-2": 1,
+              "shared-3": 1
+            },
+            "writers": 8
+          }
+        ]
+      },
       "info": {
         "capabilities": [
           "delete",
@@ -6923,7 +7382,7 @@
           "emulated:read_recent",
           "emulated:upsert",
           "get",
-          "get-id",
+          "get_by_ref",
           "keyed",
           "list_prefix",
           "read_recent",
@@ -6932,8 +7391,9 @@
           "write"
         ],
         "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
+        "protocol": 1,
         "runtime_versions": {},
-        "server_pid": null,
+        "servers": [],
         "version": "stdlib-jsonl-v1"
       },
       "invalid_final": 0,
@@ -6970,7 +7430,21 @@
       "acked_missing": 20,
       "cas": "not measured in B1",
       "duplicates": 0,
-      "history": "not measured in B1",
+      "history": {
+        "advertised": false,
+        "max_versions_per_key": 1,
+        "observations": [
+          {
+            "versions_per_key": {
+              "shared-0": 1,
+              "shared-1": 1,
+              "shared-2": 1,
+              "shared-3": 1
+            },
+            "writers": 2
+          }
+        ]
+      },
       "info": {
         "capabilities": [
           "delete",
@@ -6980,7 +7454,7 @@
           "emulated:read_recent",
           "emulated:upsert",
           "get",
-          "get-id",
+          "get_by_ref",
           "keyed",
           "list_prefix",
           "read_recent",
@@ -6989,8 +7463,9 @@
           "write"
         ],
         "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
+        "protocol": 1,
         "runtime_versions": {},
-        "server_pid": null,
+        "servers": [],
         "version": "stdlib-jsonl-v1"
       },
       "invalid_final": 0,
@@ -7027,7 +7502,21 @@
       "acked_missing": 60,
       "cas": "not measured in B1",
       "duplicates": 0,
-      "history": "not measured in B1",
+      "history": {
+        "advertised": false,
+        "max_versions_per_key": 1,
+        "observations": [
+          {
+            "versions_per_key": {
+              "shared-0": 1,
+              "shared-1": 1,
+              "shared-2": 1,
+              "shared-3": 1
+            },
+            "writers": 4
+          }
+        ]
+      },
       "info": {
         "capabilities": [
           "delete",
@@ -7037,7 +7526,7 @@
           "emulated:read_recent",
           "emulated:upsert",
           "get",
-          "get-id",
+          "get_by_ref",
           "keyed",
           "list_prefix",
           "read_recent",
@@ -7046,8 +7535,9 @@
           "write"
         ],
         "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
+        "protocol": 1,
         "runtime_versions": {},
-        "server_pid": null,
+        "servers": [],
         "version": "stdlib-jsonl-v1"
       },
       "invalid_final": 0,
@@ -7081,10 +7571,24 @@
     "config": "default;trial=14",
     "matched": true,
     "result": {
-      "acked_missing": 140,
+      "acked_missing": 139,
       "cas": "not measured in B1",
       "duplicates": 0,
-      "history": "not measured in B1",
+      "history": {
+        "advertised": false,
+        "max_versions_per_key": 1,
+        "observations": [
+          {
+            "versions_per_key": {
+              "shared-0": 1,
+              "shared-1": 1,
+              "shared-2": 1,
+              "shared-3": 1
+            },
+            "writers": 8
+          }
+        ]
+      },
       "info": {
         "capabilities": [
           "delete",
@@ -7094,7 +7598,7 @@
           "emulated:read_recent",
           "emulated:upsert",
           "get",
-          "get-id",
+          "get_by_ref",
           "keyed",
           "list_prefix",
           "read_recent",
@@ -7103,8 +7607,9 @@
           "write"
         ],
         "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
+        "protocol": 1,
         "runtime_versions": {},
-        "server_pid": null,
+        "servers": [],
         "version": "stdlib-jsonl-v1"
       },
       "invalid_final": 0,
@@ -7113,7 +7618,7 @@
       "torn": 0,
       "trials": [
         {
-          "acked_missing": 140,
+          "acked_missing": 139,
           "duplicates": 0,
           "invalid_final": 0,
           "phase": "distinct",
@@ -7138,10 +7643,24 @@
     "config": "default;trial=15",
     "matched": true,
     "result": {
-      "acked_missing": 18,
+      "acked_missing": 20,
       "cas": "not measured in B1",
       "duplicates": 0,
-      "history": "not measured in B1",
+      "history": {
+        "advertised": false,
+        "max_versions_per_key": 1,
+        "observations": [
+          {
+            "versions_per_key": {
+              "shared-0": 1,
+              "shared-1": 1,
+              "shared-2": 1,
+              "shared-3": 1
+            },
+            "writers": 2
+          }
+        ]
+      },
       "info": {
         "capabilities": [
           "delete",
@@ -7151,7 +7670,7 @@
           "emulated:read_recent",
           "emulated:upsert",
           "get",
-          "get-id",
+          "get_by_ref",
           "keyed",
           "list_prefix",
           "read_recent",
@@ -7160,8 +7679,9 @@
           "write"
         ],
         "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
+        "protocol": 1,
         "runtime_versions": {},
-        "server_pid": null,
+        "servers": [],
         "version": "stdlib-jsonl-v1"
       },
       "invalid_final": 0,
@@ -7170,7 +7690,7 @@
       "torn": 0,
       "trials": [
         {
-          "acked_missing": 18,
+          "acked_missing": 20,
           "duplicates": 0,
           "invalid_final": 0,
           "phase": "distinct",
@@ -7198,7 +7718,21 @@
       "acked_missing": 59,
       "cas": "not measured in B1",
       "duplicates": 0,
-      "history": "not measured in B1",
+      "history": {
+        "advertised": false,
+        "max_versions_per_key": 1,
+        "observations": [
+          {
+            "versions_per_key": {
+              "shared-0": 1,
+              "shared-1": 1,
+              "shared-2": 1,
+              "shared-3": 1
+            },
+            "writers": 4
+          }
+        ]
+      },
       "info": {
         "capabilities": [
           "delete",
@@ -7208,7 +7742,7 @@
           "emulated:read_recent",
           "emulated:upsert",
           "get",
-          "get-id",
+          "get_by_ref",
           "keyed",
           "list_prefix",
           "read_recent",
@@ -7217,8 +7751,9 @@
           "write"
         ],
         "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
+        "protocol": 1,
         "runtime_versions": {},
-        "server_pid": null,
+        "servers": [],
         "version": "stdlib-jsonl-v1"
       },
       "invalid_final": 0,
@@ -7252,10 +7787,24 @@
     "config": "default;trial=17",
     "matched": true,
     "result": {
-      "acked_missing": 139,
+      "acked_missing": 140,
       "cas": "not measured in B1",
       "duplicates": 0,
-      "history": "not measured in B1",
+      "history": {
+        "advertised": false,
+        "max_versions_per_key": 1,
+        "observations": [
+          {
+            "versions_per_key": {
+              "shared-0": 1,
+              "shared-1": 1,
+              "shared-2": 1,
+              "shared-3": 1
+            },
+            "writers": 8
+          }
+        ]
+      },
       "info": {
         "capabilities": [
           "delete",
@@ -7265,7 +7814,7 @@
           "emulated:read_recent",
           "emulated:upsert",
           "get",
-          "get-id",
+          "get_by_ref",
           "keyed",
           "list_prefix",
           "read_recent",
@@ -7274,8 +7823,9 @@
           "write"
         ],
         "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
+        "protocol": 1,
         "runtime_versions": {},
-        "server_pid": null,
+        "servers": [],
         "version": "stdlib-jsonl-v1"
       },
       "invalid_final": 0,
@@ -7284,7 +7834,7 @@
       "torn": 0,
       "trials": [
         {
-          "acked_missing": 139,
+          "acked_missing": 140,
           "duplicates": 0,
           "invalid_final": 0,
           "phase": "distinct",
@@ -7309,10 +7859,24 @@
     "config": "default;trial=18",
     "matched": true,
     "result": {
-      "acked_missing": 20,
+      "acked_missing": 19,
       "cas": "not measured in B1",
       "duplicates": 0,
-      "history": "not measured in B1",
+      "history": {
+        "advertised": false,
+        "max_versions_per_key": 1,
+        "observations": [
+          {
+            "versions_per_key": {
+              "shared-0": 1,
+              "shared-1": 1,
+              "shared-2": 1,
+              "shared-3": 1
+            },
+            "writers": 2
+          }
+        ]
+      },
       "info": {
         "capabilities": [
           "delete",
@@ -7322,7 +7886,7 @@
           "emulated:read_recent",
           "emulated:upsert",
           "get",
-          "get-id",
+          "get_by_ref",
           "keyed",
           "list_prefix",
           "read_recent",
@@ -7331,8 +7895,9 @@
           "write"
         ],
         "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
+        "protocol": 1,
         "runtime_versions": {},
-        "server_pid": null,
+        "servers": [],
         "version": "stdlib-jsonl-v1"
       },
       "invalid_final": 0,
@@ -7341,7 +7906,7 @@
       "torn": 0,
       "trials": [
         {
-          "acked_missing": 20,
+          "acked_missing": 19,
           "duplicates": 0,
           "invalid_final": 0,
           "phase": "distinct",
@@ -7369,7 +7934,21 @@
       "acked_missing": 60,
       "cas": "not measured in B1",
       "duplicates": 0,
-      "history": "not measured in B1",
+      "history": {
+        "advertised": false,
+        "max_versions_per_key": 1,
+        "observations": [
+          {
+            "versions_per_key": {
+              "shared-0": 1,
+              "shared-1": 1,
+              "shared-2": 1,
+              "shared-3": 1
+            },
+            "writers": 4
+          }
+        ]
+      },
       "info": {
         "capabilities": [
           "delete",
@@ -7379,7 +7958,7 @@
           "emulated:read_recent",
           "emulated:upsert",
           "get",
-          "get-id",
+          "get_by_ref",
           "keyed",
           "list_prefix",
           "read_recent",
@@ -7388,8 +7967,9 @@
           "write"
         ],
         "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
+        "protocol": 1,
         "runtime_versions": {},
-        "server_pid": null,
+        "servers": [],
         "version": "stdlib-jsonl-v1"
       },
       "invalid_final": 0,
@@ -7426,12 +8006,26 @@
       "acked_missing": 0,
       "cas": "not measured in B1",
       "duplicates": 0,
-      "history": "not measured in B1",
+      "history": {
+        "advertised": false,
+        "max_versions_per_key": 1,
+        "observations": [
+          {
+            "versions_per_key": {
+              "shared-0": 1,
+              "shared-1": 1,
+              "shared-2": 1,
+              "shared-3": 1
+            },
+            "writers": 2
+          }
+        ]
+      },
       "info": {
         "capabilities": [
           "delete",
           "get",
-          "get-id",
+          "get_by_ref",
           "keyed",
           "list_prefix",
           "read_recent",
@@ -7440,8 +8034,9 @@
           "write"
         ],
         "notes": "WAL synchronous=NORMAL. Busy timeout 30 seconds.",
+        "protocol": 1,
         "runtime_versions": {},
-        "server_pid": null,
+        "servers": [],
         "version": "3.53.3"
       },
       "invalid_final": 0,
@@ -7478,12 +8073,26 @@
       "acked_missing": 0,
       "cas": "not measured in B1",
       "duplicates": 0,
-      "history": "not measured in B1",
+      "history": {
+        "advertised": false,
+        "max_versions_per_key": 1,
+        "observations": [
+          {
+            "versions_per_key": {
+              "shared-0": 1,
+              "shared-1": 1,
+              "shared-2": 1,
+              "shared-3": 1
+            },
+            "writers": 4
+          }
+        ]
+      },
       "info": {
         "capabilities": [
           "delete",
           "get",
-          "get-id",
+          "get_by_ref",
           "keyed",
           "list_prefix",
           "read_recent",
@@ -7492,8 +8101,9 @@
           "write"
         ],
         "notes": "WAL synchronous=NORMAL. Busy timeout 30 seconds.",
+        "protocol": 1,
         "runtime_versions": {},
-        "server_pid": null,
+        "servers": [],
         "version": "3.53.3"
       },
       "invalid_final": 0,
@@ -7530,12 +8140,26 @@
       "acked_missing": 0,
       "cas": "not measured in B1",
       "duplicates": 0,
-      "history": "not measured in B1",
+      "history": {
+        "advertised": false,
+        "max_versions_per_key": 1,
+        "observations": [
+          {
+            "versions_per_key": {
+              "shared-0": 1,
+              "shared-1": 1,
+              "shared-2": 1,
+              "shared-3": 1
+            },
+            "writers": 8
+          }
+        ]
+      },
       "info": {
         "capabilities": [
           "delete",
           "get",
-          "get-id",
+          "get_by_ref",
           "keyed",
           "list_prefix",
           "read_recent",
@@ -7544,8 +8168,9 @@
           "write"
         ],
         "notes": "WAL synchronous=NORMAL. Busy timeout 30 seconds.",
+        "protocol": 1,
         "runtime_versions": {},
-        "server_pid": null,
+        "servers": [],
         "version": "3.53.3"
       },
       "invalid_final": 0,
@@ -7582,12 +8207,26 @@
       "acked_missing": 0,
       "cas": "not measured in B1",
       "duplicates": 0,
-      "history": "not measured in B1",
+      "history": {
+        "advertised": false,
+        "max_versions_per_key": 1,
+        "observations": [
+          {
+            "versions_per_key": {
+              "shared-0": 1,
+              "shared-1": 1,
+              "shared-2": 1,
+              "shared-3": 1
+            },
+            "writers": 2
+          }
+        ]
+      },
       "info": {
         "capabilities": [
           "delete",
           "get",
-          "get-id",
+          "get_by_ref",
           "keyed",
           "list_prefix",
           "read_recent",
@@ -7596,8 +8235,9 @@
           "write"
         ],
         "notes": "WAL synchronous=NORMAL. Busy timeout 30 seconds.",
+        "protocol": 1,
         "runtime_versions": {},
-        "server_pid": null,
+        "servers": [],
         "version": "3.53.3"
       },
       "invalid_final": 0,
@@ -7634,12 +8274,26 @@
       "acked_missing": 0,
       "cas": "not measured in B1",
       "duplicates": 0,
-      "history": "not measured in B1",
+      "history": {
+        "advertised": false,
+        "max_versions_per_key": 1,
+        "observations": [
+          {
+            "versions_per_key": {
+              "shared-0": 1,
+              "shared-1": 1,
+              "shared-2": 1,
+              "shared-3": 1
+            },
+            "writers": 4
+          }
+        ]
+      },
       "info": {
         "capabilities": [
           "delete",
           "get",
-          "get-id",
+          "get_by_ref",
           "keyed",
           "list_prefix",
           "read_recent",
@@ -7648,8 +8302,9 @@
           "write"
         ],
         "notes": "WAL synchronous=NORMAL. Busy timeout 30 seconds.",
+        "protocol": 1,
         "runtime_versions": {},
-        "server_pid": null,
+        "servers": [],
         "version": "3.53.3"
       },
       "invalid_final": 0,
@@ -7686,12 +8341,26 @@
       "acked_missing": 0,
       "cas": "not measured in B1",
       "duplicates": 0,
-      "history": "not measured in B1",
+      "history": {
+        "advertised": false,
+        "max_versions_per_key": 1,
+        "observations": [
+          {
+            "versions_per_key": {
+              "shared-0": 1,
+              "shared-1": 1,
+              "shared-2": 1,
+              "shared-3": 1
+            },
+            "writers": 8
+          }
+        ]
+      },
       "info": {
         "capabilities": [
           "delete",
           "get",
-          "get-id",
+          "get_by_ref",
           "keyed",
           "list_prefix",
           "read_recent",
@@ -7700,8 +8369,9 @@
           "write"
         ],
         "notes": "WAL synchronous=NORMAL. Busy timeout 30 seconds.",
+        "protocol": 1,
         "runtime_versions": {},
-        "server_pid": null,
+        "servers": [],
         "version": "3.53.3"
       },
       "invalid_final": 0,
@@ -7738,12 +8408,26 @@
       "acked_missing": 0,
       "cas": "not measured in B1",
       "duplicates": 0,
-      "history": "not measured in B1",
+      "history": {
+        "advertised": false,
+        "max_versions_per_key": 1,
+        "observations": [
+          {
+            "versions_per_key": {
+              "shared-0": 1,
+              "shared-1": 1,
+              "shared-2": 1,
+              "shared-3": 1
+            },
+            "writers": 2
+          }
+        ]
+      },
       "info": {
         "capabilities": [
           "delete",
           "get",
-          "get-id",
+          "get_by_ref",
           "keyed",
           "list_prefix",
           "read_recent",
@@ -7752,8 +8436,9 @@
           "write"
         ],
         "notes": "WAL synchronous=NORMAL. Busy timeout 30 seconds.",
+        "protocol": 1,
         "runtime_versions": {},
-        "server_pid": null,
+        "servers": [],
         "version": "3.53.3"
       },
       "invalid_final": 0,
@@ -7790,12 +8475,26 @@
       "acked_missing": 0,
       "cas": "not measured in B1",
       "duplicates": 0,
-      "history": "not measured in B1",
+      "history": {
+        "advertised": false,
+        "max_versions_per_key": 1,
+        "observations": [
+          {
+            "versions_per_key": {
+              "shared-0": 1,
+              "shared-1": 1,
+              "shared-2": 1,
+              "shared-3": 1
+            },
+            "writers": 4
+          }
+        ]
+      },
       "info": {
         "capabilities": [
           "delete",
           "get",
-          "get-id",
+          "get_by_ref",
           "keyed",
           "list_prefix",
           "read_recent",
@@ -7804,8 +8503,9 @@
           "write"
         ],
         "notes": "WAL synchronous=NORMAL. Busy timeout 30 seconds.",
+        "protocol": 1,
         "runtime_versions": {},
-        "server_pid": null,
+        "servers": [],
         "version": "3.53.3"
       },
       "invalid_final": 0,
@@ -7842,12 +8542,26 @@
       "acked_missing": 0,
       "cas": "not measured in B1",
       "duplicates": 0,
-      "history": "not measured in B1",
+      "history": {
+        "advertised": false,
+        "max_versions_per_key": 1,
+        "observations": [
+          {
+            "versions_per_key": {
+              "shared-0": 1,
+              "shared-1": 1,
+              "shared-2": 1,
+              "shared-3": 1
+            },
+            "writers": 8
+          }
+        ]
+      },
       "info": {
         "capabilities": [
           "delete",
           "get",
-          "get-id",
+          "get_by_ref",
           "keyed",
           "list_prefix",
           "read_recent",
@@ -7856,8 +8570,9 @@
           "write"
         ],
         "notes": "WAL synchronous=NORMAL. Busy timeout 30 seconds.",
+        "protocol": 1,
         "runtime_versions": {},
-        "server_pid": null,
+        "servers": [],
         "version": "3.53.3"
       },
       "invalid_final": 0,
@@ -7894,12 +8609,26 @@
       "acked_missing": 0,
       "cas": "not measured in B1",
       "duplicates": 0,
-      "history": "not measured in B1",
+      "history": {
+        "advertised": false,
+        "max_versions_per_key": 1,
+        "observations": [
+          {
+            "versions_per_key": {
+              "shared-0": 1,
+              "shared-1": 1,
+              "shared-2": 1,
+              "shared-3": 1
+            },
+            "writers": 2
+          }
+        ]
+      },
       "info": {
         "capabilities": [
           "delete",
           "get",
-          "get-id",
+          "get_by_ref",
           "keyed",
           "list_prefix",
           "read_recent",
@@ -7908,8 +8637,9 @@
           "write"
         ],
         "notes": "WAL synchronous=NORMAL. Busy timeout 30 seconds.",
+        "protocol": 1,
         "runtime_versions": {},
-        "server_pid": null,
+        "servers": [],
         "version": "3.53.3"
       },
       "invalid_final": 0,
@@ -7946,12 +8676,26 @@
       "acked_missing": 0,
       "cas": "not measured in B1",
       "duplicates": 0,
-      "history": "not measured in B1",
+      "history": {
+        "advertised": false,
+        "max_versions_per_key": 1,
+        "observations": [
+          {
+            "versions_per_key": {
+              "shared-0": 1,
+              "shared-1": 1,
+              "shared-2": 1,
+              "shared-3": 1
+            },
+            "writers": 4
+          }
+        ]
+      },
       "info": {
         "capabilities": [
           "delete",
           "get",
-          "get-id",
+          "get_by_ref",
           "keyed",
           "list_prefix",
           "read_recent",
@@ -7960,8 +8704,9 @@
           "write"
         ],
         "notes": "WAL synchronous=NORMAL. Busy timeout 30 seconds.",
+        "protocol": 1,
         "runtime_versions": {},
-        "server_pid": null,
+        "servers": [],
         "version": "3.53.3"
       },
       "invalid_final": 0,
@@ -7998,12 +8743,26 @@
       "acked_missing": 0,
       "cas": "not measured in B1",
       "duplicates": 0,
-      "history": "not measured in B1",
+      "history": {
+        "advertised": false,
+        "max_versions_per_key": 1,
+        "observations": [
+          {
+            "versions_per_key": {
+              "shared-0": 1,
+              "shared-1": 1,
+              "shared-2": 1,
+              "shared-3": 1
+            },
+            "writers": 8
+          }
+        ]
+      },
       "info": {
         "capabilities": [
           "delete",
           "get",
-          "get-id",
+          "get_by_ref",
           "keyed",
           "list_prefix",
           "read_recent",
@@ -8012,8 +8771,9 @@
           "write"
         ],
         "notes": "WAL synchronous=NORMAL. Busy timeout 30 seconds.",
+        "protocol": 1,
         "runtime_versions": {},
-        "server_pid": null,
+        "servers": [],
         "version": "3.53.3"
       },
       "invalid_final": 0,
@@ -8050,12 +8810,26 @@
       "acked_missing": 0,
       "cas": "not measured in B1",
       "duplicates": 0,
-      "history": "not measured in B1",
+      "history": {
+        "advertised": false,
+        "max_versions_per_key": 1,
+        "observations": [
+          {
+            "versions_per_key": {
+              "shared-0": 1,
+              "shared-1": 1,
+              "shared-2": 1,
+              "shared-3": 1
+            },
+            "writers": 2
+          }
+        ]
+      },
       "info": {
         "capabilities": [
           "delete",
           "get",
-          "get-id",
+          "get_by_ref",
           "keyed",
           "list_prefix",
           "read_recent",
@@ -8064,8 +8838,9 @@
           "write"
         ],
         "notes": "WAL synchronous=NORMAL. Busy timeout 30 seconds.",
+        "protocol": 1,
         "runtime_versions": {},
-        "server_pid": null,
+        "servers": [],
         "version": "3.53.3"
       },
       "invalid_final": 0,
@@ -8102,12 +8877,26 @@
       "acked_missing": 0,
       "cas": "not measured in B1",
       "duplicates": 0,
-      "history": "not measured in B1",
+      "history": {
+        "advertised": false,
+        "max_versions_per_key": 1,
+        "observations": [
+          {
+            "versions_per_key": {
+              "shared-0": 1,
+              "shared-1": 1,
+              "shared-2": 1,
+              "shared-3": 1
+            },
+            "writers": 4
+          }
+        ]
+      },
       "info": {
         "capabilities": [
           "delete",
           "get",
-          "get-id",
+          "get_by_ref",
           "keyed",
           "list_prefix",
           "read_recent",
@@ -8116,8 +8905,9 @@
           "write"
         ],
         "notes": "WAL synchronous=NORMAL. Busy timeout 30 seconds.",
+        "protocol": 1,
         "runtime_versions": {},
-        "server_pid": null,
+        "servers": [],
         "version": "3.53.3"
       },
       "invalid_final": 0,
@@ -8154,12 +8944,26 @@
       "acked_missing": 0,
       "cas": "not measured in B1",
       "duplicates": 0,
-      "history": "not measured in B1",
+      "history": {
+        "advertised": false,
+        "max_versions_per_key": 1,
+        "observations": [
+          {
+            "versions_per_key": {
+              "shared-0": 1,
+              "shared-1": 1,
+              "shared-2": 1,
+              "shared-3": 1
+            },
+            "writers": 8
+          }
+        ]
+      },
       "info": {
         "capabilities": [
           "delete",
           "get",
-          "get-id",
+          "get_by_ref",
           "keyed",
           "list_prefix",
           "read_recent",
@@ -8168,8 +8972,9 @@
           "write"
         ],
         "notes": "WAL synchronous=NORMAL. Busy timeout 30 seconds.",
+        "protocol": 1,
         "runtime_versions": {},
-        "server_pid": null,
+        "servers": [],
         "version": "3.53.3"
       },
       "invalid_final": 0,
@@ -8206,12 +9011,26 @@
       "acked_missing": 0,
       "cas": "not measured in B1",
       "duplicates": 0,
-      "history": "not measured in B1",
+      "history": {
+        "advertised": false,
+        "max_versions_per_key": 1,
+        "observations": [
+          {
+            "versions_per_key": {
+              "shared-0": 1,
+              "shared-1": 1,
+              "shared-2": 1,
+              "shared-3": 1
+            },
+            "writers": 2
+          }
+        ]
+      },
       "info": {
         "capabilities": [
           "delete",
           "get",
-          "get-id",
+          "get_by_ref",
           "keyed",
           "list_prefix",
           "read_recent",
@@ -8220,8 +9039,9 @@
           "write"
         ],
         "notes": "WAL synchronous=NORMAL. Busy timeout 30 seconds.",
+        "protocol": 1,
         "runtime_versions": {},
-        "server_pid": null,
+        "servers": [],
         "version": "3.53.3"
       },
       "invalid_final": 0,
@@ -8258,12 +9078,26 @@
       "acked_missing": 0,
       "cas": "not measured in B1",
       "duplicates": 0,
-      "history": "not measured in B1",
+      "history": {
+        "advertised": false,
+        "max_versions_per_key": 1,
+        "observations": [
+          {
+            "versions_per_key": {
+              "shared-0": 1,
+              "shared-1": 1,
+              "shared-2": 1,
+              "shared-3": 1
+            },
+            "writers": 4
+          }
+        ]
+      },
       "info": {
         "capabilities": [
           "delete",
           "get",
-          "get-id",
+          "get_by_ref",
           "keyed",
           "list_prefix",
           "read_recent",
@@ -8272,8 +9106,9 @@
           "write"
         ],
         "notes": "WAL synchronous=NORMAL. Busy timeout 30 seconds.",
+        "protocol": 1,
         "runtime_versions": {},
-        "server_pid": null,
+        "servers": [],
         "version": "3.53.3"
       },
       "invalid_final": 0,
@@ -8310,12 +9145,26 @@
       "acked_missing": 0,
       "cas": "not measured in B1",
       "duplicates": 0,
-      "history": "not measured in B1",
+      "history": {
+        "advertised": false,
+        "max_versions_per_key": 1,
+        "observations": [
+          {
+            "versions_per_key": {
+              "shared-0": 1,
+              "shared-1": 1,
+              "shared-2": 1,
+              "shared-3": 1
+            },
+            "writers": 8
+          }
+        ]
+      },
       "info": {
         "capabilities": [
           "delete",
           "get",
-          "get-id",
+          "get_by_ref",
           "keyed",
           "list_prefix",
           "read_recent",
@@ -8324,8 +9173,9 @@
           "write"
         ],
         "notes": "WAL synchronous=NORMAL. Busy timeout 30 seconds.",
+        "protocol": 1,
         "runtime_versions": {},
-        "server_pid": null,
+        "servers": [],
         "version": "3.53.3"
       },
       "invalid_final": 0,
@@ -8362,12 +9212,26 @@
       "acked_missing": 0,
       "cas": "not measured in B1",
       "duplicates": 0,
-      "history": "not measured in B1",
+      "history": {
+        "advertised": false,
+        "max_versions_per_key": 1,
+        "observations": [
+          {
+            "versions_per_key": {
+              "shared-0": 1,
+              "shared-1": 1,
+              "shared-2": 1,
+              "shared-3": 1
+            },
+            "writers": 2
+          }
+        ]
+      },
       "info": {
         "capabilities": [
           "delete",
           "get",
-          "get-id",
+          "get_by_ref",
           "keyed",
           "list_prefix",
           "read_recent",
@@ -8376,8 +9240,9 @@
           "write"
         ],
         "notes": "WAL synchronous=NORMAL. Busy timeout 30 seconds.",
+        "protocol": 1,
         "runtime_versions": {},
-        "server_pid": null,
+        "servers": [],
         "version": "3.53.3"
       },
       "invalid_final": 0,
@@ -8414,12 +9279,26 @@
       "acked_missing": 0,
       "cas": "not measured in B1",
       "duplicates": 0,
-      "history": "not measured in B1",
+      "history": {
+        "advertised": false,
+        "max_versions_per_key": 1,
+        "observations": [
+          {
+            "versions_per_key": {
+              "shared-0": 1,
+              "shared-1": 1,
+              "shared-2": 1,
+              "shared-3": 1
+            },
+            "writers": 4
+          }
+        ]
+      },
       "info": {
         "capabilities": [
           "delete",
           "get",
-          "get-id",
+          "get_by_ref",
           "keyed",
           "list_prefix",
           "read_recent",
@@ -8428,8 +9307,9 @@
           "write"
         ],
         "notes": "WAL synchronous=NORMAL. Busy timeout 30 seconds.",
+        "protocol": 1,
         "runtime_versions": {},
-        "server_pid": null,
+        "servers": [],
         "version": "3.53.3"
       },
       "invalid_final": 0,

@@ -1,0 +1,1 @@
+{"command": ["{python}", "-m", "memtorture.worker", "qdrant"]}

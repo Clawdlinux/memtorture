@@ -35,6 +35,23 @@ Local results are not cleared for comparative publication.
 
 See [methodology](docs/METHODOLOGY.md) for measurements and limits.
 
+## Worker protocol
+
+Workers can use any language. The harness validates every protocol v1 reply.
+Commands come from `systems/<name>/manifest.json`.
+See [the protocol and conformance kit](docs/PROTOCOL.md) for schemas and wire examples.
+
+The standalone Node reference needs no packages:
+
+```sh
+uv run memtorture conformance --command "node systems/reference-node/worker.mjs"
+```
+
+Cross-language tests find Node on PATH and skip when it is missing.
+CI installs Node 22 so those tests run.
+Conformance failures keep `.conformance-work/` logs and print a stderr tail.
+Only the newest 10 failed runs are retained. Active runs are preserved.
+
 ## External adapters
 
 Node 22 is needed for the reference MCP server.

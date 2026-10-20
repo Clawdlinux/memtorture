@@ -4,6 +4,7 @@ __pycache__/
 .ruff_cache/
 .hypothesis/
 .scratch/
+.conformance-work/
 .tools/
 results/*
 !results/controls/

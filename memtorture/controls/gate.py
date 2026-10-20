@@ -26,6 +26,7 @@ def methodology_hash():
         digest.update(path.read_bytes())
     for relative in (
         "docs/METHODOLOGY.md",
+        "docs/PROTOCOL.md",
         "docs/design/0001-benchmark.md",
         "pyproject.toml",
         "uv.lock",
@@ -37,6 +38,11 @@ def methodology_hash():
         if path.exists():
             digest.update(relative.encode())
             digest.update(path.read_bytes())
+    for directory in ("docs/protocol/v1", "systems"):
+        for path in sorted((root.parent / directory).rglob("*")):
+            if path.is_file() and path.suffix in {".json", ".jsonl", ".mjs"}:
+                digest.update(str(path.relative_to(root.parent)).encode())
+                digest.update(path.read_bytes())
     return digest.hexdigest()
 
 
@@ -82,6 +88,7 @@ def run_controls(*, quick=False, root=DEFAULT_ROOT):
         with ResultWriter(
             run_root,
             command=["memtorture", "controls"] + (["--quick"] if quick else []),
+            control_evidence=True,
         ) as writer:
             for suite, fail_system, pass_system in (
                 ("recall-delay", "delayed-index", "sqlite-visible"),

@@ -3,7 +3,7 @@ import time
 
 from memtorture.adapters.markdown import Markdown
 from memtorture.adapters.sqlite import SQLite
-from memtorture.types import Ack
+from memtorture.types import Ack, Ref
 
 
 class Buffered(Markdown):
@@ -31,7 +31,7 @@ class Buffered(Markdown):
     def write(self, scope, record):
         with self.lock:
             self.pending.append((scope, record))
-        return Ack(record.id)
+        return Ack(record.id, ref=Ref(record.id))
 
     def stop(self, target="all", kill=False):
         self.finished.set()

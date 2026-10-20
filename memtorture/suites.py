@@ -23,7 +23,7 @@ HISTORY_CONTROLS = {
     "controls": "none defined in approved spec; measurement suite",
 }
 PATHS = {
-    "id": "get-id",
+    "id": "get_by_ref",
     "filter": "list_prefix",
     "recency": "read_recent",
     "search": "search",
@@ -52,10 +52,12 @@ def event(emit, **data):
 def read_path(worker, path, record, limit=20):
     scope = record.scope
     if path == "id":
-        if "get_by_id" in worker.capabilities:
-            found = worker.call("get_by_id", scope=scope, ref=worker.refs[record.id])
-        else:
-            found = worker.call("get", scope=scope, key=record.id)
+        if "get_by_ref" not in worker.capabilities:
+            raise NotSupported("Missing get_by_ref")
+        ref = worker.refs.get(record.id)
+        if ref is None:
+            raise NotSupported("Write returned no native ref")
+        found = worker.call("get_by_ref", scope=scope, ref=ref)
         return [found] if found else []
     if path == "filter":
         return worker.call("list_prefix", scope=scope, prefix=record.key, limit=limit)
@@ -109,6 +111,14 @@ def recall_delay(
                     for data in buffered_events:
                         emit(data)
                     continue
+                if path == "id" and record.id not in worker.refs:
+                    metrics[path] = {
+                        "status": "N/A",
+                        "reason": "Write returned no native ref",
+                    }
+                    for data in buffered_events:
+                        emit(data)
+                    break
                 deadline = ack_ns + int(timeout_s * 1e9)
                 next_poll, polls = ack_ns, 0
                 while True:
@@ -159,6 +169,8 @@ def recall_delay(
                         next_poll = read_end
                 for data in buffered_events:
                     emit(data)
+            if metrics.get(path, {}).get("status") == "N/A":
+                continue
             visible = [o for o in observations if o["status"] == "visible"]
             metrics[path] = {
                 "status": "measured",
@@ -181,27 +193,30 @@ def recall_delay(
     }
 
 
+def intact(record, expected):
+    return record.valid() and (
+        record.id not in expected or record == expected[record.id]
+    )
+
+
 def inspect_records(expected, rows, *, keyed=False):
     by_id = {r.id: r for r in rows}
-    counts = Counter(r.id for r in rows)
+    valid = [r for r in rows if intact(r, expected)]
+    counts = Counter(r.id for r in valid)
     return {
         "acked_missing": sum(r.id not in by_id for r in expected.values()),
         "duplicates": sum(max(0, count - 1) for count in counts.values()),
-        "torn": sum(
-            not r.valid() or (r.id in expected and r != expected[r.id]) for r in rows
-        ),
+        "torn": len(rows) - len(valid),
     }
 
 
 def inspect_overlap(expected, rows, final):
-    intact = [r for r in rows if r.valid()]
-    counts = Counter((r.scope, r.key) for r in intact)
+    valid = [r for r in rows if intact(r, expected)]
+    counts = Counter(r.id for r in valid)
     return {
         "acked_missing": 0,
         "duplicates": sum(max(0, count - 1) for count in counts.values()),
-        "torn": sum(
-            not r.valid() or (r.id in expected and r != expected[r.id]) for r in rows
-        ),
+        "torn": len(rows) - len(valid),
         "invalid_rows": sum(r.id not in expected or r != expected[r.id] for r in rows),
         "invalid_final": sum(
             not r or r.id not in expected or r != expected[r.id] for r in final.values()
@@ -220,7 +235,9 @@ def process_kill(
     with Worker(system, config, workdir / "probe") as probe:
         info = probe.info
         targets = targets or (
-            ("worker", "server", "both") if probe.server_pid else ("worker",)
+            ("worker", *(f"server:{role}" for role in probe.servers), "both")
+            if probe.servers
+            else ("worker",)
         )
     for target in targets:
         for trial in range(trials):
@@ -303,6 +320,7 @@ def concurrent(
 ):
     scope = Scope("benchmark", suite)
     totals, trials = Counter(), []
+    history_observations = []
     for count in writer_counts:
         path = workdir / f"writers-{count}"
         with ExitStack() as stack:
@@ -338,11 +356,7 @@ def concurrent(
                         record = Record.make(
                             scope, key, f"memory writer{index} value{sequence}"
                         )
-                        args = (
-                            {"scope": scope, "key": key, "value": record.value()}
-                            if method == "upsert"
-                            else {"scope": scope, "record": record}
-                        )
+                        args = {"scope": scope, "record": record}
                         ack = worker.call(method, **args)
                         if not ack.dropped:
                             records.append(record)
@@ -378,6 +392,17 @@ def concurrent(
                         for key in keys
                     }
                     counts = inspect_overlap(expected, rows, final)
+                    valid_by_id = {}
+                    for record in rows:
+                        if record.id in expected and intact(record, expected):
+                            valid_by_id.setdefault(record.id, record)
+                    versions = Counter(r.key for r in valid_by_id.values())
+                    history_observations.append(
+                        {
+                            "writers": count,
+                            "versions_per_key": dict(sorted(versions.items())),
+                        }
+                    )
                 totals.update(counts)
                 detail = {"writers": count, "phase": phase, **counts}
                 trials.append(detail)
@@ -388,7 +413,18 @@ def concurrent(
         "trials": trials,
         "info": info,
         "cas": "not measured in B1",
-        "history": "not measured in B1",
+        "history": {
+            "advertised": "history" in capabilities,
+            "max_versions_per_key": max(
+                (
+                    n
+                    for observation in history_observations
+                    for n in observation["versions_per_key"].values()
+                ),
+                default=0,
+            ),
+            "observations": history_observations,
+        },
     }
 
 
