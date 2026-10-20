@@ -1,6 +1,7 @@
 import json
 import platform
 from argparse import Namespace
+from pathlib import Path
 
 import pytest
 
@@ -98,12 +99,12 @@ def test_control_authorization(tmp_path, monkeypatch, change, suite):
         gate.require_controls(measurement, tmp_path / "missing")
 
 
-def test_control_evidence(stub_controls, tmp_path, monkeypatch, capsys):
-    root = tmp_path / "controls"
+def test_control_evidence(stub_controls, tmp_path, workspace, monkeypatch, capsys):
+    root = Path("results/controls")
     foreign = root / "other-os-arch"
     foreign.mkdir(parents=True)
     (foreign / "gate.json").write_text("foreign evidence\n")
-    summary = gate.run_controls(root=root)
+    summary = gate.run_controls()
     for measurement in ("history-scale", "write-throughput", "recovery"):
         assert summary["suites"][measurement] == HISTORY_CONTROLS
     recall = summary["suites"]["recall-delay"]["details"][0]
@@ -126,7 +127,7 @@ def test_control_evidence(stub_controls, tmp_path, monkeypatch, capsys):
         assert controls["must_fail_rate"] == controls["must_pass_rate"] == 1
         assert len(controls["details"]) == 40
         gate.require_controls(suite, root)
-    quick = gate.run_controls(quick=True, root=root)
+    quick = gate.run_controls(quick=True)
     assert top.read_bytes() == before
     assert (foreign / "gate.json").read_text() == "foreign evidence\n"
     assert {p.name for p in root.iterdir()} == {current.name, foreign.name}
@@ -134,6 +135,7 @@ def test_control_evidence(stub_controls, tmp_path, monkeypatch, capsys):
     assert json.loads((current / "quick/gate.json").read_text()) == quick
     assert quick["run_directory"] == str(current / "quick")
     assert quick["trials"] == 5 and quick["quick"] is True
+    assert not list(root.rglob("*.md"))
     top.unlink()
     with pytest.raises(NotSupported, match="controls"):
         gate.require_controls("supersede-by-key", root)
@@ -190,12 +192,12 @@ def test_latest_keyed_value(keyed_worker, system, versions, expected):
     assert checks[0]["status"] == expected
 
 
-def test_blocked_cells(blocked_controls, tmp_path):
+def test_blocked_cells(blocked_controls, tmp_path, workspace):
     with pytest.raises(NotSupported, match="controls"):
         run_cell("process-kill", "sqlite", "synchronous=FULL", tmp_path / "cell")
     args = Namespace(
         all=True,
-        output=tmp_path / "run",
+        output=Path("results/runs/blocked"),
         extended=False,
         invocation=["memtorture", "run", "--all"],
     )

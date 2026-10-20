@@ -140,6 +140,12 @@ def authorized_controls(monkeypatch, tmp_path):
 
 
 @pytest.fixture
+def workspace(monkeypatch, tmp_path):
+    monkeypatch.chdir(tmp_path)
+    return tmp_path
+
+
+@pytest.fixture
 def provenance(monkeypatch):
     def configure(directory, source_dirty):
         git = GitProvenance(directory, source_dirty)

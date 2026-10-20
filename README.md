@@ -16,7 +16,7 @@ Python 3.12 and [uv](https://docs.astral.sh/uv/) are required.
 uv sync --locked
 uv run memtorture controls
 uv run memtorture run --suite process-kill --system sqlite --config synchronous=FULL
-uv run memtorture report
+uv run memtorture report --local
 ```
 
 Run full controls before a local benchmark:
@@ -84,7 +84,14 @@ History grows to 100K records by default.
 ## Governance
 
 Only control results and methodology are committed.
-Comparative outputs stay local under `results/`.
+Run output goes only under `results/runs/`, which is gitignored.
+Control evidence goes only under `results/controls/<os>-<arch>/`.
+The harness rejects any other output path.
+Governance blocks comparative results, so the harness writes no multi-system tables.
+`memtorture report --local` prints them to your terminal with a LOCAL ONLY banner.
+`memtorture export-system --system <name>` writes one system's raw output for its upstream issue.
+It lands under `results/runs/exports/` and carries the harness commit and platform.
+CI runs controls and baseline systems only (markdown, SQLite).
 An outside maintainer must approve methodology before comparative publication.
 Each upstream project gets a 14-day reply window.
 Config fixes are welcome, including fixes that change the sponsor's standing.

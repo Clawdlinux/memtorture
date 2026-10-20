@@ -6,6 +6,32 @@ import threading
 from pathlib import Path
 
 SPONSOR = "Sponsored and built by the Clawdlinux team."
+RUNS_ROOT = Path("results/runs")
+LOCAL_BANNER = "LOCAL ONLY. Not for publication. Governance blocks comparative results."
+
+PUBLICATION_BLOCKED = True
+"""Governance blocks comparative results across systems.
+
+Publication needs an outside maintainer to approve the methodology and a 14-day
+reply window for each upstream project. See the Governance section of
+docs/design/0001-benchmark.md. While this is True, run output stays raw and
+multi-system tables only reach stdout through `memtorture report --local`.
+"""
+
+
+def allowed_output(path, *, control_evidence=False):
+    """Resolve an output directory and reject it outside the allowed tree.
+
+    Runs go under results/runs/. Control evidence goes under
+    results/controls/<os>-<arch>/. Symlinks and `..` are resolved first.
+    """
+    from memtorture.controls.gate import DEFAULT_ROOT, platform_key
+
+    allowed = DEFAULT_ROOT / platform_key() if control_evidence else RUNS_ROOT
+    resolved = Path(path).resolve()
+    if allowed.resolve() not in resolved.parents:
+        raise ValueError(f"Output must be under {allowed.as_posix()}/: {path}")
+    return resolved
 
 
 def commit():
@@ -30,8 +56,9 @@ def hardware():
 
 class ResultWriter:
     def __init__(self, root: Path, command: list[str], *, control_evidence=False):
-        from memtorture.controls.gate import methodology_hash
+        from memtorture.controls.gate import methodology_hash, platform_key
 
+        allowed_output(root, control_evidence=control_evidence)
         status_command = ["git", "status", "--porcelain"]
         if control_evidence:
             status_command += ["--", ":/", ":(top,exclude)results/controls"]
@@ -50,6 +77,7 @@ class ResultWriter:
             **provenance,
             "methodology_sha256": methodology_hash(),
             "os": platform.platform(),
+            "platform": platform_key(),
             "python": platform.python_version(),
             "hardware": hardware(),
             "runtime_dependencies": "none (Python standard library only)",
@@ -86,7 +114,6 @@ class ResultWriter:
         (self.root / "cells.json").write_text(
             json.dumps(self.cells, sort_keys=True, indent=2) + "\n"
         )
-        render_tables(self.root, self.cells)
 
     def __enter__(self):
         return self
@@ -95,7 +122,8 @@ class ResultWriter:
         self.close()
 
 
-def render_tables(root, cells):
+def render_tables(cells):
+    tables = {}
     for suite in sorted({c["suite"] for c in cells}):
         lines = [
             SPONSOR,
@@ -116,4 +144,5 @@ def render_tables(root, cells):
                 sort_keys=True,
             ).replace("|", "\\|")
             lines.append(f"| {cell['system']} | {cell['config']} | {detail} |")
-        (Path(root) / f"{suite}.md").write_text("\n".join(lines) + "\n")
+        tables[suite] = "\n".join(lines) + "\n"
+    return tables

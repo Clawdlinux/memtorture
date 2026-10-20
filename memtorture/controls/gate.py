@@ -88,8 +88,8 @@ def require_controls(suite, root=DEFAULT_ROOT):
         )
 
 
-def run_controls(*, quick=False, root=DEFAULT_ROOT):
-    run_root = gate_path(root).parent / ("quick" if quick else "full")
+def run_controls(*, quick=False):
+    run_root = gate_path().parent / ("quick" if quick else "full")
     trials = 5 if quick else 20
     work = run_root / ".work" / uuid.uuid4().hex
     work.mkdir(parents=True)
@@ -251,7 +251,7 @@ def run_controls(*, quick=False, root=DEFAULT_ROOT):
             )
             writer.manifest["control_summary"] = "gate.json"
         if not quick:
-            gate_path(root).write_text(json.dumps(summary, indent=2) + "\n")
+            gate_path().write_text(json.dumps(summary, indent=2) + "\n")
         (run_root / "gate.json").write_text(json.dumps(summary, indent=2) + "\n")
     finally:
         shutil.rmtree(work)

@@ -462,9 +462,13 @@ Generated files under `results/controls/` do not mark the harness source dirty.
 Other source and documentation changes still do.
 Commit code before regenerating evidence, then commit only the generated evidence.
 The methodology fingerprint identifies the exact code used.
-Per-suite Markdown tables sort systems alphabetically.
-Tables are local evidence only.
-`memtorture report` never changes raw operations.
+Run output goes only under `results/runs/`. Control evidence goes only under `results/controls/<os>-<arch>/`.
+Paths are resolved through symlinks and `..` before the check. Other paths are rejected.
+While governance blocks publication, the harness writes raw results only, never multi-system tables.
+`memtorture report --local` prints per-suite tables to stdout with a LOCAL ONLY banner. It writes no files.
+Tables sort systems alphabetically.
+`memtorture export-system` copies one system's cells, operations, harness commit and platform. Other systems' numbers are left out.
+Reports and exports never change raw operations.
 
 Only control results are committed.
 Comparative results remain gitignored.

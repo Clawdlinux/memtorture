@@ -9,7 +9,14 @@ from memtorture.controls.gate import (
     methodology_hash,
     require_controls,
 )
-from memtorture.results import ResultWriter, render_tables
+from memtorture.results import (
+    LOCAL_BANNER,
+    PUBLICATION_BLOCKED,
+    RUNS_ROOT,
+    ResultWriter,
+    allowed_output,
+    render_tables,
+)
 from memtorture.suites import (
     SUITES,
     concurrent,
@@ -67,11 +74,8 @@ def run_cell(suite, system, config, path, *, extended=False, emit=None):
 
 def run(args):
     stamp = datetime.now(UTC).strftime("%Y%m%dT%H%M%SZ")
-    root = args.output or Path("results/runs") / f"{stamp}-{uuid.uuid4().hex[:8]}"
-    root = Path(root)
-    controls = Path("results/controls").resolve()
-    if root.resolve() == controls or controls in root.resolve().parents:
-        raise ValueError("Comparative cells cannot be written under results/controls")
+    root = Path(args.output or RUNS_ROOT / f"{stamp}-{uuid.uuid4().hex[:8]}")
+    allowed_output(root)
     if (root / "manifest.json").exists():
         raise ValueError("Output already has a manifest. Choose a new directory.")
     selected = (
@@ -145,19 +149,84 @@ def run(args):
     return int(bool(failures))
 
 
-def report(root=None):
+EXPORT_FIELDS = (
+    "command",
+    "comparative_publication",
+    "extended",
+    "hardware",
+    "harness_commit",
+    "harness_dirty",
+    "methodology_sha256",
+    "os",
+    "platform",
+    "python",
+    "runtime_dependencies",
+    "sponsor",
+)
+
+
+def load_run(root=None):
     if root is None:
-        manifests = sorted(Path("results/runs").glob("*/manifest.json"))
+        manifests = sorted(RUNS_ROOT.glob("*/manifest.json"))
         if not manifests:
             raise ValueError("No local runs found")
         root = manifests[-1].parent
     root = Path(root)
+    allowed_output(root)
     manifest = json.loads((root / "manifest.json").read_text())
+    cells = json.loads((root / "cells.json").read_text())
+    return root, manifest, cells
+
+
+def report(root=None, *, local=False):
+    root, manifest, cells = load_run(root)
+    if PUBLICATION_BLOCKED and not local:
+        raise NotSupported(
+            "Governance blocks comparative tables. "
+            "Use memtorture report --local to view them on this machine."
+        )
     if manifest.get("methodology_sha256") != methodology_hash():
         raise NotSupported("Run uses an older methodology. Rerun every system.")
-    cells = json.loads((root / "cells.json").read_text())
     for suite in {cell["suite"] for cell in cells}:
         require_controls(suite)
-    render_tables(root, cells)
-    print(f"Local tables: {root}. Comparative publication remains blocked.")
+    tables = render_tables(cells)
+    if local:
+        print(LOCAL_BANNER)
+        for table in tables.values():
+            print()
+            print(table, end="")
+        print()
+        print(LOCAL_BANNER)
+        return 0
+    for suite, table in tables.items():
+        (root / f"{suite}.md").write_text(table)
+    print(f"Local tables: {root}.")
+    return 0
+
+
+def export_system(system, root=None, out=None):
+    root, manifest, cells = load_run(root)
+    cells = [cell for cell in cells if cell["system"] == system]
+    if not cells:
+        raise ValueError(f"No {system} cells in {root}")
+    out = Path(out or RUNS_ROOT / "exports" / f"{root.name}-{system}")
+    allowed_output(out)
+    out.mkdir(parents=True)
+    exported = {key: manifest[key] for key in EXPORT_FIELDS if key in manifest}
+    exported["exported_from"] = root.name
+    exported["systems"] = [
+        row for row in manifest.get("systems", []) if row["system"] == system
+    ]
+    (out / "manifest.json").write_text(
+        json.dumps(exported, sort_keys=True, indent=2) + "\n"
+    )
+    (out / "cells.json").write_text(json.dumps(cells, sort_keys=True, indent=2) + "\n")
+    with (
+        (root / "operations.jsonl").open() as source,
+        (out / "operations.jsonl").open("w") as target,
+    ):
+        for line in source:
+            if json.loads(line).get("system") == system:
+                target.write(line)
+    print(f"Exported {system}: {out}")
     return 0
