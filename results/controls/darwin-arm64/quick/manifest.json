@@ -12,14 +12,39 @@
     "processor": "arm",
     "ram_bytes": 17179869184
   },
-  "harness_commit": "eb7b5e017da33653e21353e14ae3b9837395eb8d",
+  "harness_commit": "6409ddeda3151174508af81464108d6510131040",
   "harness_dirty": false,
-  "methodology_sha256": "2e445e8d732bd4ca93e9f15b9b3397754965671b9a37caf4aab0b0d9a04a3462",
+  "methodology_sha256": "271dd8acadbd5ddc1a7d532dc7b873c18bb95da65cbda4b4af1e50f64f315076",
   "os": "macOS-27.0.1-arm64-arm-64bit",
   "python": "3.12.12",
   "runtime_dependencies": "none (Python standard library only)",
   "sponsor": "Sponsored and built by the Clawdlinux team.",
   "systems": [
+    {
+      "capabilities": [
+        "delete",
+        "emulated:delete",
+        "emulated:get",
+        "emulated:list_prefix",
+        "emulated:read_recent",
+        "emulated:upsert",
+        "get",
+        "get_by_ref",
+        "keyed",
+        "list_prefix",
+        "read_recent",
+        "search",
+        "upsert",
+        "write"
+      ],
+      "config": "default",
+      "notes": "Append-only keyed writes. Keyed get returns the oldest value.",
+      "protocol": 1,
+      "runtime_versions": {},
+      "servers": [],
+      "system": "append-oldest",
+      "version": "stdlib-jsonl-v1"
+    },
     {
       "capabilities": [
         "delete",
@@ -128,6 +153,26 @@
       "runtime_versions": {},
       "servers": [],
       "system": "sqlite-off",
+      "version": "3.53.3"
+    },
+    {
+      "capabilities": [
+        "delete",
+        "get",
+        "get_by_ref",
+        "keyed",
+        "list_prefix",
+        "read_recent",
+        "search",
+        "upsert",
+        "write"
+      ],
+      "config": "default",
+      "notes": "SQLite keyed upsert. Keyed get returns the latest value.",
+      "protocol": 1,
+      "runtime_versions": {},
+      "servers": [],
+      "system": "sqlite-upsert",
       "version": "3.53.3"
     },
     {
