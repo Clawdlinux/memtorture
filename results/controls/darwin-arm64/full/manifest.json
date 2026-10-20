@@ -11,9 +11,9 @@
     "processor": "arm",
     "ram_bytes": 17179869184
   },
-  "harness_commit": "25e4daa9554243c84468977e5d2c40cc7b23836d",
+  "harness_commit": "d6e02d30eeb41750799993ccbdae0f128e64c7fa",
   "harness_dirty": false,
-  "methodology_sha256": "5e09158ae669a154db93d12367e03f82ef3769c5f98c1e8f7baa2ff86a88ff35",
+  "methodology_sha256": "b5ab8798036819b20a8aabbd2888e07d3f2fa26591907352af01c5ddb6dba893",
   "os": "macOS-27.0.1-arm64-arm-64bit",
   "python": "3.12.12",
   "runtime_dependencies": "none (Python standard library only)",
@@ -147,11 +147,91 @@
         "write"
       ],
       "config": "default",
+      "notes": "Delete removes both the main row and its readable FTS5 row.",
+      "protocol": 1,
+      "runtime_versions": {},
+      "servers": [],
+      "system": "sqlite-forget-both",
+      "version": "3.53.3"
+    },
+    {
+      "capabilities": [
+        "delete",
+        "get",
+        "get_by_ref",
+        "keyed",
+        "list_prefix",
+        "read_recent",
+        "search",
+        "upsert",
+        "write"
+      ],
+      "config": "default",
+      "notes": "Delete removes the main row but leaves a readable FTS5 row.",
+      "protocol": 1,
+      "runtime_versions": {},
+      "servers": [],
+      "system": "sqlite-forget-fts",
+      "version": "3.53.3"
+    },
+    {
+      "capabilities": [
+        "delete",
+        "get",
+        "get_by_ref",
+        "keyed",
+        "list_prefix",
+        "read_recent",
+        "search",
+        "upsert",
+        "write"
+      ],
+      "config": "default",
       "notes": "WAL synchronous=OFF. Commit before ack. Page cache survives SIGKILL.",
       "protocol": 1,
       "runtime_versions": {},
       "servers": [],
       "system": "sqlite-off",
+      "version": "3.53.3"
+    },
+    {
+      "capabilities": [
+        "delete",
+        "get",
+        "get_by_ref",
+        "keyed",
+        "list_prefix",
+        "read_recent",
+        "search",
+        "upsert",
+        "write"
+      ],
+      "config": "default",
+      "notes": "secure_delete=OFF. Delete without VACUUM leaves plaintext residue.",
+      "protocol": 1,
+      "runtime_versions": {},
+      "servers": [],
+      "system": "sqlite-residue-off",
+      "version": "3.53.3"
+    },
+    {
+      "capabilities": [
+        "delete",
+        "get",
+        "get_by_ref",
+        "keyed",
+        "list_prefix",
+        "read_recent",
+        "search",
+        "upsert",
+        "write"
+      ],
+      "config": "default",
+      "notes": "secure_delete=ON. FTS5 secure-delete, VACUUM, and WAL truncation.",
+      "protocol": 1,
+      "runtime_versions": {},
+      "servers": [],
+      "system": "sqlite-residue-secure",
       "version": "3.53.3"
     },
     {

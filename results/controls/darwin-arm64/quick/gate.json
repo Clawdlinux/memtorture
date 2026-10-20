@@ -8,7 +8,7 @@
     "cpu_count": 10,
     "ram_bytes": 17179869184
   },
-  "methodology_sha256": "5e09158ae669a154db93d12367e03f82ef3769c5f98c1e8f7baa2ff86a88ff35",
+  "methodology_sha256": "b5ab8798036819b20a8aabbd2888e07d3f2fa26591907352af01c5ddb6dba893",
   "suites": {
     "recall-delay": {
       "must_fail": "delayed-index",
@@ -21,90 +21,90 @@
           "role": "must_fail",
           "trial": 0,
           "path": "id",
-          "lag_ms": 100.130666,
-          "upper_ms": 101.34825,
-          "read_p99_ms": 0.34825,
+          "lag_ms": 100.088375,
+          "upper_ms": 101.21225,
+          "read_p99_ms": 0.21225,
           "matched": true
         },
         {
           "role": "must_fail",
           "trial": 1,
           "path": "filter",
-          "lag_ms": 100.101458,
-          "upper_ms": 101.258458,
-          "read_p99_ms": 0.258458,
+          "lag_ms": 100.094334,
+          "upper_ms": 101.165125,
+          "read_p99_ms": 0.165125,
           "matched": true
         },
         {
           "role": "must_fail",
           "trial": 2,
           "path": "recency",
-          "lag_ms": 100.105417,
-          "upper_ms": 101.267875,
-          "read_p99_ms": 0.267875,
+          "lag_ms": 100.083167,
+          "upper_ms": 101.117,
+          "read_p99_ms": 0.117,
           "matched": true
         },
         {
           "role": "must_fail",
           "trial": 3,
           "path": "search",
-          "lag_ms": 100.246167,
-          "upper_ms": 101.4185,
-          "read_p99_ms": 0.4185,
+          "lag_ms": 100.173208,
+          "upper_ms": 101.390375,
+          "read_p99_ms": 0.390375,
           "matched": true
         },
         {
           "role": "must_fail",
           "trial": 4,
           "path": "id",
-          "lag_ms": 100.1015,
-          "upper_ms": 101.289916,
-          "read_p99_ms": 0.289916,
+          "lag_ms": 100.188542,
+          "upper_ms": 101.39,
+          "read_p99_ms": 0.39,
           "matched": true
         },
         {
           "role": "must_pass",
           "trial": 0,
           "path": "id",
-          "lag_ms": 0.198834,
-          "upper_ms": 101.154584,
-          "read_p99_ms": 0.154584,
+          "lag_ms": 0.172125,
+          "upper_ms": 101.126167,
+          "read_p99_ms": 0.126167,
           "matched": true
         },
         {
           "role": "must_pass",
           "trial": 1,
           "path": "filter",
-          "lag_ms": 0.15625,
-          "upper_ms": 101.119667,
-          "read_p99_ms": 0.119667,
+          "lag_ms": 0.202416,
+          "upper_ms": 101.149916,
+          "read_p99_ms": 0.149916,
           "matched": true
         },
         {
           "role": "must_pass",
           "trial": 2,
           "path": "recency",
-          "lag_ms": 0.1895,
-          "upper_ms": 101.149333,
-          "read_p99_ms": 0.149333,
+          "lag_ms": 0.212125,
+          "upper_ms": 101.165542,
+          "read_p99_ms": 0.165542,
           "matched": true
         },
         {
           "role": "must_pass",
           "trial": 3,
           "path": "search",
-          "lag_ms": 0.3075,
-          "upper_ms": 101.265292,
-          "read_p99_ms": 0.265292,
+          "lag_ms": 0.322542,
+          "upper_ms": 101.276375,
+          "read_p99_ms": 0.276375,
           "matched": true
         },
         {
           "role": "must_pass",
           "trial": 4,
           "path": "id",
-          "lag_ms": 0.161875,
-          "upper_ms": 101.12225,
-          "read_p99_ms": 0.12225,
+          "lag_ms": 0.172417,
+          "upper_ms": 101.128292,
+          "read_p99_ms": 0.128292,
           "matched": true
         }
       ],
@@ -136,7 +136,7 @@
               "target": "worker",
               "trial": 0,
               "acked": 6,
-              "fault_ns": 225223517656416,
+              "fault_ns": 226525003829041,
               "acked_missing": 6,
               "duplicates": 0,
               "torn": 0
@@ -186,7 +186,7 @@
               "target": "worker",
               "trial": 0,
               "acked": 8,
-              "fault_ns": 225223666844083,
+              "fault_ns": 226525170620375,
               "acked_missing": 8,
               "duplicates": 0,
               "torn": 0
@@ -236,7 +236,7 @@
               "target": "worker",
               "trial": 0,
               "acked": 7,
-              "fault_ns": 225223817283750,
+              "fault_ns": 226525323918708,
               "acked_missing": 7,
               "duplicates": 0,
               "torn": 0
@@ -286,7 +286,7 @@
               "target": "worker",
               "trial": 0,
               "acked": 6,
-              "fault_ns": 225223967194791,
+              "fault_ns": 226525475773791,
               "acked_missing": 6,
               "duplicates": 0,
               "torn": 0
@@ -336,7 +336,7 @@
               "target": "worker",
               "trial": 0,
               "acked": 5,
-              "fault_ns": 225224115893416,
+              "fault_ns": 226525631752083,
               "acked_missing": 5,
               "duplicates": 0,
               "torn": 0
@@ -386,7 +386,7 @@
               "target": "worker",
               "trial": 0,
               "acked": 6,
-              "fault_ns": 225224270493083,
+              "fault_ns": 226525786765041,
               "acked_missing": 0,
               "duplicates": 0,
               "torn": 0
@@ -431,7 +431,7 @@
               "target": "worker",
               "trial": 0,
               "acked": 8,
-              "fault_ns": 225224426022666,
+              "fault_ns": 226525949176041,
               "acked_missing": 0,
               "duplicates": 0,
               "torn": 0
@@ -476,7 +476,7 @@
               "target": "worker",
               "trial": 0,
               "acked": 7,
-              "fault_ns": 225224579202625,
+              "fault_ns": 226526101712791,
               "acked_missing": 0,
               "duplicates": 0,
               "torn": 0
@@ -521,7 +521,7 @@
               "target": "worker",
               "trial": 0,
               "acked": 6,
-              "fault_ns": 225224731782125,
+              "fault_ns": 226526260141666,
               "acked_missing": 0,
               "duplicates": 0,
               "torn": 0
@@ -566,7 +566,7 @@
               "target": "worker",
               "trial": 0,
               "acked": 5,
-              "fault_ns": 225224886309875,
+              "fault_ns": 226526414282583,
               "acked_missing": 0,
               "duplicates": 0,
               "torn": 0
@@ -702,7 +702,7 @@
           "role": "must_fail",
           "trial": 2,
           "status": "violation",
-          "acked_missing": 139,
+          "acked_missing": 140,
           "duplicates": 0,
           "torn": 0,
           "invalid_final": 0,
@@ -710,7 +710,7 @@
             {
               "writers": 8,
               "phase": "distinct",
-              "acked_missing": 139,
+              "acked_missing": 140,
               "duplicates": 0,
               "torn": 0,
               "invalid_final": 0
@@ -798,7 +798,7 @@
           "role": "must_fail",
           "trial": 4,
           "status": "violation",
-          "acked_missing": 60,
+          "acked_missing": 59,
           "duplicates": 0,
           "torn": 0,
           "invalid_final": 0,
@@ -806,7 +806,7 @@
             {
               "writers": 4,
               "phase": "distinct",
-              "acked_missing": 60,
+              "acked_missing": 59,
               "duplicates": 0,
               "torn": 0,
               "invalid_final": 0
@@ -1740,14 +1740,14 @@
           "acked": 10,
           "dropped": 0,
           "expected": {
-            "id": "966a1281-c7df-4ce1-9f97-5c63e9ca47dd",
+            "id": "5386fb89-f962-4e42-9346-c949db52a6c2",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v5",
-            "payload_sha256": "5d6a6d3f889c2cd4ddff6e2b1845c6173e582ce30bfad8d3e41d0f67cd04fc6b",
+            "payload_sha256": "3a5181740d8a2852d51113fe52ffeca020254470810977210e9e6a63d4a64acd",
             "vector": [
               -0.17971359488435873,
               0.020759530317806692,
@@ -1816,14 +1816,14 @@
             ]
           },
           "observed": {
-            "id": "f652f38f-3e80-47b0-b5d7-9f86909eafd8",
+            "id": "77d5517a-cd6b-4140-9aec-033807bc2daa",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v1",
-            "payload_sha256": "810f7ae714aec7c7294b2250a51adb0c6ec98bcbb3d36ba7a9798724c01963f0",
+            "payload_sha256": "2cd85d36805844ea4515c02eda8ffdc66f9d3b9ed1ee559de296a63eb020401e",
             "vector": null
           },
           "info": {
@@ -1858,14 +1858,14 @@
           "acked": 10,
           "dropped": 0,
           "expected": {
-            "id": "417c0391-a99f-4916-98dd-a751380c86b7",
+            "id": "77075768-05e6-41db-90a8-706deb371f1e",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v5",
-            "payload_sha256": "a2c5b3283595c4443eb7034b8630a9b2d719f9afefb97bc8dacd76605ab19167",
+            "payload_sha256": "bdd48544eaa737e8923dd9ac1b60ae356ae124754d606823bab0c394b6277eff",
             "vector": [
               -0.17971359488435873,
               0.020759530317806692,
@@ -1934,14 +1934,14 @@
             ]
           },
           "observed": {
-            "id": "bd485ff9-5141-4859-8849-df4b41fab20c",
+            "id": "debc5eb2-7f7b-414d-9fec-5ee038206da9",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v1",
-            "payload_sha256": "7261c9b783f5ce3cbe8ec1ea7ac756edd902fe98246a13e96e61c40ba35995e2",
+            "payload_sha256": "5eb8b6d2ed1b439780b9bdfbd19be4610ef9b631033c1d2cdf280d55b04f4fc6",
             "vector": null
           },
           "info": {
@@ -1976,14 +1976,14 @@
           "acked": 10,
           "dropped": 0,
           "expected": {
-            "id": "d47fb13b-b7c2-4942-a879-70ad511fe0fe",
+            "id": "9758e439-617f-4608-860a-d5df5fb8f53c",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v5",
-            "payload_sha256": "8a9450bee73cf7508c53088ae06bbe92c3c402ddfe45dce2bba8f1773c8afda2",
+            "payload_sha256": "081d9dcc638fdd2a736c3f98e7c87f83b2f133dfda5cecdee5dacc3c2c8480a7",
             "vector": [
               -0.17971359488435873,
               0.020759530317806692,
@@ -2052,14 +2052,14 @@
             ]
           },
           "observed": {
-            "id": "ddc0194c-c15c-4c3b-a4fa-214ace7a505e",
+            "id": "1fd22352-8688-4b57-af39-34cf9989a4f4",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v1",
-            "payload_sha256": "884e3a979559529981bc59fae8e7f77ff582baff2e0f84b061827808ab4f4759",
+            "payload_sha256": "ac756453f4bb02623d59a6de081bd2da8a04e68cad6f22587c60165377dcc7d7",
             "vector": null
           },
           "info": {
@@ -2094,14 +2094,14 @@
           "acked": 10,
           "dropped": 0,
           "expected": {
-            "id": "ca9a02fd-90aa-4680-b320-01ad990b4037",
+            "id": "fa5b33b7-5ad8-46b6-a158-b18b66cc700b",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v5",
-            "payload_sha256": "e6f8852b132d5b5f3eaf9aac4dc71ba5e419fc5df26f290efe5486d51cc71833",
+            "payload_sha256": "e6e2baa20ac1fc6f66fba6d59fcd5987e0471a1e059e91b5156810f08d3d23d8",
             "vector": [
               -0.17971359488435873,
               0.020759530317806692,
@@ -2170,14 +2170,14 @@
             ]
           },
           "observed": {
-            "id": "41f22f46-946e-4443-9f07-fc43bae27ba5",
+            "id": "6e12db11-0822-4d58-a3b1-7942cbbe471b",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v1",
-            "payload_sha256": "34e936dd8de91e5a72a66a469e9997e394699d2ffeac0329797cc78872a3ffc0",
+            "payload_sha256": "d213c68835b36acf97a7165d953d3343df6cf4d9148a3ec94fe5f6c97b17967c",
             "vector": null
           },
           "info": {
@@ -2212,14 +2212,14 @@
           "acked": 10,
           "dropped": 0,
           "expected": {
-            "id": "8300c562-e84f-4b32-a978-e6c4dc42c6ec",
+            "id": "38fd1564-f235-4fa3-a194-fdb3fd3e6ae1",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v5",
-            "payload_sha256": "337091e5ee28f3221e784a978979181d158216befeabb379be916cd8c6aec21f",
+            "payload_sha256": "8f48dec73733fdae90f1ee4a79ac64f06ba3e3c1b9091d20c67c6b0208360a7d",
             "vector": [
               -0.17971359488435873,
               0.020759530317806692,
@@ -2288,14 +2288,14 @@
             ]
           },
           "observed": {
-            "id": "5a30e785-7511-4fdc-ad0d-6029da2cd3aa",
+            "id": "d16f9fab-26b0-4450-8e26-5b7d0dab9996",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v1",
-            "payload_sha256": "9dc0b071fbd359137ff96e28dc435a20bc34e90cc8ba58939eca33c66b3e5355",
+            "payload_sha256": "14b2b59966402dc52839f925f3c05a992012cb84a2edd3836d730e6608fd113f",
             "vector": null
           },
           "info": {
@@ -2330,14 +2330,14 @@
           "acked": 10,
           "dropped": 0,
           "expected": {
-            "id": "12875a49-556f-4b31-9cd3-d9b50bb901bc",
+            "id": "da9c3412-9270-4192-900f-6d99612fd13c",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v5",
-            "payload_sha256": "db778b5d453fd6a8c372406f0336d5bdd4c250c677f3b3fe9cdb8bafdc0044d9",
+            "payload_sha256": "a46c7a74d60b05269a8d8dc760f5af3b3ca8eab9988026d47c9c4bf7e3cf3166",
             "vector": [
               -0.17971359488435873,
               0.020759530317806692,
@@ -2406,14 +2406,14 @@
             ]
           },
           "observed": {
-            "id": "12875a49-556f-4b31-9cd3-d9b50bb901bc",
+            "id": "da9c3412-9270-4192-900f-6d99612fd13c",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v5",
-            "payload_sha256": "db778b5d453fd6a8c372406f0336d5bdd4c250c677f3b3fe9cdb8bafdc0044d9",
+            "payload_sha256": "a46c7a74d60b05269a8d8dc760f5af3b3ca8eab9988026d47c9c4bf7e3cf3166",
             "vector": null
           },
           "info": {
@@ -2443,14 +2443,14 @@
           "acked": 10,
           "dropped": 0,
           "expected": {
-            "id": "3da0ee03-9025-4ad7-9b61-8b9246681652",
+            "id": "a14d498a-fe80-463a-9b41-33e5daa7e72c",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v5",
-            "payload_sha256": "16b3b0b90ead8eab34f977aec7c6353f5d6fda942f504c4490f918b2e2d93813",
+            "payload_sha256": "17dcd44bb0bd6754975a85913f3771db6ed3a7619afad9965ea9bc8a80310cd7",
             "vector": [
               -0.17971359488435873,
               0.020759530317806692,
@@ -2519,14 +2519,14 @@
             ]
           },
           "observed": {
-            "id": "3da0ee03-9025-4ad7-9b61-8b9246681652",
+            "id": "a14d498a-fe80-463a-9b41-33e5daa7e72c",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v5",
-            "payload_sha256": "16b3b0b90ead8eab34f977aec7c6353f5d6fda942f504c4490f918b2e2d93813",
+            "payload_sha256": "17dcd44bb0bd6754975a85913f3771db6ed3a7619afad9965ea9bc8a80310cd7",
             "vector": null
           },
           "info": {
@@ -2556,14 +2556,14 @@
           "acked": 10,
           "dropped": 0,
           "expected": {
-            "id": "6eacd8c1-f511-4d27-a26e-a3a1a9de77c4",
+            "id": "9a5157e1-051c-401e-ac22-c7245062e262",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v5",
-            "payload_sha256": "0e76cf769ce90d38ed3beb7f5b5332540022c9921e47e2b4175462f54c7a5a38",
+            "payload_sha256": "3b10053ea145fe9c69c49a889e4db3474cdcd111e4c7db7961e2ca7be1a3cbdc",
             "vector": [
               -0.17971359488435873,
               0.020759530317806692,
@@ -2632,14 +2632,14 @@
             ]
           },
           "observed": {
-            "id": "6eacd8c1-f511-4d27-a26e-a3a1a9de77c4",
+            "id": "9a5157e1-051c-401e-ac22-c7245062e262",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v5",
-            "payload_sha256": "0e76cf769ce90d38ed3beb7f5b5332540022c9921e47e2b4175462f54c7a5a38",
+            "payload_sha256": "3b10053ea145fe9c69c49a889e4db3474cdcd111e4c7db7961e2ca7be1a3cbdc",
             "vector": null
           },
           "info": {
@@ -2669,14 +2669,14 @@
           "acked": 10,
           "dropped": 0,
           "expected": {
-            "id": "83a27b16-7424-4627-94f5-0d9c435cae70",
+            "id": "d8a6b541-e1e8-4401-b691-ea39854b65ec",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v5",
-            "payload_sha256": "c6a04fe774f6d02c20ce188cd7847ddda8710feb617e7c72cbab79749754e5c2",
+            "payload_sha256": "0acc9bbeec72dbeffd6c71e676d4e70146199d851fd9028db95106d0ac18931e",
             "vector": [
               -0.17971359488435873,
               0.020759530317806692,
@@ -2745,14 +2745,14 @@
             ]
           },
           "observed": {
-            "id": "83a27b16-7424-4627-94f5-0d9c435cae70",
+            "id": "d8a6b541-e1e8-4401-b691-ea39854b65ec",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v5",
-            "payload_sha256": "c6a04fe774f6d02c20ce188cd7847ddda8710feb617e7c72cbab79749754e5c2",
+            "payload_sha256": "0acc9bbeec72dbeffd6c71e676d4e70146199d851fd9028db95106d0ac18931e",
             "vector": null
           },
           "info": {
@@ -2782,14 +2782,14 @@
           "acked": 10,
           "dropped": 0,
           "expected": {
-            "id": "11e2692d-14d4-432a-b55a-9653e84a6cc7",
+            "id": "9154a988-827d-4df1-9b7d-604b97117bfa",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v5",
-            "payload_sha256": "651b15db98669d5734fb8eb2ce7901ff746b0e26e982c34622fa18300827730b",
+            "payload_sha256": "6a5ec70316033353e9dae7684d6adada4b3e7a99989c711e54c70e9b65a1b62c",
             "vector": [
               -0.17971359488435873,
               0.020759530317806692,
@@ -2858,14 +2858,14 @@
             ]
           },
           "observed": {
-            "id": "11e2692d-14d4-432a-b55a-9653e84a6cc7",
+            "id": "9154a988-827d-4df1-9b7d-604b97117bfa",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v5",
-            "payload_sha256": "651b15db98669d5734fb8eb2ce7901ff746b0e26e982c34622fa18300827730b",
+            "payload_sha256": "6a5ec70316033353e9dae7684d6adada4b3e7a99989c711e54c70e9b65a1b62c",
             "vector": null
           },
           "info": {
@@ -2884,6 +2884,1266 @@
             "servers": [],
             "version": "3.53.3",
             "notes": "SQLite ON CONFLICT DO UPDATE. Keyed get returns the latest value.",
+            "runtime_versions": {}
+          }
+        }
+      ],
+      "gated": true
+    },
+    "forget": {
+      "must_fail": "sqlite-forget-fts",
+      "must_pass": "sqlite-forget-both",
+      "must_fail_rate": 1.0,
+      "must_pass_rate": 1.0,
+      "discriminates": true,
+      "details": [
+        {
+          "role": "must_fail",
+          "trial": 0,
+          "status": "violation",
+          "paths": {
+            "get": {
+              "visible_before": true,
+              "remaining": 0,
+              "status": "ok",
+              "lag_ms": 0.062875
+            },
+            "get_by_ref": {
+              "visible_before": true,
+              "remaining": 0,
+              "status": "ok",
+              "lag_ms": 0.128875
+            },
+            "list_prefix": {
+              "visible_before": true,
+              "remaining": 0,
+              "status": "ok",
+              "lag_ms": 0.184583
+            },
+            "read_recent": {
+              "visible_before": true,
+              "remaining": 0,
+              "status": "ok",
+              "lag_ms": 0.4535
+            },
+            "search": {
+              "visible_before": true,
+              "remaining": 1,
+              "status": "violation",
+              "lag_ms": null
+            }
+          },
+          "timeout_s": 0.1,
+          "forget_promise": {
+            "kind": "delete",
+            "url": "https://github.com/Clawdlinux/memtorture/blob/main/docs/METHODOLOGY.md#forget-controls",
+            "quote": "These controls promise absence from supported reads. Fault injection deliberately breaks that promise in the must-fail store."
+          },
+          "info": {
+            "protocol": 1,
+            "capabilities": [
+              "delete",
+              "get",
+              "get_by_ref",
+              "keyed",
+              "list_prefix",
+              "read_recent",
+              "search",
+              "upsert",
+              "write"
+            ],
+            "servers": [],
+            "version": "3.53.3",
+            "notes": "Delete removes the main row but leaves a readable FTS5 row.",
+            "runtime_versions": {}
+          }
+        },
+        {
+          "role": "must_fail",
+          "trial": 1,
+          "status": "violation",
+          "paths": {
+            "get": {
+              "visible_before": true,
+              "remaining": 0,
+              "status": "ok",
+              "lag_ms": 0.0565
+            },
+            "get_by_ref": {
+              "visible_before": true,
+              "remaining": 0,
+              "status": "ok",
+              "lag_ms": 0.113459
+            },
+            "list_prefix": {
+              "visible_before": true,
+              "remaining": 0,
+              "status": "ok",
+              "lag_ms": 0.166584
+            },
+            "read_recent": {
+              "visible_before": true,
+              "remaining": 0,
+              "status": "ok",
+              "lag_ms": 0.254709
+            },
+            "search": {
+              "visible_before": true,
+              "remaining": 1,
+              "status": "violation",
+              "lag_ms": null
+            }
+          },
+          "timeout_s": 0.1,
+          "forget_promise": {
+            "kind": "delete",
+            "url": "https://github.com/Clawdlinux/memtorture/blob/main/docs/METHODOLOGY.md#forget-controls",
+            "quote": "These controls promise absence from supported reads. Fault injection deliberately breaks that promise in the must-fail store."
+          },
+          "info": {
+            "protocol": 1,
+            "capabilities": [
+              "delete",
+              "get",
+              "get_by_ref",
+              "keyed",
+              "list_prefix",
+              "read_recent",
+              "search",
+              "upsert",
+              "write"
+            ],
+            "servers": [],
+            "version": "3.53.3",
+            "notes": "Delete removes the main row but leaves a readable FTS5 row.",
+            "runtime_versions": {}
+          }
+        },
+        {
+          "role": "must_fail",
+          "trial": 2,
+          "status": "violation",
+          "paths": {
+            "get": {
+              "visible_before": true,
+              "remaining": 0,
+              "status": "ok",
+              "lag_ms": 0.066833
+            },
+            "get_by_ref": {
+              "visible_before": true,
+              "remaining": 0,
+              "status": "ok",
+              "lag_ms": 0.16925
+            },
+            "list_prefix": {
+              "visible_before": true,
+              "remaining": 0,
+              "status": "ok",
+              "lag_ms": 0.236916
+            },
+            "read_recent": {
+              "visible_before": true,
+              "remaining": 0,
+              "status": "ok",
+              "lag_ms": 0.448416
+            },
+            "search": {
+              "visible_before": true,
+              "remaining": 1,
+              "status": "violation",
+              "lag_ms": null
+            }
+          },
+          "timeout_s": 0.1,
+          "forget_promise": {
+            "kind": "delete",
+            "url": "https://github.com/Clawdlinux/memtorture/blob/main/docs/METHODOLOGY.md#forget-controls",
+            "quote": "These controls promise absence from supported reads. Fault injection deliberately breaks that promise in the must-fail store."
+          },
+          "info": {
+            "protocol": 1,
+            "capabilities": [
+              "delete",
+              "get",
+              "get_by_ref",
+              "keyed",
+              "list_prefix",
+              "read_recent",
+              "search",
+              "upsert",
+              "write"
+            ],
+            "servers": [],
+            "version": "3.53.3",
+            "notes": "Delete removes the main row but leaves a readable FTS5 row.",
+            "runtime_versions": {}
+          }
+        },
+        {
+          "role": "must_fail",
+          "trial": 3,
+          "status": "violation",
+          "paths": {
+            "get": {
+              "visible_before": true,
+              "remaining": 0,
+              "status": "ok",
+              "lag_ms": 0.063833
+            },
+            "get_by_ref": {
+              "visible_before": true,
+              "remaining": 0,
+              "status": "ok",
+              "lag_ms": 0.127291
+            },
+            "list_prefix": {
+              "visible_before": true,
+              "remaining": 0,
+              "status": "ok",
+              "lag_ms": 0.182708
+            },
+            "read_recent": {
+              "visible_before": true,
+              "remaining": 0,
+              "status": "ok",
+              "lag_ms": 0.272791
+            },
+            "search": {
+              "visible_before": true,
+              "remaining": 1,
+              "status": "violation",
+              "lag_ms": null
+            }
+          },
+          "timeout_s": 0.1,
+          "forget_promise": {
+            "kind": "delete",
+            "url": "https://github.com/Clawdlinux/memtorture/blob/main/docs/METHODOLOGY.md#forget-controls",
+            "quote": "These controls promise absence from supported reads. Fault injection deliberately breaks that promise in the must-fail store."
+          },
+          "info": {
+            "protocol": 1,
+            "capabilities": [
+              "delete",
+              "get",
+              "get_by_ref",
+              "keyed",
+              "list_prefix",
+              "read_recent",
+              "search",
+              "upsert",
+              "write"
+            ],
+            "servers": [],
+            "version": "3.53.3",
+            "notes": "Delete removes the main row but leaves a readable FTS5 row.",
+            "runtime_versions": {}
+          }
+        },
+        {
+          "role": "must_fail",
+          "trial": 4,
+          "status": "violation",
+          "paths": {
+            "get": {
+              "visible_before": true,
+              "remaining": 0,
+              "status": "ok",
+              "lag_ms": 0.055875
+            },
+            "get_by_ref": {
+              "visible_before": true,
+              "remaining": 0,
+              "status": "ok",
+              "lag_ms": 0.104083
+            },
+            "list_prefix": {
+              "visible_before": true,
+              "remaining": 0,
+              "status": "ok",
+              "lag_ms": 0.1495
+            },
+            "read_recent": {
+              "visible_before": true,
+              "remaining": 0,
+              "status": "ok",
+              "lag_ms": 0.241791
+            },
+            "search": {
+              "visible_before": true,
+              "remaining": 1,
+              "status": "violation",
+              "lag_ms": null
+            }
+          },
+          "timeout_s": 0.1,
+          "forget_promise": {
+            "kind": "delete",
+            "url": "https://github.com/Clawdlinux/memtorture/blob/main/docs/METHODOLOGY.md#forget-controls",
+            "quote": "These controls promise absence from supported reads. Fault injection deliberately breaks that promise in the must-fail store."
+          },
+          "info": {
+            "protocol": 1,
+            "capabilities": [
+              "delete",
+              "get",
+              "get_by_ref",
+              "keyed",
+              "list_prefix",
+              "read_recent",
+              "search",
+              "upsert",
+              "write"
+            ],
+            "servers": [],
+            "version": "3.53.3",
+            "notes": "Delete removes the main row but leaves a readable FTS5 row.",
+            "runtime_versions": {}
+          }
+        },
+        {
+          "role": "must_pass",
+          "trial": 0,
+          "status": "ok",
+          "paths": {
+            "get": {
+              "visible_before": true,
+              "remaining": 0,
+              "status": "ok",
+              "lag_ms": 0.080042
+            },
+            "get_by_ref": {
+              "visible_before": true,
+              "remaining": 0,
+              "status": "ok",
+              "lag_ms": 0.152208
+            },
+            "list_prefix": {
+              "visible_before": true,
+              "remaining": 0,
+              "status": "ok",
+              "lag_ms": 0.215
+            },
+            "read_recent": {
+              "visible_before": true,
+              "remaining": 0,
+              "status": "ok",
+              "lag_ms": 0.307958
+            },
+            "search": {
+              "visible_before": true,
+              "remaining": 0,
+              "status": "ok",
+              "lag_ms": 0.431833
+            }
+          },
+          "timeout_s": 0.1,
+          "forget_promise": {
+            "kind": "delete",
+            "url": "https://github.com/Clawdlinux/memtorture/blob/main/docs/METHODOLOGY.md#forget-controls",
+            "quote": "These controls promise absence from supported reads. Fault injection deliberately breaks that promise in the must-fail store."
+          },
+          "info": {
+            "protocol": 1,
+            "capabilities": [
+              "delete",
+              "get",
+              "get_by_ref",
+              "keyed",
+              "list_prefix",
+              "read_recent",
+              "search",
+              "upsert",
+              "write"
+            ],
+            "servers": [],
+            "version": "3.53.3",
+            "notes": "Delete removes both the main row and its readable FTS5 row.",
+            "runtime_versions": {}
+          }
+        },
+        {
+          "role": "must_pass",
+          "trial": 1,
+          "status": "ok",
+          "paths": {
+            "get": {
+              "visible_before": true,
+              "remaining": 0,
+              "status": "ok",
+              "lag_ms": 0.045959
+            },
+            "get_by_ref": {
+              "visible_before": true,
+              "remaining": 0,
+              "status": "ok",
+              "lag_ms": 0.088334
+            },
+            "list_prefix": {
+              "visible_before": true,
+              "remaining": 0,
+              "status": "ok",
+              "lag_ms": 0.129417
+            },
+            "read_recent": {
+              "visible_before": true,
+              "remaining": 0,
+              "status": "ok",
+              "lag_ms": 0.202917
+            },
+            "search": {
+              "visible_before": true,
+              "remaining": 0,
+              "status": "ok",
+              "lag_ms": 0.309459
+            }
+          },
+          "timeout_s": 0.1,
+          "forget_promise": {
+            "kind": "delete",
+            "url": "https://github.com/Clawdlinux/memtorture/blob/main/docs/METHODOLOGY.md#forget-controls",
+            "quote": "These controls promise absence from supported reads. Fault injection deliberately breaks that promise in the must-fail store."
+          },
+          "info": {
+            "protocol": 1,
+            "capabilities": [
+              "delete",
+              "get",
+              "get_by_ref",
+              "keyed",
+              "list_prefix",
+              "read_recent",
+              "search",
+              "upsert",
+              "write"
+            ],
+            "servers": [],
+            "version": "3.53.3",
+            "notes": "Delete removes both the main row and its readable FTS5 row.",
+            "runtime_versions": {}
+          }
+        },
+        {
+          "role": "must_pass",
+          "trial": 2,
+          "status": "ok",
+          "paths": {
+            "get": {
+              "visible_before": true,
+              "remaining": 0,
+              "status": "ok",
+              "lag_ms": 0.057167
+            },
+            "get_by_ref": {
+              "visible_before": true,
+              "remaining": 0,
+              "status": "ok",
+              "lag_ms": 0.108208
+            },
+            "list_prefix": {
+              "visible_before": true,
+              "remaining": 0,
+              "status": "ok",
+              "lag_ms": 0.154833
+            },
+            "read_recent": {
+              "visible_before": true,
+              "remaining": 0,
+              "status": "ok",
+              "lag_ms": 0.236625
+            },
+            "search": {
+              "visible_before": true,
+              "remaining": 0,
+              "status": "ok",
+              "lag_ms": 0.366208
+            }
+          },
+          "timeout_s": 0.1,
+          "forget_promise": {
+            "kind": "delete",
+            "url": "https://github.com/Clawdlinux/memtorture/blob/main/docs/METHODOLOGY.md#forget-controls",
+            "quote": "These controls promise absence from supported reads. Fault injection deliberately breaks that promise in the must-fail store."
+          },
+          "info": {
+            "protocol": 1,
+            "capabilities": [
+              "delete",
+              "get",
+              "get_by_ref",
+              "keyed",
+              "list_prefix",
+              "read_recent",
+              "search",
+              "upsert",
+              "write"
+            ],
+            "servers": [],
+            "version": "3.53.3",
+            "notes": "Delete removes both the main row and its readable FTS5 row.",
+            "runtime_versions": {}
+          }
+        },
+        {
+          "role": "must_pass",
+          "trial": 3,
+          "status": "ok",
+          "paths": {
+            "get": {
+              "visible_before": true,
+              "remaining": 0,
+              "status": "ok",
+              "lag_ms": 0.062417
+            },
+            "get_by_ref": {
+              "visible_before": true,
+              "remaining": 0,
+              "status": "ok",
+              "lag_ms": 0.133167
+            },
+            "list_prefix": {
+              "visible_before": true,
+              "remaining": 0,
+              "status": "ok",
+              "lag_ms": 0.189375
+            },
+            "read_recent": {
+              "visible_before": true,
+              "remaining": 0,
+              "status": "ok",
+              "lag_ms": 0.277167
+            },
+            "search": {
+              "visible_before": true,
+              "remaining": 0,
+              "status": "ok",
+              "lag_ms": 0.397958
+            }
+          },
+          "timeout_s": 0.1,
+          "forget_promise": {
+            "kind": "delete",
+            "url": "https://github.com/Clawdlinux/memtorture/blob/main/docs/METHODOLOGY.md#forget-controls",
+            "quote": "These controls promise absence from supported reads. Fault injection deliberately breaks that promise in the must-fail store."
+          },
+          "info": {
+            "protocol": 1,
+            "capabilities": [
+              "delete",
+              "get",
+              "get_by_ref",
+              "keyed",
+              "list_prefix",
+              "read_recent",
+              "search",
+              "upsert",
+              "write"
+            ],
+            "servers": [],
+            "version": "3.53.3",
+            "notes": "Delete removes both the main row and its readable FTS5 row.",
+            "runtime_versions": {}
+          }
+        },
+        {
+          "role": "must_pass",
+          "trial": 4,
+          "status": "ok",
+          "paths": {
+            "get": {
+              "visible_before": true,
+              "remaining": 0,
+              "status": "ok",
+              "lag_ms": 0.078292
+            },
+            "get_by_ref": {
+              "visible_before": true,
+              "remaining": 0,
+              "status": "ok",
+              "lag_ms": 0.1385
+            },
+            "list_prefix": {
+              "visible_before": true,
+              "remaining": 0,
+              "status": "ok",
+              "lag_ms": 0.292084
+            },
+            "read_recent": {
+              "visible_before": true,
+              "remaining": 0,
+              "status": "ok",
+              "lag_ms": 0.479875
+            },
+            "search": {
+              "visible_before": true,
+              "remaining": 0,
+              "status": "ok",
+              "lag_ms": 0.631334
+            }
+          },
+          "timeout_s": 0.1,
+          "forget_promise": {
+            "kind": "delete",
+            "url": "https://github.com/Clawdlinux/memtorture/blob/main/docs/METHODOLOGY.md#forget-controls",
+            "quote": "These controls promise absence from supported reads. Fault injection deliberately breaks that promise in the must-fail store."
+          },
+          "info": {
+            "protocol": 1,
+            "capabilities": [
+              "delete",
+              "get",
+              "get_by_ref",
+              "keyed",
+              "list_prefix",
+              "read_recent",
+              "search",
+              "upsert",
+              "write"
+            ],
+            "servers": [],
+            "version": "3.53.3",
+            "notes": "Delete removes both the main row and its readable FTS5 row.",
+            "runtime_versions": {}
+          }
+        }
+      ],
+      "gated": true
+    },
+    "forget-residue": {
+      "must_fail": "sqlite-residue-off",
+      "must_pass": "sqlite-residue-secure",
+      "must_fail_rate": 1.0,
+      "must_pass_rate": 1.0,
+      "discriminates": true,
+      "details": [
+        {
+          "role": "must_fail",
+          "trial": 0,
+          "occurrences_before": 3,
+          "forget": {
+            "status": "ok",
+            "paths": {
+              "get": {
+                "visible_before": true,
+                "remaining": 0,
+                "status": "ok",
+                "lag_ms": 0.045459
+              },
+              "get_by_ref": {
+                "visible_before": true,
+                "remaining": 0,
+                "status": "ok",
+                "lag_ms": 0.089334
+              },
+              "list_prefix": {
+                "visible_before": true,
+                "remaining": 0,
+                "status": "ok",
+                "lag_ms": 0.130792
+              },
+              "read_recent": {
+                "visible_before": true,
+                "remaining": 0,
+                "status": "ok",
+                "lag_ms": 0.204167
+              },
+              "search": {
+                "visible_before": true,
+                "remaining": 0,
+                "status": "ok",
+                "lag_ms": 0.322375
+              }
+            },
+            "timeout_s": 0.1
+          },
+          "status": "violation",
+          "occurrences_after": 4,
+          "bytes_found": 128,
+          "scan_after_stop": true,
+          "info": {
+            "protocol": 1,
+            "capabilities": [
+              "delete",
+              "get",
+              "get_by_ref",
+              "keyed",
+              "list_prefix",
+              "read_recent",
+              "search",
+              "upsert",
+              "write"
+            ],
+            "servers": [],
+            "version": "3.53.3",
+            "notes": "secure_delete=OFF. Delete without VACUUM leaves plaintext residue.",
+            "runtime_versions": {}
+          }
+        },
+        {
+          "role": "must_fail",
+          "trial": 1,
+          "occurrences_before": 3,
+          "forget": {
+            "status": "ok",
+            "paths": {
+              "get": {
+                "visible_before": true,
+                "remaining": 0,
+                "status": "ok",
+                "lag_ms": 0.064167
+              },
+              "get_by_ref": {
+                "visible_before": true,
+                "remaining": 0,
+                "status": "ok",
+                "lag_ms": 0.117292
+              },
+              "list_prefix": {
+                "visible_before": true,
+                "remaining": 0,
+                "status": "ok",
+                "lag_ms": 0.164417
+              },
+              "read_recent": {
+                "visible_before": true,
+                "remaining": 0,
+                "status": "ok",
+                "lag_ms": 0.2485
+              },
+              "search": {
+                "visible_before": true,
+                "remaining": 0,
+                "status": "ok",
+                "lag_ms": 0.379292
+              }
+            },
+            "timeout_s": 0.1
+          },
+          "status": "violation",
+          "occurrences_after": 4,
+          "bytes_found": 128,
+          "scan_after_stop": true,
+          "info": {
+            "protocol": 1,
+            "capabilities": [
+              "delete",
+              "get",
+              "get_by_ref",
+              "keyed",
+              "list_prefix",
+              "read_recent",
+              "search",
+              "upsert",
+              "write"
+            ],
+            "servers": [],
+            "version": "3.53.3",
+            "notes": "secure_delete=OFF. Delete without VACUUM leaves plaintext residue.",
+            "runtime_versions": {}
+          }
+        },
+        {
+          "role": "must_fail",
+          "trial": 2,
+          "occurrences_before": 3,
+          "forget": {
+            "status": "ok",
+            "paths": {
+              "get": {
+                "visible_before": true,
+                "remaining": 0,
+                "status": "ok",
+                "lag_ms": 0.043875
+              },
+              "get_by_ref": {
+                "visible_before": true,
+                "remaining": 0,
+                "status": "ok",
+                "lag_ms": 0.087417
+              },
+              "list_prefix": {
+                "visible_before": true,
+                "remaining": 0,
+                "status": "ok",
+                "lag_ms": 0.128334
+              },
+              "read_recent": {
+                "visible_before": true,
+                "remaining": 0,
+                "status": "ok",
+                "lag_ms": 0.204292
+              },
+              "search": {
+                "visible_before": true,
+                "remaining": 0,
+                "status": "ok",
+                "lag_ms": 0.341375
+              }
+            },
+            "timeout_s": 0.1
+          },
+          "status": "violation",
+          "occurrences_after": 4,
+          "bytes_found": 128,
+          "scan_after_stop": true,
+          "info": {
+            "protocol": 1,
+            "capabilities": [
+              "delete",
+              "get",
+              "get_by_ref",
+              "keyed",
+              "list_prefix",
+              "read_recent",
+              "search",
+              "upsert",
+              "write"
+            ],
+            "servers": [],
+            "version": "3.53.3",
+            "notes": "secure_delete=OFF. Delete without VACUUM leaves plaintext residue.",
+            "runtime_versions": {}
+          }
+        },
+        {
+          "role": "must_fail",
+          "trial": 3,
+          "occurrences_before": 3,
+          "forget": {
+            "status": "ok",
+            "paths": {
+              "get": {
+                "visible_before": true,
+                "remaining": 0,
+                "status": "ok",
+                "lag_ms": 0.068041
+              },
+              "get_by_ref": {
+                "visible_before": true,
+                "remaining": 0,
+                "status": "ok",
+                "lag_ms": 0.121791
+              },
+              "list_prefix": {
+                "visible_before": true,
+                "remaining": 0,
+                "status": "ok",
+                "lag_ms": 0.168708
+              },
+              "read_recent": {
+                "visible_before": true,
+                "remaining": 0,
+                "status": "ok",
+                "lag_ms": 0.256541
+              },
+              "search": {
+                "visible_before": true,
+                "remaining": 0,
+                "status": "ok",
+                "lag_ms": 0.390916
+              }
+            },
+            "timeout_s": 0.1
+          },
+          "status": "violation",
+          "occurrences_after": 4,
+          "bytes_found": 128,
+          "scan_after_stop": true,
+          "info": {
+            "protocol": 1,
+            "capabilities": [
+              "delete",
+              "get",
+              "get_by_ref",
+              "keyed",
+              "list_prefix",
+              "read_recent",
+              "search",
+              "upsert",
+              "write"
+            ],
+            "servers": [],
+            "version": "3.53.3",
+            "notes": "secure_delete=OFF. Delete without VACUUM leaves plaintext residue.",
+            "runtime_versions": {}
+          }
+        },
+        {
+          "role": "must_fail",
+          "trial": 4,
+          "occurrences_before": 3,
+          "forget": {
+            "status": "ok",
+            "paths": {
+              "get": {
+                "visible_before": true,
+                "remaining": 0,
+                "status": "ok",
+                "lag_ms": 0.046334
+              },
+              "get_by_ref": {
+                "visible_before": true,
+                "remaining": 0,
+                "status": "ok",
+                "lag_ms": 0.090417
+              },
+              "list_prefix": {
+                "visible_before": true,
+                "remaining": 0,
+                "status": "ok",
+                "lag_ms": 0.132625
+              },
+              "read_recent": {
+                "visible_before": true,
+                "remaining": 0,
+                "status": "ok",
+                "lag_ms": 0.205459
+              },
+              "search": {
+                "visible_before": true,
+                "remaining": 0,
+                "status": "ok",
+                "lag_ms": 0.32775
+              }
+            },
+            "timeout_s": 0.1
+          },
+          "status": "violation",
+          "occurrences_after": 4,
+          "bytes_found": 128,
+          "scan_after_stop": true,
+          "info": {
+            "protocol": 1,
+            "capabilities": [
+              "delete",
+              "get",
+              "get_by_ref",
+              "keyed",
+              "list_prefix",
+              "read_recent",
+              "search",
+              "upsert",
+              "write"
+            ],
+            "servers": [],
+            "version": "3.53.3",
+            "notes": "secure_delete=OFF. Delete without VACUUM leaves plaintext residue.",
+            "runtime_versions": {}
+          }
+        },
+        {
+          "role": "must_pass",
+          "trial": 0,
+          "occurrences_before": 3,
+          "forget": {
+            "status": "ok",
+            "paths": {
+              "get": {
+                "visible_before": true,
+                "remaining": 0,
+                "status": "ok",
+                "lag_ms": 0.059334
+              },
+              "get_by_ref": {
+                "visible_before": true,
+                "remaining": 0,
+                "status": "ok",
+                "lag_ms": 0.11025
+              },
+              "list_prefix": {
+                "visible_before": true,
+                "remaining": 0,
+                "status": "ok",
+                "lag_ms": 0.16375
+              },
+              "read_recent": {
+                "visible_before": true,
+                "remaining": 0,
+                "status": "ok",
+                "lag_ms": 0.305334
+              },
+              "search": {
+                "visible_before": true,
+                "remaining": 0,
+                "status": "ok",
+                "lag_ms": 0.475667
+              }
+            },
+            "timeout_s": 0.1
+          },
+          "status": "ok",
+          "occurrences_after": 0,
+          "bytes_found": 0,
+          "scan_after_stop": true,
+          "info": {
+            "protocol": 1,
+            "capabilities": [
+              "delete",
+              "get",
+              "get_by_ref",
+              "keyed",
+              "list_prefix",
+              "read_recent",
+              "search",
+              "upsert",
+              "write"
+            ],
+            "servers": [],
+            "version": "3.53.3",
+            "notes": "secure_delete=ON. FTS5 secure-delete, VACUUM, and WAL truncation.",
+            "runtime_versions": {}
+          }
+        },
+        {
+          "role": "must_pass",
+          "trial": 1,
+          "occurrences_before": 3,
+          "forget": {
+            "status": "ok",
+            "paths": {
+              "get": {
+                "visible_before": true,
+                "remaining": 0,
+                "status": "ok",
+                "lag_ms": 0.082125
+              },
+              "get_by_ref": {
+                "visible_before": true,
+                "remaining": 0,
+                "status": "ok",
+                "lag_ms": 0.141959
+              },
+              "list_prefix": {
+                "visible_before": true,
+                "remaining": 0,
+                "status": "ok",
+                "lag_ms": 0.191709
+              },
+              "read_recent": {
+                "visible_before": true,
+                "remaining": 0,
+                "status": "ok",
+                "lag_ms": 0.279417
+              },
+              "search": {
+                "visible_before": true,
+                "remaining": 0,
+                "status": "ok",
+                "lag_ms": 0.440209
+              }
+            },
+            "timeout_s": 0.1
+          },
+          "status": "ok",
+          "occurrences_after": 0,
+          "bytes_found": 0,
+          "scan_after_stop": true,
+          "info": {
+            "protocol": 1,
+            "capabilities": [
+              "delete",
+              "get",
+              "get_by_ref",
+              "keyed",
+              "list_prefix",
+              "read_recent",
+              "search",
+              "upsert",
+              "write"
+            ],
+            "servers": [],
+            "version": "3.53.3",
+            "notes": "secure_delete=ON. FTS5 secure-delete, VACUUM, and WAL truncation.",
+            "runtime_versions": {}
+          }
+        },
+        {
+          "role": "must_pass",
+          "trial": 2,
+          "occurrences_before": 3,
+          "forget": {
+            "status": "ok",
+            "paths": {
+              "get": {
+                "visible_before": true,
+                "remaining": 0,
+                "status": "ok",
+                "lag_ms": 0.057792
+              },
+              "get_by_ref": {
+                "visible_before": true,
+                "remaining": 0,
+                "status": "ok",
+                "lag_ms": 0.107958
+              },
+              "list_prefix": {
+                "visible_before": true,
+                "remaining": 0,
+                "status": "ok",
+                "lag_ms": 0.155625
+              },
+              "read_recent": {
+                "visible_before": true,
+                "remaining": 0,
+                "status": "ok",
+                "lag_ms": 0.239417
+              },
+              "search": {
+                "visible_before": true,
+                "remaining": 0,
+                "status": "ok",
+                "lag_ms": 0.38525
+              }
+            },
+            "timeout_s": 0.1
+          },
+          "status": "ok",
+          "occurrences_after": 0,
+          "bytes_found": 0,
+          "scan_after_stop": true,
+          "info": {
+            "protocol": 1,
+            "capabilities": [
+              "delete",
+              "get",
+              "get_by_ref",
+              "keyed",
+              "list_prefix",
+              "read_recent",
+              "search",
+              "upsert",
+              "write"
+            ],
+            "servers": [],
+            "version": "3.53.3",
+            "notes": "secure_delete=ON. FTS5 secure-delete, VACUUM, and WAL truncation.",
+            "runtime_versions": {}
+          }
+        },
+        {
+          "role": "must_pass",
+          "trial": 3,
+          "occurrences_before": 3,
+          "forget": {
+            "status": "ok",
+            "paths": {
+              "get": {
+                "visible_before": true,
+                "remaining": 0,
+                "status": "ok",
+                "lag_ms": 0.23325
+              },
+              "get_by_ref": {
+                "visible_before": true,
+                "remaining": 0,
+                "status": "ok",
+                "lag_ms": 0.452125
+              },
+              "list_prefix": {
+                "visible_before": true,
+                "remaining": 0,
+                "status": "ok",
+                "lag_ms": 0.6225
+              },
+              "read_recent": {
+                "visible_before": true,
+                "remaining": 0,
+                "status": "ok",
+                "lag_ms": 0.759792
+              },
+              "search": {
+                "visible_before": true,
+                "remaining": 0,
+                "status": "ok",
+                "lag_ms": 0.966042
+              }
+            },
+            "timeout_s": 0.1
+          },
+          "status": "ok",
+          "occurrences_after": 0,
+          "bytes_found": 0,
+          "scan_after_stop": true,
+          "info": {
+            "protocol": 1,
+            "capabilities": [
+              "delete",
+              "get",
+              "get_by_ref",
+              "keyed",
+              "list_prefix",
+              "read_recent",
+              "search",
+              "upsert",
+              "write"
+            ],
+            "servers": [],
+            "version": "3.53.3",
+            "notes": "secure_delete=ON. FTS5 secure-delete, VACUUM, and WAL truncation.",
+            "runtime_versions": {}
+          }
+        },
+        {
+          "role": "must_pass",
+          "trial": 4,
+          "occurrences_before": 3,
+          "forget": {
+            "status": "ok",
+            "paths": {
+              "get": {
+                "visible_before": true,
+                "remaining": 0,
+                "status": "ok",
+                "lag_ms": 0.069958
+              },
+              "get_by_ref": {
+                "visible_before": true,
+                "remaining": 0,
+                "status": "ok",
+                "lag_ms": 0.126916
+              },
+              "list_prefix": {
+                "visible_before": true,
+                "remaining": 0,
+                "status": "ok",
+                "lag_ms": 0.177291
+              },
+              "read_recent": {
+                "visible_before": true,
+                "remaining": 0,
+                "status": "ok",
+                "lag_ms": 0.261583
+              },
+              "search": {
+                "visible_before": true,
+                "remaining": 0,
+                "status": "ok",
+                "lag_ms": 0.420166
+              }
+            },
+            "timeout_s": 0.1
+          },
+          "status": "ok",
+          "occurrences_after": 0,
+          "bytes_found": 0,
+          "scan_after_stop": true,
+          "info": {
+            "protocol": 1,
+            "capabilities": [
+              "delete",
+              "get",
+              "get_by_ref",
+              "keyed",
+              "list_prefix",
+              "read_recent",
+              "search",
+              "upsert",
+              "write"
+            ],
+            "servers": [],
+            "version": "3.53.3",
+            "notes": "secure_delete=ON. FTS5 secure-delete, VACUUM, and WAL truncation.",
             "runtime_versions": {}
           }
         }
