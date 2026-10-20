@@ -1,0 +1,13 @@
+{
+  "command": [
+    "{python}",
+    "-m",
+    "memtorture.worker",
+    "sqlite-residue-off"
+  ],
+  "forget_promise": {
+    "kind": "delete",
+    "url": "https://github.com/Clawdlinux/memtorture/blob/main/docs/METHODOLOGY.md#forget-controls",
+    "quote": "These controls promise absence from supported reads. Fault injection deliberately breaks that promise in the must-fail store."
+  }
+}

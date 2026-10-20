@@ -90,12 +90,13 @@ The threshold is never rounded down.
 | `concurrent-kv` | The same isolated rewrite race. | The same SQLite busy timeout. |
 | `recall-delay` | Fixed 100 ms visibility delay, polled every 1 ms. | SQLite visible on commit. |
 | `supersede-by-key` | Append-only store whose keyed read returns the oldest value. | SQLite WAL with keyed upsert. |
+| `forget` | SQLite deletes the main row but leaves a readable FTS5 row. | SQLite deletes both rows. |
+| `forget-residue` | SQLite secure deletion disabled, without VACUUM. | SQLite secure deletion enabled, FTS5 secure-delete enabled, VACUUM, then WAL truncation. |
 
 The ungated measurement entries are `history-scale`, `write-throughput`, and `recovery`.
 They have no fault controls.
 Each gate entry has `discriminates: null` and `gated: false`.
 Measurement results carry that note instead of borrowing another suite's rates.
-The throughput and recovery entries reserve gate metadata for their planned suites.
 History reads also verify loaded counts, hashes, keys, and recency order.
 
 The supersession control upserts key `k` with values `v1` through `v5`.
@@ -109,7 +110,7 @@ SQLite updates the keyed row in place with `ON CONFLICT DO UPDATE` and returns `
 An update trigger removes the old FTS entry and inserts the new text within the same transaction.
 `check_supersede_by_key(worker, *, versions=5, emit=None)` provides the reusable check in `memtorture/suites.py`.
 It accepts a running protocol worker and emits writes plus the final check.
-The full supersession suite is separate work.
+The supersession suite reuses this check for each system and config row.
 
 The delayed control stages index entries behind a monotonic deadline.
 This avoids measuring the operating system's timer coalescing.
@@ -222,6 +223,156 @@ The first intact row for an ID is retained. Later corrupt copies cannot hide tha
 History never changes pass or fail.
 CAS remains "not measured in B1".
 Emulated upsert is marked.
+
+### Write throughput
+
+Each config row runs 1, 8, and 64 writer processes.
+Each process owns a protocol worker. A harness thread drives each worker.
+A barrier releases the writers after every worker starts and every record is prepared.
+Each writer sends 20 records by default. `--extended` sends 100.
+Record text sizes are 128, 1024, or 8192 UTF-8 bytes.
+Seed `20261020` samples these sizes with weights 6:3:1.
+Payloads repeat ASCII `x`. This measures the stated sizes, not corpus compression ratios or semantic retrieval.
+The seed resets for each writer count. This keeps workloads identical across config rows.
+
+Throughput counts non-dropped acknowledgements per second, from barrier release through the last acknowledgement.
+Write latency runs from harness send through validated acknowledgement receipt.
+Results report nearest-rank p50 and p99 in milliseconds, separately for each writer count.
+Record preparation, worker startup, and readback are outside the throughput window.
+Raw events are buffered until measurement finishes. Logging cannot extend that window.
+
+Readback enumerates distinct writer keys after the last acknowledgement.
+It allows up to 5 seconds for asynchronous visibility, polling every 10 ms.
+Results retain acknowledged-but-missing, duplicate, and torn-record counts beside throughput.
+Dropped writes have their own count. They do not inflate ops/s.
+A fast lossy store therefore keeps its losses visible.
+This suite is ungated. Loss counts do not change its measurement status.
+There are no fault controls or performance thresholds.
+Missing write or enumeration support produces N/A.
+This does not measure unlimited saturation, disk durability, or application scheduling overhead outside the harness window.
+
+### Supersede by key
+
+Each config row runs `check_supersede_by_key` with 5 versions.
+The control procedure above is the suite body, including interleaved decoy-key writes.
+It reports whether the current keyed value is correct and intact.
+Missing keyed, upsert, or get support produces N/A.
+The append-oldest and SQLite-upsert controls gate this capability check.
+It does not time updates or claim atomic compare-and-swap behavior.
+It does not require history retention or measure concurrent supersession.
+
+### Forget
+
+The suite writes 3 survivor records and a target.
+It obtains the native reference from the target's write acknowledgement.
+It deletes that reference through the native API, without deriving a ref from the key or record ID.
+
+Every supported path is queried: get, get_by_ref, list_prefix, read_recent, and exact-text search.
+Each path must first return the intact target. This prevents empty or unreadable paths from falsely passing.
+After deletion, paths are polled together until the target disappears or 5 seconds pass.
+The lag clock starts when the harness receives the delete reply.
+Each path reports absence, remaining matches, and observed lag in milliseconds.
+The lag includes polling intervals and read completion time, not an internal deletion timestamp.
+`wait=false` is therefore allowed to converge instead of failing an immediate visibility check.
+
+A missing operation is N/A for that path.
+Missing delete support or a missing write ref makes the suite N/A.
+A supported path without pre-delete visibility is not measurable, not a pass.
+A timeout with the target still visible is a violation.
+
+The row carries its documented promise, URL, and exact quote from the system manifest.
+Delete promises require absence from supported reads. They do not promise disk erasure.
+Erase promises additionally require a measurable plaintext scan before deletion and no matches after shutdown.
+An unreadable pre-delete plaintext makes that erase judgement not measurable.
+This is a plaintext check, not proof against forensic recovery or backups.
+The shipped adapters only promise delete.
+
+#### Adapter delete promises
+
+Markdown removes the scoped record through a file rewrite. It promises absence from reads, not secure disk erasure.
+
+SQLite deletes the scoped row and its FTS5 entry in one transaction. It promises absence from reads, not disk erasure.
+
+Qdrant v1.16 [delete-points documentation](https://api.qdrant.tech/v-1-16-x/api-reference/points/delete-points)
+says: "Deletes specified points from the collection."
+Its `wait` parameter says: "If true, wait for changes to actually happen".
+This is a delete promise, not an erase promise.
+The disabled MCP adapter remains N/A. We do not invent a delete promise for an unexecuted adapter.
+
+#### Forget controls
+
+These controls promise absence from supported reads. Fault injection deliberately breaks that promise in the must-fail store.
+
+The must-fail store deletes the main SQLite row but leaves its independently readable FTS5 row.
+That FTS5 row retains the original record envelope, so search can return the deleted target.
+An FTS join through the main table would hide this fault. The control does not use that join.
+The must-pass store deletes both rows within the same transaction.
+Control trials use a 100 ms visibility budget. Ordinary benchmark cells use 5 seconds.
+The fixed fault never converges, so shortening calibration does not change the expected result.
+A deterministic asynchronous delete scenario checks lag reporting through real protocol workers.
+Native Qdrant suite scenarios are opt-in: `uv run pytest -q tests/test_memory_lifecycle.py --slow -m slow`.
+The default test run skips them.
+
+### Forget residue
+
+Each trial creates a fresh random 32-hex plaintext token inside the target's text.
+Before deletion, the harness scans every file under `data_dirs` as raw bytes.
+No file extension filter is applied. SQLite WAL and journal files are included.
+Overlapping directory reports are deduplicated. Chunk boundaries preserve token matches.
+
+If the token is absent, the result is not measurable and deletion is not attempted.
+The storage may be compressed, encoded, or not yet persisted in scan-readable form.
+Absence is never evidence of erasure without that positive pre-delete observation.
+There is no separate compression control or adapter-name classification.
+
+Otherwise, the suite runs the same read-path deletion check and stops the system cleanly.
+It scans those data paths again after shutdown.
+Results include occurrence counts before and after deletion, plus matched bytes after deletion.
+Bytes found equals post-delete occurrences multiplied by 32.
+The token and record text never enter suite events or stdout logs.
+
+The ordinary SQLite rows get no extra cleanup. Their default delete behavior is the measurement.
+Markdown's native delete already rewrites its file.
+Qdrant receives only its documented delete call. Background optimization is not forced or awaited beyond deletion visibility.
+No snapshots, external backups, unallocated filesystem blocks, or device-level copies are scanned.
+Zero plaintext matches does not prove secure erasure or unlearned model behavior.
+Residue is a suite violation, not a claim that a delete-only promise was broken.
+`forget` remains the separate judgement of that documented promise.
+
+The must-fail control disables SQLite secure_delete and FTS5 secure-delete, without VACUUM.
+The must-pass control enables both, runs VACUUM after delete, then runs wal_checkpoint(TRUNCATE).
+That cleanup belongs to the control, not the ordinary SQLite rows.
+Both controls gate measurable residue checks. Not measurable never counts as either control succeeding.
+Missing native delete support or a missing write ref produces N/A, as in forget.
+
+### Recovery
+
+Each config row bulk-loads 100K records without timing, then stops cleanly.
+`--extended` also runs an independent 1M-record dataset.
+The reopened dataset uses the same data directory and config row.
+Time to ready starts before launching the replacement worker.
+It ends when a known middle record first reads back correctly, including its payload digest.
+Worker startup, server startup, and that first successful read are included.
+A missing known record after 60 seconds produces an error, not a readiness number.
+This is warm filesystem-cache recovery after clean shutdown, not cold boot or crash recovery.
+
+RSS is sampled immediately after readiness, before enumeration allocates readback records.
+In-process stores report the worker PID's RSS.
+Server-backed stores report every role from the start response's servers list, without adding worker RSS.
+Linux reads VmRSS from `/proc/<pid>/status`. macOS uses `ps -o rss= -p <pid>`.
+Results convert KiB to bytes and retain per-role values.
+Other platforms produce N/A for this RSS measurement.
+RSS is resident process memory, not peak memory, proportional set size, or total machine use.
+
+Readback samples up to 100 evenly spaced records, including endpoints when the sample count exceeds 1.
+Each sample must match its expected record and digest.
+When list_prefix exists, a full enumeration also checks the count, unique IDs, and every returned digest.
+The count is an enumeration count, not a native COUNT API. Protocol v1 has no COUNT operation.
+Without enumeration support, count fields are null and the source is N/A. Sampling is still reported.
+Missing get support makes readiness N/A because no known-record probe is available.
+Sample loss or a count mismatch produces a violation with the verification counts retained.
+This cannot prove unsampled payload correctness when the count matches.
+There are no fault controls. Recovery is explicitly ungated.
 
 ## Rows and mapping
 

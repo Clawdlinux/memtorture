@@ -15,6 +15,11 @@ ADAPTERS = {
     "sqlite-visible": ("memtorture.controls.systems", "SQLiteVisible"),
     "append-oldest": ("memtorture.controls.systems", "AppendOldest"),
     "sqlite-upsert": ("memtorture.controls.systems", "SQLiteUpsert"),
+    "sqlite-forget-fts": ("memtorture.controls.systems", "SQLiteForgetFTS"),
+    "sqlite-forget-both": ("memtorture.controls.systems", "SQLiteForgetBoth"),
+    "sqlite-residue-off": ("memtorture.controls.systems", "SQLiteResidueOff"),
+    "sqlite-residue-secure": ("memtorture.controls.systems", "SQLiteResidueSecure"),
+    "sqlite-delete-delayed": ("memtorture.controls.systems", "SQLiteDeleteDelayed"),
 }
 
 

@@ -53,6 +53,8 @@ def test_platform_key(monkeypatch, system, machine, expected_key):
         ("process-kill", "hardware"),
         ("process-kill", "other-platform"),
         ("supersede-by-key", "failed"),
+        ("forget", "failed"),
+        ("forget-residue", "failed"),
     ],
 )
 def test_control_authorization(tmp_path, monkeypatch, change, suite):
@@ -114,7 +116,12 @@ def test_control_evidence(stub_controls, tmp_path, monkeypatch, capsys):
     assert supersede["gated"] is supersede["discriminates"] is True
     assert supersede["must_fail_rate"] == supersede["must_pass_rate"] == 1
     assert len(supersede["details"]) == 40
-    gate.require_controls("supersede-by-key", root)
+    for suite in ("supersede-by-key", "forget", "forget-residue"):
+        controls = summary["suites"][suite]
+        assert controls["gated"] is controls["discriminates"] is True
+        assert controls["must_fail_rate"] == controls["must_pass_rate"] == 1
+        assert len(controls["details"]) == 40
+        gate.require_controls(suite, root)
     quick = gate.run_controls(quick=True, root=root)
     assert top.read_bytes() == before
     assert (foreign / "gate.json").read_text() == "foreign evidence\n"

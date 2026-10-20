@@ -13,9 +13,14 @@ from memtorture.results import ResultWriter, render_tables
 from memtorture.suites import (
     SUITES,
     concurrent,
+    forget,
+    forget_residue,
     history_scale,
     process_kill,
     recall_delay,
+    recovery,
+    supersede_by_key,
+    write_throughput,
 )
 from memtorture.types import NotSupported
 
@@ -36,7 +41,28 @@ def run_cell(suite, system, config, path, *, extended=False, emit=None):
         return history_scale(system, config, path, sizes=sizes, emit=emit)
     if suite == "process-kill":
         return process_kill(system, config, path, emit=emit)
-    return concurrent(suite, system, config, path, emit=emit)
+    if suite == "write-throughput":
+        return write_throughput(
+            system, config, path, writes=100 if extended else 20, emit=emit
+        )
+    if suite == "recovery":
+        return recovery(
+            system,
+            config,
+            path,
+            sizes=(100000, 1000000) if extended else (100000,),
+            emit=emit,
+        )
+    if suite in {"supersede-by-key", "forget", "forget-residue"}:
+        body = {
+            "supersede-by-key": supersede_by_key,
+            "forget": forget,
+            "forget-residue": forget_residue,
+        }[suite]
+        return body(system, config, path, emit=emit)
+    if suite in {"concurrent-append", "concurrent-kv"}:
+        return concurrent(suite, system, config, path, emit=emit)
+    raise ValueError(f"Unknown suite: {suite}")
 
 
 def run(args):

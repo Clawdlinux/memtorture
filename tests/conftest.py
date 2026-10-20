@@ -16,10 +16,26 @@ from tests.helpers import (
     probe_command,
     stub_concurrent,
     stub_control_worker,
+    stub_forget,
     stub_kill,
     stub_recall,
     stub_supersede,
 )
+
+
+def pytest_addoption(parser):
+    parser.addoption(
+        "--slow", action="store_true", help="Run opt-in native suite scenarios."
+    )
+
+
+def pytest_collection_modifyitems(config, items):
+    if not config.getoption("--slow"):
+        for item in items:
+            if "slow" in item.keywords:
+                item.add_marker(
+                    pytest.mark.skip(reason="Use --slow for native suite scenarios")
+                )
 
 
 def pytest_configure(config):
@@ -103,6 +119,8 @@ def stub_controls(monkeypatch):
     monkeypatch.setattr(gate, "concurrent", stub_concurrent)
     monkeypatch.setattr(gate, "Worker", stub_control_worker)
     monkeypatch.setattr(gate, "check_supersede_by_key", stub_supersede)
+    monkeypatch.setattr(gate, "forget", stub_forget)
+    monkeypatch.setattr(gate, "forget_residue", stub_forget)
 
 
 @pytest.fixture
@@ -130,3 +148,13 @@ def provenance(monkeypatch):
         return git
 
     return configure
+
+
+@pytest.fixture
+def encoded_worker(monkeypatch):
+    def start(system, config, workdir):
+        return Worker(
+            system, config, workdir, command=probe_command("EncodedMemory"), cwd=ROOT
+        )
+
+    monkeypatch.setattr("memtorture.suites.Worker", start)

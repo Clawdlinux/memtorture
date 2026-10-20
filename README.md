@@ -5,6 +5,7 @@ Sponsored and built by the Clawdlinux team, makers of zerodb, an agent memory en
 Torture tests for agent memory engines. Evidence, not marketing.
 
 B1 measures recall delay, history growth, process recovery, concurrent append, and concurrent keyed writes.
+B2 adds write throughput, keyed supersession, delete visibility, plaintext residue, and clean-open recovery.
 Process kills test user-space buffering and recovery, not disk durability.
 
 ## Run
@@ -29,8 +30,8 @@ The quick check uses 5 trials and never authorizes benchmark cells.
 The full gate uses 20.
 Evidence lives under `results/controls/<os>-<arch>/`, with a separate gate for each platform.
 Gated cells refuse to run if full controls are missing, stale, or not discriminating.
-History scale is an ungated measurement suite.
-The approved spec defines no control for it.
+History scale, write throughput, and clean-open recovery are ungated measurement suites.
+The approved spec defines no fault controls for them.
 Unsupported adapters show N/A with a reason.
 Local results are not cleared for comparative publication.
 
@@ -78,7 +79,7 @@ uv run memtorture run --suite history-scale --system markdown --config append
 
 `wait=true` controls visibility, not fsync.
 History grows to 100K records by default.
-`--extended` adds 1M.
+`--extended` adds 1M for history and recovery. It also raises throughput writes per writer from 20 to 100.
 
 ## Governance
 

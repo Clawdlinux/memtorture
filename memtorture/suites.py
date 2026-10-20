@@ -1,11 +1,16 @@
+import json
 import math
+import platform
 import random
+import secrets
+import subprocess
 import threading
 import time
 from collections import Counter
 from concurrent.futures import ThreadPoolExecutor
 from contextlib import ExitStack
 from dataclasses import asdict
+from pathlib import Path
 
 from memtorture.protocol import Worker
 from memtorture.types import NotSupported, Record, Scope
@@ -16,6 +21,11 @@ SUITES = (
     "process-kill",
     "concurrent-append",
     "concurrent-kv",
+    "write-throughput",
+    "supersede-by-key",
+    "forget",
+    "forget-residue",
+    "recovery",
 )
 HISTORY_CONTROLS = {
     "discriminates": None,
@@ -538,6 +548,417 @@ def history_scale(
             curves[str(size)] = ops
     return {
         "status": "ok",
+        "sizes": curves,
+        "info": info,
+        "bulk_load_timed": False,
+        "control_gate": dict(HISTORY_CONTROLS),
+    }
+
+
+def supersede_by_key(system, config, workdir, *, versions=5, emit=None):
+    with Worker(system, config, workdir) as worker:
+        return {
+            **check_supersede_by_key(worker, versions=versions, emit=emit),
+            "info": worker.info,
+        }
+
+
+def write_throughput(
+    system,
+    config,
+    workdir,
+    *,
+    writer_counts=(1, 8, 64),
+    writes=20,
+    seed=20261020,
+    timeout_s=5,
+    emit=None,
+):
+    if writes < 1 or not writer_counts or any(n < 1 for n in writer_counts):
+        raise ValueError("Positive writer counts and writes are required")
+    scope, trials = Scope("benchmark", "write-throughput"), []
+    for count in writer_counts:
+        with ExitStack() as stack:
+            workers = [
+                stack.enter_context(
+                    Worker(system, config, workdir / f"writers-{count}")
+                )
+                for _ in range(count)
+            ]
+            info = workers[0].info
+            if not {"write", "list_prefix"} <= workers[0].capabilities:
+                raise NotSupported("Throughput needs write and list_prefix readback")
+            generator = random.Random(seed)
+            batches = [
+                [
+                    Record.make(
+                        scope,
+                        f"writer{writer}-{i}",
+                        "x"
+                        * generator.choices((128, 1024, 8192), weights=(6, 3, 1), k=1)[
+                            0
+                        ],
+                    )
+                    for i in range(writes)
+                ]
+                for writer in range(count)
+            ]
+            released = []
+            barrier = threading.Barrier(
+                count,
+                action=lambda released=released: released.append(time.monotonic_ns()),
+            )
+
+            def write_batch(
+                index, workers=workers, batches=batches, barrier=barrier, count=count
+            ):
+                worker, observations = workers[index], []
+                barrier.wait(timeout=30)
+                for record in batches[index]:
+                    ack = worker.call("write", scope=scope, record=record)
+                    observations.append(
+                        {
+                            "operation": "write",
+                            "writer": index,
+                            "writers": count,
+                            "record_id": record.id,
+                            "text_bytes": len(record.text.encode()),
+                            "dropped": ack.dropped,
+                            "start_ns": worker.last_sent_ns,
+                            "ack_ns": worker.last_ack_ns,
+                        }
+                    )
+                return observations
+
+            with ThreadPoolExecutor(max_workers=count) as pool:
+                observations = [
+                    entry
+                    for batch in pool.map(write_batch, range(count))
+                    for entry in batch
+                ]
+            end_ns = max(entry["ack_ns"] for entry in observations)
+            expected = {
+                key: record
+                for worker in workers
+                for key, record in worker.acked.items()
+            }
+            deadline = time.monotonic() + timeout_s
+            while True:
+                rows = workers[0].call(
+                    "list_prefix",
+                    scope=scope,
+                    prefix="writer",
+                    limit=count * writes + 1,
+                )
+                counts = inspect_records(expected, rows)
+                if not counts["acked_missing"] or time.monotonic() >= deadline:
+                    break
+                time.sleep(0.01)
+            detail = {
+                "writers": count,
+                "attempted": count * writes,
+                "acked": len(expected),
+                "dropped": sum(entry["dropped"] for entry in observations),
+                "start_ns": released[0],
+                "end_ns": end_ns,
+                "ops_per_second": len(expected) * 1e9 / (end_ns - released[0]),
+                "write_latency_ms": percentiles(
+                    [
+                        (entry["ack_ns"] - entry["start_ns"]) / 1e6
+                        for entry in observations
+                    ]
+                ),
+                **counts,
+            }
+            trials.append(detail)
+            for entry in observations:
+                event(emit, **entry)
+            event(emit, operation="throughput-check", **detail)
+    return {
+        "status": "ok",
+        "trials": trials,
+        "acked_missing": sum(trial["acked_missing"] for trial in trials),
+        "seed": seed,
+        "info": info,
+        "readback_timeout_s": timeout_s,
+        "control_gate": dict(HISTORY_CONTROLS),
+    }
+
+
+FORGET_PATHS = ("get", "get_by_ref", "list_prefix", "read_recent", "search")
+
+
+def forget_promise(system):
+    root = Path(__file__).resolve().parents[1]
+    manifest = json.loads((root / "systems" / system / "manifest.json").read_text())
+    promise = manifest.get("forget_promise", {})
+    if promise.get("kind") not in {"delete", "erase"} or not all(
+        isinstance(promise.get(field), str) and promise[field]
+        for field in ("url", "quote")
+    ):
+        raise NotSupported("No documented forget promise in the system manifest")
+    return promise
+
+
+def forget_read(worker, path, record):
+    if path == "get":
+        row = worker.call(path, scope=record.scope, key=record.key)
+        return [row] if row else []
+    mapped = {
+        "get_by_ref": "id",
+        "list_prefix": "filter",
+        "read_recent": "recency",
+        "search": "search",
+    }
+    return read_path(worker, mapped[path], record)
+
+
+def seed_forget(worker, text):
+    if not {"write", "delete"} <= worker.capabilities:
+        raise NotSupported("Forget needs write and delete")
+    scope = Scope("benchmark", "forget")
+    for index in range(3):
+        decoy = Record.make(scope, f"decoy-{index}", f"survivor {index}")
+        if worker.call("write", scope=scope, record=decoy).dropped:
+            raise RuntimeError("Forget setup write dropped")
+    target = Record.make(scope, "target", text)
+    ack = worker.call("write", scope=scope, record=target)
+    if ack.dropped:
+        raise RuntimeError("Forget target write dropped")
+    if ack.ref is None:
+        raise NotSupported("Write returned no native ref for delete")
+    return target, ack.ref
+
+
+def check_forget(worker, target, ref, *, timeout_s=5, poll_ms=10, emit=None):
+    paths = {}
+    for path in FORGET_PATHS:
+        if path not in worker.capabilities:
+            paths[path] = {"status": "N/A", "reason": f"Missing {path}"}
+            continue
+        deadline = time.monotonic() + timeout_s
+        while True:
+            try:
+                rows = forget_read(worker, path, target)
+            except NotSupported as exc:
+                paths[path] = {"status": "N/A", "reason": str(exc)}
+                break
+            if any(row == target and row.valid() for row in rows):
+                paths[path] = {"visible_before": True}
+                break
+            if time.monotonic() >= deadline:
+                paths[path] = {
+                    "status": "not measurable",
+                    "visible_before": False,
+                    "reason": "Target was not visible before delete",
+                }
+                break
+            time.sleep(poll_ms / 1000)
+    worker.call("delete", scope=target.scope, ref=ref)
+    ack_ns = time.monotonic_ns()
+    pending = {path for path, detail in paths.items() if detail.get("visible_before")}
+    deadline_ns = ack_ns + int(timeout_s * 1e9)
+    while pending:
+        for path in FORGET_PATHS:
+            if path not in pending:
+                continue
+            rows = forget_read(worker, path, target)
+            now = time.monotonic_ns()
+            remaining = sum(
+                row.id == target.id or row.key == target.key for row in rows
+            )
+            paths[path].update(remaining=remaining)
+            if not remaining or now >= deadline_ns:
+                paths[path].update(
+                    status="ok" if not remaining else "violation",
+                    lag_ms=(now - ack_ns) / 1e6 if not remaining else None,
+                )
+                pending.remove(path)
+        if pending:
+            time.sleep(poll_ms / 1000)
+    for path, detail in paths.items():
+        event(emit, operation="forget-check", path=path, **detail)
+    statuses = [detail["status"] for detail in paths.values()]
+    status = "ok"
+    if "violation" in statuses:
+        status = "violation"
+    elif "not measurable" in statuses:
+        status = "not measurable"
+    elif all(value == "N/A" for value in statuses):
+        status = "N/A"
+    return {"status": status, "paths": paths, "timeout_s": timeout_s}
+
+
+def scan_plaintext(directories, token):
+    needle, seen, occurrences = token.encode(), set(), 0
+    for directory in directories:
+        root = Path(directory)
+        if not root.exists():
+            raise RuntimeError("Reported data directory does not exist")
+        for path in [root] if root.is_file() else root.rglob("*"):
+            if not path.is_file() or path.resolve() in seen:
+                continue
+            seen.add(path.resolve())
+            with path.open("rb") as source:
+                tail = b""
+                while chunk := source.read(1024 * 1024):
+                    data = tail + chunk
+                    occurrences += data.count(needle)
+                    tail = data[-(len(needle) - 1) :]
+    return occurrences
+
+
+def forget(system, config, workdir, *, timeout_s=5, poll_ms=10, emit=None):
+    promise, token = forget_promise(system), secrets.token_hex(16)
+    with Worker(system, config, workdir) as worker:
+        info = worker.info
+        target, ref = seed_forget(worker, f"forget marker {token}")
+        directories = worker.call("data_dirs") if promise["kind"] == "erase" else []
+        before = scan_plaintext(directories, token) if directories else 0
+        result = check_forget(
+            worker, target, ref, timeout_s=timeout_s, poll_ms=poll_ms, emit=emit
+        )
+    if promise["kind"] == "erase":
+        after = scan_plaintext(directories, token)
+        result["occurrences_before"], result["occurrences_after"] = before, after
+        if result["status"] == "ok":
+            result["status"] = (
+                "not measurable" if not before else "violation" if after else "ok"
+            )
+    return {**result, "forget_promise": promise, "info": info}
+
+
+def forget_residue(system, config, workdir, *, timeout_s=5, poll_ms=10, emit=None):
+    token = secrets.token_hex(16)
+    with Worker(system, config, workdir) as worker:
+        info = worker.info
+        target, ref = seed_forget(worker, f"plaintext marker {token}")
+        directories = worker.call("data_dirs")
+        before = scan_plaintext(directories, token)
+        if not before:
+            result = {
+                "status": "not measurable",
+                "occurrences_before": 0,
+                "reason": (
+                    "Plaintext was not visible before delete; "
+                    "compressed or encoded storage"
+                ),
+            }
+        else:
+            deletion = check_forget(
+                worker, target, ref, timeout_s=timeout_s, poll_ms=poll_ms, emit=emit
+            )
+            result = {"occurrences_before": before, "forget": deletion}
+    if before:
+        after = scan_plaintext(directories, token)
+        result.update(
+            status="violation"
+            if after or deletion["status"] == "violation"
+            else deletion["status"],
+            occurrences_after=after,
+            bytes_found=after * len(token),
+            scan_after_stop=True,
+        )
+    event(emit, operation="residue-check", **result)
+    return {**result, "info": info}
+
+
+def rss_bytes(pid):
+    if platform.system() == "Linux":
+        for line in Path(f"/proc/{pid}/status").read_text().splitlines():
+            if line.startswith("VmRSS:"):
+                return int(line.split()[1]) * 1024
+        raise RuntimeError("Process has no VmRSS")
+    if platform.system() == "Darwin":
+        try:
+            output = subprocess.check_output(
+                ["ps", "-o", "rss=", "-p", str(pid)], text=True
+            )
+        except subprocess.CalledProcessError as exc:
+            raise RuntimeError(f"RSS unavailable for process {pid}") from exc
+        return int(output.strip()) * 1024
+    raise NotSupported("RSS measurement requires Linux or macOS")
+
+
+def recovery_record(scope, index):
+    return Record.make(
+        scope, f"key{index:08d}", f"memory needle{index:08d}", id=f"recovery-{index}"
+    )
+
+
+def recovery(system, config, workdir, *, sizes=(100000,), samples=100, emit=None):
+    if samples < 1 or not sizes or any(size < 1 for size in sizes):
+        raise ValueError("Positive sizes and samples are required")
+    scope, curves = Scope("benchmark", "recovery"), {}
+    for size in sizes:
+        path = workdir / f"records-{size}"
+        with Worker(system, config, path) as loader:
+            if "get" not in loader.capabilities:
+                raise NotSupported("Recovery needs get for known-record readiness")
+            for lower in range(0, size, 1000):
+                loader.call(
+                    "bulk_load",
+                    scope=scope,
+                    records=[
+                        recovery_record(scope, i)
+                        for i in range(lower, min(lower + 1000, size))
+                    ],
+                )
+        known = recovery_record(scope, size // 2)
+        start_ns = time.monotonic_ns()
+        with Worker(system, config, path) as worker:
+            info = worker.info
+            deadline = time.monotonic() + 60
+            while worker.call("get", scope=scope, key=known.key) != known:
+                if time.monotonic() >= deadline:
+                    raise RuntimeError("Known record unavailable after restart")
+                time.sleep(0.01)
+            ready_ns = time.monotonic_ns()
+            pids = worker.servers or {"worker": worker.process.pid}
+            memory = {role: rss_bytes(pid) for role, pid in pids.items()}
+            indices = sorted(
+                {
+                    i * (size - 1) // max(1, min(size, samples) - 1)
+                    for i in range(min(size, samples))
+                }
+            )
+            missing = 0
+            for index in indices:
+                expected = recovery_record(scope, index)
+                observed = worker.call("get", scope=scope, key=expected.key)
+                missing += observed != expected or not observed.valid()
+            verification = {
+                "samples_checked": len(indices),
+                "samples_missing": missing,
+                "count": None,
+                "count_matches": None,
+                "count_source": "N/A",
+            }
+            if "list_prefix" in worker.capabilities:
+                rows = worker.call(
+                    "list_prefix", scope=scope, prefix="key", limit=size + 1
+                )
+                intact_rows = [r for r in rows if r.valid()]
+                verification.update(
+                    count=len(rows),
+                    count_source="list_prefix enumeration",
+                    count_matches=len(rows) == size
+                    and len({r.id for r in intact_rows}) == size,
+                )
+            curves[str(size)] = {
+                "time_to_ready_ms": (ready_ns - start_ns) / 1e6,
+                "rss_bytes": memory,
+                "verification": verification,
+            }
+            event(emit, operation="recovery-check", size=size, **curves[str(size)])
+    return {
+        "status": "violation"
+        if any(
+            curve["verification"]["samples_missing"]
+            or curve["verification"]["count_matches"] is False
+            for curve in curves.values()
+        )
+        else "ok",
         "sizes": curves,
         "info": info,
         "bulk_load_timed": False,

@@ -26,9 +26,15 @@ def main(argv=None):
     run_parser.add_argument(
         "--config", help="Exact setting. Never a durability nickname."
     )
-    run_parser.add_argument("--all", action="store_true", help="Run all 35 B1 cells.")
     run_parser.add_argument(
-        "--extended", action="store_true", help="Grow history to 1M."
+        "--all",
+        action="store_true",
+        help="Run every suite and config row at default sizes.",
+    )
+    run_parser.add_argument(
+        "--extended",
+        action="store_true",
+        help="Grow history and recovery to 1M; use 100 writes per writer.",
     )
     run_parser.add_argument("--output", type=Path, help="New local output directory.")
     report_parser = commands.add_parser("report", help="Rebuild local tables.")

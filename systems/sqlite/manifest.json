@@ -1,1 +1,13 @@
-{"command": ["{python}", "-m", "memtorture.worker", "sqlite"]}
+{
+  "command": [
+    "{python}",
+    "-m",
+    "memtorture.worker",
+    "sqlite"
+  ],
+  "forget_promise": {
+    "kind": "delete",
+    "url": "https://github.com/Clawdlinux/memtorture/blob/main/docs/METHODOLOGY.md#adapter-delete-promises",
+    "quote": "SQLite deletes the scoped row and its FTS5 entry in one transaction. It promises absence from reads, not disk erasure."
+  }
+}

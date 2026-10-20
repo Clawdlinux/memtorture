@@ -1,4 +1,5 @@
 import contextlib
+import gzip
 import json
 import math
 import os
@@ -523,3 +524,60 @@ def matches(schema, value, path):
     if isinstance(value, str) and len(value) < schema.get("minLength", 0):
         return False
     return True
+
+
+class EncodedMemory(Markdown):
+    name = "encoded-memory-test"
+
+    def start(self, workdir, config):
+        super().start(workdir, "append")
+        self.mode = config
+        self.path = workdir / "memory.gz"
+        existed = self.path.exists()
+        if not existed:
+            self.path.write_bytes(gzip.compress(b""))
+        elif config == "recovery-loss":
+            self._rewrite(lambda rows: [r for r in rows if r.key != "key00000000"])
+
+    def capabilities(self):
+        missing = {
+            "no-upsert": {"upsert"},
+            "no-get": {"get"},
+            "no-delete": {"delete"},
+            "no-list": {"list_prefix"},
+        }.get(self.mode, set())
+        return super().capabilities() - missing
+
+    def _all(self):
+        records = []
+        for line in gzip.decompress(self.path.read_bytes()).decode().splitlines():
+            data = json.loads(line)
+            data["scope"] = Scope(**data["scope"])
+            records.append(Record(**data))
+        return records
+
+    def _rewrite(self, transform):
+        records = transform(self._all())
+        self.path.write_bytes(
+            gzip.compress("".join(r.value() + "\n" for r in records).encode())
+        )
+
+    def write(self, scope, record):
+        self._rewrite(lambda rows: rows + [record])
+        return Ack(record.id, ref=None if self.mode == "no-ref" else Ref(record.id))
+
+    def bulk_load(self, scope, records):
+        self._rewrite(lambda rows: rows + records)
+
+    def search(self, scope, query, k, vector=None):
+        if self.mode == "unreadable-search":
+            return []
+        return super().search(scope, query, k, vector)
+
+
+def stub_forget(system, *args, **kwargs):
+    return {
+        "status": "violation"
+        if system in {"sqlite-forget-fts", "sqlite-residue-off"}
+        else "ok"
+    }

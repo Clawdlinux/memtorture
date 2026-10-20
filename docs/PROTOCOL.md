@@ -7,6 +7,17 @@ Each system supplies `systems/<name>/manifest.json`:
 {"command":["{python}","-m","memtorture.worker","sqlite"]}
 ```
 
+A manifest may also carry `forget_promise` metadata:
+
+```json
+{"kind":"delete","url":"https://example.org/delete-doc","quote":"Deletes the record from reads."}
+```
+
+Store that object under the manifest's `forget_promise` key.
+`kind` is `delete` or `erase`. `url` cites the documentation. `quote` repeats the documented promise.
+This is harness metadata, not a worker operation or a required start-response field.
+See [METHODOLOGY.md](METHODOLOGY.md#adapter-delete-promises) for the shipped adapter promises.
+
 `command` is an argv array, never a shell command.
 `{python}` means the harness interpreter. Other arguments are passed unchanged.
 Commands run from the harness working directory.

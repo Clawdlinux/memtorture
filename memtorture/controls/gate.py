@@ -12,6 +12,8 @@ from memtorture.suites import (
     PATHS,
     check_supersede_by_key,
     concurrent,
+    forget,
+    forget_residue,
     process_kill,
     recall_delay,
 )
@@ -112,6 +114,8 @@ def run_controls(*, quick=False, root=DEFAULT_ROOT):
                 ("concurrent-append", "md-rmw-sleep", "sqlite-busy"),
                 ("concurrent-kv", "md-rmw-sleep", "sqlite-busy"),
                 ("supersede-by-key", "append-oldest", "sqlite-upsert"),
+                ("forget", "sqlite-forget-fts", "sqlite-forget-both"),
+                ("forget-residue", "sqlite-residue-off", "sqlite-residue-secure"),
             ):
                 counts, details = {"must_fail": 0, "must_pass": 0}, []
                 for role, system in (
@@ -173,6 +177,20 @@ def run_controls(*, quick=False, root=DEFAULT_ROOT):
                                 trials=1,
                                 seed=20261019 + trial,
                                 targets=("worker",),
+                                emit=emit,
+                            )
+                            matched = result["status"] == (
+                                "violation" if role == "must_fail" else "ok"
+                            )
+                            details.append({"role": role, "trial": trial, **result})
+                        elif suite in {"forget", "forget-residue"}:
+                            body = forget if suite == "forget" else forget_residue
+                            result = body(
+                                system,
+                                "default",
+                                path,
+                                timeout_s=0.1,
+                                poll_ms=1,
                                 emit=emit,
                             )
                             matched = result["status"] == (

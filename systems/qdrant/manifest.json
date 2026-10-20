@@ -1,1 +1,14 @@
-{"command": ["{python}", "-m", "memtorture.worker", "qdrant"]}
+{
+  "command": [
+    "{python}",
+    "-m",
+    "memtorture.worker",
+    "qdrant"
+  ],
+  "forget_promise": {
+    "kind": "delete",
+    "url": "https://api.qdrant.tech/v-1-16-x/api-reference/points/delete-points",
+    "quote": "Deletes specified points from the collection.",
+    "wait_quote": "If true, wait for changes to actually happen"
+  }
+}
