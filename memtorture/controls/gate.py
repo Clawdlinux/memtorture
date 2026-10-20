@@ -3,7 +3,6 @@ import json
 import platform
 import shutil
 import uuid
-from dataclasses import asdict
 from pathlib import Path
 
 from memtorture.protocol import Worker
@@ -11,12 +10,12 @@ from memtorture.results import ResultWriter, hardware
 from memtorture.suites import (
     HISTORY_CONTROLS,
     PATHS,
+    check_supersede_by_key,
     concurrent,
-    event,
     process_kill,
     recall_delay,
 )
-from memtorture.types import NotSupported, Record, Scope
+from memtorture.types import NotSupported
 
 DEFAULT_ROOT = Path("results/controls")
 UNGATED_SUITES = ("history-scale", "write-throughput", "recovery")
@@ -26,6 +25,10 @@ def platform_key():
     machine = platform.machine().lower()
     arch = {"aarch64": "arm64", "amd64": "x86_64"}.get(machine, machine)
     return f"{platform.system().lower()}-{arch}"
+
+
+def gate_path(root=DEFAULT_ROOT):
+    return Path(root) / platform_key() / "gate.json"
 
 
 def methodology_hash():
@@ -63,7 +66,7 @@ def control_gate(failures, passes, trials):
 def require_controls(suite, root=DEFAULT_ROOT):
     if suite in UNGATED_SUITES:
         return
-    path = Path(root) / platform_key() / "gate.json"
+    path = gate_path(root)
     try:
         summary = json.loads(path.read_text())
         valid = (
@@ -83,40 +86,8 @@ def require_controls(suite, root=DEFAULT_ROOT):
         )
 
 
-def check_supersede_by_key(worker, *, versions=5, emit=None):
-    """Write versions through keyed upserts and check the final keyed read."""
-    if versions < 2:
-        raise ValueError("Supersession needs at least 2 versions")
-    missing = {"keyed", "upsert", "get"} - worker.capabilities
-    if missing:
-        raise NotSupported(f"Missing {', '.join(sorted(missing))}")
-    scope = Scope("benchmark", "supersede-by-key")
-    dropped = 0
-    for version in range(1, versions + 1):
-        record = Record.make(scope, "k", f"v{version}")
-        ack = worker.call("upsert", scope=scope, record=record)
-        dropped += ack.dropped
-        event(emit, operation="upsert", record=asdict(record), dropped=ack.dropped)
-    observed = worker.call("get", scope=scope, key=record.key)
-    result = {
-        "status": (
-            "ok"
-            if not dropped and observed == record and observed.valid()
-            else "violation"
-        ),
-        "versions": versions,
-        "acked": versions - dropped,
-        "dropped": dropped,
-        "expected": asdict(record),
-        "observed": asdict(observed) if observed is not None else None,
-    }
-    event(emit, operation="supersede-check", **result)
-    return result
-
-
 def run_controls(*, quick=False, root=DEFAULT_ROOT):
-    root = Path(root) / platform_key()
-    run_root = root / ("quick" if quick else "full")
+    run_root = gate_path(root).parent / ("quick" if quick else "full")
     trials = 5 if quick else 20
     work = run_root / ".work" / uuid.uuid4().hex
     work.mkdir(parents=True)
@@ -255,7 +226,7 @@ def run_controls(*, quick=False, root=DEFAULT_ROOT):
             )
             writer.manifest["control_summary"] = "gate.json"
         if not quick:
-            (root / "gate.json").write_text(json.dumps(summary, indent=2) + "\n")
+            gate_path(root).write_text(json.dumps(summary, indent=2) + "\n")
         (run_root / "gate.json").write_text(json.dumps(summary, indent=2) + "\n")
     finally:
         shutil.rmtree(work)

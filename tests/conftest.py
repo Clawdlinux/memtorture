@@ -1,4 +1,4 @@
-from contextlib import ExitStack
+from contextlib import ExitStack, nullcontext
 
 import pytest
 
@@ -11,11 +11,14 @@ from tests.helpers import (
     NODE,
     ROOT,
     GitProvenance,
+    LastRowWorker,
     cleanup_worker,
     probe_command,
     stub_concurrent,
+    stub_control_worker,
     stub_kill,
     stub_recall,
+    stub_supersede,
 )
 
 
@@ -84,10 +87,22 @@ def worker_factory(tmp_path):
 
 
 @pytest.fixture
+def keyed_worker(tmp_path):
+    def start(system):
+        if system == "last-row":
+            return nullcontext(LastRowWorker())
+        return Worker(system, "default", tmp_path)
+
+    return start
+
+
+@pytest.fixture
 def stub_controls(monkeypatch):
     monkeypatch.setattr(gate, "recall_delay", stub_recall)
     monkeypatch.setattr(gate, "process_kill", stub_kill)
     monkeypatch.setattr(gate, "concurrent", stub_concurrent)
+    monkeypatch.setattr(gate, "Worker", stub_control_worker)
+    monkeypatch.setattr(gate, "check_supersede_by_key", stub_supersede)
 
 
 @pytest.fixture

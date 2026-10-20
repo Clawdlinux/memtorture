@@ -49,6 +49,39 @@ def event(emit, **data):
         emit({"monotonic_ns": time.monotonic_ns(), **data})
 
 
+def check_supersede_by_key(worker, *, versions=5, emit=None):
+    """Check the latest keyed value against interleaved decoy writes."""
+    if versions < 2:
+        raise ValueError("Supersession needs at least 2 versions")
+    missing = {"keyed", "upsert", "get"} - worker.capabilities
+    if missing:
+        raise NotSupported(f"Missing {', '.join(sorted(missing))}")
+    scope = Scope("benchmark", "supersede-by-key")
+    dropped = 0
+    for version in range(1, versions + 1):
+        record = Record.make(scope, "k", f"v{version}")
+        decoy = Record.make(scope, "decoy", f"decoy{version}")
+        for written in (record, decoy):
+            ack = worker.call("upsert", scope=scope, record=written)
+            dropped += ack.dropped
+            event(emit, operation="upsert", record=asdict(written), dropped=ack.dropped)
+    observed = worker.call("get", scope=scope, key=record.key)
+    result = {
+        "status": (
+            "ok"
+            if not dropped and observed == record and observed.valid()
+            else "violation"
+        ),
+        "versions": versions,
+        "acked": 2 * versions - dropped,
+        "dropped": dropped,
+        "expected": asdict(record),
+        "observed": asdict(observed) if observed is not None else None,
+    }
+    event(emit, operation="supersede-check", **result)
+    return result
+
+
 def read_path(worker, path, record, limit=20):
     scope = record.scope
     if path == "id":

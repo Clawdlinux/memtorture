@@ -105,4 +105,33 @@ class AppendOldest(Markdown):
 
 class SQLiteUpsert(SQLiteBusy):
     name = "sqlite-upsert"
-    notes = "SQLite keyed upsert. Keyed get returns the latest value."
+    notes = "SQLite ON CONFLICT DO UPDATE. Keyed get returns the latest value."
+
+    def start(self, workdir, config):
+        super().start(workdir, config)
+        self.db.executescript("""
+            CREATE TRIGGER IF NOT EXISTS records_au AFTER UPDATE ON records BEGIN
+                DELETE FROM fts WHERE rowid=old.seq;
+                INSERT INTO fts(rowid, text) VALUES(new.seq, new.text);
+            END;
+        """)
+
+    def upsert(self, scope, record):
+        if scope != record.scope:
+            raise ValueError("Scope mismatch")
+        self.db.execute(
+            "INSERT INTO records"
+            "(id,tenant,session,path,text,payload_sha256) VALUES(?,?,?,?,?,?) "
+            "ON CONFLICT(tenant, session, path) DO UPDATE SET "
+            "id=excluded.id, text=excluded.text, "
+            "payload_sha256=excluded.payload_sha256",
+            (
+                record.id,
+                scope.tenant,
+                scope.session,
+                record.key,
+                record.text,
+                record.payload_sha256,
+            ),
+        )
+        return Ack(record.id, ref=Ref(record.id))

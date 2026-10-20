@@ -75,7 +75,8 @@ Full evidence lives in that platform directory's `full/` subdirectory.
 Quick runs write only to that platform directory's `quick/` subdirectory.
 They never replace the full gate or authorize benchmark cells.
 Runs never replace another platform's evidence.
-Existing Mac evidence moved to `results/controls/darwin-arm64/` without regeneration during migration.
+Mac evidence lives under `results/controls/darwin-arm64/`.
+Full and quick evidence are regenerated after committed methodology changes.
 A missing platform gate blocks gated cells and names the required path.
 Gated suites require a current full gate with at least 20 trials.
 Must-fail controls must fail in at least 90% of trials.
@@ -99,10 +100,14 @@ History reads also verify loaded counts, hashes, keys, and recency order.
 
 The supersession control upserts key `k` with values `v1` through `v5`.
 Each version has a different record ID.
+A decoy-key upsert follows each `k` version, including the last version.
+The final read must return `k`'s latest record, not the last row written overall.
+There are 10 acknowledged writes per 5-version check.
 It reads `k` and passes only when every write succeeds and the final value is intact `v5`.
 The append-only control keeps every version but returns `v1`.
-SQLite replaces the keyed value and returns `v5`.
-`check_supersede_by_key(worker, versions=5, emit=None)` provides the reusable check in `memtorture/controls/gate.py`.
+SQLite updates the keyed row in place with `ON CONFLICT DO UPDATE` and returns `v5`.
+An update trigger removes the old FTS entry and inserts the new text within the same transaction.
+`check_supersede_by_key(worker, *, versions=5, emit=None)` provides the reusable check in `memtorture/suites.py`.
 It accepts a running protocol worker and emits writes plus the final check.
 The full supersession suite is separate work.
 

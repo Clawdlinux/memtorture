@@ -6,9 +6,8 @@ import pytest
 
 from memtorture.cli import main
 from memtorture.controls import gate
-from memtorture.protocol import Worker
 from memtorture.runner import run, run_cell
-from memtorture.suites import HISTORY_CONTROLS, history_scale
+from memtorture.suites import HISTORY_CONTROLS, check_supersede_by_key, history_scale
 from memtorture.types import NotSupported
 
 
@@ -43,19 +42,19 @@ def test_platform_key(monkeypatch, system, machine, expected_key):
 
 
 @pytest.mark.parametrize(
-    "change",
+    "suite,change",
     [
-        "missing",
-        "failed",
-        "quick",
-        "short",
-        "stale",
-        "os",
-        "hardware",
-        "other-platform",
+        ("process-kill", "missing"),
+        ("process-kill", "failed"),
+        ("process-kill", "quick"),
+        ("process-kill", "short"),
+        ("process-kill", "stale"),
+        ("process-kill", "os"),
+        ("process-kill", "hardware"),
+        ("process-kill", "other-platform"),
+        ("supersede-by-key", "failed"),
     ],
 )
-@pytest.mark.parametrize("suite", ["process-kill", "supersede-by-key"])
 def test_control_authorization(tmp_path, monkeypatch, change, suite):
     host_hardware = gate.hardware()
     monkeypatch.setattr(platform, "system", lambda: "Darwin")
@@ -143,31 +142,38 @@ def test_control_evidence(stub_controls, tmp_path, monkeypatch, capsys):
     assert "supersede-by-key: fail=100% pass=100% discriminates=True" in output
 
 
-@pytest.mark.parametrize("versions", [2, 5])
 @pytest.mark.parametrize(
-    "system,expected",
-    [("append-oldest", "violation"), ("sqlite-upsert", "ok")],
+    "system,versions,expected",
+    [
+        ("append-oldest", 5, "violation"),
+        ("sqlite-upsert", 5, "ok"),
+        ("sqlite-upsert", 2, "ok"),
+        ("last-row", 5, "violation"),
+    ],
 )
-def test_latest_keyed_value(tmp_path, system, expected, versions):
+def test_latest_keyed_value(keyed_worker, system, versions, expected):
     events = []
-    with Worker(system, "default", tmp_path) as worker:
-        result = gate.check_supersede_by_key(
-            worker, versions=versions, emit=events.append
-        )
+    with keyed_worker(system) as worker:
+        result = check_supersede_by_key(worker, versions=versions, emit=events.append)
     assert result["status"] == expected
-    assert result["acked"] == result["versions"] == versions
+    assert result["versions"] == versions
+    assert result["acked"] == 2 * versions
     assert result["dropped"] == 0
-    assert result["expected"]["key"] == result["observed"]["key"] == "k"
+    assert result["expected"]["key"] == "k"
+    assert result["observed"]["key"] == ("decoy" if system == "last-row" else "k")
     assert result["expected"]["text"] == f"v{versions}"
-    assert result["observed"]["text"] == (
-        "v1" if expected == "violation" else f"v{versions}"
-    )
+    observed_text = "v1" if expected == "violation" else f"v{versions}"
+    if system == "last-row":
+        observed_text = f"decoy{versions}"
+    assert result["observed"]["text"] == observed_text
     writes = [event for event in events if event["operation"] == "upsert"]
-    assert len(writes) == versions
-    assert [event["record"]["text"] for event in writes] == [
-        f"v{index}" for index in range(1, versions + 1)
+    assert len(writes) == 2 * versions
+    assert [(event["record"]["key"], event["record"]["text"]) for event in writes] == [
+        pair
+        for index in range(1, versions + 1)
+        for pair in (("k", f"v{index}"), ("decoy", f"decoy{index}"))
     ]
-    assert len({event["record"]["id"] for event in writes}) == versions
+    assert len({event["record"]["id"] for event in writes}) == 2 * versions
     checks = [event for event in events if event["operation"] == "supersede-check"]
     assert len(checks) == 1
     assert checks[0]["status"] == expected

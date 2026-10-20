@@ -91,8 +91,11 @@ def test_invalid_config(name, tmp_path):
         load_adapter(name).start(tmp_path, "invalid-row")
 
 
-def test_sqlite_mappings(adapter_factory):
-    adapter = adapter_factory("sqlite", "synchronous=NORMAL")
+@pytest.mark.parametrize(
+    "name,config", [("sqlite", "synchronous=NORMAL"), ("sqlite-upsert", "default")]
+)
+def test_sqlite_mappings(adapter_factory, name, config):
+    adapter = adapter_factory(name, config)
     record = make_record("path/file")
     adapter.write(record.scope, record)
     indexes = {
@@ -130,6 +133,25 @@ def test_sqlite_mappings(adapter_factory):
     assert adapter.get_by_ref(keyed.scope, Ref("collision")) == by_id
     assert adapter.get(foreign.scope, by_id.id) is None
     assert adapter.list_prefix(record.scope, "path/", 20) == [record]
+    original_seq = adapter.db.execute(
+        "SELECT seq FROM records WHERE id=?", (keyed.id,)
+    ).fetchone()
+    replacement = make_record(keyed.key, "replacementtoken")
+    ack = adapter.upsert(keyed.scope, replacement)
+    assert ack.id == replacement.id
+    assert adapter.get(keyed.scope, keyed.key) == replacement
+    assert adapter.get_by_ref(keyed.scope, Ref(keyed.id)) is None
+    assert adapter.get_by_ref(keyed.scope, ack.ref) == replacement
+    assert adapter.get(foreign.scope, foreign.key) == foreign
+    assert adapter.search(keyed.scope, keyed.text, 20) == []
+    assert adapter.search(keyed.scope, replacement.text, 20) == [replacement]
+    if name == "sqlite-upsert":
+        assert (
+            adapter.db.execute(
+                "SELECT seq FROM records WHERE id=?", (replacement.id,)
+            ).fetchone()
+            == original_seq
+        )
 
 
 def test_torn_storage(adapter_factory):

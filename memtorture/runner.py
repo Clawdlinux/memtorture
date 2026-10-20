@@ -5,8 +5,8 @@ from pathlib import Path
 
 from memtorture.controls.gate import (
     DEFAULT_ROOT,
+    gate_path,
     methodology_hash,
-    platform_key,
     require_controls,
 )
 from memtorture.results import ResultWriter, render_tables
@@ -63,9 +63,9 @@ def run(args):
         writer.manifest["methodology_sha256"] = methodology_hash()
         writer.manifest["extended"] = args.extended
         writer.manifest["blocked_suites"] = []
-        gate_path = DEFAULT_ROOT / platform_key() / "gate.json"
+        controls_path = gate_path(DEFAULT_ROOT)
         writer.manifest["controls"] = (
-            json.loads(gate_path.read_text()) if gate_path.exists() else None
+            json.loads(controls_path.read_text()) if controls_path.exists() else None
         )
         for suite, system, config in selected:
             try:

@@ -9,6 +9,7 @@ import sys
 import time
 from dataclasses import replace
 from pathlib import Path
+from types import SimpleNamespace
 
 from memtorture.adapters.markdown import Markdown
 from memtorture.protocol import Worker
@@ -381,6 +382,29 @@ class GitProvenance:
         if ":(top,exclude)results/controls" in command:
             return ""
         return " M results/controls/full/operations.jsonl\n"
+
+
+class LastRowWorker:
+    capabilities = {"keyed", "upsert", "get"}
+
+    def __init__(self):
+        self.last = None
+
+    def call(self, op, **kwargs):
+        if op == "upsert":
+            self.last = kwargs["record"]
+            return Ack(self.last.id)
+        if op == "get":
+            return self.last
+        raise NotImplementedError(op)
+
+
+def stub_control_worker(system, *args, **kwargs):
+    return contextlib.nullcontext(SimpleNamespace(system=system, info={}))
+
+
+def stub_supersede(worker, **kwargs):
+    return {"status": "violation" if worker.system == "append-oldest" else "ok"}
 
 
 def stub_recall(system, config, path, *, paths, **kwargs):
