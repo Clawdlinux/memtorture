@@ -14,6 +14,7 @@ from tests.helpers import (
     LastRowWorker,
     cleanup_worker,
     probe_command,
+    recovery_reply_command,
     stub_concurrent,
     stub_control_worker,
     stub_forget,
@@ -156,5 +157,16 @@ def encoded_worker(monkeypatch):
         return Worker(
             system, config, workdir, command=probe_command("EncodedMemory"), cwd=ROOT
         )
+
+    monkeypatch.setattr("memtorture.suites.Worker", start)
+
+
+@pytest.fixture
+def recovery_worker(monkeypatch):
+    def start(system, config, workdir):
+        command = (
+            None if config == "default" else recovery_reply_command(system, config)
+        )
+        return Worker(system, config, workdir, command=command, cwd=ROOT)
 
     monkeypatch.setattr("memtorture.suites.Worker", start)

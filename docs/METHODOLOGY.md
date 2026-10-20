@@ -371,14 +371,20 @@ The result separates these timing fields:
 - `spawn_to_start_ms`: harness time from spawning the worker through receiving its start reply.
 - `open_ms`: the worker's measured duration of the system's open call, carried in the start reply.
 - `start_to_first_read_ms`: harness time from the start reply through the first valid get.
-- `recovery_ms`: the headline metric, `open_ms + start_to_first_read_ms`.
+- `unattributed_start_ms`: `spawn_to_start_ms - open_ms`, or null when open telemetry is absent.
+- `recovery_ms`: the headline metric, `open_ms + start_to_first_read_ms`, unless timing is anomalous.
 - `time_to_ready_ms`: total harness time from spawn through that first valid get.
 
 The total equals `spawn_to_start_ms + start_to_first_read_ms`.
-The headline excludes Python bootstrap and start-request transport, rather than treating them as storage recovery.
+The cell labels open timing with `open_ms_source: "self-reported"`.
+Unattributed time includes startup and transport. It may also include storage work omitted from the worker's reported open duration.
+The harness does not independently verify that duration.
+If `open_ms > spawn_to_start_ms`, the size result and cell carry `timing_anomaly: "open_ms exceeds spawn_to_start_ms"`.
+The headline becomes null. The negative unattributed value remains visible for diagnosis.
+Storage verification status remains separate from the timing anomaly flag.
 Open time includes the adapter's native setup and any server readiness waits inside its open call.
 The Python worker and Node reference report `open_ms` from their own monotonic clocks.
-Third-party workers may omit it. Then `open_ms` and `recovery_ms` are null, with the other timings still measured.
+Third-party workers may omit it. Then `open_ms`, `unattributed_start_ms`, and `recovery_ms` are null, with other timings still measured.
 Missing open telemetry means the headline is N/A. It never becomes zero or falls back to total process startup.
 A missing known record after 60 seconds produces an error, not a readiness number.
 This is warm filesystem-cache recovery after clean shutdown, not cold boot or crash recovery.
@@ -396,7 +402,7 @@ Each sample must match its expected record and digest.
 When list_prefix exists, a full enumeration also checks the count, unique IDs, and every returned digest.
 Enumeration requests disjoint sub-prefix pages, each covering up to 10K expected records, and sums their counts.
 For 1M records, prefixes run from `key0000` through `key0099`.
-Each request allows 10001 records, so an extra row still causes a count mismatch.
+The 10001-record limit detects extras inside queried pages, not records in unqueried pages beyond the loaded range.
 No single reply must carry the whole dataset. The verification also reports the number of enumeration pages.
 The JSONL receiver uses an extending bytearray and searches each new chunk once for its newline.
 This keeps framing linear for large replies. The 64 MiB protocol regression stays in the default test run.

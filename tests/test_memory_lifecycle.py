@@ -128,11 +128,12 @@ def test_residue_is_measurable_before_delete(tmp_path, system, expected):
     assert all("canary" not in event for event in events)
 
 
-def test_clean_recovery_reports_counts_and_rss(tmp_path):
+@pytest.mark.parametrize("config", ["default", "missing", "overreport"])
+def test_clean_recovery_reports_counts_and_rss(tmp_path, recovery_worker, config):
     events = []
     result = recovery(
         "sqlite-busy",
-        "default",
+        config,
         tmp_path,
         sizes=(25, 10025),
         samples=12,
@@ -142,19 +143,35 @@ def test_clean_recovery_reports_counts_and_rss(tmp_path):
     assert result["bulk_load_timed"] is False
     assert result["control_gate"]["gated"] is False
     assert set(result["sizes"]) == {"25", "10025"}
+    assert result["open_ms_source"] == "self-reported"
+    anomaly = "open_ms exceeds spawn_to_start_ms" if config == "overreport" else None
+    assert result["timing_anomaly"] == anomaly
     for size, metric in result["sizes"].items():
         assert metric["spawn_to_start_ms"] > 0
-        assert metric["open_ms"] >= 0
         assert metric["start_to_first_read_ms"] > 0
-        assert metric["spawn_to_start_ms"] >= metric["open_ms"]
-        assert metric["recovery_ms"] == pytest.approx(
-            metric["open_ms"] + metric["start_to_first_read_ms"]
-        )
+        assert metric["timing_anomaly"] == anomaly
+        if config == "missing":
+            assert metric["open_ms"] is None
+            assert metric["unattributed_start_ms"] is None
+            assert metric["recovery_ms"] is None
+            assert "open_ms" not in result["info"]
+        else:
+            assert metric["open_ms"] >= 0
+            assert metric["unattributed_start_ms"] == pytest.approx(
+                metric["spawn_to_start_ms"] - metric["open_ms"]
+            )
+            if config == "overreport":
+                assert metric["unattributed_start_ms"] < 0
+                assert metric["recovery_ms"] is None
+            else:
+                assert metric["unattributed_start_ms"] >= 0
+                assert metric["recovery_ms"] == pytest.approx(
+                    metric["open_ms"] + metric["start_to_first_read_ms"]
+                )
+                assert metric["time_to_ready_ms"] >= metric["recovery_ms"]
         assert metric["time_to_ready_ms"] == pytest.approx(
             metric["spawn_to_start_ms"] + metric["start_to_first_read_ms"]
         )
-        assert metric["time_to_ready_ms"] >= metric["recovery_ms"]
-        assert result["info"]["open_ms"] >= 0
         assert (
             metric["verification"]["enumeration_pages"] == (int(size) + 9999) // 10000
         )
@@ -163,7 +180,7 @@ def test_clean_recovery_reports_counts_and_rss(tmp_path):
         assert metric["verification"]["samples_checked"] == 12
         assert metric["verification"]["samples_missing"] == 0
         assert metric["verification"]["count_matches"] is True
-    assert result["sizes"]["10025"]["open_ms"] == result["info"]["open_ms"]
+    assert result["sizes"]["10025"]["open_ms"] == result["info"].get("open_ms")
     assert len([e for e in events if e["operation"] == "recovery-check"]) == 2
 
 

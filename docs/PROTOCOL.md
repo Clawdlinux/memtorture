@@ -156,6 +156,11 @@ The worker measures only the system's open call with its monotonic clock, before
 The Python worker times `adapter.start`, including native setup and server readiness within that call.
 The Node reference times its in-memory store reset. It does not open persistent storage.
 Third-party workers may omit `open_ms`. The harness never infers it from process startup time.
+Open timing is self-reported, not independently verified. Recovery cells label it with `open_ms_source: "self-reported"`.
+They also report `unattributed_start_ms = spawn_to_start_ms - open_ms`, or null when open telemetry is absent.
+That gap can include startup, transport, or unreported storage work.
+If `open_ms > spawn_to_start_ms`, recovery flags `timing_anomaly: "open_ms exceeds spawn_to_start_ms"` and nulls its headline.
+The negative gap remains visible. The original start reply is still valid protocol data.
 Embedded stores report an empty server array.
 Server roles are unique nonempty strings. PIDs are unique positive host process IDs.
 The harness faults each role independently using `server:<role>`.

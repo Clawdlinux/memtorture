@@ -191,6 +191,34 @@ def probe_command(name="Probe", *, nonzero=False):
     ]
 
 
+class RecoveryTimingOutput:
+    def __init__(self, mode):
+        self.mode = mode
+
+    def write(self, line):
+        reply = json.loads(line)
+        if reply["id"] == 1 and "result" in reply:
+            if self.mode == "missing":
+                reply["result"].pop("open_ms", None)
+            else:
+                reply["result"]["open_ms"] = 1e9
+        sys.stdout.write(json.dumps(reply) + "\n")
+
+    def flush(self):
+        sys.stdout.flush()
+
+
+def recovery_reply_command(system, mode):
+    return [
+        sys.executable,
+        "-c",
+        "from memtorture.adapters import load_adapter; "
+        "from memtorture.worker import serve; "
+        "from tests.helpers import RecoveryTimingOutput; "
+        f"serve(load_adapter({system!r}), output=RecoveryTimingOutput({mode!r}))",
+    ]
+
+
 class Probe:
     name = "probe"
 

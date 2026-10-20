@@ -938,6 +938,15 @@ def recovery(system, config, workdir, *, sizes=(100000,), samples=100, emit=None
             ready_ns = time.monotonic_ns()
             start_to_read_ms = (ready_ns - worker.start_reply_ns) / 1e6
             open_ms = info.get("open_ms")
+            spawn_to_start_ms = (worker.start_reply_ns - worker.spawn_ns) / 1e6
+            unattributed_start_ms = (
+                spawn_to_start_ms - open_ms if open_ms is not None else None
+            )
+            timing_anomaly = (
+                "open_ms exceeds spawn_to_start_ms"
+                if open_ms is not None and open_ms > spawn_to_start_ms
+                else None
+            )
             pids = worker.servers or {"worker": worker.process.pid}
             memory = {role: rss_bytes(pid) for role, pid in pids.items()}
             indices = sorted(
@@ -979,12 +988,14 @@ def recovery(system, config, workdir, *, sizes=(100000,), samples=100, emit=None
                 )
             curves[str(size)] = {
                 "time_to_ready_ms": (ready_ns - worker.spawn_ns) / 1e6,
-                "spawn_to_start_ms": (worker.start_reply_ns - worker.spawn_ns) / 1e6,
+                "spawn_to_start_ms": spawn_to_start_ms,
                 "open_ms": open_ms,
                 "start_to_first_read_ms": start_to_read_ms,
+                "unattributed_start_ms": unattributed_start_ms,
                 "recovery_ms": open_ms + start_to_read_ms
-                if open_ms is not None
+                if open_ms is not None and timing_anomaly is None
                 else None,
+                "timing_anomaly": timing_anomaly,
                 "rss_bytes": memory,
                 "verification": verification,
             }
@@ -998,6 +1009,15 @@ def recovery(system, config, workdir, *, sizes=(100000,), samples=100, emit=None
         )
         else "ok",
         "sizes": curves,
+        "open_ms_source": "self-reported",
+        "timing_anomaly": next(
+            (
+                curve["timing_anomaly"]
+                for curve in curves.values()
+                if curve["timing_anomaly"]
+            ),
+            None,
+        ),
         "info": info,
         "bulk_load_timed": False,
         "control_gate": dict(HISTORY_CONTROLS),
