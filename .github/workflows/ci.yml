@@ -22,3 +22,14 @@ jobs:
         run: |
           leaked=$( (git ls-files -- results | grep -v '^results/controls/'; git ls-files -- 'results/*.md') || true)
           if [ -n "$leaked" ]; then echo "$leaked"; exit 1; fi
+  slow:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - uses: astral-sh/setup-uv@v6
+      - run: uv sync --locked
+      # Opt-in native suite scenarios, per TESTING.md rule 8.
+      - run: uv run pytest -q --slow -m slow
