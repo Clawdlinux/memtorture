@@ -23,7 +23,9 @@ UNGATED_SUITES = ("history-scale", "write-throughput", "recovery")
 
 
 def platform_key():
-    return f"{platform.system().lower()}-{platform.machine().lower()}"
+    machine = platform.machine().lower()
+    arch = {"aarch64": "arm64", "amd64": "x86_64"}.get(machine, machine)
+    return f"{platform.system().lower()}-{arch}"
 
 
 def methodology_hash():

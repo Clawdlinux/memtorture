@@ -39,7 +39,25 @@ def test_gate_threshold(failures, passes, trials, allowed):
     ],
 )
 @pytest.mark.parametrize("suite", ["process-kill", "supersede-by-key"])
-def test_control_authorization(tmp_path, change, suite):
+@pytest.mark.parametrize(
+    "system,machine,expected_key",
+    [
+        ("Darwin", "arm64", "darwin-arm64"),
+        ("Linux", "aarch64", "linux-arm64"),
+        ("Linux", "arm64", "linux-arm64"),
+        ("Windows", "AMD64", "windows-x86_64"),
+        ("Linux", "x86_64", "linux-x86_64"),
+        ("FreeBSD", "RISCV64", "freebsd-riscv64"),
+    ],
+)
+def test_control_authorization(
+    tmp_path, monkeypatch, change, suite, system, machine, expected_key
+):
+    host_hardware = gate.hardware()
+    monkeypatch.setattr(platform, "system", lambda: system)
+    monkeypatch.setattr(platform, "machine", lambda: machine)
+    monkeypatch.setattr(gate, "hardware", lambda: host_hardware)
+    assert gate.platform_key() == expected_key
     summary = {
         "methodology_sha256": gate.methodology_hash(),
         "os": gate.platform.platform(),
@@ -57,7 +75,7 @@ def test_control_authorization(tmp_path, change, suite):
     elif change in {"stale", "os", "hardware"}:
         field = "methodology_sha256" if change == "stale" else change
         changed[field] = "different"
-    current = tmp_path / f"{platform.system().lower()}-{platform.machine().lower()}"
+    current = tmp_path / expected_key
     current.mkdir()
     if change == "other-platform":
         foreign = tmp_path / "other-os-arch"
@@ -84,7 +102,7 @@ def test_control_evidence(stub_controls, tmp_path, monkeypatch, capsys):
     summary = gate.run_controls(root=root)
     for measurement in ("history-scale", "write-throughput", "recovery"):
         assert summary["suites"][measurement] == HISTORY_CONTROLS
-    current = root / f"{platform.system().lower()}-{platform.machine().lower()}"
+    current = root / gate.platform_key()
     top = current / "gate.json"
     before = top.read_bytes()
     assert json.loads(before) == summary

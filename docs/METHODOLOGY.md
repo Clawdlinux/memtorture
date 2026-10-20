@@ -63,7 +63,11 @@ Run `uv run memtorture controls` before measuring cells.
 It uses 20 trials per control.
 `--quick` uses 5.
 Evidence is keyed by platform under `results/controls/<os>-<arch>/`.
-The key uses lowercase `platform.system()` and `platform.machine()`.
+The key lowercases `platform.system()` and normalizes `platform.machine()`.
+Architecture names are matched without case.
+`aarch64` and `arm64` map to `arm64`.
+`amd64` and `x86_64` map to `x86_64`.
+Other architecture names stay lowercase.
 Examples are `darwin-arm64` and `linux-x86_64`.
 OS versions are not part of the key.
 The full gate lives at `results/controls/<os>-<arch>/gate.json`.

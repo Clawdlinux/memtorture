@@ -1,5 +1,4 @@
 import json
-import platform
 import subprocess
 import sys
 from argparse import Namespace
@@ -7,6 +6,7 @@ from argparse import Namespace
 import pytest
 
 from memtorture.cli import main
+from memtorture.controls import gate
 from memtorture.results import ResultWriter
 from memtorture.runner import ROWS, run
 from memtorture.suites import SUITES
@@ -96,11 +96,7 @@ def test_report_evidence(
 def test_run_matrix(authorized_controls, monkeypatch, tmp_path):
     calls = []
     evidence = {"current-platform": True}
-    current = (
-        tmp_path
-        / "controls"
-        / f"{platform.system().lower()}-{platform.machine().lower()}"
-    )
+    current = tmp_path / "controls" / gate.platform_key()
     current.mkdir(parents=True)
     (current / "gate.json").write_text(json.dumps(evidence))
 
