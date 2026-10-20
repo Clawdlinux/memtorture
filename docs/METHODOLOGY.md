@@ -62,8 +62,17 @@ Qdrant clients share one server per data directory.
 Run `uv run memtorture controls` before measuring cells.
 It uses 20 trials per control.
 `--quick` uses 5.
-Quick runs write only under `results/controls/quick/`.
-They never replace the top-level full gate or authorize benchmark cells.
+Evidence is keyed by platform under `results/controls/<os>-<arch>/`.
+The key uses lowercase `platform.system()` and `platform.machine()`.
+Examples are `darwin-arm64` and `linux-x86_64`.
+OS versions are not part of the key.
+The full gate lives at `results/controls/<os>-<arch>/gate.json`.
+Full evidence lives in that platform directory's `full/` subdirectory.
+Quick runs write only to that platform directory's `quick/` subdirectory.
+They never replace the full gate or authorize benchmark cells.
+Runs never replace another platform's evidence.
+Existing Mac evidence moved to `results/controls/darwin-arm64/` without regeneration during migration.
+A missing platform gate blocks gated cells and names the required path.
 Gated suites require a current full gate with at least 20 trials.
 Must-fail controls must fail in at least 90% of trials.
 Must-pass controls must pass every trial.
@@ -75,12 +84,23 @@ The threshold is never rounded down.
 | `concurrent-append` | Markdown rewrite with a 5 ms race window. | SQLite WAL with a 30-second busy timeout. |
 | `concurrent-kv` | The same isolated rewrite race. | The same SQLite busy timeout. |
 | `recall-delay` | Fixed 100 ms visibility delay, polled every 1 ms. | SQLite visible on commit. |
+| `supersede-by-key` | Append-only store whose keyed read returns the oldest value. | SQLite WAL with keyed upsert. |
 
-History scale is an ungated measurement suite.
-No controls are defined for it in the approved spec.
-Its gate entry has `discriminates: null` and `gated: false`.
-Results carry that note instead of borrowing another suite's rates.
+The ungated measurement entries are `history-scale`, `write-throughput`, and `recovery`.
+They have no fault controls.
+Each gate entry has `discriminates: null` and `gated: false`.
+Measurement results carry that note instead of borrowing another suite's rates.
+The throughput and recovery entries reserve gate metadata for their planned suites.
 History reads also verify loaded counts, hashes, keys, and recency order.
+
+The supersession control upserts key `k` with values `v1` through `v5`.
+Each version has a different record ID.
+It reads `k` and passes only when every write succeeds and the final value is intact `v5`.
+The append-only control keeps every version but returns `v1`.
+SQLite replaces the keyed value and returns `v5`.
+`check_supersede_by_key(worker, versions=5, emit=None)` provides the reusable check in `memtorture/controls/gate.py`.
+It accepts a running protocol worker and emits writes plus the final check.
+The full supersession suite is separate work.
 
 The delayed control stages index entries behind a monotonic deadline.
 This avoids measuring the operating system's timer coalescing.
@@ -106,9 +126,10 @@ Logging no longer sits inside the measured polling window.
 
 Controls rotate concurrency through 2, 4, and 8 processes.
 Read calibration rotates through id, filter, recency, and search.
-Raw control operations and exact outcomes live under `results/controls/`.
+Raw operations and exact outcomes live under each platform's `full/` and `quick/` evidence directories.
 Controls run on the current machine.
-Code changes or machine changes invalidate the gate.
+Code changes or machine changes invalidate only the current platform gate.
+The gate still checks the exact OS description and hardware.
 An invalid gate blocks cell generation and reporting.
 
 ## Suites

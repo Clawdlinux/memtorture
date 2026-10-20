@@ -1,4 +1,5 @@
 import json
+import platform
 import subprocess
 import sys
 from argparse import Namespace
@@ -94,6 +95,14 @@ def test_report_evidence(
 
 def test_run_matrix(authorized_controls, monkeypatch, tmp_path):
     calls = []
+    evidence = {"current-platform": True}
+    current = (
+        tmp_path
+        / "controls"
+        / f"{platform.system().lower()}-{platform.machine().lower()}"
+    )
+    current.mkdir(parents=True)
+    (current / "gate.json").write_text(json.dumps(evidence))
 
     def cell(suite, system, config, path, **kwargs):
         calls.append((suite, system, config))
@@ -116,6 +125,8 @@ def test_run_matrix(authorized_controls, monkeypatch, tmp_path):
     assert len(calls) == len(set(calls)) == len(expected)
     assert set(calls) == expected
     assert len(json.loads((args.output / "cells.json").read_text())) == len(expected)
+    manifest = json.loads((args.output / "manifest.json").read_text())
+    assert manifest["controls"] == evidence
 
 
 def test_conformance_failure(capsys, monkeypatch, tmp_path):

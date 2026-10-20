@@ -3,7 +3,12 @@ import uuid
 from datetime import UTC, datetime
 from pathlib import Path
 
-from memtorture.controls.gate import DEFAULT_ROOT, methodology_hash, require_controls
+from memtorture.controls.gate import (
+    DEFAULT_ROOT,
+    methodology_hash,
+    platform_key,
+    require_controls,
+)
 from memtorture.results import ResultWriter, render_tables
 from memtorture.suites import (
     SUITES,
@@ -58,7 +63,7 @@ def run(args):
         writer.manifest["methodology_sha256"] = methodology_hash()
         writer.manifest["extended"] = args.extended
         writer.manifest["blocked_suites"] = []
-        gate_path = DEFAULT_ROOT / "gate.json"
+        gate_path = DEFAULT_ROOT / platform_key() / "gate.json"
         writer.manifest["controls"] = (
             json.loads(gate_path.read_text()) if gate_path.exists() else None
         )

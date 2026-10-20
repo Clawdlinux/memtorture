@@ -87,3 +87,22 @@ class DelayedIndex(SQLiteBusy):
         rows = super()._query(*args, **kwargs)
         now = time.monotonic_ns()
         return [r for r in rows if now >= self.visible_at.get(r.id, 0)]
+
+
+class AppendOldest(Markdown):
+    name = "append-oldest"
+    notes = "Append-only keyed writes. Keyed get returns the oldest value."
+
+    def start(self, workdir, config):
+        super().start(workdir, "append")
+
+    def upsert(self, scope, record):
+        return self.write(scope, record)
+
+    def get(self, scope, key):
+        return next((record for record in self._rows(scope) if record.key == key), None)
+
+
+class SQLiteUpsert(SQLiteBusy):
+    name = "sqlite-upsert"
+    notes = "SQLite keyed upsert. Keyed get returns the latest value."

@@ -3,19 +3,27 @@ import json
 import platform
 import shutil
 import uuid
+from dataclasses import asdict
 from pathlib import Path
 
+from memtorture.protocol import Worker
 from memtorture.results import ResultWriter, hardware
 from memtorture.suites import (
     HISTORY_CONTROLS,
     PATHS,
     concurrent,
+    event,
     process_kill,
     recall_delay,
 )
-from memtorture.types import NotSupported
+from memtorture.types import NotSupported, Record, Scope
 
 DEFAULT_ROOT = Path("results/controls")
+UNGATED_SUITES = ("history-scale", "write-throughput", "recovery")
+
+
+def platform_key():
+    return f"{platform.system().lower()}-{platform.machine().lower()}"
 
 
 def methodology_hash():
@@ -51,10 +59,11 @@ def control_gate(failures, passes, trials):
 
 
 def require_controls(suite, root=DEFAULT_ROOT):
-    if suite == "history-scale":
+    if suite in UNGATED_SUITES:
         return
+    path = Path(root) / platform_key() / "gate.json"
     try:
-        summary = json.loads((Path(root) / "gate.json").read_text())
+        summary = json.loads(path.read_text())
         valid = (
             summary["methodology_sha256"] == methodology_hash()
             and summary["quick"] is False
@@ -66,11 +75,45 @@ def require_controls(suite, root=DEFAULT_ROOT):
     except (OSError, ValueError, KeyError):
         valid = False
     if not valid:
-        raise NotSupported(f"{suite}: controls missing, stale, or not discriminating")
+        raise NotSupported(
+            f"{suite}: controls missing, stale, or not discriminating: {path}. "
+            "Run memtorture controls on this platform."
+        )
+
+
+def check_supersede_by_key(worker, *, versions=5, emit=None):
+    """Write versions through keyed upserts and check the final keyed read."""
+    if versions < 2:
+        raise ValueError("Supersession needs at least 2 versions")
+    missing = {"keyed", "upsert", "get"} - worker.capabilities
+    if missing:
+        raise NotSupported(f"Missing {', '.join(sorted(missing))}")
+    scope = Scope("benchmark", "supersede-by-key")
+    dropped = 0
+    for version in range(1, versions + 1):
+        record = Record.make(scope, "k", f"v{version}")
+        ack = worker.call("upsert", scope=scope, record=record)
+        dropped += ack.dropped
+        event(emit, operation="upsert", record=asdict(record), dropped=ack.dropped)
+    observed = worker.call("get", scope=scope, key=record.key)
+    result = {
+        "status": (
+            "ok"
+            if not dropped and observed == record and observed.valid()
+            else "violation"
+        ),
+        "versions": versions,
+        "acked": versions - dropped,
+        "dropped": dropped,
+        "expected": asdict(record),
+        "observed": asdict(observed) if observed is not None else None,
+    }
+    event(emit, operation="supersede-check", **result)
+    return result
 
 
 def run_controls(*, quick=False, root=DEFAULT_ROOT):
-    root = Path(root)
+    root = Path(root) / platform_key()
     run_root = root / ("quick" if quick else "full")
     trials = 5 if quick else 20
     work = run_root / ".work" / uuid.uuid4().hex
@@ -95,6 +138,7 @@ def run_controls(*, quick=False, root=DEFAULT_ROOT):
                 ("process-kill", "buffered", "sqlite-off"),
                 ("concurrent-append", "md-rmw-sleep", "sqlite-busy"),
                 ("concurrent-kv", "md-rmw-sleep", "sqlite-busy"),
+                ("supersede-by-key", "append-oldest", "sqlite-upsert"),
             ):
                 counts, details = {"must_fail": 0, "must_pass": 0}, []
                 for role, system in (
@@ -162,6 +206,14 @@ def run_controls(*, quick=False, root=DEFAULT_ROOT):
                                 "violation" if role == "must_fail" else "ok"
                             )
                             details.append({"role": role, "trial": trial, **result})
+                        elif suite == "supersede-by-key":
+                            with Worker(system, "default", path) as worker:
+                                result = check_supersede_by_key(worker, emit=emit)
+                                result["info"] = worker.info
+                            matched = result["status"] == (
+                                "violation" if role == "must_fail" else "ok"
+                            )
+                            details.append({"role": role, "trial": trial, **result})
                         else:
                             result = concurrent(
                                 suite,
@@ -196,7 +248,9 @@ def run_controls(*, quick=False, root=DEFAULT_ROOT):
                     "details": details,
                     "gated": True,
                 }
-            summary["suites"]["history-scale"] = dict(HISTORY_CONTROLS)
+            summary["suites"].update(
+                {suite: dict(HISTORY_CONTROLS) for suite in UNGATED_SUITES}
+            )
             writer.manifest["control_summary"] = "gate.json"
         if not quick:
             (root / "gate.json").write_text(json.dumps(summary, indent=2) + "\n")

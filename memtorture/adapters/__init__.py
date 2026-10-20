@@ -13,6 +13,8 @@ ADAPTERS = {
     "sqlite-busy": ("memtorture.controls.systems", "SQLiteBusy"),
     "sqlite-off": ("memtorture.controls.systems", "SQLiteOff"),
     "sqlite-visible": ("memtorture.controls.systems", "SQLiteVisible"),
+    "append-oldest": ("memtorture.controls.systems", "AppendOldest"),
+    "sqlite-upsert": ("memtorture.controls.systems", "SQLiteUpsert"),
 }
 
 

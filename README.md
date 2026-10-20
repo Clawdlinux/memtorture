@@ -27,6 +27,7 @@ uv run memtorture run --all
 
 The quick check uses 5 trials and never authorizes benchmark cells.
 The full gate uses 20.
+Evidence lives under `results/controls/<os>-<arch>/`, with a separate gate for each platform.
 Gated cells refuse to run if full controls are missing, stale, or not discriminating.
 History scale is an ungated measurement suite.
 The approved spec defines no control for it.
