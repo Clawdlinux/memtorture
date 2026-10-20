@@ -11,9 +11,9 @@
     "processor": "arm",
     "ram_bytes": 17179869184
   },
-  "harness_commit": "c99d2759fee243f1b4c67452aec6640878713d12",
+  "harness_commit": "25e4daa9554243c84468977e5d2c40cc7b23836d",
   "harness_dirty": false,
-  "methodology_sha256": "72e69442d2a1ccb43ba1b441fcda075f70fd13913ad266dba8db289145e67c5b",
+  "methodology_sha256": "5e09158ae669a154db93d12367e03f82ef3769c5f98c1e8f7baa2ff86a88ff35",
   "os": "macOS-27.0.1-arm64-arm-64bit",
   "python": "3.12.12",
   "runtime_dependencies": "none (Python standard library only)",
@@ -167,7 +167,7 @@
         "write"
       ],
       "config": "default",
-      "notes": "SQLite keyed upsert. Keyed get returns the latest value.",
+      "notes": "SQLite ON CONFLICT DO UPDATE. Keyed get returns the latest value.",
       "protocol": 1,
       "runtime_versions": {},
       "servers": [],

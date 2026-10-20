@@ -8,7 +8,7 @@
     "cpu_count": 10,
     "ram_bytes": 17179869184
   },
-  "methodology_sha256": "72e69442d2a1ccb43ba1b441fcda075f70fd13913ad266dba8db289145e67c5b",
+  "methodology_sha256": "5e09158ae669a154db93d12367e03f82ef3769c5f98c1e8f7baa2ff86a88ff35",
   "suites": {
     "recall-delay": {
       "must_fail": "delayed-index",
@@ -21,360 +21,360 @@
           "role": "must_fail",
           "trial": 0,
           "path": "id",
-          "lag_ms": 100.189208,
-          "upper_ms": 101.3605,
-          "read_p99_ms": 0.3605,
+          "lag_ms": 100.11375,
+          "upper_ms": 101.362042,
+          "read_p99_ms": 0.362042,
           "matched": true
         },
         {
           "role": "must_fail",
           "trial": 1,
           "path": "filter",
-          "lag_ms": 100.233042,
-          "upper_ms": 101.389709,
-          "read_p99_ms": 0.389709,
+          "lag_ms": 100.127708,
+          "upper_ms": 101.30475,
+          "read_p99_ms": 0.30475,
           "matched": true
         },
         {
           "role": "must_fail",
           "trial": 2,
           "path": "recency",
-          "lag_ms": 100.166375,
-          "upper_ms": 101.415792,
-          "read_p99_ms": 0.415792,
+          "lag_ms": 100.101,
+          "upper_ms": 101.355833,
+          "read_p99_ms": 0.355833,
           "matched": true
         },
         {
           "role": "must_fail",
           "trial": 3,
           "path": "search",
-          "lag_ms": 100.29275,
-          "upper_ms": 101.518125,
-          "read_p99_ms": 0.518125,
+          "lag_ms": 100.401375,
+          "upper_ms": 104.433417,
+          "read_p99_ms": 3.433417,
           "matched": true
         },
         {
           "role": "must_fail",
           "trial": 4,
           "path": "id",
-          "lag_ms": 100.199,
-          "upper_ms": 101.330542,
-          "read_p99_ms": 0.330542,
+          "lag_ms": 100.105041,
+          "upper_ms": 101.367167,
+          "read_p99_ms": 0.367167,
           "matched": true
         },
         {
           "role": "must_fail",
           "trial": 5,
           "path": "filter",
-          "lag_ms": 100.1465,
-          "upper_ms": 101.309958,
-          "read_p99_ms": 0.309958,
+          "lag_ms": 101.009,
+          "upper_ms": 101.720875,
+          "read_p99_ms": 0.720875,
           "matched": true
         },
         {
           "role": "must_fail",
           "trial": 6,
           "path": "recency",
-          "lag_ms": 100.166292,
-          "upper_ms": 101.341875,
-          "read_p99_ms": 0.341875,
+          "lag_ms": 100.406625,
+          "upper_ms": 101.51475,
+          "read_p99_ms": 0.51475,
           "matched": true
         },
         {
           "role": "must_fail",
           "trial": 7,
           "path": "search",
-          "lag_ms": 100.242625,
-          "upper_ms": 101.556166,
-          "read_p99_ms": 0.556166,
+          "lag_ms": 100.409666,
+          "upper_ms": 101.868625,
+          "read_p99_ms": 0.868625,
           "matched": true
         },
         {
           "role": "must_fail",
           "trial": 8,
           "path": "id",
-          "lag_ms": 100.184917,
-          "upper_ms": 101.310167,
-          "read_p99_ms": 0.310167,
+          "lag_ms": 100.254292,
+          "upper_ms": 103.163625,
+          "read_p99_ms": 2.163625,
           "matched": true
         },
         {
           "role": "must_fail",
           "trial": 9,
           "path": "filter",
-          "lag_ms": 100.130917,
-          "upper_ms": 101.335292,
-          "read_p99_ms": 0.335292,
+          "lag_ms": 100.103416,
+          "upper_ms": 101.306458,
+          "read_p99_ms": 0.306458,
           "matched": true
         },
         {
           "role": "must_fail",
           "trial": 10,
           "path": "recency",
-          "lag_ms": 100.264084,
-          "upper_ms": 101.245459,
-          "read_p99_ms": 0.245459,
+          "lag_ms": 100.222792,
+          "upper_ms": 110.532417,
+          "read_p99_ms": 9.532417,
           "matched": true
         },
         {
           "role": "must_fail",
           "trial": 11,
           "path": "search",
-          "lag_ms": 100.249291,
-          "upper_ms": 101.526375,
-          "read_p99_ms": 0.526375,
+          "lag_ms": 100.16125,
+          "upper_ms": 101.374584,
+          "read_p99_ms": 0.374584,
           "matched": true
         },
         {
           "role": "must_fail",
           "trial": 12,
           "path": "id",
-          "lag_ms": 100.143333,
-          "upper_ms": 101.332916,
-          "read_p99_ms": 0.332916,
+          "lag_ms": 100.177084,
+          "upper_ms": 101.327583,
+          "read_p99_ms": 0.327583,
           "matched": true
         },
         {
           "role": "must_fail",
           "trial": 13,
           "path": "filter",
-          "lag_ms": 100.318125,
-          "upper_ms": 101.310667,
-          "read_p99_ms": 0.310667,
+          "lag_ms": 100.131417,
+          "upper_ms": 101.336917,
+          "read_p99_ms": 0.336917,
           "matched": true
         },
         {
           "role": "must_fail",
           "trial": 14,
           "path": "recency",
-          "lag_ms": 100.159542,
-          "upper_ms": 101.322875,
-          "read_p99_ms": 0.322875,
+          "lag_ms": 100.100458,
+          "upper_ms": 101.362666,
+          "read_p99_ms": 0.362666,
           "matched": true
         },
         {
           "role": "must_fail",
           "trial": 15,
           "path": "search",
-          "lag_ms": 100.287,
-          "upper_ms": 101.510542,
-          "read_p99_ms": 0.510542,
+          "lag_ms": 100.548792,
+          "upper_ms": 108.768,
+          "read_p99_ms": 7.768,
           "matched": true
         },
         {
           "role": "must_fail",
           "trial": 16,
           "path": "id",
-          "lag_ms": 100.150125,
-          "upper_ms": 101.342791,
-          "read_p99_ms": 0.342791,
+          "lag_ms": 100.13325,
+          "upper_ms": 101.250958,
+          "read_p99_ms": 0.250958,
           "matched": true
         },
         {
           "role": "must_fail",
           "trial": 17,
           "path": "filter",
-          "lag_ms": 100.1535,
-          "upper_ms": 101.308084,
-          "read_p99_ms": 0.308084,
+          "lag_ms": 101.016958,
+          "upper_ms": 108.979333,
+          "read_p99_ms": 7.979333,
           "matched": true
         },
         {
           "role": "must_fail",
           "trial": 18,
           "path": "recency",
-          "lag_ms": 100.404167,
-          "upper_ms": 101.305084,
-          "read_p99_ms": 0.305084,
+          "lag_ms": 100.097292,
+          "upper_ms": 101.20475,
+          "read_p99_ms": 0.20475,
           "matched": true
         },
         {
           "role": "must_fail",
           "trial": 19,
           "path": "search",
-          "lag_ms": 100.758625,
-          "upper_ms": 101.606125,
-          "read_p99_ms": 0.606125,
+          "lag_ms": 100.211125,
+          "upper_ms": 101.541334,
+          "read_p99_ms": 0.541334,
           "matched": true
         },
         {
           "role": "must_pass",
           "trial": 0,
           "path": "id",
-          "lag_ms": 0.390959,
-          "upper_ms": 101.299834,
-          "read_p99_ms": 0.299834,
+          "lag_ms": 0.181083,
+          "upper_ms": 101.150083,
+          "read_p99_ms": 0.150083,
           "matched": true
         },
         {
           "role": "must_pass",
           "trial": 1,
           "path": "filter",
-          "lag_ms": 0.545292,
-          "upper_ms": 101.4305,
-          "read_p99_ms": 0.4305,
+          "lag_ms": 0.265625,
+          "upper_ms": 101.207958,
+          "read_p99_ms": 0.207958,
           "matched": true
         },
         {
           "role": "must_pass",
           "trial": 2,
           "path": "recency",
-          "lag_ms": 0.387583,
-          "upper_ms": 101.298666,
-          "read_p99_ms": 0.298666,
+          "lag_ms": 0.143709,
+          "upper_ms": 101.111542,
+          "read_p99_ms": 0.111542,
           "matched": true
         },
         {
           "role": "must_pass",
           "trial": 3,
           "path": "search",
-          "lag_ms": 0.575583,
-          "upper_ms": 101.481792,
-          "read_p99_ms": 0.481792,
+          "lag_ms": 0.40475,
+          "upper_ms": 101.342,
+          "read_p99_ms": 0.342,
           "matched": true
         },
         {
           "role": "must_pass",
           "trial": 4,
           "path": "id",
-          "lag_ms": 0.27525,
-          "upper_ms": 101.215417,
-          "read_p99_ms": 0.215417,
+          "lag_ms": 0.191333,
+          "upper_ms": 101.148833,
+          "read_p99_ms": 0.148833,
           "matched": true
         },
         {
           "role": "must_pass",
           "trial": 5,
           "path": "filter",
-          "lag_ms": 0.309375,
-          "upper_ms": 101.23725,
-          "read_p99_ms": 0.23725,
+          "lag_ms": 0.193709,
+          "upper_ms": 101.14725,
+          "read_p99_ms": 0.14725,
           "matched": true
         },
         {
           "role": "must_pass",
           "trial": 6,
           "path": "recency",
-          "lag_ms": 0.337083,
-          "upper_ms": 101.259875,
-          "read_p99_ms": 0.259875,
+          "lag_ms": 0.175667,
+          "upper_ms": 101.134333,
+          "read_p99_ms": 0.134333,
           "matched": true
         },
         {
           "role": "must_pass",
           "trial": 7,
           "path": "search",
-          "lag_ms": 0.483167,
-          "upper_ms": 101.416167,
-          "read_p99_ms": 0.416167,
+          "lag_ms": 0.338209,
+          "upper_ms": 101.294209,
+          "read_p99_ms": 0.294209,
           "matched": true
         },
         {
           "role": "must_pass",
           "trial": 8,
           "path": "id",
-          "lag_ms": 0.284959,
-          "upper_ms": 101.217459,
-          "read_p99_ms": 0.217459,
+          "lag_ms": 0.142625,
+          "upper_ms": 101.108666,
+          "read_p99_ms": 0.108666,
           "matched": true
         },
         {
           "role": "must_pass",
           "trial": 9,
           "path": "filter",
-          "lag_ms": 0.233959,
-          "upper_ms": 101.181584,
-          "read_p99_ms": 0.181584,
+          "lag_ms": 0.208209,
+          "upper_ms": 101.163125,
+          "read_p99_ms": 0.163125,
           "matched": true
         },
         {
           "role": "must_pass",
           "trial": 10,
           "path": "recency",
-          "lag_ms": 0.296333,
-          "upper_ms": 101.232666,
-          "read_p99_ms": 0.232666,
+          "lag_ms": 0.177042,
+          "upper_ms": 101.140375,
+          "read_p99_ms": 0.140375,
           "matched": true
         },
         {
           "role": "must_pass",
           "trial": 11,
           "path": "search",
-          "lag_ms": 0.836917,
-          "upper_ms": 101.747084,
-          "read_p99_ms": 0.747084,
+          "lag_ms": 0.3435,
+          "upper_ms": 101.303375,
+          "read_p99_ms": 0.303375,
           "matched": true
         },
         {
           "role": "must_pass",
           "trial": 12,
           "path": "id",
-          "lag_ms": 0.327041,
-          "upper_ms": 101.260083,
-          "read_p99_ms": 0.260083,
+          "lag_ms": 0.193042,
+          "upper_ms": 101.150792,
+          "read_p99_ms": 0.150792,
           "matched": true
         },
         {
           "role": "must_pass",
           "trial": 13,
           "path": "filter",
-          "lag_ms": 0.379333,
-          "upper_ms": 101.265041,
-          "read_p99_ms": 0.265041,
+          "lag_ms": 0.196042,
+          "upper_ms": 101.1545,
+          "read_p99_ms": 0.1545,
           "matched": true
         },
         {
           "role": "must_pass",
           "trial": 14,
           "path": "recency",
-          "lag_ms": 0.325792,
-          "upper_ms": 101.25325,
-          "read_p99_ms": 0.25325,
+          "lag_ms": 0.191833,
+          "upper_ms": 101.150458,
+          "read_p99_ms": 0.150458,
           "matched": true
         },
         {
           "role": "must_pass",
           "trial": 15,
           "path": "search",
-          "lag_ms": 0.449875,
-          "upper_ms": 101.393166,
-          "read_p99_ms": 0.393166,
+          "lag_ms": 0.373916,
+          "upper_ms": 101.314875,
+          "read_p99_ms": 0.314875,
           "matched": true
         },
         {
           "role": "must_pass",
           "trial": 16,
           "path": "id",
-          "lag_ms": 0.290834,
-          "upper_ms": 101.223417,
-          "read_p99_ms": 0.223417,
+          "lag_ms": 0.208167,
+          "upper_ms": 101.157334,
+          "read_p99_ms": 0.157334,
           "matched": true
         },
         {
           "role": "must_pass",
           "trial": 17,
           "path": "filter",
-          "lag_ms": 0.24525,
-          "upper_ms": 101.18975,
-          "read_p99_ms": 0.18975,
+          "lag_ms": 0.214041,
+          "upper_ms": 101.17275,
+          "read_p99_ms": 0.17275,
           "matched": true
         },
         {
           "role": "must_pass",
           "trial": 18,
           "path": "recency",
-          "lag_ms": 0.454,
-          "upper_ms": 101.39875,
-          "read_p99_ms": 0.39875,
+          "lag_ms": 0.466333,
+          "upper_ms": 101.359875,
+          "read_p99_ms": 0.359875,
           "matched": true
         },
         {
           "role": "must_pass",
           "trial": 19,
           "path": "search",
-          "lag_ms": 0.473709,
-          "upper_ms": 101.402209,
-          "read_p99_ms": 0.402209,
+          "lag_ms": 0.255458,
+          "upper_ms": 101.220375,
+          "read_p99_ms": 0.220375,
           "matched": true
         }
       ],
@@ -406,7 +406,7 @@
               "target": "worker",
               "trial": 0,
               "acked": 6,
-              "fault_ns": 224310124893875,
+              "fault_ns": 225183852007916,
               "acked_missing": 6,
               "duplicates": 0,
               "torn": 0
@@ -456,7 +456,7 @@
               "target": "worker",
               "trial": 0,
               "acked": 8,
-              "fault_ns": 224310343906000,
+              "fault_ns": 225183998190041,
               "acked_missing": 8,
               "duplicates": 0,
               "torn": 0
@@ -506,7 +506,7 @@
               "target": "worker",
               "trial": 0,
               "acked": 7,
-              "fault_ns": 224310568595333,
+              "fault_ns": 225184169805833,
               "acked_missing": 7,
               "duplicates": 0,
               "torn": 0
@@ -556,7 +556,7 @@
               "target": "worker",
               "trial": 0,
               "acked": 6,
-              "fault_ns": 224310786392666,
+              "fault_ns": 225184315466875,
               "acked_missing": 6,
               "duplicates": 0,
               "torn": 0
@@ -606,7 +606,7 @@
               "target": "worker",
               "trial": 0,
               "acked": 5,
-              "fault_ns": 224311007451416,
+              "fault_ns": 225184465432583,
               "acked_missing": 5,
               "duplicates": 0,
               "torn": 0
@@ -656,7 +656,7 @@
               "target": "worker",
               "trial": 0,
               "acked": 3,
-              "fault_ns": 224311215292666,
+              "fault_ns": 225184629786000,
               "acked_missing": 3,
               "duplicates": 0,
               "torn": 0
@@ -706,7 +706,7 @@
               "target": "worker",
               "trial": 0,
               "acked": 7,
-              "fault_ns": 224311418774166,
+              "fault_ns": 225184776754375,
               "acked_missing": 7,
               "duplicates": 0,
               "torn": 0
@@ -756,7 +756,7 @@
               "target": "worker",
               "trial": 0,
               "acked": 2,
-              "fault_ns": 224311620395000,
+              "fault_ns": 225184946365666,
               "acked_missing": 2,
               "duplicates": 0,
               "torn": 0
@@ -806,7 +806,7 @@
               "target": "worker",
               "trial": 0,
               "acked": 3,
-              "fault_ns": 224311824480875,
+              "fault_ns": 225185092993833,
               "acked_missing": 3,
               "duplicates": 0,
               "torn": 0
@@ -856,7 +856,7 @@
               "target": "worker",
               "trial": 0,
               "acked": 1,
-              "fault_ns": 224312026951458,
+              "fault_ns": 225185245696166,
               "acked_missing": 1,
               "duplicates": 0,
               "torn": 0
@@ -906,7 +906,7 @@
               "target": "worker",
               "trial": 0,
               "acked": 8,
-              "fault_ns": 224312232108833,
+              "fault_ns": 225185414324583,
               "acked_missing": 8,
               "duplicates": 0,
               "torn": 0
@@ -956,7 +956,7 @@
               "target": "worker",
               "trial": 0,
               "acked": 4,
-              "fault_ns": 224312436938208,
+              "fault_ns": 225185559009500,
               "acked_missing": 4,
               "duplicates": 0,
               "torn": 0
@@ -1006,7 +1006,7 @@
               "target": "worker",
               "trial": 0,
               "acked": 5,
-              "fault_ns": 224312640043708,
+              "fault_ns": 225185731302708,
               "acked_missing": 5,
               "duplicates": 0,
               "torn": 0
@@ -1056,7 +1056,7 @@
               "target": "worker",
               "trial": 0,
               "acked": 4,
-              "fault_ns": 224312842478000,
+              "fault_ns": 225185875739000,
               "acked_missing": 4,
               "duplicates": 0,
               "torn": 0
@@ -1106,7 +1106,7 @@
               "target": "worker",
               "trial": 0,
               "acked": 6,
-              "fault_ns": 224313046558916,
+              "fault_ns": 225186035842416,
               "acked_missing": 6,
               "duplicates": 0,
               "torn": 0
@@ -1156,7 +1156,7 @@
               "target": "worker",
               "trial": 0,
               "acked": 2,
-              "fault_ns": 224313257782875,
+              "fault_ns": 225186199302875,
               "acked_missing": 2,
               "duplicates": 0,
               "torn": 0
@@ -1206,7 +1206,7 @@
               "target": "worker",
               "trial": 0,
               "acked": 6,
-              "fault_ns": 224313532556958,
+              "fault_ns": 225186349411375,
               "acked_missing": 6,
               "duplicates": 0,
               "torn": 0
@@ -1256,7 +1256,7 @@
               "target": "worker",
               "trial": 0,
               "acked": 3,
-              "fault_ns": 224313813353291,
+              "fault_ns": 225186523282000,
               "acked_missing": 3,
               "duplicates": 0,
               "torn": 0
@@ -1306,7 +1306,7 @@
               "target": "worker",
               "trial": 0,
               "acked": 8,
-              "fault_ns": 224314044269583,
+              "fault_ns": 225186646257041,
               "acked_missing": 8,
               "duplicates": 0,
               "torn": 0
@@ -1356,7 +1356,7 @@
               "target": "worker",
               "trial": 0,
               "acked": 5,
-              "fault_ns": 224314253325000,
+              "fault_ns": 225186779327875,
               "acked_missing": 5,
               "duplicates": 0,
               "torn": 0
@@ -1406,7 +1406,7 @@
               "target": "worker",
               "trial": 0,
               "acked": 6,
-              "fault_ns": 224314453276458,
+              "fault_ns": 225186928935708,
               "acked_missing": 0,
               "duplicates": 0,
               "torn": 0
@@ -1451,7 +1451,7 @@
               "target": "worker",
               "trial": 0,
               "acked": 8,
-              "fault_ns": 224314647550041,
+              "fault_ns": 225187078697541,
               "acked_missing": 0,
               "duplicates": 0,
               "torn": 0
@@ -1496,7 +1496,7 @@
               "target": "worker",
               "trial": 0,
               "acked": 7,
-              "fault_ns": 224314848126458,
+              "fault_ns": 225187223590625,
               "acked_missing": 0,
               "duplicates": 0,
               "torn": 0
@@ -1541,7 +1541,7 @@
               "target": "worker",
               "trial": 0,
               "acked": 6,
-              "fault_ns": 224315072746666,
+              "fault_ns": 225187378085875,
               "acked_missing": 0,
               "duplicates": 0,
               "torn": 0
@@ -1586,7 +1586,7 @@
               "target": "worker",
               "trial": 0,
               "acked": 5,
-              "fault_ns": 224315296744000,
+              "fault_ns": 225187528890333,
               "acked_missing": 0,
               "duplicates": 0,
               "torn": 0
@@ -1631,7 +1631,7 @@
               "target": "worker",
               "trial": 0,
               "acked": 3,
-              "fault_ns": 224315523278208,
+              "fault_ns": 225187679472916,
               "acked_missing": 0,
               "duplicates": 0,
               "torn": 0
@@ -1676,7 +1676,7 @@
               "target": "worker",
               "trial": 0,
               "acked": 7,
-              "fault_ns": 224315751144083,
+              "fault_ns": 225187829607416,
               "acked_missing": 0,
               "duplicates": 0,
               "torn": 0
@@ -1721,7 +1721,7 @@
               "target": "worker",
               "trial": 0,
               "acked": 2,
-              "fault_ns": 224315967557250,
+              "fault_ns": 225187979722875,
               "acked_missing": 0,
               "duplicates": 0,
               "torn": 0
@@ -1766,7 +1766,7 @@
               "target": "worker",
               "trial": 0,
               "acked": 3,
-              "fault_ns": 224316175595083,
+              "fault_ns": 225188131493916,
               "acked_missing": 0,
               "duplicates": 0,
               "torn": 0
@@ -1811,7 +1811,7 @@
               "target": "worker",
               "trial": 0,
               "acked": 1,
-              "fault_ns": 224316384288208,
+              "fault_ns": 225188280076958,
               "acked_missing": 0,
               "duplicates": 0,
               "torn": 0
@@ -1856,7 +1856,7 @@
               "target": "worker",
               "trial": 0,
               "acked": 8,
-              "fault_ns": 224316593832000,
+              "fault_ns": 225188432516166,
               "acked_missing": 0,
               "duplicates": 0,
               "torn": 0
@@ -1901,7 +1901,7 @@
               "target": "worker",
               "trial": 0,
               "acked": 4,
-              "fault_ns": 224316803515125,
+              "fault_ns": 225188584393083,
               "acked_missing": 0,
               "duplicates": 0,
               "torn": 0
@@ -1946,7 +1946,7 @@
               "target": "worker",
               "trial": 0,
               "acked": 5,
-              "fault_ns": 224317007380708,
+              "fault_ns": 225188738942375,
               "acked_missing": 0,
               "duplicates": 0,
               "torn": 0
@@ -1991,7 +1991,7 @@
               "target": "worker",
               "trial": 0,
               "acked": 4,
-              "fault_ns": 224317215488500,
+              "fault_ns": 225188890632166,
               "acked_missing": 0,
               "duplicates": 0,
               "torn": 0
@@ -2036,7 +2036,7 @@
               "target": "worker",
               "trial": 0,
               "acked": 6,
-              "fault_ns": 224317427583625,
+              "fault_ns": 225189044310208,
               "acked_missing": 0,
               "duplicates": 0,
               "torn": 0
@@ -2081,7 +2081,7 @@
               "target": "worker",
               "trial": 0,
               "acked": 2,
-              "fault_ns": 224317646159875,
+              "fault_ns": 225189194424375,
               "acked_missing": 0,
               "duplicates": 0,
               "torn": 0
@@ -2126,7 +2126,7 @@
               "target": "worker",
               "trial": 0,
               "acked": 6,
-              "fault_ns": 224317857736458,
+              "fault_ns": 225189346880541,
               "acked_missing": 0,
               "duplicates": 0,
               "torn": 0
@@ -2171,7 +2171,7 @@
               "target": "worker",
               "trial": 0,
               "acked": 3,
-              "fault_ns": 224318069925541,
+              "fault_ns": 225189495634000,
               "acked_missing": 0,
               "duplicates": 0,
               "torn": 0
@@ -2216,7 +2216,7 @@
               "target": "worker",
               "trial": 0,
               "acked": 8,
-              "fault_ns": 224318283983708,
+              "fault_ns": 225189644858750,
               "acked_missing": 0,
               "duplicates": 0,
               "torn": 0
@@ -2261,7 +2261,7 @@
               "target": "worker",
               "trial": 0,
               "acked": 5,
-              "fault_ns": 224318500995708,
+              "fault_ns": 225189796501458,
               "acked_missing": 0,
               "duplicates": 0,
               "torn": 0
@@ -2301,7 +2301,7 @@
           "role": "must_fail",
           "trial": 0,
           "status": "violation",
-          "acked_missing": 20,
+          "acked_missing": 19,
           "duplicates": 0,
           "torn": 0,
           "invalid_final": 0,
@@ -2309,7 +2309,7 @@
             {
               "writers": 2,
               "phase": "distinct",
-              "acked_missing": 20,
+              "acked_missing": 19,
               "duplicates": 0,
               "torn": 0,
               "invalid_final": 0
@@ -2541,7 +2541,7 @@
           "role": "must_fail",
           "trial": 5,
           "status": "violation",
-          "acked_missing": 139,
+          "acked_missing": 140,
           "duplicates": 0,
           "torn": 0,
           "invalid_final": 0,
@@ -2549,7 +2549,7 @@
             {
               "writers": 8,
               "phase": "distinct",
-              "acked_missing": 139,
+              "acked_missing": 140,
               "duplicates": 0,
               "torn": 0,
               "invalid_final": 0
@@ -4539,7 +4539,7 @@
           "role": "must_fail",
           "trial": 6,
           "status": "violation",
-          "acked_missing": 19,
+          "acked_missing": 20,
           "duplicates": 0,
           "torn": 0,
           "invalid_final": 0,
@@ -4548,7 +4548,7 @@
             {
               "writers": 2,
               "phase": "distinct",
-              "acked_missing": 19,
+              "acked_missing": 20,
               "duplicates": 0,
               "torn": 0,
               "invalid_final": 0
@@ -5423,7 +5423,7 @@
           "role": "must_fail",
           "trial": 19,
           "status": "violation",
-          "acked_missing": 60,
+          "acked_missing": 59,
           "duplicates": 0,
           "torn": 0,
           "invalid_final": 0,
@@ -5432,7 +5432,7 @@
             {
               "writers": 4,
               "phase": "distinct",
-              "acked_missing": 60,
+              "acked_missing": 59,
               "duplicates": 0,
               "torn": 0,
               "invalid_final": 0
@@ -6762,17 +6762,17 @@
           "trial": 0,
           "status": "violation",
           "versions": 5,
-          "acked": 5,
+          "acked": 10,
           "dropped": 0,
           "expected": {
-            "id": "34416156-7958-487e-9334-3426f3795c01",
+            "id": "6c5b8a92-f05c-4acb-9899-18717bb2607f",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v5",
-            "payload_sha256": "f1fe928cbb22e26cb77d64539f248bec80ac859c94cb9bee845f33683ef878f4",
+            "payload_sha256": "f993f9528031f69246b9cdabd905f0ed529aecf9f1832f93a2f7d434f287de1a",
             "vector": [
               -0.17971359488435873,
               0.020759530317806692,
@@ -6841,14 +6841,14 @@
             ]
           },
           "observed": {
-            "id": "039d8b88-be92-4947-86bc-a3c77074e5a9",
+            "id": "bf5d75b4-498f-416c-aaed-7456736f5106",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v1",
-            "payload_sha256": "f73b42019342879d698b797a1a75415e89ff2aacec5c44439deebd76cb6fb9a4",
+            "payload_sha256": "eb3a569f45e582cd8e3c76c0d0192f17ae79eeaa426b3c9c91864b1b823faeef",
             "vector": null
           },
           "info": {
@@ -6880,17 +6880,17 @@
           "trial": 1,
           "status": "violation",
           "versions": 5,
-          "acked": 5,
+          "acked": 10,
           "dropped": 0,
           "expected": {
-            "id": "4dbc6342-1de9-475d-bbbf-0a2a7dba5f3a",
+            "id": "2ae33c7f-f990-49c7-a042-40312f93cc6e",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v5",
-            "payload_sha256": "83bb96b8fcf376e478c42584e87002187c6cdac1de71c4288293fcbebc386903",
+            "payload_sha256": "379cf63982a312cd5ca8501cff9b75ecfb31869a471b0fd6f7ee3e781487e12d",
             "vector": [
               -0.17971359488435873,
               0.020759530317806692,
@@ -6959,14 +6959,14 @@
             ]
           },
           "observed": {
-            "id": "97bb9501-50fb-43a3-870e-5b1952db0f8f",
+            "id": "8f82240e-ad89-4780-85c9-be34bb811427",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v1",
-            "payload_sha256": "a786599e1a8803950a28127061d6502c308baa0f6e215396871b86592173eb2c",
+            "payload_sha256": "ff5053b3ff58b49c4a170a57bc8b126ba44ebe812bc614390f18799c7f1a0e0a",
             "vector": null
           },
           "info": {
@@ -6998,17 +6998,17 @@
           "trial": 2,
           "status": "violation",
           "versions": 5,
-          "acked": 5,
+          "acked": 10,
           "dropped": 0,
           "expected": {
-            "id": "f6db326c-c326-4f8f-a114-6b25a478e7be",
+            "id": "6f444bf9-ae27-48a1-87bc-e9d99712d31a",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v5",
-            "payload_sha256": "f76d01f08f3dd11ecb5459d4abb44cf80918050c48f693a8b60110391c850ced",
+            "payload_sha256": "da049d60978db53e58f03e84b95bc153bf2307f68fcbb54d6b40190a6b9270b1",
             "vector": [
               -0.17971359488435873,
               0.020759530317806692,
@@ -7077,14 +7077,14 @@
             ]
           },
           "observed": {
-            "id": "fe025d0e-07f2-45c2-9ae9-2b77280bb818",
+            "id": "edf461b8-915e-4b9b-b80d-47b971dbfa6a",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v1",
-            "payload_sha256": "e75fab4b7a7aae007cf67f895610fde2dc6ecac0b5dca8ea84d19e1fac566c59",
+            "payload_sha256": "57ca422dca2a18ea897682788dc1d382f7ef5418d9bf38e7b31ef690ee24b640",
             "vector": null
           },
           "info": {
@@ -7116,17 +7116,17 @@
           "trial": 3,
           "status": "violation",
           "versions": 5,
-          "acked": 5,
+          "acked": 10,
           "dropped": 0,
           "expected": {
-            "id": "f31077a2-c7ad-4da4-9c57-1facbd1620e2",
+            "id": "1e5a4cde-1d70-48a3-b544-9950e7a04ce1",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v5",
-            "payload_sha256": "ae81e49718bd5ad4cc24b05ca560e42dfdaf24d6a6790d718babb1b4b97685ca",
+            "payload_sha256": "5e9af82d18b6ffb2e57e396df9c49656ddfd32bdc62cf3ba38a09205a39fd8c5",
             "vector": [
               -0.17971359488435873,
               0.020759530317806692,
@@ -7195,14 +7195,14 @@
             ]
           },
           "observed": {
-            "id": "85719611-043e-4006-887e-3535cc7e82b7",
+            "id": "66e46213-fa54-467f-8501-8b0f2ef0993b",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v1",
-            "payload_sha256": "2d07217ab8a0d9b3480c39b6bdf208ebab40bdbedf1d47ff1702fc665bf31cf9",
+            "payload_sha256": "976e7f085b55f318f7f4cd774e100ab61f21821eb5120a6223e5cf43b029750c",
             "vector": null
           },
           "info": {
@@ -7234,17 +7234,17 @@
           "trial": 4,
           "status": "violation",
           "versions": 5,
-          "acked": 5,
+          "acked": 10,
           "dropped": 0,
           "expected": {
-            "id": "0aec2e22-81f2-417a-ab46-ca5b77a40530",
+            "id": "58efd1e2-1f83-40c9-bf25-3df058ea5502",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v5",
-            "payload_sha256": "05bf5800dba42f9410c52911d6d1d6debff52d9879774fea437b2c744ff3ea15",
+            "payload_sha256": "50c493afc9e30c9a28052f371af82ca2f276c9c3538860cf67da42e71e3d4d4e",
             "vector": [
               -0.17971359488435873,
               0.020759530317806692,
@@ -7313,14 +7313,14 @@
             ]
           },
           "observed": {
-            "id": "3b33dc37-72e4-44c8-9a30-24b6ca87aa03",
+            "id": "57a7a231-d1dd-4641-8587-487b736fa736",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v1",
-            "payload_sha256": "bbd3bd2786430433f35ffae9706ab5458923b88aa1ec90ed874713096a34dde8",
+            "payload_sha256": "c7d3f7f9268b9d5a7f5c3044cf8f91b9c053bd71a79b9c40ddac32d6e1c1f7ea",
             "vector": null
           },
           "info": {
@@ -7352,17 +7352,17 @@
           "trial": 5,
           "status": "violation",
           "versions": 5,
-          "acked": 5,
+          "acked": 10,
           "dropped": 0,
           "expected": {
-            "id": "86fab093-38bb-494d-ae6a-df50e8c5b870",
+            "id": "ac98132b-17d9-46ac-bec1-ededf12863b7",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v5",
-            "payload_sha256": "6278425616d09ebdc85c1a185f41231507193484e2c2bb8ecb4cc0efcaabfdb9",
+            "payload_sha256": "8c787231a96c166b6c50efa1de8d4f3f1986acdd5bb618d8196ed60df312a7d7",
             "vector": [
               -0.17971359488435873,
               0.020759530317806692,
@@ -7431,14 +7431,14 @@
             ]
           },
           "observed": {
-            "id": "37a46704-9c73-45b6-8589-143f7f678f54",
+            "id": "b8859c7c-65d7-40be-bd0c-416ebe29ef2f",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v1",
-            "payload_sha256": "60c5074943c56bd9ba85c5cd3b53e39ee203454edee85e1bb09b1eaa6eaf499e",
+            "payload_sha256": "c5e53658839482b027eca305c10e22ea37f1d1db0b1e2855352bb360eb4c0737",
             "vector": null
           },
           "info": {
@@ -7470,17 +7470,17 @@
           "trial": 6,
           "status": "violation",
           "versions": 5,
-          "acked": 5,
+          "acked": 10,
           "dropped": 0,
           "expected": {
-            "id": "02e1f635-7085-4058-9558-0373366a06ce",
+            "id": "0e8641ba-95d3-49d7-8620-84653831f2e9",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v5",
-            "payload_sha256": "b2fedda97d79521b66fa57afe5c239751fd9e51e3894ea47a358f12bdac6624b",
+            "payload_sha256": "dccc92b7a3c9f0dd31c295b8be8b7dd4ec59294d07874a080a2e14779af1b6d2",
             "vector": [
               -0.17971359488435873,
               0.020759530317806692,
@@ -7549,14 +7549,14 @@
             ]
           },
           "observed": {
-            "id": "123931c1-0ba0-4744-bfc1-4012a3080719",
+            "id": "ffb16980-0105-4f3b-9328-70472edb1937",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v1",
-            "payload_sha256": "67717ff6fb101ec87af387ee56f15939415fdd6c0b5b621eb3e7d3fc3b6ac1e1",
+            "payload_sha256": "34ad3d6788cb5367fe6be7220a090b760de9f2ece4008ca9aa7409056206e802",
             "vector": null
           },
           "info": {
@@ -7588,17 +7588,17 @@
           "trial": 7,
           "status": "violation",
           "versions": 5,
-          "acked": 5,
+          "acked": 10,
           "dropped": 0,
           "expected": {
-            "id": "81d162e5-7dc6-4ce5-a187-b7c5051dbfa8",
+            "id": "211c2bd1-5014-4d89-acee-ff9b8dd47591",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v5",
-            "payload_sha256": "9991f2eeee49a3deefea412bd8f8feb4d0b66cf190137ef3d2c1fae9edb614a3",
+            "payload_sha256": "73c1ea4e749798709144ba7f35d65dc18b3cc8e62f790fc18d2b9321b8f1f5e3",
             "vector": [
               -0.17971359488435873,
               0.020759530317806692,
@@ -7667,14 +7667,14 @@
             ]
           },
           "observed": {
-            "id": "165603a0-0f56-47bd-8967-56e2f2a4150c",
+            "id": "c535461a-6294-4bd7-8586-027a431e0db0",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v1",
-            "payload_sha256": "700e997ea40b0e424983426d70da62268eaebe59d318911f1149ab05d78a5b70",
+            "payload_sha256": "10f14d124b50c602cd0d8b7c1e4c5bc7885b9576868538fdee94d5c872828900",
             "vector": null
           },
           "info": {
@@ -7706,17 +7706,17 @@
           "trial": 8,
           "status": "violation",
           "versions": 5,
-          "acked": 5,
+          "acked": 10,
           "dropped": 0,
           "expected": {
-            "id": "5173ccf3-1aab-445b-bdaf-529cf50f6bc4",
+            "id": "da10cfdf-7070-43c5-9d89-cf3ca846bae2",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v5",
-            "payload_sha256": "0e92caa171b0a7a186eaf626dfde1a1be0ceba7b6e19208c7426db94d05b770b",
+            "payload_sha256": "4e7ff27739d5b444397588aa550ab6972a4bde5b3a490dc6497426b54deaaa44",
             "vector": [
               -0.17971359488435873,
               0.020759530317806692,
@@ -7785,14 +7785,14 @@
             ]
           },
           "observed": {
-            "id": "e0d7d8dc-5777-4b0f-bfc9-8c359cd48077",
+            "id": "68d4f503-d6c3-46b9-b73c-722007bee22f",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v1",
-            "payload_sha256": "96a90c0b632a2719c57c5796814b3aa272176ee4acb1535e1e1abfddf7c3df6e",
+            "payload_sha256": "085d672f59e3a36e851df84363a32a77bba09093db621daa65c1663a394cbbac",
             "vector": null
           },
           "info": {
@@ -7824,17 +7824,17 @@
           "trial": 9,
           "status": "violation",
           "versions": 5,
-          "acked": 5,
+          "acked": 10,
           "dropped": 0,
           "expected": {
-            "id": "8c06805d-eb09-4532-9ca3-2ca1f6ec268b",
+            "id": "6618946a-f3af-4c39-9322-27cd9430452f",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v5",
-            "payload_sha256": "7264dd106730f8caf3d1e0d31884a1ed4ac636fad3a4b5287b8693b16a6b7f4e",
+            "payload_sha256": "760e0153da34ecab7a8e52b92fd640f62266eef24b8187a8607a9b4851b39fbd",
             "vector": [
               -0.17971359488435873,
               0.020759530317806692,
@@ -7903,14 +7903,14 @@
             ]
           },
           "observed": {
-            "id": "03eee3cc-0d6f-4546-85c4-d05e91b21816",
+            "id": "70111a11-425e-424a-84d0-3bed329113d6",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v1",
-            "payload_sha256": "8c1e46e6dd331b1ee23e587e7c019fb9ac1436b4dc9b2bbceaee70881c80cc33",
+            "payload_sha256": "c7869ccc856c78e7ac76f8a86f88da05be5091c8026dc38317f65305b290def4",
             "vector": null
           },
           "info": {
@@ -7942,17 +7942,17 @@
           "trial": 10,
           "status": "violation",
           "versions": 5,
-          "acked": 5,
+          "acked": 10,
           "dropped": 0,
           "expected": {
-            "id": "b2c0f5cc-1363-41ce-8346-64b29e3cf71d",
+            "id": "337fcd93-80a9-494e-9b6a-5654265543ef",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v5",
-            "payload_sha256": "cbe866d93b4c81e814835fcdd1635ff78216642a1ad070c1660fa044530edcc0",
+            "payload_sha256": "fb262b377e1a90ad78297053b485bd8d89b0b338c422f132b3b0f6cc12bcc5a4",
             "vector": [
               -0.17971359488435873,
               0.020759530317806692,
@@ -8021,14 +8021,14 @@
             ]
           },
           "observed": {
-            "id": "11910f86-1f2a-4fa1-b2ea-0bf3f37ca81f",
+            "id": "56e2f803-8d71-4478-9302-61f65f72c77c",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v1",
-            "payload_sha256": "c3f081b200d0d6782ef2a3fbde8b2d395b4664de4e1ed8b116fc8f937c10a8df",
+            "payload_sha256": "5e26599cd61a44824c8ef08b101f9b1086507ed3f873e9cb5abd4423e15048cc",
             "vector": null
           },
           "info": {
@@ -8060,17 +8060,17 @@
           "trial": 11,
           "status": "violation",
           "versions": 5,
-          "acked": 5,
+          "acked": 10,
           "dropped": 0,
           "expected": {
-            "id": "564fd720-7184-4908-acf2-62ea3779c1a2",
+            "id": "9ac8b8eb-c924-44b9-a82a-d9bd61918b3a",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v5",
-            "payload_sha256": "d55338fcf61d41a9617181872dcca1bff73a2784d723c8a3d88bbb66517f05ad",
+            "payload_sha256": "357b6ad0fe9c05c472e89ac6b2f9d5103696ad91af46720405e5ac59b76b029f",
             "vector": [
               -0.17971359488435873,
               0.020759530317806692,
@@ -8139,14 +8139,14 @@
             ]
           },
           "observed": {
-            "id": "74393a74-8065-4ded-947f-5af05339df06",
+            "id": "cc815268-50b8-4ccd-b877-2023bfba1f94",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v1",
-            "payload_sha256": "64caff606c7f1bdc0c17c3c875ac02b1c7f76738c50f39242797c5ee3ae1b94b",
+            "payload_sha256": "9b9ab8dd1bd6f226d1567e723e449ba6538dad8f74df8453f84bb45fce25e12e",
             "vector": null
           },
           "info": {
@@ -8178,17 +8178,17 @@
           "trial": 12,
           "status": "violation",
           "versions": 5,
-          "acked": 5,
+          "acked": 10,
           "dropped": 0,
           "expected": {
-            "id": "22fa631c-038a-42fe-b4ee-8124b4c7e0db",
+            "id": "c1627a90-c965-4a3e-9f76-82e0c14663fa",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v5",
-            "payload_sha256": "1c2786b245220d884fde24ee504f3c0b1ec77159c7c2756b34deb551632b7e41",
+            "payload_sha256": "da7cff79e4bfaa9982874b9c887175df8a9fa87a9037cc5a8eea58eb258e89eb",
             "vector": [
               -0.17971359488435873,
               0.020759530317806692,
@@ -8257,14 +8257,14 @@
             ]
           },
           "observed": {
-            "id": "31138958-e53f-4c25-845f-0bd4145d9a36",
+            "id": "72dc6d97-5b66-48e3-a43d-3c58b8bea6e0",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v1",
-            "payload_sha256": "3648a778da565a42a482c61d5409ca341c2d7a99fe80da5452b7ae6ef27321d8",
+            "payload_sha256": "e59b08d8f647448681308c1a55a6c769f9afe41c4f1119b5844f63047a48cb96",
             "vector": null
           },
           "info": {
@@ -8296,17 +8296,17 @@
           "trial": 13,
           "status": "violation",
           "versions": 5,
-          "acked": 5,
+          "acked": 10,
           "dropped": 0,
           "expected": {
-            "id": "5c31e09b-8795-42f2-9592-632f81803e59",
+            "id": "eba92fbb-f010-4f2d-b0b8-a63e05a08303",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v5",
-            "payload_sha256": "2dfb94c1a6a26a3ccef9a93dedf7bdef5f18e0650d6724cf2f938c2fc6d0bee7",
+            "payload_sha256": "b7b9c2660d4786ce65db73d4d5333ede8af6985aa7a922f994910a9739fea809",
             "vector": [
               -0.17971359488435873,
               0.020759530317806692,
@@ -8375,14 +8375,14 @@
             ]
           },
           "observed": {
-            "id": "208d05d7-390b-4535-be24-0cadac5e55bf",
+            "id": "3569382c-0256-4e43-8758-c7692d461091",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v1",
-            "payload_sha256": "056b7603ec5eac83ace2989dba9d11941263290b076d44aaadd024d3e5bffb92",
+            "payload_sha256": "1775ef6d9f47e4f3c701d28df87e798fcea51425d2ad7c28db74fa7b39edf487",
             "vector": null
           },
           "info": {
@@ -8414,17 +8414,17 @@
           "trial": 14,
           "status": "violation",
           "versions": 5,
-          "acked": 5,
+          "acked": 10,
           "dropped": 0,
           "expected": {
-            "id": "40288d6e-f3d9-4d9d-aa4d-1e4f3c8569d8",
+            "id": "f42cca27-d24e-443f-939c-c4af04188b98",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v5",
-            "payload_sha256": "7ac8ab52007d00c1c26ad5740beb6b99d5f91ebb4e50abe2b0313f0d14bc39f5",
+            "payload_sha256": "6d6dda0064bef978c010ea769a811e9ebf67d8cea7b8309f5e4c8ccf5f74b592",
             "vector": [
               -0.17971359488435873,
               0.020759530317806692,
@@ -8493,14 +8493,14 @@
             ]
           },
           "observed": {
-            "id": "4753ea20-2616-488b-892b-a434b380ff8b",
+            "id": "793c4e12-341c-4c25-b776-c93acf6400f5",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v1",
-            "payload_sha256": "87eac186ecf681c87aff5ce571dd45aa6abcda11f28fb362179034ac086b2192",
+            "payload_sha256": "d7cc1797555eb97abc2139cca3bbced6ca04ad1ec286e6d5d018a11b484a0b2c",
             "vector": null
           },
           "info": {
@@ -8532,17 +8532,17 @@
           "trial": 15,
           "status": "violation",
           "versions": 5,
-          "acked": 5,
+          "acked": 10,
           "dropped": 0,
           "expected": {
-            "id": "f04d4531-77ef-4fa5-ab33-efe1f4bdaf2c",
+            "id": "c99a71e5-0fcb-4e16-92a4-fb3855caf141",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v5",
-            "payload_sha256": "aba977f451af334656eda146b72011b9b6174a62eae350386ecfbba514785f6a",
+            "payload_sha256": "5797cfcb46dbbde6771c9118d39c2442720153c437822bce2611312719349260",
             "vector": [
               -0.17971359488435873,
               0.020759530317806692,
@@ -8611,14 +8611,14 @@
             ]
           },
           "observed": {
-            "id": "3f50c412-b671-4b35-9607-c9de2f4d2a7d",
+            "id": "ce928528-06cb-4729-a7ac-0664f59224e5",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v1",
-            "payload_sha256": "bb4235902809793729480af62cdb6d5b8c89ee7cfb3924c5695e95023fc3d330",
+            "payload_sha256": "4cdd370d8bdd03c831b668192e41dddb5a06d48382494998744ae59ad4d23360",
             "vector": null
           },
           "info": {
@@ -8650,17 +8650,17 @@
           "trial": 16,
           "status": "violation",
           "versions": 5,
-          "acked": 5,
+          "acked": 10,
           "dropped": 0,
           "expected": {
-            "id": "00618c17-c348-42fa-9fb6-8b956e2f287d",
+            "id": "9aeddb8b-d577-4179-a801-f21bcdbbfde4",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v5",
-            "payload_sha256": "18c82e4250112056af70c880a59ca1c873519be87da9abb6ef3468d94aae828b",
+            "payload_sha256": "2e6f56771102c991b71ba1337a3d20116522c5de75bd26cf6ea60117de864430",
             "vector": [
               -0.17971359488435873,
               0.020759530317806692,
@@ -8729,14 +8729,14 @@
             ]
           },
           "observed": {
-            "id": "0cdab153-e8ee-4d98-aa69-b51dbfa87467",
+            "id": "eca11118-a5f6-4ffe-8ea2-8b3577bff2c6",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v1",
-            "payload_sha256": "12ab9a328a16757e6fc925a4ddfb04ddc218cf74b3dd169df1f488ac4d562ada",
+            "payload_sha256": "4f08e09cea913c71c51feb371812d06848e40618bb6b68aeee40c954a523f0e7",
             "vector": null
           },
           "info": {
@@ -8768,17 +8768,17 @@
           "trial": 17,
           "status": "violation",
           "versions": 5,
-          "acked": 5,
+          "acked": 10,
           "dropped": 0,
           "expected": {
-            "id": "1474f961-1a25-497c-9804-2bb1cae573aa",
+            "id": "135b241a-c12e-4173-bede-29ccabd76111",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v5",
-            "payload_sha256": "a2b2e64089697fdf2ae4c6880df8cd8fe08e1b72ff44c2ebd319a24c063bd6a8",
+            "payload_sha256": "b15877212ca8d72954fae6368be1b86f7a34ddfb7a029d7ba2368174186558aa",
             "vector": [
               -0.17971359488435873,
               0.020759530317806692,
@@ -8847,14 +8847,14 @@
             ]
           },
           "observed": {
-            "id": "cbec7c39-a2d2-4050-821b-c06944b2e279",
+            "id": "02b5403d-bf2a-4391-82bc-f0955c5f9cdd",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v1",
-            "payload_sha256": "b58c3094c3ab20b2c06db47190345f302eacf7ad2bf8a7e80ba6539b58845c58",
+            "payload_sha256": "69f7205d2ed2f2715d0ae5012dfc6492c9ab24f5b92522df704720423ce5d97f",
             "vector": null
           },
           "info": {
@@ -8886,17 +8886,17 @@
           "trial": 18,
           "status": "violation",
           "versions": 5,
-          "acked": 5,
+          "acked": 10,
           "dropped": 0,
           "expected": {
-            "id": "5952129c-e4e4-4a08-b878-4decdb5076fc",
+            "id": "c78d8c9f-44f2-44f5-9a2b-3aaae9fb0474",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v5",
-            "payload_sha256": "0375f7cd7a6dd1d92587f64c574eeb9da28f42bd6c71a8cf3cccb1c070b1b698",
+            "payload_sha256": "2b27d9a747a54fdd0c72415f51027b2576e36544f13ed344cba71836bc5c9208",
             "vector": [
               -0.17971359488435873,
               0.020759530317806692,
@@ -8965,14 +8965,14 @@
             ]
           },
           "observed": {
-            "id": "7444debb-850e-4115-89f1-9859e767cf44",
+            "id": "d2d1e67e-6ceb-467b-bf67-a6fe9f5a1735",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v1",
-            "payload_sha256": "5f7eec7394d32f5ff06b8419161e946492c3833f074cf937e5514e8c4c0f1ca2",
+            "payload_sha256": "a754b862a923873e20cb828c9fb0c77e3c62c974d70ea29a11f38890d4e7544d",
             "vector": null
           },
           "info": {
@@ -9004,17 +9004,17 @@
           "trial": 19,
           "status": "violation",
           "versions": 5,
-          "acked": 5,
+          "acked": 10,
           "dropped": 0,
           "expected": {
-            "id": "3d1adbae-f74f-48c0-a05c-d3df288da475",
+            "id": "3621cf3e-447d-4a54-a5ee-2a5e7278a1d2",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v5",
-            "payload_sha256": "68e440e8b705975afabf09aa5b26158ab82b87ac5e043437645dc4a17e6c7595",
+            "payload_sha256": "e28077d008750bc63de2ed159f8ea36646afb7a2140a9e1842a455f446a39eb3",
             "vector": [
               -0.17971359488435873,
               0.020759530317806692,
@@ -9083,14 +9083,14 @@
             ]
           },
           "observed": {
-            "id": "e9d23088-7aed-41f2-9d62-7c2a38ee8768",
+            "id": "2b29f566-acae-4f9c-8665-5af7b675272e",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v1",
-            "payload_sha256": "64dbf0a0c9e1304110aafae96d5b672f7c5d61c42698ce6d5e217d97f7730d64",
+            "payload_sha256": "a773c14488a2223aaafeb35ac001cf75fa899422cef293863bd136612e393568",
             "vector": null
           },
           "info": {
@@ -9122,17 +9122,17 @@
           "trial": 0,
           "status": "ok",
           "versions": 5,
-          "acked": 5,
+          "acked": 10,
           "dropped": 0,
           "expected": {
-            "id": "f4734304-1fc5-4a86-960a-b134cc162ad0",
+            "id": "35cd26dd-c84f-497e-b1c1-1f67186b69b8",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v5",
-            "payload_sha256": "44588429608c5e62f3f81a4c02c03a53a3e0b054a37794cce3813edd91a973e5",
+            "payload_sha256": "7ecd7b0eb397d14b6b185f77bc6c29dd9b9161a7f5c55b414601d5c5ba2f04f0",
             "vector": [
               -0.17971359488435873,
               0.020759530317806692,
@@ -9201,14 +9201,14 @@
             ]
           },
           "observed": {
-            "id": "f4734304-1fc5-4a86-960a-b134cc162ad0",
+            "id": "35cd26dd-c84f-497e-b1c1-1f67186b69b8",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v5",
-            "payload_sha256": "44588429608c5e62f3f81a4c02c03a53a3e0b054a37794cce3813edd91a973e5",
+            "payload_sha256": "7ecd7b0eb397d14b6b185f77bc6c29dd9b9161a7f5c55b414601d5c5ba2f04f0",
             "vector": null
           },
           "info": {
@@ -9226,7 +9226,7 @@
             ],
             "servers": [],
             "version": "3.53.3",
-            "notes": "SQLite keyed upsert. Keyed get returns the latest value.",
+            "notes": "SQLite ON CONFLICT DO UPDATE. Keyed get returns the latest value.",
             "runtime_versions": {}
           }
         },
@@ -9235,17 +9235,17 @@
           "trial": 1,
           "status": "ok",
           "versions": 5,
-          "acked": 5,
+          "acked": 10,
           "dropped": 0,
           "expected": {
-            "id": "02d53034-7360-4743-9569-7791a85a780c",
+            "id": "3d24ab56-444c-48ab-8af2-a3427d52c573",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v5",
-            "payload_sha256": "bebf69d15a7039505ff11c0b0efc775b8311921b1e9aeb3c2a775bc408951096",
+            "payload_sha256": "09cc7f8469e36fd2136fe8e67abecbc12d1111801882d770c1bff141e96b8062",
             "vector": [
               -0.17971359488435873,
               0.020759530317806692,
@@ -9314,14 +9314,14 @@
             ]
           },
           "observed": {
-            "id": "02d53034-7360-4743-9569-7791a85a780c",
+            "id": "3d24ab56-444c-48ab-8af2-a3427d52c573",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v5",
-            "payload_sha256": "bebf69d15a7039505ff11c0b0efc775b8311921b1e9aeb3c2a775bc408951096",
+            "payload_sha256": "09cc7f8469e36fd2136fe8e67abecbc12d1111801882d770c1bff141e96b8062",
             "vector": null
           },
           "info": {
@@ -9339,7 +9339,7 @@
             ],
             "servers": [],
             "version": "3.53.3",
-            "notes": "SQLite keyed upsert. Keyed get returns the latest value.",
+            "notes": "SQLite ON CONFLICT DO UPDATE. Keyed get returns the latest value.",
             "runtime_versions": {}
           }
         },
@@ -9348,17 +9348,17 @@
           "trial": 2,
           "status": "ok",
           "versions": 5,
-          "acked": 5,
+          "acked": 10,
           "dropped": 0,
           "expected": {
-            "id": "f190ae71-5aed-40fa-8b0a-c50511e60eb9",
+            "id": "9d04aac5-d2cb-41ba-8e8a-4910786af24a",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v5",
-            "payload_sha256": "0bcc03b4ebab75f94658ba21ce364dd05bfe84a9ca91db6621f3a8223e38a1df",
+            "payload_sha256": "c7315965331219e89ab91e796c1009471145910b40cb28a87c0ecedeabeb330b",
             "vector": [
               -0.17971359488435873,
               0.020759530317806692,
@@ -9427,14 +9427,14 @@
             ]
           },
           "observed": {
-            "id": "f190ae71-5aed-40fa-8b0a-c50511e60eb9",
+            "id": "9d04aac5-d2cb-41ba-8e8a-4910786af24a",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v5",
-            "payload_sha256": "0bcc03b4ebab75f94658ba21ce364dd05bfe84a9ca91db6621f3a8223e38a1df",
+            "payload_sha256": "c7315965331219e89ab91e796c1009471145910b40cb28a87c0ecedeabeb330b",
             "vector": null
           },
           "info": {
@@ -9452,7 +9452,7 @@
             ],
             "servers": [],
             "version": "3.53.3",
-            "notes": "SQLite keyed upsert. Keyed get returns the latest value.",
+            "notes": "SQLite ON CONFLICT DO UPDATE. Keyed get returns the latest value.",
             "runtime_versions": {}
           }
         },
@@ -9461,17 +9461,17 @@
           "trial": 3,
           "status": "ok",
           "versions": 5,
-          "acked": 5,
+          "acked": 10,
           "dropped": 0,
           "expected": {
-            "id": "0b7e9ac5-9ae6-46ce-81ce-64f43fff0e33",
+            "id": "460991e6-b98d-4e2b-9fd9-b83dc509f564",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v5",
-            "payload_sha256": "dbfbb9fe1e29386550924dde4d3480a7700c17473aca8e27906b2c7a59d0f083",
+            "payload_sha256": "e9a608665d0d544343aa508386cb324a83cae0fecdfae45e68265e3ac29e6613",
             "vector": [
               -0.17971359488435873,
               0.020759530317806692,
@@ -9540,14 +9540,14 @@
             ]
           },
           "observed": {
-            "id": "0b7e9ac5-9ae6-46ce-81ce-64f43fff0e33",
+            "id": "460991e6-b98d-4e2b-9fd9-b83dc509f564",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v5",
-            "payload_sha256": "dbfbb9fe1e29386550924dde4d3480a7700c17473aca8e27906b2c7a59d0f083",
+            "payload_sha256": "e9a608665d0d544343aa508386cb324a83cae0fecdfae45e68265e3ac29e6613",
             "vector": null
           },
           "info": {
@@ -9565,7 +9565,7 @@
             ],
             "servers": [],
             "version": "3.53.3",
-            "notes": "SQLite keyed upsert. Keyed get returns the latest value.",
+            "notes": "SQLite ON CONFLICT DO UPDATE. Keyed get returns the latest value.",
             "runtime_versions": {}
           }
         },
@@ -9574,17 +9574,17 @@
           "trial": 4,
           "status": "ok",
           "versions": 5,
-          "acked": 5,
+          "acked": 10,
           "dropped": 0,
           "expected": {
-            "id": "758b0f2a-7ab2-473b-aa1d-089a7ce00883",
+            "id": "c0283874-ff96-4ebc-a7f4-231aae1c97ee",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v5",
-            "payload_sha256": "b3185245138005503533a7146b544d94565b850d53d3e8e7936dbe52c8768af0",
+            "payload_sha256": "4098c6736b53989dba48cb7978b26dd1368b9bccb92433691a9fb3bc59e537a7",
             "vector": [
               -0.17971359488435873,
               0.020759530317806692,
@@ -9653,14 +9653,14 @@
             ]
           },
           "observed": {
-            "id": "758b0f2a-7ab2-473b-aa1d-089a7ce00883",
+            "id": "c0283874-ff96-4ebc-a7f4-231aae1c97ee",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v5",
-            "payload_sha256": "b3185245138005503533a7146b544d94565b850d53d3e8e7936dbe52c8768af0",
+            "payload_sha256": "4098c6736b53989dba48cb7978b26dd1368b9bccb92433691a9fb3bc59e537a7",
             "vector": null
           },
           "info": {
@@ -9678,7 +9678,7 @@
             ],
             "servers": [],
             "version": "3.53.3",
-            "notes": "SQLite keyed upsert. Keyed get returns the latest value.",
+            "notes": "SQLite ON CONFLICT DO UPDATE. Keyed get returns the latest value.",
             "runtime_versions": {}
           }
         },
@@ -9687,17 +9687,17 @@
           "trial": 5,
           "status": "ok",
           "versions": 5,
-          "acked": 5,
+          "acked": 10,
           "dropped": 0,
           "expected": {
-            "id": "66200b5c-ddf8-4603-970a-dafc33d1af19",
+            "id": "a98420ce-dba5-4515-a8ed-fb62d59cd026",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v5",
-            "payload_sha256": "e01a6d0010b9e8741e2bde0c0aebb814dafa6b0dafa93b1d507dd80bcb219bd0",
+            "payload_sha256": "5b8344206c6b1adac7b4b23cd4f8138a3afe2dbc861a0d8bfa7262fe27f28bfd",
             "vector": [
               -0.17971359488435873,
               0.020759530317806692,
@@ -9766,14 +9766,14 @@
             ]
           },
           "observed": {
-            "id": "66200b5c-ddf8-4603-970a-dafc33d1af19",
+            "id": "a98420ce-dba5-4515-a8ed-fb62d59cd026",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v5",
-            "payload_sha256": "e01a6d0010b9e8741e2bde0c0aebb814dafa6b0dafa93b1d507dd80bcb219bd0",
+            "payload_sha256": "5b8344206c6b1adac7b4b23cd4f8138a3afe2dbc861a0d8bfa7262fe27f28bfd",
             "vector": null
           },
           "info": {
@@ -9791,7 +9791,7 @@
             ],
             "servers": [],
             "version": "3.53.3",
-            "notes": "SQLite keyed upsert. Keyed get returns the latest value.",
+            "notes": "SQLite ON CONFLICT DO UPDATE. Keyed get returns the latest value.",
             "runtime_versions": {}
           }
         },
@@ -9800,17 +9800,17 @@
           "trial": 6,
           "status": "ok",
           "versions": 5,
-          "acked": 5,
+          "acked": 10,
           "dropped": 0,
           "expected": {
-            "id": "2f963444-65a6-4292-a4b6-4b2135f7a3aa",
+            "id": "a9cde8b2-8e13-4ebe-9600-db22082c25b7",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v5",
-            "payload_sha256": "b7838bbe62a4f71dfebfe8c5e94679cdce50b278aa8c1bb82c7ec384312df1aa",
+            "payload_sha256": "c14b8a2ed9cae52f4414348b7de78d9335685df65cde0c72d4115a0854b11a0e",
             "vector": [
               -0.17971359488435873,
               0.020759530317806692,
@@ -9879,14 +9879,14 @@
             ]
           },
           "observed": {
-            "id": "2f963444-65a6-4292-a4b6-4b2135f7a3aa",
+            "id": "a9cde8b2-8e13-4ebe-9600-db22082c25b7",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v5",
-            "payload_sha256": "b7838bbe62a4f71dfebfe8c5e94679cdce50b278aa8c1bb82c7ec384312df1aa",
+            "payload_sha256": "c14b8a2ed9cae52f4414348b7de78d9335685df65cde0c72d4115a0854b11a0e",
             "vector": null
           },
           "info": {
@@ -9904,7 +9904,7 @@
             ],
             "servers": [],
             "version": "3.53.3",
-            "notes": "SQLite keyed upsert. Keyed get returns the latest value.",
+            "notes": "SQLite ON CONFLICT DO UPDATE. Keyed get returns the latest value.",
             "runtime_versions": {}
           }
         },
@@ -9913,17 +9913,17 @@
           "trial": 7,
           "status": "ok",
           "versions": 5,
-          "acked": 5,
+          "acked": 10,
           "dropped": 0,
           "expected": {
-            "id": "88929afd-ef89-4d50-9891-7e2d0b9c67c8",
+            "id": "8fef1b18-9828-4ee0-9041-e961c18f3337",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v5",
-            "payload_sha256": "ca1bcfb3ea7f3458ce392c50a7f103d0227d9051d383b3cf90977419826f0432",
+            "payload_sha256": "41c3446036cda891c7e4ec37ba97063b65487cb96e27b87a55470c9788bb0ca2",
             "vector": [
               -0.17971359488435873,
               0.020759530317806692,
@@ -9992,14 +9992,14 @@
             ]
           },
           "observed": {
-            "id": "88929afd-ef89-4d50-9891-7e2d0b9c67c8",
+            "id": "8fef1b18-9828-4ee0-9041-e961c18f3337",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v5",
-            "payload_sha256": "ca1bcfb3ea7f3458ce392c50a7f103d0227d9051d383b3cf90977419826f0432",
+            "payload_sha256": "41c3446036cda891c7e4ec37ba97063b65487cb96e27b87a55470c9788bb0ca2",
             "vector": null
           },
           "info": {
@@ -10017,7 +10017,7 @@
             ],
             "servers": [],
             "version": "3.53.3",
-            "notes": "SQLite keyed upsert. Keyed get returns the latest value.",
+            "notes": "SQLite ON CONFLICT DO UPDATE. Keyed get returns the latest value.",
             "runtime_versions": {}
           }
         },
@@ -10026,17 +10026,17 @@
           "trial": 8,
           "status": "ok",
           "versions": 5,
-          "acked": 5,
+          "acked": 10,
           "dropped": 0,
           "expected": {
-            "id": "0a0b6271-cd55-40ae-8478-bf8295b3d993",
+            "id": "06739280-fe7c-4dd6-ac67-3405080c7bdc",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v5",
-            "payload_sha256": "37dbc4826f5736635e8a5d916b69e0b8b29387bfa4b4bc393a5f75e45e45df48",
+            "payload_sha256": "2c1c84cf784bb7a649f35235cc4bd598419575fd450ea85d5732af292bad95eb",
             "vector": [
               -0.17971359488435873,
               0.020759530317806692,
@@ -10105,14 +10105,14 @@
             ]
           },
           "observed": {
-            "id": "0a0b6271-cd55-40ae-8478-bf8295b3d993",
+            "id": "06739280-fe7c-4dd6-ac67-3405080c7bdc",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v5",
-            "payload_sha256": "37dbc4826f5736635e8a5d916b69e0b8b29387bfa4b4bc393a5f75e45e45df48",
+            "payload_sha256": "2c1c84cf784bb7a649f35235cc4bd598419575fd450ea85d5732af292bad95eb",
             "vector": null
           },
           "info": {
@@ -10130,7 +10130,7 @@
             ],
             "servers": [],
             "version": "3.53.3",
-            "notes": "SQLite keyed upsert. Keyed get returns the latest value.",
+            "notes": "SQLite ON CONFLICT DO UPDATE. Keyed get returns the latest value.",
             "runtime_versions": {}
           }
         },
@@ -10139,17 +10139,17 @@
           "trial": 9,
           "status": "ok",
           "versions": 5,
-          "acked": 5,
+          "acked": 10,
           "dropped": 0,
           "expected": {
-            "id": "fc74b3ca-7b54-47c3-afb9-1a8a0a3ebca7",
+            "id": "83228177-91aa-4743-9aae-4e05114e739b",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v5",
-            "payload_sha256": "a75869800cf137260210422ea43953b5a30ae1bbe51fc2ee2d9ea3c115c1fa76",
+            "payload_sha256": "5d7280703324f97df059e7ca708f17298d36c66545b06e8183f80f705972d9b2",
             "vector": [
               -0.17971359488435873,
               0.020759530317806692,
@@ -10218,14 +10218,14 @@
             ]
           },
           "observed": {
-            "id": "fc74b3ca-7b54-47c3-afb9-1a8a0a3ebca7",
+            "id": "83228177-91aa-4743-9aae-4e05114e739b",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v5",
-            "payload_sha256": "a75869800cf137260210422ea43953b5a30ae1bbe51fc2ee2d9ea3c115c1fa76",
+            "payload_sha256": "5d7280703324f97df059e7ca708f17298d36c66545b06e8183f80f705972d9b2",
             "vector": null
           },
           "info": {
@@ -10243,7 +10243,7 @@
             ],
             "servers": [],
             "version": "3.53.3",
-            "notes": "SQLite keyed upsert. Keyed get returns the latest value.",
+            "notes": "SQLite ON CONFLICT DO UPDATE. Keyed get returns the latest value.",
             "runtime_versions": {}
           }
         },
@@ -10252,17 +10252,17 @@
           "trial": 10,
           "status": "ok",
           "versions": 5,
-          "acked": 5,
+          "acked": 10,
           "dropped": 0,
           "expected": {
-            "id": "a6e1e5cb-088f-4d86-9f03-5eab81628425",
+            "id": "5084a1f8-d3ac-483f-99dc-515dd0556713",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v5",
-            "payload_sha256": "085e104ee567c660bc051b9001d44b7f3c9521d0a229afc25af2feac0d593aeb",
+            "payload_sha256": "c318a2e8002b383ea6c5f22aa19769d7b3d1483e5c08ec53f0e693690bbe3b7e",
             "vector": [
               -0.17971359488435873,
               0.020759530317806692,
@@ -10331,14 +10331,14 @@
             ]
           },
           "observed": {
-            "id": "a6e1e5cb-088f-4d86-9f03-5eab81628425",
+            "id": "5084a1f8-d3ac-483f-99dc-515dd0556713",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v5",
-            "payload_sha256": "085e104ee567c660bc051b9001d44b7f3c9521d0a229afc25af2feac0d593aeb",
+            "payload_sha256": "c318a2e8002b383ea6c5f22aa19769d7b3d1483e5c08ec53f0e693690bbe3b7e",
             "vector": null
           },
           "info": {
@@ -10356,7 +10356,7 @@
             ],
             "servers": [],
             "version": "3.53.3",
-            "notes": "SQLite keyed upsert. Keyed get returns the latest value.",
+            "notes": "SQLite ON CONFLICT DO UPDATE. Keyed get returns the latest value.",
             "runtime_versions": {}
           }
         },
@@ -10365,17 +10365,17 @@
           "trial": 11,
           "status": "ok",
           "versions": 5,
-          "acked": 5,
+          "acked": 10,
           "dropped": 0,
           "expected": {
-            "id": "6f188625-5d7d-4713-9dc4-d509194e0c53",
+            "id": "b78efecd-3e14-441b-a4a8-5c4ab5c213f4",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v5",
-            "payload_sha256": "c641827dc5d628313b2acbc4e4fa2d19286a6ddac7667eabb3c5a49adb46616d",
+            "payload_sha256": "7cf65a19b39fb9eb48d30e04d7699a37110ded7fb770578192ad9bd2726fd122",
             "vector": [
               -0.17971359488435873,
               0.020759530317806692,
@@ -10444,14 +10444,14 @@
             ]
           },
           "observed": {
-            "id": "6f188625-5d7d-4713-9dc4-d509194e0c53",
+            "id": "b78efecd-3e14-441b-a4a8-5c4ab5c213f4",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v5",
-            "payload_sha256": "c641827dc5d628313b2acbc4e4fa2d19286a6ddac7667eabb3c5a49adb46616d",
+            "payload_sha256": "7cf65a19b39fb9eb48d30e04d7699a37110ded7fb770578192ad9bd2726fd122",
             "vector": null
           },
           "info": {
@@ -10469,7 +10469,7 @@
             ],
             "servers": [],
             "version": "3.53.3",
-            "notes": "SQLite keyed upsert. Keyed get returns the latest value.",
+            "notes": "SQLite ON CONFLICT DO UPDATE. Keyed get returns the latest value.",
             "runtime_versions": {}
           }
         },
@@ -10478,17 +10478,17 @@
           "trial": 12,
           "status": "ok",
           "versions": 5,
-          "acked": 5,
+          "acked": 10,
           "dropped": 0,
           "expected": {
-            "id": "51d608d1-152e-414c-8a8d-08dec9e7dbb5",
+            "id": "a752f58c-19b5-4452-b0be-ee32072d4714",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v5",
-            "payload_sha256": "0a4c15c5abef429e3df4e5f29d0dfff71ba3ad22aeee6bcf9e71449098f6be5f",
+            "payload_sha256": "553db410d925ac9173e55c87e2b683ab5033def65784b51f11375fc45756baf6",
             "vector": [
               -0.17971359488435873,
               0.020759530317806692,
@@ -10557,14 +10557,14 @@
             ]
           },
           "observed": {
-            "id": "51d608d1-152e-414c-8a8d-08dec9e7dbb5",
+            "id": "a752f58c-19b5-4452-b0be-ee32072d4714",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v5",
-            "payload_sha256": "0a4c15c5abef429e3df4e5f29d0dfff71ba3ad22aeee6bcf9e71449098f6be5f",
+            "payload_sha256": "553db410d925ac9173e55c87e2b683ab5033def65784b51f11375fc45756baf6",
             "vector": null
           },
           "info": {
@@ -10582,7 +10582,7 @@
             ],
             "servers": [],
             "version": "3.53.3",
-            "notes": "SQLite keyed upsert. Keyed get returns the latest value.",
+            "notes": "SQLite ON CONFLICT DO UPDATE. Keyed get returns the latest value.",
             "runtime_versions": {}
           }
         },
@@ -10591,17 +10591,17 @@
           "trial": 13,
           "status": "ok",
           "versions": 5,
-          "acked": 5,
+          "acked": 10,
           "dropped": 0,
           "expected": {
-            "id": "94f0e838-ebba-4581-93cb-00df427fc91b",
+            "id": "8304ce8e-e496-4949-93cd-e34530ae1339",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v5",
-            "payload_sha256": "0cf9e0c26c0e86c8942e3037bcc88929d5d098e35ef240ac231dddb98907465b",
+            "payload_sha256": "615e1962d60c339ec186a723114b29601ffced135692678089722bc416ab9df5",
             "vector": [
               -0.17971359488435873,
               0.020759530317806692,
@@ -10670,14 +10670,14 @@
             ]
           },
           "observed": {
-            "id": "94f0e838-ebba-4581-93cb-00df427fc91b",
+            "id": "8304ce8e-e496-4949-93cd-e34530ae1339",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v5",
-            "payload_sha256": "0cf9e0c26c0e86c8942e3037bcc88929d5d098e35ef240ac231dddb98907465b",
+            "payload_sha256": "615e1962d60c339ec186a723114b29601ffced135692678089722bc416ab9df5",
             "vector": null
           },
           "info": {
@@ -10695,7 +10695,7 @@
             ],
             "servers": [],
             "version": "3.53.3",
-            "notes": "SQLite keyed upsert. Keyed get returns the latest value.",
+            "notes": "SQLite ON CONFLICT DO UPDATE. Keyed get returns the latest value.",
             "runtime_versions": {}
           }
         },
@@ -10704,17 +10704,17 @@
           "trial": 14,
           "status": "ok",
           "versions": 5,
-          "acked": 5,
+          "acked": 10,
           "dropped": 0,
           "expected": {
-            "id": "ee955c26-a5c9-426d-ae34-3e0d9308650a",
+            "id": "572daa2c-124c-4c8f-86fd-43ea10f34919",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v5",
-            "payload_sha256": "42a90231de3f46dcaa330da25c639cf403e2f185b91c97e25ab0b2d181d6c33f",
+            "payload_sha256": "07fc9d9798f735806a0168475948179c43d7a783afadfa5c5b7dc7f06a8a326f",
             "vector": [
               -0.17971359488435873,
               0.020759530317806692,
@@ -10783,14 +10783,14 @@
             ]
           },
           "observed": {
-            "id": "ee955c26-a5c9-426d-ae34-3e0d9308650a",
+            "id": "572daa2c-124c-4c8f-86fd-43ea10f34919",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v5",
-            "payload_sha256": "42a90231de3f46dcaa330da25c639cf403e2f185b91c97e25ab0b2d181d6c33f",
+            "payload_sha256": "07fc9d9798f735806a0168475948179c43d7a783afadfa5c5b7dc7f06a8a326f",
             "vector": null
           },
           "info": {
@@ -10808,7 +10808,7 @@
             ],
             "servers": [],
             "version": "3.53.3",
-            "notes": "SQLite keyed upsert. Keyed get returns the latest value.",
+            "notes": "SQLite ON CONFLICT DO UPDATE. Keyed get returns the latest value.",
             "runtime_versions": {}
           }
         },
@@ -10817,17 +10817,17 @@
           "trial": 15,
           "status": "ok",
           "versions": 5,
-          "acked": 5,
+          "acked": 10,
           "dropped": 0,
           "expected": {
-            "id": "b2f181b1-3dd4-43e7-b730-82b822ea8d2b",
+            "id": "50b1c81f-4332-4267-9fe3-af027ef6b2a8",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v5",
-            "payload_sha256": "e3dc54258eae86f33d3dabb0c86dc55cfa41823dcd5da3b1eb4c3828682e1ffb",
+            "payload_sha256": "d6421d40863e0f1394d6d122c9b847e044e125f1534b84c3e036c45d77349626",
             "vector": [
               -0.17971359488435873,
               0.020759530317806692,
@@ -10896,14 +10896,14 @@
             ]
           },
           "observed": {
-            "id": "b2f181b1-3dd4-43e7-b730-82b822ea8d2b",
+            "id": "50b1c81f-4332-4267-9fe3-af027ef6b2a8",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v5",
-            "payload_sha256": "e3dc54258eae86f33d3dabb0c86dc55cfa41823dcd5da3b1eb4c3828682e1ffb",
+            "payload_sha256": "d6421d40863e0f1394d6d122c9b847e044e125f1534b84c3e036c45d77349626",
             "vector": null
           },
           "info": {
@@ -10921,7 +10921,7 @@
             ],
             "servers": [],
             "version": "3.53.3",
-            "notes": "SQLite keyed upsert. Keyed get returns the latest value.",
+            "notes": "SQLite ON CONFLICT DO UPDATE. Keyed get returns the latest value.",
             "runtime_versions": {}
           }
         },
@@ -10930,17 +10930,17 @@
           "trial": 16,
           "status": "ok",
           "versions": 5,
-          "acked": 5,
+          "acked": 10,
           "dropped": 0,
           "expected": {
-            "id": "12334053-ffe8-4482-9341-597caa7cb231",
+            "id": "d18c3a14-0119-42af-943c-e549e99c9f12",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v5",
-            "payload_sha256": "f76840338cd638771437fc3a194edb95fe0e0e362fea89f190084beeb70b9978",
+            "payload_sha256": "ed9077a5e369a0c62af99ad1e51ac7610798605d4e51620426c996dcc0b3f46f",
             "vector": [
               -0.17971359488435873,
               0.020759530317806692,
@@ -11009,14 +11009,14 @@
             ]
           },
           "observed": {
-            "id": "12334053-ffe8-4482-9341-597caa7cb231",
+            "id": "d18c3a14-0119-42af-943c-e549e99c9f12",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v5",
-            "payload_sha256": "f76840338cd638771437fc3a194edb95fe0e0e362fea89f190084beeb70b9978",
+            "payload_sha256": "ed9077a5e369a0c62af99ad1e51ac7610798605d4e51620426c996dcc0b3f46f",
             "vector": null
           },
           "info": {
@@ -11034,7 +11034,7 @@
             ],
             "servers": [],
             "version": "3.53.3",
-            "notes": "SQLite keyed upsert. Keyed get returns the latest value.",
+            "notes": "SQLite ON CONFLICT DO UPDATE. Keyed get returns the latest value.",
             "runtime_versions": {}
           }
         },
@@ -11043,17 +11043,17 @@
           "trial": 17,
           "status": "ok",
           "versions": 5,
-          "acked": 5,
+          "acked": 10,
           "dropped": 0,
           "expected": {
-            "id": "ab65f2b5-8c7a-4a01-96ac-03c56440ada9",
+            "id": "5d9c1f5b-c4aa-4ae5-9286-bfbdc18c1e4a",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v5",
-            "payload_sha256": "6aeef76dd6ac79e21734c10a3cd5a1f070753196c942f3866d12f4e44b97b114",
+            "payload_sha256": "2846da3d6e3286ed7ba795979722d4fb5f03e7568183e7a7e54ed50bf36322ee",
             "vector": [
               -0.17971359488435873,
               0.020759530317806692,
@@ -11122,14 +11122,14 @@
             ]
           },
           "observed": {
-            "id": "ab65f2b5-8c7a-4a01-96ac-03c56440ada9",
+            "id": "5d9c1f5b-c4aa-4ae5-9286-bfbdc18c1e4a",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v5",
-            "payload_sha256": "6aeef76dd6ac79e21734c10a3cd5a1f070753196c942f3866d12f4e44b97b114",
+            "payload_sha256": "2846da3d6e3286ed7ba795979722d4fb5f03e7568183e7a7e54ed50bf36322ee",
             "vector": null
           },
           "info": {
@@ -11147,7 +11147,7 @@
             ],
             "servers": [],
             "version": "3.53.3",
-            "notes": "SQLite keyed upsert. Keyed get returns the latest value.",
+            "notes": "SQLite ON CONFLICT DO UPDATE. Keyed get returns the latest value.",
             "runtime_versions": {}
           }
         },
@@ -11156,17 +11156,17 @@
           "trial": 18,
           "status": "ok",
           "versions": 5,
-          "acked": 5,
+          "acked": 10,
           "dropped": 0,
           "expected": {
-            "id": "0b98d3f3-c07a-48f9-b445-019d67942d8c",
+            "id": "b8734680-9ff0-44ec-8565-94327349c643",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v5",
-            "payload_sha256": "06ec41dca13ad7620f62879e609911ae801bfe86aeb88f2f50b5c2bef4548499",
+            "payload_sha256": "de4bf642e483f7d8a5360a41932aa3cb000115ee8b5c191e6dfa905b08de1604",
             "vector": [
               -0.17971359488435873,
               0.020759530317806692,
@@ -11235,14 +11235,14 @@
             ]
           },
           "observed": {
-            "id": "0b98d3f3-c07a-48f9-b445-019d67942d8c",
+            "id": "b8734680-9ff0-44ec-8565-94327349c643",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v5",
-            "payload_sha256": "06ec41dca13ad7620f62879e609911ae801bfe86aeb88f2f50b5c2bef4548499",
+            "payload_sha256": "de4bf642e483f7d8a5360a41932aa3cb000115ee8b5c191e6dfa905b08de1604",
             "vector": null
           },
           "info": {
@@ -11260,7 +11260,7 @@
             ],
             "servers": [],
             "version": "3.53.3",
-            "notes": "SQLite keyed upsert. Keyed get returns the latest value.",
+            "notes": "SQLite ON CONFLICT DO UPDATE. Keyed get returns the latest value.",
             "runtime_versions": {}
           }
         },
@@ -11269,17 +11269,17 @@
           "trial": 19,
           "status": "ok",
           "versions": 5,
-          "acked": 5,
+          "acked": 10,
           "dropped": 0,
           "expected": {
-            "id": "1c0ca767-75dd-437a-b9bb-03b324880e1b",
+            "id": "726f3303-0d09-447e-a2ce-f8bd7e7479a9",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v5",
-            "payload_sha256": "5371e8d321f4f1574d2593cc6abfdcee50edc2358b669bb50a2e16c61ce90812",
+            "payload_sha256": "68d6c73f1560b1a06b5e34e20fc32173b2e7601d1b5a2bf2d13500d30bae1b50",
             "vector": [
               -0.17971359488435873,
               0.020759530317806692,
@@ -11348,14 +11348,14 @@
             ]
           },
           "observed": {
-            "id": "1c0ca767-75dd-437a-b9bb-03b324880e1b",
+            "id": "726f3303-0d09-447e-a2ce-f8bd7e7479a9",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v5",
-            "payload_sha256": "5371e8d321f4f1574d2593cc6abfdcee50edc2358b669bb50a2e16c61ce90812",
+            "payload_sha256": "68d6c73f1560b1a06b5e34e20fc32173b2e7601d1b5a2bf2d13500d30bae1b50",
             "vector": null
           },
           "info": {
@@ -11373,7 +11373,7 @@
             ],
             "servers": [],
             "version": "3.53.3",
-            "notes": "SQLite keyed upsert. Keyed get returns the latest value.",
+            "notes": "SQLite ON CONFLICT DO UPDATE. Keyed get returns the latest value.",
             "runtime_versions": {}
           }
         }
