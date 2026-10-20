@@ -8,3 +8,11 @@
 {"name":"missing-record-field","op":"get","args":{},"reply":{"id":1,"result":{"kind":"record","id":"r"}},"valid":false}
 {"name":"extra-fields","op":"write","args":{"record":{"kind":"record","id":"r","scope":{"tenant":"t","session":"s"},"key":"k","text":"v","payload_sha256":""}},"reply":{"id":1,"future":true,"result":{"kind":"ack","id":"r","dropped":false,"ref":{"kind":"ref","id":"opaque","future":123},"future":"ignored"}},"valid":true}
 {"name":"nested-extra-fields","op":"start","args":{},"reply":{"id":1,"result":{"protocol":1,"capabilities":[],"version":"test","notes":"","servers":[],"future":{"kind":["not","a","value"]}}},"valid":true}
+{"name":"open-ms-zero","op":"start","args":{},"reply":{"id":1,"result":{"protocol":1,"capabilities":[],"version":"test","notes":"","servers":[],"open_ms":0}},"valid":true}
+{"name":"open-ms-fraction","op":"start","args":{},"reply":{"id":1,"result":{"protocol":1,"capabilities":[],"version":"test","notes":"","servers":[],"open_ms":0.25}},"valid":true}
+{"name":"open-ms-negative","op":"start","args":{},"reply":{"id":1,"result":{"protocol":1,"capabilities":[],"version":"test","notes":"","servers":[],"open_ms":-1}},"valid":false}
+{"name":"open-ms-boolean","op":"start","args":{},"reply":{"id":1,"result":{"protocol":1,"capabilities":[],"version":"test","notes":"","servers":[],"open_ms":true}},"valid":false}
+{"name":"open-ms-text","op":"start","args":{},"reply":{"id":1,"result":{"protocol":1,"capabilities":[],"version":"test","notes":"","servers":[],"open_ms":"1"}},"valid":false}
+{"name":"open-ms-null","op":"start","args":{},"reply":{"id":1,"result":{"protocol":1,"capabilities":[],"version":"test","notes":"","servers":[],"open_ms":null}},"valid":false}
+{"name":"open-ms-infinite","op":"start","args":{},"raw_hex":"7b226964223a20312c2022726573756c74223a207b2270726f746f636f6c223a20312c20226361706162696c6974696573223a205b5d2c202276657273696f6e223a202274657374222c20226e6f746573223a2022222c202273657276657273223a205b5d2c20226f70656e5f6d73223a20496e66696e6974797d7d","valid":false}
+{"name":"open-ms-nan","op":"start","args":{},"raw_hex":"7b226964223a20312c2022726573756c74223a207b2270726f746f636f6c223a20312c20226361706162696c6974696573223a205b5d2c202276657273696f6e223a202274657374222c20226e6f746573223a2022222c202273657276657273223a205b5d2c20226f70656e5f6d73223a204e614e7d7d","valid":false}

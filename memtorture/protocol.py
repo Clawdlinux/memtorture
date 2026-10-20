@@ -6,6 +6,7 @@ import signal
 import subprocess
 import sys
 import time
+import uuid
 from dataclasses import fields, is_dataclass, replace
 from pathlib import Path
 
@@ -83,16 +84,21 @@ class Worker:
         self.acked = {}
         self.refs = {}
         self.pending = {}
-        self.buffer = b""
+        self.buffer = bytearray()
         self.sequence = 0
         self.last_sent_ns = 0
         self.last_ack_ns = 0
         self.stopped = False
         self.closed = False
         self.server_pid = None
-        self.log = (self.workdir / "worker.stderr.log").open("ab")
+        logs = self.workdir.resolve().parent / "logs"
+        logs.mkdir(parents=True, exist_ok=True)
+        self.log_path = logs / f"{self.workdir.name}-{uuid.uuid4().hex}.stderr.log"
+        self.log = self.log_path.open("ab")
+        argv = command or worker_command(system)
+        self.spawn_ns = time.monotonic_ns()
         self.process = subprocess.Popen(
-            command or worker_command(system),
+            argv,
             stdin=subprocess.PIPE,
             stdout=subprocess.PIPE,
             stderr=self.log,
@@ -154,17 +160,21 @@ class Worker:
 
     def receive(self, token):
         deadline = time.monotonic() + self.timeout
-        while b"\n" not in self.buffer:
+        newline = self.buffer.find(b"\n")
+        while newline < 0:
             remaining = deadline - time.monotonic()
             if remaining <= 0 or not self.selector.select(remaining):
                 raise TimeoutError("Worker reply timed out")
             chunk = os.read(self.process.stdout.fileno(), 65536)
             if not chunk:
-                raise RuntimeError(
-                    f"Worker exited. See {self.workdir}/worker.stderr.log"
-                )
-            self.buffer += chunk
-        line, self.buffer = self.buffer.split(b"\n", 1)
+                raise RuntimeError(f"Worker exited. See {self.log_path}")
+            offset = len(self.buffer)
+            self.buffer.extend(chunk)
+            position = chunk.find(b"\n")
+            if position >= 0:
+                newline = offset + position
+        line = self.buffer[:newline]
+        del self.buffer[: newline + 1]
         read_ns = time.monotonic_ns()
         op, kwargs = self.pending.pop(token)
         reply = parse_reply(line, token, op, kwargs)
@@ -178,6 +188,8 @@ class Worker:
                 raise TimeoutError(error["message"])
             raise RuntimeError(f"{error['type']}: {error['message']}")
         result = decode(reply["result"])
+        if op == "start":
+            self.start_reply_ns = read_ns
         if op == "stop":
             self.stopped = True
         if op in {"write", "upsert"} and isinstance(result, Ack):

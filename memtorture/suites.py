@@ -46,11 +46,11 @@ PROCESS_NOTE = (
 
 def percentiles(values):
     values = sorted(values)
-    if not values:
-        return {"p50": None, "p99": None}
+    count = len(values)
     return {
-        label: values[max(0, math.ceil(len(values) * q) - 1)]
-        for label, q in (("p50", 0.5), ("p99", 0.99))
+        "n": count,
+        "p50": values[math.ceil(count * 0.5) - 1] if count else None,
+        "p99": values[math.ceil(count * 0.99) - 1] if count >= 100 else None,
     }
 
 
@@ -224,6 +224,7 @@ def recall_delay(
                 "visibility_lag_ms": percentiles([o["lag_ms"] for o in visible]),
                 "time_to_visible_ms": percentiles([o["total_ms"] for o in visible]),
                 "read_ms": percentiles(read_latencies),
+                "read_max_ms": max(read_latencies, default=None),
                 "observations": observations,
             }
     return {
@@ -563,6 +564,19 @@ def supersede_by_key(system, config, workdir, *, versions=5, emit=None):
         }
 
 
+def poll_until(fn, *, timeout_s, poll_ms):
+    if timeout_s < 0 or poll_ms < 0:
+        raise ValueError("Polling durations must be nonnegative")
+    deadline = time.monotonic() + timeout_s
+    while True:
+        if fn():
+            return True
+        remaining = deadline - time.monotonic()
+        if remaining <= 0:
+            return False
+        time.sleep(min(poll_ms / 1000, remaining))
+
+
 def write_throughput(
     system,
     config,
@@ -642,18 +656,20 @@ def write_throughput(
                 for worker in workers
                 for key, record in worker.acked.items()
             }
-            deadline = time.monotonic() + timeout_s
-            while True:
-                rows = workers[0].call(
+            counts = {}
+
+            def readback(worker=workers[0], count=count, expected=expected):
+                nonlocal counts
+                rows = worker.call(
                     "list_prefix",
                     scope=scope,
                     prefix="writer",
                     limit=count * writes + 1,
                 )
                 counts = inspect_records(expected, rows)
-                if not counts["acked_missing"] or time.monotonic() >= deadline:
-                    break
-                time.sleep(0.01)
+                return not counts["acked_missing"]
+
+            poll_until(readback, timeout_s=timeout_s, poll_ms=10)
             detail = {
                 "writers": count,
                 "attempted": count * writes,
@@ -661,6 +677,7 @@ def write_throughput(
                 "dropped": sum(entry["dropped"] for entry in observations),
                 "start_ns": released[0],
                 "end_ns": end_ns,
+                "window_ms": (end_ns - released[0]) / 1e6,
                 "ops_per_second": len(expected) * 1e9 / (end_ns - released[0]),
                 "write_latency_ms": percentiles(
                     [
@@ -671,6 +688,15 @@ def write_throughput(
                 **counts,
             }
             trials.append(detail)
+            for index, worker in enumerate(workers):
+                event(
+                    emit,
+                    operation="worker-start",
+                    writer=index,
+                    writers=count,
+                    spawn_ns=worker.spawn_ns,
+                    start_reply_ns=worker.start_reply_ns,
+                )
             for entry in observations:
                 event(emit, **entry)
             event(emit, operation="throughput-check", **detail)
@@ -704,13 +730,9 @@ def forget_read(worker, path, record):
     if path == "get":
         row = worker.call(path, scope=record.scope, key=record.key)
         return [row] if row else []
-    mapped = {
-        "get_by_ref": "id",
-        "list_prefix": "filter",
-        "read_recent": "recency",
-        "search": "search",
-    }
-    return read_path(worker, mapped[path], record)
+    return read_path(
+        worker, next(name for name, op in PATHS.items() if op == path), record
+    )
 
 
 def seed_forget(worker, text):
@@ -736,29 +758,29 @@ def check_forget(worker, target, ref, *, timeout_s=5, poll_ms=10, emit=None):
         if path not in worker.capabilities:
             paths[path] = {"status": "N/A", "reason": f"Missing {path}"}
             continue
-        deadline = time.monotonic() + timeout_s
-        while True:
-            try:
-                rows = forget_read(worker, path, target)
-            except NotSupported as exc:
-                paths[path] = {"status": "N/A", "reason": str(exc)}
-                break
-            if any(row == target and row.valid() for row in rows):
+
+        def visible(path=path):
+            return any(
+                row == target and row.valid()
+                for row in forget_read(worker, path, target)
+            )
+
+        try:
+            if poll_until(visible, timeout_s=timeout_s, poll_ms=poll_ms):
                 paths[path] = {"visible_before": True}
-                break
-            if time.monotonic() >= deadline:
+            else:
                 paths[path] = {
                     "status": "not measurable",
                     "visible_before": False,
                     "reason": "Target was not visible before delete",
                 }
-                break
-            time.sleep(poll_ms / 1000)
+        except NotSupported as exc:
+            paths[path] = {"status": "N/A", "reason": str(exc)}
     worker.call("delete", scope=target.scope, ref=ref)
     ack_ns = time.monotonic_ns()
     pending = {path for path, detail in paths.items() if detail.get("visible_before")}
-    deadline_ns = ack_ns + int(timeout_s * 1e9)
-    while pending:
+
+    def absent():
         for path in FORGET_PATHS:
             if path not in pending:
                 continue
@@ -768,14 +790,14 @@ def check_forget(worker, target, ref, *, timeout_s=5, poll_ms=10, emit=None):
                 row.id == target.id or row.key == target.key for row in rows
             )
             paths[path].update(remaining=remaining)
-            if not remaining or now >= deadline_ns:
-                paths[path].update(
-                    status="ok" if not remaining else "violation",
-                    lag_ms=(now - ack_ns) / 1e6 if not remaining else None,
-                )
+            if not remaining:
+                paths[path].update(status="ok", lag_ms=(now - ack_ns) / 1e6)
                 pending.remove(path)
-        if pending:
-            time.sleep(poll_ms / 1000)
+        return not pending
+
+    poll_until(absent, timeout_s=timeout_s, poll_ms=poll_ms)
+    for path in pending:
+        paths[path].update(status="violation", lag_ms=None)
     for path, detail in paths.items():
         event(emit, operation="forget-check", path=path, **detail)
     statuses = [detail["status"] for detail in paths.values()]
@@ -905,15 +927,17 @@ def recovery(system, config, workdir, *, sizes=(100000,), samples=100, emit=None
                     ],
                 )
         known = recovery_record(scope, size // 2)
-        start_ns = time.monotonic_ns()
         with Worker(system, config, path) as worker:
             info = worker.info
-            deadline = time.monotonic() + 60
-            while worker.call("get", scope=scope, key=known.key) != known:
-                if time.monotonic() >= deadline:
-                    raise RuntimeError("Known record unavailable after restart")
-                time.sleep(0.01)
+
+            def ready(worker=worker, known=known):
+                return worker.call("get", scope=scope, key=known.key) == known
+
+            if not poll_until(ready, timeout_s=60, poll_ms=10):
+                raise RuntimeError("Known record unavailable after restart")
             ready_ns = time.monotonic_ns()
+            start_to_read_ms = (ready_ns - worker.start_reply_ns) / 1e6
+            open_ms = info.get("open_ms")
             pids = worker.servers or {"worker": worker.process.pid}
             memory = {role: rss_bytes(pid) for role, pid in pids.items()}
             indices = sorted(
@@ -933,20 +957,34 @@ def recovery(system, config, workdir, *, sizes=(100000,), samples=100, emit=None
                 "count": None,
                 "count_matches": None,
                 "count_source": "N/A",
+                "enumeration_pages": 0,
             }
             if "list_prefix" in worker.capabilities:
-                rows = worker.call(
-                    "list_prefix", scope=scope, prefix="key", limit=size + 1
-                )
-                intact_rows = [r for r in rows if r.valid()]
+                count, seen, intact = 0, set(), True
+                for page in range((size + 9999) // 10000):
+                    prefix = f"key{page:04d}"
+                    rows = worker.call(
+                        "list_prefix", scope=scope, prefix=prefix, limit=10001
+                    )
+                    count += len(rows)
+                    seen.update(row.id for row in rows)
+                    intact = intact and all(
+                        row.valid() and row.key.startswith(prefix) for row in rows
+                    )
+                    verification["enumeration_pages"] += 1
                 verification.update(
-                    count=len(rows),
-                    count_source="list_prefix enumeration",
-                    count_matches=len(rows) == size
-                    and len({r.id for r in intact_rows}) == size,
+                    count=count,
+                    count_source="list_prefix sub-prefix enumeration",
+                    count_matches=count == size and len(seen) == size and intact,
                 )
             curves[str(size)] = {
-                "time_to_ready_ms": (ready_ns - start_ns) / 1e6,
+                "time_to_ready_ms": (ready_ns - worker.spawn_ns) / 1e6,
+                "spawn_to_start_ms": (worker.start_reply_ns - worker.spawn_ns) / 1e6,
+                "open_ms": open_ms,
+                "start_to_first_read_ms": start_to_read_ms,
+                "recovery_ms": open_ms + start_to_read_ms
+                if open_ms is not None
+                else None,
                 "rss_bytes": memory,
                 "verification": verification,
             }

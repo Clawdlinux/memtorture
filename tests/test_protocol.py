@@ -12,7 +12,15 @@ from memtorture.conformance import search_matches
 from memtorture.protocol import OPERATIONS, ProtocolError, decode, encode, parse_reply
 from memtorture.types import Ack, NotSupported, Record, Ref, Scope
 from memtorture.worker import serve
-from tests.helpers import ROOT, Probe, make_record, matches, pid_exists, reply_command
+from tests.helpers import (
+    LARGE_REPLY_BYTES,
+    ROOT,
+    Probe,
+    make_record,
+    matches,
+    pid_exists,
+    reply_command,
+)
 
 
 @pytest.mark.parametrize("kind", ["record", ["record"], {"unexpected": "tag"}])
@@ -73,6 +81,8 @@ def test_ack_lifecycle(worker_factory, outcome):
     assert worker.info["protocol"] == 1
     assert worker.info["servers"] == []
     assert isinstance(worker.info["notes"], str)
+    assert worker.info["open_ms"] >= 0
+    assert worker.spawn_ns < worker.start_reply_ns
     token = worker.send("write", scope=record.scope, record=record)
     time.sleep(0.03)
     assert worker.acked == worker.refs == {}
@@ -317,3 +327,17 @@ def test_search_contract():
             {"scope": first.scope, "query": second.text, "k": 3},
             first=second,
         )
+
+
+def test_large_reply_keeps_the_next_request_intact(worker_factory):
+    worker = worker_factory(name="LargeReplyProbe", timeout=5)
+    scope = Scope("tenant", "large-reply")
+    large = worker.call("get", scope=scope, key="large")
+    assert len(large.text) == LARGE_REPLY_BYTES
+    assert large.text.startswith("xxxx") and large.text.endswith("TAIL")
+    assert large.valid()
+    small = worker.call("get", scope=scope, key="next")
+    assert small.text == "small" and small.key == "next"
+    assert small.scope == scope and small.valid()
+    worker.close()
+    assert worker.process.returncode == 0

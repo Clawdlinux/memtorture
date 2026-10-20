@@ -155,6 +155,10 @@ def test_history_curves(tmp_path):
     assert result["bulk_load_timed"] is False
     assert len([e for e in events if e["operation"] == "history-read"]) == 12
     assert result["control_gate"]["gated"] is False
+    for size in result["sizes"].values():
+        for metric in size.values():
+            assert metric["latency_ms"]["n"] == 2
+            assert metric["latency_ms"]["p99"] is None
 
 
 @pytest.mark.parametrize("copies", [1, 2])

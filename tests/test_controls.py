@@ -106,6 +106,10 @@ def test_control_evidence(stub_controls, tmp_path, monkeypatch, capsys):
     summary = gate.run_controls(root=root)
     for measurement in ("history-scale", "write-throughput", "recovery"):
         assert summary["suites"][measurement] == HISTORY_CONTROLS
+    recall = summary["suites"]["recall-delay"]["details"][0]
+    assert recall["read_ms"]["n"] == 1
+    assert recall["read_ms"]["p99"] is None
+    assert recall["upper_read_statistic"] == "max"
     current = root / gate.platform_key()
     top = current / "gate.json"
     before = top.read_bytes()

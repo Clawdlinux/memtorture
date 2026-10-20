@@ -16,7 +16,7 @@
     "text": {"type":"string"},
     "start_result": {
       "type":"object","required":["protocol","capabilities","version","notes","servers"],
-      "properties":{"protocol":{"type":"integer","const":1},"capabilities":{"$ref":"#/$defs/strings"},"version":{"type":"string"},"notes":{"type":"string"},"servers":{"type":"array","items":{"type":"object","required":["role","pid"],"properties":{"role":{"type":"string","minLength":1},"pid":{"type":"integer","minimum":1}}}}}
+      "properties":{"protocol":{"type":"integer","const":1},"capabilities":{"$ref":"#/$defs/strings"},"version":{"type":"string"},"notes":{"type":"string"},"open_ms":{"type":"number","minimum":0},"servers":{"type":"array","items":{"type":"object","required":["role","pid"],"properties":{"role":{"type":"string","minLength":1},"pid":{"type":"integer","minimum":1}}}}}
     },
     "request": {"type":"object","required":["id","op","args"],"properties":{"id":{"type":"integer"},"op":{"type":"string"},"args":{"type":"object"}}},
     "reply": {

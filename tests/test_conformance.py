@@ -45,6 +45,7 @@ def test_adapter_contract(
     assert "HARNESS:" in output
     if system == "reference":
         with Worker(system, config, tmp_path / "storage", command=command) as worker:
+            assert worker.info["open_ms"] >= 0
             record = make_record()
             worker.call("write", scope=record.scope, record=record)
             assert worker.call("get", scope=record.scope, key=record.key).vector is None
@@ -94,7 +95,10 @@ def test_worker_variants(tmp_path, node, capsys, variant, message):
         with pytest.raises(ProtocolError, match=message):
             run_conformance(command, workdir=directory, visibility_timeout=0)
         if variant == "duplicate-upsert":
-            assert "debug diagnostic" in (directory / "worker.stderr.log").read_text()
+            assert any(
+                "debug diagnostic" in log.read_text()
+                for log in (directory / "logs").glob("*.stderr.log")
+            )
             output = capsys.readouterr().out
             assert str(directory) in output
             assert "debug diagnostic" in output

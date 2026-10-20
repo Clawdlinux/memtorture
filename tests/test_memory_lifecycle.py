@@ -33,7 +33,24 @@ def test_throughput_keeps_loss_visible(tmp_path, system, missing):
     for trial in result["trials"]:
         assert trial["acked"] == trial["writers"] * 20
         assert trial["ops_per_second"] > 0
-        assert trial["write_latency_ms"]["p99"] >= trial["write_latency_ms"]["p50"] > 0
+        latency = trial["write_latency_ms"]
+        assert latency["n"] == trial["attempted"]
+        assert latency["p50"] > 0
+        if latency["n"] < 100:
+            assert latency["p99"] is None
+        else:
+            assert latency["p99"] >= latency["p50"]
+        starts = [
+            e
+            for e in events
+            if e["operation"] == "worker-start" and e["writers"] == trial["writers"]
+        ]
+        assert len(starts) == trial["writers"]
+        assert trial["start_ns"] >= max(e["start_reply_ns"] for e in starts)
+        assert all(e["spawn_ns"] <= e["start_reply_ns"] for e in starts)
+        assert trial["window_ms"] == pytest.approx(
+            (trial["end_ns"] - trial["start_ns"]) / 1e6
+        )
         writes = [
             e
             for e in events
@@ -117,21 +134,36 @@ def test_clean_recovery_reports_counts_and_rss(tmp_path):
         "sqlite-busy",
         "default",
         tmp_path,
-        sizes=(25, 60),
+        sizes=(25, 10025),
         samples=12,
         emit=events.append,
     )
     assert result["status"] == "ok"
     assert result["bulk_load_timed"] is False
     assert result["control_gate"]["gated"] is False
-    assert set(result["sizes"]) == {"25", "60"}
+    assert set(result["sizes"]) == {"25", "10025"}
     for size, metric in result["sizes"].items():
-        assert metric["time_to_ready_ms"] > 0
+        assert metric["spawn_to_start_ms"] > 0
+        assert metric["open_ms"] >= 0
+        assert metric["start_to_first_read_ms"] > 0
+        assert metric["spawn_to_start_ms"] >= metric["open_ms"]
+        assert metric["recovery_ms"] == pytest.approx(
+            metric["open_ms"] + metric["start_to_first_read_ms"]
+        )
+        assert metric["time_to_ready_ms"] == pytest.approx(
+            metric["spawn_to_start_ms"] + metric["start_to_first_read_ms"]
+        )
+        assert metric["time_to_ready_ms"] >= metric["recovery_ms"]
+        assert result["info"]["open_ms"] >= 0
+        assert (
+            metric["verification"]["enumeration_pages"] == (int(size) + 9999) // 10000
+        )
         assert metric["rss_bytes"]["worker"] > 0
         assert metric["verification"]["count"] == int(size)
         assert metric["verification"]["samples_checked"] == 12
         assert metric["verification"]["samples_missing"] == 0
         assert metric["verification"]["count_matches"] is True
+    assert result["sizes"]["10025"]["open_ms"] == result["info"]["open_ms"]
     assert len([e for e in events if e["operation"] == "recovery-check"]) == 2
 
 

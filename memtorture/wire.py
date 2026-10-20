@@ -210,6 +210,14 @@ def validate_reply(reply, token, op, args):
             all(isinstance(result.get(k), str) for k in ("version", "notes")),
             "start needs version and notes",
         )
+        if "open_ms" in result:
+            duration = result["open_ms"]
+            require(
+                type(duration) in (int, float)
+                and math.isfinite(duration)
+                and duration >= 0,
+                "Expected finite nonnegative open_ms",
+            )
         servers = result.get("servers")
         require(isinstance(servers, list), "start needs servers")
         roles, pids = set(), set()

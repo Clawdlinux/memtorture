@@ -12,6 +12,9 @@ The harness stays outside the tested worker.
 Every adapter runs in a separate Python process.
 Messages use JSON lines over stdin and stdout.
 Workers never print logs on the protocol channel.
+The harness captures worker stderr outside the system data directory, in a sibling `logs/` directory.
+Conformance runs keep data under `data/` and diagnostics under `logs/`.
+Harness diagnostics cannot make plaintext residue appear measurable.
 
 A write is acked only after the harness reads its reply.
 The storage call must return before that reply.
@@ -32,6 +35,13 @@ See [PROTOCOL.md](PROTOCOL.md) for wire shapes and validation rules.
 Adapters map that envelope onto native keyed operations where available.
 Scope includes both tenant and session.
 Every read filters both.
+
+## Timing samples
+
+Every percentile group reports `n`, its sample count.
+The p50 uses the nearest rank when at least 1 sample exists. Empty groups report null.
+The p99 uses the nearest rank only when `n >= 100`. Smaller groups report null, not an estimated tail.
+This applies to recall, history, and throughput latency summaries.
 
 ## Fault targets
 
@@ -116,7 +126,9 @@ The delayed control stages index entries behind a monotonic deadline.
 This avoids measuring the operating system's timer coalescing.
 For 1 ms calibration polls, the harness spins until each scheduled poll.
 Normal recall cells use 10 ms sleeping polls.
-Calibration retains the approved bounds: 100 ms through 101 ms plus read p99.
+Calibration retains its 100 ms lower bound and 101 ms plus read overhead upper bound.
+Read overhead uses p99 when at least 100 reads exist. Otherwise it uses the maximum observed read latency.
+The gate records that choice and the read sample count. It never invents a p99 from fewer reads.
 SQLite must be visible on the first read.
 
 The first Mac calibration used `threading.Timer`.
@@ -237,7 +249,10 @@ The seed resets for each writer count. This keeps workloads identical across con
 
 Throughput counts non-dropped acknowledgements per second, from barrier release through the last acknowledgement.
 Write latency runs from harness send through validated acknowledgement receipt.
-Results report nearest-rank p50 and p99 in milliseconds, separately for each writer count.
+Results report latency percentiles in milliseconds, separately for each writer count, with the sample-count rules above.
+Each writer count also reports `window_ms`, from barrier release through the last acknowledgement.
+Raw worker-start events record every process's spawn and start-reply timestamps.
+The window starts after every start reply. Process startup never contributes to throughput.
 Record preparation, worker startup, and readback are outside the throughput window.
 Raw events are buffered until measurement finishes. Logging cannot extend that window.
 
@@ -350,9 +365,21 @@ Missing native delete support or a missing write ref produces N/A, as in forget.
 Each config row bulk-loads 100K records without timing, then stops cleanly.
 `--extended` also runs an independent 1M-record dataset.
 The reopened dataset uses the same data directory and config row.
-Time to ready starts before launching the replacement worker.
-It ends when a known middle record first reads back correctly, including its payload digest.
-Worker startup, server startup, and that first successful read are included.
+Readiness ends when a known middle record first reads back correctly, including its payload digest.
+The result separates these timing fields:
+
+- `spawn_to_start_ms`: harness time from spawning the worker through receiving its start reply.
+- `open_ms`: the worker's measured duration of the system's open call, carried in the start reply.
+- `start_to_first_read_ms`: harness time from the start reply through the first valid get.
+- `recovery_ms`: the headline metric, `open_ms + start_to_first_read_ms`.
+- `time_to_ready_ms`: total harness time from spawn through that first valid get.
+
+The total equals `spawn_to_start_ms + start_to_first_read_ms`.
+The headline excludes Python bootstrap and start-request transport, rather than treating them as storage recovery.
+Open time includes the adapter's native setup and any server readiness waits inside its open call.
+The Python worker and Node reference report `open_ms` from their own monotonic clocks.
+Third-party workers may omit it. Then `open_ms` and `recovery_ms` are null, with the other timings still measured.
+Missing open telemetry means the headline is N/A. It never becomes zero or falls back to total process startup.
 A missing known record after 60 seconds produces an error, not a readiness number.
 This is warm filesystem-cache recovery after clean shutdown, not cold boot or crash recovery.
 
@@ -367,6 +394,12 @@ RSS is resident process memory, not peak memory, proportional set size, or total
 Readback samples up to 100 evenly spaced records, including endpoints when the sample count exceeds 1.
 Each sample must match its expected record and digest.
 When list_prefix exists, a full enumeration also checks the count, unique IDs, and every returned digest.
+Enumeration requests disjoint sub-prefix pages, each covering up to 10K expected records, and sums their counts.
+For 1M records, prefixes run from `key0000` through `key0099`.
+Each request allows 10001 records, so an extra row still causes a count mismatch.
+No single reply must carry the whole dataset. The verification also reports the number of enumeration pages.
+The JSONL receiver uses an extending bytearray and searches each new chunk once for its newline.
+This keeps framing linear for large replies. The 64 MiB protocol regression stays in the default test run.
 The count is an enumeration count, not a native COUNT API. Protocol v1 has no COUNT operation.
 Without enumeration support, count fields are null and the source is N/A. Sampling is still reported.
 Missing get support makes readiness N/A because no known-record probe is available.

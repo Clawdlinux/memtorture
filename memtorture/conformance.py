@@ -130,7 +130,9 @@ def run_conformance(command, *, config="default", workdir=None, visibility_timeo
 
     try:
         marker.write_text(str(os.getpid()))
-        with Worker("conformance", config, path, command=argv, timeout=10) as worker:
+        with Worker(
+            "conformance", config, path / "data", command=argv, timeout=10
+        ) as worker:
             for case in cases("golden.jsonl"):
                 request = case["request"]
                 op = request["op"]
@@ -243,7 +245,10 @@ def run_conformance(command, *, config="default", workdir=None, visibility_timeo
         else:
             print(f"Work directory kept: {path}")
             try:
-                with (path / "worker.stderr.log").open("rb") as log:
+                logs = list((path / "logs").glob("*.stderr.log"))
+                if not logs:
+                    raise FileNotFoundError("No worker stderr log")
+                with logs[0].open("rb") as log:
                     log.seek(0, 2)
                     log.seek(max(0, log.tell() - 16384))
                     tail = (

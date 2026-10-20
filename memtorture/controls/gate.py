@@ -152,7 +152,12 @@ def run_controls(*, quick=False, root=DEFAULT_ROOT):
                             metric = result["paths"][read_path]
                             observation = metric["observations"][0]
                             lag = observation.get("lag_ms")
-                            upper = 100 + 1 + metric["read_ms"]["p99"]
+                            read_bound = metric["read_ms"]["p99"]
+                            statistic = "p99"
+                            if read_bound is None:
+                                read_bound = metric["read_max_ms"]
+                                statistic = "max"
+                            upper = 100 + 1 + read_bound
                             matched = (
                                 lag is not None and 100 <= lag <= upper
                                 if role == "must_fail"
@@ -165,7 +170,9 @@ def run_controls(*, quick=False, root=DEFAULT_ROOT):
                                     "path": read_path,
                                     "lag_ms": lag,
                                     "upper_ms": upper,
-                                    "read_p99_ms": metric["read_ms"]["p99"],
+                                    "read_ms": metric["read_ms"],
+                                    "upper_read_ms": read_bound,
+                                    "upper_read_statistic": statistic,
                                     "matched": matched,
                                 }
                             )

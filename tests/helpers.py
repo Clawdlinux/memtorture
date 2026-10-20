@@ -221,6 +221,16 @@ class Probe:
         pass
 
 
+LARGE_REPLY_BYTES = 64 * 1024 * 1024
+
+
+class LargeReplyProbe(Probe):
+    def get(self, scope, key):
+        text = "x" * (LARGE_REPLY_BYTES - 4) + "TAIL" if key == "large" else "small"
+        row = Record("reply", scope, key, text, "")
+        return replace(row, payload_sha256=row.digest())
+
+
 class ServerProbe(Probe):
     def start(self, workdir, config):
         super().start(workdir, config)
@@ -418,7 +428,8 @@ def stub_recall(system, config, path, *, paths, **kwargs):
                         "polls": 1,
                     }
                 ],
-                "read_ms": {"p99": 0.1},
+                "read_ms": {"n": 1, "p50": 0.1, "p99": None},
+                "read_max_ms": 0.1,
             }
         }
     }
@@ -564,6 +575,8 @@ class EncodedMemory(Markdown):
 
     def write(self, scope, record):
         self._rewrite(lambda rows: rows + [record])
+        if self.mode == "encoded":
+            print(record.text, file=sys.stderr)
         return Ack(record.id, ref=None if self.mode == "no-ref" else Ref(record.id))
 
     def bulk_load(self, scope, records):
