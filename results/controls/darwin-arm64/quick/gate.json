@@ -8,7 +8,7 @@
     "cpu_count": 10,
     "ram_bytes": 17179869184
   },
-  "methodology_sha256": "8f1bf5793014a292eeac8f48afe97f0dad43890ea5a41a974e2cc90cf10b1b85",
+  "methodology_sha256": "5aeb8ce2243d8b601079c5cb064c7c17feb932742573c99e56117a957f9798cc",
   "suites": {
     "recall-delay": {
       "must_fail": "delayed-index",
@@ -21,14 +21,14 @@
           "role": "must_fail",
           "trial": 0,
           "path": "id",
-          "lag_ms": 100.451875,
-          "upper_ms": 101.360917,
+          "lag_ms": 100.121625,
+          "upper_ms": 101.402833,
           "read_ms": {
             "n": 101,
-            "p50": 0.084458,
-            "p99": 0.360917
+            "p50": 0.0755,
+            "p99": 0.402833
           },
-          "upper_read_ms": 0.360917,
+          "upper_read_ms": 0.402833,
           "upper_read_statistic": "p99",
           "matched": true
         },
@@ -36,14 +36,14 @@
           "role": "must_fail",
           "trial": 1,
           "path": "filter",
-          "lag_ms": 100.15825,
-          "upper_ms": 101.404791,
+          "lag_ms": 100.102583,
+          "upper_ms": 101.314625,
           "read_ms": {
             "n": 101,
-            "p50": 0.078583,
-            "p99": 0.404791
+            "p50": 0.064042,
+            "p99": 0.314625
           },
-          "upper_read_ms": 0.404791,
+          "upper_read_ms": 0.314625,
           "upper_read_statistic": "p99",
           "matched": true
         },
@@ -51,14 +51,14 @@
           "role": "must_fail",
           "trial": 2,
           "path": "recency",
-          "lag_ms": 100.134083,
-          "upper_ms": 101.323792,
+          "lag_ms": 100.095042,
+          "upper_ms": 101.40975,
           "read_ms": {
             "n": 101,
-            "p50": 0.079125,
-            "p99": 0.323792
+            "p50": 0.065125,
+            "p99": 0.40975
           },
-          "upper_read_ms": 0.323792,
+          "upper_read_ms": 0.40975,
           "upper_read_statistic": "p99",
           "matched": true
         },
@@ -66,14 +66,14 @@
           "role": "must_fail",
           "trial": 3,
           "path": "search",
-          "lag_ms": 100.232625,
-          "upper_ms": 101.550042,
+          "lag_ms": 100.408583,
+          "upper_ms": 101.491375,
           "read_ms": {
             "n": 101,
-            "p50": 0.175666,
-            "p99": 0.550042
+            "p50": 0.131125,
+            "p99": 0.491375
           },
-          "upper_read_ms": 0.550042,
+          "upper_read_ms": 0.491375,
           "upper_read_statistic": "p99",
           "matched": true
         },
@@ -81,14 +81,14 @@
           "role": "must_fail",
           "trial": 4,
           "path": "id",
-          "lag_ms": 100.121292,
-          "upper_ms": 101.3525,
+          "lag_ms": 100.088209,
+          "upper_ms": 101.211792,
           "read_ms": {
             "n": 101,
-            "p50": 0.077459,
-            "p99": 0.3525
+            "p50": 0.056875,
+            "p99": 0.211792
           },
-          "upper_read_ms": 0.3525,
+          "upper_read_ms": 0.211792,
           "upper_read_statistic": "p99",
           "matched": true
         },
@@ -96,14 +96,14 @@
           "role": "must_pass",
           "trial": 0,
           "path": "id",
-          "lag_ms": 0.15925,
-          "upper_ms": 101.122667,
+          "lag_ms": 0.1685,
+          "upper_ms": 101.131375,
           "read_ms": {
             "n": 1,
-            "p50": 0.122667,
+            "p50": 0.131375,
             "p99": null
           },
-          "upper_read_ms": 0.122667,
+          "upper_read_ms": 0.131375,
           "upper_read_statistic": "max",
           "matched": true
         },
@@ -111,14 +111,14 @@
           "role": "must_pass",
           "trial": 1,
           "path": "filter",
-          "lag_ms": 0.24,
-          "upper_ms": 101.188625,
+          "lag_ms": 0.147625,
+          "upper_ms": 101.113417,
           "read_ms": {
             "n": 1,
-            "p50": 0.188625,
+            "p50": 0.113417,
             "p99": null
           },
-          "upper_read_ms": 0.188625,
+          "upper_read_ms": 0.113417,
           "upper_read_statistic": "max",
           "matched": true
         },
@@ -126,14 +126,14 @@
           "role": "must_pass",
           "trial": 2,
           "path": "recency",
-          "lag_ms": 0.218125,
-          "upper_ms": 101.164584,
+          "lag_ms": 0.164916,
+          "upper_ms": 101.131416,
           "read_ms": {
             "n": 1,
-            "p50": 0.164584,
+            "p50": 0.131416,
             "p99": null
           },
-          "upper_read_ms": 0.164584,
+          "upper_read_ms": 0.131416,
           "upper_read_statistic": "max",
           "matched": true
         },
@@ -141,14 +141,14 @@
           "role": "must_pass",
           "trial": 3,
           "path": "search",
-          "lag_ms": 0.76575,
-          "upper_ms": 101.677,
+          "lag_ms": 0.27625,
+          "upper_ms": 101.23925,
           "read_ms": {
             "n": 1,
-            "p50": 0.677,
+            "p50": 0.23925,
             "p99": null
           },
-          "upper_read_ms": 0.677,
+          "upper_read_ms": 0.23925,
           "upper_read_statistic": "max",
           "matched": true
         },
@@ -156,14 +156,14 @@
           "role": "must_pass",
           "trial": 4,
           "path": "id",
-          "lag_ms": 6.516625,
-          "upper_ms": 107.418542,
+          "lag_ms": 0.120375,
+          "upper_ms": 101.093042,
           "read_ms": {
             "n": 1,
-            "p50": 6.418542,
+            "p50": 0.093042,
             "p99": null
           },
-          "upper_read_ms": 6.418542,
+          "upper_read_ms": 0.093042,
           "upper_read_statistic": "max",
           "matched": true
         }
@@ -196,7 +196,7 @@
               "target": "worker",
               "trial": 0,
               "acked": 6,
-              "fault_ns": 229725647058541,
+              "fault_ns": 230404111534333,
               "acked_missing": 6,
               "duplicates": 0,
               "torn": 0
@@ -205,7 +205,7 @@
           "note": "Tests user-space buffering and recovery, not disk durability. Worker-only faults test little for server-backed systems.",
           "info": {
             "protocol": 1,
-            "open_ms": 0.894917,
+            "open_ms": 0.157542,
             "capabilities": [
               "delete",
               "emulated:delete",
@@ -247,7 +247,7 @@
               "target": "worker",
               "trial": 0,
               "acked": 8,
-              "fault_ns": 229726149444458,
+              "fault_ns": 230404241653000,
               "acked_missing": 8,
               "duplicates": 0,
               "torn": 0
@@ -256,7 +256,7 @@
           "note": "Tests user-space buffering and recovery, not disk durability. Worker-only faults test little for server-backed systems.",
           "info": {
             "protocol": 1,
-            "open_ms": 0.312541,
+            "open_ms": 0.188583,
             "capabilities": [
               "delete",
               "emulated:delete",
@@ -298,7 +298,7 @@
               "target": "worker",
               "trial": 0,
               "acked": 7,
-              "fault_ns": 229726590912958,
+              "fault_ns": 230404371657125,
               "acked_missing": 7,
               "duplicates": 0,
               "torn": 0
@@ -307,7 +307,7 @@
           "note": "Tests user-space buffering and recovery, not disk durability. Worker-only faults test little for server-backed systems.",
           "info": {
             "protocol": 1,
-            "open_ms": 0.348791,
+            "open_ms": 0.303833,
             "capabilities": [
               "delete",
               "emulated:delete",
@@ -349,7 +349,7 @@
               "target": "worker",
               "trial": 0,
               "acked": 6,
-              "fault_ns": 229727388152291,
+              "fault_ns": 230404499965458,
               "acked_missing": 6,
               "duplicates": 0,
               "torn": 0
@@ -358,7 +358,7 @@
           "note": "Tests user-space buffering and recovery, not disk durability. Worker-only faults test little for server-backed systems.",
           "info": {
             "protocol": 1,
-            "open_ms": 0.792875,
+            "open_ms": 0.164208,
             "capabilities": [
               "delete",
               "emulated:delete",
@@ -400,7 +400,7 @@
               "target": "worker",
               "trial": 0,
               "acked": 5,
-              "fault_ns": 229727672095375,
+              "fault_ns": 230404628970250,
               "acked_missing": 5,
               "duplicates": 0,
               "torn": 0
@@ -409,7 +409,7 @@
           "note": "Tests user-space buffering and recovery, not disk durability. Worker-only faults test little for server-backed systems.",
           "info": {
             "protocol": 1,
-            "open_ms": 0.411292,
+            "open_ms": 0.158958,
             "capabilities": [
               "delete",
               "emulated:delete",
@@ -451,7 +451,7 @@
               "target": "worker",
               "trial": 0,
               "acked": 6,
-              "fault_ns": 229727920080625,
+              "fault_ns": 230404760028958,
               "acked_missing": 0,
               "duplicates": 0,
               "torn": 0
@@ -460,7 +460,7 @@
           "note": "Tests user-space buffering and recovery, not disk durability. Worker-only faults test little for server-backed systems.",
           "info": {
             "protocol": 1,
-            "open_ms": 2.391792,
+            "open_ms": 1.390459,
             "capabilities": [
               "delete",
               "get",
@@ -497,7 +497,7 @@
               "target": "worker",
               "trial": 0,
               "acked": 8,
-              "fault_ns": 229728120352125,
+              "fault_ns": 230404894663791,
               "acked_missing": 0,
               "duplicates": 0,
               "torn": 0
@@ -506,7 +506,7 @@
           "note": "Tests user-space buffering and recovery, not disk durability. Worker-only faults test little for server-backed systems.",
           "info": {
             "protocol": 1,
-            "open_ms": 2.718041,
+            "open_ms": 1.134542,
             "capabilities": [
               "delete",
               "get",
@@ -543,7 +543,7 @@
               "target": "worker",
               "trial": 0,
               "acked": 7,
-              "fault_ns": 229728292666833,
+              "fault_ns": 230405033229708,
               "acked_missing": 0,
               "duplicates": 0,
               "torn": 0
@@ -552,7 +552,7 @@
           "note": "Tests user-space buffering and recovery, not disk durability. Worker-only faults test little for server-backed systems.",
           "info": {
             "protocol": 1,
-            "open_ms": 2.328875,
+            "open_ms": 1.082125,
             "capabilities": [
               "delete",
               "get",
@@ -589,7 +589,7 @@
               "target": "worker",
               "trial": 0,
               "acked": 6,
-              "fault_ns": 229728445289541,
+              "fault_ns": 230405165343208,
               "acked_missing": 0,
               "duplicates": 0,
               "torn": 0
@@ -598,7 +598,7 @@
           "note": "Tests user-space buffering and recovery, not disk durability. Worker-only faults test little for server-backed systems.",
           "info": {
             "protocol": 1,
-            "open_ms": 1.244042,
+            "open_ms": 1.06525,
             "capabilities": [
               "delete",
               "get",
@@ -635,7 +635,7 @@
               "target": "worker",
               "trial": 0,
               "acked": 5,
-              "fault_ns": 229728595215750,
+              "fault_ns": 230405297179916,
               "acked_missing": 0,
               "duplicates": 0,
               "torn": 0
@@ -644,7 +644,7 @@
           "note": "Tests user-space buffering and recovery, not disk durability. Worker-only faults test little for server-backed systems.",
           "info": {
             "protocol": 1,
-            "open_ms": 1.206709,
+            "open_ms": 1.02725,
             "capabilities": [
               "delete",
               "get",
@@ -692,7 +692,7 @@
           ],
           "info": {
             "protocol": 1,
-            "open_ms": 0.131333,
+            "open_ms": 0.125667,
             "capabilities": [
               "delete",
               "emulated:delete",
@@ -741,7 +741,7 @@
           ],
           "info": {
             "protocol": 1,
-            "open_ms": 0.132625,
+            "open_ms": 0.100042,
             "capabilities": [
               "delete",
               "emulated:delete",
@@ -774,7 +774,7 @@
           "role": "must_fail",
           "trial": 2,
           "status": "violation",
-          "acked_missing": 140,
+          "acked_missing": 139,
           "duplicates": 0,
           "torn": 0,
           "invalid_final": 0,
@@ -782,7 +782,7 @@
             {
               "writers": 8,
               "phase": "distinct",
-              "acked_missing": 140,
+              "acked_missing": 139,
               "duplicates": 0,
               "torn": 0,
               "invalid_final": 0
@@ -790,7 +790,7 @@
           ],
           "info": {
             "protocol": 1,
-            "open_ms": 0.207,
+            "open_ms": 0.100542,
             "capabilities": [
               "delete",
               "emulated:delete",
@@ -839,7 +839,7 @@
           ],
           "info": {
             "protocol": 1,
-            "open_ms": 0.146042,
+            "open_ms": 0.104,
             "capabilities": [
               "delete",
               "emulated:delete",
@@ -888,7 +888,7 @@
           ],
           "info": {
             "protocol": 1,
-            "open_ms": 0.181416,
+            "open_ms": 0.179542,
             "capabilities": [
               "delete",
               "emulated:delete",
@@ -937,7 +937,7 @@
           ],
           "info": {
             "protocol": 1,
-            "open_ms": 1.598,
+            "open_ms": 1.401583,
             "capabilities": [
               "delete",
               "get",
@@ -981,7 +981,7 @@
           ],
           "info": {
             "protocol": 1,
-            "open_ms": 1.898125,
+            "open_ms": 1.260375,
             "capabilities": [
               "delete",
               "get",
@@ -1025,7 +1025,7 @@
           ],
           "info": {
             "protocol": 1,
-            "open_ms": 3.193625,
+            "open_ms": 1.29,
             "capabilities": [
               "delete",
               "get",
@@ -1069,7 +1069,7 @@
           ],
           "info": {
             "protocol": 1,
-            "open_ms": 2.166708,
+            "open_ms": 1.212583,
             "capabilities": [
               "delete",
               "get",
@@ -1113,7 +1113,7 @@
           ],
           "info": {
             "protocol": 1,
-            "open_ms": 2.450667,
+            "open_ms": 1.252917,
             "capabilities": [
               "delete",
               "get",
@@ -1177,7 +1177,7 @@
           ],
           "info": {
             "protocol": 1,
-            "open_ms": 0.171042,
+            "open_ms": 0.127208,
             "capabilities": [
               "delete",
               "emulated:delete",
@@ -1246,7 +1246,7 @@
           ],
           "info": {
             "protocol": 1,
-            "open_ms": 0.20475,
+            "open_ms": 0.122791,
             "capabilities": [
               "delete",
               "emulated:delete",
@@ -1315,7 +1315,7 @@
           ],
           "info": {
             "protocol": 1,
-            "open_ms": 0.151542,
+            "open_ms": 0.12375,
             "capabilities": [
               "delete",
               "emulated:delete",
@@ -1384,7 +1384,7 @@
           ],
           "info": {
             "protocol": 1,
-            "open_ms": 0.160416,
+            "open_ms": 0.318625,
             "capabilities": [
               "delete",
               "emulated:delete",
@@ -1453,7 +1453,7 @@
           ],
           "info": {
             "protocol": 1,
-            "open_ms": 0.14675,
+            "open_ms": 0.130334,
             "capabilities": [
               "delete",
               "emulated:delete",
@@ -1522,7 +1522,7 @@
           ],
           "info": {
             "protocol": 1,
-            "open_ms": 1.698042,
+            "open_ms": 1.494334,
             "capabilities": [
               "delete",
               "get",
@@ -1586,7 +1586,7 @@
           ],
           "info": {
             "protocol": 1,
-            "open_ms": 1.299916,
+            "open_ms": 2.336041,
             "capabilities": [
               "delete",
               "get",
@@ -1650,7 +1650,7 @@
           ],
           "info": {
             "protocol": 1,
-            "open_ms": 1.219625,
+            "open_ms": 1.256625,
             "capabilities": [
               "delete",
               "get",
@@ -1714,7 +1714,7 @@
           ],
           "info": {
             "protocol": 1,
-            "open_ms": 1.110208,
+            "open_ms": 1.272708,
             "capabilities": [
               "delete",
               "get",
@@ -1778,7 +1778,7 @@
           ],
           "info": {
             "protocol": 1,
-            "open_ms": 1.190125,
+            "open_ms": 1.234125,
             "capabilities": [
               "delete",
               "get",
@@ -1830,14 +1830,14 @@
           "acked": 10,
           "dropped": 0,
           "expected": {
-            "id": "8ac9fd09-dcf1-4625-8247-90a972122603",
+            "id": "e2b38a64-c54f-4513-9887-77492f92182b",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v5",
-            "payload_sha256": "7306d99aa85fc9f8f8bbbc5c313b8156ed2541faf294956862103a10317dc0c5",
+            "payload_sha256": "c1aacca1b96dd29e559e9a76fb6670e12d769beae324c81a49eb34440bc2ee5b",
             "vector": [
               -0.17971359488435873,
               0.020759530317806692,
@@ -1906,19 +1906,19 @@
             ]
           },
           "observed": {
-            "id": "d18955ea-6d8e-483a-b037-9a5ee1129ea4",
+            "id": "778846b7-ef46-427e-af06-2aaee36a8531",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v1",
-            "payload_sha256": "3272850d55d19114e79dd7e6253a7f7e7d472509c019dc620529798208a9a9df",
+            "payload_sha256": "0a09df666156313a37df9b0be93496aa6cbdfe74f13cdef92feb0a98d3bb5a2e",
             "vector": null
           },
           "info": {
             "protocol": 1,
-            "open_ms": 0.121667,
+            "open_ms": 0.151208,
             "capabilities": [
               "delete",
               "emulated:delete",
@@ -1949,14 +1949,14 @@
           "acked": 10,
           "dropped": 0,
           "expected": {
-            "id": "d834325c-8f79-4cbe-8567-9edc32ec9b31",
+            "id": "ff44affa-3dc9-4767-a4ed-563d348e648c",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v5",
-            "payload_sha256": "1efa3ab8611b344a9cd12ee0b5227d40eb060dd96a2756db99ae1af5156f95d1",
+            "payload_sha256": "51f6f5f7f8ef452b2aadc2612d96943ff3dc9b63100702cbc4227ee6fd46891e",
             "vector": [
               -0.17971359488435873,
               0.020759530317806692,
@@ -2025,19 +2025,19 @@
             ]
           },
           "observed": {
-            "id": "e998d735-b448-4b75-9a9c-368c3697bd5b",
+            "id": "ebcf3e72-40aa-4cd6-bf11-028754e8de24",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v1",
-            "payload_sha256": "2092c84aa41402f77495237fa38678884a12342e082741d7aa65bbd156a1674a",
+            "payload_sha256": "b41d2435854fe3567382d1be238e29929df463f5b424806719ea6962dda0fbf1",
             "vector": null
           },
           "info": {
             "protocol": 1,
-            "open_ms": 0.134583,
+            "open_ms": 0.124709,
             "capabilities": [
               "delete",
               "emulated:delete",
@@ -2068,14 +2068,14 @@
           "acked": 10,
           "dropped": 0,
           "expected": {
-            "id": "bcfdc799-d210-4e92-833b-10736cb12817",
+            "id": "610b0e53-d099-491e-b0e7-6444f0aed575",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v5",
-            "payload_sha256": "eaa2bf21f6ed540767d91a5d97720fa5bbd5e1dca0c1a59bbe62db87c4b492d5",
+            "payload_sha256": "29656762f4424e8242651be6daa9893a57c0268d2d0f2b74792b390159299b5e",
             "vector": [
               -0.17971359488435873,
               0.020759530317806692,
@@ -2144,19 +2144,19 @@
             ]
           },
           "observed": {
-            "id": "7be5c74d-20e2-4783-8a44-d7920d020553",
+            "id": "7be92b2f-e222-4af4-9d14-2560b6ea96da",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v1",
-            "payload_sha256": "dfb7e47dab0607d56bc1a0b4cb55418d7c4f5d77082ae66c619ea4c32fbe38d1",
+            "payload_sha256": "6a47165f9b345af30dafad2e7a9a797d96f322653db8940043bcb1d6319ccf6d",
             "vector": null
           },
           "info": {
             "protocol": 1,
-            "open_ms": 0.1185,
+            "open_ms": 0.118917,
             "capabilities": [
               "delete",
               "emulated:delete",
@@ -2187,14 +2187,14 @@
           "acked": 10,
           "dropped": 0,
           "expected": {
-            "id": "85748947-e9ec-4bf7-bee8-6b13ba4dfa72",
+            "id": "0e3e2378-409a-4be6-9a68-4f5fd6b3acaf",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v5",
-            "payload_sha256": "6597ca5c0b14167e4775f07404064514367314ef2128471574ea73b72f83e20d",
+            "payload_sha256": "6456f76a9bc7c9261e3d454f28b0ed3dba6f39561c75da95a19f59d85d249fd7",
             "vector": [
               -0.17971359488435873,
               0.020759530317806692,
@@ -2263,19 +2263,19 @@
             ]
           },
           "observed": {
-            "id": "e50f28c6-6ab7-4c89-a9be-55bc72a26e97",
+            "id": "877504ca-68e6-49cc-837d-21ee04884cc5",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v1",
-            "payload_sha256": "2f08456848515f4b342bd5de39b1ec36aad2031f6b2b868a22ad8c269e7c140e",
+            "payload_sha256": "5d73628fb49f2cafdefcc2f395c4661e066a16a7562c66ea93bc01ad35af3f65",
             "vector": null
           },
           "info": {
             "protocol": 1,
-            "open_ms": 0.179833,
+            "open_ms": 0.126959,
             "capabilities": [
               "delete",
               "emulated:delete",
@@ -2306,14 +2306,14 @@
           "acked": 10,
           "dropped": 0,
           "expected": {
-            "id": "2317975e-2137-44ec-b9f1-80c5c6b75d1b",
+            "id": "a343b062-dd19-40d5-9039-0ee2c7bd4b3b",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v5",
-            "payload_sha256": "5a40f1a2f60f237a19e5567f44e17eb82319cfa75460bde3544e06d1d97721ee",
+            "payload_sha256": "91b5ffdfd9bbd949513c865ff1628783f2a1d7b2ccb1094fc1d49c1a1f77bedb",
             "vector": [
               -0.17971359488435873,
               0.020759530317806692,
@@ -2382,19 +2382,19 @@
             ]
           },
           "observed": {
-            "id": "516de524-f980-4e85-9d81-0f79131e7aae",
+            "id": "da8f7ad1-a068-414a-857a-a64f6f7dfe37",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v1",
-            "payload_sha256": "f699b03cba0ac9ebf0aa4b2ffc158670f3489a84f66ce06c61f25877bfdda111",
+            "payload_sha256": "573a54e887c4288d344156ffe0ab6eb35c2636891212b73cab27b726f3c579a4",
             "vector": null
           },
           "info": {
             "protocol": 1,
-            "open_ms": 0.123541,
+            "open_ms": 0.122459,
             "capabilities": [
               "delete",
               "emulated:delete",
@@ -2425,14 +2425,14 @@
           "acked": 10,
           "dropped": 0,
           "expected": {
-            "id": "84aae110-585a-46cb-8f26-2ba8162cebed",
+            "id": "abf86d8a-8b95-414f-a341-5b6b498add4c",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v5",
-            "payload_sha256": "2be09af694917a8f1376c8fbaffdcea3ee04a37e1dd4664e10ff3e14f535813b",
+            "payload_sha256": "1d02084bdd95bffc71e09ea1651f661868a8ab51c3f0738b9e4dc73492317f8c",
             "vector": [
               -0.17971359488435873,
               0.020759530317806692,
@@ -2501,19 +2501,19 @@
             ]
           },
           "observed": {
-            "id": "84aae110-585a-46cb-8f26-2ba8162cebed",
+            "id": "abf86d8a-8b95-414f-a341-5b6b498add4c",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v5",
-            "payload_sha256": "2be09af694917a8f1376c8fbaffdcea3ee04a37e1dd4664e10ff3e14f535813b",
+            "payload_sha256": "1d02084bdd95bffc71e09ea1651f661868a8ab51c3f0738b9e4dc73492317f8c",
             "vector": null
           },
           "info": {
             "protocol": 1,
-            "open_ms": 1.205125,
+            "open_ms": 1.20475,
             "capabilities": [
               "delete",
               "get",
@@ -2539,14 +2539,14 @@
           "acked": 10,
           "dropped": 0,
           "expected": {
-            "id": "a48aa2e6-47ff-48a4-95e5-98612aad1f5b",
+            "id": "275d2d6d-bc21-472c-8c59-f42941a6d0e8",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v5",
-            "payload_sha256": "77b2fb35048e162b5dc0af71516a097469866323b783b1a8dd4302678b89d39f",
+            "payload_sha256": "25fb5f4892dc52657ebc7464a9f619a23343f45218a5b6e275391c2ab66d497b",
             "vector": [
               -0.17971359488435873,
               0.020759530317806692,
@@ -2615,19 +2615,19 @@
             ]
           },
           "observed": {
-            "id": "a48aa2e6-47ff-48a4-95e5-98612aad1f5b",
+            "id": "275d2d6d-bc21-472c-8c59-f42941a6d0e8",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v5",
-            "payload_sha256": "77b2fb35048e162b5dc0af71516a097469866323b783b1a8dd4302678b89d39f",
+            "payload_sha256": "25fb5f4892dc52657ebc7464a9f619a23343f45218a5b6e275391c2ab66d497b",
             "vector": null
           },
           "info": {
             "protocol": 1,
-            "open_ms": 2.217125,
+            "open_ms": 1.183875,
             "capabilities": [
               "delete",
               "get",
@@ -2653,14 +2653,14 @@
           "acked": 10,
           "dropped": 0,
           "expected": {
-            "id": "0fac55e5-917e-4b1b-b7d4-733cc0913121",
+            "id": "5ed193af-fc6e-4f3e-a994-d60b2f331f55",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v5",
-            "payload_sha256": "7e2bd44d13968fae23c71687d12fc2fda7d510dc0d6943b2ea28253a8b78899b",
+            "payload_sha256": "23f0fd8a20f51f2d67d099f53ba114a6b9ed877f669543ff6b3d64a9a437af45",
             "vector": [
               -0.17971359488435873,
               0.020759530317806692,
@@ -2729,19 +2729,19 @@
             ]
           },
           "observed": {
-            "id": "0fac55e5-917e-4b1b-b7d4-733cc0913121",
+            "id": "5ed193af-fc6e-4f3e-a994-d60b2f331f55",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v5",
-            "payload_sha256": "7e2bd44d13968fae23c71687d12fc2fda7d510dc0d6943b2ea28253a8b78899b",
+            "payload_sha256": "23f0fd8a20f51f2d67d099f53ba114a6b9ed877f669543ff6b3d64a9a437af45",
             "vector": null
           },
           "info": {
             "protocol": 1,
-            "open_ms": 1.410959,
+            "open_ms": 1.271125,
             "capabilities": [
               "delete",
               "get",
@@ -2767,14 +2767,14 @@
           "acked": 10,
           "dropped": 0,
           "expected": {
-            "id": "c2f3d6b0-05cd-45d0-bcb7-bffd9a87bc06",
+            "id": "a87f3a1e-0f66-4911-8506-6d472512bb86",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v5",
-            "payload_sha256": "b05eac8d21186555314bd0c286a8b5b13b308cceb6191e21920b3f368cb03718",
+            "payload_sha256": "c1dbfb075342dc8381696e42cbed0f673a7f1624c19ef78c1cf1774b35cb4292",
             "vector": [
               -0.17971359488435873,
               0.020759530317806692,
@@ -2843,19 +2843,19 @@
             ]
           },
           "observed": {
-            "id": "c2f3d6b0-05cd-45d0-bcb7-bffd9a87bc06",
+            "id": "a87f3a1e-0f66-4911-8506-6d472512bb86",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v5",
-            "payload_sha256": "b05eac8d21186555314bd0c286a8b5b13b308cceb6191e21920b3f368cb03718",
+            "payload_sha256": "c1dbfb075342dc8381696e42cbed0f673a7f1624c19ef78c1cf1774b35cb4292",
             "vector": null
           },
           "info": {
             "protocol": 1,
-            "open_ms": 1.6875,
+            "open_ms": 1.196833,
             "capabilities": [
               "delete",
               "get",
@@ -2881,14 +2881,14 @@
           "acked": 10,
           "dropped": 0,
           "expected": {
-            "id": "9f697ccd-30b8-4dc3-b2f6-99428c5262de",
+            "id": "29a5dad7-8116-425a-a176-b767ee9a6f0e",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v5",
-            "payload_sha256": "e3776da9c094409c621d8e3d3c93e52d42efde60a9ee673b417c681a44041e9e",
+            "payload_sha256": "76ceab619a5eb778fc13c52b7ba1b32f31eefeb3a709d576ffc1982202c44edb",
             "vector": [
               -0.17971359488435873,
               0.020759530317806692,
@@ -2957,19 +2957,19 @@
             ]
           },
           "observed": {
-            "id": "9f697ccd-30b8-4dc3-b2f6-99428c5262de",
+            "id": "29a5dad7-8116-425a-a176-b767ee9a6f0e",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v5",
-            "payload_sha256": "e3776da9c094409c621d8e3d3c93e52d42efde60a9ee673b417c681a44041e9e",
+            "payload_sha256": "76ceab619a5eb778fc13c52b7ba1b32f31eefeb3a709d576ffc1982202c44edb",
             "vector": null
           },
           "info": {
             "protocol": 1,
-            "open_ms": 1.674458,
+            "open_ms": 1.16375,
             "capabilities": [
               "delete",
               "get",
@@ -3006,25 +3006,25 @@
               "visible_before": true,
               "remaining": 0,
               "status": "ok",
-              "lag_ms": 0.053125
+              "lag_ms": 0.043125
             },
             "get_by_ref": {
               "visible_before": true,
               "remaining": 0,
               "status": "ok",
-              "lag_ms": 0.108167
+              "lag_ms": 0.087208
             },
             "list_prefix": {
               "visible_before": true,
               "remaining": 0,
               "status": "ok",
-              "lag_ms": 0.173458
+              "lag_ms": 0.127167
             },
             "read_recent": {
               "visible_before": true,
               "remaining": 0,
               "status": "ok",
-              "lag_ms": 0.364292
+              "lag_ms": 0.195667
             },
             "search": {
               "visible_before": true,
@@ -3041,7 +3041,7 @@
           },
           "info": {
             "protocol": 1,
-            "open_ms": 1.577709,
+            "open_ms": 1.421334,
             "capabilities": [
               "delete",
               "get",
@@ -3068,25 +3068,25 @@
               "visible_before": true,
               "remaining": 0,
               "status": "ok",
-              "lag_ms": 0.05
+              "lag_ms": 0.047958
             },
             "get_by_ref": {
               "visible_before": true,
               "remaining": 0,
               "status": "ok",
-              "lag_ms": 0.100833
+              "lag_ms": 0.094
             },
             "list_prefix": {
               "visible_before": true,
               "remaining": 0,
               "status": "ok",
-              "lag_ms": 0.157333
+              "lag_ms": 0.135333
             },
             "read_recent": {
               "visible_before": true,
               "remaining": 0,
               "status": "ok",
-              "lag_ms": 0.290458
+              "lag_ms": 0.213791
             },
             "search": {
               "visible_before": true,
@@ -3103,7 +3103,7 @@
           },
           "info": {
             "protocol": 1,
-            "open_ms": 2.700334,
+            "open_ms": 1.545458,
             "capabilities": [
               "delete",
               "get",
@@ -3130,25 +3130,25 @@
               "visible_before": true,
               "remaining": 0,
               "status": "ok",
-              "lag_ms": 0.051209
+              "lag_ms": 0.0475
             },
             "get_by_ref": {
               "visible_before": true,
               "remaining": 0,
               "status": "ok",
-              "lag_ms": 0.101125
+              "lag_ms": 0.0965
             },
             "list_prefix": {
               "visible_before": true,
               "remaining": 0,
               "status": "ok",
-              "lag_ms": 0.147875
+              "lag_ms": 0.14125
             },
             "read_recent": {
               "visible_before": true,
               "remaining": 0,
               "status": "ok",
-              "lag_ms": 0.368
+              "lag_ms": 0.218708
             },
             "search": {
               "visible_before": true,
@@ -3165,7 +3165,7 @@
           },
           "info": {
             "protocol": 1,
-            "open_ms": 1.925291,
+            "open_ms": 2.817625,
             "capabilities": [
               "delete",
               "get",
@@ -3192,25 +3192,25 @@
               "visible_before": true,
               "remaining": 0,
               "status": "ok",
-              "lag_ms": 0.058708
+              "lag_ms": 0.045292
             },
             "get_by_ref": {
               "visible_before": true,
               "remaining": 0,
               "status": "ok",
-              "lag_ms": 0.111875
+              "lag_ms": 0.091833
             },
             "list_prefix": {
               "visible_before": true,
               "remaining": 0,
               "status": "ok",
-              "lag_ms": 0.16125
+              "lag_ms": 0.13475
             },
             "read_recent": {
               "visible_before": true,
               "remaining": 0,
               "status": "ok",
-              "lag_ms": 0.247708
+              "lag_ms": 0.2095
             },
             "search": {
               "visible_before": true,
@@ -3227,7 +3227,7 @@
           },
           "info": {
             "protocol": 1,
-            "open_ms": 2.140334,
+            "open_ms": 1.50125,
             "capabilities": [
               "delete",
               "get",
@@ -3254,25 +3254,25 @@
               "visible_before": true,
               "remaining": 0,
               "status": "ok",
-              "lag_ms": 0.05325
+              "lag_ms": 0.044375
             },
             "get_by_ref": {
               "visible_before": true,
               "remaining": 0,
               "status": "ok",
-              "lag_ms": 0.103708
+              "lag_ms": 0.0875
             },
             "list_prefix": {
               "visible_before": true,
               "remaining": 0,
               "status": "ok",
-              "lag_ms": 0.15175
+              "lag_ms": 0.129459
             },
             "read_recent": {
               "visible_before": true,
               "remaining": 0,
               "status": "ok",
-              "lag_ms": 0.233292
+              "lag_ms": 0.202167
             },
             "search": {
               "visible_before": true,
@@ -3289,7 +3289,7 @@
           },
           "info": {
             "protocol": 1,
-            "open_ms": 2.101083,
+            "open_ms": 1.465792,
             "capabilities": [
               "delete",
               "get",
@@ -3316,31 +3316,31 @@
               "visible_before": true,
               "remaining": 0,
               "status": "ok",
-              "lag_ms": 0.064333
+              "lag_ms": 0.046666
             },
             "get_by_ref": {
               "visible_before": true,
               "remaining": 0,
               "status": "ok",
-              "lag_ms": 0.120917
+              "lag_ms": 0.095833
             },
             "list_prefix": {
               "visible_before": true,
               "remaining": 0,
               "status": "ok",
-              "lag_ms": 0.170083
+              "lag_ms": 0.139375
             },
             "read_recent": {
               "visible_before": true,
               "remaining": 0,
               "status": "ok",
-              "lag_ms": 0.256042
+              "lag_ms": 0.213583
             },
             "search": {
               "visible_before": true,
               "remaining": 0,
               "status": "ok",
-              "lag_ms": 0.37775
+              "lag_ms": 0.322583
             }
           },
           "timeout_s": 0.1,
@@ -3351,7 +3351,7 @@
           },
           "info": {
             "protocol": 1,
-            "open_ms": 2.684916,
+            "open_ms": 2.338375,
             "capabilities": [
               "delete",
               "get",
@@ -3378,31 +3378,31 @@
               "visible_before": true,
               "remaining": 0,
               "status": "ok",
-              "lag_ms": 0.216292
+              "lag_ms": 0.053625
             },
             "get_by_ref": {
               "visible_before": true,
               "remaining": 0,
               "status": "ok",
-              "lag_ms": 0.371542
+              "lag_ms": 0.104875
             },
             "list_prefix": {
               "visible_before": true,
               "remaining": 0,
               "status": "ok",
-              "lag_ms": 0.487334
+              "lag_ms": 0.152167
             },
             "read_recent": {
               "visible_before": true,
               "remaining": 0,
               "status": "ok",
-              "lag_ms": 0.631042
+              "lag_ms": 0.233542
             },
             "search": {
               "visible_before": true,
               "remaining": 0,
               "status": "ok",
-              "lag_ms": 0.874459
+              "lag_ms": 0.345125
             }
           },
           "timeout_s": 0.1,
@@ -3413,7 +3413,7 @@
           },
           "info": {
             "protocol": 1,
-            "open_ms": 1.748667,
+            "open_ms": 1.507,
             "capabilities": [
               "delete",
               "get",
@@ -3440,31 +3440,31 @@
               "visible_before": true,
               "remaining": 0,
               "status": "ok",
-              "lag_ms": 0.059417
+              "lag_ms": 0.046792
             },
             "get_by_ref": {
               "visible_before": true,
               "remaining": 0,
               "status": "ok",
-              "lag_ms": 0.154333
+              "lag_ms": 0.092167
             },
             "list_prefix": {
               "visible_before": true,
               "remaining": 0,
               "status": "ok",
-              "lag_ms": 0.216667
+              "lag_ms": 0.134625
             },
             "read_recent": {
               "visible_before": true,
               "remaining": 0,
               "status": "ok",
-              "lag_ms": 0.314542
+              "lag_ms": 0.208417
             },
             "search": {
               "visible_before": true,
               "remaining": 0,
               "status": "ok",
-              "lag_ms": 0.450792
+              "lag_ms": 0.321417
             }
           },
           "timeout_s": 0.1,
@@ -3475,7 +3475,7 @@
           },
           "info": {
             "protocol": 1,
-            "open_ms": 1.650458,
+            "open_ms": 1.558083,
             "capabilities": [
               "delete",
               "get",
@@ -3502,31 +3502,31 @@
               "visible_before": true,
               "remaining": 0,
               "status": "ok",
-              "lag_ms": 0.047958
+              "lag_ms": 0.062458
             },
             "get_by_ref": {
               "visible_before": true,
               "remaining": 0,
               "status": "ok",
-              "lag_ms": 0.097792
+              "lag_ms": 0.116125
             },
             "list_prefix": {
               "visible_before": true,
               "remaining": 0,
               "status": "ok",
-              "lag_ms": 0.143125
+              "lag_ms": 0.183708
             },
             "read_recent": {
               "visible_before": true,
               "remaining": 0,
               "status": "ok",
-              "lag_ms": 0.223292
+              "lag_ms": 0.3105
             },
             "search": {
               "visible_before": true,
               "remaining": 0,
               "status": "ok",
-              "lag_ms": 0.339833
+              "lag_ms": 0.452291
             }
           },
           "timeout_s": 0.1,
@@ -3537,7 +3537,7 @@
           },
           "info": {
             "protocol": 1,
-            "open_ms": 2.024709,
+            "open_ms": 2.89375,
             "capabilities": [
               "delete",
               "get",
@@ -3564,31 +3564,31 @@
               "visible_before": true,
               "remaining": 0,
               "status": "ok",
-              "lag_ms": 0.080667
+              "lag_ms": 0.067584
             },
             "get_by_ref": {
               "visible_before": true,
               "remaining": 0,
               "status": "ok",
-              "lag_ms": 0.146792
+              "lag_ms": 0.132709
             },
             "list_prefix": {
               "visible_before": true,
               "remaining": 0,
               "status": "ok",
-              "lag_ms": 0.20175
+              "lag_ms": 0.184125
             },
             "read_recent": {
               "visible_before": true,
               "remaining": 0,
               "status": "ok",
-              "lag_ms": 0.300834
+              "lag_ms": 0.268834
             },
             "search": {
               "visible_before": true,
               "remaining": 0,
               "status": "ok",
-              "lag_ms": 0.446459
+              "lag_ms": 0.394334
             }
           },
           "timeout_s": 0.1,
@@ -3599,7 +3599,7 @@
           },
           "info": {
             "protocol": 1,
-            "open_ms": 1.713334,
+            "open_ms": 1.802917,
             "capabilities": [
               "delete",
               "get",
@@ -3638,31 +3638,31 @@
                 "visible_before": true,
                 "remaining": 0,
                 "status": "ok",
-                "lag_ms": 0.052875
+                "lag_ms": 0.046417
               },
               "get_by_ref": {
                 "visible_before": true,
                 "remaining": 0,
                 "status": "ok",
-                "lag_ms": 0.10225
+                "lag_ms": 0.09275
               },
               "list_prefix": {
                 "visible_before": true,
                 "remaining": 0,
                 "status": "ok",
-                "lag_ms": 0.147458
+                "lag_ms": 0.136208
               },
               "read_recent": {
                 "visible_before": true,
                 "remaining": 0,
                 "status": "ok",
-                "lag_ms": 0.23075
+                "lag_ms": 0.214542
               },
               "search": {
                 "visible_before": true,
                 "remaining": 0,
                 "status": "ok",
-                "lag_ms": 0.359583
+                "lag_ms": 0.346917
               }
             },
             "timeout_s": 0.1
@@ -3673,7 +3673,7 @@
           "scan_after_stop": true,
           "info": {
             "protocol": 1,
-            "open_ms": 1.380334,
+            "open_ms": 1.3305,
             "capabilities": [
               "delete",
               "get",
@@ -3702,31 +3702,31 @@
                 "visible_before": true,
                 "remaining": 0,
                 "status": "ok",
-                "lag_ms": 0.054166
+                "lag_ms": 0.045792
               },
               "get_by_ref": {
                 "visible_before": true,
                 "remaining": 0,
                 "status": "ok",
-                "lag_ms": 0.107166
+                "lag_ms": 0.091958
               },
               "list_prefix": {
                 "visible_before": true,
                 "remaining": 0,
                 "status": "ok",
-                "lag_ms": 0.154
+                "lag_ms": 0.134833
               },
               "read_recent": {
                 "visible_before": true,
                 "remaining": 0,
                 "status": "ok",
-                "lag_ms": 0.239291
+                "lag_ms": 0.211042
               },
               "search": {
                 "visible_before": true,
                 "remaining": 0,
                 "status": "ok",
-                "lag_ms": 0.374791
+                "lag_ms": 0.333042
               }
             },
             "timeout_s": 0.1
@@ -3737,7 +3737,7 @@
           "scan_after_stop": true,
           "info": {
             "protocol": 1,
-            "open_ms": 1.279458,
+            "open_ms": 1.275334,
             "capabilities": [
               "delete",
               "get",
@@ -3766,31 +3766,31 @@
                 "visible_before": true,
                 "remaining": 0,
                 "status": "ok",
-                "lag_ms": 0.04925
+                "lag_ms": 0.044875
               },
               "get_by_ref": {
                 "visible_before": true,
                 "remaining": 0,
                 "status": "ok",
-                "lag_ms": 0.09975
+                "lag_ms": 0.089208
               },
               "list_prefix": {
                 "visible_before": true,
                 "remaining": 0,
                 "status": "ok",
-                "lag_ms": 0.182625
+                "lag_ms": 0.132916
               },
               "read_recent": {
                 "visible_before": true,
                 "remaining": 0,
                 "status": "ok",
-                "lag_ms": 0.297584
+                "lag_ms": 0.208083
               },
               "search": {
                 "visible_before": true,
                 "remaining": 0,
                 "status": "ok",
-                "lag_ms": 0.455792
+                "lag_ms": 0.326291
               }
             },
             "timeout_s": 0.1
@@ -3801,7 +3801,7 @@
           "scan_after_stop": true,
           "info": {
             "protocol": 1,
-            "open_ms": 1.344708,
+            "open_ms": 2.258708,
             "capabilities": [
               "delete",
               "get",
@@ -3830,31 +3830,31 @@
                 "visible_before": true,
                 "remaining": 0,
                 "status": "ok",
-                "lag_ms": 0.050042
+                "lag_ms": 0.072792
               },
               "get_by_ref": {
                 "visible_before": true,
                 "remaining": 0,
                 "status": "ok",
-                "lag_ms": 0.098833
+                "lag_ms": 0.134084
               },
               "list_prefix": {
                 "visible_before": true,
                 "remaining": 0,
                 "status": "ok",
-                "lag_ms": 0.156208
+                "lag_ms": 0.184417
               },
               "read_recent": {
                 "visible_before": true,
                 "remaining": 0,
                 "status": "ok",
-                "lag_ms": 0.29175
+                "lag_ms": 0.278084
               },
               "search": {
                 "visible_before": true,
                 "remaining": 0,
                 "status": "ok",
-                "lag_ms": 0.468333
+                "lag_ms": 0.419542
               }
             },
             "timeout_s": 0.1
@@ -3865,7 +3865,7 @@
           "scan_after_stop": true,
           "info": {
             "protocol": 1,
-            "open_ms": 2.305458,
+            "open_ms": 2.024666,
             "capabilities": [
               "delete",
               "get",
@@ -3894,31 +3894,31 @@
                 "visible_before": true,
                 "remaining": 0,
                 "status": "ok",
-                "lag_ms": 0.051667
+                "lag_ms": 0.046583
               },
               "get_by_ref": {
                 "visible_before": true,
                 "remaining": 0,
                 "status": "ok",
-                "lag_ms": 0.102375
+                "lag_ms": 0.090875
               },
               "list_prefix": {
                 "visible_before": true,
                 "remaining": 0,
                 "status": "ok",
-                "lag_ms": 0.148458
+                "lag_ms": 0.134125
               },
               "read_recent": {
                 "visible_before": true,
                 "remaining": 0,
                 "status": "ok",
-                "lag_ms": 0.228792
+                "lag_ms": 0.208583
               },
               "search": {
                 "visible_before": true,
                 "remaining": 0,
                 "status": "ok",
-                "lag_ms": 0.362458
+                "lag_ms": 0.329625
               }
             },
             "timeout_s": 0.1
@@ -3929,7 +3929,7 @@
           "scan_after_stop": true,
           "info": {
             "protocol": 1,
-            "open_ms": 1.570125,
+            "open_ms": 1.414167,
             "capabilities": [
               "delete",
               "get",
@@ -3958,31 +3958,31 @@
                 "visible_before": true,
                 "remaining": 0,
                 "status": "ok",
-                "lag_ms": 0.056792
+                "lag_ms": 0.107708
               },
               "get_by_ref": {
                 "visible_before": true,
                 "remaining": 0,
                 "status": "ok",
-                "lag_ms": 0.108375
+                "lag_ms": 0.170583
               },
               "list_prefix": {
                 "visible_before": true,
                 "remaining": 0,
                 "status": "ok",
-                "lag_ms": 0.156083
+                "lag_ms": 0.2245
               },
               "read_recent": {
                 "visible_before": true,
                 "remaining": 0,
                 "status": "ok",
-                "lag_ms": 0.244708
+                "lag_ms": 0.3225
               },
               "search": {
                 "visible_before": true,
                 "remaining": 0,
                 "status": "ok",
-                "lag_ms": 0.412292
+                "lag_ms": 0.496458
               }
             },
             "timeout_s": 0.1
@@ -3993,7 +3993,7 @@
           "scan_after_stop": true,
           "info": {
             "protocol": 1,
-            "open_ms": 1.637666,
+            "open_ms": 1.293417,
             "capabilities": [
               "delete",
               "get",
@@ -4022,31 +4022,31 @@
                 "visible_before": true,
                 "remaining": 0,
                 "status": "ok",
-                "lag_ms": 0.105208
+                "lag_ms": 0.089417
               },
               "get_by_ref": {
                 "visible_before": true,
                 "remaining": 0,
                 "status": "ok",
-                "lag_ms": 0.174333
+                "lag_ms": 0.152292
               },
               "list_prefix": {
                 "visible_before": true,
                 "remaining": 0,
                 "status": "ok",
-                "lag_ms": 0.231041
+                "lag_ms": 0.23275
               },
               "read_recent": {
                 "visible_before": true,
                 "remaining": 0,
                 "status": "ok",
-                "lag_ms": 0.33675
+                "lag_ms": 0.354875
               },
               "search": {
                 "visible_before": true,
                 "remaining": 0,
                 "status": "ok",
-                "lag_ms": 0.525125
+                "lag_ms": 0.55275
               }
             },
             "timeout_s": 0.1
@@ -4057,7 +4057,7 @@
           "scan_after_stop": true,
           "info": {
             "protocol": 1,
-            "open_ms": 1.301333,
+            "open_ms": 1.440417,
             "capabilities": [
               "delete",
               "get",
@@ -4086,31 +4086,31 @@
                 "visible_before": true,
                 "remaining": 0,
                 "status": "ok",
-                "lag_ms": 0.082583
+                "lag_ms": 0.071166
               },
               "get_by_ref": {
                 "visible_before": true,
                 "remaining": 0,
                 "status": "ok",
-                "lag_ms": 0.147666
+                "lag_ms": 0.122875
               },
               "list_prefix": {
                 "visible_before": true,
                 "remaining": 0,
                 "status": "ok",
-                "lag_ms": 0.2015
+                "lag_ms": 0.168583
               },
               "read_recent": {
                 "visible_before": true,
                 "remaining": 0,
                 "status": "ok",
-                "lag_ms": 0.303583
+                "lag_ms": 0.252583
               },
               "search": {
                 "visible_before": true,
                 "remaining": 0,
                 "status": "ok",
-                "lag_ms": 0.478833
+                "lag_ms": 0.409916
               }
             },
             "timeout_s": 0.1
@@ -4121,7 +4121,7 @@
           "scan_after_stop": true,
           "info": {
             "protocol": 1,
-            "open_ms": 1.310209,
+            "open_ms": 1.344292,
             "capabilities": [
               "delete",
               "get",
@@ -4150,31 +4150,31 @@
                 "visible_before": true,
                 "remaining": 0,
                 "status": "ok",
-                "lag_ms": 0.063208
+                "lag_ms": 0.060583
               },
               "get_by_ref": {
                 "visible_before": true,
                 "remaining": 0,
                 "status": "ok",
-                "lag_ms": 0.118375
+                "lag_ms": 0.111208
               },
               "list_prefix": {
                 "visible_before": true,
                 "remaining": 0,
                 "status": "ok",
-                "lag_ms": 0.169
+                "lag_ms": 0.156833
               },
               "read_recent": {
                 "visible_before": true,
                 "remaining": 0,
                 "status": "ok",
-                "lag_ms": 0.25775
+                "lag_ms": 0.236583
               },
               "search": {
                 "visible_before": true,
                 "remaining": 0,
                 "status": "ok",
-                "lag_ms": 0.425083
+                "lag_ms": 0.3825
               }
             },
             "timeout_s": 0.1
@@ -4185,7 +4185,7 @@
           "scan_after_stop": true,
           "info": {
             "protocol": 1,
-            "open_ms": 2.321542,
+            "open_ms": 1.271917,
             "capabilities": [
               "delete",
               "get",
@@ -4214,31 +4214,31 @@
                 "visible_before": true,
                 "remaining": 0,
                 "status": "ok",
-                "lag_ms": 0.101
+                "lag_ms": 0.066167
               },
               "get_by_ref": {
                 "visible_before": true,
                 "remaining": 0,
                 "status": "ok",
-                "lag_ms": 0.171459
+                "lag_ms": 0.120042
               },
               "list_prefix": {
                 "visible_before": true,
                 "remaining": 0,
                 "status": "ok",
-                "lag_ms": 0.232709
+                "lag_ms": 0.166708
               },
               "read_recent": {
                 "visible_before": true,
                 "remaining": 0,
                 "status": "ok",
-                "lag_ms": 0.3405
+                "lag_ms": 0.249167
               },
               "search": {
                 "visible_before": true,
                 "remaining": 0,
                 "status": "ok",
-                "lag_ms": 0.542417
+                "lag_ms": 0.406625
               }
             },
             "timeout_s": 0.1
@@ -4249,7 +4249,7 @@
           "scan_after_stop": true,
           "info": {
             "protocol": 1,
-            "open_ms": 1.336541,
+            "open_ms": 1.224583,
             "capabilities": [
               "delete",
               "get",
