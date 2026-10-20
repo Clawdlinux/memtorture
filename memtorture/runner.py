@@ -1,4 +1,5 @@
 import json
+import shutil
 import uuid
 from datetime import UTC, datetime
 from pathlib import Path
@@ -167,7 +168,11 @@ EXPORT_FIELDS = (
 
 def load_run(root=None):
     if root is None:
-        manifests = sorted(RUNS_ROOT.glob("*/manifest.json"))
+        manifests = sorted(
+            path
+            for path in RUNS_ROOT.glob("*/manifest.json")
+            if "exported_from" not in json.loads(path.read_text())
+        )
         if not manifests:
             raise ValueError("No local runs found")
         root = manifests[-1].parent
@@ -209,9 +214,25 @@ def export_system(system, root=None, out=None):
     cells = [cell for cell in cells if cell["system"] == system]
     if not cells:
         raise ValueError(f"No {system} cells in {root}")
-    out = Path(out or RUNS_ROOT / "exports" / f"{root.name}-{system}")
-    allowed_output(out)
-    out.mkdir(parents=True)
+    exports = RUNS_ROOT / "exports"
+    out = Path(out or exports / f"{root.name}-{system}")
+    if exports.resolve() not in out.resolve().parents:
+        raise ValueError(f"Export must be under {exports.as_posix()}/: {out}")
+    if out.exists():
+        raise FileExistsError(f"Export already exists: {out}")
+    out.parent.mkdir(parents=True, exist_ok=True)
+    staging = out.parent / f".{out.name}.{uuid.uuid4().hex[:8]}.partial"
+    staging.mkdir()
+    try:
+        write_export(system, root, manifest, cells, staging)
+        staging.rename(out)
+    finally:
+        shutil.rmtree(staging, ignore_errors=True)
+    print(f"Exported {system}: {out}")
+    return 0
+
+
+def write_export(system, root, manifest, cells, out):
     exported = {key: manifest[key] for key in EXPORT_FIELDS if key in manifest}
     exported["exported_from"] = root.name
     exported["systems"] = [
@@ -228,5 +249,3 @@ def export_system(system, root=None, out=None):
         for line in source:
             if json.loads(line).get("system") == system:
                 target.write(line)
-    print(f"Exported {system}: {out}")
-    return 0

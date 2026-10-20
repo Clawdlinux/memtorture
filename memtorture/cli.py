@@ -56,7 +56,7 @@ def main(argv=None):
         "--input", type=Path, help="Run directory. Defaults to latest."
     )
     export_parser.add_argument(
-        "--out", type=Path, help="New directory under results/runs/."
+        "--out", type=Path, help="New directory under results/runs/exports/."
     )
     args = parser.parse_args(argv)
     args.invocation = ["memtorture", *(sys.argv[1:] if argv is None else argv)]

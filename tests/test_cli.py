@@ -1,4 +1,5 @@
 import json
+import shutil
 import subprocess
 import sys
 from argparse import Namespace
@@ -148,14 +149,19 @@ def test_local_report_and_export(workspace, authorized_controls, provenance, cap
     assert [json.loads(line)["system"] for line in operations] == ["sqlite"]
     exported = "".join(path.read_text() for path in export.iterdir())
     assert "markdown" not in exported and "987654" not in exported
+    assert [path.name for path in export.parent.iterdir()] == [export.name]
 
     assert main(["export-system", "--system", "sqlite"]) == 1
     assert main(["export-system", "--system", "qdrant"]) == 1
     assert "qdrant" in capsys.readouterr().out
-    outside = workspace / "issue"
-    assert main(["export-system", "--system", "sqlite", "--out", str(outside)]) == 1
-    assert "results/runs" in capsys.readouterr().out
-    assert not outside.exists()
+    for outside in (workspace / "issue", Path("results/runs/zz-issue")):
+        assert main(["export-system", "--system", "sqlite", "--out", str(outside)]) == 1
+        assert "results/runs/exports/" in capsys.readouterr().out
+        assert not outside.exists()
+    shutil.copytree(export, "results/runs/zz-export")
+    assert main(["report", "--local"]) == 0
+    output = capsys.readouterr().out
+    assert "987654" in output and "| sqlite |" in output
 
 
 @pytest.mark.parametrize(
