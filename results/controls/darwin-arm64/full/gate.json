@@ -8,7 +8,7 @@
     "cpu_count": 10,
     "ram_bytes": 17179869184
   },
-  "methodology_sha256": "271dd8acadbd5ddc1a7d532dc7b873c18bb95da65cbda4b4af1e50f64f315076",
+  "methodology_sha256": "72e69442d2a1ccb43ba1b441fcda075f70fd13913ad266dba8db289145e67c5b",
   "suites": {
     "recall-delay": {
       "must_fail": "delayed-index",
@@ -21,360 +21,360 @@
           "role": "must_fail",
           "trial": 0,
           "path": "id",
-          "lag_ms": 100.111875,
-          "upper_ms": 101.167583,
-          "read_p99_ms": 0.167583,
+          "lag_ms": 100.189208,
+          "upper_ms": 101.3605,
+          "read_p99_ms": 0.3605,
           "matched": true
         },
         {
           "role": "must_fail",
           "trial": 1,
           "path": "filter",
-          "lag_ms": 100.104,
-          "upper_ms": 101.255583,
-          "read_p99_ms": 0.255583,
+          "lag_ms": 100.233042,
+          "upper_ms": 101.389709,
+          "read_p99_ms": 0.389709,
           "matched": true
         },
         {
           "role": "must_fail",
           "trial": 2,
           "path": "recency",
-          "lag_ms": 100.092209,
-          "upper_ms": 101.15425,
-          "read_p99_ms": 0.15425,
+          "lag_ms": 100.166375,
+          "upper_ms": 101.415792,
+          "read_p99_ms": 0.415792,
           "matched": true
         },
         {
           "role": "must_fail",
           "trial": 3,
           "path": "search",
-          "lag_ms": 100.152417,
-          "upper_ms": 101.255041,
-          "read_p99_ms": 0.255041,
+          "lag_ms": 100.29275,
+          "upper_ms": 101.518125,
+          "read_p99_ms": 0.518125,
           "matched": true
         },
         {
           "role": "must_fail",
           "trial": 4,
           "path": "id",
-          "lag_ms": 100.085417,
-          "upper_ms": 101.194875,
-          "read_p99_ms": 0.194875,
+          "lag_ms": 100.199,
+          "upper_ms": 101.330542,
+          "read_p99_ms": 0.330542,
           "matched": true
         },
         {
           "role": "must_fail",
           "trial": 5,
           "path": "filter",
-          "lag_ms": 100.118125,
-          "upper_ms": 101.278042,
-          "read_p99_ms": 0.278042,
+          "lag_ms": 100.1465,
+          "upper_ms": 101.309958,
+          "read_p99_ms": 0.309958,
           "matched": true
         },
         {
           "role": "must_fail",
           "trial": 6,
           "path": "recency",
-          "lag_ms": 100.091334,
-          "upper_ms": 101.264333,
-          "read_p99_ms": 0.264333,
+          "lag_ms": 100.166292,
+          "upper_ms": 101.341875,
+          "read_p99_ms": 0.341875,
           "matched": true
         },
         {
           "role": "must_fail",
           "trial": 7,
           "path": "search",
-          "lag_ms": 100.154667,
-          "upper_ms": 101.218583,
-          "read_p99_ms": 0.218583,
+          "lag_ms": 100.242625,
+          "upper_ms": 101.556166,
+          "read_p99_ms": 0.556166,
           "matched": true
         },
         {
           "role": "must_fail",
           "trial": 8,
           "path": "id",
-          "lag_ms": 100.141791,
-          "upper_ms": 101.132625,
-          "read_p99_ms": 0.132625,
+          "lag_ms": 100.184917,
+          "upper_ms": 101.310167,
+          "read_p99_ms": 0.310167,
           "matched": true
         },
         {
           "role": "must_fail",
           "trial": 9,
           "path": "filter",
-          "lag_ms": 100.109083,
-          "upper_ms": 101.188042,
-          "read_p99_ms": 0.188042,
+          "lag_ms": 100.130917,
+          "upper_ms": 101.335292,
+          "read_p99_ms": 0.335292,
           "matched": true
         },
         {
           "role": "must_fail",
           "trial": 10,
           "path": "recency",
-          "lag_ms": 100.112292,
-          "upper_ms": 101.216958,
-          "read_p99_ms": 0.216958,
+          "lag_ms": 100.264084,
+          "upper_ms": 101.245459,
+          "read_p99_ms": 0.245459,
           "matched": true
         },
         {
           "role": "must_fail",
           "trial": 11,
           "path": "search",
-          "lag_ms": 100.191917,
-          "upper_ms": 101.363791,
-          "read_p99_ms": 0.363791,
+          "lag_ms": 100.249291,
+          "upper_ms": 101.526375,
+          "read_p99_ms": 0.526375,
           "matched": true
         },
         {
           "role": "must_fail",
           "trial": 12,
           "path": "id",
-          "lag_ms": 100.109459,
-          "upper_ms": 101.260666,
-          "read_p99_ms": 0.260666,
+          "lag_ms": 100.143333,
+          "upper_ms": 101.332916,
+          "read_p99_ms": 0.332916,
           "matched": true
         },
         {
           "role": "must_fail",
           "trial": 13,
           "path": "filter",
-          "lag_ms": 100.107791,
-          "upper_ms": 101.191625,
-          "read_p99_ms": 0.191625,
+          "lag_ms": 100.318125,
+          "upper_ms": 101.310667,
+          "read_p99_ms": 0.310667,
           "matched": true
         },
         {
           "role": "must_fail",
           "trial": 14,
           "path": "recency",
-          "lag_ms": 100.097625,
-          "upper_ms": 101.275209,
-          "read_p99_ms": 0.275209,
+          "lag_ms": 100.159542,
+          "upper_ms": 101.322875,
+          "read_p99_ms": 0.322875,
           "matched": true
         },
         {
           "role": "must_fail",
           "trial": 15,
           "path": "search",
-          "lag_ms": 100.199666,
-          "upper_ms": 101.446083,
-          "read_p99_ms": 0.446083,
+          "lag_ms": 100.287,
+          "upper_ms": 101.510542,
+          "read_p99_ms": 0.510542,
           "matched": true
         },
         {
           "role": "must_fail",
           "trial": 16,
           "path": "id",
-          "lag_ms": 100.115917,
-          "upper_ms": 101.241334,
-          "read_p99_ms": 0.241334,
+          "lag_ms": 100.150125,
+          "upper_ms": 101.342791,
+          "read_p99_ms": 0.342791,
           "matched": true
         },
         {
           "role": "must_fail",
           "trial": 17,
           "path": "filter",
-          "lag_ms": 100.100584,
-          "upper_ms": 101.23625,
-          "read_p99_ms": 0.23625,
+          "lag_ms": 100.1535,
+          "upper_ms": 101.308084,
+          "read_p99_ms": 0.308084,
           "matched": true
         },
         {
           "role": "must_fail",
           "trial": 18,
           "path": "recency",
-          "lag_ms": 100.10075,
-          "upper_ms": 101.25625,
-          "read_p99_ms": 0.25625,
+          "lag_ms": 100.404167,
+          "upper_ms": 101.305084,
+          "read_p99_ms": 0.305084,
           "matched": true
         },
         {
           "role": "must_fail",
           "trial": 19,
           "path": "search",
-          "lag_ms": 100.181542,
-          "upper_ms": 101.386333,
-          "read_p99_ms": 0.386333,
+          "lag_ms": 100.758625,
+          "upper_ms": 101.606125,
+          "read_p99_ms": 0.606125,
           "matched": true
         },
         {
           "role": "must_pass",
           "trial": 0,
           "path": "id",
-          "lag_ms": 0.198167,
-          "upper_ms": 101.155875,
-          "read_p99_ms": 0.155875,
+          "lag_ms": 0.390959,
+          "upper_ms": 101.299834,
+          "read_p99_ms": 0.299834,
           "matched": true
         },
         {
           "role": "must_pass",
           "trial": 1,
           "path": "filter",
-          "lag_ms": 0.171583,
-          "upper_ms": 101.130166,
-          "read_p99_ms": 0.130166,
+          "lag_ms": 0.545292,
+          "upper_ms": 101.4305,
+          "read_p99_ms": 0.4305,
           "matched": true
         },
         {
           "role": "must_pass",
           "trial": 2,
           "path": "recency",
-          "lag_ms": 0.193583,
-          "upper_ms": 101.143916,
-          "read_p99_ms": 0.143916,
+          "lag_ms": 0.387583,
+          "upper_ms": 101.298666,
+          "read_p99_ms": 0.298666,
           "matched": true
         },
         {
           "role": "must_pass",
           "trial": 3,
           "path": "search",
-          "lag_ms": 0.317708,
-          "upper_ms": 101.276958,
-          "read_p99_ms": 0.276958,
+          "lag_ms": 0.575583,
+          "upper_ms": 101.481792,
+          "read_p99_ms": 0.481792,
           "matched": true
         },
         {
           "role": "must_pass",
           "trial": 4,
           "path": "id",
-          "lag_ms": 0.144709,
-          "upper_ms": 101.111459,
-          "read_p99_ms": 0.111459,
+          "lag_ms": 0.27525,
+          "upper_ms": 101.215417,
+          "read_p99_ms": 0.215417,
           "matched": true
         },
         {
           "role": "must_pass",
           "trial": 5,
           "path": "filter",
-          "lag_ms": 0.214917,
-          "upper_ms": 101.169,
-          "read_p99_ms": 0.169,
+          "lag_ms": 0.309375,
+          "upper_ms": 101.23725,
+          "read_p99_ms": 0.23725,
           "matched": true
         },
         {
           "role": "must_pass",
           "trial": 6,
           "path": "recency",
-          "lag_ms": 0.152459,
-          "upper_ms": 101.115209,
-          "read_p99_ms": 0.115209,
+          "lag_ms": 0.337083,
+          "upper_ms": 101.259875,
+          "read_p99_ms": 0.259875,
           "matched": true
         },
         {
           "role": "must_pass",
           "trial": 7,
           "path": "search",
-          "lag_ms": 0.328959,
-          "upper_ms": 101.281,
-          "read_p99_ms": 0.281,
+          "lag_ms": 0.483167,
+          "upper_ms": 101.416167,
+          "read_p99_ms": 0.416167,
           "matched": true
         },
         {
           "role": "must_pass",
           "trial": 8,
           "path": "id",
-          "lag_ms": 0.194791,
-          "upper_ms": 101.149666,
-          "read_p99_ms": 0.149666,
+          "lag_ms": 0.284959,
+          "upper_ms": 101.217459,
+          "read_p99_ms": 0.217459,
           "matched": true
         },
         {
           "role": "must_pass",
           "trial": 9,
           "path": "filter",
-          "lag_ms": 0.145,
-          "upper_ms": 101.11225,
-          "read_p99_ms": 0.11225,
+          "lag_ms": 0.233959,
+          "upper_ms": 101.181584,
+          "read_p99_ms": 0.181584,
           "matched": true
         },
         {
           "role": "must_pass",
           "trial": 10,
           "path": "recency",
-          "lag_ms": 0.190375,
-          "upper_ms": 101.149417,
-          "read_p99_ms": 0.149417,
+          "lag_ms": 0.296333,
+          "upper_ms": 101.232666,
+          "read_p99_ms": 0.232666,
           "matched": true
         },
         {
           "role": "must_pass",
           "trial": 11,
           "path": "search",
-          "lag_ms": 0.323791,
-          "upper_ms": 101.276833,
-          "read_p99_ms": 0.276833,
+          "lag_ms": 0.836917,
+          "upper_ms": 101.747084,
+          "read_p99_ms": 0.747084,
           "matched": true
         },
         {
           "role": "must_pass",
           "trial": 12,
           "path": "id",
-          "lag_ms": 0.387667,
-          "upper_ms": 101.303709,
-          "read_p99_ms": 0.303709,
+          "lag_ms": 0.327041,
+          "upper_ms": 101.260083,
+          "read_p99_ms": 0.260083,
           "matched": true
         },
         {
           "role": "must_pass",
           "trial": 13,
           "path": "filter",
-          "lag_ms": 0.188542,
-          "upper_ms": 101.152875,
-          "read_p99_ms": 0.152875,
+          "lag_ms": 0.379333,
+          "upper_ms": 101.265041,
+          "read_p99_ms": 0.265041,
           "matched": true
         },
         {
           "role": "must_pass",
           "trial": 14,
           "path": "recency",
-          "lag_ms": 0.193584,
-          "upper_ms": 101.152,
-          "read_p99_ms": 0.152,
+          "lag_ms": 0.325792,
+          "upper_ms": 101.25325,
+          "read_p99_ms": 0.25325,
           "matched": true
         },
         {
           "role": "must_pass",
           "trial": 15,
           "path": "search",
-          "lag_ms": 0.317709,
-          "upper_ms": 101.276334,
-          "read_p99_ms": 0.276334,
+          "lag_ms": 0.449875,
+          "upper_ms": 101.393166,
+          "read_p99_ms": 0.393166,
           "matched": true
         },
         {
           "role": "must_pass",
           "trial": 16,
           "path": "id",
-          "lag_ms": 0.193334,
-          "upper_ms": 101.146667,
-          "read_p99_ms": 0.146667,
+          "lag_ms": 0.290834,
+          "upper_ms": 101.223417,
+          "read_p99_ms": 0.223417,
           "matched": true
         },
         {
           "role": "must_pass",
           "trial": 17,
           "path": "filter",
-          "lag_ms": 0.147625,
-          "upper_ms": 101.111375,
-          "read_p99_ms": 0.111375,
+          "lag_ms": 0.24525,
+          "upper_ms": 101.18975,
+          "read_p99_ms": 0.18975,
           "matched": true
         },
         {
           "role": "must_pass",
           "trial": 18,
           "path": "recency",
-          "lag_ms": 0.200542,
-          "upper_ms": 101.156458,
-          "read_p99_ms": 0.156458,
+          "lag_ms": 0.454,
+          "upper_ms": 101.39875,
+          "read_p99_ms": 0.39875,
           "matched": true
         },
         {
           "role": "must_pass",
           "trial": 19,
           "path": "search",
-          "lag_ms": 0.312541,
-          "upper_ms": 101.269833,
-          "read_p99_ms": 0.269833,
+          "lag_ms": 0.473709,
+          "upper_ms": 101.402209,
+          "read_p99_ms": 0.402209,
           "matched": true
         }
       ],
@@ -406,7 +406,7 @@
               "target": "worker",
               "trial": 0,
               "acked": 6,
-              "fault_ns": 223627072506125,
+              "fault_ns": 224310124893875,
               "acked_missing": 6,
               "duplicates": 0,
               "torn": 0
@@ -456,7 +456,7 @@
               "target": "worker",
               "trial": 0,
               "acked": 8,
-              "fault_ns": 223627221976416,
+              "fault_ns": 224310343906000,
               "acked_missing": 8,
               "duplicates": 0,
               "torn": 0
@@ -506,7 +506,7 @@
               "target": "worker",
               "trial": 0,
               "acked": 7,
-              "fault_ns": 223627370400875,
+              "fault_ns": 224310568595333,
               "acked_missing": 7,
               "duplicates": 0,
               "torn": 0
@@ -556,7 +556,7 @@
               "target": "worker",
               "trial": 0,
               "acked": 6,
-              "fault_ns": 223627519115500,
+              "fault_ns": 224310786392666,
               "acked_missing": 6,
               "duplicates": 0,
               "torn": 0
@@ -606,7 +606,7 @@
               "target": "worker",
               "trial": 0,
               "acked": 5,
-              "fault_ns": 223627666234458,
+              "fault_ns": 224311007451416,
               "acked_missing": 5,
               "duplicates": 0,
               "torn": 0
@@ -656,7 +656,7 @@
               "target": "worker",
               "trial": 0,
               "acked": 3,
-              "fault_ns": 223627812261208,
+              "fault_ns": 224311215292666,
               "acked_missing": 3,
               "duplicates": 0,
               "torn": 0
@@ -706,7 +706,7 @@
               "target": "worker",
               "trial": 0,
               "acked": 7,
-              "fault_ns": 223627959658375,
+              "fault_ns": 224311418774166,
               "acked_missing": 7,
               "duplicates": 0,
               "torn": 0
@@ -756,7 +756,7 @@
               "target": "worker",
               "trial": 0,
               "acked": 2,
-              "fault_ns": 223628103528041,
+              "fault_ns": 224311620395000,
               "acked_missing": 2,
               "duplicates": 0,
               "torn": 0
@@ -806,7 +806,7 @@
               "target": "worker",
               "trial": 0,
               "acked": 3,
-              "fault_ns": 223628250890333,
+              "fault_ns": 224311824480875,
               "acked_missing": 3,
               "duplicates": 0,
               "torn": 0
@@ -856,7 +856,7 @@
               "target": "worker",
               "trial": 0,
               "acked": 1,
-              "fault_ns": 223628395816250,
+              "fault_ns": 224312026951458,
               "acked_missing": 1,
               "duplicates": 0,
               "torn": 0
@@ -906,7 +906,7 @@
               "target": "worker",
               "trial": 0,
               "acked": 8,
-              "fault_ns": 223628542425791,
+              "fault_ns": 224312232108833,
               "acked_missing": 8,
               "duplicates": 0,
               "torn": 0
@@ -956,7 +956,7 @@
               "target": "worker",
               "trial": 0,
               "acked": 4,
-              "fault_ns": 223628733219291,
+              "fault_ns": 224312436938208,
               "acked_missing": 4,
               "duplicates": 0,
               "torn": 0
@@ -1006,7 +1006,7 @@
               "target": "worker",
               "trial": 0,
               "acked": 5,
-              "fault_ns": 223628880982500,
+              "fault_ns": 224312640043708,
               "acked_missing": 5,
               "duplicates": 0,
               "torn": 0
@@ -1056,7 +1056,7 @@
               "target": "worker",
               "trial": 0,
               "acked": 4,
-              "fault_ns": 223629026852416,
+              "fault_ns": 224312842478000,
               "acked_missing": 4,
               "duplicates": 0,
               "torn": 0
@@ -1106,7 +1106,7 @@
               "target": "worker",
               "trial": 0,
               "acked": 6,
-              "fault_ns": 223629174374583,
+              "fault_ns": 224313046558916,
               "acked_missing": 6,
               "duplicates": 0,
               "torn": 0
@@ -1156,7 +1156,7 @@
               "target": "worker",
               "trial": 0,
               "acked": 2,
-              "fault_ns": 223629320809666,
+              "fault_ns": 224313257782875,
               "acked_missing": 2,
               "duplicates": 0,
               "torn": 0
@@ -1206,7 +1206,7 @@
               "target": "worker",
               "trial": 0,
               "acked": 6,
-              "fault_ns": 223629467536833,
+              "fault_ns": 224313532556958,
               "acked_missing": 6,
               "duplicates": 0,
               "torn": 0
@@ -1256,7 +1256,7 @@
               "target": "worker",
               "trial": 0,
               "acked": 3,
-              "fault_ns": 223629612118083,
+              "fault_ns": 224313813353291,
               "acked_missing": 3,
               "duplicates": 0,
               "torn": 0
@@ -1306,7 +1306,7 @@
               "target": "worker",
               "trial": 0,
               "acked": 8,
-              "fault_ns": 223629759793208,
+              "fault_ns": 224314044269583,
               "acked_missing": 8,
               "duplicates": 0,
               "torn": 0
@@ -1356,7 +1356,7 @@
               "target": "worker",
               "trial": 0,
               "acked": 5,
-              "fault_ns": 223629898551291,
+              "fault_ns": 224314253325000,
               "acked_missing": 5,
               "duplicates": 0,
               "torn": 0
@@ -1406,7 +1406,7 @@
               "target": "worker",
               "trial": 0,
               "acked": 6,
-              "fault_ns": 223630024137625,
+              "fault_ns": 224314453276458,
               "acked_missing": 0,
               "duplicates": 0,
               "torn": 0
@@ -1451,7 +1451,7 @@
               "target": "worker",
               "trial": 0,
               "acked": 8,
-              "fault_ns": 223630142919666,
+              "fault_ns": 224314647550041,
               "acked_missing": 0,
               "duplicates": 0,
               "torn": 0
@@ -1496,7 +1496,7 @@
               "target": "worker",
               "trial": 0,
               "acked": 7,
-              "fault_ns": 223630262083625,
+              "fault_ns": 224314848126458,
               "acked_missing": 0,
               "duplicates": 0,
               "torn": 0
@@ -1541,7 +1541,7 @@
               "target": "worker",
               "trial": 0,
               "acked": 6,
-              "fault_ns": 223630397365208,
+              "fault_ns": 224315072746666,
               "acked_missing": 0,
               "duplicates": 0,
               "torn": 0
@@ -1586,7 +1586,7 @@
               "target": "worker",
               "trial": 0,
               "acked": 5,
-              "fault_ns": 223630561036916,
+              "fault_ns": 224315296744000,
               "acked_missing": 0,
               "duplicates": 0,
               "torn": 0
@@ -1631,7 +1631,7 @@
               "target": "worker",
               "trial": 0,
               "acked": 3,
-              "fault_ns": 223630713370458,
+              "fault_ns": 224315523278208,
               "acked_missing": 0,
               "duplicates": 0,
               "torn": 0
@@ -1676,7 +1676,7 @@
               "target": "worker",
               "trial": 0,
               "acked": 7,
-              "fault_ns": 223630863159208,
+              "fault_ns": 224315751144083,
               "acked_missing": 0,
               "duplicates": 0,
               "torn": 0
@@ -1721,7 +1721,7 @@
               "target": "worker",
               "trial": 0,
               "acked": 2,
-              "fault_ns": 223631011509458,
+              "fault_ns": 224315967557250,
               "acked_missing": 0,
               "duplicates": 0,
               "torn": 0
@@ -1766,7 +1766,7 @@
               "target": "worker",
               "trial": 0,
               "acked": 3,
-              "fault_ns": 223631160819458,
+              "fault_ns": 224316175595083,
               "acked_missing": 0,
               "duplicates": 0,
               "torn": 0
@@ -1811,7 +1811,7 @@
               "target": "worker",
               "trial": 0,
               "acked": 1,
-              "fault_ns": 223631309061500,
+              "fault_ns": 224316384288208,
               "acked_missing": 0,
               "duplicates": 0,
               "torn": 0
@@ -1856,7 +1856,7 @@
               "target": "worker",
               "trial": 0,
               "acked": 8,
-              "fault_ns": 223631457450625,
+              "fault_ns": 224316593832000,
               "acked_missing": 0,
               "duplicates": 0,
               "torn": 0
@@ -1901,7 +1901,7 @@
               "target": "worker",
               "trial": 0,
               "acked": 4,
-              "fault_ns": 223631611967583,
+              "fault_ns": 224316803515125,
               "acked_missing": 0,
               "duplicates": 0,
               "torn": 0
@@ -1946,7 +1946,7 @@
               "target": "worker",
               "trial": 0,
               "acked": 5,
-              "fault_ns": 223631764098583,
+              "fault_ns": 224317007380708,
               "acked_missing": 0,
               "duplicates": 0,
               "torn": 0
@@ -1991,7 +1991,7 @@
               "target": "worker",
               "trial": 0,
               "acked": 4,
-              "fault_ns": 223631926775625,
+              "fault_ns": 224317215488500,
               "acked_missing": 0,
               "duplicates": 0,
               "torn": 0
@@ -2036,7 +2036,7 @@
               "target": "worker",
               "trial": 0,
               "acked": 6,
-              "fault_ns": 223632078935458,
+              "fault_ns": 224317427583625,
               "acked_missing": 0,
               "duplicates": 0,
               "torn": 0
@@ -2081,7 +2081,7 @@
               "target": "worker",
               "trial": 0,
               "acked": 2,
-              "fault_ns": 223632225008625,
+              "fault_ns": 224317646159875,
               "acked_missing": 0,
               "duplicates": 0,
               "torn": 0
@@ -2126,7 +2126,7 @@
               "target": "worker",
               "trial": 0,
               "acked": 6,
-              "fault_ns": 223632373503416,
+              "fault_ns": 224317857736458,
               "acked_missing": 0,
               "duplicates": 0,
               "torn": 0
@@ -2171,7 +2171,7 @@
               "target": "worker",
               "trial": 0,
               "acked": 3,
-              "fault_ns": 223632521973458,
+              "fault_ns": 224318069925541,
               "acked_missing": 0,
               "duplicates": 0,
               "torn": 0
@@ -2216,7 +2216,7 @@
               "target": "worker",
               "trial": 0,
               "acked": 8,
-              "fault_ns": 223632673152541,
+              "fault_ns": 224318283983708,
               "acked_missing": 0,
               "duplicates": 0,
               "torn": 0
@@ -2261,7 +2261,7 @@
               "target": "worker",
               "trial": 0,
               "acked": 5,
-              "fault_ns": 223632844651083,
+              "fault_ns": 224318500995708,
               "acked_missing": 0,
               "duplicates": 0,
               "torn": 0
@@ -2493,7 +2493,7 @@
           "role": "must_fail",
           "trial": 4,
           "status": "violation",
-          "acked_missing": 59,
+          "acked_missing": 60,
           "duplicates": 0,
           "torn": 0,
           "invalid_final": 0,
@@ -2501,7 +2501,7 @@
             {
               "writers": 4,
               "phase": "distinct",
-              "acked_missing": 59,
+              "acked_missing": 60,
               "duplicates": 0,
               "torn": 0,
               "invalid_final": 0
@@ -2541,7 +2541,7 @@
           "role": "must_fail",
           "trial": 5,
           "status": "violation",
-          "acked_missing": 140,
+          "acked_missing": 139,
           "duplicates": 0,
           "torn": 0,
           "invalid_final": 0,
@@ -2549,7 +2549,7 @@
             {
               "writers": 8,
               "phase": "distinct",
-              "acked_missing": 140,
+              "acked_missing": 139,
               "duplicates": 0,
               "torn": 0,
               "invalid_final": 0
@@ -4471,7 +4471,7 @@
           "role": "must_fail",
           "trial": 5,
           "status": "violation",
-          "acked_missing": 140,
+          "acked_missing": 139,
           "duplicates": 0,
           "torn": 0,
           "invalid_final": 0,
@@ -4480,7 +4480,7 @@
             {
               "writers": 8,
               "phase": "distinct",
-              "acked_missing": 140,
+              "acked_missing": 139,
               "duplicates": 0,
               "torn": 0,
               "invalid_final": 0
@@ -4539,7 +4539,7 @@
           "role": "must_fail",
           "trial": 6,
           "status": "violation",
-          "acked_missing": 20,
+          "acked_missing": 19,
           "duplicates": 0,
           "torn": 0,
           "invalid_final": 0,
@@ -4548,7 +4548,7 @@
             {
               "writers": 2,
               "phase": "distinct",
-              "acked_missing": 20,
+              "acked_missing": 19,
               "duplicates": 0,
               "torn": 0,
               "invalid_final": 0
@@ -4879,7 +4879,7 @@
           "role": "must_fail",
           "trial": 11,
           "status": "violation",
-          "acked_missing": 139,
+          "acked_missing": 140,
           "duplicates": 0,
           "torn": 0,
           "invalid_final": 0,
@@ -4888,7 +4888,7 @@
             {
               "writers": 8,
               "phase": "distinct",
-              "acked_missing": 139,
+              "acked_missing": 140,
               "duplicates": 0,
               "torn": 0,
               "invalid_final": 0
@@ -5083,7 +5083,7 @@
           "role": "must_fail",
           "trial": 14,
           "status": "violation",
-          "acked_missing": 139,
+          "acked_missing": 140,
           "duplicates": 0,
           "torn": 0,
           "invalid_final": 0,
@@ -5092,7 +5092,7 @@
             {
               "writers": 8,
               "phase": "distinct",
-              "acked_missing": 139,
+              "acked_missing": 140,
               "duplicates": 0,
               "torn": 0,
               "invalid_final": 0
@@ -6765,14 +6765,14 @@
           "acked": 5,
           "dropped": 0,
           "expected": {
-            "id": "230d533d-3cbb-4020-86ec-ec6e8af7aa3c",
+            "id": "34416156-7958-487e-9334-3426f3795c01",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v5",
-            "payload_sha256": "c8f1c542540b45d316f960575d6d56f8daf0bf640bb15a8bbc97cedce0ccfdf0",
+            "payload_sha256": "f1fe928cbb22e26cb77d64539f248bec80ac859c94cb9bee845f33683ef878f4",
             "vector": [
               -0.17971359488435873,
               0.020759530317806692,
@@ -6841,14 +6841,14 @@
             ]
           },
           "observed": {
-            "id": "ff5a7dba-ab2b-4bdd-9310-fff3e7cdfe8f",
+            "id": "039d8b88-be92-4947-86bc-a3c77074e5a9",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v1",
-            "payload_sha256": "a28655895998486960e2f6cccbfd530b3f0e037e2f908e6b1c8e96558aa63062",
+            "payload_sha256": "f73b42019342879d698b797a1a75415e89ff2aacec5c44439deebd76cb6fb9a4",
             "vector": null
           },
           "info": {
@@ -6883,14 +6883,14 @@
           "acked": 5,
           "dropped": 0,
           "expected": {
-            "id": "761684ca-070e-479a-a2d7-c08e37d59e66",
+            "id": "4dbc6342-1de9-475d-bbbf-0a2a7dba5f3a",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v5",
-            "payload_sha256": "8d29965cc5f501c044b4bb296359a68b2207fd2b73453993b5589d972c2b6e38",
+            "payload_sha256": "83bb96b8fcf376e478c42584e87002187c6cdac1de71c4288293fcbebc386903",
             "vector": [
               -0.17971359488435873,
               0.020759530317806692,
@@ -6959,14 +6959,14 @@
             ]
           },
           "observed": {
-            "id": "6ad76f51-b198-4946-8463-d92868b3ef09",
+            "id": "97bb9501-50fb-43a3-870e-5b1952db0f8f",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v1",
-            "payload_sha256": "444131652014f5f7e8fed7c0adbb1551e5c57089472c7bdddad0a2566f66ef4b",
+            "payload_sha256": "a786599e1a8803950a28127061d6502c308baa0f6e215396871b86592173eb2c",
             "vector": null
           },
           "info": {
@@ -7001,14 +7001,14 @@
           "acked": 5,
           "dropped": 0,
           "expected": {
-            "id": "1f6b4575-f635-4dcd-b877-f96be2a12f7f",
+            "id": "f6db326c-c326-4f8f-a114-6b25a478e7be",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v5",
-            "payload_sha256": "568ce09128faa98068f316ff7abd6d774df1afcb4309de25342c0a036cdfbb3a",
+            "payload_sha256": "f76d01f08f3dd11ecb5459d4abb44cf80918050c48f693a8b60110391c850ced",
             "vector": [
               -0.17971359488435873,
               0.020759530317806692,
@@ -7077,14 +7077,14 @@
             ]
           },
           "observed": {
-            "id": "336402a2-4e9c-434b-9fe8-3c51709c5d87",
+            "id": "fe025d0e-07f2-45c2-9ae9-2b77280bb818",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v1",
-            "payload_sha256": "37f519ff75a65a0854ed4118bb3feac37df0fb5ef8f0088c0bc1d8c3048242a8",
+            "payload_sha256": "e75fab4b7a7aae007cf67f895610fde2dc6ecac0b5dca8ea84d19e1fac566c59",
             "vector": null
           },
           "info": {
@@ -7119,14 +7119,14 @@
           "acked": 5,
           "dropped": 0,
           "expected": {
-            "id": "ca4c0e1a-e8c0-4144-bd6b-0658d1b70c00",
+            "id": "f31077a2-c7ad-4da4-9c57-1facbd1620e2",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v5",
-            "payload_sha256": "cca9494eb05d133356131e6672fa8960164467312a3a323639f7f4baebb4765e",
+            "payload_sha256": "ae81e49718bd5ad4cc24b05ca560e42dfdaf24d6a6790d718babb1b4b97685ca",
             "vector": [
               -0.17971359488435873,
               0.020759530317806692,
@@ -7195,14 +7195,14 @@
             ]
           },
           "observed": {
-            "id": "e6333c4c-9718-4572-a8a3-a8ea1a89b6e3",
+            "id": "85719611-043e-4006-887e-3535cc7e82b7",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v1",
-            "payload_sha256": "74e61abef75763ab559fd569865c9cd558f3885ece605b3195750332967b0ff6",
+            "payload_sha256": "2d07217ab8a0d9b3480c39b6bdf208ebab40bdbedf1d47ff1702fc665bf31cf9",
             "vector": null
           },
           "info": {
@@ -7237,14 +7237,14 @@
           "acked": 5,
           "dropped": 0,
           "expected": {
-            "id": "2bcd0834-1592-4725-8d2f-69fd54ab96a4",
+            "id": "0aec2e22-81f2-417a-ab46-ca5b77a40530",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v5",
-            "payload_sha256": "1b08b7e0b298e3de7bfef4a58b908911ec2497e6af5514db7481777fade414fc",
+            "payload_sha256": "05bf5800dba42f9410c52911d6d1d6debff52d9879774fea437b2c744ff3ea15",
             "vector": [
               -0.17971359488435873,
               0.020759530317806692,
@@ -7313,14 +7313,14 @@
             ]
           },
           "observed": {
-            "id": "8eeae89b-9cff-4fce-9dbc-ce3b6c290758",
+            "id": "3b33dc37-72e4-44c8-9a30-24b6ca87aa03",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v1",
-            "payload_sha256": "34e4a6e892f27a283ed0da50c27c14fc1327fdbd995390da41f45021ca11df38",
+            "payload_sha256": "bbd3bd2786430433f35ffae9706ab5458923b88aa1ec90ed874713096a34dde8",
             "vector": null
           },
           "info": {
@@ -7355,14 +7355,14 @@
           "acked": 5,
           "dropped": 0,
           "expected": {
-            "id": "c2f0e1f2-42c9-4d55-aed8-46f28ca49f5c",
+            "id": "86fab093-38bb-494d-ae6a-df50e8c5b870",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v5",
-            "payload_sha256": "f3f318d81210aa08c193c82698e6483ee30cdef078557b24e0c7e5cd02170043",
+            "payload_sha256": "6278425616d09ebdc85c1a185f41231507193484e2c2bb8ecb4cc0efcaabfdb9",
             "vector": [
               -0.17971359488435873,
               0.020759530317806692,
@@ -7431,14 +7431,14 @@
             ]
           },
           "observed": {
-            "id": "27c0a913-fe52-4315-98f0-2bc1e52ae7ee",
+            "id": "37a46704-9c73-45b6-8589-143f7f678f54",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v1",
-            "payload_sha256": "8d7a8e8d87503d635737f3cc48ddba64bb91d2d6e6a4135685edbc2be6e553fb",
+            "payload_sha256": "60c5074943c56bd9ba85c5cd3b53e39ee203454edee85e1bb09b1eaa6eaf499e",
             "vector": null
           },
           "info": {
@@ -7473,14 +7473,14 @@
           "acked": 5,
           "dropped": 0,
           "expected": {
-            "id": "37a8ac44-8604-451d-917e-ad473bc8dd9b",
+            "id": "02e1f635-7085-4058-9558-0373366a06ce",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v5",
-            "payload_sha256": "f0746044994d6b33e01b274dbdddf33a4f5ca3d3c2fcca5055978aacf7a5ec00",
+            "payload_sha256": "b2fedda97d79521b66fa57afe5c239751fd9e51e3894ea47a358f12bdac6624b",
             "vector": [
               -0.17971359488435873,
               0.020759530317806692,
@@ -7549,14 +7549,14 @@
             ]
           },
           "observed": {
-            "id": "c27e6e88-b67a-4917-8555-6d8ddf8a63b3",
+            "id": "123931c1-0ba0-4744-bfc1-4012a3080719",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v1",
-            "payload_sha256": "da6175caf671719365afcc5be3786bb0232cd52183187c9d28f2cd648879a2de",
+            "payload_sha256": "67717ff6fb101ec87af387ee56f15939415fdd6c0b5b621eb3e7d3fc3b6ac1e1",
             "vector": null
           },
           "info": {
@@ -7591,14 +7591,14 @@
           "acked": 5,
           "dropped": 0,
           "expected": {
-            "id": "c80a7538-1824-464e-9008-c8d9aaab8a2b",
+            "id": "81d162e5-7dc6-4ce5-a187-b7c5051dbfa8",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v5",
-            "payload_sha256": "cc95f152e87afc9c4765d60fbd5fbfa63a5f207f314ca1b8467b2ef345810650",
+            "payload_sha256": "9991f2eeee49a3deefea412bd8f8feb4d0b66cf190137ef3d2c1fae9edb614a3",
             "vector": [
               -0.17971359488435873,
               0.020759530317806692,
@@ -7667,14 +7667,14 @@
             ]
           },
           "observed": {
-            "id": "a04efde2-da34-4ba9-8536-84db7d415af1",
+            "id": "165603a0-0f56-47bd-8967-56e2f2a4150c",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v1",
-            "payload_sha256": "290ab4fcd55877a5156dc3754d927d3e3cd72977adcf5135d08e36a1c53fd023",
+            "payload_sha256": "700e997ea40b0e424983426d70da62268eaebe59d318911f1149ab05d78a5b70",
             "vector": null
           },
           "info": {
@@ -7709,14 +7709,14 @@
           "acked": 5,
           "dropped": 0,
           "expected": {
-            "id": "cbefc008-1713-4e68-a856-c840a9b1b9d7",
+            "id": "5173ccf3-1aab-445b-bdaf-529cf50f6bc4",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v5",
-            "payload_sha256": "dfc0c74edeaeb027ea62a9e26b8c8d6f49c16da04a7cab8afc00798d8dc31d42",
+            "payload_sha256": "0e92caa171b0a7a186eaf626dfde1a1be0ceba7b6e19208c7426db94d05b770b",
             "vector": [
               -0.17971359488435873,
               0.020759530317806692,
@@ -7785,14 +7785,14 @@
             ]
           },
           "observed": {
-            "id": "d1ff31e3-c1fb-4645-98d2-4b5a882742ad",
+            "id": "e0d7d8dc-5777-4b0f-bfc9-8c359cd48077",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v1",
-            "payload_sha256": "060a3becf11bfae7810a24255af4cf6c480b3eda0051f6f935448d86ae6b3547",
+            "payload_sha256": "96a90c0b632a2719c57c5796814b3aa272176ee4acb1535e1e1abfddf7c3df6e",
             "vector": null
           },
           "info": {
@@ -7827,14 +7827,14 @@
           "acked": 5,
           "dropped": 0,
           "expected": {
-            "id": "08d11c38-85f8-4b32-bb87-1b8f453efbfb",
+            "id": "8c06805d-eb09-4532-9ca3-2ca1f6ec268b",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v5",
-            "payload_sha256": "e36b2fe200db5046a7cc5beab5a7c423e2e6c5d70e0fed95610a9491a38d137a",
+            "payload_sha256": "7264dd106730f8caf3d1e0d31884a1ed4ac636fad3a4b5287b8693b16a6b7f4e",
             "vector": [
               -0.17971359488435873,
               0.020759530317806692,
@@ -7903,14 +7903,14 @@
             ]
           },
           "observed": {
-            "id": "01a777f3-b6d9-418e-be98-30c4d920ed7f",
+            "id": "03eee3cc-0d6f-4546-85c4-d05e91b21816",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v1",
-            "payload_sha256": "8536a78046d643def7b2d1ff9afd47be1b7fec4a1ff87bdb1f4e253b540b714f",
+            "payload_sha256": "8c1e46e6dd331b1ee23e587e7c019fb9ac1436b4dc9b2bbceaee70881c80cc33",
             "vector": null
           },
           "info": {
@@ -7945,14 +7945,14 @@
           "acked": 5,
           "dropped": 0,
           "expected": {
-            "id": "d83d4fe3-5b53-42d4-bd3c-d7aaf16580e2",
+            "id": "b2c0f5cc-1363-41ce-8346-64b29e3cf71d",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v5",
-            "payload_sha256": "f86d2522015bf482df2aed8d7eaf570368d3b5d866b336562d0af3ceba8eb577",
+            "payload_sha256": "cbe866d93b4c81e814835fcdd1635ff78216642a1ad070c1660fa044530edcc0",
             "vector": [
               -0.17971359488435873,
               0.020759530317806692,
@@ -8021,14 +8021,14 @@
             ]
           },
           "observed": {
-            "id": "b71da620-df19-4c70-b953-774a7eb0e867",
+            "id": "11910f86-1f2a-4fa1-b2ea-0bf3f37ca81f",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v1",
-            "payload_sha256": "71d1413ae556806dfd884edc50397b44d3eb9c90106d0087796851ae02535816",
+            "payload_sha256": "c3f081b200d0d6782ef2a3fbde8b2d395b4664de4e1ed8b116fc8f937c10a8df",
             "vector": null
           },
           "info": {
@@ -8063,14 +8063,14 @@
           "acked": 5,
           "dropped": 0,
           "expected": {
-            "id": "36298c7f-6c65-41c6-9f6e-529963be20e3",
+            "id": "564fd720-7184-4908-acf2-62ea3779c1a2",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v5",
-            "payload_sha256": "4b2b89855af4d46d39dc7162f9593c59ba899f3ee4458c27cd08a07065137476",
+            "payload_sha256": "d55338fcf61d41a9617181872dcca1bff73a2784d723c8a3d88bbb66517f05ad",
             "vector": [
               -0.17971359488435873,
               0.020759530317806692,
@@ -8139,14 +8139,14 @@
             ]
           },
           "observed": {
-            "id": "ea0f1ea2-986c-4b1e-937b-8594b7c14d17",
+            "id": "74393a74-8065-4ded-947f-5af05339df06",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v1",
-            "payload_sha256": "b185cd3941d7b9b94702dac5f882ba7a7d8b6ce8871cca05698b853789e22035",
+            "payload_sha256": "64caff606c7f1bdc0c17c3c875ac02b1c7f76738c50f39242797c5ee3ae1b94b",
             "vector": null
           },
           "info": {
@@ -8181,14 +8181,14 @@
           "acked": 5,
           "dropped": 0,
           "expected": {
-            "id": "c91cee58-5a47-493a-b71d-e9b5736bf810",
+            "id": "22fa631c-038a-42fe-b4ee-8124b4c7e0db",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v5",
-            "payload_sha256": "b2392e88de49aaaf23b0afd33b1b1946e008abdc650237ffcb623b0f720853b1",
+            "payload_sha256": "1c2786b245220d884fde24ee504f3c0b1ec77159c7c2756b34deb551632b7e41",
             "vector": [
               -0.17971359488435873,
               0.020759530317806692,
@@ -8257,14 +8257,14 @@
             ]
           },
           "observed": {
-            "id": "6fcd453b-12bc-46b1-a4f0-29766982797e",
+            "id": "31138958-e53f-4c25-845f-0bd4145d9a36",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v1",
-            "payload_sha256": "cd1db6f16e0136180bb1be3455c8b2d72159d9dba925dec5f0e2d47c4809167c",
+            "payload_sha256": "3648a778da565a42a482c61d5409ca341c2d7a99fe80da5452b7ae6ef27321d8",
             "vector": null
           },
           "info": {
@@ -8299,14 +8299,14 @@
           "acked": 5,
           "dropped": 0,
           "expected": {
-            "id": "2c6e7bf1-802a-4dae-8475-97a4751c47b3",
+            "id": "5c31e09b-8795-42f2-9592-632f81803e59",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v5",
-            "payload_sha256": "473aa6926f4e6b4d4d2ac21f9c08da9f05bac4d66972e1f9590cb009948ce7c4",
+            "payload_sha256": "2dfb94c1a6a26a3ccef9a93dedf7bdef5f18e0650d6724cf2f938c2fc6d0bee7",
             "vector": [
               -0.17971359488435873,
               0.020759530317806692,
@@ -8375,14 +8375,14 @@
             ]
           },
           "observed": {
-            "id": "1e3f2954-c591-4831-b88b-a6d29365a31e",
+            "id": "208d05d7-390b-4535-be24-0cadac5e55bf",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v1",
-            "payload_sha256": "cb7f60639765964de29390c191890098e91a5dd186d6d7f4c8380e04e767b220",
+            "payload_sha256": "056b7603ec5eac83ace2989dba9d11941263290b076d44aaadd024d3e5bffb92",
             "vector": null
           },
           "info": {
@@ -8417,14 +8417,14 @@
           "acked": 5,
           "dropped": 0,
           "expected": {
-            "id": "0ca8988c-dfd8-4200-a249-daaac3e10ae7",
+            "id": "40288d6e-f3d9-4d9d-aa4d-1e4f3c8569d8",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v5",
-            "payload_sha256": "3ea9d07f563fcc89fa02d7a34e496be616609dd66ac873c580e5a5735a024020",
+            "payload_sha256": "7ac8ab52007d00c1c26ad5740beb6b99d5f91ebb4e50abe2b0313f0d14bc39f5",
             "vector": [
               -0.17971359488435873,
               0.020759530317806692,
@@ -8493,14 +8493,14 @@
             ]
           },
           "observed": {
-            "id": "4c38ea3a-28f0-44a1-b003-2fca58464c7d",
+            "id": "4753ea20-2616-488b-892b-a434b380ff8b",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v1",
-            "payload_sha256": "1b4f8bce74eb7db7f29022a598c8b8ef750464f3fccf106bd9c16c26fa0c22af",
+            "payload_sha256": "87eac186ecf681c87aff5ce571dd45aa6abcda11f28fb362179034ac086b2192",
             "vector": null
           },
           "info": {
@@ -8535,14 +8535,14 @@
           "acked": 5,
           "dropped": 0,
           "expected": {
-            "id": "a55f5157-8ff9-4d8a-8622-b845f38d9984",
+            "id": "f04d4531-77ef-4fa5-ab33-efe1f4bdaf2c",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v5",
-            "payload_sha256": "fc3bbe46df7cb3bb93480cad32235f89980529ad4df1e483da04046b2e3a3bfc",
+            "payload_sha256": "aba977f451af334656eda146b72011b9b6174a62eae350386ecfbba514785f6a",
             "vector": [
               -0.17971359488435873,
               0.020759530317806692,
@@ -8611,14 +8611,14 @@
             ]
           },
           "observed": {
-            "id": "71833d37-f143-4fa0-9dc5-9daabe6b70b4",
+            "id": "3f50c412-b671-4b35-9607-c9de2f4d2a7d",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v1",
-            "payload_sha256": "eb4de4606ab609406a18a3ec596f281e12ad5f9ecd355361a0a8b93b46b8494c",
+            "payload_sha256": "bb4235902809793729480af62cdb6d5b8c89ee7cfb3924c5695e95023fc3d330",
             "vector": null
           },
           "info": {
@@ -8653,14 +8653,14 @@
           "acked": 5,
           "dropped": 0,
           "expected": {
-            "id": "35030b93-9a1a-4da4-9168-febf989629b8",
+            "id": "00618c17-c348-42fa-9fb6-8b956e2f287d",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v5",
-            "payload_sha256": "cdcf8793f94c191825c98ac165f63cd6bac34e7d976ce51e3b19170a2a94c605",
+            "payload_sha256": "18c82e4250112056af70c880a59ca1c873519be87da9abb6ef3468d94aae828b",
             "vector": [
               -0.17971359488435873,
               0.020759530317806692,
@@ -8729,14 +8729,14 @@
             ]
           },
           "observed": {
-            "id": "b00682ad-68f4-471e-9949-463fe863f706",
+            "id": "0cdab153-e8ee-4d98-aa69-b51dbfa87467",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v1",
-            "payload_sha256": "d1d7e74393cd65184a16131eb1d7df856f5aae6fe2eb360c9a22a5735f32d782",
+            "payload_sha256": "12ab9a328a16757e6fc925a4ddfb04ddc218cf74b3dd169df1f488ac4d562ada",
             "vector": null
           },
           "info": {
@@ -8771,14 +8771,14 @@
           "acked": 5,
           "dropped": 0,
           "expected": {
-            "id": "e1cb387d-8bc1-4cd4-bf45-676e369d443f",
+            "id": "1474f961-1a25-497c-9804-2bb1cae573aa",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v5",
-            "payload_sha256": "82e7566ef328b7b0a27e1b0d39d2cbe47dcea91b53ae04527267e565d479cc67",
+            "payload_sha256": "a2b2e64089697fdf2ae4c6880df8cd8fe08e1b72ff44c2ebd319a24c063bd6a8",
             "vector": [
               -0.17971359488435873,
               0.020759530317806692,
@@ -8847,14 +8847,14 @@
             ]
           },
           "observed": {
-            "id": "faa490f0-e3be-4a5f-a7df-26b7f8cdf641",
+            "id": "cbec7c39-a2d2-4050-821b-c06944b2e279",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v1",
-            "payload_sha256": "ed435e5bfc30bb7947c1b4870ca1d93d2a989d47e8272109f1220687e4874ba9",
+            "payload_sha256": "b58c3094c3ab20b2c06db47190345f302eacf7ad2bf8a7e80ba6539b58845c58",
             "vector": null
           },
           "info": {
@@ -8889,14 +8889,14 @@
           "acked": 5,
           "dropped": 0,
           "expected": {
-            "id": "dbaee908-d626-4ac3-bac0-dd6ddb7f55f6",
+            "id": "5952129c-e4e4-4a08-b878-4decdb5076fc",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v5",
-            "payload_sha256": "40f4fe9d814bb52941d81db939bc8d6e3a6ef73db2f169ae9a741c4246051e5d",
+            "payload_sha256": "0375f7cd7a6dd1d92587f64c574eeb9da28f42bd6c71a8cf3cccb1c070b1b698",
             "vector": [
               -0.17971359488435873,
               0.020759530317806692,
@@ -8965,14 +8965,14 @@
             ]
           },
           "observed": {
-            "id": "981eeb50-3f23-4596-b1eb-adfad6b941f0",
+            "id": "7444debb-850e-4115-89f1-9859e767cf44",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v1",
-            "payload_sha256": "61a9177ae651733def6b575ee475c3dcb7792bed753d97f806127fa32996c235",
+            "payload_sha256": "5f7eec7394d32f5ff06b8419161e946492c3833f074cf937e5514e8c4c0f1ca2",
             "vector": null
           },
           "info": {
@@ -9007,14 +9007,14 @@
           "acked": 5,
           "dropped": 0,
           "expected": {
-            "id": "30e6dc53-4448-44c0-8cd9-f3da0bdacf15",
+            "id": "3d1adbae-f74f-48c0-a05c-d3df288da475",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v5",
-            "payload_sha256": "1fc75996e08fdc1571316f55af1bab4d2aa86e444cda42f3b7d792a3906cd708",
+            "payload_sha256": "68e440e8b705975afabf09aa5b26158ab82b87ac5e043437645dc4a17e6c7595",
             "vector": [
               -0.17971359488435873,
               0.020759530317806692,
@@ -9083,14 +9083,14 @@
             ]
           },
           "observed": {
-            "id": "ae9fcc2f-abb0-44f6-a6d0-34ae82bfbdec",
+            "id": "e9d23088-7aed-41f2-9d62-7c2a38ee8768",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v1",
-            "payload_sha256": "5dabaddabea1fdbb4a10223ebbfdcf2ef46f21e0785210f90a87fde862045147",
+            "payload_sha256": "64dbf0a0c9e1304110aafae96d5b672f7c5d61c42698ce6d5e217d97f7730d64",
             "vector": null
           },
           "info": {
@@ -9125,14 +9125,14 @@
           "acked": 5,
           "dropped": 0,
           "expected": {
-            "id": "d7c4b5d5-b9fb-4803-875d-bfb1345f45b5",
+            "id": "f4734304-1fc5-4a86-960a-b134cc162ad0",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v5",
-            "payload_sha256": "a80fa2ab4b88db6ae555e998e2e2040f9d8b2bde7021bdae4ab7be81a2005df3",
+            "payload_sha256": "44588429608c5e62f3f81a4c02c03a53a3e0b054a37794cce3813edd91a973e5",
             "vector": [
               -0.17971359488435873,
               0.020759530317806692,
@@ -9201,14 +9201,14 @@
             ]
           },
           "observed": {
-            "id": "d7c4b5d5-b9fb-4803-875d-bfb1345f45b5",
+            "id": "f4734304-1fc5-4a86-960a-b134cc162ad0",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v5",
-            "payload_sha256": "a80fa2ab4b88db6ae555e998e2e2040f9d8b2bde7021bdae4ab7be81a2005df3",
+            "payload_sha256": "44588429608c5e62f3f81a4c02c03a53a3e0b054a37794cce3813edd91a973e5",
             "vector": null
           },
           "info": {
@@ -9238,14 +9238,14 @@
           "acked": 5,
           "dropped": 0,
           "expected": {
-            "id": "1c45e75d-54cf-4347-8e8a-b1c9f3d9df5c",
+            "id": "02d53034-7360-4743-9569-7791a85a780c",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v5",
-            "payload_sha256": "b4f8d65a9c7357d17927758dc8a4d6cf5ebecdc8664574f08e9c8ab0377c8ca6",
+            "payload_sha256": "bebf69d15a7039505ff11c0b0efc775b8311921b1e9aeb3c2a775bc408951096",
             "vector": [
               -0.17971359488435873,
               0.020759530317806692,
@@ -9314,14 +9314,14 @@
             ]
           },
           "observed": {
-            "id": "1c45e75d-54cf-4347-8e8a-b1c9f3d9df5c",
+            "id": "02d53034-7360-4743-9569-7791a85a780c",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v5",
-            "payload_sha256": "b4f8d65a9c7357d17927758dc8a4d6cf5ebecdc8664574f08e9c8ab0377c8ca6",
+            "payload_sha256": "bebf69d15a7039505ff11c0b0efc775b8311921b1e9aeb3c2a775bc408951096",
             "vector": null
           },
           "info": {
@@ -9351,14 +9351,14 @@
           "acked": 5,
           "dropped": 0,
           "expected": {
-            "id": "38fff1d4-86d9-4c08-9987-97ca795e4ac8",
+            "id": "f190ae71-5aed-40fa-8b0a-c50511e60eb9",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v5",
-            "payload_sha256": "450e1087ea70b25e10b6538a178fc7755680ca2e04efc9b28abefb83c9038149",
+            "payload_sha256": "0bcc03b4ebab75f94658ba21ce364dd05bfe84a9ca91db6621f3a8223e38a1df",
             "vector": [
               -0.17971359488435873,
               0.020759530317806692,
@@ -9427,14 +9427,14 @@
             ]
           },
           "observed": {
-            "id": "38fff1d4-86d9-4c08-9987-97ca795e4ac8",
+            "id": "f190ae71-5aed-40fa-8b0a-c50511e60eb9",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v5",
-            "payload_sha256": "450e1087ea70b25e10b6538a178fc7755680ca2e04efc9b28abefb83c9038149",
+            "payload_sha256": "0bcc03b4ebab75f94658ba21ce364dd05bfe84a9ca91db6621f3a8223e38a1df",
             "vector": null
           },
           "info": {
@@ -9464,14 +9464,14 @@
           "acked": 5,
           "dropped": 0,
           "expected": {
-            "id": "26202ff4-7c42-4115-93c8-6a96a7119eb3",
+            "id": "0b7e9ac5-9ae6-46ce-81ce-64f43fff0e33",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v5",
-            "payload_sha256": "64d5544e29673caf218985697c92bfc8c8d4c82b5331863d2bcc433fbfd7858c",
+            "payload_sha256": "dbfbb9fe1e29386550924dde4d3480a7700c17473aca8e27906b2c7a59d0f083",
             "vector": [
               -0.17971359488435873,
               0.020759530317806692,
@@ -9540,14 +9540,14 @@
             ]
           },
           "observed": {
-            "id": "26202ff4-7c42-4115-93c8-6a96a7119eb3",
+            "id": "0b7e9ac5-9ae6-46ce-81ce-64f43fff0e33",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v5",
-            "payload_sha256": "64d5544e29673caf218985697c92bfc8c8d4c82b5331863d2bcc433fbfd7858c",
+            "payload_sha256": "dbfbb9fe1e29386550924dde4d3480a7700c17473aca8e27906b2c7a59d0f083",
             "vector": null
           },
           "info": {
@@ -9577,14 +9577,14 @@
           "acked": 5,
           "dropped": 0,
           "expected": {
-            "id": "dd0317a2-b0fb-4d16-921c-b223910e2f46",
+            "id": "758b0f2a-7ab2-473b-aa1d-089a7ce00883",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v5",
-            "payload_sha256": "eddae01cad9365330bcd004ced0d287d44f16e5a1f76eb882d4249f65722eb78",
+            "payload_sha256": "b3185245138005503533a7146b544d94565b850d53d3e8e7936dbe52c8768af0",
             "vector": [
               -0.17971359488435873,
               0.020759530317806692,
@@ -9653,14 +9653,14 @@
             ]
           },
           "observed": {
-            "id": "dd0317a2-b0fb-4d16-921c-b223910e2f46",
+            "id": "758b0f2a-7ab2-473b-aa1d-089a7ce00883",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v5",
-            "payload_sha256": "eddae01cad9365330bcd004ced0d287d44f16e5a1f76eb882d4249f65722eb78",
+            "payload_sha256": "b3185245138005503533a7146b544d94565b850d53d3e8e7936dbe52c8768af0",
             "vector": null
           },
           "info": {
@@ -9690,14 +9690,14 @@
           "acked": 5,
           "dropped": 0,
           "expected": {
-            "id": "d8a6a63a-f036-43ba-b4de-f7168fd782d7",
+            "id": "66200b5c-ddf8-4603-970a-dafc33d1af19",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v5",
-            "payload_sha256": "368c9e711a30c74a7d50b1f28776a3a9b103e66f8b83af3b1f118f331b303a64",
+            "payload_sha256": "e01a6d0010b9e8741e2bde0c0aebb814dafa6b0dafa93b1d507dd80bcb219bd0",
             "vector": [
               -0.17971359488435873,
               0.020759530317806692,
@@ -9766,14 +9766,14 @@
             ]
           },
           "observed": {
-            "id": "d8a6a63a-f036-43ba-b4de-f7168fd782d7",
+            "id": "66200b5c-ddf8-4603-970a-dafc33d1af19",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v5",
-            "payload_sha256": "368c9e711a30c74a7d50b1f28776a3a9b103e66f8b83af3b1f118f331b303a64",
+            "payload_sha256": "e01a6d0010b9e8741e2bde0c0aebb814dafa6b0dafa93b1d507dd80bcb219bd0",
             "vector": null
           },
           "info": {
@@ -9803,14 +9803,14 @@
           "acked": 5,
           "dropped": 0,
           "expected": {
-            "id": "16c62b84-14b7-44bc-9b54-b68a4dba4704",
+            "id": "2f963444-65a6-4292-a4b6-4b2135f7a3aa",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v5",
-            "payload_sha256": "6054d8a10ffc151eb08b95c503a3e3d8124dae0cc035105a5ae937b14c586f16",
+            "payload_sha256": "b7838bbe62a4f71dfebfe8c5e94679cdce50b278aa8c1bb82c7ec384312df1aa",
             "vector": [
               -0.17971359488435873,
               0.020759530317806692,
@@ -9879,14 +9879,14 @@
             ]
           },
           "observed": {
-            "id": "16c62b84-14b7-44bc-9b54-b68a4dba4704",
+            "id": "2f963444-65a6-4292-a4b6-4b2135f7a3aa",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v5",
-            "payload_sha256": "6054d8a10ffc151eb08b95c503a3e3d8124dae0cc035105a5ae937b14c586f16",
+            "payload_sha256": "b7838bbe62a4f71dfebfe8c5e94679cdce50b278aa8c1bb82c7ec384312df1aa",
             "vector": null
           },
           "info": {
@@ -9916,14 +9916,14 @@
           "acked": 5,
           "dropped": 0,
           "expected": {
-            "id": "68e82f42-5e9b-4132-b1d6-9c60b7188f4a",
+            "id": "88929afd-ef89-4d50-9891-7e2d0b9c67c8",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v5",
-            "payload_sha256": "59ad2c694dd29c8c597ba07e053d03ef6f999327e13615b2cbed1fbc9900da6a",
+            "payload_sha256": "ca1bcfb3ea7f3458ce392c50a7f103d0227d9051d383b3cf90977419826f0432",
             "vector": [
               -0.17971359488435873,
               0.020759530317806692,
@@ -9992,14 +9992,14 @@
             ]
           },
           "observed": {
-            "id": "68e82f42-5e9b-4132-b1d6-9c60b7188f4a",
+            "id": "88929afd-ef89-4d50-9891-7e2d0b9c67c8",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v5",
-            "payload_sha256": "59ad2c694dd29c8c597ba07e053d03ef6f999327e13615b2cbed1fbc9900da6a",
+            "payload_sha256": "ca1bcfb3ea7f3458ce392c50a7f103d0227d9051d383b3cf90977419826f0432",
             "vector": null
           },
           "info": {
@@ -10029,14 +10029,14 @@
           "acked": 5,
           "dropped": 0,
           "expected": {
-            "id": "2cfbabab-fa53-449a-a400-1327e1e269ed",
+            "id": "0a0b6271-cd55-40ae-8478-bf8295b3d993",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v5",
-            "payload_sha256": "d65e0c870871259f8faf5c05d47f72c165382dc3dabddd43132966d4870ae7d6",
+            "payload_sha256": "37dbc4826f5736635e8a5d916b69e0b8b29387bfa4b4bc393a5f75e45e45df48",
             "vector": [
               -0.17971359488435873,
               0.020759530317806692,
@@ -10105,14 +10105,14 @@
             ]
           },
           "observed": {
-            "id": "2cfbabab-fa53-449a-a400-1327e1e269ed",
+            "id": "0a0b6271-cd55-40ae-8478-bf8295b3d993",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v5",
-            "payload_sha256": "d65e0c870871259f8faf5c05d47f72c165382dc3dabddd43132966d4870ae7d6",
+            "payload_sha256": "37dbc4826f5736635e8a5d916b69e0b8b29387bfa4b4bc393a5f75e45e45df48",
             "vector": null
           },
           "info": {
@@ -10142,14 +10142,14 @@
           "acked": 5,
           "dropped": 0,
           "expected": {
-            "id": "ece00a16-6b97-4293-8825-9600701f2102",
+            "id": "fc74b3ca-7b54-47c3-afb9-1a8a0a3ebca7",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v5",
-            "payload_sha256": "83c3d16dd0166e13d9f4d423076bd93d434e572d7b7d73f82885fd27e2a72179",
+            "payload_sha256": "a75869800cf137260210422ea43953b5a30ae1bbe51fc2ee2d9ea3c115c1fa76",
             "vector": [
               -0.17971359488435873,
               0.020759530317806692,
@@ -10218,14 +10218,14 @@
             ]
           },
           "observed": {
-            "id": "ece00a16-6b97-4293-8825-9600701f2102",
+            "id": "fc74b3ca-7b54-47c3-afb9-1a8a0a3ebca7",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v5",
-            "payload_sha256": "83c3d16dd0166e13d9f4d423076bd93d434e572d7b7d73f82885fd27e2a72179",
+            "payload_sha256": "a75869800cf137260210422ea43953b5a30ae1bbe51fc2ee2d9ea3c115c1fa76",
             "vector": null
           },
           "info": {
@@ -10255,14 +10255,14 @@
           "acked": 5,
           "dropped": 0,
           "expected": {
-            "id": "cc174853-4007-47da-8269-f668664109d4",
+            "id": "a6e1e5cb-088f-4d86-9f03-5eab81628425",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v5",
-            "payload_sha256": "58939052b8d2b7d06e64373faea380cd004368500789e24ec390fe7d5acc33d8",
+            "payload_sha256": "085e104ee567c660bc051b9001d44b7f3c9521d0a229afc25af2feac0d593aeb",
             "vector": [
               -0.17971359488435873,
               0.020759530317806692,
@@ -10331,14 +10331,14 @@
             ]
           },
           "observed": {
-            "id": "cc174853-4007-47da-8269-f668664109d4",
+            "id": "a6e1e5cb-088f-4d86-9f03-5eab81628425",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v5",
-            "payload_sha256": "58939052b8d2b7d06e64373faea380cd004368500789e24ec390fe7d5acc33d8",
+            "payload_sha256": "085e104ee567c660bc051b9001d44b7f3c9521d0a229afc25af2feac0d593aeb",
             "vector": null
           },
           "info": {
@@ -10368,14 +10368,14 @@
           "acked": 5,
           "dropped": 0,
           "expected": {
-            "id": "9de41e83-524a-42d5-8e01-fca19295ce22",
+            "id": "6f188625-5d7d-4713-9dc4-d509194e0c53",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v5",
-            "payload_sha256": "28e4c43b95c5853131ad9a888753c19f5fc23bbe012558a4d6281756ee65b813",
+            "payload_sha256": "c641827dc5d628313b2acbc4e4fa2d19286a6ddac7667eabb3c5a49adb46616d",
             "vector": [
               -0.17971359488435873,
               0.020759530317806692,
@@ -10444,14 +10444,14 @@
             ]
           },
           "observed": {
-            "id": "9de41e83-524a-42d5-8e01-fca19295ce22",
+            "id": "6f188625-5d7d-4713-9dc4-d509194e0c53",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v5",
-            "payload_sha256": "28e4c43b95c5853131ad9a888753c19f5fc23bbe012558a4d6281756ee65b813",
+            "payload_sha256": "c641827dc5d628313b2acbc4e4fa2d19286a6ddac7667eabb3c5a49adb46616d",
             "vector": null
           },
           "info": {
@@ -10481,14 +10481,14 @@
           "acked": 5,
           "dropped": 0,
           "expected": {
-            "id": "b071c37e-7597-442d-a46e-4b57fd814515",
+            "id": "51d608d1-152e-414c-8a8d-08dec9e7dbb5",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v5",
-            "payload_sha256": "834c86c01ae3599c765637efba70dca87b489e742202ab361dd13b17421a2250",
+            "payload_sha256": "0a4c15c5abef429e3df4e5f29d0dfff71ba3ad22aeee6bcf9e71449098f6be5f",
             "vector": [
               -0.17971359488435873,
               0.020759530317806692,
@@ -10557,14 +10557,14 @@
             ]
           },
           "observed": {
-            "id": "b071c37e-7597-442d-a46e-4b57fd814515",
+            "id": "51d608d1-152e-414c-8a8d-08dec9e7dbb5",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v5",
-            "payload_sha256": "834c86c01ae3599c765637efba70dca87b489e742202ab361dd13b17421a2250",
+            "payload_sha256": "0a4c15c5abef429e3df4e5f29d0dfff71ba3ad22aeee6bcf9e71449098f6be5f",
             "vector": null
           },
           "info": {
@@ -10594,14 +10594,14 @@
           "acked": 5,
           "dropped": 0,
           "expected": {
-            "id": "b4ebf534-fef3-4b58-b177-33021edd01cd",
+            "id": "94f0e838-ebba-4581-93cb-00df427fc91b",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v5",
-            "payload_sha256": "685ca10292a9503e80e4fa6a2e3e696db88ed00980ab3c2a730cc9d811e299ac",
+            "payload_sha256": "0cf9e0c26c0e86c8942e3037bcc88929d5d098e35ef240ac231dddb98907465b",
             "vector": [
               -0.17971359488435873,
               0.020759530317806692,
@@ -10670,14 +10670,14 @@
             ]
           },
           "observed": {
-            "id": "b4ebf534-fef3-4b58-b177-33021edd01cd",
+            "id": "94f0e838-ebba-4581-93cb-00df427fc91b",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v5",
-            "payload_sha256": "685ca10292a9503e80e4fa6a2e3e696db88ed00980ab3c2a730cc9d811e299ac",
+            "payload_sha256": "0cf9e0c26c0e86c8942e3037bcc88929d5d098e35ef240ac231dddb98907465b",
             "vector": null
           },
           "info": {
@@ -10707,14 +10707,14 @@
           "acked": 5,
           "dropped": 0,
           "expected": {
-            "id": "c1dcf049-2d41-4399-b1be-b9a91a46ceba",
+            "id": "ee955c26-a5c9-426d-ae34-3e0d9308650a",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v5",
-            "payload_sha256": "a4b9e25ed276531497bc7dea2418038c1954269f089deac6e7d60a17779bd671",
+            "payload_sha256": "42a90231de3f46dcaa330da25c639cf403e2f185b91c97e25ab0b2d181d6c33f",
             "vector": [
               -0.17971359488435873,
               0.020759530317806692,
@@ -10783,14 +10783,14 @@
             ]
           },
           "observed": {
-            "id": "c1dcf049-2d41-4399-b1be-b9a91a46ceba",
+            "id": "ee955c26-a5c9-426d-ae34-3e0d9308650a",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v5",
-            "payload_sha256": "a4b9e25ed276531497bc7dea2418038c1954269f089deac6e7d60a17779bd671",
+            "payload_sha256": "42a90231de3f46dcaa330da25c639cf403e2f185b91c97e25ab0b2d181d6c33f",
             "vector": null
           },
           "info": {
@@ -10820,14 +10820,14 @@
           "acked": 5,
           "dropped": 0,
           "expected": {
-            "id": "34accb14-f497-4b8b-a5c7-ee7a98ba674d",
+            "id": "b2f181b1-3dd4-43e7-b730-82b822ea8d2b",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v5",
-            "payload_sha256": "d4836463eb8430c5d114db808b2349e6410837382b4d591c8e6db56476f3d16d",
+            "payload_sha256": "e3dc54258eae86f33d3dabb0c86dc55cfa41823dcd5da3b1eb4c3828682e1ffb",
             "vector": [
               -0.17971359488435873,
               0.020759530317806692,
@@ -10896,14 +10896,14 @@
             ]
           },
           "observed": {
-            "id": "34accb14-f497-4b8b-a5c7-ee7a98ba674d",
+            "id": "b2f181b1-3dd4-43e7-b730-82b822ea8d2b",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v5",
-            "payload_sha256": "d4836463eb8430c5d114db808b2349e6410837382b4d591c8e6db56476f3d16d",
+            "payload_sha256": "e3dc54258eae86f33d3dabb0c86dc55cfa41823dcd5da3b1eb4c3828682e1ffb",
             "vector": null
           },
           "info": {
@@ -10933,14 +10933,14 @@
           "acked": 5,
           "dropped": 0,
           "expected": {
-            "id": "a70b2f0e-279a-40d2-9944-5560bb4ce3ea",
+            "id": "12334053-ffe8-4482-9341-597caa7cb231",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v5",
-            "payload_sha256": "c56666ccb1d2b49036c1642adb3015feae8f742867190e110977d15a877c7e22",
+            "payload_sha256": "f76840338cd638771437fc3a194edb95fe0e0e362fea89f190084beeb70b9978",
             "vector": [
               -0.17971359488435873,
               0.020759530317806692,
@@ -11009,14 +11009,14 @@
             ]
           },
           "observed": {
-            "id": "a70b2f0e-279a-40d2-9944-5560bb4ce3ea",
+            "id": "12334053-ffe8-4482-9341-597caa7cb231",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v5",
-            "payload_sha256": "c56666ccb1d2b49036c1642adb3015feae8f742867190e110977d15a877c7e22",
+            "payload_sha256": "f76840338cd638771437fc3a194edb95fe0e0e362fea89f190084beeb70b9978",
             "vector": null
           },
           "info": {
@@ -11046,14 +11046,14 @@
           "acked": 5,
           "dropped": 0,
           "expected": {
-            "id": "7457351d-7c94-45f3-aa4b-3f679c847344",
+            "id": "ab65f2b5-8c7a-4a01-96ac-03c56440ada9",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v5",
-            "payload_sha256": "f99005709d1c4617e9b7583fdff58d449b99fb53e3e1b870dba9677f85e75b54",
+            "payload_sha256": "6aeef76dd6ac79e21734c10a3cd5a1f070753196c942f3866d12f4e44b97b114",
             "vector": [
               -0.17971359488435873,
               0.020759530317806692,
@@ -11122,14 +11122,14 @@
             ]
           },
           "observed": {
-            "id": "7457351d-7c94-45f3-aa4b-3f679c847344",
+            "id": "ab65f2b5-8c7a-4a01-96ac-03c56440ada9",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v5",
-            "payload_sha256": "f99005709d1c4617e9b7583fdff58d449b99fb53e3e1b870dba9677f85e75b54",
+            "payload_sha256": "6aeef76dd6ac79e21734c10a3cd5a1f070753196c942f3866d12f4e44b97b114",
             "vector": null
           },
           "info": {
@@ -11159,14 +11159,14 @@
           "acked": 5,
           "dropped": 0,
           "expected": {
-            "id": "0ede06eb-8c10-4d43-9cff-65a486ca0dd0",
+            "id": "0b98d3f3-c07a-48f9-b445-019d67942d8c",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v5",
-            "payload_sha256": "eb84e34b5a745291a4082f1bb94d4c5d82f5420f3cc8a7cf04bfc12dbf14ffb9",
+            "payload_sha256": "06ec41dca13ad7620f62879e609911ae801bfe86aeb88f2f50b5c2bef4548499",
             "vector": [
               -0.17971359488435873,
               0.020759530317806692,
@@ -11235,14 +11235,14 @@
             ]
           },
           "observed": {
-            "id": "0ede06eb-8c10-4d43-9cff-65a486ca0dd0",
+            "id": "0b98d3f3-c07a-48f9-b445-019d67942d8c",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v5",
-            "payload_sha256": "eb84e34b5a745291a4082f1bb94d4c5d82f5420f3cc8a7cf04bfc12dbf14ffb9",
+            "payload_sha256": "06ec41dca13ad7620f62879e609911ae801bfe86aeb88f2f50b5c2bef4548499",
             "vector": null
           },
           "info": {
@@ -11272,14 +11272,14 @@
           "acked": 5,
           "dropped": 0,
           "expected": {
-            "id": "d5103e6b-cb7f-4209-bf7f-44485130ba84",
+            "id": "1c0ca767-75dd-437a-b9bb-03b324880e1b",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v5",
-            "payload_sha256": "41025e3048e797e01aab72bad6fb5eee918d7ee9695826456bd7a8131c766870",
+            "payload_sha256": "5371e8d321f4f1574d2593cc6abfdcee50edc2358b669bb50a2e16c61ce90812",
             "vector": [
               -0.17971359488435873,
               0.020759530317806692,
@@ -11348,14 +11348,14 @@
             ]
           },
           "observed": {
-            "id": "d5103e6b-cb7f-4209-bf7f-44485130ba84",
+            "id": "1c0ca767-75dd-437a-b9bb-03b324880e1b",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v5",
-            "payload_sha256": "41025e3048e797e01aab72bad6fb5eee918d7ee9695826456bd7a8131c766870",
+            "payload_sha256": "5371e8d321f4f1574d2593cc6abfdcee50edc2358b669bb50a2e16c61ce90812",
             "vector": null
           },
           "info": {

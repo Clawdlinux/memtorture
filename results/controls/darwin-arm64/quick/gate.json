@@ -8,7 +8,7 @@
     "cpu_count": 10,
     "ram_bytes": 17179869184
   },
-  "methodology_sha256": "271dd8acadbd5ddc1a7d532dc7b873c18bb95da65cbda4b4af1e50f64f315076",
+  "methodology_sha256": "72e69442d2a1ccb43ba1b441fcda075f70fd13913ad266dba8db289145e67c5b",
   "suites": {
     "recall-delay": {
       "must_fail": "delayed-index",
@@ -21,90 +21,90 @@
           "role": "must_fail",
           "trial": 0,
           "path": "id",
-          "lag_ms": 100.09075,
-          "upper_ms": 101.127375,
-          "read_p99_ms": 0.127375,
+          "lag_ms": 100.183083,
+          "upper_ms": 101.321083,
+          "read_p99_ms": 0.321083,
           "matched": true
         },
         {
           "role": "must_fail",
           "trial": 1,
           "path": "filter",
-          "lag_ms": 100.085292,
-          "upper_ms": 101.117958,
-          "read_p99_ms": 0.117958,
+          "lag_ms": 100.299417,
+          "upper_ms": 101.362584,
+          "read_p99_ms": 0.362584,
           "matched": true
         },
         {
           "role": "must_fail",
           "trial": 2,
           "path": "recency",
-          "lag_ms": 100.104541,
-          "upper_ms": 101.150542,
-          "read_p99_ms": 0.150542,
+          "lag_ms": 100.157917,
+          "upper_ms": 101.3865,
+          "read_p99_ms": 0.3865,
           "matched": true
         },
         {
           "role": "must_fail",
           "trial": 3,
           "path": "search",
-          "lag_ms": 100.168375,
-          "upper_ms": 101.27825,
-          "read_p99_ms": 0.27825,
+          "lag_ms": 100.273792,
+          "upper_ms": 101.577375,
+          "read_p99_ms": 0.577375,
           "matched": true
         },
         {
           "role": "must_fail",
           "trial": 4,
           "path": "id",
-          "lag_ms": 100.084542,
-          "upper_ms": 101.250042,
-          "read_p99_ms": 0.250042,
+          "lag_ms": 100.569584,
+          "upper_ms": 104.695917,
+          "read_p99_ms": 3.695917,
           "matched": true
         },
         {
           "role": "must_pass",
           "trial": 0,
           "path": "id",
-          "lag_ms": 0.129708,
-          "upper_ms": 101.097458,
-          "read_p99_ms": 0.097458,
+          "lag_ms": 0.4265,
+          "upper_ms": 101.348292,
+          "read_p99_ms": 0.348292,
           "matched": true
         },
         {
           "role": "must_pass",
           "trial": 1,
           "path": "filter",
-          "lag_ms": 0.200625,
-          "upper_ms": 101.154583,
-          "read_p99_ms": 0.154583,
+          "lag_ms": 0.307458,
+          "upper_ms": 101.243792,
+          "read_p99_ms": 0.243792,
           "matched": true
         },
         {
           "role": "must_pass",
           "trial": 2,
           "path": "recency",
-          "lag_ms": 0.175292,
-          "upper_ms": 101.137459,
-          "read_p99_ms": 0.137459,
+          "lag_ms": 0.269375,
+          "upper_ms": 101.209333,
+          "read_p99_ms": 0.209333,
           "matched": true
         },
         {
           "role": "must_pass",
           "trial": 3,
           "path": "search",
-          "lag_ms": 0.292,
-          "upper_ms": 101.250584,
-          "read_p99_ms": 0.250584,
+          "lag_ms": 0.530667,
+          "upper_ms": 101.461125,
+          "read_p99_ms": 0.461125,
           "matched": true
         },
         {
           "role": "must_pass",
           "trial": 4,
           "path": "id",
-          "lag_ms": 0.166541,
-          "upper_ms": 101.127125,
-          "read_p99_ms": 0.127125,
+          "lag_ms": 0.273,
+          "upper_ms": 101.212375,
+          "read_p99_ms": 0.212375,
           "matched": true
         }
       ],
@@ -136,7 +136,7 @@
               "target": "worker",
               "trial": 0,
               "acked": 6,
-              "fault_ns": 223665873618333,
+              "fault_ns": 224361253467958,
               "acked_missing": 6,
               "duplicates": 0,
               "torn": 0
@@ -186,7 +186,7 @@
               "target": "worker",
               "trial": 0,
               "acked": 8,
-              "fault_ns": 223665996957916,
+              "fault_ns": 224361471060625,
               "acked_missing": 8,
               "duplicates": 0,
               "torn": 0
@@ -236,7 +236,7 @@
               "target": "worker",
               "trial": 0,
               "acked": 7,
-              "fault_ns": 223666121844500,
+              "fault_ns": 224361718422125,
               "acked_missing": 7,
               "duplicates": 0,
               "torn": 0
@@ -286,7 +286,7 @@
               "target": "worker",
               "trial": 0,
               "acked": 6,
-              "fault_ns": 223666246139041,
+              "fault_ns": 224361934686791,
               "acked_missing": 6,
               "duplicates": 0,
               "torn": 0
@@ -336,7 +336,7 @@
               "target": "worker",
               "trial": 0,
               "acked": 5,
-              "fault_ns": 223666369794250,
+              "fault_ns": 224362189456708,
               "acked_missing": 5,
               "duplicates": 0,
               "torn": 0
@@ -386,7 +386,7 @@
               "target": "worker",
               "trial": 0,
               "acked": 6,
-              "fault_ns": 223666498006708,
+              "fault_ns": 224362405423375,
               "acked_missing": 0,
               "duplicates": 0,
               "torn": 0
@@ -431,7 +431,7 @@
               "target": "worker",
               "trial": 0,
               "acked": 8,
-              "fault_ns": 223666627915541,
+              "fault_ns": 224362635758708,
               "acked_missing": 0,
               "duplicates": 0,
               "torn": 0
@@ -476,7 +476,7 @@
               "target": "worker",
               "trial": 0,
               "acked": 7,
-              "fault_ns": 223666761393250,
+              "fault_ns": 224362842709166,
               "acked_missing": 0,
               "duplicates": 0,
               "torn": 0
@@ -521,7 +521,7 @@
               "target": "worker",
               "trial": 0,
               "acked": 6,
-              "fault_ns": 223666890012625,
+              "fault_ns": 224363052543958,
               "acked_missing": 0,
               "duplicates": 0,
               "torn": 0
@@ -566,7 +566,7 @@
               "target": "worker",
               "trial": 0,
               "acked": 5,
-              "fault_ns": 223667019428666,
+              "fault_ns": 224363282547000,
               "acked_missing": 0,
               "duplicates": 0,
               "torn": 0
@@ -702,7 +702,7 @@
           "role": "must_fail",
           "trial": 2,
           "status": "violation",
-          "acked_missing": 140,
+          "acked_missing": 139,
           "duplicates": 0,
           "torn": 0,
           "invalid_final": 0,
@@ -710,7 +710,7 @@
             {
               "writers": 8,
               "phase": "distinct",
-              "acked_missing": 140,
+              "acked_missing": 139,
               "duplicates": 0,
               "torn": 0,
               "invalid_final": 0
@@ -1207,7 +1207,7 @@
           "role": "must_fail",
           "trial": 2,
           "status": "violation",
-          "acked_missing": 140,
+          "acked_missing": 139,
           "duplicates": 0,
           "torn": 0,
           "invalid_final": 0,
@@ -1216,7 +1216,7 @@
             {
               "writers": 8,
               "phase": "distinct",
-              "acked_missing": 140,
+              "acked_missing": 139,
               "duplicates": 0,
               "torn": 0,
               "invalid_final": 0
@@ -1740,14 +1740,14 @@
           "acked": 5,
           "dropped": 0,
           "expected": {
-            "id": "18aebd02-c96c-4104-8600-7ceae27a78ca",
+            "id": "2fecd31d-2470-4841-8ec2-64c324e09b4f",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v5",
-            "payload_sha256": "df3cb42dd8d2bf7125cd7ee0695bc24395f84d126e0e09e0fad546969017a1c9",
+            "payload_sha256": "7a478e2e25cc4d1eca20de00df736fcb83e1fced86603428ed12277647e4aed8",
             "vector": [
               -0.17971359488435873,
               0.020759530317806692,
@@ -1816,14 +1816,14 @@
             ]
           },
           "observed": {
-            "id": "ed6ca8a3-ee2c-43b5-8662-ad705fa19406",
+            "id": "ca576f0e-7c85-41c9-983b-a6dc8a9fe5ea",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v1",
-            "payload_sha256": "ce7e76eb281d53dc1640ca7f21a173ba14de44e4bc40e9ae299cf26937aedfb0",
+            "payload_sha256": "a52239c92ba68b0aba752fdd70d04623e9f28c42d5f91c2799dc600951e1ddd3",
             "vector": null
           },
           "info": {
@@ -1858,14 +1858,14 @@
           "acked": 5,
           "dropped": 0,
           "expected": {
-            "id": "6fb92080-d2d7-47d3-8682-090d481b681a",
+            "id": "652b913d-1a03-4043-aa74-8e7761080954",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v5",
-            "payload_sha256": "55fc21beb32ab59e937eefa8826f2530b79b7c313b06d55a3add632f56d67ebb",
+            "payload_sha256": "7bb7afba2891bf27b78843d81f98a9233bc3c134a5e22113b904d001b08ffb0e",
             "vector": [
               -0.17971359488435873,
               0.020759530317806692,
@@ -1934,14 +1934,14 @@
             ]
           },
           "observed": {
-            "id": "eedcff13-6a6f-4b95-8566-2176d3d15371",
+            "id": "e916b0a1-f513-413e-ad70-7819723d02b2",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v1",
-            "payload_sha256": "0c2be43ac770ecb2d59bf7535e6c453d731c29751ce547326bf819b2d9afc37c",
+            "payload_sha256": "c4339db6fa8b9cfbe9d0db8ecead71364f48451c4606a2fcc00aa33018fa957c",
             "vector": null
           },
           "info": {
@@ -1976,14 +1976,14 @@
           "acked": 5,
           "dropped": 0,
           "expected": {
-            "id": "e3b8bda8-0e5b-4be4-9116-bce321328800",
+            "id": "b8af2399-6206-4871-aa3c-3e55337a20ec",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v5",
-            "payload_sha256": "ee4bf8225f6d1c790aa274995ca03f6d8408583c0443564d2364aa8fd417e2e8",
+            "payload_sha256": "850d96e4bdfe1d60d577d472b04aa466694bfc03e8766e6910e31d1d4eff988d",
             "vector": [
               -0.17971359488435873,
               0.020759530317806692,
@@ -2052,14 +2052,14 @@
             ]
           },
           "observed": {
-            "id": "f3dadacf-62c3-41fc-be27-30ff9eec070a",
+            "id": "918f48c5-d567-486d-a052-0c72ac1f8252",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v1",
-            "payload_sha256": "bb060fa51ceec9a8b58005ed1cbb04f9762bd311389600a06a01fdab7b838017",
+            "payload_sha256": "75121d9e9efe3363153b433f234c3df0697e656e7e8f65dcccbca602cd69f1c3",
             "vector": null
           },
           "info": {
@@ -2094,14 +2094,14 @@
           "acked": 5,
           "dropped": 0,
           "expected": {
-            "id": "313e8e08-c576-450a-99b3-e785c116ba08",
+            "id": "dac8db00-9c23-4a31-85d1-4e768a35dfc0",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v5",
-            "payload_sha256": "2a4d46408f440a81a14573d48a8782a7414fe7a714b04bf4fa79f99fa28cf314",
+            "payload_sha256": "035f752d7817b1dcac40c860df2c7db24f973c80245f312b6bda6c62f2618d89",
             "vector": [
               -0.17971359488435873,
               0.020759530317806692,
@@ -2170,14 +2170,14 @@
             ]
           },
           "observed": {
-            "id": "2a0e18ea-f6d4-45c4-9494-8380645b9438",
+            "id": "4eb2afe1-63c7-46b5-ad60-d01ad3ce6433",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v1",
-            "payload_sha256": "d4241f892a91ad06b29ec874c2e68ec569123d758ad3996803f175da3e530959",
+            "payload_sha256": "1596d8ea538d12bc10fbe92ead2c84b1f83dfd5676f221ec06e0cd8c33207d08",
             "vector": null
           },
           "info": {
@@ -2212,14 +2212,14 @@
           "acked": 5,
           "dropped": 0,
           "expected": {
-            "id": "cfdbd81c-229b-4007-a3de-e9f8410bfa51",
+            "id": "87cc0b8e-cbd4-45a2-be05-bab35f42828e",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v5",
-            "payload_sha256": "bb829dacbd13493d08af6198edfe869d58a243fdf6d8ec7efe75ac284aef3add",
+            "payload_sha256": "a8516c6c737eb65541c3055983d8cccfa1bb3a1c2e212f515641eba90d6cd78a",
             "vector": [
               -0.17971359488435873,
               0.020759530317806692,
@@ -2288,14 +2288,14 @@
             ]
           },
           "observed": {
-            "id": "5fb2c0b2-28d1-4785-9d9c-90b78c01f349",
+            "id": "1ce375c7-e719-4dbf-8d67-fb40478110cb",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v1",
-            "payload_sha256": "8a4af7533befc944b7a7bd68d1d00e0ad4f7761687b2014cc2142d254364d9e7",
+            "payload_sha256": "6e5681ed343c1dbad40b7514ad57e53ed41a5e811ff36f724b74e3bd11714caa",
             "vector": null
           },
           "info": {
@@ -2330,14 +2330,14 @@
           "acked": 5,
           "dropped": 0,
           "expected": {
-            "id": "2abf6e20-93fc-42e0-a72e-f23b9b4d05da",
+            "id": "aaa023a2-ce57-4a60-aeed-03af9b259718",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v5",
-            "payload_sha256": "33cbf7c9d52788be82150358b600338ba04f8e4b12e10a3fba2150bdd275be28",
+            "payload_sha256": "714f8debdd95304f59f1a91c90657528c1b96101ab8bae4975fd0472fc4cdf78",
             "vector": [
               -0.17971359488435873,
               0.020759530317806692,
@@ -2406,14 +2406,14 @@
             ]
           },
           "observed": {
-            "id": "2abf6e20-93fc-42e0-a72e-f23b9b4d05da",
+            "id": "aaa023a2-ce57-4a60-aeed-03af9b259718",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v5",
-            "payload_sha256": "33cbf7c9d52788be82150358b600338ba04f8e4b12e10a3fba2150bdd275be28",
+            "payload_sha256": "714f8debdd95304f59f1a91c90657528c1b96101ab8bae4975fd0472fc4cdf78",
             "vector": null
           },
           "info": {
@@ -2443,14 +2443,14 @@
           "acked": 5,
           "dropped": 0,
           "expected": {
-            "id": "8c68e57e-db1b-4cc7-88f8-3e3ce0423b50",
+            "id": "e2ffa79d-f23a-40e0-8d14-ad80e14ebc66",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v5",
-            "payload_sha256": "ecbb018fecf68add377c6ee923845414182b2256e88a86156269083b36a5c5f6",
+            "payload_sha256": "a6327c7d894b523cbf08bbe2028a9a1701662f6fe95c37e11cc6a1060db357ac",
             "vector": [
               -0.17971359488435873,
               0.020759530317806692,
@@ -2519,14 +2519,14 @@
             ]
           },
           "observed": {
-            "id": "8c68e57e-db1b-4cc7-88f8-3e3ce0423b50",
+            "id": "e2ffa79d-f23a-40e0-8d14-ad80e14ebc66",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v5",
-            "payload_sha256": "ecbb018fecf68add377c6ee923845414182b2256e88a86156269083b36a5c5f6",
+            "payload_sha256": "a6327c7d894b523cbf08bbe2028a9a1701662f6fe95c37e11cc6a1060db357ac",
             "vector": null
           },
           "info": {
@@ -2556,14 +2556,14 @@
           "acked": 5,
           "dropped": 0,
           "expected": {
-            "id": "2abbecee-8e46-41c9-9025-bbc0f92da54d",
+            "id": "39355b7b-f8d4-4a97-8585-1a3d09d58d13",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v5",
-            "payload_sha256": "fe54e90a774b6e61ae6787d5b6f0c4f8852907cccc92a8a864752c4834ec2d4a",
+            "payload_sha256": "4c82afb527a7838ebfe4d26e7ba939f2a342d1362557bf852ac8fad282c57b5f",
             "vector": [
               -0.17971359488435873,
               0.020759530317806692,
@@ -2632,14 +2632,14 @@
             ]
           },
           "observed": {
-            "id": "2abbecee-8e46-41c9-9025-bbc0f92da54d",
+            "id": "39355b7b-f8d4-4a97-8585-1a3d09d58d13",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v5",
-            "payload_sha256": "fe54e90a774b6e61ae6787d5b6f0c4f8852907cccc92a8a864752c4834ec2d4a",
+            "payload_sha256": "4c82afb527a7838ebfe4d26e7ba939f2a342d1362557bf852ac8fad282c57b5f",
             "vector": null
           },
           "info": {
@@ -2669,14 +2669,14 @@
           "acked": 5,
           "dropped": 0,
           "expected": {
-            "id": "48404f0a-170c-45f6-8694-33ea491766b0",
+            "id": "7a69d8dd-66e8-48d3-90db-fdee0495eefd",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v5",
-            "payload_sha256": "5edad9ceb2027235e6ad0ea6923eba0c460811d69f358d31f42fe6a3db5e4ed1",
+            "payload_sha256": "04d9dd309a4334ed4f72a654af09bdf42d1de80eff537d83bdc31cbc1f9b4dea",
             "vector": [
               -0.17971359488435873,
               0.020759530317806692,
@@ -2745,14 +2745,14 @@
             ]
           },
           "observed": {
-            "id": "48404f0a-170c-45f6-8694-33ea491766b0",
+            "id": "7a69d8dd-66e8-48d3-90db-fdee0495eefd",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v5",
-            "payload_sha256": "5edad9ceb2027235e6ad0ea6923eba0c460811d69f358d31f42fe6a3db5e4ed1",
+            "payload_sha256": "04d9dd309a4334ed4f72a654af09bdf42d1de80eff537d83bdc31cbc1f9b4dea",
             "vector": null
           },
           "info": {
@@ -2782,14 +2782,14 @@
           "acked": 5,
           "dropped": 0,
           "expected": {
-            "id": "07e9ecdd-8000-4505-9ae7-8d2da871bd11",
+            "id": "a12df329-68e6-465e-a52a-69950a33af7c",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v5",
-            "payload_sha256": "f08e535b00bfe45ed89cdd6200e0d0c87e9d1b8bd5c4fe44ad5467fa16334d4e",
+            "payload_sha256": "df6bf55e11e32a151663ce2d3903402ee7d334e339c7cb42426f0548c731257c",
             "vector": [
               -0.17971359488435873,
               0.020759530317806692,
@@ -2858,14 +2858,14 @@
             ]
           },
           "observed": {
-            "id": "07e9ecdd-8000-4505-9ae7-8d2da871bd11",
+            "id": "a12df329-68e6-465e-a52a-69950a33af7c",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v5",
-            "payload_sha256": "f08e535b00bfe45ed89cdd6200e0d0c87e9d1b8bd5c4fe44ad5467fa16334d4e",
+            "payload_sha256": "df6bf55e11e32a151663ce2d3903402ee7d334e339c7cb42426f0548c731257c",
             "vector": null
           },
           "info": {

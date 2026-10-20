@@ -26,31 +26,31 @@
           "dropped": 0,
           "observations": [
             {
-              "lag_ms": 100.09075,
+              "lag_ms": 100.183083,
               "polls": 101,
               "status": "visible",
-              "total_ms": 100.403625,
-              "write_ms": 0.312875
+              "total_ms": 100.666916,
+              "write_ms": 0.483833
             }
           ],
           "read_ms": {
-            "p50": 0.055667,
-            "p99": 0.127375
+            "p50": 0.088833,
+            "p99": 0.321083
           },
           "status": "measured",
           "time_to_visible_ms": {
-            "p50": 100.403625,
-            "p99": 100.403625
+            "p50": 100.666916,
+            "p99": 100.666916
           },
           "timeouts": 0,
           "visibility_lag_ms": {
-            "p50": 100.09075,
-            "p99": 100.09075
+            "p50": 100.183083,
+            "p99": 100.183083
           },
           "visible": 1,
           "write_latency_ms": {
-            "p50": 0.312875,
-            "p99": 0.312875
+            "p50": 0.483833,
+            "p99": 0.483833
           }
         }
       },
@@ -89,31 +89,31 @@
           "dropped": 0,
           "observations": [
             {
-              "lag_ms": 100.085292,
+              "lag_ms": 100.299417,
               "polls": 101,
               "status": "visible",
-              "total_ms": 100.336292,
-              "write_ms": 0.251
+              "total_ms": 100.796834,
+              "write_ms": 0.497417
             }
           ],
           "read_ms": {
-            "p50": 0.053542,
-            "p99": 0.117958
+            "p50": 0.139125,
+            "p99": 0.362584
           },
           "status": "measured",
           "time_to_visible_ms": {
-            "p50": 100.336292,
-            "p99": 100.336292
+            "p50": 100.796834,
+            "p99": 100.796834
           },
           "timeouts": 0,
           "visibility_lag_ms": {
-            "p50": 100.085292,
-            "p99": 100.085292
+            "p50": 100.299417,
+            "p99": 100.299417
           },
           "visible": 1,
           "write_latency_ms": {
-            "p50": 0.251,
-            "p99": 0.251
+            "p50": 0.497417,
+            "p99": 0.497417
           }
         }
       },
@@ -152,31 +152,31 @@
           "dropped": 0,
           "observations": [
             {
-              "lag_ms": 100.104541,
+              "lag_ms": 100.157917,
               "polls": 101,
               "status": "visible",
-              "total_ms": 100.400416,
-              "write_ms": 0.295875
+              "total_ms": 100.690834,
+              "write_ms": 0.532917
             }
           ],
           "read_ms": {
-            "p50": 0.053417,
-            "p99": 0.150542
+            "p50": 0.111291,
+            "p99": 0.3865
           },
           "status": "measured",
           "time_to_visible_ms": {
-            "p50": 100.400416,
-            "p99": 100.400416
+            "p50": 100.690834,
+            "p99": 100.690834
           },
           "timeouts": 0,
           "visibility_lag_ms": {
-            "p50": 100.104541,
-            "p99": 100.104541
+            "p50": 100.157917,
+            "p99": 100.157917
           },
           "visible": 1,
           "write_latency_ms": {
-            "p50": 0.295875,
-            "p99": 0.295875
+            "p50": 0.532917,
+            "p99": 0.532917
           }
         }
       },
@@ -215,31 +215,31 @@
           "dropped": 0,
           "observations": [
             {
-              "lag_ms": 100.168375,
+              "lag_ms": 100.273792,
               "polls": 101,
               "status": "visible",
-              "total_ms": 100.472041,
-              "write_ms": 0.303666
+              "total_ms": 101.082083,
+              "write_ms": 0.808291
             }
           ],
           "read_ms": {
-            "p50": 0.118792,
-            "p99": 0.27825
+            "p50": 0.203792,
+            "p99": 0.577375
           },
           "status": "measured",
           "time_to_visible_ms": {
-            "p50": 100.472041,
-            "p99": 100.472041
+            "p50": 101.082083,
+            "p99": 101.082083
           },
           "timeouts": 0,
           "visibility_lag_ms": {
-            "p50": 100.168375,
-            "p99": 100.168375
+            "p50": 100.273792,
+            "p99": 100.273792
           },
           "visible": 1,
           "write_latency_ms": {
-            "p50": 0.303666,
-            "p99": 0.303666
+            "p50": 0.808291,
+            "p99": 0.808291
           }
         }
       },
@@ -278,31 +278,31 @@
           "dropped": 0,
           "observations": [
             {
-              "lag_ms": 100.084542,
-              "polls": 101,
+              "lag_ms": 100.569584,
+              "polls": 85,
               "status": "visible",
-              "total_ms": 100.573167,
-              "write_ms": 0.488625
+              "total_ms": 101.184292,
+              "write_ms": 0.614708
             }
           ],
           "read_ms": {
-            "p50": 0.064291,
-            "p99": 0.250042
+            "p50": 0.100167,
+            "p99": 3.695917
           },
           "status": "measured",
           "time_to_visible_ms": {
-            "p50": 100.573167,
-            "p99": 100.573167
+            "p50": 101.184292,
+            "p99": 101.184292
           },
           "timeouts": 0,
           "visibility_lag_ms": {
-            "p50": 100.084542,
-            "p99": 100.084542
+            "p50": 100.569584,
+            "p99": 100.569584
           },
           "visible": 1,
           "write_latency_ms": {
-            "p50": 0.488625,
-            "p99": 0.488625
+            "p50": 0.614708,
+            "p99": 0.614708
           }
         }
       },
@@ -341,31 +341,31 @@
           "dropped": 0,
           "observations": [
             {
-              "lag_ms": 0.129708,
+              "lag_ms": 0.4265,
               "polls": 1,
               "status": "visible",
-              "total_ms": 0.411167,
-              "write_ms": 0.281459
+              "total_ms": 1.198917,
+              "write_ms": 0.772417
             }
           ],
           "read_ms": {
-            "p50": 0.097458,
-            "p99": 0.097458
+            "p50": 0.348292,
+            "p99": 0.348292
           },
           "status": "measured",
           "time_to_visible_ms": {
-            "p50": 0.411167,
-            "p99": 0.411167
+            "p50": 1.198917,
+            "p99": 1.198917
           },
           "timeouts": 0,
           "visibility_lag_ms": {
-            "p50": 0.129708,
-            "p99": 0.129708
+            "p50": 0.4265,
+            "p99": 0.4265
           },
           "visible": 1,
           "write_latency_ms": {
-            "p50": 0.281459,
-            "p99": 0.281459
+            "p50": 0.772417,
+            "p99": 0.772417
           }
         }
       },
@@ -404,31 +404,31 @@
           "dropped": 0,
           "observations": [
             {
-              "lag_ms": 0.200625,
+              "lag_ms": 0.307458,
               "polls": 1,
               "status": "visible",
-              "total_ms": 0.584958,
-              "write_ms": 0.384333
+              "total_ms": 0.764167,
+              "write_ms": 0.456709
             }
           ],
           "read_ms": {
-            "p50": 0.154583,
-            "p99": 0.154583
+            "p50": 0.243792,
+            "p99": 0.243792
           },
           "status": "measured",
           "time_to_visible_ms": {
-            "p50": 0.584958,
-            "p99": 0.584958
+            "p50": 0.764167,
+            "p99": 0.764167
           },
           "timeouts": 0,
           "visibility_lag_ms": {
-            "p50": 0.200625,
-            "p99": 0.200625
+            "p50": 0.307458,
+            "p99": 0.307458
           },
           "visible": 1,
           "write_latency_ms": {
-            "p50": 0.384333,
-            "p99": 0.384333
+            "p50": 0.456709,
+            "p99": 0.456709
           }
         }
       },
@@ -467,31 +467,31 @@
           "dropped": 0,
           "observations": [
             {
-              "lag_ms": 0.175292,
+              "lag_ms": 0.269375,
               "polls": 1,
               "status": "visible",
-              "total_ms": 0.473209,
-              "write_ms": 0.297917
+              "total_ms": 0.783541,
+              "write_ms": 0.514166
             }
           ],
           "read_ms": {
-            "p50": 0.137459,
-            "p99": 0.137459
+            "p50": 0.209333,
+            "p99": 0.209333
           },
           "status": "measured",
           "time_to_visible_ms": {
-            "p50": 0.473209,
-            "p99": 0.473209
+            "p50": 0.783541,
+            "p99": 0.783541
           },
           "timeouts": 0,
           "visibility_lag_ms": {
-            "p50": 0.175292,
-            "p99": 0.175292
+            "p50": 0.269375,
+            "p99": 0.269375
           },
           "visible": 1,
           "write_latency_ms": {
-            "p50": 0.297917,
-            "p99": 0.297917
+            "p50": 0.514166,
+            "p99": 0.514166
           }
         }
       },
@@ -530,31 +530,31 @@
           "dropped": 0,
           "observations": [
             {
-              "lag_ms": 0.292,
+              "lag_ms": 0.530667,
               "polls": 1,
               "status": "visible",
-              "total_ms": 0.597959,
-              "write_ms": 0.305959
+              "total_ms": 1.087042,
+              "write_ms": 0.556375
             }
           ],
           "read_ms": {
-            "p50": 0.250584,
-            "p99": 0.250584
+            "p50": 0.461125,
+            "p99": 0.461125
           },
           "status": "measured",
           "time_to_visible_ms": {
-            "p50": 0.597959,
-            "p99": 0.597959
+            "p50": 1.087042,
+            "p99": 1.087042
           },
           "timeouts": 0,
           "visibility_lag_ms": {
-            "p50": 0.292,
-            "p99": 0.292
+            "p50": 0.530667,
+            "p99": 0.530667
           },
           "visible": 1,
           "write_latency_ms": {
-            "p50": 0.305959,
-            "p99": 0.305959
+            "p50": 0.556375,
+            "p99": 0.556375
           }
         }
       },
@@ -593,31 +593,31 @@
           "dropped": 0,
           "observations": [
             {
-              "lag_ms": 0.166541,
+              "lag_ms": 0.273,
               "polls": 1,
               "status": "visible",
-              "total_ms": 0.469,
-              "write_ms": 0.302459
+              "total_ms": 0.839,
+              "write_ms": 0.566
             }
           ],
           "read_ms": {
-            "p50": 0.127125,
-            "p99": 0.127125
+            "p50": 0.212375,
+            "p99": 0.212375
           },
           "status": "measured",
           "time_to_visible_ms": {
-            "p50": 0.469,
-            "p99": 0.469
+            "p50": 0.839,
+            "p99": 0.839
           },
           "timeouts": 0,
           "visibility_lag_ms": {
-            "p50": 0.166541,
-            "p99": 0.166541
+            "p50": 0.273,
+            "p99": 0.273
           },
           "visible": 1,
           "write_latency_ms": {
-            "p50": 0.302459,
-            "p99": 0.302459
+            "p50": 0.566,
+            "p99": 0.566
           }
         }
       },
@@ -673,7 +673,7 @@
           "acked": 6,
           "acked_missing": 6,
           "duplicates": 0,
-          "fault_ns": 223665873618333,
+          "fault_ns": 224361253467958,
           "target": "worker",
           "torn": 0,
           "trial": 0
@@ -727,7 +727,7 @@
           "acked": 8,
           "acked_missing": 8,
           "duplicates": 0,
-          "fault_ns": 223665996957916,
+          "fault_ns": 224361471060625,
           "target": "worker",
           "torn": 0,
           "trial": 0
@@ -781,7 +781,7 @@
           "acked": 7,
           "acked_missing": 7,
           "duplicates": 0,
-          "fault_ns": 223666121844500,
+          "fault_ns": 224361718422125,
           "target": "worker",
           "torn": 0,
           "trial": 0
@@ -835,7 +835,7 @@
           "acked": 6,
           "acked_missing": 6,
           "duplicates": 0,
-          "fault_ns": 223666246139041,
+          "fault_ns": 224361934686791,
           "target": "worker",
           "torn": 0,
           "trial": 0
@@ -889,7 +889,7 @@
           "acked": 5,
           "acked_missing": 5,
           "duplicates": 0,
-          "fault_ns": 223666369794250,
+          "fault_ns": 224362189456708,
           "target": "worker",
           "torn": 0,
           "trial": 0
@@ -938,7 +938,7 @@
           "acked": 6,
           "acked_missing": 0,
           "duplicates": 0,
-          "fault_ns": 223666498006708,
+          "fault_ns": 224362405423375,
           "target": "worker",
           "torn": 0,
           "trial": 0
@@ -987,7 +987,7 @@
           "acked": 8,
           "acked_missing": 0,
           "duplicates": 0,
-          "fault_ns": 223666627915541,
+          "fault_ns": 224362635758708,
           "target": "worker",
           "torn": 0,
           "trial": 0
@@ -1036,7 +1036,7 @@
           "acked": 7,
           "acked_missing": 0,
           "duplicates": 0,
-          "fault_ns": 223666761393250,
+          "fault_ns": 224362842709166,
           "target": "worker",
           "torn": 0,
           "trial": 0
@@ -1085,7 +1085,7 @@
           "acked": 6,
           "acked_missing": 0,
           "duplicates": 0,
-          "fault_ns": 223666890012625,
+          "fault_ns": 224363052543958,
           "target": "worker",
           "torn": 0,
           "trial": 0
@@ -1134,7 +1134,7 @@
           "acked": 5,
           "acked_missing": 0,
           "duplicates": 0,
-          "fault_ns": 223667019428666,
+          "fault_ns": 224363282547000,
           "target": "worker",
           "torn": 0,
           "trial": 0
@@ -1252,7 +1252,7 @@
     "config": "default;trial=2",
     "matched": true,
     "result": {
-      "acked_missing": 140,
+      "acked_missing": 139,
       "cas": "not measured in B1",
       "duplicates": 0,
       "history": {
@@ -1288,7 +1288,7 @@
       "torn": 0,
       "trials": [
         {
-          "acked_missing": 140,
+          "acked_missing": 139,
           "duplicates": 0,
           "invalid_final": 0,
           "phase": "distinct",
@@ -1787,7 +1787,7 @@
     "config": "default;trial=2",
     "matched": true,
     "result": {
-      "acked_missing": 140,
+      "acked_missing": 139,
       "cas": "not measured in B1",
       "duplicates": 0,
       "history": {
@@ -1834,7 +1834,7 @@
       "torn": 0,
       "trials": [
         {
-          "acked_missing": 140,
+          "acked_missing": 139,
           "duplicates": 0,
           "invalid_final": 0,
           "phase": "distinct",
@@ -2341,9 +2341,9 @@
       "acked": 5,
       "dropped": 0,
       "expected": {
-        "id": "18aebd02-c96c-4104-8600-7ceae27a78ca",
+        "id": "2fecd31d-2470-4841-8ec2-64c324e09b4f",
         "key": "k",
-        "payload_sha256": "df3cb42dd8d2bf7125cd7ee0695bc24395f84d126e0e09e0fad546969017a1c9",
+        "payload_sha256": "7a478e2e25cc4d1eca20de00df736fcb83e1fced86603428ed12277647e4aed8",
         "scope": {
           "session": "supersede-by-key",
           "tenant": "benchmark"
@@ -2440,9 +2440,9 @@
         "version": "stdlib-jsonl-v1"
       },
       "observed": {
-        "id": "ed6ca8a3-ee2c-43b5-8662-ad705fa19406",
+        "id": "ca576f0e-7c85-41c9-983b-a6dc8a9fe5ea",
         "key": "k",
-        "payload_sha256": "ce7e76eb281d53dc1640ca7f21a173ba14de44e4bc40e9ae299cf26937aedfb0",
+        "payload_sha256": "a52239c92ba68b0aba752fdd70d04623e9f28c42d5f91c2799dc600951e1ddd3",
         "scope": {
           "session": "supersede-by-key",
           "tenant": "benchmark"
@@ -2463,9 +2463,9 @@
       "acked": 5,
       "dropped": 0,
       "expected": {
-        "id": "6fb92080-d2d7-47d3-8682-090d481b681a",
+        "id": "652b913d-1a03-4043-aa74-8e7761080954",
         "key": "k",
-        "payload_sha256": "55fc21beb32ab59e937eefa8826f2530b79b7c313b06d55a3add632f56d67ebb",
+        "payload_sha256": "7bb7afba2891bf27b78843d81f98a9233bc3c134a5e22113b904d001b08ffb0e",
         "scope": {
           "session": "supersede-by-key",
           "tenant": "benchmark"
@@ -2562,9 +2562,9 @@
         "version": "stdlib-jsonl-v1"
       },
       "observed": {
-        "id": "eedcff13-6a6f-4b95-8566-2176d3d15371",
+        "id": "e916b0a1-f513-413e-ad70-7819723d02b2",
         "key": "k",
-        "payload_sha256": "0c2be43ac770ecb2d59bf7535e6c453d731c29751ce547326bf819b2d9afc37c",
+        "payload_sha256": "c4339db6fa8b9cfbe9d0db8ecead71364f48451c4606a2fcc00aa33018fa957c",
         "scope": {
           "session": "supersede-by-key",
           "tenant": "benchmark"
@@ -2585,9 +2585,9 @@
       "acked": 5,
       "dropped": 0,
       "expected": {
-        "id": "e3b8bda8-0e5b-4be4-9116-bce321328800",
+        "id": "b8af2399-6206-4871-aa3c-3e55337a20ec",
         "key": "k",
-        "payload_sha256": "ee4bf8225f6d1c790aa274995ca03f6d8408583c0443564d2364aa8fd417e2e8",
+        "payload_sha256": "850d96e4bdfe1d60d577d472b04aa466694bfc03e8766e6910e31d1d4eff988d",
         "scope": {
           "session": "supersede-by-key",
           "tenant": "benchmark"
@@ -2684,9 +2684,9 @@
         "version": "stdlib-jsonl-v1"
       },
       "observed": {
-        "id": "f3dadacf-62c3-41fc-be27-30ff9eec070a",
+        "id": "918f48c5-d567-486d-a052-0c72ac1f8252",
         "key": "k",
-        "payload_sha256": "bb060fa51ceec9a8b58005ed1cbb04f9762bd311389600a06a01fdab7b838017",
+        "payload_sha256": "75121d9e9efe3363153b433f234c3df0697e656e7e8f65dcccbca602cd69f1c3",
         "scope": {
           "session": "supersede-by-key",
           "tenant": "benchmark"
@@ -2707,9 +2707,9 @@
       "acked": 5,
       "dropped": 0,
       "expected": {
-        "id": "313e8e08-c576-450a-99b3-e785c116ba08",
+        "id": "dac8db00-9c23-4a31-85d1-4e768a35dfc0",
         "key": "k",
-        "payload_sha256": "2a4d46408f440a81a14573d48a8782a7414fe7a714b04bf4fa79f99fa28cf314",
+        "payload_sha256": "035f752d7817b1dcac40c860df2c7db24f973c80245f312b6bda6c62f2618d89",
         "scope": {
           "session": "supersede-by-key",
           "tenant": "benchmark"
@@ -2806,9 +2806,9 @@
         "version": "stdlib-jsonl-v1"
       },
       "observed": {
-        "id": "2a0e18ea-f6d4-45c4-9494-8380645b9438",
+        "id": "4eb2afe1-63c7-46b5-ad60-d01ad3ce6433",
         "key": "k",
-        "payload_sha256": "d4241f892a91ad06b29ec874c2e68ec569123d758ad3996803f175da3e530959",
+        "payload_sha256": "1596d8ea538d12bc10fbe92ead2c84b1f83dfd5676f221ec06e0cd8c33207d08",
         "scope": {
           "session": "supersede-by-key",
           "tenant": "benchmark"
@@ -2829,9 +2829,9 @@
       "acked": 5,
       "dropped": 0,
       "expected": {
-        "id": "cfdbd81c-229b-4007-a3de-e9f8410bfa51",
+        "id": "87cc0b8e-cbd4-45a2-be05-bab35f42828e",
         "key": "k",
-        "payload_sha256": "bb829dacbd13493d08af6198edfe869d58a243fdf6d8ec7efe75ac284aef3add",
+        "payload_sha256": "a8516c6c737eb65541c3055983d8cccfa1bb3a1c2e212f515641eba90d6cd78a",
         "scope": {
           "session": "supersede-by-key",
           "tenant": "benchmark"
@@ -2928,9 +2928,9 @@
         "version": "stdlib-jsonl-v1"
       },
       "observed": {
-        "id": "5fb2c0b2-28d1-4785-9d9c-90b78c01f349",
+        "id": "1ce375c7-e719-4dbf-8d67-fb40478110cb",
         "key": "k",
-        "payload_sha256": "8a4af7533befc944b7a7bd68d1d00e0ad4f7761687b2014cc2142d254364d9e7",
+        "payload_sha256": "6e5681ed343c1dbad40b7514ad57e53ed41a5e811ff36f724b74e3bd11714caa",
         "scope": {
           "session": "supersede-by-key",
           "tenant": "benchmark"
@@ -2951,9 +2951,9 @@
       "acked": 5,
       "dropped": 0,
       "expected": {
-        "id": "2abf6e20-93fc-42e0-a72e-f23b9b4d05da",
+        "id": "aaa023a2-ce57-4a60-aeed-03af9b259718",
         "key": "k",
-        "payload_sha256": "33cbf7c9d52788be82150358b600338ba04f8e4b12e10a3fba2150bdd275be28",
+        "payload_sha256": "714f8debdd95304f59f1a91c90657528c1b96101ab8bae4975fd0472fc4cdf78",
         "scope": {
           "session": "supersede-by-key",
           "tenant": "benchmark"
@@ -3045,9 +3045,9 @@
         "version": "3.53.3"
       },
       "observed": {
-        "id": "2abf6e20-93fc-42e0-a72e-f23b9b4d05da",
+        "id": "aaa023a2-ce57-4a60-aeed-03af9b259718",
         "key": "k",
-        "payload_sha256": "33cbf7c9d52788be82150358b600338ba04f8e4b12e10a3fba2150bdd275be28",
+        "payload_sha256": "714f8debdd95304f59f1a91c90657528c1b96101ab8bae4975fd0472fc4cdf78",
         "scope": {
           "session": "supersede-by-key",
           "tenant": "benchmark"
@@ -3068,9 +3068,9 @@
       "acked": 5,
       "dropped": 0,
       "expected": {
-        "id": "8c68e57e-db1b-4cc7-88f8-3e3ce0423b50",
+        "id": "e2ffa79d-f23a-40e0-8d14-ad80e14ebc66",
         "key": "k",
-        "payload_sha256": "ecbb018fecf68add377c6ee923845414182b2256e88a86156269083b36a5c5f6",
+        "payload_sha256": "a6327c7d894b523cbf08bbe2028a9a1701662f6fe95c37e11cc6a1060db357ac",
         "scope": {
           "session": "supersede-by-key",
           "tenant": "benchmark"
@@ -3162,9 +3162,9 @@
         "version": "3.53.3"
       },
       "observed": {
-        "id": "8c68e57e-db1b-4cc7-88f8-3e3ce0423b50",
+        "id": "e2ffa79d-f23a-40e0-8d14-ad80e14ebc66",
         "key": "k",
-        "payload_sha256": "ecbb018fecf68add377c6ee923845414182b2256e88a86156269083b36a5c5f6",
+        "payload_sha256": "a6327c7d894b523cbf08bbe2028a9a1701662f6fe95c37e11cc6a1060db357ac",
         "scope": {
           "session": "supersede-by-key",
           "tenant": "benchmark"
@@ -3185,9 +3185,9 @@
       "acked": 5,
       "dropped": 0,
       "expected": {
-        "id": "2abbecee-8e46-41c9-9025-bbc0f92da54d",
+        "id": "39355b7b-f8d4-4a97-8585-1a3d09d58d13",
         "key": "k",
-        "payload_sha256": "fe54e90a774b6e61ae6787d5b6f0c4f8852907cccc92a8a864752c4834ec2d4a",
+        "payload_sha256": "4c82afb527a7838ebfe4d26e7ba939f2a342d1362557bf852ac8fad282c57b5f",
         "scope": {
           "session": "supersede-by-key",
           "tenant": "benchmark"
@@ -3279,9 +3279,9 @@
         "version": "3.53.3"
       },
       "observed": {
-        "id": "2abbecee-8e46-41c9-9025-bbc0f92da54d",
+        "id": "39355b7b-f8d4-4a97-8585-1a3d09d58d13",
         "key": "k",
-        "payload_sha256": "fe54e90a774b6e61ae6787d5b6f0c4f8852907cccc92a8a864752c4834ec2d4a",
+        "payload_sha256": "4c82afb527a7838ebfe4d26e7ba939f2a342d1362557bf852ac8fad282c57b5f",
         "scope": {
           "session": "supersede-by-key",
           "tenant": "benchmark"
@@ -3302,9 +3302,9 @@
       "acked": 5,
       "dropped": 0,
       "expected": {
-        "id": "48404f0a-170c-45f6-8694-33ea491766b0",
+        "id": "7a69d8dd-66e8-48d3-90db-fdee0495eefd",
         "key": "k",
-        "payload_sha256": "5edad9ceb2027235e6ad0ea6923eba0c460811d69f358d31f42fe6a3db5e4ed1",
+        "payload_sha256": "04d9dd309a4334ed4f72a654af09bdf42d1de80eff537d83bdc31cbc1f9b4dea",
         "scope": {
           "session": "supersede-by-key",
           "tenant": "benchmark"
@@ -3396,9 +3396,9 @@
         "version": "3.53.3"
       },
       "observed": {
-        "id": "48404f0a-170c-45f6-8694-33ea491766b0",
+        "id": "7a69d8dd-66e8-48d3-90db-fdee0495eefd",
         "key": "k",
-        "payload_sha256": "5edad9ceb2027235e6ad0ea6923eba0c460811d69f358d31f42fe6a3db5e4ed1",
+        "payload_sha256": "04d9dd309a4334ed4f72a654af09bdf42d1de80eff537d83bdc31cbc1f9b4dea",
         "scope": {
           "session": "supersede-by-key",
           "tenant": "benchmark"
@@ -3419,9 +3419,9 @@
       "acked": 5,
       "dropped": 0,
       "expected": {
-        "id": "07e9ecdd-8000-4505-9ae7-8d2da871bd11",
+        "id": "a12df329-68e6-465e-a52a-69950a33af7c",
         "key": "k",
-        "payload_sha256": "f08e535b00bfe45ed89cdd6200e0d0c87e9d1b8bd5c4fe44ad5467fa16334d4e",
+        "payload_sha256": "df6bf55e11e32a151663ce2d3903402ee7d334e339c7cb42426f0548c731257c",
         "scope": {
           "session": "supersede-by-key",
           "tenant": "benchmark"
@@ -3513,9 +3513,9 @@
         "version": "3.53.3"
       },
       "observed": {
-        "id": "07e9ecdd-8000-4505-9ae7-8d2da871bd11",
+        "id": "a12df329-68e6-465e-a52a-69950a33af7c",
         "key": "k",
-        "payload_sha256": "f08e535b00bfe45ed89cdd6200e0d0c87e9d1b8bd5c4fe44ad5467fa16334d4e",
+        "payload_sha256": "df6bf55e11e32a151663ce2d3903402ee7d334e339c7cb42426f0548c731257c",
         "scope": {
           "session": "supersede-by-key",
           "tenant": "benchmark"
