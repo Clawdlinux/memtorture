@@ -897,11 +897,17 @@ def forget(system, config, workdir, *, timeout_s=5, poll_ms=10, emit=None):
         )
     if promise["kind"] == "erase":
         after = scan_plaintext(directories, token)
-        result["occurrences_before"], result["occurrences_after"] = before, after
-        if result["status"] == "ok":
-            result["status"] = (
-                "not measurable" if not before else "violation" if after else "ok"
-            )
+        result.update(
+            occurrences_before=before,
+            occurrences_after=after,
+            read_status=result["status"],
+        )
+        # Plaintext seen before delete and still on disk after stop breaks erase,
+        # whatever the read paths could measure.
+        if before and after:
+            result["status"] = "violation"
+        elif result["status"] == "ok" and not before:
+            result["status"] = "not measurable"
     return {**result, "forget_promise": promise, "info": info}
 
 

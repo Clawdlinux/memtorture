@@ -164,6 +164,20 @@ def encoded_worker(monkeypatch):
 
 
 @pytest.fixture
+def erase_residue_worker(monkeypatch):
+    def start(system, config, workdir):
+        return Worker(
+            system, config, workdir, command=probe_command("ResidueMarkdown"), cwd=ROOT
+        )
+
+    monkeypatch.setattr("memtorture.suites.Worker", start)
+    monkeypatch.setattr(
+        "memtorture.suites.forget_promise",
+        lambda system: {"kind": "erase", "url": "https://example.test", "quote": "x"},
+    )
+
+
+@pytest.fixture
 def recovery_worker(monkeypatch):
     def start(system, config, workdir):
         command = (

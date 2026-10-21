@@ -305,6 +305,8 @@ The row carries its documented promise, URL, and exact quote from the system man
 Delete promises require absence from supported reads. They do not promise disk erasure.
 Erase promises additionally require a measurable plaintext scan before deletion and no matches after shutdown.
 An unreadable pre-delete plaintext makes that erase judgement not measurable.
+Plaintext seen before deletion and found after shutdown is a violation, even when a read path was not measurable.
+The read-path outcome stays in `read_status`.
 This is a plaintext check, not proof against forensic recovery or backups.
 The shipped adapters only promise delete.
 

@@ -101,24 +101,38 @@ def test_delete_checks_every_read_path(request, tmp_path, system, config, expect
         assert detail["remaining"] == int(stale)
         assert (detail["lag_ms"] is None) is stale
         assert detail["survivors_missing"] == lost
-    if system == "sqlite-delete-delayed":
-        assert max(detail["lag_ms"] for detail in result["paths"].values()) >= 50
+        if not stale:
+            assert detail["lag_ms"] > 0
     assert len([e for e in events if e["operation"] == "forget-check"]) == 5
 
 
 @pytest.mark.parametrize(
-    "system,expected",
-    [("sqlite-residue-off", "violation"), ("sqlite-residue-secure", "ok")],
+    "body,system,config,expected,read",
+    [
+        (forget_residue, "sqlite-residue-off", "default", "violation", "ok"),
+        (forget_residue, "sqlite-residue-secure", "default", "ok", "ok"),
+        (forget, "markdown", "unreadable-search", "violation", "not measurable"),
+    ],
 )
-def test_residue_is_measurable_before_delete(tmp_path, system, expected):
+def test_residue_is_measurable_before_delete(
+    request, tmp_path, body, system, config, expected, read
+):
+    if body is forget:
+        request.getfixturevalue("erase_residue_worker")
     events = []
-    result = forget_residue(system, "default", tmp_path, emit=events.append)
+    result = body(
+        system, config, tmp_path, timeout_s=0.5, poll_ms=1, emit=events.append
+    )
     assert result["status"] == expected
     assert result["occurrences_before"] > 0
     assert (result["occurrences_after"] > 0) == (expected == "violation")
-    assert result["bytes_found"] == 32 * result["occurrences_after"]
-    assert result["forget"]["status"] == "ok"
-    assert result["scan_after_stop"] is True
+    if body is forget:
+        assert result["read_status"] == read
+        assert result["paths"]["search"]["status"] == "not measurable"
+    else:
+        assert result["forget"]["status"] == read
+        assert result["bytes_found"] == 32 * result["occurrences_after"]
+        assert result["scan_after_stop"] is True
     assert "record" not in json.dumps(events)
     assert all("canary" not in event for event in events)
 

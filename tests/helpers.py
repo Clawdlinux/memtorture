@@ -642,6 +642,23 @@ class EncodedMemory(Markdown):
         return super().search(scope, query, k, vector)
 
 
+class ResidueMarkdown(Markdown):
+    """Hides deleted rows from reads but keeps a plaintext journal on disk."""
+
+    def start(self, workdir, config):
+        super().start(workdir, "append")
+        self.mode = config
+
+    def delete(self, scope, ref):
+        (self.workdir / "journal.md").write_text(self.path.read_text())
+        return super().delete(scope, ref)
+
+    def search(self, scope, query, k, vector=None):
+        if self.mode == "unreadable-search":
+            return []
+        return super().search(scope, query, k, vector)
+
+
 def stub_forget(system, *args, **kwargs):
     return {
         "status": "violation"
