@@ -8,7 +8,7 @@
     "cpu_count": 10,
     "ram_bytes": 17179869184
   },
-  "methodology_sha256": "f5686c3e869f1a016023413f9ca6cdb17a80e0db2e71b778ac2e05247f860306",
+  "methodology_sha256": "617b571e42f64d19fd4d82b20e507c812452e959435a95f10f7cc7e3a26b8347",
   "suites": {
     "recall-delay": {
       "must_fail": "delayed-index",
@@ -21,14 +21,14 @@
           "role": "must_fail",
           "trial": 0,
           "path": "id",
-          "lag_ms": 100.229667,
-          "upper_ms": 101.474167,
+          "lag_ms": 100.15175,
+          "upper_ms": 101.356708,
           "read_ms": {
             "n": 101,
-            "p50": 0.128292,
-            "p99": 0.474167
+            "p50": 0.099333,
+            "p99": 0.356708
           },
-          "upper_read_ms": 0.474167,
+          "upper_read_ms": 0.356708,
           "upper_read_statistic": "p99",
           "matched": true
         },
@@ -36,14 +36,14 @@
           "role": "must_fail",
           "trial": 1,
           "path": "filter",
-          "lag_ms": 100.190666,
-          "upper_ms": 101.396542,
+          "lag_ms": 100.368375,
+          "upper_ms": 101.407208,
           "read_ms": {
             "n": 101,
-            "p50": 0.106584,
-            "p99": 0.396542
+            "p50": 0.111542,
+            "p99": 0.407208
           },
-          "upper_read_ms": 0.396542,
+          "upper_read_ms": 0.407208,
           "upper_read_statistic": "p99",
           "matched": true
         },
@@ -51,14 +51,14 @@
           "role": "must_fail",
           "trial": 2,
           "path": "recency",
-          "lag_ms": 100.200334,
-          "upper_ms": 101.402625,
+          "lag_ms": 100.13025,
+          "upper_ms": 101.394209,
           "read_ms": {
             "n": 101,
-            "p50": 0.112375,
-            "p99": 0.402625
+            "p50": 0.099666,
+            "p99": 0.394209
           },
-          "upper_read_ms": 0.402625,
+          "upper_read_ms": 0.394209,
           "upper_read_statistic": "p99",
           "matched": true
         },
@@ -66,14 +66,14 @@
           "role": "must_fail",
           "trial": 3,
           "path": "search",
-          "lag_ms": 100.299833,
-          "upper_ms": 101.518416,
+          "lag_ms": 100.307584,
+          "upper_ms": 101.504708,
           "read_ms": {
             "n": 101,
-            "p50": 0.210375,
-            "p99": 0.518416
+            "p50": 0.200209,
+            "p99": 0.504708
           },
-          "upper_read_ms": 0.518416,
+          "upper_read_ms": 0.504708,
           "upper_read_statistic": "p99",
           "matched": true
         },
@@ -81,14 +81,14 @@
           "role": "must_fail",
           "trial": 4,
           "path": "id",
-          "lag_ms": 100.146375,
-          "upper_ms": 101.357583,
+          "lag_ms": 100.188666,
+          "upper_ms": 101.418292,
           "read_ms": {
             "n": 101,
-            "p50": 0.10325,
-            "p99": 0.357583
+            "p50": 0.131334,
+            "p99": 0.418292
           },
-          "upper_read_ms": 0.357583,
+          "upper_read_ms": 0.418292,
           "upper_read_statistic": "p99",
           "matched": true
         },
@@ -96,14 +96,14 @@
           "role": "must_pass",
           "trial": 0,
           "path": "id",
-          "lag_ms": 0.300875,
-          "upper_ms": 101.229917,
+          "lag_ms": 0.262375,
+          "upper_ms": 101.212625,
           "read_ms": {
             "n": 1,
-            "p50": 0.229917,
+            "p50": 0.212625,
             "p99": null
           },
-          "upper_read_ms": 0.229917,
+          "upper_read_ms": 0.212625,
           "upper_read_statistic": "max",
           "matched": true
         },
@@ -111,14 +111,14 @@
           "role": "must_pass",
           "trial": 1,
           "path": "filter",
-          "lag_ms": 0.326083,
-          "upper_ms": 101.258666,
+          "lag_ms": 0.314125,
+          "upper_ms": 101.25,
           "read_ms": {
             "n": 1,
-            "p50": 0.258666,
+            "p50": 0.25,
             "p99": null
           },
-          "upper_read_ms": 0.258666,
+          "upper_read_ms": 0.25,
           "upper_read_statistic": "max",
           "matched": true
         },
@@ -126,14 +126,14 @@
           "role": "must_pass",
           "trial": 2,
           "path": "recency",
-          "lag_ms": 0.359542,
-          "upper_ms": 101.286458,
+          "lag_ms": 0.265042,
+          "upper_ms": 101.205167,
           "read_ms": {
             "n": 1,
-            "p50": 0.286458,
+            "p50": 0.205167,
             "p99": null
           },
-          "upper_read_ms": 0.286458,
+          "upper_read_ms": 0.205167,
           "upper_read_statistic": "max",
           "matched": true
         },
@@ -141,14 +141,14 @@
           "role": "must_pass",
           "trial": 3,
           "path": "search",
-          "lag_ms": 0.502916,
-          "upper_ms": 101.434625,
+          "lag_ms": 0.45375,
+          "upper_ms": 101.393834,
           "read_ms": {
             "n": 1,
-            "p50": 0.434625,
+            "p50": 0.393834,
             "p99": null
           },
-          "upper_read_ms": 0.434625,
+          "upper_read_ms": 0.393834,
           "upper_read_statistic": "max",
           "matched": true
         },
@@ -156,14 +156,14 @@
           "role": "must_pass",
           "trial": 4,
           "path": "id",
-          "lag_ms": 0.325875,
-          "upper_ms": 101.252417,
+          "lag_ms": 0.3105,
+          "upper_ms": 101.2535,
           "read_ms": {
             "n": 1,
-            "p50": 0.252417,
+            "p50": 0.2535,
             "p99": null
           },
-          "upper_read_ms": 0.252417,
+          "upper_read_ms": 0.2535,
           "upper_read_statistic": "max",
           "matched": true
         }
@@ -196,7 +196,7 @@
               "target": "worker",
               "trial": 0,
               "acked": 6,
-              "fault_ns": 7569994160958,
+              "fault_ns": 8473955042875,
               "acked_missing": 6,
               "duplicates": 0,
               "torn": 0
@@ -205,7 +205,7 @@
           "note": "Tests user-space buffering and recovery, not disk durability. Worker-only faults test little for server-backed systems.",
           "info": {
             "protocol": 1,
-            "open_ms": 0.297542,
+            "open_ms": 0.265916,
             "capabilities": [
               "delete",
               "emulated:delete",
@@ -247,7 +247,7 @@
               "target": "worker",
               "trial": 0,
               "acked": 8,
-              "fault_ns": 7570232338541,
+              "fault_ns": 8474163571291,
               "acked_missing": 8,
               "duplicates": 0,
               "torn": 0
@@ -256,7 +256,7 @@
           "note": "Tests user-space buffering and recovery, not disk durability. Worker-only faults test little for server-backed systems.",
           "info": {
             "protocol": 1,
-            "open_ms": 0.285959,
+            "open_ms": 0.249958,
             "capabilities": [
               "delete",
               "emulated:delete",
@@ -298,7 +298,7 @@
               "target": "worker",
               "trial": 0,
               "acked": 7,
-              "fault_ns": 7570457653875,
+              "fault_ns": 8474375321958,
               "acked_missing": 7,
               "duplicates": 0,
               "torn": 0
@@ -307,7 +307,7 @@
           "note": "Tests user-space buffering and recovery, not disk durability. Worker-only faults test little for server-backed systems.",
           "info": {
             "protocol": 1,
-            "open_ms": 0.264917,
+            "open_ms": 0.233958,
             "capabilities": [
               "delete",
               "emulated:delete",
@@ -349,7 +349,7 @@
               "target": "worker",
               "trial": 0,
               "acked": 6,
-              "fault_ns": 7570672375958,
+              "fault_ns": 8474583810708,
               "acked_missing": 6,
               "duplicates": 0,
               "torn": 0
@@ -358,7 +358,7 @@
           "note": "Tests user-space buffering and recovery, not disk durability. Worker-only faults test little for server-backed systems.",
           "info": {
             "protocol": 1,
-            "open_ms": 0.272625,
+            "open_ms": 0.448917,
             "capabilities": [
               "delete",
               "emulated:delete",
@@ -400,7 +400,7 @@
               "target": "worker",
               "trial": 0,
               "acked": 5,
-              "fault_ns": 7570884333333,
+              "fault_ns": 8474794646500,
               "acked_missing": 5,
               "duplicates": 0,
               "torn": 0
@@ -409,7 +409,7 @@
           "note": "Tests user-space buffering and recovery, not disk durability. Worker-only faults test little for server-backed systems.",
           "info": {
             "protocol": 1,
-            "open_ms": 0.245542,
+            "open_ms": 0.287,
             "capabilities": [
               "delete",
               "emulated:delete",
@@ -451,7 +451,7 @@
               "target": "worker",
               "trial": 0,
               "acked": 6,
-              "fault_ns": 7571104291333,
+              "fault_ns": 8475006527833,
               "acked_missing": 0,
               "duplicates": 0,
               "torn": 0
@@ -460,7 +460,7 @@
           "note": "Tests user-space buffering and recovery, not disk durability. Worker-only faults test little for server-backed systems.",
           "info": {
             "protocol": 1,
-            "open_ms": 1.832167,
+            "open_ms": 1.806791,
             "capabilities": [
               "delete",
               "get",
@@ -497,7 +497,7 @@
               "target": "worker",
               "trial": 0,
               "acked": 8,
-              "fault_ns": 7571324438000,
+              "fault_ns": 8475222364791,
               "acked_missing": 0,
               "duplicates": 0,
               "torn": 0
@@ -506,7 +506,7 @@
           "note": "Tests user-space buffering and recovery, not disk durability. Worker-only faults test little for server-backed systems.",
           "info": {
             "protocol": 1,
-            "open_ms": 2.373417,
+            "open_ms": 2.675667,
             "capabilities": [
               "delete",
               "get",
@@ -543,7 +543,7 @@
               "target": "worker",
               "trial": 0,
               "acked": 7,
-              "fault_ns": 7571543287875,
+              "fault_ns": 8475472597541,
               "acked_missing": 0,
               "duplicates": 0,
               "torn": 0
@@ -552,7 +552,7 @@
           "note": "Tests user-space buffering and recovery, not disk durability. Worker-only faults test little for server-backed systems.",
           "info": {
             "protocol": 1,
-            "open_ms": 1.820375,
+            "open_ms": 2.662041,
             "capabilities": [
               "delete",
               "get",
@@ -589,7 +589,7 @@
               "target": "worker",
               "trial": 0,
               "acked": 6,
-              "fault_ns": 7571765348458,
+              "fault_ns": 8475739948916,
               "acked_missing": 0,
               "duplicates": 0,
               "torn": 0
@@ -598,7 +598,7 @@
           "note": "Tests user-space buffering and recovery, not disk durability. Worker-only faults test little for server-backed systems.",
           "info": {
             "protocol": 1,
-            "open_ms": 2.419083,
+            "open_ms": 1.852708,
             "capabilities": [
               "delete",
               "get",
@@ -635,7 +635,7 @@
               "target": "worker",
               "trial": 0,
               "acked": 5,
-              "fault_ns": 7571981323125,
+              "fault_ns": 8476086945083,
               "acked_missing": 0,
               "duplicates": 0,
               "torn": 0
@@ -644,7 +644,7 @@
           "note": "Tests user-space buffering and recovery, not disk durability. Worker-only faults test little for server-backed systems.",
           "info": {
             "protocol": 1,
-            "open_ms": 2.00425,
+            "open_ms": 1.774791,
             "capabilities": [
               "delete",
               "get",
@@ -692,7 +692,7 @@
           ],
           "info": {
             "protocol": 1,
-            "open_ms": 0.155,
+            "open_ms": 0.166417,
             "capabilities": [
               "delete",
               "emulated:delete",
@@ -741,7 +741,7 @@
           ],
           "info": {
             "protocol": 1,
-            "open_ms": 0.1595,
+            "open_ms": 0.19175,
             "capabilities": [
               "delete",
               "emulated:delete",
@@ -774,7 +774,7 @@
           "role": "must_fail",
           "trial": 2,
           "status": "violation",
-          "acked_missing": 139,
+          "acked_missing": 140,
           "duplicates": 0,
           "torn": 0,
           "invalid_final": 0,
@@ -782,7 +782,7 @@
             {
               "writers": 8,
               "phase": "distinct",
-              "acked_missing": 139,
+              "acked_missing": 140,
               "duplicates": 0,
               "torn": 0,
               "invalid_final": 0
@@ -790,7 +790,7 @@
           ],
           "info": {
             "protocol": 1,
-            "open_ms": 0.153666,
+            "open_ms": 0.157625,
             "capabilities": [
               "delete",
               "emulated:delete",
@@ -839,7 +839,7 @@
           ],
           "info": {
             "protocol": 1,
-            "open_ms": 0.29525,
+            "open_ms": 0.1185,
             "capabilities": [
               "delete",
               "emulated:delete",
@@ -888,7 +888,7 @@
           ],
           "info": {
             "protocol": 1,
-            "open_ms": 0.160416,
+            "open_ms": 0.120875,
             "capabilities": [
               "delete",
               "emulated:delete",
@@ -937,7 +937,7 @@
           ],
           "info": {
             "protocol": 1,
-            "open_ms": 2.113333,
+            "open_ms": 1.684792,
             "capabilities": [
               "delete",
               "get",
@@ -981,7 +981,7 @@
           ],
           "info": {
             "protocol": 1,
-            "open_ms": 2.219,
+            "open_ms": 1.298583,
             "capabilities": [
               "delete",
               "get",
@@ -1025,7 +1025,7 @@
           ],
           "info": {
             "protocol": 1,
-            "open_ms": 2.354875,
+            "open_ms": 1.302292,
             "capabilities": [
               "delete",
               "get",
@@ -1069,7 +1069,7 @@
           ],
           "info": {
             "protocol": 1,
-            "open_ms": 3.055167,
+            "open_ms": 1.790375,
             "capabilities": [
               "delete",
               "get",
@@ -1113,7 +1113,7 @@
           ],
           "info": {
             "protocol": 1,
-            "open_ms": 2.112792,
+            "open_ms": 1.332584,
             "capabilities": [
               "delete",
               "get",
@@ -1177,7 +1177,7 @@
           ],
           "info": {
             "protocol": 1,
-            "open_ms": 0.16525,
+            "open_ms": 0.111583,
             "capabilities": [
               "delete",
               "emulated:delete",
@@ -1246,7 +1246,7 @@
           ],
           "info": {
             "protocol": 1,
-            "open_ms": 0.141,
+            "open_ms": 0.104959,
             "capabilities": [
               "delete",
               "emulated:delete",
@@ -1289,7 +1289,7 @@
           "role": "must_fail",
           "trial": 2,
           "status": "violation",
-          "acked_missing": 140,
+          "acked_missing": 139,
           "duplicates": 0,
           "torn": 0,
           "invalid_final": 0,
@@ -1298,7 +1298,7 @@
             {
               "writers": 8,
               "phase": "distinct",
-              "acked_missing": 140,
+              "acked_missing": 139,
               "duplicates": 0,
               "torn": 0,
               "invalid_final": 0
@@ -1315,7 +1315,7 @@
           ],
           "info": {
             "protocol": 1,
-            "open_ms": 0.129375,
+            "open_ms": 0.110834,
             "capabilities": [
               "delete",
               "emulated:delete",
@@ -1384,7 +1384,7 @@
           ],
           "info": {
             "protocol": 1,
-            "open_ms": 0.171916,
+            "open_ms": 0.124667,
             "capabilities": [
               "delete",
               "emulated:delete",
@@ -1453,7 +1453,7 @@
           ],
           "info": {
             "protocol": 1,
-            "open_ms": 0.147625,
+            "open_ms": 0.144791,
             "capabilities": [
               "delete",
               "emulated:delete",
@@ -1522,7 +1522,7 @@
           ],
           "info": {
             "protocol": 1,
-            "open_ms": 1.940041,
+            "open_ms": 1.499917,
             "capabilities": [
               "delete",
               "get",
@@ -1586,7 +1586,7 @@
           ],
           "info": {
             "protocol": 1,
-            "open_ms": 1.8875,
+            "open_ms": 1.364791,
             "capabilities": [
               "delete",
               "get",
@@ -1650,7 +1650,7 @@
           ],
           "info": {
             "protocol": 1,
-            "open_ms": 2.082875,
+            "open_ms": 1.375291,
             "capabilities": [
               "delete",
               "get",
@@ -1714,7 +1714,7 @@
           ],
           "info": {
             "protocol": 1,
-            "open_ms": 3.416584,
+            "open_ms": 1.578958,
             "capabilities": [
               "delete",
               "get",
@@ -1778,7 +1778,7 @@
           ],
           "info": {
             "protocol": 1,
-            "open_ms": 11.653292,
+            "open_ms": 1.343709,
             "capabilities": [
               "delete",
               "get",
@@ -1830,14 +1830,14 @@
           "acked": 10,
           "dropped": 0,
           "expected": {
-            "id": "27cf06c0-7d75-455b-b208-63f7ba56fd92",
+            "id": "b84e423b-c2e4-4b6c-b024-acf8ab756661",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v5",
-            "payload_sha256": "b34a9df10bc653174b8ebbb13771ad449504b5d6aa208b77ba064f36950302f6",
+            "payload_sha256": "583632a46e2878ba612674499f15c02e40517ac32839a1460d99432660a63fed",
             "vector": [
               -0.17971359488435873,
               0.020759530317806692,
@@ -1906,23 +1906,23 @@
             ]
           },
           "observed": {
-            "id": "93e5bd3a-f562-4cbf-9d79-1b39ff9c4603",
+            "id": "2b18bde7-59c7-4c19-90e8-7185179bae36",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v1",
-            "payload_sha256": "f27662ab9139b8fd2073cfcb0a7a034c63530744df8c61471585361e91d8677f",
+            "payload_sha256": "058b6adb161f17bfb7502c3996f53ff5a1924ded999ae59a1a55469c97a6bd98",
             "vector": null
           },
-          "reads": 55,
+          "reads": 50,
           "visible_after_ms": null,
           "timeout_s": 0.1,
           "poll_ms": 1,
           "info": {
             "protocol": 1,
-            "open_ms": 0.254959,
+            "open_ms": 0.145042,
             "capabilities": [
               "delete",
               "emulated:delete",
@@ -1953,14 +1953,14 @@
           "acked": 10,
           "dropped": 0,
           "expected": {
-            "id": "489e5fa2-6746-4e9a-bc45-67273055f419",
+            "id": "bc9f49af-ec84-4de2-92eb-55219d7c48dd",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v5",
-            "payload_sha256": "71ff5707c505908cb592f908a6625a7ff4bf8ec8a4b2f800df3103377c70e87f",
+            "payload_sha256": "9c92ea38cdb469d9f9c8fd6b94cada13270d7c945c7dd3484aff62de02551686",
             "vector": [
               -0.17971359488435873,
               0.020759530317806692,
@@ -2029,23 +2029,23 @@
             ]
           },
           "observed": {
-            "id": "39ff960b-ed98-4211-adfb-51f1ebfcaa10",
+            "id": "c0a7f8fe-59ac-4825-82b9-b29ec11f7074",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v1",
-            "payload_sha256": "36517783a64f3150e29e5616a6f1000b7f679aac6b2b0562d6c9fd73442d528a",
+            "payload_sha256": "e104e45a43ae6c3097296d80fa214009cb8f9e07e0696ffff80ed365a52d5019",
             "vector": null
           },
-          "reads": 51,
+          "reads": 68,
           "visible_after_ms": null,
           "timeout_s": 0.1,
           "poll_ms": 1,
           "info": {
             "protocol": 1,
-            "open_ms": 0.268209,
+            "open_ms": 0.177083,
             "capabilities": [
               "delete",
               "emulated:delete",
@@ -2076,14 +2076,14 @@
           "acked": 10,
           "dropped": 0,
           "expected": {
-            "id": "4adea8df-95a7-41af-976d-86054b4e3110",
+            "id": "4abb570e-1abe-49ea-979f-b803708ab135",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v5",
-            "payload_sha256": "4ccfe9c742dc284ee233eb30cab59b70dcc5a23e61e7b2af99f094beeadff31f",
+            "payload_sha256": "672ddf9390112621ceeb7a9476bfca3f87c7621a97d115cec593a6d3e8a9ac7b",
             "vector": [
               -0.17971359488435873,
               0.020759530317806692,
@@ -2152,23 +2152,23 @@
             ]
           },
           "observed": {
-            "id": "df03127f-d86a-4bdc-99ca-bb8d2d8df61b",
+            "id": "2272a60d-da43-4e2c-8f59-2e16e7726228",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v1",
-            "payload_sha256": "3c6b61b4f89ce81a283e75c51f0af5897b1fd9bec80100473d0d50d955e5cffd",
+            "payload_sha256": "0d29c1dca4f556746fa817a7e18cc6554f66b06aff58ef7e4b2121e05414b9cf",
             "vector": null
           },
-          "reads": 53,
+          "reads": 67,
           "visible_after_ms": null,
           "timeout_s": 0.1,
           "poll_ms": 1,
           "info": {
             "protocol": 1,
-            "open_ms": 0.3035,
+            "open_ms": 0.146,
             "capabilities": [
               "delete",
               "emulated:delete",
@@ -2199,14 +2199,14 @@
           "acked": 10,
           "dropped": 0,
           "expected": {
-            "id": "fad9cb84-af57-4a9d-b0a2-82ffc9fd64cb",
+            "id": "f5b8103e-6919-481f-a83e-77a2f364b7cb",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v5",
-            "payload_sha256": "8dec0a016d82eea1e7421b1f5343b22750c055ccda57dd39f14bd026eb9e6cad",
+            "payload_sha256": "2951367f0947e7cc218a4000c27dace10c4f373295efcb20e01093c1926ec175",
             "vector": [
               -0.17971359488435873,
               0.020759530317806692,
@@ -2275,23 +2275,23 @@
             ]
           },
           "observed": {
-            "id": "2330c565-56b3-4d04-9e4a-b01008cb20de",
+            "id": "20450787-9389-407e-831e-7b7ebb179602",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v1",
-            "payload_sha256": "c9506fff86456dfa9c7d6df1d1bd262723087054f2226c668f47a46ecfe3f86b",
+            "payload_sha256": "c6e542065810bda32103fd933821d1c6ac4542f60d8ce631db5ecd81aea65adc",
             "vector": null
           },
-          "reads": 58,
+          "reads": 70,
           "visible_after_ms": null,
           "timeout_s": 0.1,
           "poll_ms": 1,
           "info": {
             "protocol": 1,
-            "open_ms": 0.223166,
+            "open_ms": 0.150708,
             "capabilities": [
               "delete",
               "emulated:delete",
@@ -2322,14 +2322,14 @@
           "acked": 10,
           "dropped": 0,
           "expected": {
-            "id": "6a84c69e-7199-4b36-afa4-695b118398ea",
+            "id": "55cd5c75-ac3d-4aa2-8397-44f7b8621670",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v5",
-            "payload_sha256": "908a4eb0aeca462ab4481920eac15f74d2788231480bc73917c22ae4cee37e33",
+            "payload_sha256": "12dfac14982f8dcf090c3f5cbdb875f09120eb7cb80c95e258dd41442c0353b1",
             "vector": [
               -0.17971359488435873,
               0.020759530317806692,
@@ -2398,23 +2398,23 @@
             ]
           },
           "observed": {
-            "id": "80144fba-51c7-49ed-8081-f4a55353e4fd",
+            "id": "6aab33b2-0e4f-4622-b32e-d802fc313035",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v1",
-            "payload_sha256": "efd61567daa43c8d218a9aaa558ad43706df77218a6986583b66d7563595e4fd",
+            "payload_sha256": "d849c83b90ed02893812182bf6aefb8244047875598d3f52eb827187288383ad",
             "vector": null
           },
-          "reads": 58,
+          "reads": 70,
           "visible_after_ms": null,
           "timeout_s": 0.1,
           "poll_ms": 1,
           "info": {
             "protocol": 1,
-            "open_ms": 0.351625,
+            "open_ms": 0.147084,
             "capabilities": [
               "delete",
               "emulated:delete",
@@ -2445,14 +2445,14 @@
           "acked": 10,
           "dropped": 0,
           "expected": {
-            "id": "d83caf24-636d-4f5c-9eba-3c2cb587c555",
+            "id": "b3b3b361-a627-4ede-b342-8898577b8098",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v5",
-            "payload_sha256": "dc979698e9b973e60de41d5f572ceed84e031117223a4d0e97ac890fc9ebec10",
+            "payload_sha256": "1311786144140bfd4d4d581e370ff844c804d84ba06407e49bab6f1a6867fbf0",
             "vector": [
               -0.17971359488435873,
               0.020759530317806692,
@@ -2521,23 +2521,23 @@
             ]
           },
           "observed": {
-            "id": "d83caf24-636d-4f5c-9eba-3c2cb587c555",
+            "id": "b3b3b361-a627-4ede-b342-8898577b8098",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v5",
-            "payload_sha256": "dc979698e9b973e60de41d5f572ceed84e031117223a4d0e97ac890fc9ebec10",
+            "payload_sha256": "1311786144140bfd4d4d581e370ff844c804d84ba06407e49bab6f1a6867fbf0",
             "vector": null
           },
           "reads": 1,
-          "visible_after_ms": 0.18725,
+          "visible_after_ms": 0.192958,
           "timeout_s": 0.1,
           "poll_ms": 1,
           "info": {
             "protocol": 1,
-            "open_ms": 3.003125,
+            "open_ms": 1.641834,
             "capabilities": [
               "delete",
               "get",
@@ -2563,14 +2563,14 @@
           "acked": 10,
           "dropped": 0,
           "expected": {
-            "id": "e263d93f-cf73-4e6e-92ea-8a0e8bc6f76c",
+            "id": "38934a24-7d3b-4a3e-a018-1af8e12147ac",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v5",
-            "payload_sha256": "e7d38f2654f195c385b9fa73b1cb5fa7310dc3887057aa02fdf0e75d03ea70ed",
+            "payload_sha256": "a118a72c07a0a1916cf3c67e9143b151455f0313c0bca5dea14a317afecdb637",
             "vector": [
               -0.17971359488435873,
               0.020759530317806692,
@@ -2639,23 +2639,23 @@
             ]
           },
           "observed": {
-            "id": "e263d93f-cf73-4e6e-92ea-8a0e8bc6f76c",
+            "id": "38934a24-7d3b-4a3e-a018-1af8e12147ac",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v5",
-            "payload_sha256": "e7d38f2654f195c385b9fa73b1cb5fa7310dc3887057aa02fdf0e75d03ea70ed",
+            "payload_sha256": "a118a72c07a0a1916cf3c67e9143b151455f0313c0bca5dea14a317afecdb637",
             "vector": null
           },
           "reads": 1,
-          "visible_after_ms": 0.192167,
+          "visible_after_ms": 0.20875,
           "timeout_s": 0.1,
           "poll_ms": 1,
           "info": {
             "protocol": 1,
-            "open_ms": 2.012084,
+            "open_ms": 1.760875,
             "capabilities": [
               "delete",
               "get",
@@ -2681,14 +2681,14 @@
           "acked": 10,
           "dropped": 0,
           "expected": {
-            "id": "b3ab1c68-80e8-456e-aa74-157ae918686e",
+            "id": "8d51aef7-4c06-4f66-9006-64d4b81c5be2",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v5",
-            "payload_sha256": "bd934f84f7257f4d6ba006c8bfbab7dca562e5a74d44397b69938095c98d0be2",
+            "payload_sha256": "20bcb2affc8e99a08b7c65b602134369ee407d26af875ba082b9658bb70b167d",
             "vector": [
               -0.17971359488435873,
               0.020759530317806692,
@@ -2757,23 +2757,23 @@
             ]
           },
           "observed": {
-            "id": "b3ab1c68-80e8-456e-aa74-157ae918686e",
+            "id": "8d51aef7-4c06-4f66-9006-64d4b81c5be2",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v5",
-            "payload_sha256": "bd934f84f7257f4d6ba006c8bfbab7dca562e5a74d44397b69938095c98d0be2",
+            "payload_sha256": "20bcb2affc8e99a08b7c65b602134369ee407d26af875ba082b9658bb70b167d",
             "vector": null
           },
           "reads": 1,
-          "visible_after_ms": 0.188458,
+          "visible_after_ms": 0.149833,
           "timeout_s": 0.1,
           "poll_ms": 1,
           "info": {
             "protocol": 1,
-            "open_ms": 2.796542,
+            "open_ms": 1.610083,
             "capabilities": [
               "delete",
               "get",
@@ -2799,14 +2799,14 @@
           "acked": 10,
           "dropped": 0,
           "expected": {
-            "id": "334fc8ec-7e93-4569-ad54-2544ff881809",
+            "id": "e4a19ba2-ff66-4419-8617-e7c3ab5bee1f",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v5",
-            "payload_sha256": "caf91d1783083667a1d1ff092a5c3037cd2538906eb5ee37cd17d531db8c22b1",
+            "payload_sha256": "6c703612f07b586c82e826bcd31d4b02fc523e274d8e6ee05ec6ddf0ceefcb63",
             "vector": [
               -0.17971359488435873,
               0.020759530317806692,
@@ -2875,23 +2875,23 @@
             ]
           },
           "observed": {
-            "id": "334fc8ec-7e93-4569-ad54-2544ff881809",
+            "id": "e4a19ba2-ff66-4419-8617-e7c3ab5bee1f",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v5",
-            "payload_sha256": "caf91d1783083667a1d1ff092a5c3037cd2538906eb5ee37cd17d531db8c22b1",
+            "payload_sha256": "6c703612f07b586c82e826bcd31d4b02fc523e274d8e6ee05ec6ddf0ceefcb63",
             "vector": null
           },
           "reads": 1,
-          "visible_after_ms": 0.184917,
+          "visible_after_ms": 0.144625,
           "timeout_s": 0.1,
           "poll_ms": 1,
           "info": {
             "protocol": 1,
-            "open_ms": 2.290208,
+            "open_ms": 1.85825,
             "capabilities": [
               "delete",
               "get",
@@ -2917,14 +2917,14 @@
           "acked": 10,
           "dropped": 0,
           "expected": {
-            "id": "701d2369-ff7e-417a-99a9-5c3e1663359b",
+            "id": "a3fda5a3-fe18-4ca5-8bf6-65b124ff3d33",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v5",
-            "payload_sha256": "7fe8a950532d1ec1bd9f11bd0338d656b8a0f33f996082d1c0fc3a7d4b768f35",
+            "payload_sha256": "3ba659f277d16ab0f304d9151f9997e3c81a5385ee34ba17cacb49b6d3a95e22",
             "vector": [
               -0.17971359488435873,
               0.020759530317806692,
@@ -2993,23 +2993,23 @@
             ]
           },
           "observed": {
-            "id": "701d2369-ff7e-417a-99a9-5c3e1663359b",
+            "id": "a3fda5a3-fe18-4ca5-8bf6-65b124ff3d33",
             "scope": {
               "tenant": "benchmark",
               "session": "supersede-by-key"
             },
             "key": "k",
             "text": "v5",
-            "payload_sha256": "7fe8a950532d1ec1bd9f11bd0338d656b8a0f33f996082d1c0fc3a7d4b768f35",
+            "payload_sha256": "3ba659f277d16ab0f304d9151f9997e3c81a5385ee34ba17cacb49b6d3a95e22",
             "vector": null
           },
           "reads": 1,
-          "visible_after_ms": 0.215375,
+          "visible_after_ms": 0.142208,
           "timeout_s": 0.1,
           "poll_ms": 1,
           "info": {
             "protocol": 1,
-            "open_ms": 2.532792,
+            "open_ms": 2.144417,
             "capabilities": [
               "delete",
               "get",
@@ -3046,28 +3046,28 @@
               "visible_before": true,
               "remaining": 0,
               "status": "ok",
-              "lag_ms": 0.077333,
+              "lag_ms": 0.053875,
               "survivors_missing": 0
             },
             "get_by_ref": {
               "visible_before": true,
               "remaining": 0,
               "status": "ok",
-              "lag_ms": 0.154166,
+              "lag_ms": 0.116084,
               "survivors_missing": 0
             },
             "list_prefix": {
               "visible_before": true,
               "remaining": 0,
               "status": "ok",
-              "lag_ms": 0.226125,
+              "lag_ms": 0.168042,
               "survivors_missing": 0
             },
             "read_recent": {
               "visible_before": true,
               "remaining": 0,
               "status": "ok",
-              "lag_ms": 0.352291,
+              "lag_ms": 0.263584,
               "survivors_missing": 0
             },
             "search": {
@@ -3087,7 +3087,7 @@
           },
           "info": {
             "protocol": 1,
-            "open_ms": 2.445167,
+            "open_ms": 2.4195,
             "capabilities": [
               "delete",
               "get",
@@ -3114,28 +3114,28 @@
               "visible_before": true,
               "remaining": 0,
               "status": "ok",
-              "lag_ms": 0.160292,
+              "lag_ms": 0.053375,
               "survivors_missing": 0
             },
             "get_by_ref": {
               "visible_before": true,
               "remaining": 0,
               "status": "ok",
-              "lag_ms": 0.286959,
+              "lag_ms": 0.105166,
               "survivors_missing": 0
             },
             "list_prefix": {
               "visible_before": true,
               "remaining": 0,
               "status": "ok",
-              "lag_ms": 0.400292,
+              "lag_ms": 0.172291,
               "survivors_missing": 0
             },
             "read_recent": {
               "visible_before": true,
               "remaining": 0,
               "status": "ok",
-              "lag_ms": 0.5865,
+              "lag_ms": 0.328416,
               "survivors_missing": 0
             },
             "search": {
@@ -3155,7 +3155,7 @@
           },
           "info": {
             "protocol": 1,
-            "open_ms": 2.649625,
+            "open_ms": 2.011917,
             "capabilities": [
               "delete",
               "get",
@@ -3182,28 +3182,28 @@
               "visible_before": true,
               "remaining": 0,
               "status": "ok",
-              "lag_ms": 0.073625,
+              "lag_ms": 0.052958,
               "survivors_missing": 0
             },
             "get_by_ref": {
               "visible_before": true,
               "remaining": 0,
               "status": "ok",
-              "lag_ms": 0.144333,
+              "lag_ms": 0.100875,
               "survivors_missing": 0
             },
             "list_prefix": {
               "visible_before": true,
               "remaining": 0,
               "status": "ok",
-              "lag_ms": 0.214083,
+              "lag_ms": 0.147,
               "survivors_missing": 0
             },
             "read_recent": {
               "visible_before": true,
               "remaining": 0,
               "status": "ok",
-              "lag_ms": 0.336,
+              "lag_ms": 0.231833,
               "survivors_missing": 0
             },
             "search": {
@@ -3223,7 +3223,7 @@
           },
           "info": {
             "protocol": 1,
-            "open_ms": 2.984584,
+            "open_ms": 3.791875,
             "capabilities": [
               "delete",
               "get",
@@ -3250,28 +3250,28 @@
               "visible_before": true,
               "remaining": 0,
               "status": "ok",
-              "lag_ms": 0.07275,
+              "lag_ms": 0.047083,
               "survivors_missing": 0
             },
             "get_by_ref": {
               "visible_before": true,
               "remaining": 0,
               "status": "ok",
-              "lag_ms": 0.146583,
+              "lag_ms": 0.094416,
               "survivors_missing": 0
             },
             "list_prefix": {
               "visible_before": true,
               "remaining": 0,
               "status": "ok",
-              "lag_ms": 0.216167,
+              "lag_ms": 0.139,
               "survivors_missing": 0
             },
             "read_recent": {
               "visible_before": true,
               "remaining": 0,
               "status": "ok",
-              "lag_ms": 0.338375,
+              "lag_ms": 0.219708,
               "survivors_missing": 0
             },
             "search": {
@@ -3291,7 +3291,7 @@
           },
           "info": {
             "protocol": 1,
-            "open_ms": 3.17375,
+            "open_ms": 1.748167,
             "capabilities": [
               "delete",
               "get",
@@ -3318,28 +3318,28 @@
               "visible_before": true,
               "remaining": 0,
               "status": "ok",
-              "lag_ms": 0.070208,
+              "lag_ms": 0.076666,
               "survivors_missing": 0
             },
             "get_by_ref": {
               "visible_before": true,
               "remaining": 0,
               "status": "ok",
-              "lag_ms": 0.142167,
+              "lag_ms": 0.136333,
               "survivors_missing": 0
             },
             "list_prefix": {
               "visible_before": true,
               "remaining": 0,
               "status": "ok",
-              "lag_ms": 0.210375,
+              "lag_ms": 0.193666,
               "survivors_missing": 0
             },
             "read_recent": {
               "visible_before": true,
               "remaining": 0,
               "status": "ok",
-              "lag_ms": 0.330208,
+              "lag_ms": 0.282208,
               "survivors_missing": 0
             },
             "search": {
@@ -3359,7 +3359,7 @@
           },
           "info": {
             "protocol": 1,
-            "open_ms": 3.184542,
+            "open_ms": 2.651667,
             "capabilities": [
               "delete",
               "get",
@@ -3386,35 +3386,35 @@
               "visible_before": true,
               "remaining": 0,
               "status": "ok",
-              "lag_ms": 0.076709,
+              "lag_ms": 0.04775,
               "survivors_missing": 0
             },
             "get_by_ref": {
               "visible_before": true,
               "remaining": 0,
               "status": "ok",
-              "lag_ms": 0.146959,
+              "lag_ms": 0.09375,
               "survivors_missing": 0
             },
             "list_prefix": {
               "visible_before": true,
               "remaining": 0,
               "status": "ok",
-              "lag_ms": 0.214334,
+              "lag_ms": 0.138292,
               "survivors_missing": 0
             },
             "read_recent": {
               "visible_before": true,
               "remaining": 0,
               "status": "ok",
-              "lag_ms": 0.334709,
+              "lag_ms": 0.217542,
               "survivors_missing": 0
             },
             "search": {
               "visible_before": true,
               "remaining": 0,
               "status": "ok",
-              "lag_ms": 0.512084,
+              "lag_ms": 0.332417,
               "survivors_missing": 0
             }
           },
@@ -3427,7 +3427,7 @@
           },
           "info": {
             "protocol": 1,
-            "open_ms": 2.416292,
+            "open_ms": 1.592125,
             "capabilities": [
               "delete",
               "get",
@@ -3454,35 +3454,35 @@
               "visible_before": true,
               "remaining": 0,
               "status": "ok",
-              "lag_ms": 0.086375,
+              "lag_ms": 0.077291,
               "survivors_missing": 0
             },
             "get_by_ref": {
               "visible_before": true,
               "remaining": 0,
               "status": "ok",
-              "lag_ms": 0.165791,
+              "lag_ms": 0.144708,
               "survivors_missing": 0
             },
             "list_prefix": {
               "visible_before": true,
               "remaining": 0,
               "status": "ok",
-              "lag_ms": 0.243083,
+              "lag_ms": 0.207583,
               "survivors_missing": 0
             },
             "read_recent": {
               "visible_before": true,
               "remaining": 0,
               "status": "ok",
-              "lag_ms": 0.374125,
+              "lag_ms": 0.298583,
               "survivors_missing": 0
             },
             "search": {
               "visible_before": true,
               "remaining": 0,
               "status": "ok",
-              "lag_ms": 0.56475,
+              "lag_ms": 0.429416,
               "survivors_missing": 0
             }
           },
@@ -3495,7 +3495,7 @@
           },
           "info": {
             "protocol": 1,
-            "open_ms": 2.352042,
+            "open_ms": 1.878042,
             "capabilities": [
               "delete",
               "get",
@@ -3522,35 +3522,35 @@
               "visible_before": true,
               "remaining": 0,
               "status": "ok",
-              "lag_ms": 0.084792,
+              "lag_ms": 0.047459,
               "survivors_missing": 0
             },
             "get_by_ref": {
               "visible_before": true,
               "remaining": 0,
               "status": "ok",
-              "lag_ms": 0.16875,
+              "lag_ms": 0.093959,
               "survivors_missing": 0
             },
             "list_prefix": {
               "visible_before": true,
               "remaining": 0,
               "status": "ok",
-              "lag_ms": 0.248667,
+              "lag_ms": 0.143042,
               "survivors_missing": 0
             },
             "read_recent": {
               "visible_before": true,
               "remaining": 0,
               "status": "ok",
-              "lag_ms": 0.387625,
+              "lag_ms": 0.227125,
               "survivors_missing": 0
             },
             "search": {
               "visible_before": true,
               "remaining": 0,
               "status": "ok",
-              "lag_ms": 0.588625,
+              "lag_ms": 0.34175,
               "survivors_missing": 0
             }
           },
@@ -3563,7 +3563,7 @@
           },
           "info": {
             "protocol": 1,
-            "open_ms": 3.803666,
+            "open_ms": 2.047083,
             "capabilities": [
               "delete",
               "get",
@@ -3590,35 +3590,35 @@
               "visible_before": true,
               "remaining": 0,
               "status": "ok",
-              "lag_ms": 0.080708,
+              "lag_ms": 0.343083,
               "survivors_missing": 0
             },
             "get_by_ref": {
               "visible_before": true,
               "remaining": 0,
               "status": "ok",
-              "lag_ms": 0.16125,
+              "lag_ms": 0.504208,
               "survivors_missing": 0
             },
             "list_prefix": {
               "visible_before": true,
               "remaining": 0,
               "status": "ok",
-              "lag_ms": 0.239666,
+              "lag_ms": 0.633458,
               "survivors_missing": 0
             },
             "read_recent": {
               "visible_before": true,
               "remaining": 0,
               "status": "ok",
-              "lag_ms": 0.374,
+              "lag_ms": 0.85225,
               "survivors_missing": 0
             },
             "search": {
               "visible_before": true,
               "remaining": 0,
               "status": "ok",
-              "lag_ms": 0.568958,
+              "lag_ms": 2.14675,
               "survivors_missing": 0
             }
           },
@@ -3631,7 +3631,7 @@
           },
           "info": {
             "protocol": 1,
-            "open_ms": 3.292333,
+            "open_ms": 16.177125,
             "capabilities": [
               "delete",
               "get",
@@ -3658,35 +3658,35 @@
               "visible_before": true,
               "remaining": 0,
               "status": "ok",
-              "lag_ms": 0.093625,
+              "lag_ms": 0.089875,
               "survivors_missing": 0
             },
             "get_by_ref": {
               "visible_before": true,
               "remaining": 0,
               "status": "ok",
-              "lag_ms": 0.175958,
+              "lag_ms": 0.162542,
               "survivors_missing": 0
             },
             "list_prefix": {
               "visible_before": true,
               "remaining": 0,
               "status": "ok",
-              "lag_ms": 0.256208,
+              "lag_ms": 0.223709,
               "survivors_missing": 0
             },
             "read_recent": {
               "visible_before": true,
               "remaining": 0,
               "status": "ok",
-              "lag_ms": 0.395875,
+              "lag_ms": 0.327334,
               "survivors_missing": 0
             },
             "search": {
               "visible_before": true,
               "remaining": 0,
               "status": "ok",
-              "lag_ms": 0.5935,
+              "lag_ms": 0.471459,
               "survivors_missing": 0
             }
           },
@@ -3699,7 +3699,7 @@
           },
           "info": {
             "protocol": 1,
-            "open_ms": 2.987083,
+            "open_ms": 1.763292,
             "capabilities": [
               "delete",
               "get",
@@ -3738,35 +3738,35 @@
                 "visible_before": true,
                 "remaining": 0,
                 "status": "ok",
-                "lag_ms": 0.126875,
+                "lag_ms": 0.06825,
                 "survivors_missing": 0
               },
               "get_by_ref": {
                 "visible_before": true,
                 "remaining": 0,
                 "status": "ok",
-                "lag_ms": 0.276458,
+                "lag_ms": 0.148958,
                 "survivors_missing": 0
               },
               "list_prefix": {
                 "visible_before": true,
                 "remaining": 0,
                 "status": "ok",
-                "lag_ms": 0.428708,
+                "lag_ms": 0.243916,
                 "survivors_missing": 0
               },
               "read_recent": {
                 "visible_before": true,
                 "remaining": 0,
                 "status": "ok",
-                "lag_ms": 0.756458,
+                "lag_ms": 0.377666,
                 "survivors_missing": 0
               },
               "search": {
                 "visible_before": true,
                 "remaining": 0,
                 "status": "ok",
-                "lag_ms": 1.066042,
+                "lag_ms": 0.597083,
                 "survivors_missing": 0
               }
             },
@@ -3779,7 +3779,7 @@
           "scan_after_stop": true,
           "info": {
             "protocol": 1,
-            "open_ms": 1.943792,
+            "open_ms": 1.866666,
             "capabilities": [
               "delete",
               "get",
@@ -3808,35 +3808,35 @@
                 "visible_before": true,
                 "remaining": 0,
                 "status": "ok",
-                "lag_ms": 0.072125,
+                "lag_ms": 0.215625,
                 "survivors_missing": 0
               },
               "get_by_ref": {
                 "visible_before": true,
                 "remaining": 0,
                 "status": "ok",
-                "lag_ms": 0.144292,
+                "lag_ms": 0.41025,
                 "survivors_missing": 0
               },
               "list_prefix": {
                 "visible_before": true,
                 "remaining": 0,
                 "status": "ok",
-                "lag_ms": 0.21325,
+                "lag_ms": 0.533,
                 "survivors_missing": 0
               },
               "read_recent": {
                 "visible_before": true,
                 "remaining": 0,
                 "status": "ok",
-                "lag_ms": 0.334208,
+                "lag_ms": 0.784709,
                 "survivors_missing": 0
               },
               "search": {
                 "visible_before": true,
                 "remaining": 0,
                 "status": "ok",
-                "lag_ms": 0.523375,
+                "lag_ms": 1.049042,
                 "survivors_missing": 0
               }
             },
@@ -3849,7 +3849,7 @@
           "scan_after_stop": true,
           "info": {
             "protocol": 1,
-            "open_ms": 1.996042,
+            "open_ms": 2.168541,
             "capabilities": [
               "delete",
               "get",
@@ -3878,35 +3878,35 @@
                 "visible_before": true,
                 "remaining": 0,
                 "status": "ok",
-                "lag_ms": 0.071458,
+                "lag_ms": 0.060708,
                 "survivors_missing": 0
               },
               "get_by_ref": {
                 "visible_before": true,
                 "remaining": 0,
                 "status": "ok",
-                "lag_ms": 0.139917,
+                "lag_ms": 0.206,
                 "survivors_missing": 0
               },
               "list_prefix": {
                 "visible_before": true,
                 "remaining": 0,
                 "status": "ok",
-                "lag_ms": 0.20625,
+                "lag_ms": 0.303625,
                 "survivors_missing": 0
               },
               "read_recent": {
                 "visible_before": true,
                 "remaining": 0,
                 "status": "ok",
-                "lag_ms": 0.326875,
+                "lag_ms": 0.436833,
                 "survivors_missing": 0
               },
               "search": {
                 "visible_before": true,
                 "remaining": 0,
                 "status": "ok",
-                "lag_ms": 0.512917,
+                "lag_ms": 0.667875,
                 "survivors_missing": 0
               }
             },
@@ -3919,7 +3919,7 @@
           "scan_after_stop": true,
           "info": {
             "protocol": 1,
-            "open_ms": 2.179084,
+            "open_ms": 2.558542,
             "capabilities": [
               "delete",
               "get",
@@ -3948,35 +3948,35 @@
                 "visible_before": true,
                 "remaining": 0,
                 "status": "ok",
-                "lag_ms": 0.073125,
+                "lag_ms": 0.06825,
                 "survivors_missing": 0
               },
               "get_by_ref": {
                 "visible_before": true,
                 "remaining": 0,
                 "status": "ok",
-                "lag_ms": 0.144209,
+                "lag_ms": 0.135125,
                 "survivors_missing": 0
               },
               "list_prefix": {
                 "visible_before": true,
                 "remaining": 0,
                 "status": "ok",
-                "lag_ms": 0.212375,
+                "lag_ms": 0.199416,
                 "survivors_missing": 0
               },
               "read_recent": {
                 "visible_before": true,
                 "remaining": 0,
                 "status": "ok",
-                "lag_ms": 0.334625,
+                "lag_ms": 0.309583,
                 "survivors_missing": 0
               },
               "search": {
                 "visible_before": true,
                 "remaining": 0,
                 "status": "ok",
-                "lag_ms": 0.630459,
+                "lag_ms": 0.473,
                 "survivors_missing": 0
               }
             },
@@ -3989,7 +3989,7 @@
           "scan_after_stop": true,
           "info": {
             "protocol": 1,
-            "open_ms": 2.0855,
+            "open_ms": 1.793458,
             "capabilities": [
               "delete",
               "get",
@@ -4018,35 +4018,35 @@
                 "visible_before": true,
                 "remaining": 0,
                 "status": "ok",
-                "lag_ms": 0.075208,
+                "lag_ms": 0.062792,
                 "survivors_missing": 0
               },
               "get_by_ref": {
                 "visible_before": true,
                 "remaining": 0,
                 "status": "ok",
-                "lag_ms": 0.1465,
+                "lag_ms": 0.121542,
                 "survivors_missing": 0
               },
               "list_prefix": {
                 "visible_before": true,
                 "remaining": 0,
                 "status": "ok",
-                "lag_ms": 0.217583,
+                "lag_ms": 0.178375,
                 "survivors_missing": 0
               },
               "read_recent": {
                 "visible_before": true,
                 "remaining": 0,
                 "status": "ok",
-                "lag_ms": 0.338833,
+                "lag_ms": 0.273667,
                 "survivors_missing": 0
               },
               "search": {
                 "visible_before": true,
                 "remaining": 0,
                 "status": "ok",
-                "lag_ms": 0.531958,
+                "lag_ms": 0.426,
                 "survivors_missing": 0
               }
             },
@@ -4059,7 +4059,7 @@
           "scan_after_stop": true,
           "info": {
             "protocol": 1,
-            "open_ms": 2.698959,
+            "open_ms": 2.547875,
             "capabilities": [
               "delete",
               "get",
@@ -4088,35 +4088,35 @@
                 "visible_before": true,
                 "remaining": 0,
                 "status": "ok",
-                "lag_ms": 0.127666,
+                "lag_ms": 0.087875,
                 "survivors_missing": 0
               },
               "get_by_ref": {
                 "visible_before": true,
                 "remaining": 0,
                 "status": "ok",
-                "lag_ms": 0.219208,
+                "lag_ms": 0.162916,
                 "survivors_missing": 0
               },
               "list_prefix": {
                 "visible_before": true,
                 "remaining": 0,
                 "status": "ok",
-                "lag_ms": 0.304125,
+                "lag_ms": 0.231375,
                 "survivors_missing": 0
               },
               "read_recent": {
                 "visible_before": true,
                 "remaining": 0,
                 "status": "ok",
-                "lag_ms": 0.455875,
+                "lag_ms": 0.350291,
                 "survivors_missing": 0
               },
               "search": {
                 "visible_before": true,
                 "remaining": 0,
                 "status": "ok",
-                "lag_ms": 0.716083,
+                "lag_ms": 0.559666,
                 "survivors_missing": 0
               }
             },
@@ -4129,7 +4129,7 @@
           "scan_after_stop": true,
           "info": {
             "protocol": 1,
-            "open_ms": 1.927459,
+            "open_ms": 2.032084,
             "capabilities": [
               "delete",
               "get",
@@ -4158,35 +4158,35 @@
                 "visible_before": true,
                 "remaining": 0,
                 "status": "ok",
-                "lag_ms": 0.114708,
+                "lag_ms": 0.07825,
                 "survivors_missing": 0
               },
               "get_by_ref": {
                 "visible_before": true,
                 "remaining": 0,
                 "status": "ok",
-                "lag_ms": 0.205292,
+                "lag_ms": 0.142916,
                 "survivors_missing": 0
               },
               "list_prefix": {
                 "visible_before": true,
                 "remaining": 0,
                 "status": "ok",
-                "lag_ms": 0.285,
+                "lag_ms": 0.202916,
                 "survivors_missing": 0
               },
               "read_recent": {
                 "visible_before": true,
                 "remaining": 0,
                 "status": "ok",
-                "lag_ms": 0.424625,
+                "lag_ms": 0.307916,
                 "survivors_missing": 0
               },
               "search": {
                 "visible_before": true,
                 "remaining": 0,
                 "status": "ok",
-                "lag_ms": 0.682833,
+                "lag_ms": 0.50025,
                 "survivors_missing": 0
               }
             },
@@ -4199,7 +4199,7 @@
           "scan_after_stop": true,
           "info": {
             "protocol": 1,
-            "open_ms": 1.961666,
+            "open_ms": 1.627542,
             "capabilities": [
               "delete",
               "get",
@@ -4228,35 +4228,35 @@
                 "visible_before": true,
                 "remaining": 0,
                 "status": "ok",
-                "lag_ms": 0.124125,
+                "lag_ms": 0.117083,
                 "survivors_missing": 0
               },
               "get_by_ref": {
                 "visible_before": true,
                 "remaining": 0,
                 "status": "ok",
-                "lag_ms": 0.257708,
+                "lag_ms": 0.203208,
                 "survivors_missing": 0
               },
               "list_prefix": {
                 "visible_before": true,
                 "remaining": 0,
                 "status": "ok",
-                "lag_ms": 0.368541,
+                "lag_ms": 0.277666,
                 "survivors_missing": 0
               },
               "read_recent": {
                 "visible_before": true,
                 "remaining": 0,
                 "status": "ok",
-                "lag_ms": 0.533541,
+                "lag_ms": 0.402583,
                 "survivors_missing": 0
               },
               "search": {
                 "visible_before": true,
                 "remaining": 0,
                 "status": "ok",
-                "lag_ms": 0.817125,
+                "lag_ms": 0.670916,
                 "survivors_missing": 0
               }
             },
@@ -4269,7 +4269,7 @@
           "scan_after_stop": true,
           "info": {
             "protocol": 1,
-            "open_ms": 2.13425,
+            "open_ms": 1.610417,
             "capabilities": [
               "delete",
               "get",
@@ -4298,35 +4298,35 @@
                 "visible_before": true,
                 "remaining": 0,
                 "status": "ok",
-                "lag_ms": 0.086042,
+                "lag_ms": 0.095208,
                 "survivors_missing": 0
               },
               "get_by_ref": {
                 "visible_before": true,
                 "remaining": 0,
                 "status": "ok",
-                "lag_ms": 0.16225,
+                "lag_ms": 0.172291,
                 "survivors_missing": 0
               },
               "list_prefix": {
                 "visible_before": true,
                 "remaining": 0,
                 "status": "ok",
-                "lag_ms": 0.235542,
+                "lag_ms": 0.241125,
                 "survivors_missing": 0
               },
               "read_recent": {
                 "visible_before": true,
                 "remaining": 0,
                 "status": "ok",
-                "lag_ms": 0.361417,
+                "lag_ms": 0.3585,
                 "survivors_missing": 0
               },
               "search": {
                 "visible_before": true,
                 "remaining": 0,
                 "status": "ok",
-                "lag_ms": 0.585,
+                "lag_ms": 0.568291,
                 "survivors_missing": 0
               }
             },
@@ -4339,7 +4339,7 @@
           "scan_after_stop": true,
           "info": {
             "protocol": 1,
-            "open_ms": 3.086458,
+            "open_ms": 1.526834,
             "capabilities": [
               "delete",
               "get",
@@ -4368,35 +4368,35 @@
                 "visible_before": true,
                 "remaining": 0,
                 "status": "ok",
-                "lag_ms": 0.09,
+                "lag_ms": 0.102375,
                 "survivors_missing": 0
               },
               "get_by_ref": {
                 "visible_before": true,
                 "remaining": 0,
                 "status": "ok",
-                "lag_ms": 0.221875,
+                "lag_ms": 0.182333,
                 "survivors_missing": 0
               },
               "list_prefix": {
                 "visible_before": true,
                 "remaining": 0,
                 "status": "ok",
-                "lag_ms": 0.519792,
+                "lag_ms": 0.254208,
                 "survivors_missing": 0
               },
               "read_recent": {
                 "visible_before": true,
                 "remaining": 0,
                 "status": "ok",
-                "lag_ms": 0.94475,
+                "lag_ms": 0.376,
                 "survivors_missing": 0
               },
               "search": {
                 "visible_before": true,
                 "remaining": 0,
                 "status": "ok",
-                "lag_ms": 1.2895,
+                "lag_ms": 0.588792,
                 "survivors_missing": 0
               }
             },
@@ -4409,7 +4409,7 @@
           "scan_after_stop": true,
           "info": {
             "protocol": 1,
-            "open_ms": 2.182375,
+            "open_ms": 2.52425,
             "capabilities": [
               "delete",
               "get",
