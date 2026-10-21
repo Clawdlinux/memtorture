@@ -15,7 +15,7 @@ from memtorture.suites import (
     supersede_by_key,
 )
 from memtorture.types import NotSupported
-from tests.helpers import LastRowWorker
+from tests.helpers import LastRowWorker, StaleKeyWorker
 
 
 @pytest.mark.parametrize(
@@ -168,23 +168,26 @@ def test_control_evidence(stub_controls, tmp_path, workspace, monkeypatch, capsy
         ("sqlite-upsert", 5, "ok"),
         ("sqlite-upsert", 2, "ok"),
         ("last-row", 5, "violation"),
+        ("stale-reads", 5, "ok"),
     ],
 )
 def test_latest_keyed_value(tmp_path, system, versions, expected):
-    events = []
-    if system == "last-row":
+    events, budget = [], {"timeout_s": 0.1, "poll_ms": 1}
+    workers = {"last-row": LastRowWorker, "stale-reads": lambda: StaleKeyWorker(3)}
+    if system in workers:
         result = check_supersede_by_key(
-            LastRowWorker(), versions=versions, emit=events.append
+            workers[system](), versions=versions, emit=events.append, **budget
         )
     else:
         result = supersede_by_key(
-            system, "default", tmp_path, versions=versions, emit=events.append
+            system, "default", tmp_path, versions=versions, emit=events.append, **budget
         )
         assert result["info"]["version"], system
     assert result["status"] == expected
     assert result["versions"] == versions
     assert result["acked"] == 2 * versions
     assert result["dropped"] == 0
+    assert result["timeout_s"] == 0.1
     assert result["expected"]["key"] == "k"
     assert result["observed"]["key"] == ("decoy" if system == "last-row" else "k")
     assert result["expected"]["text"] == f"v{versions}"
@@ -192,6 +195,16 @@ def test_latest_keyed_value(tmp_path, system, versions, expected):
     if system == "last-row":
         observed_text = f"decoy{versions}"
     assert result["observed"]["text"] == observed_text
+    # Only an older value is retried. A wrong record fails on the first read.
+    reads = {"stale-reads": 4, "last-row": 1, "sqlite-upsert": 1}
+    if system in reads:
+        assert result["reads"] == reads[system]
+    else:
+        assert result["reads"] > 1
+    if expected == "ok":
+        assert 0 <= result["visible_after_ms"] < 100
+    else:
+        assert result["visible_after_ms"] is None
     writes = [event for event in events if event["operation"] == "upsert"]
     assert len(writes) == 2 * versions
     assert [(event["record"]["key"], event["record"]["text"]) for event in writes] == [

@@ -59,7 +59,7 @@ def event(emit, **data):
         emit({"monotonic_ns": time.monotonic_ns(), **data})
 
 
-def check_supersede_by_key(worker, *, versions=5, emit=None):
+def check_supersede_by_key(worker, *, versions=5, timeout_s=5, poll_ms=10, emit=None):
     """Check the latest keyed value against interleaved decoy writes."""
     if versions < 2:
         raise ValueError("Supersession needs at least 2 versions")
@@ -67,7 +67,7 @@ def check_supersede_by_key(worker, *, versions=5, emit=None):
     if missing:
         raise NotSupported(f"Missing {', '.join(sorted(missing))}")
     scope = Scope("benchmark", "supersede-by-key")
-    dropped = 0
+    dropped, older = 0, []
     for version in range(1, versions + 1):
         record = Record.make(scope, "k", f"v{version}")
         decoy = Record.make(scope, "decoy", f"decoy{version}")
@@ -75,18 +75,31 @@ def check_supersede_by_key(worker, *, versions=5, emit=None):
             ack = worker.call("upsert", scope=scope, record=written)
             dropped += ack.dropped
             event(emit, operation="upsert", record=asdict(written), dropped=ack.dropped)
-    observed = worker.call("get", scope=scope, key=record.key)
+        older.append(record)
+    older.pop()
+    ack_ns = time.monotonic_ns()
+    read = {"reads": 0}
+
+    def settled():
+        observed = worker.call("get", scope=scope, key=record.key)
+        read.update(observed=observed, reads=read["reads"] + 1, at=time.monotonic_ns())
+        # Only a missing or intact older value is delayed visibility worth retrying.
+        return bool(dropped) or not (observed is None or observed in older)
+
+    poll_until(settled, timeout_s=timeout_s, poll_ms=poll_ms)
+    observed = read["observed"]
+    ok = not dropped and observed == record and observed.valid()
     result = {
-        "status": (
-            "ok"
-            if not dropped and observed == record and observed.valid()
-            else "violation"
-        ),
+        "status": "ok" if ok else "violation",
         "versions": versions,
         "acked": 2 * versions - dropped,
         "dropped": dropped,
         "expected": asdict(record),
         "observed": asdict(observed) if observed is not None else None,
+        "reads": read["reads"],
+        "visible_after_ms": (read["at"] - ack_ns) / 1e6 if ok else None,
+        "timeout_s": timeout_s,
+        "poll_ms": poll_ms,
     }
     event(emit, operation="supersede-check", **result)
     return result
@@ -556,10 +569,18 @@ def history_scale(
     }
 
 
-def supersede_by_key(system, config, workdir, *, versions=5, emit=None):
+def supersede_by_key(
+    system, config, workdir, *, versions=5, timeout_s=5, poll_ms=10, emit=None
+):
     with Worker(system, config, workdir) as worker:
         return {
-            **check_supersede_by_key(worker, versions=versions, emit=emit),
+            **check_supersede_by_key(
+                worker,
+                versions=versions,
+                timeout_s=timeout_s,
+                poll_ms=poll_ms,
+                emit=emit,
+            ),
             "info": worker.info,
         }
 

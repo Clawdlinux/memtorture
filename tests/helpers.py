@@ -438,6 +438,26 @@ class LastRowWorker:
         raise NotImplementedError(op)
 
 
+class StaleKeyWorker:
+    """Keyed reads return the oldest value for the first `stale_reads` gets."""
+
+    capabilities = {"keyed", "upsert", "get"}
+
+    def __init__(self, stale_reads):
+        self.stale_reads, self.rows = stale_reads, {}
+
+    def call(self, op, **kwargs):
+        if op == "upsert":
+            record = kwargs["record"]
+            self.rows.setdefault(record.key, []).append(record)
+            return Ack(record.id)
+        if op == "get":
+            rows = self.rows.get(kwargs["key"], [])
+            self.stale_reads -= 1
+            return rows[0] if self.stale_reads >= 0 else rows[-1]
+        raise NotImplementedError(op)
+
+
 def stub_control_worker(system, *args, **kwargs):
     return contextlib.nullcontext(SimpleNamespace(system=system, info={}))
 

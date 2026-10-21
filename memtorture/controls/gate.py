@@ -206,7 +206,9 @@ def run_controls(*, quick=False):
                             details.append({"role": role, "trial": trial, **result})
                         elif suite == "supersede-by-key":
                             with Worker(system, "default", path) as worker:
-                                result = check_supersede_by_key(worker, emit=emit)
+                                result = check_supersede_by_key(
+                                    worker, timeout_s=0.1, poll_ms=1, emit=emit
+                                )
                                 result["info"] = worker.info
                             matched = result["status"] == (
                                 "violation" if role == "must_fail" else "ok"

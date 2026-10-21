@@ -118,7 +118,7 @@ It reads `k` and passes only when every write succeeds and the final value is in
 The append-only control keeps every version but returns `v1`.
 SQLite updates the keyed row in place with `ON CONFLICT DO UPDATE` and returns `v5`.
 An update trigger removes the old FTS entry and inserts the new text within the same transaction.
-`check_supersede_by_key(worker, *, versions=5, emit=None)` provides the reusable check in `memtorture/suites.py`.
+`check_supersede_by_key(worker, *, versions=5, timeout_s=5, poll_ms=10, emit=None)` provides the reusable check in `memtorture/suites.py`.
 It accepts a running protocol worker and emits writes plus the final check.
 The supersession suite reuses this check for each system and config row.
 
@@ -271,9 +271,14 @@ This does not measure unlimited saturation, disk durability, or application sche
 Each config row runs `check_supersede_by_key` with 5 versions.
 The control procedure above is the suite body, including interleaved decoy-key writes.
 It reports whether the current keyed value is correct and intact.
+An older intact value or no value is retried every 10 ms for up to 5 seconds.
+This lets asynchronous upserts converge.
+It fails only when that budget expires. A torn or wrong record fails on the first read.
+Each cell records `visible_after_ms` from the last write ack, `reads`, and the budget.
+Control trials use a 100 ms budget polled every 1 ms.
 Missing keyed, upsert, or get support produces N/A.
 The append-oldest and SQLite-upsert controls gate this capability check.
-It does not time updates or claim atomic compare-and-swap behavior.
+It does not time individual upserts or claim atomic compare-and-swap behavior.
 It does not require history retention or measure concurrent supersession.
 
 ### Forget
