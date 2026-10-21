@@ -89,6 +89,12 @@ class ResultWriter:
             "harness_commit": commit(),
             "harness_dirty": bool(subprocess.check_output(status_command, text=True)),
         }
+        # Workers write storage files below .work. Leftovers could hold symlinks.
+        if self.work.exists():
+            raise ValueError(
+                f"Output has work files from an earlier run: {self.work}. "
+                "Choose a new --output."
+            )
         self.root.mkdir(parents=True, exist_ok=True)
         self.raw = open_output(self.root / "operations.jsonl", **self.policy)
         self.cells = []

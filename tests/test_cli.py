@@ -206,10 +206,28 @@ def test_local_report_and_export(workspace, authorized_controls, provenance, cap
             False,
             ("results/runs/a/operations.jsonl", "elsewhere/operations.jsonl"),
         ),
+        (
+            "leftover storage file linked into controls",
+            "results/runs/probe",
+            False,
+            False,
+            (
+                "results/runs/probe/.work/forget/sqlite/synchronous-NORMAL"
+                "/memory.sqlite",
+                "results/controls/{platform}/memory.sqlite",
+            ),
+        ),
     ],
 )
 def test_output_policy(
-    workspace, provenance, case, path, control_evidence, allowed, link
+    workspace,
+    provenance,
+    authorized_controls,
+    case,
+    path,
+    control_evidence,
+    allowed,
+    link,
 ):
     elsewhere = workspace / "elsewhere"
     elsewhere.mkdir()
@@ -239,7 +257,7 @@ def test_output_policy(
             pass
         assert (path / "manifest.json").is_file(), case
         return
-    with pytest.raises(ValueError, match="Output must be under") as exc:
+    with pytest.raises(ValueError, match="Output must be under|new --output") as exc:
         writer()
     expected = "results/controls/" if control_evidence else "results/runs/"
     assert expected in str(exc.value), case
@@ -252,11 +270,11 @@ def test_output_policy(
                 [
                     "run",
                     "--suite",
-                    "process-kill",
+                    "forget",
                     "--system",
                     "sqlite",
                     "--config",
-                    "synchronous=FULL",
+                    "synchronous=NORMAL",
                     "--output",
                     str(path),
                 ]

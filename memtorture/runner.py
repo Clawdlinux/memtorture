@@ -131,6 +131,7 @@ def run(args):
                     writer.work / suite / system / config.replace("=", "-")
                 )
                 allowed_output(path.parent / "logs")
+                path.mkdir(parents=True, exist_ok=False)
                 result = run_cell(
                     suite, system, config, path, extended=args.extended, emit=emit
                 )

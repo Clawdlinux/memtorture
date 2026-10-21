@@ -2,7 +2,6 @@ import hashlib
 import json
 import platform
 import shutil
-import uuid
 from pathlib import Path
 
 from memtorture.protocol import Worker
@@ -91,8 +90,10 @@ def require_controls(suite, root=DEFAULT_ROOT):
 def run_controls(*, quick=False):
     run_root = gate_path().parent / ("quick" if quick else "full")
     trials = 5 if quick else 20
-    work = allowed_output(run_root / ".work" / uuid.uuid4().hex, control_evidence=True)
-    work.mkdir(parents=True)
+    scratch = allowed_output(run_root / ".work", control_evidence=True)
+    if scratch.exists():
+        # A crashed run left scratch. The policy above refused a symlink.
+        shutil.rmtree(scratch)
     summary = {
         "trials": trials,
         "quick": quick,
@@ -108,6 +109,8 @@ def run_controls(*, quick=False):
             command=["memtorture", "controls"] + (["--quick"] if quick else []),
             control_evidence=True,
         ) as writer:
+            work = writer.work
+            work.mkdir(exist_ok=False)
             for suite, fail_system, pass_system in (
                 ("recall-delay", "delayed-index", "sqlite-visible"),
                 ("process-kill", "buffered", "sqlite-off"),
@@ -123,7 +126,10 @@ def run_controls(*, quick=False):
                     ("must_pass", pass_system),
                 ):
                     for trial in range(trials):
-                        path = work / suite / role / str(trial)
+                        path = allowed_output(
+                            work / suite / role / str(trial), control_evidence=True
+                        )
+                        path.mkdir(parents=True, exist_ok=False)
 
                         def emit(
                             data, suite=suite, system=system, role=role, trial=trial
@@ -256,5 +262,5 @@ def run_controls(*, quick=False):
             with open_output(path, control_evidence=True) as output:
                 output.write(json.dumps(summary, indent=2) + "\n")
     finally:
-        shutil.rmtree(work)
+        shutil.rmtree(scratch, ignore_errors=True)
     return summary
