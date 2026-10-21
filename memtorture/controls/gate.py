@@ -6,7 +6,7 @@ import uuid
 from pathlib import Path
 
 from memtorture.protocol import Worker
-from memtorture.results import ResultWriter, hardware
+from memtorture.results import ResultWriter, hardware, open_output
 from memtorture.suites import (
     HISTORY_CONTROLS,
     PATHS,
@@ -250,9 +250,9 @@ def run_controls(*, quick=False):
                 {suite: dict(HISTORY_CONTROLS) for suite in UNGATED_SUITES}
             )
             writer.manifest["control_summary"] = "gate.json"
-        if not quick:
-            gate_path().write_text(json.dumps(summary, indent=2) + "\n")
-        (run_root / "gate.json").write_text(json.dumps(summary, indent=2) + "\n")
+        for path in ([gate_path()] if not quick else []) + [run_root / "gate.json"]:
+            with open_output(path, control_evidence=True) as output:
+                output.write(json.dumps(summary, indent=2) + "\n")
     finally:
         shutil.rmtree(work)
     return summary

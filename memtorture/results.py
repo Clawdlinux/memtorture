@@ -19,19 +19,38 @@ multi-system tables only reach stdout through `memtorture report --local`.
 """
 
 
-def allowed_output(path, *, control_evidence=False):
-    """Resolve an output directory and reject it outside the allowed tree.
+def allowed_output(path, *, control_evidence=False, under=None):
+    """Return the output path, or reject it outside the allowed tree.
 
     Runs go under results/runs/. Control evidence goes under
-    results/controls/<os>-<arch>/. Symlinks and `..` are resolved first.
+    results/controls/<os>-<arch>/. The check is lexical from the working
+    directory, and no existing part below results/ may be a symlink.
     """
     from memtorture.controls.gate import DEFAULT_ROOT, platform_key
 
-    allowed = DEFAULT_ROOT / platform_key() if control_evidence else RUNS_ROOT
-    resolved = Path(path).resolve()
-    if allowed.resolve() not in resolved.parents:
+    allowed = under or (
+        DEFAULT_ROOT / platform_key() if control_evidence else RUNS_ROOT
+    )
+    base = Path.cwd().resolve()
+    target = Path(os.path.abspath(base / path))
+    if base / allowed not in target.parents:
         raise ValueError(f"Output must be under {allowed.as_posix()}/: {path}")
-    return resolved
+    current = base
+    for name in target.relative_to(base).parts:
+        current = current / name
+        if current.is_symlink():
+            raise ValueError(
+                f"Output must be under {allowed.as_posix()}/. "
+                f"Symlinks are not allowed: {path}"
+            )
+    return target
+
+
+def open_output(path, **policy):
+    """Open a result file for writing. Never follow a symlink."""
+    path = allowed_output(path, **policy)
+    flags = os.O_WRONLY | os.O_CREAT | os.O_TRUNC | getattr(os, "O_NOFOLLOW", 0)
+    return open(os.open(path, flags, 0o644), "w")
 
 
 def commit():
@@ -67,8 +86,9 @@ class ResultWriter:
             "harness_dirty": bool(subprocess.check_output(status_command, text=True)),
         }
         self.root = Path(root)
+        self.policy = {"control_evidence": control_evidence}
         self.root.mkdir(parents=True, exist_ok=True)
-        self.raw = (self.root / "operations.jsonl").open("w")
+        self.raw = open_output(self.root / "operations.jsonl", **self.policy)
         self.cells = []
         self.lock = threading.Lock()
         self.manifest = {
@@ -108,12 +128,12 @@ class ResultWriter:
 
     def close(self):
         self.raw.close()
-        (self.root / "manifest.json").write_text(
-            json.dumps(self.manifest, sort_keys=True, indent=2) + "\n"
-        )
-        (self.root / "cells.json").write_text(
-            json.dumps(self.cells, sort_keys=True, indent=2) + "\n"
-        )
+        for name, data in (
+            ("manifest.json", self.manifest),
+            ("cells.json", self.cells),
+        ):
+            with open_output(self.root / name, **self.policy) as output:
+                output.write(json.dumps(data, sort_keys=True, indent=2) + "\n")
 
     def __enter__(self):
         return self

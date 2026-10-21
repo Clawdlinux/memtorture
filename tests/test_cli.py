@@ -1,4 +1,5 @@
 import json
+import shutil
 import subprocess
 import sys
 from argparse import Namespace
@@ -163,26 +164,63 @@ def test_local_report_and_export(workspace, authorized_controls, provenance, cap
 
 
 @pytest.mark.parametrize(
-    "case,path,control_evidence,allowed",
+    "case,path,control_evidence,allowed,link",
     [
-        ("run", "results/runs/a", False, True),
-        ("nested run", "results/runs/exports/a", False, True),
-        ("runs root", "results/runs", False, False),
-        ("dotdot escape", "results/runs/../runs-evil/a", False, False),
-        ("outside", "out", False, False),
-        ("run in controls", "results/controls/{platform}/a", False, False),
-        ("symlink escape", "results/runs/link/a", False, False),
-        ("controls", "results/controls/{platform}/full", True, True),
-        ("controls root", "results/controls/{platform}", True, False),
-        ("other platform", "results/controls/other-os-arch/full", True, False),
-        ("controls in runs", "results/runs/a", True, False),
+        ("run", "results/runs/a", False, True, None),
+        ("nested run", "results/runs/exports/a", False, True, None),
+        ("runs root", "results/runs", False, False, None),
+        ("dotdot escape", "results/runs/../runs-evil/a", False, False, None),
+        ("outside", "out", False, False, None),
+        ("run in controls", "results/controls/{platform}/a", False, False, None),
+        ("symlink escape", "results/runs/link/a", False, False, None),
+        ("controls", "results/controls/{platform}/full", True, True, None),
+        ("controls root", "results/controls/{platform}", True, False, None),
+        ("other platform", "results/controls/other-os-arch/full", True, False, None),
+        ("controls in runs", "results/runs/a", True, False, None),
+        (
+            "runs root linked into controls",
+            "results/runs/a",
+            False,
+            False,
+            ("results/runs", "results/controls/{platform}"),
+        ),
+        (
+            "exports linked into controls",
+            "results/runs/exports/a",
+            False,
+            False,
+            ("results/runs/exports", "results/controls/{platform}"),
+        ),
+        (
+            "linked result file",
+            "results/runs/a",
+            False,
+            False,
+            ("results/runs/a/operations.jsonl", "elsewhere/operations.jsonl"),
+        ),
     ],
 )
-def test_output_policy(workspace, provenance, case, path, control_evidence, allowed):
+def test_output_policy(
+    workspace, provenance, case, path, control_evidence, allowed, link
+):
     elsewhere = workspace / "elsewhere"
     elsewhere.mkdir()
-    (workspace / "results/runs").mkdir(parents=True)
+    controls = workspace / "results/controls" / gate.platform_key()
+    controls.mkdir(parents=True)
+    seed = workspace / "results/runs/seed"
+    seed.mkdir(parents=True)
+    (seed / "manifest.json").write_text("{}")
+    (seed / "cells.json").write_text('[{"suite": "x", "system": "sqlite"}]')
+    (seed / "operations.jsonl").write_text("")
     (workspace / "results/runs/link").symlink_to(elsewhere)
+    if link:
+        source, target = (
+            workspace / p.format(platform=gate.platform_key()) for p in link
+        )
+        if source.is_dir():
+            shutil.rmtree(source)
+        source.parent.mkdir(parents=True, exist_ok=True)
+        source.symlink_to(target)
     path = Path(path.format(platform=gate.platform_key()))
     provenance(path / "never", False)
     writer = lambda: ResultWriter(  # noqa: E731
@@ -199,6 +237,7 @@ def test_output_policy(workspace, provenance, case, path, control_evidence, allo
     assert expected in str(exc.value), case
     assert not (path / "manifest.json").exists(), case
     assert not list(elsewhere.iterdir()), case
+    assert not list(controls.iterdir()), case
     if not control_evidence:
         with pytest.raises(SystemExit) as stopped:
             main(
@@ -215,7 +254,10 @@ def test_output_policy(workspace, provenance, case, path, control_evidence, allo
                 ]
             )
         assert stopped.value.code == 1, case
+        export = ["export-system", "--system", "sqlite", "--out", str(path)]
+        assert main(export) == 1, case
         assert not list(elsewhere.iterdir()), case
+        assert not list(controls.iterdir()), case
 
 
 def test_run_matrix(authorized_controls, monkeypatch, tmp_path, workspace):

@@ -16,6 +16,7 @@ from memtorture.results import (
     RUNS_ROOT,
     ResultWriter,
     allowed_output,
+    open_output,
     render_tables,
 )
 from memtorture.suites import (
@@ -211,8 +212,7 @@ def export_system(system, root=None, out=None):
         raise ValueError(f"No {system} cells in {root}")
     exports = RUNS_ROOT / "exports"
     out = Path(out or exports / f"{root.name}-{system}")
-    if exports.resolve() not in out.resolve().parents:
-        raise ValueError(f"Export must be under {exports.as_posix()}/: {out}")
+    allowed_output(out, under=exports)
     if out.exists():
         raise FileExistsError(f"Export already exists: {out}")
     out.parent.mkdir(parents=True, exist_ok=True)
@@ -220,6 +220,7 @@ def export_system(system, root=None, out=None):
     staging.mkdir()
     try:
         write_export(system, root, manifest, cells, staging)
+        allowed_output(out, under=exports)
         staging.rename(out)
     finally:
         shutil.rmtree(staging, ignore_errors=True)
@@ -233,13 +234,12 @@ def write_export(system, root, manifest, cells, out):
     exported["systems"] = [
         row for row in manifest.get("systems", []) if row["system"] == system
     ]
-    (out / "manifest.json").write_text(
-        json.dumps(exported, sort_keys=True, indent=2) + "\n"
-    )
-    (out / "cells.json").write_text(json.dumps(cells, sort_keys=True, indent=2) + "\n")
+    for name, data in (("manifest.json", exported), ("cells.json", cells)):
+        with open_output(out / name) as output:
+            output.write(json.dumps(data, sort_keys=True, indent=2) + "\n")
     with (
         (root / "operations.jsonl").open() as source,
-        (out / "operations.jsonl").open("w") as target,
+        open_output(out / "operations.jsonl") as target,
     ):
         for line in source:
             if json.loads(line).get("system") == system:
