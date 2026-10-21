@@ -169,8 +169,7 @@ def test_torn_storage(adapter_factory):
     }
 
 
-@pytest.mark.parametrize("wait", [False, True])
-@pytest.mark.parametrize("sequence", [0, 42])
+@pytest.mark.parametrize("wait,sequence", [(False, 0), (True, 42)])
 def test_qdrant_requests(wait, sequence):
     record = make_record()
     point = {

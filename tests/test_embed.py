@@ -43,12 +43,12 @@ def test_published_vectors(node, case):
 
 
 @pytest.mark.parametrize("language", ["python", "node"])
-@pytest.mark.parametrize("text", ["\ud800", "\udfff", "before\ud800after", "x\udc00"])
-def test_surrogate_rejection(request, language, text):
-    if language == "python":
-        with pytest.raises(UnicodeError):
-            embed(text)
-    else:
+def test_surrogate_rejection(request, language):
+    for text in ["\ud800", "\udfff", "before\ud800after", "x\udc00"]:
+        if language == "python":
+            with pytest.raises(UnicodeError):
+                embed(text)
+            continue
         result = subprocess.run(
             [
                 request.getfixturevalue("node"),
@@ -58,8 +58,8 @@ def test_surrogate_rejection(request, language, text):
             text=True,
             capture_output=True,
         )
-        assert result.returncode != 0
-        assert "Unicode scalar" in result.stderr
+        assert result.returncode != 0, repr(text)
+        assert "Unicode scalar" in result.stderr, repr(text)
 
 
 @pytest.mark.parametrize(
