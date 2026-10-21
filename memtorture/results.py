@@ -49,10 +49,20 @@ def allowed_output(path, *, control_evidence=False, under=None):
 
 
 def open_output(path, **policy):
-    """Open a result file for writing. Never follow a symlink."""
+    """Open a result file for writing. Never follow a link.
+
+    Truncate only after the open file proves it has one link. A hard link
+    could otherwise point at tracked evidence.
+    """
     path = allowed_output(path, **policy)
-    flags = os.O_WRONLY | os.O_CREAT | os.O_TRUNC | getattr(os, "O_NOFOLLOW", 0)
-    return open(os.open(path, flags, 0o644), "w")
+    fd = os.open(path, os.O_WRONLY | os.O_CREAT | getattr(os, "O_NOFOLLOW", 0), 0o644)
+    if os.fstat(fd).st_nlink > 1:
+        os.close(fd)
+        raise ValueError(
+            f"Output must have one link. Hard links are not allowed: {path}"
+        )
+    os.ftruncate(fd, 0)
+    return open(fd, "w")
 
 
 def commit():

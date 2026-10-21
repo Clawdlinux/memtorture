@@ -10,3 +10,4 @@ results/*
 !results/controls/
 results/controls/**/.work/
 *.egg-info/
+results/controls/**/.lock

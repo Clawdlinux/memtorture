@@ -1,3 +1,4 @@
+import fcntl
 import json
 import platform
 from argparse import Namespace
@@ -133,6 +134,15 @@ def test_control_evidence(stub_controls, tmp_path, workspace, monkeypatch, capsy
         assert controls["must_fail_rate"] == controls["must_pass_rate"] == 1
         assert len(controls["details"]) == 40
         gate.require_controls(suite, root)
+    live = current / "full/.work/live"
+    live.mkdir(parents=True)
+    with (current / "full/.lock").open("w") as held:
+        fcntl.flock(held, fcntl.LOCK_EX)
+        active = f"Another controls run is active for {current.name}/full"
+        with pytest.raises(RuntimeError, match=active):
+            gate.run_controls()
+    assert live.is_dir()
+    assert top.read_bytes() == before
     quick = gate.run_controls(quick=True)
     assert top.read_bytes() == before
     assert (foreign / "gate.json").read_text() == "foreign evidence\n"

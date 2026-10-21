@@ -1,3 +1,4 @@
+import fcntl
 import hashlib
 import json
 import platform
@@ -89,10 +90,28 @@ def require_controls(suite, root=DEFAULT_ROOT):
 
 def run_controls(*, quick=False):
     run_root = gate_path().parent / ("quick" if quick else "full")
-    trials = 5 if quick else 20
     scratch = allowed_output(run_root / ".work", control_evidence=True)
+    allowed_output(run_root, control_evidence=True).mkdir(parents=True, exist_ok=True)
+    # Hold the lock through cleanup, the run and evidence writes.
+    lock = open_output(run_root / ".lock", control_evidence=True)
+    try:
+        fcntl.flock(lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
+    except BlockingIOError:
+        lock.close()
+        raise RuntimeError(
+            f"Another controls run is active for {run_root.parent.name}/"
+            f"{run_root.name}."
+        ) from None
+    try:
+        return _run_locked(run_root, scratch, quick)
+    finally:
+        lock.close()
+
+
+def _run_locked(run_root, scratch, quick):
+    trials = 5 if quick else 20
     if scratch.exists():
-        # A crashed run left scratch. The policy above refused a symlink.
+        # A crashed run left scratch. allowed_output refused a symlink.
         shutil.rmtree(scratch)
     summary = {
         "trials": trials,

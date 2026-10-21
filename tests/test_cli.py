@@ -207,6 +207,17 @@ def test_local_report_and_export(workspace, authorized_controls, provenance, cap
             ("results/runs/a/operations.jsonl", "elsewhere/operations.jsonl"),
         ),
         (
+            "result file hard linked to evidence",
+            "results/runs/a",
+            False,
+            False,
+            (
+                "results/runs/a/operations.jsonl",
+                "results/controls/{platform}/gate.json",
+                "hard",
+            ),
+        ),
+        (
             "leftover storage file linked into controls",
             "results/runs/probe",
             False,
@@ -239,14 +250,20 @@ def test_output_policy(
     (seed / "cells.json").write_text('[{"suite": "x", "system": "sqlite"}]')
     (seed / "operations.jsonl").write_text("")
     (workspace / "results/runs/link").symlink_to(elsewhere)
+    evidence = []
     if link:
         source, target = (
-            workspace / p.format(platform=gate.platform_key()) for p in link
+            workspace / p.format(platform=gate.platform_key()) for p in link[:2]
         )
         if source.is_dir():
             shutil.rmtree(source)
         source.parent.mkdir(parents=True, exist_ok=True)
-        source.symlink_to(target)
+        if link[2:] == ("hard",):
+            target.write_text("tracked evidence\n")
+            source.hardlink_to(target)
+            evidence = [target]
+        else:
+            source.symlink_to(target)
     path = Path(path.format(platform=gate.platform_key()))
     provenance(path / "never", False)
     writer = lambda: ResultWriter(  # noqa: E731
@@ -257,13 +274,13 @@ def test_output_policy(
             pass
         assert (path / "manifest.json").is_file(), case
         return
-    with pytest.raises(ValueError, match="Output must be under|new --output") as exc:
+    with pytest.raises(ValueError, match="Output must|new --output") as exc:
         writer()
     expected = "results/controls/" if control_evidence else "results/runs/"
     assert expected in str(exc.value), case
     assert not (path / "manifest.json").exists(), case
     assert not list(elsewhere.iterdir()), case
-    assert not list(controls.iterdir()), case
+    assert list(controls.iterdir()) == evidence, case
     if not control_evidence:
         with pytest.raises(SystemExit) as stopped:
             main(
@@ -283,7 +300,8 @@ def test_output_policy(
         export = ["export-system", "--system", "sqlite", "--out", str(path)]
         assert main(export) == 1, case
         assert not list(elsewhere.iterdir()), case
-        assert not list(controls.iterdir()), case
+        assert list(controls.iterdir()) == evidence, case
+        assert all(p.read_text() == "tracked evidence\n" for p in evidence), case
 
 
 def test_run_matrix(authorized_controls, monkeypatch, tmp_path, workspace):
