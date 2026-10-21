@@ -16,7 +16,7 @@
           "write"
         ],
         "notes": "Fixed 100 ms asynchronous delay on every read path.",
-        "open_ms": 1.677333,
+        "open_ms": 1.229917,
         "protocol": 1,
         "runtime_versions": {},
         "servers": [],
@@ -27,35 +27,35 @@
           "dropped": 0,
           "observations": [
             {
-              "lag_ms": 100.103667,
+              "lag_ms": 100.189375,
               "polls": 101,
               "status": "visible",
-              "total_ms": 100.4205,
-              "write_ms": 0.316833
+              "total_ms": 100.564375,
+              "write_ms": 0.375
             }
           ],
-          "read_max_ms": 0.284375,
+          "read_max_ms": 0.703417,
           "read_ms": {
             "n": 101,
-            "p50": 0.060791,
-            "p99": 0.210125
+            "p50": 0.0745,
+            "p99": 0.362875
           },
           "status": "measured",
           "time_to_visible_ms": {
             "n": 1,
-            "p50": 100.4205,
+            "p50": 100.564375,
             "p99": null
           },
           "timeouts": 0,
           "visibility_lag_ms": {
             "n": 1,
-            "p50": 100.103667,
+            "p50": 100.189375,
             "p99": null
           },
           "visible": 1,
           "write_latency_ms": {
             "n": 1,
-            "p50": 0.316833,
+            "p50": 0.375,
             "p99": null
           }
         }
@@ -85,7 +85,7 @@
           "write"
         ],
         "notes": "Fixed 100 ms asynchronous delay on every read path.",
-        "open_ms": 1.096167,
+        "open_ms": 1.610167,
         "protocol": 1,
         "runtime_versions": {},
         "servers": [],
@@ -96,35 +96,35 @@
           "dropped": 0,
           "observations": [
             {
-              "lag_ms": 100.092125,
+              "lag_ms": 100.1305,
               "polls": 101,
               "status": "visible",
-              "total_ms": 100.401292,
-              "write_ms": 0.309167
+              "total_ms": 100.491584,
+              "write_ms": 0.361084
             }
           ],
-          "read_max_ms": 0.332542,
+          "read_max_ms": 0.36975,
           "read_ms": {
             "n": 101,
-            "p50": 0.059208,
-            "p99": 0.295625
+            "p50": 0.090917,
+            "p99": 0.339
           },
           "status": "measured",
           "time_to_visible_ms": {
             "n": 1,
-            "p50": 100.401292,
+            "p50": 100.491584,
             "p99": null
           },
           "timeouts": 0,
           "visibility_lag_ms": {
             "n": 1,
-            "p50": 100.092125,
+            "p50": 100.1305,
             "p99": null
           },
           "visible": 1,
           "write_latency_ms": {
             "n": 1,
-            "p50": 0.309167,
+            "p50": 0.361084,
             "p99": null
           }
         }
@@ -154,7 +154,7 @@
           "write"
         ],
         "notes": "Fixed 100 ms asynchronous delay on every read path.",
-        "open_ms": 1.202084,
+        "open_ms": 1.666375,
         "protocol": 1,
         "runtime_versions": {},
         "servers": [],
@@ -165,35 +165,35 @@
           "dropped": 0,
           "observations": [
             {
-              "lag_ms": 100.106833,
+              "lag_ms": 100.088041,
               "polls": 101,
               "status": "visible",
-              "total_ms": 100.409167,
-              "write_ms": 0.302334
+              "total_ms": 100.400875,
+              "write_ms": 0.312834
             }
           ],
-          "read_max_ms": 0.209625,
+          "read_max_ms": 0.384959,
           "read_ms": {
             "n": 101,
-            "p50": 0.061208,
-            "p99": 0.133334
+            "p50": 0.076,
+            "p99": 0.374041
           },
           "status": "measured",
           "time_to_visible_ms": {
             "n": 1,
-            "p50": 100.409167,
+            "p50": 100.400875,
             "p99": null
           },
           "timeouts": 0,
           "visibility_lag_ms": {
             "n": 1,
-            "p50": 100.106833,
+            "p50": 100.088041,
             "p99": null
           },
           "visible": 1,
           "write_latency_ms": {
             "n": 1,
-            "p50": 0.302334,
+            "p50": 0.312834,
             "p99": null
           }
         }
@@ -223,7 +223,7 @@
           "write"
         ],
         "notes": "Fixed 100 ms asynchronous delay on every read path.",
-        "open_ms": 1.139875,
+        "open_ms": 1.300208,
         "protocol": 1,
         "runtime_versions": {},
         "servers": [],
@@ -234,35 +234,35 @@
           "dropped": 0,
           "observations": [
             {
-              "lag_ms": 100.155375,
+              "lag_ms": 100.147,
               "polls": 101,
               "status": "visible",
-              "total_ms": 100.460958,
-              "write_ms": 0.305583
+              "total_ms": 100.419083,
+              "write_ms": 0.272083
             }
           ],
-          "read_max_ms": 0.48475,
+          "read_max_ms": 0.408041,
           "read_ms": {
             "n": 101,
-            "p50": 0.116292,
-            "p99": 0.451042
+            "p50": 0.123167,
+            "p99": 0.350583
           },
           "status": "measured",
           "time_to_visible_ms": {
             "n": 1,
-            "p50": 100.460958,
+            "p50": 100.419083,
             "p99": null
           },
           "timeouts": 0,
           "visibility_lag_ms": {
             "n": 1,
-            "p50": 100.155375,
+            "p50": 100.147,
             "p99": null
           },
           "visible": 1,
           "write_latency_ms": {
             "n": 1,
-            "p50": 0.305583,
+            "p50": 0.272083,
             "p99": null
           }
         }
@@ -292,7 +292,7 @@
           "write"
         ],
         "notes": "Fixed 100 ms asynchronous delay on every read path.",
-        "open_ms": 1.199833,
+        "open_ms": 1.350167,
         "protocol": 1,
         "runtime_versions": {},
         "servers": [],
@@ -303,35 +303,35 @@
           "dropped": 0,
           "observations": [
             {
-              "lag_ms": 100.096042,
+              "lag_ms": 100.347167,
               "polls": 101,
               "status": "visible",
-              "total_ms": 100.461708,
-              "write_ms": 0.365666
+              "total_ms": 101.069417,
+              "write_ms": 0.72225
             }
           ],
-          "read_max_ms": 0.154708,
+          "read_max_ms": 0.444334,
           "read_ms": {
             "n": 101,
-            "p50": 0.0595,
-            "p99": 0.141375
+            "p50": 0.091666,
+            "p99": 0.3595
           },
           "status": "measured",
           "time_to_visible_ms": {
             "n": 1,
-            "p50": 100.461708,
+            "p50": 101.069417,
             "p99": null
           },
           "timeouts": 0,
           "visibility_lag_ms": {
             "n": 1,
-            "p50": 100.096042,
+            "p50": 100.347167,
             "p99": null
           },
           "visible": 1,
           "write_latency_ms": {
             "n": 1,
-            "p50": 0.365666,
+            "p50": 0.72225,
             "p99": null
           }
         }
@@ -361,7 +361,7 @@
           "write"
         ],
         "notes": "SQLite is visible on commit.",
-        "open_ms": 1.708208,
+        "open_ms": 1.50775,
         "protocol": 1,
         "runtime_versions": {},
         "servers": [],
@@ -372,35 +372,35 @@
           "dropped": 0,
           "observations": [
             {
-              "lag_ms": 0.186375,
+              "lag_ms": 0.135458,
               "polls": 1,
               "status": "visible",
-              "total_ms": 0.493042,
-              "write_ms": 0.306667
+              "total_ms": 0.479542,
+              "write_ms": 0.344084
             }
           ],
-          "read_max_ms": 0.149042,
+          "read_max_ms": 0.103875,
           "read_ms": {
             "n": 1,
-            "p50": 0.149042,
+            "p50": 0.103875,
             "p99": null
           },
           "status": "measured",
           "time_to_visible_ms": {
             "n": 1,
-            "p50": 0.493042,
+            "p50": 0.479542,
             "p99": null
           },
           "timeouts": 0,
           "visibility_lag_ms": {
             "n": 1,
-            "p50": 0.186375,
+            "p50": 0.135458,
             "p99": null
           },
           "visible": 1,
           "write_latency_ms": {
             "n": 1,
-            "p50": 0.306667,
+            "p50": 0.344084,
             "p99": null
           }
         }
@@ -430,7 +430,7 @@
           "write"
         ],
         "notes": "SQLite is visible on commit.",
-        "open_ms": 1.188125,
+        "open_ms": 1.255542,
         "protocol": 1,
         "runtime_versions": {},
         "servers": [],
@@ -441,35 +441,35 @@
           "dropped": 0,
           "observations": [
             {
-              "lag_ms": 0.188666,
+              "lag_ms": 0.194791,
               "polls": 1,
               "status": "visible",
-              "total_ms": 0.504666,
-              "write_ms": 0.316
+              "total_ms": 0.50825,
+              "write_ms": 0.313459
             }
           ],
-          "read_max_ms": 0.151583,
+          "read_max_ms": 0.157166,
           "read_ms": {
             "n": 1,
-            "p50": 0.151583,
+            "p50": 0.157166,
             "p99": null
           },
           "status": "measured",
           "time_to_visible_ms": {
             "n": 1,
-            "p50": 0.504666,
+            "p50": 0.50825,
             "p99": null
           },
           "timeouts": 0,
           "visibility_lag_ms": {
             "n": 1,
-            "p50": 0.188666,
+            "p50": 0.194791,
             "p99": null
           },
           "visible": 1,
           "write_latency_ms": {
             "n": 1,
-            "p50": 0.316,
+            "p50": 0.313459,
             "p99": null
           }
         }
@@ -499,7 +499,7 @@
           "write"
         ],
         "notes": "SQLite is visible on commit.",
-        "open_ms": 1.2185,
+        "open_ms": 1.927666,
         "protocol": 1,
         "runtime_versions": {},
         "servers": [],
@@ -510,35 +510,35 @@
           "dropped": 0,
           "observations": [
             {
-              "lag_ms": 0.187,
+              "lag_ms": 0.14725,
               "polls": 1,
               "status": "visible",
-              "total_ms": 0.490625,
-              "write_ms": 0.303625
+              "total_ms": 0.439459,
+              "write_ms": 0.292209
             }
           ],
-          "read_max_ms": 0.149667,
+          "read_max_ms": 0.119167,
           "read_ms": {
             "n": 1,
-            "p50": 0.149667,
+            "p50": 0.119167,
             "p99": null
           },
           "status": "measured",
           "time_to_visible_ms": {
             "n": 1,
-            "p50": 0.490625,
+            "p50": 0.439459,
             "p99": null
           },
           "timeouts": 0,
           "visibility_lag_ms": {
             "n": 1,
-            "p50": 0.187,
+            "p50": 0.14725,
             "p99": null
           },
           "visible": 1,
           "write_latency_ms": {
             "n": 1,
-            "p50": 0.303625,
+            "p50": 0.292209,
             "p99": null
           }
         }
@@ -568,7 +568,7 @@
           "write"
         ],
         "notes": "SQLite is visible on commit.",
-        "open_ms": 1.24375,
+        "open_ms": 1.838375,
         "protocol": 1,
         "runtime_versions": {},
         "servers": [],
@@ -579,35 +579,35 @@
           "dropped": 0,
           "observations": [
             {
-              "lag_ms": 0.290125,
+              "lag_ms": 0.332709,
               "polls": 1,
               "status": "visible",
-              "total_ms": 0.636292,
-              "write_ms": 0.346167
+              "total_ms": 0.716334,
+              "write_ms": 0.383625
             }
           ],
-          "read_max_ms": 0.253792,
+          "read_max_ms": 0.297542,
           "read_ms": {
             "n": 1,
-            "p50": 0.253792,
+            "p50": 0.297542,
             "p99": null
           },
           "status": "measured",
           "time_to_visible_ms": {
             "n": 1,
-            "p50": 0.636292,
+            "p50": 0.716334,
             "p99": null
           },
           "timeouts": 0,
           "visibility_lag_ms": {
             "n": 1,
-            "p50": 0.290125,
+            "p50": 0.332709,
             "p99": null
           },
           "visible": 1,
           "write_latency_ms": {
             "n": 1,
-            "p50": 0.346167,
+            "p50": 0.383625,
             "p99": null
           }
         }
@@ -637,7 +637,7 @@
           "write"
         ],
         "notes": "SQLite is visible on commit.",
-        "open_ms": 1.232167,
+        "open_ms": 2.095584,
         "protocol": 1,
         "runtime_versions": {},
         "servers": [],
@@ -648,35 +648,35 @@
           "dropped": 0,
           "observations": [
             {
-              "lag_ms": 0.1385,
+              "lag_ms": 0.189542,
               "polls": 1,
               "status": "visible",
-              "total_ms": 0.434333,
-              "write_ms": 0.295833
+              "total_ms": 0.541667,
+              "write_ms": 0.352125
             }
           ],
-          "read_max_ms": 0.105708,
+          "read_max_ms": 0.148459,
           "read_ms": {
             "n": 1,
-            "p50": 0.105708,
+            "p50": 0.148459,
             "p99": null
           },
           "status": "measured",
           "time_to_visible_ms": {
             "n": 1,
-            "p50": 0.434333,
+            "p50": 0.541667,
             "p99": null
           },
           "timeouts": 0,
           "visibility_lag_ms": {
             "n": 1,
-            "p50": 0.1385,
+            "p50": 0.189542,
             "p99": null
           },
           "visible": 1,
           "write_latency_ms": {
             "n": 1,
-            "p50": 0.295833,
+            "p50": 0.352125,
             "p99": null
           }
         }
@@ -713,7 +713,7 @@
           "write"
         ],
         "notes": "Ack before user-space flush. Flush interval 100 ms. No fsync.",
-        "open_ms": 0.16525,
+        "open_ms": 0.265792,
         "protocol": 1,
         "runtime_versions": {},
         "servers": [],
@@ -734,7 +734,7 @@
           "acked": 6,
           "acked_missing": 6,
           "duplicates": 0,
-          "fault_ns": 4473720230916,
+          "fault_ns": 6077880903000,
           "target": "worker",
           "torn": 0,
           "trial": 0
@@ -768,7 +768,7 @@
           "write"
         ],
         "notes": "Ack before user-space flush. Flush interval 100 ms. No fsync.",
-        "open_ms": 0.158667,
+        "open_ms": 0.207625,
         "protocol": 1,
         "runtime_versions": {},
         "servers": [],
@@ -789,7 +789,7 @@
           "acked": 8,
           "acked_missing": 8,
           "duplicates": 0,
-          "fault_ns": 4473847389791,
+          "fault_ns": 6078055574208,
           "target": "worker",
           "torn": 0,
           "trial": 0
@@ -823,7 +823,7 @@
           "write"
         ],
         "notes": "Ack before user-space flush. Flush interval 100 ms. No fsync.",
-        "open_ms": 0.16775,
+        "open_ms": 0.2355,
         "protocol": 1,
         "runtime_versions": {},
         "servers": [],
@@ -844,7 +844,7 @@
           "acked": 7,
           "acked_missing": 7,
           "duplicates": 0,
-          "fault_ns": 4473970003541,
+          "fault_ns": 6078221880250,
           "target": "worker",
           "torn": 0,
           "trial": 0
@@ -878,7 +878,7 @@
           "write"
         ],
         "notes": "Ack before user-space flush. Flush interval 100 ms. No fsync.",
-        "open_ms": 0.174834,
+        "open_ms": 0.251292,
         "protocol": 1,
         "runtime_versions": {},
         "servers": [],
@@ -899,7 +899,7 @@
           "acked": 6,
           "acked_missing": 6,
           "duplicates": 0,
-          "fault_ns": 4474091434041,
+          "fault_ns": 6078408149916,
           "target": "worker",
           "torn": 0,
           "trial": 0
@@ -933,7 +933,7 @@
           "write"
         ],
         "notes": "Ack before user-space flush. Flush interval 100 ms. No fsync.",
-        "open_ms": 0.173625,
+        "open_ms": 0.20425,
         "protocol": 1,
         "runtime_versions": {},
         "servers": [],
@@ -954,7 +954,7 @@
           "acked": 5,
           "acked_missing": 5,
           "duplicates": 0,
-          "fault_ns": 4474222157041,
+          "fault_ns": 6078573411666,
           "target": "worker",
           "torn": 0,
           "trial": 0
@@ -983,7 +983,7 @@
           "write"
         ],
         "notes": "WAL synchronous=OFF. Commit before ack. Page cache survives SIGKILL.",
-        "open_ms": 1.417584,
+        "open_ms": 1.494917,
         "protocol": 1,
         "runtime_versions": {},
         "servers": [],
@@ -1004,7 +1004,7 @@
           "acked": 6,
           "acked_missing": 0,
           "duplicates": 0,
-          "fault_ns": 4474354102083,
+          "fault_ns": 6078733136791,
           "target": "worker",
           "torn": 0,
           "trial": 0
@@ -1033,7 +1033,7 @@
           "write"
         ],
         "notes": "WAL synchronous=OFF. Commit before ack. Page cache survives SIGKILL.",
-        "open_ms": 1.246,
+        "open_ms": 1.261375,
         "protocol": 1,
         "runtime_versions": {},
         "servers": [],
@@ -1054,7 +1054,7 @@
           "acked": 8,
           "acked_missing": 0,
           "duplicates": 0,
-          "fault_ns": 4474515400708,
+          "fault_ns": 6078886534166,
           "target": "worker",
           "torn": 0,
           "trial": 0
@@ -1083,7 +1083,7 @@
           "write"
         ],
         "notes": "WAL synchronous=OFF. Commit before ack. Page cache survives SIGKILL.",
-        "open_ms": 1.885708,
+        "open_ms": 1.086,
         "protocol": 1,
         "runtime_versions": {},
         "servers": [],
@@ -1104,7 +1104,7 @@
           "acked": 7,
           "acked_missing": 0,
           "duplicates": 0,
-          "fault_ns": 4474781915958,
+          "fault_ns": 6079037740041,
           "target": "worker",
           "torn": 0,
           "trial": 0
@@ -1133,7 +1133,7 @@
           "write"
         ],
         "notes": "WAL synchronous=OFF. Commit before ack. Page cache survives SIGKILL.",
-        "open_ms": 2.51325,
+        "open_ms": 1.168458,
         "protocol": 1,
         "runtime_versions": {},
         "servers": [],
@@ -1154,7 +1154,7 @@
           "acked": 6,
           "acked_missing": 0,
           "duplicates": 0,
-          "fault_ns": 4475086224583,
+          "fault_ns": 6079181308458,
           "target": "worker",
           "torn": 0,
           "trial": 0
@@ -1183,7 +1183,7 @@
           "write"
         ],
         "notes": "WAL synchronous=OFF. Commit before ack. Page cache survives SIGKILL.",
-        "open_ms": 9.253958,
+        "open_ms": 1.75625,
         "protocol": 1,
         "runtime_versions": {},
         "servers": [],
@@ -1204,7 +1204,7 @@
           "acked": 5,
           "acked_missing": 0,
           "duplicates": 0,
-          "fault_ns": 4475409338791,
+          "fault_ns": 6079326483916,
           "target": "worker",
           "torn": 0,
           "trial": 0
@@ -1244,7 +1244,7 @@
           "write"
         ],
         "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
-        "open_ms": 0.306708,
+        "open_ms": 0.118375,
         "protocol": 1,
         "runtime_versions": {},
         "servers": [],
@@ -1271,7 +1271,7 @@
     "config": "default;trial=1",
     "matched": true,
     "result": {
-      "acked_missing": 59,
+      "acked_missing": 60,
       "cas": "not measured in B1",
       "duplicates": 0,
       "history": {
@@ -1297,7 +1297,7 @@
           "write"
         ],
         "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
-        "open_ms": 0.180583,
+        "open_ms": 0.110542,
         "protocol": 1,
         "runtime_versions": {},
         "servers": [],
@@ -1308,7 +1308,7 @@
       "torn": 0,
       "trials": [
         {
-          "acked_missing": 59,
+          "acked_missing": 60,
           "duplicates": 0,
           "invalid_final": 0,
           "phase": "distinct",
@@ -1324,7 +1324,7 @@
     "config": "default;trial=2",
     "matched": true,
     "result": {
-      "acked_missing": 140,
+      "acked_missing": 139,
       "cas": "not measured in B1",
       "duplicates": 0,
       "history": {
@@ -1350,7 +1350,7 @@
           "write"
         ],
         "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
-        "open_ms": 0.138458,
+        "open_ms": 0.173916,
         "protocol": 1,
         "runtime_versions": {},
         "servers": [],
@@ -1361,7 +1361,7 @@
       "torn": 0,
       "trials": [
         {
-          "acked_missing": 140,
+          "acked_missing": 139,
           "duplicates": 0,
           "invalid_final": 0,
           "phase": "distinct",
@@ -1403,7 +1403,7 @@
           "write"
         ],
         "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
-        "open_ms": 0.173625,
+        "open_ms": 0.137958,
         "protocol": 1,
         "runtime_versions": {},
         "servers": [],
@@ -1456,7 +1456,7 @@
           "write"
         ],
         "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
-        "open_ms": 0.120375,
+        "open_ms": 0.179583,
         "protocol": 1,
         "runtime_versions": {},
         "servers": [],
@@ -1504,7 +1504,7 @@
           "write"
         ],
         "notes": "WAL synchronous=NORMAL. Busy timeout 30 seconds.",
-        "open_ms": 1.602,
+        "open_ms": 1.663333,
         "protocol": 1,
         "runtime_versions": {},
         "servers": [],
@@ -1552,7 +1552,7 @@
           "write"
         ],
         "notes": "WAL synchronous=NORMAL. Busy timeout 30 seconds.",
-        "open_ms": 1.707334,
+        "open_ms": 1.419625,
         "protocol": 1,
         "runtime_versions": {},
         "servers": [],
@@ -1600,7 +1600,7 @@
           "write"
         ],
         "notes": "WAL synchronous=NORMAL. Busy timeout 30 seconds.",
-        "open_ms": 1.356291,
+        "open_ms": 2.215792,
         "protocol": 1,
         "runtime_versions": {},
         "servers": [],
@@ -1648,7 +1648,7 @@
           "write"
         ],
         "notes": "WAL synchronous=NORMAL. Busy timeout 30 seconds.",
-        "open_ms": 1.377166,
+        "open_ms": 1.3115,
         "protocol": 1,
         "runtime_versions": {},
         "servers": [],
@@ -1696,7 +1696,7 @@
           "write"
         ],
         "notes": "WAL synchronous=NORMAL. Busy timeout 30 seconds.",
-        "open_ms": 1.323375,
+        "open_ms": 1.522209,
         "protocol": 1,
         "runtime_versions": {},
         "servers": [],
@@ -1738,298 +1738,6 @@
               "shared-3": 1
             },
             "writers": 2
-          }
-        ]
-      },
-      "info": {
-        "capabilities": [
-          "delete",
-          "emulated:delete",
-          "emulated:get",
-          "emulated:list_prefix",
-          "emulated:read_recent",
-          "emulated:upsert",
-          "get",
-          "get_by_ref",
-          "keyed",
-          "list_prefix",
-          "read_recent",
-          "search",
-          "upsert",
-          "write"
-        ],
-        "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
-        "open_ms": 0.124333,
-        "protocol": 1,
-        "runtime_versions": {},
-        "servers": [],
-        "version": "stdlib-jsonl-v1"
-      },
-      "invalid_final": 0,
-      "invalid_rows": 0,
-      "status": "violation",
-      "torn": 0,
-      "trials": [
-        {
-          "acked_missing": 20,
-          "duplicates": 0,
-          "invalid_final": 0,
-          "phase": "distinct",
-          "torn": 0,
-          "writers": 2
-        },
-        {
-          "acked_missing": 0,
-          "duplicates": 0,
-          "invalid_final": 0,
-          "invalid_rows": 0,
-          "phase": "overlap",
-          "torn": 0,
-          "writers": 2
-        }
-      ]
-    },
-    "suite": "concurrent-kv",
-    "system": "md-rmw-sleep"
-  },
-  {
-    "config": "default;trial=1",
-    "matched": true,
-    "result": {
-      "acked_missing": 60,
-      "cas": "not measured in B1",
-      "duplicates": 0,
-      "history": {
-        "advertised": false,
-        "max_versions_per_key": 1,
-        "observations": [
-          {
-            "versions_per_key": {
-              "shared-0": 1,
-              "shared-1": 1,
-              "shared-2": 1,
-              "shared-3": 1
-            },
-            "writers": 4
-          }
-        ]
-      },
-      "info": {
-        "capabilities": [
-          "delete",
-          "emulated:delete",
-          "emulated:get",
-          "emulated:list_prefix",
-          "emulated:read_recent",
-          "emulated:upsert",
-          "get",
-          "get_by_ref",
-          "keyed",
-          "list_prefix",
-          "read_recent",
-          "search",
-          "upsert",
-          "write"
-        ],
-        "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
-        "open_ms": 0.12475,
-        "protocol": 1,
-        "runtime_versions": {},
-        "servers": [],
-        "version": "stdlib-jsonl-v1"
-      },
-      "invalid_final": 0,
-      "invalid_rows": 0,
-      "status": "violation",
-      "torn": 0,
-      "trials": [
-        {
-          "acked_missing": 60,
-          "duplicates": 0,
-          "invalid_final": 0,
-          "phase": "distinct",
-          "torn": 0,
-          "writers": 4
-        },
-        {
-          "acked_missing": 0,
-          "duplicates": 0,
-          "invalid_final": 0,
-          "invalid_rows": 0,
-          "phase": "overlap",
-          "torn": 0,
-          "writers": 4
-        }
-      ]
-    },
-    "suite": "concurrent-kv",
-    "system": "md-rmw-sleep"
-  },
-  {
-    "config": "default;trial=2",
-    "matched": true,
-    "result": {
-      "acked_missing": 140,
-      "cas": "not measured in B1",
-      "duplicates": 0,
-      "history": {
-        "advertised": false,
-        "max_versions_per_key": 1,
-        "observations": [
-          {
-            "versions_per_key": {
-              "shared-0": 1,
-              "shared-1": 1,
-              "shared-2": 1,
-              "shared-3": 1
-            },
-            "writers": 8
-          }
-        ]
-      },
-      "info": {
-        "capabilities": [
-          "delete",
-          "emulated:delete",
-          "emulated:get",
-          "emulated:list_prefix",
-          "emulated:read_recent",
-          "emulated:upsert",
-          "get",
-          "get_by_ref",
-          "keyed",
-          "list_prefix",
-          "read_recent",
-          "search",
-          "upsert",
-          "write"
-        ],
-        "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
-        "open_ms": 0.125125,
-        "protocol": 1,
-        "runtime_versions": {},
-        "servers": [],
-        "version": "stdlib-jsonl-v1"
-      },
-      "invalid_final": 0,
-      "invalid_rows": 0,
-      "status": "violation",
-      "torn": 0,
-      "trials": [
-        {
-          "acked_missing": 140,
-          "duplicates": 0,
-          "invalid_final": 0,
-          "phase": "distinct",
-          "torn": 0,
-          "writers": 8
-        },
-        {
-          "acked_missing": 0,
-          "duplicates": 0,
-          "invalid_final": 0,
-          "invalid_rows": 0,
-          "phase": "overlap",
-          "torn": 0,
-          "writers": 8
-        }
-      ]
-    },
-    "suite": "concurrent-kv",
-    "system": "md-rmw-sleep"
-  },
-  {
-    "config": "default;trial=3",
-    "matched": true,
-    "result": {
-      "acked_missing": 20,
-      "cas": "not measured in B1",
-      "duplicates": 0,
-      "history": {
-        "advertised": false,
-        "max_versions_per_key": 1,
-        "observations": [
-          {
-            "versions_per_key": {
-              "shared-0": 1,
-              "shared-1": 1,
-              "shared-2": 1,
-              "shared-3": 1
-            },
-            "writers": 2
-          }
-        ]
-      },
-      "info": {
-        "capabilities": [
-          "delete",
-          "emulated:delete",
-          "emulated:get",
-          "emulated:list_prefix",
-          "emulated:read_recent",
-          "emulated:upsert",
-          "get",
-          "get_by_ref",
-          "keyed",
-          "list_prefix",
-          "read_recent",
-          "search",
-          "upsert",
-          "write"
-        ],
-        "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
-        "open_ms": 0.103709,
-        "protocol": 1,
-        "runtime_versions": {},
-        "servers": [],
-        "version": "stdlib-jsonl-v1"
-      },
-      "invalid_final": 0,
-      "invalid_rows": 0,
-      "status": "violation",
-      "torn": 0,
-      "trials": [
-        {
-          "acked_missing": 20,
-          "duplicates": 0,
-          "invalid_final": 0,
-          "phase": "distinct",
-          "torn": 0,
-          "writers": 2
-        },
-        {
-          "acked_missing": 0,
-          "duplicates": 0,
-          "invalid_final": 0,
-          "invalid_rows": 0,
-          "phase": "overlap",
-          "torn": 0,
-          "writers": 2
-        }
-      ]
-    },
-    "suite": "concurrent-kv",
-    "system": "md-rmw-sleep"
-  },
-  {
-    "config": "default;trial=4",
-    "matched": true,
-    "result": {
-      "acked_missing": 60,
-      "cas": "not measured in B1",
-      "duplicates": 0,
-      "history": {
-        "advertised": false,
-        "max_versions_per_key": 1,
-        "observations": [
-          {
-            "versions_per_key": {
-              "shared-0": 1,
-              "shared-1": 1,
-              "shared-2": 1,
-              "shared-3": 1
-            },
-            "writers": 4
           }
         ]
       },
@@ -2063,6 +1771,298 @@
       "torn": 0,
       "trials": [
         {
+          "acked_missing": 20,
+          "duplicates": 0,
+          "invalid_final": 0,
+          "phase": "distinct",
+          "torn": 0,
+          "writers": 2
+        },
+        {
+          "acked_missing": 0,
+          "duplicates": 0,
+          "invalid_final": 0,
+          "invalid_rows": 0,
+          "phase": "overlap",
+          "torn": 0,
+          "writers": 2
+        }
+      ]
+    },
+    "suite": "concurrent-kv",
+    "system": "md-rmw-sleep"
+  },
+  {
+    "config": "default;trial=1",
+    "matched": true,
+    "result": {
+      "acked_missing": 60,
+      "cas": "not measured in B1",
+      "duplicates": 0,
+      "history": {
+        "advertised": false,
+        "max_versions_per_key": 1,
+        "observations": [
+          {
+            "versions_per_key": {
+              "shared-0": 1,
+              "shared-1": 1,
+              "shared-2": 1,
+              "shared-3": 1
+            },
+            "writers": 4
+          }
+        ]
+      },
+      "info": {
+        "capabilities": [
+          "delete",
+          "emulated:delete",
+          "emulated:get",
+          "emulated:list_prefix",
+          "emulated:read_recent",
+          "emulated:upsert",
+          "get",
+          "get_by_ref",
+          "keyed",
+          "list_prefix",
+          "read_recent",
+          "search",
+          "upsert",
+          "write"
+        ],
+        "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
+        "open_ms": 0.124375,
+        "protocol": 1,
+        "runtime_versions": {},
+        "servers": [],
+        "version": "stdlib-jsonl-v1"
+      },
+      "invalid_final": 0,
+      "invalid_rows": 0,
+      "status": "violation",
+      "torn": 0,
+      "trials": [
+        {
+          "acked_missing": 60,
+          "duplicates": 0,
+          "invalid_final": 0,
+          "phase": "distinct",
+          "torn": 0,
+          "writers": 4
+        },
+        {
+          "acked_missing": 0,
+          "duplicates": 0,
+          "invalid_final": 0,
+          "invalid_rows": 0,
+          "phase": "overlap",
+          "torn": 0,
+          "writers": 4
+        }
+      ]
+    },
+    "suite": "concurrent-kv",
+    "system": "md-rmw-sleep"
+  },
+  {
+    "config": "default;trial=2",
+    "matched": true,
+    "result": {
+      "acked_missing": 140,
+      "cas": "not measured in B1",
+      "duplicates": 0,
+      "history": {
+        "advertised": false,
+        "max_versions_per_key": 1,
+        "observations": [
+          {
+            "versions_per_key": {
+              "shared-0": 1,
+              "shared-1": 1,
+              "shared-2": 1,
+              "shared-3": 1
+            },
+            "writers": 8
+          }
+        ]
+      },
+      "info": {
+        "capabilities": [
+          "delete",
+          "emulated:delete",
+          "emulated:get",
+          "emulated:list_prefix",
+          "emulated:read_recent",
+          "emulated:upsert",
+          "get",
+          "get_by_ref",
+          "keyed",
+          "list_prefix",
+          "read_recent",
+          "search",
+          "upsert",
+          "write"
+        ],
+        "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
+        "open_ms": 0.105416,
+        "protocol": 1,
+        "runtime_versions": {},
+        "servers": [],
+        "version": "stdlib-jsonl-v1"
+      },
+      "invalid_final": 0,
+      "invalid_rows": 0,
+      "status": "violation",
+      "torn": 0,
+      "trials": [
+        {
+          "acked_missing": 140,
+          "duplicates": 0,
+          "invalid_final": 0,
+          "phase": "distinct",
+          "torn": 0,
+          "writers": 8
+        },
+        {
+          "acked_missing": 0,
+          "duplicates": 0,
+          "invalid_final": 0,
+          "invalid_rows": 0,
+          "phase": "overlap",
+          "torn": 0,
+          "writers": 8
+        }
+      ]
+    },
+    "suite": "concurrent-kv",
+    "system": "md-rmw-sleep"
+  },
+  {
+    "config": "default;trial=3",
+    "matched": true,
+    "result": {
+      "acked_missing": 20,
+      "cas": "not measured in B1",
+      "duplicates": 0,
+      "history": {
+        "advertised": false,
+        "max_versions_per_key": 1,
+        "observations": [
+          {
+            "versions_per_key": {
+              "shared-0": 1,
+              "shared-1": 1,
+              "shared-2": 1,
+              "shared-3": 1
+            },
+            "writers": 2
+          }
+        ]
+      },
+      "info": {
+        "capabilities": [
+          "delete",
+          "emulated:delete",
+          "emulated:get",
+          "emulated:list_prefix",
+          "emulated:read_recent",
+          "emulated:upsert",
+          "get",
+          "get_by_ref",
+          "keyed",
+          "list_prefix",
+          "read_recent",
+          "search",
+          "upsert",
+          "write"
+        ],
+        "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
+        "open_ms": 0.125416,
+        "protocol": 1,
+        "runtime_versions": {},
+        "servers": [],
+        "version": "stdlib-jsonl-v1"
+      },
+      "invalid_final": 0,
+      "invalid_rows": 0,
+      "status": "violation",
+      "torn": 0,
+      "trials": [
+        {
+          "acked_missing": 20,
+          "duplicates": 0,
+          "invalid_final": 0,
+          "phase": "distinct",
+          "torn": 0,
+          "writers": 2
+        },
+        {
+          "acked_missing": 0,
+          "duplicates": 0,
+          "invalid_final": 0,
+          "invalid_rows": 0,
+          "phase": "overlap",
+          "torn": 0,
+          "writers": 2
+        }
+      ]
+    },
+    "suite": "concurrent-kv",
+    "system": "md-rmw-sleep"
+  },
+  {
+    "config": "default;trial=4",
+    "matched": true,
+    "result": {
+      "acked_missing": 60,
+      "cas": "not measured in B1",
+      "duplicates": 0,
+      "history": {
+        "advertised": false,
+        "max_versions_per_key": 1,
+        "observations": [
+          {
+            "versions_per_key": {
+              "shared-0": 1,
+              "shared-1": 1,
+              "shared-2": 1,
+              "shared-3": 1
+            },
+            "writers": 4
+          }
+        ]
+      },
+      "info": {
+        "capabilities": [
+          "delete",
+          "emulated:delete",
+          "emulated:get",
+          "emulated:list_prefix",
+          "emulated:read_recent",
+          "emulated:upsert",
+          "get",
+          "get_by_ref",
+          "keyed",
+          "list_prefix",
+          "read_recent",
+          "search",
+          "upsert",
+          "write"
+        ],
+        "notes": "Read-modify-write. Fixed 5 ms sleep inside the rewrite window.",
+        "open_ms": 0.097917,
+        "protocol": 1,
+        "runtime_versions": {},
+        "servers": [],
+        "version": "stdlib-jsonl-v1"
+      },
+      "invalid_final": 0,
+      "invalid_rows": 0,
+      "status": "violation",
+      "torn": 0,
+      "trials": [
+        {
           "acked_missing": 60,
           "duplicates": 0,
           "invalid_final": 0,
@@ -2119,7 +2119,7 @@
           "write"
         ],
         "notes": "WAL synchronous=NORMAL. Busy timeout 30 seconds.",
-        "open_ms": 1.5895,
+        "open_ms": 1.425084,
         "protocol": 1,
         "runtime_versions": {},
         "servers": [],
@@ -2187,7 +2187,7 @@
           "write"
         ],
         "notes": "WAL synchronous=NORMAL. Busy timeout 30 seconds.",
-        "open_ms": 1.271833,
+        "open_ms": 1.213666,
         "protocol": 1,
         "runtime_versions": {},
         "servers": [],
@@ -2255,7 +2255,7 @@
           "write"
         ],
         "notes": "WAL synchronous=NORMAL. Busy timeout 30 seconds.",
-        "open_ms": 1.384375,
+        "open_ms": 1.21375,
         "protocol": 1,
         "runtime_versions": {},
         "servers": [],
@@ -2323,7 +2323,7 @@
           "write"
         ],
         "notes": "WAL synchronous=NORMAL. Busy timeout 30 seconds.",
-        "open_ms": 1.34775,
+        "open_ms": 1.527667,
         "protocol": 1,
         "runtime_versions": {},
         "servers": [],
@@ -2391,7 +2391,7 @@
           "write"
         ],
         "notes": "WAL synchronous=NORMAL. Busy timeout 30 seconds.",
-        "open_ms": 1.340459,
+        "open_ms": 2.21975,
         "protocol": 1,
         "runtime_versions": {},
         "servers": [],
@@ -2431,9 +2431,9 @@
       "acked": 10,
       "dropped": 0,
       "expected": {
-        "id": "d5386b2c-3629-4c58-a92e-07e69632a97c",
+        "id": "f5bcb1e2-2c71-4e1e-9493-9cf1ee0e52d0",
         "key": "k",
-        "payload_sha256": "f7f136ac28d19fd7a6027b54d19d2bd01f94ad725b20687933d44b7c74dc32e5",
+        "payload_sha256": "235c0f7e5a6018c2b79399106d770372d1f488d40dcff30e671eb19a46c429c2",
         "scope": {
           "session": "supersede-by-key",
           "tenant": "benchmark"
@@ -2524,16 +2524,16 @@
           "write"
         ],
         "notes": "Append-only keyed writes. Keyed get returns the oldest value.",
-        "open_ms": 0.123084,
+        "open_ms": 0.112041,
         "protocol": 1,
         "runtime_versions": {},
         "servers": [],
         "version": "stdlib-jsonl-v1"
       },
       "observed": {
-        "id": "9404eed8-4209-4849-9071-31690758342f",
+        "id": "81e91345-b390-4a23-9747-9661e0cf4d75",
         "key": "k",
-        "payload_sha256": "d67e214500873bd8b87c627a2b944b49022b1476e841c9d45292c017c32df71f",
+        "payload_sha256": "328a3e75ab82ade1fafbb320027dbb213e933446658d5716fe6154a0033f5f17",
         "scope": {
           "session": "supersede-by-key",
           "tenant": "benchmark"
@@ -2542,7 +2542,7 @@
         "vector": null
       },
       "poll_ms": 1,
-      "reads": 62,
+      "reads": 65,
       "status": "violation",
       "timeout_s": 0.1,
       "versions": 5,
@@ -2558,9 +2558,9 @@
       "acked": 10,
       "dropped": 0,
       "expected": {
-        "id": "cc2a3189-da70-47cf-83e4-5be25a936774",
+        "id": "406e9f4b-2e18-45b8-bfb3-31d7cc20285f",
         "key": "k",
-        "payload_sha256": "9b29dc0cd9738c0877ce60e353a478f38c340ce14927dc1cf74a8072004bb463",
+        "payload_sha256": "abaee6a5234697cb198b835405f1aea0ede4ba7c0a451b0af54ab7214a7ce3ae",
         "scope": {
           "session": "supersede-by-key",
           "tenant": "benchmark"
@@ -2651,16 +2651,16 @@
           "write"
         ],
         "notes": "Append-only keyed writes. Keyed get returns the oldest value.",
-        "open_ms": 0.105625,
+        "open_ms": 0.120167,
         "protocol": 1,
         "runtime_versions": {},
         "servers": [],
         "version": "stdlib-jsonl-v1"
       },
       "observed": {
-        "id": "159bb7a0-a230-4df9-a784-4940630de692",
+        "id": "e3157410-8a22-42e7-95fe-1de66dafd03c",
         "key": "k",
-        "payload_sha256": "8eae51da47824ce3201fe0f3fcc0d056e994a7277f6126d52a397b3879e93c01",
+        "payload_sha256": "1ad86381c48cf37cfad9eb73938591cfda54e59ece6fd8eec3a2124ca5fdef45",
         "scope": {
           "session": "supersede-by-key",
           "tenant": "benchmark"
@@ -2669,7 +2669,7 @@
         "vector": null
       },
       "poll_ms": 1,
-      "reads": 63,
+      "reads": 72,
       "status": "violation",
       "timeout_s": 0.1,
       "versions": 5,
@@ -2685,9 +2685,9 @@
       "acked": 10,
       "dropped": 0,
       "expected": {
-        "id": "a45a5669-44a8-4892-a414-8eaec922be26",
+        "id": "73986d99-1027-4b49-9913-c29b45960b87",
         "key": "k",
-        "payload_sha256": "12afd32004a576b959bce449a538cba70a1e6128483fa3a2772db7b3ce5a43bc",
+        "payload_sha256": "6163973f380449b46459af7fee3394897e55c4b0c829c779fdc3bfabc251ca9c",
         "scope": {
           "session": "supersede-by-key",
           "tenant": "benchmark"
@@ -2778,16 +2778,16 @@
           "write"
         ],
         "notes": "Append-only keyed writes. Keyed get returns the oldest value.",
-        "open_ms": 0.124792,
+        "open_ms": 0.133041,
         "protocol": 1,
         "runtime_versions": {},
         "servers": [],
         "version": "stdlib-jsonl-v1"
       },
       "observed": {
-        "id": "f3c1c028-4382-47a6-93b0-0e854d516594",
+        "id": "56ac48c5-105f-4b7f-af1d-a2c8aa2be8ec",
         "key": "k",
-        "payload_sha256": "3c3bd1adac4aa84dab6587709b5f3ba1c9ec16c83e5319c8d721391bcc4bc209",
+        "payload_sha256": "2885038f7f8f0929d7fd6a826408b436890a19893f4e0630823fc5a1260b24b4",
         "scope": {
           "session": "supersede-by-key",
           "tenant": "benchmark"
@@ -2796,7 +2796,7 @@
         "vector": null
       },
       "poll_ms": 1,
-      "reads": 63,
+      "reads": 72,
       "status": "violation",
       "timeout_s": 0.1,
       "versions": 5,
@@ -2812,9 +2812,9 @@
       "acked": 10,
       "dropped": 0,
       "expected": {
-        "id": "db14ab7e-029f-45d6-9e1a-2605088fb110",
+        "id": "a3298cb5-2a9e-49c3-8ec9-11524f38afd7",
         "key": "k",
-        "payload_sha256": "b13698dc2abb5150ab5f14f79e9a2b25d2f8134f5006ac328bb7555302e1369d",
+        "payload_sha256": "202943c15e4a10b61b3c68c711ca71fd49f1cfe75259044e04ddf542554dda37",
         "scope": {
           "session": "supersede-by-key",
           "tenant": "benchmark"
@@ -2905,16 +2905,16 @@
           "write"
         ],
         "notes": "Append-only keyed writes. Keyed get returns the oldest value.",
-        "open_ms": 0.114834,
+        "open_ms": 0.152375,
         "protocol": 1,
         "runtime_versions": {},
         "servers": [],
         "version": "stdlib-jsonl-v1"
       },
       "observed": {
-        "id": "7abff8e5-056c-458e-a126-40e696a2ba74",
+        "id": "9dc29a50-8096-468c-bfa5-a65054b35de1",
         "key": "k",
-        "payload_sha256": "e2cb76ed850a40c23e9b9bf3f7258c71f1bd96e7e8938bb64a4d1152e5f6b3c4",
+        "payload_sha256": "8226646f8822f26009808052674fad4e3387f5fd290a9364623e96f441d47c5a",
         "scope": {
           "session": "supersede-by-key",
           "tenant": "benchmark"
@@ -2923,7 +2923,7 @@
         "vector": null
       },
       "poll_ms": 1,
-      "reads": 63,
+      "reads": 71,
       "status": "violation",
       "timeout_s": 0.1,
       "versions": 5,
@@ -2939,9 +2939,9 @@
       "acked": 10,
       "dropped": 0,
       "expected": {
-        "id": "e3b9719a-ab51-441d-ba34-067770d43481",
+        "id": "2a598087-d6d5-452d-9fd5-ae2856cc1f5f",
         "key": "k",
-        "payload_sha256": "71c2a1f8c4ec547d90d36e569da223e4cc5b1d4e4d99936fb7ca05e4d6791279",
+        "payload_sha256": "457af9ad09a695829b9a3228e55fd0e7ed5be4c5e5c2652e386c42eecc094812",
         "scope": {
           "session": "supersede-by-key",
           "tenant": "benchmark"
@@ -3032,16 +3032,16 @@
           "write"
         ],
         "notes": "Append-only keyed writes. Keyed get returns the oldest value.",
-        "open_ms": 0.102167,
+        "open_ms": 0.103042,
         "protocol": 1,
         "runtime_versions": {},
         "servers": [],
         "version": "stdlib-jsonl-v1"
       },
       "observed": {
-        "id": "81030906-4403-46b4-845a-811bd54aa054",
+        "id": "5adbbc19-749a-4006-877b-8f9489818680",
         "key": "k",
-        "payload_sha256": "40e6ae9c7b6661bbd308264d875a4b61971bd28b50330d1a9ccbc046b8d02bab",
+        "payload_sha256": "d99f8d6741020bd96377e652b9af03c24b579903eef8e4655825f9fabda3ff2a",
         "scope": {
           "session": "supersede-by-key",
           "tenant": "benchmark"
@@ -3050,7 +3050,7 @@
         "vector": null
       },
       "poll_ms": 1,
-      "reads": 63,
+      "reads": 71,
       "status": "violation",
       "timeout_s": 0.1,
       "versions": 5,
@@ -3066,9 +3066,9 @@
       "acked": 10,
       "dropped": 0,
       "expected": {
-        "id": "026de04c-0ce5-48cf-93cb-161b8f4ce4c9",
+        "id": "47036358-e372-43a6-bee7-02c280ee94c4",
         "key": "k",
-        "payload_sha256": "dc84f7c8b08f2a5714cace81ed142ff686b64498a34eb1f5b812667770fbd9e2",
+        "payload_sha256": "76f6c996ef12fbd65cb8e143a1e6438565878c336d022c782d9a6c8d16d91b51",
         "scope": {
           "session": "supersede-by-key",
           "tenant": "benchmark"
@@ -3154,16 +3154,16 @@
           "write"
         ],
         "notes": "SQLite ON CONFLICT DO UPDATE. Keyed get returns the latest value.",
-        "open_ms": 1.534708,
+        "open_ms": 1.231167,
         "protocol": 1,
         "runtime_versions": {},
         "servers": [],
         "version": "3.53.3"
       },
       "observed": {
-        "id": "026de04c-0ce5-48cf-93cb-161b8f4ce4c9",
+        "id": "47036358-e372-43a6-bee7-02c280ee94c4",
         "key": "k",
-        "payload_sha256": "dc84f7c8b08f2a5714cace81ed142ff686b64498a34eb1f5b812667770fbd9e2",
+        "payload_sha256": "76f6c996ef12fbd65cb8e143a1e6438565878c336d022c782d9a6c8d16d91b51",
         "scope": {
           "session": "supersede-by-key",
           "tenant": "benchmark"
@@ -3176,7 +3176,7 @@
       "status": "ok",
       "timeout_s": 0.1,
       "versions": 5,
-      "visible_after_ms": 0.1
+      "visible_after_ms": 0.118125
     },
     "suite": "supersede-by-key",
     "system": "sqlite-upsert"
@@ -3188,9 +3188,9 @@
       "acked": 10,
       "dropped": 0,
       "expected": {
-        "id": "95e76f15-3663-41ce-9adc-297b3542479f",
+        "id": "9e5d09ea-7dce-403f-b3cb-a7b268e0070d",
         "key": "k",
-        "payload_sha256": "b67ba8aa47c3cfd8036c23fa6c902488f7743e2c15323dc78e2675ecd3254a7b",
+        "payload_sha256": "17270beccb4becf5ec1eda698dbda3c600307188433430081dc1c9197c46e1d4",
         "scope": {
           "session": "supersede-by-key",
           "tenant": "benchmark"
@@ -3276,16 +3276,16 @@
           "write"
         ],
         "notes": "SQLite ON CONFLICT DO UPDATE. Keyed get returns the latest value.",
-        "open_ms": 1.810542,
+        "open_ms": 1.701667,
         "protocol": 1,
         "runtime_versions": {},
         "servers": [],
         "version": "3.53.3"
       },
       "observed": {
-        "id": "95e76f15-3663-41ce-9adc-297b3542479f",
+        "id": "9e5d09ea-7dce-403f-b3cb-a7b268e0070d",
         "key": "k",
-        "payload_sha256": "b67ba8aa47c3cfd8036c23fa6c902488f7743e2c15323dc78e2675ecd3254a7b",
+        "payload_sha256": "17270beccb4becf5ec1eda698dbda3c600307188433430081dc1c9197c46e1d4",
         "scope": {
           "session": "supersede-by-key",
           "tenant": "benchmark"
@@ -3298,7 +3298,7 @@
       "status": "ok",
       "timeout_s": 0.1,
       "versions": 5,
-      "visible_after_ms": 0.083417
+      "visible_after_ms": 0.116583
     },
     "suite": "supersede-by-key",
     "system": "sqlite-upsert"
@@ -3310,9 +3310,9 @@
       "acked": 10,
       "dropped": 0,
       "expected": {
-        "id": "8a0ff60b-c723-44c5-83a1-df8bff7f04ee",
+        "id": "bcaa756f-61d6-4ae6-983e-f3ffa6971cbb",
         "key": "k",
-        "payload_sha256": "8a6a8a0e3f6bfd8faec7e04b2b62709f505b35391b666da0c89563e7b25b5770",
+        "payload_sha256": "963a8ce467421280cb4eb4844e0102b63156999c1982d889cdc8fc5374f979c7",
         "scope": {
           "session": "supersede-by-key",
           "tenant": "benchmark"
@@ -3398,16 +3398,16 @@
           "write"
         ],
         "notes": "SQLite ON CONFLICT DO UPDATE. Keyed get returns the latest value.",
-        "open_ms": 1.348542,
+        "open_ms": 1.207625,
         "protocol": 1,
         "runtime_versions": {},
         "servers": [],
         "version": "3.53.3"
       },
       "observed": {
-        "id": "8a0ff60b-c723-44c5-83a1-df8bff7f04ee",
+        "id": "bcaa756f-61d6-4ae6-983e-f3ffa6971cbb",
         "key": "k",
-        "payload_sha256": "8a6a8a0e3f6bfd8faec7e04b2b62709f505b35391b666da0c89563e7b25b5770",
+        "payload_sha256": "963a8ce467421280cb4eb4844e0102b63156999c1982d889cdc8fc5374f979c7",
         "scope": {
           "session": "supersede-by-key",
           "tenant": "benchmark"
@@ -3420,7 +3420,7 @@
       "status": "ok",
       "timeout_s": 0.1,
       "versions": 5,
-      "visible_after_ms": 0.0835
+      "visible_after_ms": 0.148959
     },
     "suite": "supersede-by-key",
     "system": "sqlite-upsert"
@@ -3432,9 +3432,9 @@
       "acked": 10,
       "dropped": 0,
       "expected": {
-        "id": "eda0ac38-61a8-4eef-b770-f2040f0e21b8",
+        "id": "6389b464-fc9e-4709-a03c-622e97e38880",
         "key": "k",
-        "payload_sha256": "1ce1cd9763d7f1096c41bd7ab41929e49eb98b02dcf802e294024c24800b22dc",
+        "payload_sha256": "a8b37af38201a37713011b1c792de136acc2f7e8b09ca8302d058e7d59fb44af",
         "scope": {
           "session": "supersede-by-key",
           "tenant": "benchmark"
@@ -3520,16 +3520,16 @@
           "write"
         ],
         "notes": "SQLite ON CONFLICT DO UPDATE. Keyed get returns the latest value.",
-        "open_ms": 1.277458,
+        "open_ms": 1.151375,
         "protocol": 1,
         "runtime_versions": {},
         "servers": [],
         "version": "3.53.3"
       },
       "observed": {
-        "id": "eda0ac38-61a8-4eef-b770-f2040f0e21b8",
+        "id": "6389b464-fc9e-4709-a03c-622e97e38880",
         "key": "k",
-        "payload_sha256": "1ce1cd9763d7f1096c41bd7ab41929e49eb98b02dcf802e294024c24800b22dc",
+        "payload_sha256": "a8b37af38201a37713011b1c792de136acc2f7e8b09ca8302d058e7d59fb44af",
         "scope": {
           "session": "supersede-by-key",
           "tenant": "benchmark"
@@ -3542,7 +3542,7 @@
       "status": "ok",
       "timeout_s": 0.1,
       "versions": 5,
-      "visible_after_ms": 0.214958
+      "visible_after_ms": 0.524208
     },
     "suite": "supersede-by-key",
     "system": "sqlite-upsert"
@@ -3554,9 +3554,9 @@
       "acked": 10,
       "dropped": 0,
       "expected": {
-        "id": "93db626f-aac3-4cd0-bd4d-9c1364bccaf5",
+        "id": "6cb72367-7ef5-42cd-b4ff-83c0f844ee90",
         "key": "k",
-        "payload_sha256": "8a910b2050977d81da2396010db491a83a5209c942cc91263b40416ecf0c0000",
+        "payload_sha256": "3c3432d35718f1f51378d0fccc1c9335a98dc06dbf8a6559f5c142fdee8771ef",
         "scope": {
           "session": "supersede-by-key",
           "tenant": "benchmark"
@@ -3642,16 +3642,16 @@
           "write"
         ],
         "notes": "SQLite ON CONFLICT DO UPDATE. Keyed get returns the latest value.",
-        "open_ms": 2.164792,
+        "open_ms": 1.381834,
         "protocol": 1,
         "runtime_versions": {},
         "servers": [],
         "version": "3.53.3"
       },
       "observed": {
-        "id": "93db626f-aac3-4cd0-bd4d-9c1364bccaf5",
+        "id": "6cb72367-7ef5-42cd-b4ff-83c0f844ee90",
         "key": "k",
-        "payload_sha256": "8a910b2050977d81da2396010db491a83a5209c942cc91263b40416ecf0c0000",
+        "payload_sha256": "3c3432d35718f1f51378d0fccc1c9335a98dc06dbf8a6559f5c142fdee8771ef",
         "scope": {
           "session": "supersede-by-key",
           "tenant": "benchmark"
@@ -3664,340 +3664,10 @@
       "status": "ok",
       "timeout_s": 0.1,
       "versions": 5,
-      "visible_after_ms": 0.221292
+      "visible_after_ms": 0.117
     },
     "suite": "supersede-by-key",
     "system": "sqlite-upsert"
-  },
-  {
-    "config": "default;trial=0",
-    "matched": true,
-    "result": {
-      "forget_promise": {
-        "kind": "delete",
-        "quote": "These controls promise absence from supported reads. Fault injection deliberately breaks that promise in the must-fail store.",
-        "url": "https://github.com/Clawdlinux/memtorture/blob/main/docs/METHODOLOGY.md#forget-controls"
-      },
-      "info": {
-        "capabilities": [
-          "delete",
-          "get",
-          "get_by_ref",
-          "keyed",
-          "list_prefix",
-          "read_recent",
-          "search",
-          "upsert",
-          "write"
-        ],
-        "notes": "Delete removes the main row but leaves a readable FTS5 row.",
-        "open_ms": 2.600125,
-        "protocol": 1,
-        "runtime_versions": {},
-        "servers": [],
-        "version": "3.53.3"
-      },
-      "paths": {
-        "get": {
-          "lag_ms": 0.107875,
-          "remaining": 0,
-          "status": "ok",
-          "visible_before": true
-        },
-        "get_by_ref": {
-          "lag_ms": 0.207459,
-          "remaining": 0,
-          "status": "ok",
-          "visible_before": true
-        },
-        "list_prefix": {
-          "lag_ms": 0.300209,
-          "remaining": 0,
-          "status": "ok",
-          "visible_before": true
-        },
-        "read_recent": {
-          "lag_ms": 0.5305,
-          "remaining": 0,
-          "status": "ok",
-          "visible_before": true
-        },
-        "search": {
-          "lag_ms": null,
-          "remaining": 1,
-          "status": "violation",
-          "visible_before": true
-        }
-      },
-      "status": "violation",
-      "timeout_s": 0.1
-    },
-    "suite": "forget",
-    "system": "sqlite-forget-fts"
-  },
-  {
-    "config": "default;trial=1",
-    "matched": true,
-    "result": {
-      "forget_promise": {
-        "kind": "delete",
-        "quote": "These controls promise absence from supported reads. Fault injection deliberately breaks that promise in the must-fail store.",
-        "url": "https://github.com/Clawdlinux/memtorture/blob/main/docs/METHODOLOGY.md#forget-controls"
-      },
-      "info": {
-        "capabilities": [
-          "delete",
-          "get",
-          "get_by_ref",
-          "keyed",
-          "list_prefix",
-          "read_recent",
-          "search",
-          "upsert",
-          "write"
-        ],
-        "notes": "Delete removes the main row but leaves a readable FTS5 row.",
-        "open_ms": 2.718792,
-        "protocol": 1,
-        "runtime_versions": {},
-        "servers": [],
-        "version": "3.53.3"
-      },
-      "paths": {
-        "get": {
-          "lag_ms": 0.12375,
-          "remaining": 0,
-          "status": "ok",
-          "visible_before": true
-        },
-        "get_by_ref": {
-          "lag_ms": 0.308375,
-          "remaining": 0,
-          "status": "ok",
-          "visible_before": true
-        },
-        "list_prefix": {
-          "lag_ms": 0.478166,
-          "remaining": 0,
-          "status": "ok",
-          "visible_before": true
-        },
-        "read_recent": {
-          "lag_ms": 0.702625,
-          "remaining": 0,
-          "status": "ok",
-          "visible_before": true
-        },
-        "search": {
-          "lag_ms": null,
-          "remaining": 1,
-          "status": "violation",
-          "visible_before": true
-        }
-      },
-      "status": "violation",
-      "timeout_s": 0.1
-    },
-    "suite": "forget",
-    "system": "sqlite-forget-fts"
-  },
-  {
-    "config": "default;trial=2",
-    "matched": true,
-    "result": {
-      "forget_promise": {
-        "kind": "delete",
-        "quote": "These controls promise absence from supported reads. Fault injection deliberately breaks that promise in the must-fail store.",
-        "url": "https://github.com/Clawdlinux/memtorture/blob/main/docs/METHODOLOGY.md#forget-controls"
-      },
-      "info": {
-        "capabilities": [
-          "delete",
-          "get",
-          "get_by_ref",
-          "keyed",
-          "list_prefix",
-          "read_recent",
-          "search",
-          "upsert",
-          "write"
-        ],
-        "notes": "Delete removes the main row but leaves a readable FTS5 row.",
-        "open_ms": 14.2675,
-        "protocol": 1,
-        "runtime_versions": {},
-        "servers": [],
-        "version": "3.53.3"
-      },
-      "paths": {
-        "get": {
-          "lag_ms": 0.493375,
-          "remaining": 0,
-          "status": "ok",
-          "visible_before": true
-        },
-        "get_by_ref": {
-          "lag_ms": 1.197042,
-          "remaining": 0,
-          "status": "ok",
-          "visible_before": true
-        },
-        "list_prefix": {
-          "lag_ms": 1.425417,
-          "remaining": 0,
-          "status": "ok",
-          "visible_before": true
-        },
-        "read_recent": {
-          "lag_ms": 1.680708,
-          "remaining": 0,
-          "status": "ok",
-          "visible_before": true
-        },
-        "search": {
-          "lag_ms": null,
-          "remaining": 1,
-          "status": "violation",
-          "visible_before": true
-        }
-      },
-      "status": "violation",
-      "timeout_s": 0.1
-    },
-    "suite": "forget",
-    "system": "sqlite-forget-fts"
-  },
-  {
-    "config": "default;trial=3",
-    "matched": true,
-    "result": {
-      "forget_promise": {
-        "kind": "delete",
-        "quote": "These controls promise absence from supported reads. Fault injection deliberately breaks that promise in the must-fail store.",
-        "url": "https://github.com/Clawdlinux/memtorture/blob/main/docs/METHODOLOGY.md#forget-controls"
-      },
-      "info": {
-        "capabilities": [
-          "delete",
-          "get",
-          "get_by_ref",
-          "keyed",
-          "list_prefix",
-          "read_recent",
-          "search",
-          "upsert",
-          "write"
-        ],
-        "notes": "Delete removes the main row but leaves a readable FTS5 row.",
-        "open_ms": 3.245917,
-        "protocol": 1,
-        "runtime_versions": {},
-        "servers": [],
-        "version": "3.53.3"
-      },
-      "paths": {
-        "get": {
-          "lag_ms": 1.508917,
-          "remaining": 0,
-          "status": "ok",
-          "visible_before": true
-        },
-        "get_by_ref": {
-          "lag_ms": 2.072042,
-          "remaining": 0,
-          "status": "ok",
-          "visible_before": true
-        },
-        "list_prefix": {
-          "lag_ms": 2.322583,
-          "remaining": 0,
-          "status": "ok",
-          "visible_before": true
-        },
-        "read_recent": {
-          "lag_ms": 2.6115,
-          "remaining": 0,
-          "status": "ok",
-          "visible_before": true
-        },
-        "search": {
-          "lag_ms": null,
-          "remaining": 1,
-          "status": "violation",
-          "visible_before": true
-        }
-      },
-      "status": "violation",
-      "timeout_s": 0.1
-    },
-    "suite": "forget",
-    "system": "sqlite-forget-fts"
-  },
-  {
-    "config": "default;trial=4",
-    "matched": true,
-    "result": {
-      "forget_promise": {
-        "kind": "delete",
-        "quote": "These controls promise absence from supported reads. Fault injection deliberately breaks that promise in the must-fail store.",
-        "url": "https://github.com/Clawdlinux/memtorture/blob/main/docs/METHODOLOGY.md#forget-controls"
-      },
-      "info": {
-        "capabilities": [
-          "delete",
-          "get",
-          "get_by_ref",
-          "keyed",
-          "list_prefix",
-          "read_recent",
-          "search",
-          "upsert",
-          "write"
-        ],
-        "notes": "Delete removes the main row but leaves a readable FTS5 row.",
-        "open_ms": 3.507792,
-        "protocol": 1,
-        "runtime_versions": {},
-        "servers": [],
-        "version": "3.53.3"
-      },
-      "paths": {
-        "get": {
-          "lag_ms": 0.177917,
-          "remaining": 0,
-          "status": "ok",
-          "visible_before": true
-        },
-        "get_by_ref": {
-          "lag_ms": 0.409542,
-          "remaining": 0,
-          "status": "ok",
-          "visible_before": true
-        },
-        "list_prefix": {
-          "lag_ms": 0.589709,
-          "remaining": 0,
-          "status": "ok",
-          "visible_before": true
-        },
-        "read_recent": {
-          "lag_ms": 0.832,
-          "remaining": 0,
-          "status": "ok",
-          "visible_before": true
-        },
-        "search": {
-          "lag_ms": null,
-          "remaining": 1,
-          "status": "violation",
-          "visible_before": true
-        }
-      },
-      "status": "violation",
-      "timeout_s": 0.1
-    },
-    "suite": "forget",
-    "system": "sqlite-forget-fts"
   },
   {
     "config": "default;trial=0",
@@ -4020,8 +3690,8 @@
           "upsert",
           "write"
         ],
-        "notes": "Delete removes both the main row and its readable FTS5 row.",
-        "open_ms": 3.401791,
+        "notes": "Delete removes the main row but leaves a readable FTS5 row.",
+        "open_ms": 2.376,
         "protocol": 1,
         "runtime_versions": {},
         "servers": [],
@@ -4029,37 +3699,403 @@
       },
       "paths": {
         "get": {
-          "lag_ms": 0.095833,
+          "lag_ms": 0.048292,
           "remaining": 0,
           "status": "ok",
+          "survivors_missing": 0,
           "visible_before": true
         },
         "get_by_ref": {
-          "lag_ms": 0.190166,
+          "lag_ms": 0.094584,
           "remaining": 0,
           "status": "ok",
+          "survivors_missing": 0,
           "visible_before": true
         },
         "list_prefix": {
-          "lag_ms": 0.28,
+          "lag_ms": 0.137459,
           "remaining": 0,
           "status": "ok",
+          "survivors_missing": 0,
           "visible_before": true
         },
         "read_recent": {
-          "lag_ms": 0.442666,
+          "lag_ms": 0.214209,
           "remaining": 0,
           "status": "ok",
+          "survivors_missing": 0,
           "visible_before": true
         },
         "search": {
-          "lag_ms": 0.683083,
+          "lag_ms": null,
+          "remaining": 1,
+          "status": "violation",
+          "survivors_missing": 0,
+          "visible_before": true
+        }
+      },
+      "status": "violation",
+      "survivors_missing": 0,
+      "timeout_s": 0.1
+    },
+    "suite": "forget",
+    "system": "sqlite-forget-fts"
+  },
+  {
+    "config": "default;trial=1",
+    "matched": true,
+    "result": {
+      "forget_promise": {
+        "kind": "delete",
+        "quote": "These controls promise absence from supported reads. Fault injection deliberately breaks that promise in the must-fail store.",
+        "url": "https://github.com/Clawdlinux/memtorture/blob/main/docs/METHODOLOGY.md#forget-controls"
+      },
+      "info": {
+        "capabilities": [
+          "delete",
+          "get",
+          "get_by_ref",
+          "keyed",
+          "list_prefix",
+          "read_recent",
+          "search",
+          "upsert",
+          "write"
+        ],
+        "notes": "Delete removes the main row but leaves a readable FTS5 row.",
+        "open_ms": 1.462666,
+        "protocol": 1,
+        "runtime_versions": {},
+        "servers": [],
+        "version": "3.53.3"
+      },
+      "paths": {
+        "get": {
+          "lag_ms": 0.043333,
           "remaining": 0,
           "status": "ok",
+          "survivors_missing": 0,
+          "visible_before": true
+        },
+        "get_by_ref": {
+          "lag_ms": 0.08375,
+          "remaining": 0,
+          "status": "ok",
+          "survivors_missing": 0,
+          "visible_before": true
+        },
+        "list_prefix": {
+          "lag_ms": 0.123083,
+          "remaining": 0,
+          "status": "ok",
+          "survivors_missing": 0,
+          "visible_before": true
+        },
+        "read_recent": {
+          "lag_ms": 0.195583,
+          "remaining": 0,
+          "status": "ok",
+          "survivors_missing": 0,
+          "visible_before": true
+        },
+        "search": {
+          "lag_ms": null,
+          "remaining": 1,
+          "status": "violation",
+          "survivors_missing": 0,
+          "visible_before": true
+        }
+      },
+      "status": "violation",
+      "survivors_missing": 0,
+      "timeout_s": 0.1
+    },
+    "suite": "forget",
+    "system": "sqlite-forget-fts"
+  },
+  {
+    "config": "default;trial=2",
+    "matched": true,
+    "result": {
+      "forget_promise": {
+        "kind": "delete",
+        "quote": "These controls promise absence from supported reads. Fault injection deliberately breaks that promise in the must-fail store.",
+        "url": "https://github.com/Clawdlinux/memtorture/blob/main/docs/METHODOLOGY.md#forget-controls"
+      },
+      "info": {
+        "capabilities": [
+          "delete",
+          "get",
+          "get_by_ref",
+          "keyed",
+          "list_prefix",
+          "read_recent",
+          "search",
+          "upsert",
+          "write"
+        ],
+        "notes": "Delete removes the main row but leaves a readable FTS5 row.",
+        "open_ms": 2.468292,
+        "protocol": 1,
+        "runtime_versions": {},
+        "servers": [],
+        "version": "3.53.3"
+      },
+      "paths": {
+        "get": {
+          "lag_ms": 0.456459,
+          "remaining": 0,
+          "status": "ok",
+          "survivors_missing": 0,
+          "visible_before": true
+        },
+        "get_by_ref": {
+          "lag_ms": 0.623709,
+          "remaining": 0,
+          "status": "ok",
+          "survivors_missing": 0,
+          "visible_before": true
+        },
+        "list_prefix": {
+          "lag_ms": 0.774292,
+          "remaining": 0,
+          "status": "ok",
+          "survivors_missing": 0,
+          "visible_before": true
+        },
+        "read_recent": {
+          "lag_ms": 0.930917,
+          "remaining": 0,
+          "status": "ok",
+          "survivors_missing": 0,
+          "visible_before": true
+        },
+        "search": {
+          "lag_ms": null,
+          "remaining": 1,
+          "status": "violation",
+          "survivors_missing": 0,
+          "visible_before": true
+        }
+      },
+      "status": "violation",
+      "survivors_missing": 0,
+      "timeout_s": 0.1
+    },
+    "suite": "forget",
+    "system": "sqlite-forget-fts"
+  },
+  {
+    "config": "default;trial=3",
+    "matched": true,
+    "result": {
+      "forget_promise": {
+        "kind": "delete",
+        "quote": "These controls promise absence from supported reads. Fault injection deliberately breaks that promise in the must-fail store.",
+        "url": "https://github.com/Clawdlinux/memtorture/blob/main/docs/METHODOLOGY.md#forget-controls"
+      },
+      "info": {
+        "capabilities": [
+          "delete",
+          "get",
+          "get_by_ref",
+          "keyed",
+          "list_prefix",
+          "read_recent",
+          "search",
+          "upsert",
+          "write"
+        ],
+        "notes": "Delete removes the main row but leaves a readable FTS5 row.",
+        "open_ms": 1.90225,
+        "protocol": 1,
+        "runtime_versions": {},
+        "servers": [],
+        "version": "3.53.3"
+      },
+      "paths": {
+        "get": {
+          "lag_ms": 0.146334,
+          "remaining": 0,
+          "status": "ok",
+          "survivors_missing": 0,
+          "visible_before": true
+        },
+        "get_by_ref": {
+          "lag_ms": 0.365417,
+          "remaining": 0,
+          "status": "ok",
+          "survivors_missing": 0,
+          "visible_before": true
+        },
+        "list_prefix": {
+          "lag_ms": 0.593084,
+          "remaining": 0,
+          "status": "ok",
+          "survivors_missing": 0,
+          "visible_before": true
+        },
+        "read_recent": {
+          "lag_ms": 0.741167,
+          "remaining": 0,
+          "status": "ok",
+          "survivors_missing": 0,
+          "visible_before": true
+        },
+        "search": {
+          "lag_ms": null,
+          "remaining": 1,
+          "status": "violation",
+          "survivors_missing": 0,
+          "visible_before": true
+        }
+      },
+      "status": "violation",
+      "survivors_missing": 0,
+      "timeout_s": 0.1
+    },
+    "suite": "forget",
+    "system": "sqlite-forget-fts"
+  },
+  {
+    "config": "default;trial=4",
+    "matched": true,
+    "result": {
+      "forget_promise": {
+        "kind": "delete",
+        "quote": "These controls promise absence from supported reads. Fault injection deliberately breaks that promise in the must-fail store.",
+        "url": "https://github.com/Clawdlinux/memtorture/blob/main/docs/METHODOLOGY.md#forget-controls"
+      },
+      "info": {
+        "capabilities": [
+          "delete",
+          "get",
+          "get_by_ref",
+          "keyed",
+          "list_prefix",
+          "read_recent",
+          "search",
+          "upsert",
+          "write"
+        ],
+        "notes": "Delete removes the main row but leaves a readable FTS5 row.",
+        "open_ms": 2.184292,
+        "protocol": 1,
+        "runtime_versions": {},
+        "servers": [],
+        "version": "3.53.3"
+      },
+      "paths": {
+        "get": {
+          "lag_ms": 0.0445,
+          "remaining": 0,
+          "status": "ok",
+          "survivors_missing": 0,
+          "visible_before": true
+        },
+        "get_by_ref": {
+          "lag_ms": 0.088584,
+          "remaining": 0,
+          "status": "ok",
+          "survivors_missing": 0,
+          "visible_before": true
+        },
+        "list_prefix": {
+          "lag_ms": 0.131834,
+          "remaining": 0,
+          "status": "ok",
+          "survivors_missing": 0,
+          "visible_before": true
+        },
+        "read_recent": {
+          "lag_ms": 0.2055,
+          "remaining": 0,
+          "status": "ok",
+          "survivors_missing": 0,
+          "visible_before": true
+        },
+        "search": {
+          "lag_ms": null,
+          "remaining": 1,
+          "status": "violation",
+          "survivors_missing": 0,
+          "visible_before": true
+        }
+      },
+      "status": "violation",
+      "survivors_missing": 0,
+      "timeout_s": 0.1
+    },
+    "suite": "forget",
+    "system": "sqlite-forget-fts"
+  },
+  {
+    "config": "default;trial=0",
+    "matched": true,
+    "result": {
+      "forget_promise": {
+        "kind": "delete",
+        "quote": "These controls promise absence from supported reads. Fault injection deliberately breaks that promise in the must-fail store.",
+        "url": "https://github.com/Clawdlinux/memtorture/blob/main/docs/METHODOLOGY.md#forget-controls"
+      },
+      "info": {
+        "capabilities": [
+          "delete",
+          "get",
+          "get_by_ref",
+          "keyed",
+          "list_prefix",
+          "read_recent",
+          "search",
+          "upsert",
+          "write"
+        ],
+        "notes": "Delete removes both the main row and its readable FTS5 row.",
+        "open_ms": 1.566583,
+        "protocol": 1,
+        "runtime_versions": {},
+        "servers": [],
+        "version": "3.53.3"
+      },
+      "paths": {
+        "get": {
+          "lag_ms": 0.049625,
+          "remaining": 0,
+          "status": "ok",
+          "survivors_missing": 0,
+          "visible_before": true
+        },
+        "get_by_ref": {
+          "lag_ms": 0.096916,
+          "remaining": 0,
+          "status": "ok",
+          "survivors_missing": 0,
+          "visible_before": true
+        },
+        "list_prefix": {
+          "lag_ms": 0.142208,
+          "remaining": 0,
+          "status": "ok",
+          "survivors_missing": 0,
+          "visible_before": true
+        },
+        "read_recent": {
+          "lag_ms": 0.220041,
+          "remaining": 0,
+          "status": "ok",
+          "survivors_missing": 0,
+          "visible_before": true
+        },
+        "search": {
+          "lag_ms": 0.331666,
+          "remaining": 0,
+          "status": "ok",
+          "survivors_missing": 0,
           "visible_before": true
         }
       },
       "status": "ok",
+      "survivors_missing": 0,
       "timeout_s": 0.1
     },
     "suite": "forget",
@@ -4087,7 +4123,7 @@
           "write"
         ],
         "notes": "Delete removes both the main row and its readable FTS5 row.",
-        "open_ms": 3.473958,
+        "open_ms": 1.557625,
         "protocol": 1,
         "runtime_versions": {},
         "servers": [],
@@ -4095,37 +4131,43 @@
       },
       "paths": {
         "get": {
-          "lag_ms": 0.123584,
+          "lag_ms": 0.233584,
           "remaining": 0,
           "status": "ok",
+          "survivors_missing": 0,
           "visible_before": true
         },
         "get_by_ref": {
-          "lag_ms": 0.245292,
+          "lag_ms": 0.402,
           "remaining": 0,
           "status": "ok",
+          "survivors_missing": 0,
           "visible_before": true
         },
         "list_prefix": {
-          "lag_ms": 0.355334,
+          "lag_ms": 0.524459,
           "remaining": 0,
           "status": "ok",
+          "survivors_missing": 0,
           "visible_before": true
         },
         "read_recent": {
-          "lag_ms": 0.531209,
+          "lag_ms": 0.808542,
           "remaining": 0,
           "status": "ok",
+          "survivors_missing": 0,
           "visible_before": true
         },
         "search": {
-          "lag_ms": 0.781792,
+          "lag_ms": 1.040167,
           "remaining": 0,
           "status": "ok",
+          "survivors_missing": 0,
           "visible_before": true
         }
       },
       "status": "ok",
+      "survivors_missing": 0,
       "timeout_s": 0.1
     },
     "suite": "forget",
@@ -4153,7 +4195,7 @@
           "write"
         ],
         "notes": "Delete removes both the main row and its readable FTS5 row.",
-        "open_ms": 3.386208,
+        "open_ms": 1.690584,
         "protocol": 1,
         "runtime_versions": {},
         "servers": [],
@@ -4161,37 +4203,43 @@
       },
       "paths": {
         "get": {
-          "lag_ms": 0.119166,
+          "lag_ms": 0.050334,
           "remaining": 0,
           "status": "ok",
+          "survivors_missing": 0,
           "visible_before": true
         },
         "get_by_ref": {
-          "lag_ms": 0.247083,
+          "lag_ms": 0.095959,
           "remaining": 0,
           "status": "ok",
+          "survivors_missing": 0,
           "visible_before": true
         },
         "list_prefix": {
-          "lag_ms": 0.361625,
+          "lag_ms": 0.139334,
           "remaining": 0,
           "status": "ok",
+          "survivors_missing": 0,
           "visible_before": true
         },
         "read_recent": {
-          "lag_ms": 0.554333,
+          "lag_ms": 0.216542,
           "remaining": 0,
           "status": "ok",
+          "survivors_missing": 0,
           "visible_before": true
         },
         "search": {
-          "lag_ms": 0.822583,
+          "lag_ms": 0.335209,
           "remaining": 0,
           "status": "ok",
+          "survivors_missing": 0,
           "visible_before": true
         }
       },
       "status": "ok",
+      "survivors_missing": 0,
       "timeout_s": 0.1
     },
     "suite": "forget",
@@ -4219,7 +4267,7 @@
           "write"
         ],
         "notes": "Delete removes both the main row and its readable FTS5 row.",
-        "open_ms": 2.874541,
+        "open_ms": 1.470625,
         "protocol": 1,
         "runtime_versions": {},
         "servers": [],
@@ -4227,37 +4275,43 @@
       },
       "paths": {
         "get": {
-          "lag_ms": 0.120916,
+          "lag_ms": 0.050417,
           "remaining": 0,
           "status": "ok",
+          "survivors_missing": 0,
           "visible_before": true
         },
         "get_by_ref": {
-          "lag_ms": 0.240791,
+          "lag_ms": 0.09125,
           "remaining": 0,
           "status": "ok",
+          "survivors_missing": 0,
           "visible_before": true
         },
         "list_prefix": {
-          "lag_ms": 0.356,
+          "lag_ms": 0.134667,
           "remaining": 0,
           "status": "ok",
+          "survivors_missing": 0,
           "visible_before": true
         },
         "read_recent": {
-          "lag_ms": 0.530166,
+          "lag_ms": 0.207584,
           "remaining": 0,
           "status": "ok",
+          "survivors_missing": 0,
           "visible_before": true
         },
         "search": {
-          "lag_ms": 0.773166,
+          "lag_ms": 0.313167,
           "remaining": 0,
           "status": "ok",
+          "survivors_missing": 0,
           "visible_before": true
         }
       },
       "status": "ok",
+      "survivors_missing": 0,
       "timeout_s": 0.1
     },
     "suite": "forget",
@@ -4285,7 +4339,7 @@
           "write"
         ],
         "notes": "Delete removes both the main row and its readable FTS5 row.",
-        "open_ms": 3.264708,
+        "open_ms": 1.744875,
         "protocol": 1,
         "runtime_versions": {},
         "servers": [],
@@ -4293,37 +4347,43 @@
       },
       "paths": {
         "get": {
-          "lag_ms": 0.080584,
+          "lag_ms": 0.042125,
           "remaining": 0,
           "status": "ok",
+          "survivors_missing": 0,
           "visible_before": true
         },
         "get_by_ref": {
-          "lag_ms": 0.157917,
+          "lag_ms": 0.084333,
           "remaining": 0,
           "status": "ok",
+          "survivors_missing": 0,
           "visible_before": true
         },
         "list_prefix": {
-          "lag_ms": 0.233917,
+          "lag_ms": 0.124833,
           "remaining": 0,
           "status": "ok",
+          "survivors_missing": 0,
           "visible_before": true
         },
         "read_recent": {
-          "lag_ms": 0.371792,
+          "lag_ms": 0.197417,
           "remaining": 0,
           "status": "ok",
+          "survivors_missing": 0,
           "visible_before": true
         },
         "search": {
-          "lag_ms": 0.568042,
+          "lag_ms": 0.3005,
           "remaining": 0,
           "status": "ok",
+          "survivors_missing": 0,
           "visible_before": true
         }
       },
       "status": "ok",
+      "survivors_missing": 0,
       "timeout_s": 0.1
     },
     "suite": "forget",
@@ -4337,37 +4397,43 @@
       "forget": {
         "paths": {
           "get": {
-            "lag_ms": 0.080292,
+            "lag_ms": 0.174209,
             "remaining": 0,
             "status": "ok",
+            "survivors_missing": 0,
             "visible_before": true
           },
           "get_by_ref": {
-            "lag_ms": 0.16175,
+            "lag_ms": 0.275,
             "remaining": 0,
             "status": "ok",
+            "survivors_missing": 0,
             "visible_before": true
           },
           "list_prefix": {
-            "lag_ms": 0.240709,
+            "lag_ms": 0.410792,
             "remaining": 0,
             "status": "ok",
+            "survivors_missing": 0,
             "visible_before": true
           },
           "read_recent": {
-            "lag_ms": 0.377417,
+            "lag_ms": 0.580792,
             "remaining": 0,
             "status": "ok",
+            "survivors_missing": 0,
             "visible_before": true
           },
           "search": {
-            "lag_ms": 0.590834,
+            "lag_ms": 0.79275,
             "remaining": 0,
             "status": "ok",
+            "survivors_missing": 0,
             "visible_before": true
           }
         },
         "status": "ok",
+        "survivors_missing": 0,
         "timeout_s": 0.1
       },
       "info": {
@@ -4383,7 +4449,7 @@
           "write"
         ],
         "notes": "secure_delete=OFF. Delete without VACUUM leaves plaintext residue.",
-        "open_ms": 2.60025,
+        "open_ms": 1.21225,
         "protocol": 1,
         "runtime_versions": {},
         "servers": [],
@@ -4405,37 +4471,43 @@
       "forget": {
         "paths": {
           "get": {
-            "lag_ms": 0.13175,
+            "lag_ms": 0.042583,
             "remaining": 0,
             "status": "ok",
+            "survivors_missing": 0,
             "visible_before": true
           },
           "get_by_ref": {
-            "lag_ms": 0.233625,
+            "lag_ms": 0.084875,
             "remaining": 0,
             "status": "ok",
+            "survivors_missing": 0,
             "visible_before": true
           },
           "list_prefix": {
-            "lag_ms": 0.319125,
+            "lag_ms": 0.125375,
             "remaining": 0,
             "status": "ok",
+            "survivors_missing": 0,
             "visible_before": true
           },
           "read_recent": {
-            "lag_ms": 0.477875,
+            "lag_ms": 0.202875,
             "remaining": 0,
             "status": "ok",
+            "survivors_missing": 0,
             "visible_before": true
           },
           "search": {
-            "lag_ms": 0.69225,
+            "lag_ms": 0.315,
             "remaining": 0,
             "status": "ok",
+            "survivors_missing": 0,
             "visible_before": true
           }
         },
         "status": "ok",
+        "survivors_missing": 0,
         "timeout_s": 0.1
       },
       "info": {
@@ -4451,7 +4523,7 @@
           "write"
         ],
         "notes": "secure_delete=OFF. Delete without VACUUM leaves plaintext residue.",
-        "open_ms": 2.093833,
+        "open_ms": 1.288042,
         "protocol": 1,
         "runtime_versions": {},
         "servers": [],
@@ -4473,37 +4545,43 @@
       "forget": {
         "paths": {
           "get": {
-            "lag_ms": 0.074291,
+            "lag_ms": 0.07975,
             "remaining": 0,
             "status": "ok",
+            "survivors_missing": 0,
             "visible_before": true
           },
           "get_by_ref": {
-            "lag_ms": 0.146208,
+            "lag_ms": 0.175541,
             "remaining": 0,
             "status": "ok",
+            "survivors_missing": 0,
             "visible_before": true
           },
           "list_prefix": {
-            "lag_ms": 0.245208,
+            "lag_ms": 0.225458,
             "remaining": 0,
             "status": "ok",
+            "survivors_missing": 0,
             "visible_before": true
           },
           "read_recent": {
-            "lag_ms": 0.766666,
+            "lag_ms": 0.315541,
             "remaining": 0,
             "status": "ok",
+            "survivors_missing": 0,
             "visible_before": true
           },
           "search": {
-            "lag_ms": 1.218166,
+            "lag_ms": 0.4435,
             "remaining": 0,
             "status": "ok",
+            "survivors_missing": 0,
             "visible_before": true
           }
         },
         "status": "ok",
+        "survivors_missing": 0,
         "timeout_s": 0.1
       },
       "info": {
@@ -4519,7 +4597,7 @@
           "write"
         ],
         "notes": "secure_delete=OFF. Delete without VACUUM leaves plaintext residue.",
-        "open_ms": 2.066958,
+        "open_ms": 1.210875,
         "protocol": 1,
         "runtime_versions": {},
         "servers": [],
@@ -4541,37 +4619,43 @@
       "forget": {
         "paths": {
           "get": {
-            "lag_ms": 0.072833,
+            "lag_ms": 0.048459,
             "remaining": 0,
             "status": "ok",
+            "survivors_missing": 0,
             "visible_before": true
           },
           "get_by_ref": {
-            "lag_ms": 0.144208,
+            "lag_ms": 0.093375,
             "remaining": 0,
             "status": "ok",
+            "survivors_missing": 0,
             "visible_before": true
           },
           "list_prefix": {
-            "lag_ms": 0.216125,
+            "lag_ms": 0.1385,
             "remaining": 0,
             "status": "ok",
+            "survivors_missing": 0,
             "visible_before": true
           },
           "read_recent": {
-            "lag_ms": 0.338458,
+            "lag_ms": 0.218584,
             "remaining": 0,
             "status": "ok",
+            "survivors_missing": 0,
             "visible_before": true
           },
           "search": {
-            "lag_ms": 0.527875,
+            "lag_ms": 0.337209,
             "remaining": 0,
             "status": "ok",
+            "survivors_missing": 0,
             "visible_before": true
           }
         },
         "status": "ok",
+        "survivors_missing": 0,
         "timeout_s": 0.1
       },
       "info": {
@@ -4587,7 +4671,7 @@
           "write"
         ],
         "notes": "secure_delete=OFF. Delete without VACUUM leaves plaintext residue.",
-        "open_ms": 1.844542,
+        "open_ms": 1.330084,
         "protocol": 1,
         "runtime_versions": {},
         "servers": [],
@@ -4609,37 +4693,43 @@
       "forget": {
         "paths": {
           "get": {
-            "lag_ms": 0.103209,
+            "lag_ms": 0.052792,
             "remaining": 0,
             "status": "ok",
+            "survivors_missing": 0,
             "visible_before": true
           },
           "get_by_ref": {
-            "lag_ms": 0.210917,
+            "lag_ms": 0.101,
             "remaining": 0,
             "status": "ok",
+            "survivors_missing": 0,
             "visible_before": true
           },
           "list_prefix": {
-            "lag_ms": 0.307709,
+            "lag_ms": 0.146084,
             "remaining": 0,
             "status": "ok",
+            "survivors_missing": 0,
             "visible_before": true
           },
           "read_recent": {
-            "lag_ms": 0.4615,
+            "lag_ms": 0.223584,
             "remaining": 0,
             "status": "ok",
+            "survivors_missing": 0,
             "visible_before": true
           },
           "search": {
-            "lag_ms": 0.685292,
+            "lag_ms": 0.343875,
             "remaining": 0,
             "status": "ok",
+            "survivors_missing": 0,
             "visible_before": true
           }
         },
         "status": "ok",
+        "survivors_missing": 0,
         "timeout_s": 0.1
       },
       "info": {
@@ -4655,7 +4745,7 @@
           "write"
         ],
         "notes": "secure_delete=OFF. Delete without VACUUM leaves plaintext residue.",
-        "open_ms": 2.185,
+        "open_ms": 1.228458,
         "protocol": 1,
         "runtime_versions": {},
         "servers": [],
@@ -4677,37 +4767,43 @@
       "forget": {
         "paths": {
           "get": {
-            "lag_ms": 0.223,
+            "lag_ms": 0.072708,
             "remaining": 0,
             "status": "ok",
+            "survivors_missing": 0,
             "visible_before": true
           },
           "get_by_ref": {
-            "lag_ms": 0.408625,
+            "lag_ms": 0.126667,
             "remaining": 0,
             "status": "ok",
+            "survivors_missing": 0,
             "visible_before": true
           },
           "list_prefix": {
-            "lag_ms": 0.525167,
+            "lag_ms": 0.1765,
             "remaining": 0,
             "status": "ok",
+            "survivors_missing": 0,
             "visible_before": true
           },
           "read_recent": {
-            "lag_ms": 0.736167,
+            "lag_ms": 0.264875,
             "remaining": 0,
             "status": "ok",
+            "survivors_missing": 0,
             "visible_before": true
           },
           "search": {
-            "lag_ms": 1.127083,
+            "lag_ms": 0.422167,
             "remaining": 0,
             "status": "ok",
+            "survivors_missing": 0,
             "visible_before": true
           }
         },
         "status": "ok",
+        "survivors_missing": 0,
         "timeout_s": 0.1
       },
       "info": {
@@ -4723,7 +4819,7 @@
           "write"
         ],
         "notes": "secure_delete=ON. FTS5 secure-delete, VACUUM, and WAL truncation.",
-        "open_ms": 2.143917,
+        "open_ms": 1.189917,
         "protocol": 1,
         "runtime_versions": {},
         "servers": [],
@@ -4745,37 +4841,43 @@
       "forget": {
         "paths": {
           "get": {
-            "lag_ms": 0.179542,
+            "lag_ms": 0.058041,
             "remaining": 0,
             "status": "ok",
+            "survivors_missing": 0,
             "visible_before": true
           },
           "get_by_ref": {
-            "lag_ms": 0.314417,
+            "lag_ms": 0.109291,
             "remaining": 0,
             "status": "ok",
+            "survivors_missing": 0,
             "visible_before": true
           },
           "list_prefix": {
-            "lag_ms": 0.460833,
+            "lag_ms": 0.158,
             "remaining": 0,
             "status": "ok",
+            "survivors_missing": 0,
             "visible_before": true
           },
           "read_recent": {
-            "lag_ms": 0.791458,
+            "lag_ms": 0.246458,
             "remaining": 0,
             "status": "ok",
+            "survivors_missing": 0,
             "visible_before": true
           },
           "search": {
-            "lag_ms": 1.296833,
+            "lag_ms": 0.399583,
             "remaining": 0,
             "status": "ok",
+            "survivors_missing": 0,
             "visible_before": true
           }
         },
         "status": "ok",
+        "survivors_missing": 0,
         "timeout_s": 0.1
       },
       "info": {
@@ -4791,7 +4893,7 @@
           "write"
         ],
         "notes": "secure_delete=ON. FTS5 secure-delete, VACUUM, and WAL truncation.",
-        "open_ms": 2.045667,
+        "open_ms": 1.749125,
         "protocol": 1,
         "runtime_versions": {},
         "servers": [],
@@ -4813,37 +4915,43 @@
       "forget": {
         "paths": {
           "get": {
-            "lag_ms": 0.111792,
+            "lag_ms": 0.061042,
             "remaining": 0,
             "status": "ok",
+            "survivors_missing": 0,
             "visible_before": true
           },
           "get_by_ref": {
-            "lag_ms": 0.205417,
+            "lag_ms": 0.119959,
             "remaining": 0,
             "status": "ok",
+            "survivors_missing": 0,
             "visible_before": true
           },
           "list_prefix": {
-            "lag_ms": 0.287083,
+            "lag_ms": 0.173084,
             "remaining": 0,
             "status": "ok",
+            "survivors_missing": 0,
             "visible_before": true
           },
           "read_recent": {
-            "lag_ms": 0.434667,
+            "lag_ms": 0.257917,
             "remaining": 0,
             "status": "ok",
+            "survivors_missing": 0,
             "visible_before": true
           },
           "search": {
-            "lag_ms": 0.687125,
+            "lag_ms": 0.399209,
             "remaining": 0,
             "status": "ok",
+            "survivors_missing": 0,
             "visible_before": true
           }
         },
         "status": "ok",
+        "survivors_missing": 0,
         "timeout_s": 0.1
       },
       "info": {
@@ -4859,7 +4967,7 @@
           "write"
         ],
         "notes": "secure_delete=ON. FTS5 secure-delete, VACUUM, and WAL truncation.",
-        "open_ms": 2.213791,
+        "open_ms": 1.460583,
         "protocol": 1,
         "runtime_versions": {},
         "servers": [],
@@ -4881,37 +4989,43 @@
       "forget": {
         "paths": {
           "get": {
-            "lag_ms": 0.111209,
+            "lag_ms": 0.26575,
             "remaining": 0,
             "status": "ok",
+            "survivors_missing": 0,
             "visible_before": true
           },
           "get_by_ref": {
-            "lag_ms": 0.216625,
+            "lag_ms": 0.45675,
             "remaining": 0,
             "status": "ok",
+            "survivors_missing": 0,
             "visible_before": true
           },
           "list_prefix": {
-            "lag_ms": 0.31375,
+            "lag_ms": 0.662417,
             "remaining": 0,
             "status": "ok",
+            "survivors_missing": 0,
             "visible_before": true
           },
           "read_recent": {
-            "lag_ms": 0.47075,
+            "lag_ms": 0.928167,
             "remaining": 0,
             "status": "ok",
+            "survivors_missing": 0,
             "visible_before": true
           },
           "search": {
-            "lag_ms": 0.753375,
+            "lag_ms": 1.704708,
             "remaining": 0,
             "status": "ok",
+            "survivors_missing": 0,
             "visible_before": true
           }
         },
         "status": "ok",
+        "survivors_missing": 0,
         "timeout_s": 0.1
       },
       "info": {
@@ -4927,7 +5041,7 @@
           "write"
         ],
         "notes": "secure_delete=ON. FTS5 secure-delete, VACUUM, and WAL truncation.",
-        "open_ms": 2.175583,
+        "open_ms": 8.115959,
         "protocol": 1,
         "runtime_versions": {},
         "servers": [],
@@ -4949,37 +5063,43 @@
       "forget": {
         "paths": {
           "get": {
-            "lag_ms": 0.096958,
+            "lag_ms": 0.112208,
             "remaining": 0,
             "status": "ok",
+            "survivors_missing": 0,
             "visible_before": true
           },
           "get_by_ref": {
-            "lag_ms": 0.170333,
+            "lag_ms": 0.209,
             "remaining": 0,
             "status": "ok",
+            "survivors_missing": 0,
             "visible_before": true
           },
           "list_prefix": {
-            "lag_ms": 0.238042,
+            "lag_ms": 0.277666,
             "remaining": 0,
             "status": "ok",
+            "survivors_missing": 0,
             "visible_before": true
           },
           "read_recent": {
-            "lag_ms": 0.354583,
+            "lag_ms": 0.378416,
             "remaining": 0,
             "status": "ok",
+            "survivors_missing": 0,
             "visible_before": true
           },
           "search": {
-            "lag_ms": 0.563167,
+            "lag_ms": 0.56625,
             "remaining": 0,
             "status": "ok",
+            "survivors_missing": 0,
             "visible_before": true
           }
         },
         "status": "ok",
+        "survivors_missing": 0,
         "timeout_s": 0.1
       },
       "info": {
@@ -4995,7 +5115,7 @@
           "write"
         ],
         "notes": "secure_delete=ON. FTS5 secure-delete, VACUUM, and WAL truncation.",
-        "open_ms": 1.877208,
+        "open_ms": 1.951542,
         "protocol": 1,
         "runtime_versions": {},
         "servers": [],
