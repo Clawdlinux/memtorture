@@ -47,13 +47,17 @@ def serve(adapter, source=None, output=None):
             # Adapter logs cannot corrupt protocol stdout.
             with contextlib.redirect_stdout(sys.stderr):
                 if op == "start":
-                    adapter.start(Path(args["workdir"]), args["config"])
+                    workdir = Path(args["workdir"])
+                    open_start_ns = time.monotonic_ns()
+                    adapter.start(workdir, args["config"])
+                    open_ms = (time.monotonic_ns() - open_start_ns) / 1e6
                     servers = getattr(adapter, "servers", None)
                     if servers is None:
                         pid = getattr(adapter, "server_pid", None)
                         servers = [{"role": "storage", "pid": pid}] if pid else []
                     result = {
                         "protocol": 1,
+                        "open_ms": open_ms,
                         "capabilities": sorted(adapter.capabilities()),
                         "servers": servers,
                         "version": getattr(adapter, "version", "unreported"),

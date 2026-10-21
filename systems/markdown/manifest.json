@@ -1,1 +1,13 @@
-{"command": ["{python}", "-m", "memtorture.worker", "markdown"]}
+{
+  "command": [
+    "{python}",
+    "-m",
+    "memtorture.worker",
+    "markdown"
+  ],
+  "forget_promise": {
+    "kind": "delete",
+    "url": "https://github.com/Clawdlinux/memtorture/blob/main/docs/METHODOLOGY.md#adapter-delete-promises",
+    "quote": "Markdown removes the scoped record through a file rewrite. It promises absence from reads, not secure disk erasure."
+  }
+}

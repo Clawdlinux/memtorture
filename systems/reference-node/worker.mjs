@@ -65,10 +65,12 @@ function dispatch(op, args) {
   if (op === "start") {
     check(typeof args.workdir === "string" && typeof args.config === "string",
       "start needs workdir and config");
+    const openStart = process.hrtime.bigint();
     rows = new Map();
     directory = args.workdir;
+    const open_ms = Number(process.hrtime.bigint() - openStart) / 1e6;
     return {
-      protocol: 1, capabilities, version: "node-reference-v1",
+      protocol: 1, capabilities, version: "node-reference-v1", open_ms,
       notes: "In-memory reference. No persistence.", servers: [],
     };
   }

@@ -1,12 +1,15 @@
 import json
+import shutil
 import subprocess
 import sys
 from argparse import Namespace
+from pathlib import Path
 
 import pytest
 
 from memtorture.cli import main
-from memtorture.results import ResultWriter
+from memtorture.controls import gate
+from memtorture.results import LOCAL_BANNER, ResultWriter
 from memtorture.runner import ROWS, run
 from memtorture.suites import SUITES
 
@@ -25,7 +28,13 @@ def test_help(args):
     if not args:
         assert all(
             command in result.stdout
-            for command in ("controls", "conformance", "run", "report")
+            for command in (
+                "controls",
+                "conformance",
+                "run",
+                "report",
+                "export-system",
+            )
         )
 
 
@@ -54,15 +63,14 @@ def test_invalid_row():
         (False, True, True),
     ],
 )
-def test_report_evidence(
-    tmp_path,
-    authorized_controls,
-    provenance,
-    control_evidence,
-    source_dirty,
-    expected_dirty,
+def test_manifest_provenance(
+    workspace, provenance, control_evidence, source_dirty, expected_dirty
 ):
-    directory = tmp_path / "output"
+    directory = (
+        Path("results/controls") / gate.platform_key() / "full"
+        if control_evidence
+        else Path("results/runs/provenance")
+    )
     git = provenance(directory, source_dirty)
     with ResultWriter(
         directory,
@@ -75,25 +83,233 @@ def test_report_evidence(
         )
         writer.cell({"suite": "x", "system": "z", "config": "default"})
         writer.cell({"suite": "x", "system": "a", "config": "default"})
-    before = (directory / "operations.jsonl").read_bytes()
-    assert main(["report", "--input", str(directory)]) == 0
-    assert (directory / "operations.jsonl").read_bytes() == before
+    assert {path.name for path in directory.iterdir()} == {
+        "cells.json",
+        "manifest.json",
+        "operations.jsonl",
+    }
     manifest = json.loads((directory / "manifest.json").read_text())
     assert manifest["harness_commit"] == "a" * 40
     assert manifest["harness_dirty"] is expected_dirty
     assert manifest["hardware"]["machine"]
+    assert manifest["platform"] == gate.platform_key()
     assert manifest["command"] == ["memtorture", "test"]
-    table = (directory / "x.md").read_text()
-    assert table.index("| a |") < table.index("| z |")
-    assert json.loads(before)["latency_ms"] == 1
+    assert [row["system"] for row in manifest["systems"]] == ["a", "z"]
+    assert json.loads((directory / "operations.jsonl").read_text())["latency_ms"] == 1
     assert git.status_commands == [
         ["git", "status", "--porcelain"]
         + (["--", ":/", ":(top,exclude)results/controls"] if control_evidence else [])
     ]
 
 
-def test_run_matrix(authorized_controls, monkeypatch, tmp_path):
+def test_local_report_and_export(workspace, authorized_controls, provenance, capsys):
+    run_dir = Path("results/runs/20261020T000000Z-local")
+    provenance(run_dir, False)
+    with ResultWriter(run_dir, command=["memtorture", "test"]) as writer:
+        for system, latency in (("sqlite", 111111), ("markdown", 987654)):
+            writer.operation(
+                {"operation": "write", "suite": "x", "system": system, "ms": latency}
+            )
+            writer.cell(
+                {"suite": "x", "system": system, "config": "default", "ms": latency}
+            )
+        writer.operation(
+            {"operation": "cell-blocked", "suite": "y", "system": "markdown"}
+        )
+    files = {path.name: path.read_bytes() for path in run_dir.iterdir()}
+    assert set(files) == {"cells.json", "manifest.json", "operations.jsonl"}
+
+    assert main(["report", "--input", str(run_dir)]) == 1
+    assert "report --local" in capsys.readouterr().out
+    assert main(["report", "--local"]) == 0
+    output = capsys.readouterr().out
+    assert output.startswith(LOCAL_BANNER + "\n")
+    assert output.rstrip().endswith(LOCAL_BANNER)
+    assert output.index("| markdown |") < output.index("| sqlite |")
+    assert "987654" in output and "111111" in output
+    assert {path.name: path.read_bytes() for path in run_dir.iterdir()} == files
+    assert not list(workspace.rglob("*.md"))
+    assert main(["report", "--local", "--input", str(workspace)]) == 1
+    assert "results/runs" in capsys.readouterr().out
+
+    assert main(["export-system", "--system", "sqlite"]) == 0
+    export = Path("results/runs/exports") / f"{run_dir.name}-sqlite"
+    assert str(export) in capsys.readouterr().out
+    manifest = json.loads((export / "manifest.json").read_text())
+    assert manifest["harness_commit"] == "a" * 40
+    assert manifest["harness_dirty"] is True
+    assert manifest["platform"] == gate.platform_key()
+    assert manifest["exported_from"] == run_dir.name
+    assert manifest["systems"] == [{"system": "sqlite", "config": "default"}]
+    cells = json.loads((export / "cells.json").read_text())
+    assert cells == [
+        {"suite": "x", "system": "sqlite", "config": "default", "ms": 111111}
+    ]
+    operations = (export / "operations.jsonl").read_text().splitlines()
+    assert [json.loads(line)["system"] for line in operations] == ["sqlite"]
+    exported = "".join(path.read_text() for path in export.iterdir())
+    assert "markdown" not in exported and "987654" not in exported
+    assert [path.name for path in export.parent.iterdir()] == [export.name]
+
+    assert main(["export-system", "--system", "sqlite"]) == 1
+    assert main(["export-system", "--system", "qdrant"]) == 1
+    assert "qdrant" in capsys.readouterr().out
+    for outside in (workspace / "issue", Path("results/runs/zz-issue")):
+        assert main(["export-system", "--system", "sqlite", "--out", str(outside)]) == 1
+        assert "results/runs/exports/" in capsys.readouterr().out
+        assert not outside.exists()
+    assert main(["report", "--local"]) == 0
+    output = capsys.readouterr().out
+    assert "987654" in output and "| sqlite |" in output
+
+
+@pytest.mark.parametrize(
+    "case,path,control_evidence,allowed,link",
+    [
+        ("run", "results/runs/a", False, True, None),
+        ("nested run", "results/runs/exports/a", False, True, None),
+        ("runs root", "results/runs", False, False, None),
+        ("dotdot escape", "results/runs/../runs-evil/a", False, False, None),
+        ("outside", "out", False, False, None),
+        ("run in controls", "results/controls/{platform}/a", False, False, None),
+        ("symlink escape", "results/runs/link/a", False, False, None),
+        ("dotdot through symlink", "results/runs/link/../a", False, False, None),
+        ("controls", "results/controls/{platform}/full", True, True, None),
+        ("controls root", "results/controls/{platform}", True, False, None),
+        ("other platform", "results/controls/other-os-arch/full", True, False, None),
+        ("controls in runs", "results/runs/a", True, False, None),
+        (
+            "runs root linked into controls",
+            "results/runs/a",
+            False,
+            False,
+            ("results/runs", "results/controls/{platform}"),
+        ),
+        (
+            "exports linked into controls",
+            "results/runs/exports/a",
+            False,
+            False,
+            ("results/runs/exports", "results/controls/{platform}"),
+        ),
+        (
+            "linked work dir",
+            "results/runs/probe",
+            False,
+            False,
+            ("results/runs/probe/.work", "elsewhere"),
+        ),
+        (
+            "linked result file",
+            "results/runs/a",
+            False,
+            False,
+            ("results/runs/a/operations.jsonl", "elsewhere/operations.jsonl"),
+        ),
+        (
+            "result file hard linked to evidence",
+            "results/runs/a",
+            False,
+            False,
+            (
+                "results/runs/a/operations.jsonl",
+                "results/controls/{platform}/gate.json",
+                "hard",
+            ),
+        ),
+        (
+            "leftover storage file linked into controls",
+            "results/runs/probe",
+            False,
+            False,
+            (
+                "results/runs/probe/.work/forget/sqlite/synchronous-NORMAL"
+                "/memory.sqlite",
+                "results/controls/{platform}/memory.sqlite",
+            ),
+        ),
+    ],
+)
+def test_output_policy(
+    workspace,
+    provenance,
+    authorized_controls,
+    case,
+    path,
+    control_evidence,
+    allowed,
+    link,
+):
+    elsewhere = workspace / "elsewhere"
+    elsewhere.mkdir()
+    controls = workspace / "results/controls" / gate.platform_key()
+    controls.mkdir(parents=True)
+    seed = workspace / "results/runs/seed"
+    seed.mkdir(parents=True)
+    (seed / "manifest.json").write_text("{}")
+    (seed / "cells.json").write_text('[{"suite": "x", "system": "sqlite"}]')
+    (seed / "operations.jsonl").write_text("")
+    (workspace / "results/runs/link").symlink_to(elsewhere)
+    evidence = []
+    if link:
+        source, target = (
+            workspace / p.format(platform=gate.platform_key()) for p in link[:2]
+        )
+        if source.is_dir():
+            shutil.rmtree(source)
+        source.parent.mkdir(parents=True, exist_ok=True)
+        if link[2:] == ("hard",):
+            target.write_text("tracked evidence\n")
+            source.hardlink_to(target)
+            evidence = [target]
+        else:
+            source.symlink_to(target)
+    path = Path(path.format(platform=gate.platform_key()))
+    provenance(path / "never", False)
+    writer = lambda: ResultWriter(  # noqa: E731
+        path, command=["memtorture", "test"], control_evidence=control_evidence
+    )
+    if allowed:
+        with writer():
+            pass
+        assert (path / "manifest.json").is_file(), case
+        return
+    with pytest.raises(ValueError, match="Output must|new --output") as exc:
+        writer()
+    expected = "results/controls/" if control_evidence else "results/runs/"
+    assert expected in str(exc.value), case
+    assert not (path / "manifest.json").exists(), case
+    assert not list(elsewhere.iterdir()), case
+    assert list(controls.iterdir()) == evidence, case
+    if not control_evidence:
+        with pytest.raises(SystemExit) as stopped:
+            main(
+                [
+                    "run",
+                    "--suite",
+                    "forget",
+                    "--system",
+                    "sqlite",
+                    "--config",
+                    "synchronous=NORMAL",
+                    "--output",
+                    str(path),
+                ]
+            )
+        assert stopped.value.code == 1, case
+        export = ["export-system", "--system", "sqlite", "--out", str(path)]
+        assert main(export) == 1, case
+        assert not list(elsewhere.iterdir()), case
+        assert list(controls.iterdir()) == evidence, case
+        assert all(p.read_text() == "tracked evidence\n" for p in evidence), case
+
+
+def test_run_matrix(authorized_controls, monkeypatch, tmp_path, workspace):
     calls = []
+    evidence = {"current-platform": True}
+    current = tmp_path / "controls" / gate.platform_key()
+    current.mkdir(parents=True)
+    (current / "gate.json").write_text(json.dumps(evidence))
 
     def cell(suite, system, config, path, **kwargs):
         calls.append((suite, system, config))
@@ -102,11 +318,12 @@ def test_run_matrix(authorized_controls, monkeypatch, tmp_path):
     monkeypatch.setattr("memtorture.runner.run_cell", cell)
     args = Namespace(
         all=True,
-        output=tmp_path / "run",
+        output=Path("results/runs/matrix"),
         extended=False,
         invocation=["memtorture", "run", "--all"],
     )
     assert run(args) == 0
+    assert not list(args.output.glob("*.md"))
     expected = {
         (suite, system, config)
         for suite in SUITES
@@ -116,6 +333,8 @@ def test_run_matrix(authorized_controls, monkeypatch, tmp_path):
     assert len(calls) == len(set(calls)) == len(expected)
     assert set(calls) == expected
     assert len(json.loads((args.output / "cells.json").read_text())) == len(expected)
+    manifest = json.loads((args.output / "manifest.json").read_text())
+    assert manifest["controls"] == evidence
 
 
 def test_conformance_failure(capsys, monkeypatch, tmp_path):

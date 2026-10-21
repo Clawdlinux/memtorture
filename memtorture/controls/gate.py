@@ -1,21 +1,36 @@
+import fcntl
 import hashlib
 import json
 import platform
 import shutil
-import uuid
 from pathlib import Path
 
-from memtorture.results import ResultWriter, hardware
+from memtorture.protocol import Worker
+from memtorture.results import ResultWriter, allowed_output, hardware, open_output
 from memtorture.suites import (
     HISTORY_CONTROLS,
     PATHS,
+    check_supersede_by_key,
     concurrent,
+    forget,
+    forget_residue,
     process_kill,
     recall_delay,
 )
 from memtorture.types import NotSupported
 
 DEFAULT_ROOT = Path("results/controls")
+UNGATED_SUITES = ("history-scale", "write-throughput", "recovery")
+
+
+def platform_key():
+    machine = platform.machine().lower()
+    arch = {"aarch64": "arm64", "amd64": "x86_64"}.get(machine, machine)
+    return f"{platform.system().lower()}-{arch}"
+
+
+def gate_path(root=DEFAULT_ROOT):
+    return Path(root) / platform_key() / "gate.json"
 
 
 def methodology_hash():
@@ -51,10 +66,11 @@ def control_gate(failures, passes, trials):
 
 
 def require_controls(suite, root=DEFAULT_ROOT):
-    if suite == "history-scale":
+    if suite in UNGATED_SUITES:
         return
+    path = gate_path(root)
     try:
-        summary = json.loads((Path(root) / "gate.json").read_text())
+        summary = json.loads(path.read_text())
         valid = (
             summary["methodology_sha256"] == methodology_hash()
             and summary["quick"] is False
@@ -66,15 +82,37 @@ def require_controls(suite, root=DEFAULT_ROOT):
     except (OSError, ValueError, KeyError):
         valid = False
     if not valid:
-        raise NotSupported(f"{suite}: controls missing, stale, or not discriminating")
+        raise NotSupported(
+            f"{suite}: controls missing, stale, or not discriminating: {path}. "
+            "Run memtorture controls on this platform."
+        )
 
 
-def run_controls(*, quick=False, root=DEFAULT_ROOT):
-    root = Path(root)
-    run_root = root / ("quick" if quick else "full")
+def run_controls(*, quick=False):
+    run_root = gate_path().parent / ("quick" if quick else "full")
+    scratch = allowed_output(run_root / ".work", control_evidence=True)
+    allowed_output(run_root, control_evidence=True).mkdir(parents=True, exist_ok=True)
+    # Hold the lock through cleanup, the run and evidence writes.
+    lock = open_output(run_root / ".lock", control_evidence=True)
+    try:
+        fcntl.flock(lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
+    except BlockingIOError:
+        lock.close()
+        raise RuntimeError(
+            f"Another controls run is active for {run_root.parent.name}/"
+            f"{run_root.name}."
+        ) from None
+    try:
+        return _run_locked(run_root, scratch, quick)
+    finally:
+        lock.close()
+
+
+def _run_locked(run_root, scratch, quick):
     trials = 5 if quick else 20
-    work = run_root / ".work" / uuid.uuid4().hex
-    work.mkdir(parents=True)
+    if scratch.exists():
+        # A crashed run left scratch. allowed_output refused a symlink.
+        shutil.rmtree(scratch)
     summary = {
         "trials": trials,
         "quick": quick,
@@ -90,11 +128,16 @@ def run_controls(*, quick=False, root=DEFAULT_ROOT):
             command=["memtorture", "controls"] + (["--quick"] if quick else []),
             control_evidence=True,
         ) as writer:
+            work = writer.work
+            work.mkdir(exist_ok=False)
             for suite, fail_system, pass_system in (
                 ("recall-delay", "delayed-index", "sqlite-visible"),
                 ("process-kill", "buffered", "sqlite-off"),
                 ("concurrent-append", "md-rmw-sleep", "sqlite-busy"),
                 ("concurrent-kv", "md-rmw-sleep", "sqlite-busy"),
+                ("supersede-by-key", "append-oldest", "sqlite-upsert"),
+                ("forget", "sqlite-forget-fts", "sqlite-forget-both"),
+                ("forget-residue", "sqlite-residue-off", "sqlite-residue-secure"),
             ):
                 counts, details = {"must_fail": 0, "must_pass": 0}, []
                 for role, system in (
@@ -102,7 +145,10 @@ def run_controls(*, quick=False, root=DEFAULT_ROOT):
                     ("must_pass", pass_system),
                 ):
                     for trial in range(trials):
-                        path = work / suite / role / str(trial)
+                        path = allowed_output(
+                            work / suite / role / str(trial), control_evidence=True
+                        )
+                        path.mkdir(parents=True, exist_ok=False)
 
                         def emit(
                             data, suite=suite, system=system, role=role, trial=trial
@@ -131,7 +177,12 @@ def run_controls(*, quick=False, root=DEFAULT_ROOT):
                             metric = result["paths"][read_path]
                             observation = metric["observations"][0]
                             lag = observation.get("lag_ms")
-                            upper = 100 + 1 + metric["read_ms"]["p99"]
+                            read_bound = metric["read_ms"]["p99"]
+                            statistic = "p99"
+                            if read_bound is None:
+                                read_bound = metric["read_max_ms"]
+                                statistic = "max"
+                            upper = 100 + 1 + read_bound
                             matched = (
                                 lag is not None and 100 <= lag <= upper
                                 if role == "must_fail"
@@ -144,7 +195,9 @@ def run_controls(*, quick=False, root=DEFAULT_ROOT):
                                     "path": read_path,
                                     "lag_ms": lag,
                                     "upper_ms": upper,
-                                    "read_p99_ms": metric["read_ms"]["p99"],
+                                    "read_ms": metric["read_ms"],
+                                    "upper_read_ms": read_bound,
+                                    "upper_read_statistic": statistic,
                                     "matched": matched,
                                 }
                             )
@@ -158,6 +211,30 @@ def run_controls(*, quick=False, root=DEFAULT_ROOT):
                                 targets=("worker",),
                                 emit=emit,
                             )
+                            matched = result["status"] == (
+                                "violation" if role == "must_fail" else "ok"
+                            )
+                            details.append({"role": role, "trial": trial, **result})
+                        elif suite in {"forget", "forget-residue"}:
+                            body = forget if suite == "forget" else forget_residue
+                            result = body(
+                                system,
+                                "default",
+                                path,
+                                timeout_s=0.1,
+                                poll_ms=1,
+                                emit=emit,
+                            )
+                            matched = result["status"] == (
+                                "violation" if role == "must_fail" else "ok"
+                            )
+                            details.append({"role": role, "trial": trial, **result})
+                        elif suite == "supersede-by-key":
+                            with Worker(system, "default", path) as worker:
+                                result = check_supersede_by_key(
+                                    worker, timeout_s=0.1, poll_ms=1, emit=emit
+                                )
+                                result["info"] = worker.info
                             matched = result["status"] == (
                                 "violation" if role == "must_fail" else "ok"
                             )
@@ -196,11 +273,13 @@ def run_controls(*, quick=False, root=DEFAULT_ROOT):
                     "details": details,
                     "gated": True,
                 }
-            summary["suites"]["history-scale"] = dict(HISTORY_CONTROLS)
+            summary["suites"].update(
+                {suite: dict(HISTORY_CONTROLS) for suite in UNGATED_SUITES}
+            )
             writer.manifest["control_summary"] = "gate.json"
-        if not quick:
-            (root / "gate.json").write_text(json.dumps(summary, indent=2) + "\n")
-        (run_root / "gate.json").write_text(json.dumps(summary, indent=2) + "\n")
+        for path in ([gate_path()] if not quick else []) + [run_root / "gate.json"]:
+            with open_output(path, control_evidence=True) as output:
+                output.write(json.dumps(summary, indent=2) + "\n")
     finally:
-        shutil.rmtree(work)
+        shutil.rmtree(scratch, ignore_errors=True)
     return summary

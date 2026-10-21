@@ -7,6 +7,17 @@ Each system supplies `systems/<name>/manifest.json`:
 {"command":["{python}","-m","memtorture.worker","sqlite"]}
 ```
 
+A manifest may also carry `forget_promise` metadata:
+
+```json
+{"kind":"delete","url":"https://example.org/delete-doc","quote":"Deletes the record from reads."}
+```
+
+Store that object under the manifest's `forget_promise` key.
+`kind` is `delete` or `erase`. `url` cites the documentation. `quote` repeats the documented promise.
+This is harness metadata, not a worker operation or a required start-response field.
+See [METHODOLOGY.md](METHODOLOGY.md#adapter-delete-promises) for the shipped adapter promises.
+
 `command` is an argv array, never a shell command.
 `{python}` means the harness interpreter. Other arguments are passed unchanged.
 Commands run from the harness working directory.
@@ -16,6 +27,8 @@ Commands run from the harness working directory.
 
 Use UTF-8 JSON, 1 object per line, terminated by LF.
 Stdout carries protocol lines only. Send logs to stderr.
+The harness captures stderr in a sibling `logs/` directory, outside the system's data directory.
+Each worker gets a separate log. Diagnostics must not affect plaintext residue scans.
 The harness allows 1 outstanding request per worker.
 Request IDs are integers. Replies echo the request ID.
 Unknown fields are ignored at every nesting level.
@@ -134,10 +147,20 @@ An unclean shutdown also kills every reported server and waits for PID absence.
 Intentional worker-only faults can preserve servers.
 
 ```json
-{"id":1,"result":{"protocol":1,"capabilities":["write","get_by_ref"],"version":"1.0","notes":"","servers":[{"role":"storage","pid":123}]}}
+{"id":1,"result":{"protocol":1,"capabilities":["write","get_by_ref"],"version":"1.0","notes":"","open_ms":1.25,"servers":[{"role":"storage","pid":123}]}}
 ```
 
 `start` requires integer `protocol: 1`, `capabilities`, string `version`, string `notes`, and `servers`.
+`open_ms` is optional. When present, it is a finite nonnegative number of milliseconds, never null or a boolean.
+The worker measures only the system's open call with its monotonic clock, before building the start reply.
+The Python worker times `adapter.start`, including native setup and server readiness within that call.
+The Node reference times its in-memory store reset. It does not open persistent storage.
+Third-party workers may omit `open_ms`. The harness never infers it from process startup time.
+Open timing is self-reported, not independently verified. Recovery cells label it with `open_ms_source: "self-reported"`.
+They also report `unattributed_start_ms = spawn_to_start_ms - open_ms`, or null when open telemetry is absent.
+That gap can include startup, transport, or unreported storage work.
+If `open_ms > spawn_to_start_ms`, recovery flags `timing_anomaly: "open_ms exceeds spawn_to_start_ms"` and nulls its headline.
+The negative gap remains visible. The original start reply is still valid protocol data.
 Embedded stores report an empty server array.
 Server roles are unique nonempty strings. PIDs are unique positive host process IDs.
 The harness faults each role independently using `server:<role>`.

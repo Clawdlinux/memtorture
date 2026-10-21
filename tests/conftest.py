@@ -13,10 +13,29 @@ from tests.helpers import (
     GitProvenance,
     cleanup_worker,
     probe_command,
+    recovery_reply_command,
     stub_concurrent,
+    stub_control_worker,
+    stub_forget,
     stub_kill,
     stub_recall,
+    stub_supersede,
 )
+
+
+def pytest_addoption(parser):
+    parser.addoption(
+        "--slow", action="store_true", help="Run opt-in native suite scenarios."
+    )
+
+
+def pytest_collection_modifyitems(config, items):
+    if not config.getoption("--slow"):
+        for item in items:
+            if "slow" in item.keywords:
+                item.add_marker(
+                    pytest.mark.skip(reason="Use --slow for native suite scenarios")
+                )
 
 
 def pytest_configure(config):
@@ -34,7 +53,11 @@ def node():
 
 
 @pytest.fixture
-def available():
+def available(request):
+    opted_in = request.config.getoption("--slow") and request.node.get_closest_marker(
+        "slow"
+    )
+
     def check(name):
         if name == "mcp-memory":
             from memtorture.adapters.mcp_memory import BLOCK_REASON
@@ -43,7 +66,10 @@ def available():
         if name == "qdrant":
             artifact = ROOT / ".tools/qdrant" / VERSION / "qdrant"
             if not artifact.is_file():
-                pytest.skip(f"Pinned Qdrant artifact is missing: {artifact}")
+                missing = f"Pinned Qdrant artifact is missing: {artifact}"
+                if opted_in:
+                    pytest.fail(missing)
+                pytest.skip(missing)
 
     return check
 
@@ -88,6 +114,10 @@ def stub_controls(monkeypatch):
     monkeypatch.setattr(gate, "recall_delay", stub_recall)
     monkeypatch.setattr(gate, "process_kill", stub_kill)
     monkeypatch.setattr(gate, "concurrent", stub_concurrent)
+    monkeypatch.setattr(gate, "Worker", stub_control_worker)
+    monkeypatch.setattr(gate, "check_supersede_by_key", stub_supersede)
+    monkeypatch.setattr(gate, "forget", stub_forget)
+    monkeypatch.setattr(gate, "forget_residue", stub_forget)
 
 
 @pytest.fixture
@@ -106,6 +136,12 @@ def authorized_controls(monkeypatch, tmp_path):
 
 
 @pytest.fixture
+def workspace(monkeypatch, tmp_path):
+    monkeypatch.chdir(tmp_path)
+    return tmp_path
+
+
+@pytest.fixture
 def provenance(monkeypatch):
     def configure(directory, source_dirty):
         git = GitProvenance(directory, source_dirty)
@@ -115,3 +151,38 @@ def provenance(monkeypatch):
         return git
 
     return configure
+
+
+@pytest.fixture
+def encoded_worker(monkeypatch):
+    def start(system, config, workdir):
+        return Worker(
+            system, config, workdir, command=probe_command("EncodedMemory"), cwd=ROOT
+        )
+
+    monkeypatch.setattr("memtorture.suites.Worker", start)
+
+
+@pytest.fixture
+def erase_residue_worker(monkeypatch):
+    def start(system, config, workdir):
+        return Worker(
+            system, config, workdir, command=probe_command("ResidueMarkdown"), cwd=ROOT
+        )
+
+    monkeypatch.setattr("memtorture.suites.Worker", start)
+    monkeypatch.setattr(
+        "memtorture.suites.forget_promise",
+        lambda system: {"kind": "erase", "url": "https://example.test", "quote": "x"},
+    )
+
+
+@pytest.fixture
+def recovery_worker(monkeypatch):
+    def start(system, config, workdir):
+        command = (
+            None if config == "default" else recovery_reply_command(system, config)
+        )
+        return Worker(system, config, workdir, command=command, cwd=ROOT)
+
+    monkeypatch.setattr("memtorture.suites.Worker", start)

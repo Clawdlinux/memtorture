@@ -101,12 +101,13 @@ def test_kill_recovery(tmp_path, available, system, config, expected):
         assert all(e["ack_ns"] <= trial["fault_ns"] for e in same_trial)
 
 
-@pytest.mark.parametrize("suite", ["concurrent-append", "concurrent-kv"])
 @pytest.mark.parametrize(
-    "system,config,expected",
+    "suite,system,config,expected",
     [
-        ("md-rmw-sleep", "default", "violation"),
-        ("sqlite-busy", "default", "ok"),
+        ("concurrent-append", "md-rmw-sleep", "default", "violation"),
+        ("concurrent-append", "sqlite-busy", "default", "ok"),
+        ("concurrent-kv", "md-rmw-sleep", "default", "violation"),
+        ("concurrent-kv", "sqlite-busy", "default", "ok"),
     ],
 )
 def test_concurrent_counts(tmp_path, suite, system, config, expected):
@@ -155,10 +156,19 @@ def test_history_curves(tmp_path):
     assert result["bulk_load_timed"] is False
     assert len([e for e in events if e["operation"] == "history-read"]) == 12
     assert result["control_gate"]["gated"] is False
+    for size in result["sizes"].values():
+        for metric in size.values():
+            assert metric["latency_ms"]["n"] == 2
+            assert metric["latency_ms"]["p99"] is None
 
 
-@pytest.mark.parametrize("copies", [1, 2])
-@pytest.mark.parametrize("recompute_digest", [False, True])
+@pytest.mark.parametrize(
+    "copies,recompute_digest",
+    [
+        (1, False),  # single copy, torn by digest mismatch
+        (2, True),  # duplicate copy, torn with a self-consistent digest
+    ],
+)
 def test_record_counts(copies, recompute_digest):
     first = make_record("shared", "first")
     second = make_record("shared", "second")

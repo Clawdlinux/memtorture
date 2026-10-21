@@ -1,11 +1,16 @@
+import json
 import math
+import platform
 import random
+import secrets
+import subprocess
 import threading
 import time
 from collections import Counter
 from concurrent.futures import ThreadPoolExecutor
 from contextlib import ExitStack
 from dataclasses import asdict
+from pathlib import Path
 
 from memtorture.protocol import Worker
 from memtorture.types import NotSupported, Record, Scope
@@ -16,6 +21,11 @@ SUITES = (
     "process-kill",
     "concurrent-append",
     "concurrent-kv",
+    "write-throughput",
+    "supersede-by-key",
+    "forget",
+    "forget-residue",
+    "recovery",
 )
 HISTORY_CONTROLS = {
     "discriminates": None,
@@ -36,17 +46,63 @@ PROCESS_NOTE = (
 
 def percentiles(values):
     values = sorted(values)
-    if not values:
-        return {"p50": None, "p99": None}
+    count = len(values)
     return {
-        label: values[max(0, math.ceil(len(values) * q) - 1)]
-        for label, q in (("p50", 0.5), ("p99", 0.99))
+        "n": count,
+        "p50": values[math.ceil(count * 0.5) - 1] if count else None,
+        "p99": values[math.ceil(count * 0.99) - 1] if count >= 100 else None,
     }
 
 
 def event(emit, **data):
     if emit:
         emit({"monotonic_ns": time.monotonic_ns(), **data})
+
+
+def check_supersede_by_key(worker, *, versions=5, timeout_s=5, poll_ms=10, emit=None):
+    """Check the latest keyed value against interleaved decoy writes."""
+    if versions < 2:
+        raise ValueError("Supersession needs at least 2 versions")
+    missing = {"keyed", "upsert", "get"} - worker.capabilities
+    if missing:
+        raise NotSupported(f"Missing {', '.join(sorted(missing))}")
+    scope = Scope("benchmark", "supersede-by-key")
+    dropped, older = 0, []
+    for version in range(1, versions + 1):
+        record = Record.make(scope, "k", f"v{version}")
+        decoy = Record.make(scope, "decoy", f"decoy{version}")
+        for written in (record, decoy):
+            ack = worker.call("upsert", scope=scope, record=written)
+            ack_ns = time.monotonic_ns()
+            dropped += ack.dropped
+            event(emit, operation="upsert", record=asdict(written), dropped=ack.dropped)
+        older.append(record)
+    older.pop()
+    read = {"reads": 0}
+
+    def settled():
+        observed = worker.call("get", scope=scope, key=record.key)
+        read.update(observed=observed, reads=read["reads"] + 1, at=time.monotonic_ns())
+        # Only a missing or intact older value is delayed visibility worth retrying.
+        return bool(dropped) or not (observed is None or observed in older)
+
+    poll_until(settled, timeout_s=timeout_s, poll_ms=poll_ms)
+    observed = read["observed"]
+    ok = not dropped and observed == record and observed.valid()
+    result = {
+        "status": "ok" if ok else "violation",
+        "versions": versions,
+        "acked": 2 * versions - dropped,
+        "dropped": dropped,
+        "expected": asdict(record),
+        "observed": asdict(observed) if observed is not None else None,
+        "reads": read["reads"],
+        "visible_after_ms": (read["at"] - ack_ns) / 1e6 if ok else None,
+        "timeout_s": timeout_s,
+        "poll_ms": poll_ms,
+    }
+    event(emit, operation="supersede-check", **result)
+    return result
 
 
 def read_path(worker, path, record, limit=20):
@@ -181,6 +237,7 @@ def recall_delay(
                 "visibility_lag_ms": percentiles([o["lag_ms"] for o in visible]),
                 "time_to_visible_ms": percentiles([o["total_ms"] for o in visible]),
                 "read_ms": percentiles(read_latencies),
+                "read_max_ms": max(read_latencies, default=None),
                 "observations": observations,
             }
     return {
@@ -506,6 +563,528 @@ def history_scale(
     return {
         "status": "ok",
         "sizes": curves,
+        "info": info,
+        "bulk_load_timed": False,
+        "control_gate": dict(HISTORY_CONTROLS),
+    }
+
+
+def supersede_by_key(
+    system, config, workdir, *, versions=5, timeout_s=5, poll_ms=10, emit=None
+):
+    with Worker(system, config, workdir) as worker:
+        return {
+            **check_supersede_by_key(
+                worker,
+                versions=versions,
+                timeout_s=timeout_s,
+                poll_ms=poll_ms,
+                emit=emit,
+            ),
+            "info": worker.info,
+        }
+
+
+def poll_until(fn, *, timeout_s, poll_ms):
+    if timeout_s < 0 or poll_ms < 0:
+        raise ValueError("Polling durations must be nonnegative")
+    deadline = time.monotonic() + timeout_s
+    while True:
+        if fn():
+            return True
+        remaining = deadline - time.monotonic()
+        if remaining <= 0:
+            return False
+        time.sleep(min(poll_ms / 1000, remaining))
+
+
+def write_throughput(
+    system,
+    config,
+    workdir,
+    *,
+    writer_counts=(1, 8, 64),
+    writes=20,
+    seed=20261020,
+    timeout_s=5,
+    emit=None,
+):
+    if writes < 1 or not writer_counts or any(n < 1 for n in writer_counts):
+        raise ValueError("Positive writer counts and writes are required")
+    scope, trials = Scope("benchmark", "write-throughput"), []
+    for count in writer_counts:
+        with ExitStack() as stack:
+            workers = [
+                stack.enter_context(
+                    Worker(system, config, workdir / f"writers-{count}")
+                )
+                for _ in range(count)
+            ]
+            info = workers[0].info
+            if not {"write", "list_prefix"} <= workers[0].capabilities:
+                raise NotSupported("Throughput needs write and list_prefix readback")
+            generator = random.Random(seed)
+            batches = [
+                [
+                    Record.make(
+                        scope,
+                        f"writer{writer}-{i}",
+                        "x"
+                        * generator.choices((128, 1024, 8192), weights=(6, 3, 1), k=1)[
+                            0
+                        ],
+                    )
+                    for i in range(writes)
+                ]
+                for writer in range(count)
+            ]
+            released = []
+            barrier = threading.Barrier(
+                count,
+                action=lambda released=released: released.append(time.monotonic_ns()),
+            )
+
+            def write_batch(
+                index, workers=workers, batches=batches, barrier=barrier, count=count
+            ):
+                worker, observations = workers[index], []
+                barrier.wait(timeout=30)
+                for record in batches[index]:
+                    ack = worker.call("write", scope=scope, record=record)
+                    observations.append(
+                        {
+                            "operation": "write",
+                            "writer": index,
+                            "writers": count,
+                            "record_id": record.id,
+                            "text_bytes": len(record.text.encode()),
+                            "dropped": ack.dropped,
+                            "start_ns": worker.last_sent_ns,
+                            "ack_ns": worker.last_ack_ns,
+                        }
+                    )
+                return observations
+
+            with ThreadPoolExecutor(max_workers=count) as pool:
+                observations = [
+                    entry
+                    for batch in pool.map(write_batch, range(count))
+                    for entry in batch
+                ]
+            end_ns = max(entry["ack_ns"] for entry in observations)
+            expected = {
+                key: record
+                for worker in workers
+                for key, record in worker.acked.items()
+            }
+            counts = {}
+
+            def readback(worker=workers[0], count=count, expected=expected):
+                nonlocal counts
+                rows = worker.call(
+                    "list_prefix",
+                    scope=scope,
+                    prefix="writer",
+                    limit=count * writes + 1,
+                )
+                counts = inspect_records(expected, rows)
+                return not counts["acked_missing"]
+
+            poll_until(readback, timeout_s=timeout_s, poll_ms=10)
+            detail = {
+                "writers": count,
+                "attempted": count * writes,
+                "acked": len(expected),
+                "dropped": sum(entry["dropped"] for entry in observations),
+                "start_ns": released[0],
+                "end_ns": end_ns,
+                "window_ms": (end_ns - released[0]) / 1e6,
+                "ops_per_second": len(expected) * 1e9 / (end_ns - released[0]),
+                "write_latency_ms": percentiles(
+                    [
+                        (entry["ack_ns"] - entry["start_ns"]) / 1e6
+                        for entry in observations
+                    ]
+                ),
+                **counts,
+            }
+            trials.append(detail)
+            for index, worker in enumerate(workers):
+                event(
+                    emit,
+                    operation="worker-start",
+                    writer=index,
+                    writers=count,
+                    spawn_ns=worker.spawn_ns,
+                    start_reply_ns=worker.start_reply_ns,
+                )
+            for entry in observations:
+                event(emit, **entry)
+            event(emit, operation="throughput-check", **detail)
+    return {
+        "status": "ok",
+        "trials": trials,
+        "acked_missing": sum(trial["acked_missing"] for trial in trials),
+        "seed": seed,
+        "info": info,
+        "readback_timeout_s": timeout_s,
+        "control_gate": dict(HISTORY_CONTROLS),
+    }
+
+
+FORGET_PATHS = ("get", "get_by_ref", "list_prefix", "read_recent", "search")
+
+
+def forget_promise(system):
+    root = Path(__file__).resolve().parents[1]
+    manifest = json.loads((root / "systems" / system / "manifest.json").read_text())
+    promise = manifest.get("forget_promise", {})
+    if promise.get("kind") not in {"delete", "erase"} or not all(
+        isinstance(promise.get(field), str) and promise[field]
+        for field in ("url", "quote")
+    ):
+        raise NotSupported("No documented forget promise in the system manifest")
+    return promise
+
+
+def forget_read(worker, path, record, ref):
+    if path in {"get", "get_by_ref"}:
+        lookup = {"key": record.key} if path == "get" else {"ref": ref}
+        row = worker.call(path, scope=record.scope, **lookup)
+        return [row] if row else []
+    return read_path(
+        worker, next(name for name, op in PATHS.items() if op == path), record
+    )
+
+
+def seed_forget(worker, text):
+    if not {"write", "delete"} <= worker.capabilities:
+        raise NotSupported("Forget needs write and delete")
+    scope = Scope("benchmark", "forget")
+    records = [
+        Record.make(scope, f"decoy-{index}", f"survivor {index}") for index in range(3)
+    ]
+    records.append(Record.make(scope, "target", text))
+    seeded = []
+    for record in records:
+        ack = worker.call("write", scope=scope, record=record)
+        if ack.dropped:
+            raise RuntimeError("Forget setup write dropped")
+        if ack.ref is None:
+            raise NotSupported("Write returned no native ref for delete")
+        seeded.append((record, ack.ref))
+    (target, ref), survivors = seeded[-1], seeded[:-1]
+    return target, ref, survivors
+
+
+def check_forget(worker, target, ref, survivors, *, timeout_s=5, poll_ms=10, emit=None):
+    paths = {}
+    for path in FORGET_PATHS:
+        if path not in worker.capabilities:
+            paths[path] = {"status": "N/A", "reason": f"Missing {path}"}
+            continue
+
+        def visible(path=path):
+            return any(
+                row == target and row.valid()
+                for row in forget_read(worker, path, target, ref)
+            )
+
+        try:
+            if poll_until(visible, timeout_s=timeout_s, poll_ms=poll_ms):
+                paths[path] = {"visible_before": True}
+            else:
+                paths[path] = {
+                    "status": "not measurable",
+                    "visible_before": False,
+                    "reason": "Target was not visible before delete",
+                }
+        except NotSupported as exc:
+            paths[path] = {"status": "N/A", "reason": str(exc)}
+    worker.call("delete", scope=target.scope, ref=ref)
+    ack_ns = time.monotonic_ns()
+    pending = {path for path, detail in paths.items() if detail.get("visible_before")}
+
+    def absent():
+        for path in FORGET_PATHS:
+            if path not in pending:
+                continue
+            rows = forget_read(worker, path, target, ref)
+            now = time.monotonic_ns()
+            remaining = sum(
+                row.id == target.id or row.key == target.key for row in rows
+            )
+            paths[path].update(remaining=remaining)
+            if not remaining:
+                paths[path].update(status="ok", lag_ms=(now - ack_ns) / 1e6)
+                pending.remove(path)
+        return not pending
+
+    poll_until(absent, timeout_s=timeout_s, poll_ms=poll_ms)
+    for path in pending:
+        paths[path].update(status="violation", lag_ms=None)
+    measured = [path for path, detail in paths.items() if detail.get("visible_before")]
+    lost = set()
+
+    def survivors_intact():
+        lost.clear()
+        for path in measured:
+            missing = [
+                record.id
+                for record, survivor_ref in survivors
+                if not any(
+                    row == record and row.valid()
+                    for row in forget_read(worker, path, record, survivor_ref)
+                )
+            ]
+            paths[path].update(survivors_missing=len(missing))
+            lost.update(missing)
+        return not lost
+
+    poll_until(survivors_intact, timeout_s=timeout_s, poll_ms=poll_ms)
+    for path, detail in paths.items():
+        event(emit, operation="forget-check", path=path, **detail)
+    statuses = [detail["status"] for detail in paths.values()]
+    status = "ok"
+    if "violation" in statuses or lost:
+        status = "violation"
+    elif "not measurable" in statuses:
+        status = "not measurable"
+    elif all(value == "N/A" for value in statuses):
+        status = "N/A"
+    return {
+        "status": status,
+        "paths": paths,
+        "survivors_missing": len(lost),
+        "timeout_s": timeout_s,
+    }
+
+
+def scan_plaintext(directories, token):
+    needle, seen, occurrences = token.encode(), set(), 0
+    for directory in directories:
+        root = Path(directory)
+        if not root.exists():
+            raise RuntimeError("Reported data directory does not exist")
+        for path in [root] if root.is_file() else root.rglob("*"):
+            if not path.is_file() or path.resolve() in seen:
+                continue
+            seen.add(path.resolve())
+            with path.open("rb") as source:
+                tail = b""
+                while chunk := source.read(1024 * 1024):
+                    data = tail + chunk
+                    occurrences += data.count(needle)
+                    tail = data[-(len(needle) - 1) :]
+    return occurrences
+
+
+def forget(system, config, workdir, *, timeout_s=5, poll_ms=10, emit=None):
+    promise, token = forget_promise(system), secrets.token_hex(16)
+    with Worker(system, config, workdir) as worker:
+        info = worker.info
+        target, ref, survivors = seed_forget(worker, f"forget marker {token}")
+        directories = worker.call("data_dirs") if promise["kind"] == "erase" else []
+        before = scan_plaintext(directories, token) if directories else 0
+        result = check_forget(
+            worker,
+            target,
+            ref,
+            survivors,
+            timeout_s=timeout_s,
+            poll_ms=poll_ms,
+            emit=emit,
+        )
+    if promise["kind"] == "erase":
+        after = scan_plaintext(directories, token)
+        result.update(
+            occurrences_before=before,
+            occurrences_after=after,
+            read_status=result["status"],
+        )
+        # Plaintext seen before delete and still on disk after stop breaks erase,
+        # whatever the read paths could measure.
+        if before and after:
+            result["status"] = "violation"
+        elif result["status"] == "ok" and not before:
+            result["status"] = "not measurable"
+    return {**result, "forget_promise": promise, "info": info}
+
+
+def forget_residue(system, config, workdir, *, timeout_s=5, poll_ms=10, emit=None):
+    token = secrets.token_hex(16)
+    with Worker(system, config, workdir) as worker:
+        info = worker.info
+        target, ref, survivors = seed_forget(worker, f"plaintext marker {token}")
+        directories = worker.call("data_dirs")
+        before = scan_plaintext(directories, token)
+        if not before:
+            result = {
+                "status": "not measurable",
+                "occurrences_before": 0,
+                "reason": (
+                    "Plaintext was not visible before delete; "
+                    "compressed or encoded storage"
+                ),
+            }
+        else:
+            deletion = check_forget(
+                worker,
+                target,
+                ref,
+                survivors,
+                timeout_s=timeout_s,
+                poll_ms=poll_ms,
+                emit=emit,
+            )
+            result = {"occurrences_before": before, "forget": deletion}
+    if before:
+        after = scan_plaintext(directories, token)
+        result.update(
+            status="violation"
+            if after or deletion["status"] == "violation"
+            else deletion["status"],
+            occurrences_after=after,
+            bytes_found=after * len(token),
+            scan_after_stop=True,
+        )
+    event(emit, operation="residue-check", **result)
+    return {**result, "info": info}
+
+
+def rss_bytes(pid):
+    if platform.system() == "Linux":
+        for line in Path(f"/proc/{pid}/status").read_text().splitlines():
+            if line.startswith("VmRSS:"):
+                return int(line.split()[1]) * 1024
+        raise RuntimeError("Process has no VmRSS")
+    if platform.system() == "Darwin":
+        try:
+            output = subprocess.check_output(
+                ["ps", "-o", "rss=", "-p", str(pid)], text=True
+            )
+        except subprocess.CalledProcessError as exc:
+            raise RuntimeError(f"RSS unavailable for process {pid}") from exc
+        return int(output.strip()) * 1024
+    raise NotSupported("RSS measurement requires Linux or macOS")
+
+
+def recovery_record(scope, index):
+    return Record.make(
+        scope, f"key{index:08d}", f"memory needle{index:08d}", id=f"recovery-{index}"
+    )
+
+
+def recovery(system, config, workdir, *, sizes=(100000,), samples=100, emit=None):
+    if samples < 1 or not sizes or any(size < 1 for size in sizes):
+        raise ValueError("Positive sizes and samples are required")
+    scope, curves = Scope("benchmark", "recovery"), {}
+    for size in sizes:
+        path = workdir / f"records-{size}"
+        with Worker(system, config, path) as loader:
+            if "get" not in loader.capabilities:
+                raise NotSupported("Recovery needs get for known-record readiness")
+            for lower in range(0, size, 1000):
+                loader.call(
+                    "bulk_load",
+                    scope=scope,
+                    records=[
+                        recovery_record(scope, i)
+                        for i in range(lower, min(lower + 1000, size))
+                    ],
+                )
+        known = recovery_record(scope, size // 2)
+        with Worker(system, config, path) as worker:
+            info = worker.info
+
+            def ready(worker=worker, known=known):
+                return worker.call("get", scope=scope, key=known.key) == known
+
+            if not poll_until(ready, timeout_s=60, poll_ms=10):
+                raise RuntimeError("Known record unavailable after restart")
+            ready_ns = time.monotonic_ns()
+            start_to_read_ms = (ready_ns - worker.start_reply_ns) / 1e6
+            open_ms = info.get("open_ms")
+            spawn_to_start_ms = (worker.start_reply_ns - worker.spawn_ns) / 1e6
+            unattributed_start_ms = (
+                spawn_to_start_ms - open_ms if open_ms is not None else None
+            )
+            timing_anomaly = (
+                "open_ms exceeds spawn_to_start_ms"
+                if open_ms is not None and open_ms > spawn_to_start_ms
+                else None
+            )
+            pids = worker.servers or {"worker": worker.process.pid}
+            memory = {role: rss_bytes(pid) for role, pid in pids.items()}
+            indices = sorted(
+                {
+                    i * (size - 1) // max(1, min(size, samples) - 1)
+                    for i in range(min(size, samples))
+                }
+            )
+            missing = 0
+            for index in indices:
+                expected = recovery_record(scope, index)
+                observed = worker.call("get", scope=scope, key=expected.key)
+                missing += observed != expected or not observed.valid()
+            verification = {
+                "samples_checked": len(indices),
+                "samples_missing": missing,
+                "count": None,
+                "count_matches": None,
+                "count_source": "N/A",
+                "enumeration_pages": 0,
+            }
+            if "list_prefix" in worker.capabilities:
+                count, seen, intact = 0, set(), True
+                for page in range((size + 9999) // 10000):
+                    prefix = f"key{page:04d}"
+                    rows = worker.call(
+                        "list_prefix", scope=scope, prefix=prefix, limit=10001
+                    )
+                    count += len(rows)
+                    seen.update(row.id for row in rows)
+                    intact = intact and all(
+                        row.valid() and row.key.startswith(prefix) for row in rows
+                    )
+                    verification["enumeration_pages"] += 1
+                verification.update(
+                    count=count,
+                    count_source="list_prefix sub-prefix enumeration",
+                    count_matches=count == size and len(seen) == size and intact,
+                )
+            curves[str(size)] = {
+                "time_to_ready_ms": (ready_ns - worker.spawn_ns) / 1e6,
+                "spawn_to_start_ms": spawn_to_start_ms,
+                "open_ms": open_ms,
+                "start_to_first_read_ms": start_to_read_ms,
+                "unattributed_start_ms": unattributed_start_ms,
+                "recovery_ms": open_ms + start_to_read_ms
+                if open_ms is not None and timing_anomaly is None
+                else None,
+                "timing_anomaly": timing_anomaly,
+                "rss_bytes": memory,
+                "verification": verification,
+            }
+            event(emit, operation="recovery-check", size=size, **curves[str(size)])
+    return {
+        "status": "violation"
+        if any(
+            curve["verification"]["samples_missing"]
+            or curve["verification"]["count_matches"] is False
+            for curve in curves.values()
+        )
+        else "ok",
+        "sizes": curves,
+        "open_ms_source": "self-reported",
+        "timing_anomaly": next(
+            (
+                curve["timing_anomaly"]
+                for curve in curves.values()
+                if curve["timing_anomaly"]
+            ),
+            None,
+        ),
         "info": info,
         "bulk_load_timed": False,
         "control_gate": dict(HISTORY_CONTROLS),

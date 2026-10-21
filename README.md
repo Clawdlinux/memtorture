@@ -5,6 +5,7 @@ Sponsored and built by the Clawdlinux team, makers of zerodb, an agent memory en
 Torture tests for agent memory engines. Evidence, not marketing.
 
 B1 measures recall delay, history growth, process recovery, concurrent append, and concurrent keyed writes.
+B2 adds write throughput, keyed supersession, delete visibility, plaintext residue, and clean-open recovery.
 Process kills test user-space buffering and recovery, not disk durability.
 
 ## Run
@@ -15,7 +16,7 @@ Python 3.12 and [uv](https://docs.astral.sh/uv/) are required.
 uv sync --locked
 uv run memtorture controls
 uv run memtorture run --suite process-kill --system sqlite --config synchronous=FULL
-uv run memtorture report
+uv run memtorture report --local
 ```
 
 Run full controls before a local benchmark:
@@ -27,9 +28,10 @@ uv run memtorture run --all
 
 The quick check uses 5 trials and never authorizes benchmark cells.
 The full gate uses 20.
+Evidence lives under `results/controls/<os>-<arch>/`, with a separate gate for each platform.
 Gated cells refuse to run if full controls are missing, stale, or not discriminating.
-History scale is an ungated measurement suite.
-The approved spec defines no control for it.
+History scale, write throughput, and clean-open recovery are ungated measurement suites.
+The approved spec defines no fault controls for them.
 Unsupported adapters show N/A with a reason.
 Local results are not cleared for comparative publication.
 
@@ -77,12 +79,19 @@ uv run memtorture run --suite history-scale --system markdown --config append
 
 `wait=true` controls visibility, not fsync.
 History grows to 100K records by default.
-`--extended` adds 1M.
+`--extended` adds 1M for history and recovery. It also raises throughput writes per writer from 20 to 100.
 
 ## Governance
 
 Only control results and methodology are committed.
-Comparative outputs stay local under `results/`.
+Run output goes only under `results/runs/`, which is gitignored.
+Control evidence goes only under `results/controls/<os>-<arch>/`.
+The harness rejects any other output path.
+Governance blocks comparative results, so the harness writes no multi-system tables.
+`memtorture report --local` prints them to your terminal with a LOCAL ONLY banner.
+`memtorture export-system --system <name>` writes one system's raw output for its upstream issue.
+It lands under `results/runs/exports/` and carries the harness commit and platform.
+CI runs controls and baseline systems only (markdown, SQLite).
 An outside maintainer must approve methodology before comparative publication.
 Each upstream project gets a 14-day reply window.
 Config fixes are welcome, including fixes that change the sponsor's standing.

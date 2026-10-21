@@ -6,7 +6,7 @@ from memtorture.types import NotSupported
 
 
 def main(argv=None):
-    from memtorture.runner import ROWS, report, run
+    from memtorture.runner import ROWS, export_system, report, run
     from memtorture.suites import PROCESS_NOTE, SUITES
 
     parser = argparse.ArgumentParser(description="memtorture: evidence, not proof.")
@@ -26,14 +26,37 @@ def main(argv=None):
     run_parser.add_argument(
         "--config", help="Exact setting. Never a durability nickname."
     )
-    run_parser.add_argument("--all", action="store_true", help="Run all 35 B1 cells.")
     run_parser.add_argument(
-        "--extended", action="store_true", help="Grow history to 1M."
+        "--all",
+        action="store_true",
+        help="Run every suite and config row at default sizes.",
+    )
+    run_parser.add_argument(
+        "--extended",
+        action="store_true",
+        help="Grow history and recovery to 1M; use 100 writes per writer.",
     )
     run_parser.add_argument("--output", type=Path, help="New local output directory.")
-    report_parser = commands.add_parser("report", help="Rebuild local tables.")
+    report_parser = commands.add_parser(
+        "report", help="Show comparative tables on this machine."
+    )
     report_parser.add_argument(
         "--input", type=Path, help="Run directory. Defaults to latest."
+    )
+    report_parser.add_argument(
+        "--local",
+        action="store_true",
+        help="Print tables to stdout for the owner only. Writes no files.",
+    )
+    export_parser = commands.add_parser(
+        "export-system", help="Write one system's raw output for its upstream issue."
+    )
+    export_parser.add_argument("--system", choices=sorted(ROWS), required=True)
+    export_parser.add_argument(
+        "--input", type=Path, help="Run directory. Defaults to latest."
+    )
+    export_parser.add_argument(
+        "--out", type=Path, help="New directory under results/runs/exports/."
     )
     args = parser.parse_args(argv)
     args.invocation = ["memtorture", *(sys.argv[1:] if argv is None else argv)]
@@ -65,9 +88,11 @@ def main(argv=None):
             return run(args)
         except (OSError, ValueError, NotSupported) as exc:
             parser.exit(1, f"{exc}\n")
-    if args.command == "report":
+    if args.command in {"report", "export-system"}:
         try:
-            return report(args.input)
+            if args.command == "report":
+                return report(args.input, local=args.local)
+            return export_system(args.system, args.input, args.out)
         except (OSError, ValueError, NotSupported) as exc:
             print(exc)
             return 1

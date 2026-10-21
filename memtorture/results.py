@@ -6,6 +6,63 @@ import threading
 from pathlib import Path
 
 SPONSOR = "Sponsored and built by the Clawdlinux team."
+RUNS_ROOT = Path("results/runs")
+LOCAL_BANNER = "LOCAL ONLY. Not for publication. Governance blocks comparative results."
+
+PUBLICATION_BLOCKED = True
+"""Governance blocks comparative results across systems.
+
+Publication needs an outside maintainer to approve the methodology and a 14-day
+reply window for each upstream project. See the Governance section of
+docs/design/0001-benchmark.md. While this is True, run output stays raw and
+multi-system tables only reach stdout through `memtorture report --local`.
+"""
+
+
+def allowed_output(path, *, control_evidence=False, under=None):
+    """Return the output path, or reject it outside the allowed tree.
+
+    Runs go under results/runs/. Control evidence goes under
+    results/controls/<os>-<arch>/. The check is lexical from the working
+    directory. No part may be "..", and no existing part below results/ may
+    be a symlink. Absolute paths must use the resolved working directory.
+    Use the returned path for all file operations.
+    """
+    from memtorture.controls.gate import DEFAULT_ROOT, platform_key
+
+    allowed = under or (
+        DEFAULT_ROOT / platform_key() if control_evidence else RUNS_ROOT
+    )
+    base = Path.cwd().resolve()
+    target = base / path
+    if ".." in Path(path).parts or base / allowed not in target.parents:
+        raise ValueError(f"Output must be under {allowed.as_posix()}/: {path}")
+    current = base
+    for name in target.relative_to(base).parts:
+        current = current / name
+        if current.is_symlink():
+            raise ValueError(
+                f"Output must be under {allowed.as_posix()}/. "
+                f"Symlinks are not allowed: {path}"
+            )
+    return target
+
+
+def open_output(path, **policy):
+    """Open a result file for writing. Never follow a link.
+
+    Truncate only after the open file proves it has one link. A hard link
+    could otherwise point at tracked evidence.
+    """
+    path = allowed_output(path, **policy)
+    fd = os.open(path, os.O_WRONLY | os.O_CREAT | getattr(os, "O_NOFOLLOW", 0), 0o644)
+    if os.fstat(fd).st_nlink > 1:
+        os.close(fd)
+        raise ValueError(
+            f"Output must have one link. Hard links are not allowed: {path}"
+        )
+    os.ftruncate(fd, 0)
+    return open(fd, "w")
 
 
 def commit():
@@ -30,8 +87,11 @@ def hardware():
 
 class ResultWriter:
     def __init__(self, root: Path, command: list[str], *, control_evidence=False):
-        from memtorture.controls.gate import methodology_hash
+        from memtorture.controls.gate import methodology_hash, platform_key
 
+        self.policy = {"control_evidence": control_evidence}
+        self.root = allowed_output(root, **self.policy)
+        self.work = allowed_output(self.root / ".work", **self.policy)
         status_command = ["git", "status", "--porcelain"]
         if control_evidence:
             status_command += ["--", ":/", ":(top,exclude)results/controls"]
@@ -39,9 +99,14 @@ class ResultWriter:
             "harness_commit": commit(),
             "harness_dirty": bool(subprocess.check_output(status_command, text=True)),
         }
-        self.root = Path(root)
+        # Workers write storage files below .work. Leftovers could hold symlinks.
+        if self.work.exists():
+            raise ValueError(
+                f"Output has work files from an earlier run: {self.work}. "
+                "Choose a new --output."
+            )
         self.root.mkdir(parents=True, exist_ok=True)
-        self.raw = (self.root / "operations.jsonl").open("w")
+        self.raw = open_output(self.root / "operations.jsonl", **self.policy)
         self.cells = []
         self.lock = threading.Lock()
         self.manifest = {
@@ -50,6 +115,7 @@ class ResultWriter:
             **provenance,
             "methodology_sha256": methodology_hash(),
             "os": platform.platform(),
+            "platform": platform_key(),
             "python": platform.python_version(),
             "hardware": hardware(),
             "runtime_dependencies": "none (Python standard library only)",
@@ -80,13 +146,12 @@ class ResultWriter:
 
     def close(self):
         self.raw.close()
-        (self.root / "manifest.json").write_text(
-            json.dumps(self.manifest, sort_keys=True, indent=2) + "\n"
-        )
-        (self.root / "cells.json").write_text(
-            json.dumps(self.cells, sort_keys=True, indent=2) + "\n"
-        )
-        render_tables(self.root, self.cells)
+        for name, data in (
+            ("manifest.json", self.manifest),
+            ("cells.json", self.cells),
+        ):
+            with open_output(self.root / name, **self.policy) as output:
+                output.write(json.dumps(data, sort_keys=True, indent=2) + "\n")
 
     def __enter__(self):
         return self
@@ -95,7 +160,8 @@ class ResultWriter:
         self.close()
 
 
-def render_tables(root, cells):
+def render_tables(cells):
+    tables = {}
     for suite in sorted({c["suite"] for c in cells}):
         lines = [
             SPONSOR,
@@ -116,4 +182,5 @@ def render_tables(root, cells):
                 sort_keys=True,
             ).replace("|", "\\|")
             lines.append(f"| {cell['system']} | {cell['config']} | {detail} |")
-        (Path(root) / f"{suite}.md").write_text("\n".join(lines) + "\n")
+        tables[suite] = "\n".join(lines) + "\n"
+    return tables

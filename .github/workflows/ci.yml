@@ -14,5 +14,11 @@ jobs:
       - run: uv sync --locked
       - run: uv run ruff check .
       - run: uv run ruff format --check .
+      # CI runs controls and baseline systems only (markdown, SQLite).
+      # External systems are never fetched here, so their tests skip.
       - run: uv run pytest -q
       - run: uv run memtorture controls --quick
+      - name: Only control evidence is tracked under results
+        run: |
+          leaked=$( (git ls-files -- results | grep -v '^results/controls/'; git ls-files -- 'results/*.md') || true)
+          if [ -n "$leaked" ]; then echo "$leaked"; exit 1; fi

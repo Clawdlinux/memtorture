@@ -1,4 +1,5 @@
 import contextlib
+import gzip
 import json
 import math
 import os
@@ -9,6 +10,7 @@ import sys
 import time
 from dataclasses import replace
 from pathlib import Path
+from types import SimpleNamespace
 
 from memtorture.adapters.markdown import Markdown
 from memtorture.protocol import Worker
@@ -189,6 +191,34 @@ def probe_command(name="Probe", *, nonzero=False):
     ]
 
 
+class RecoveryTimingOutput:
+    def __init__(self, mode):
+        self.mode = mode
+
+    def write(self, line):
+        reply = json.loads(line)
+        if reply["id"] == 1 and "result" in reply:
+            if self.mode == "missing":
+                reply["result"].pop("open_ms", None)
+            else:
+                reply["result"]["open_ms"] = 1e9
+        sys.stdout.write(json.dumps(reply) + "\n")
+
+    def flush(self):
+        sys.stdout.flush()
+
+
+def recovery_reply_command(system, mode):
+    return [
+        sys.executable,
+        "-c",
+        "from memtorture.adapters import load_adapter; "
+        "from memtorture.worker import serve; "
+        "from tests.helpers import RecoveryTimingOutput; "
+        f"serve(load_adapter({system!r}), output=RecoveryTimingOutput({mode!r}))",
+    ]
+
+
 class Probe:
     name = "probe"
 
@@ -217,6 +247,16 @@ class Probe:
 
     def stop(self, target="all", kill=False):
         pass
+
+
+LARGE_REPLY_BYTES = 64 * 1024 * 1024
+
+
+class LargeReplyProbe(Probe):
+    def get(self, scope, key):
+        text = "x" * (LARGE_REPLY_BYTES - 4) + "TAIL" if key == "large" else "small"
+        row = Record("reply", scope, key, text, "")
+        return replace(row, payload_sha256=row.digest())
 
 
 class ServerProbe(Probe):
@@ -383,6 +423,49 @@ class GitProvenance:
         return " M results/controls/full/operations.jsonl\n"
 
 
+class LastRowWorker:
+    capabilities = {"keyed", "upsert", "get"}
+
+    def __init__(self):
+        self.last = None
+
+    def call(self, op, **kwargs):
+        if op == "upsert":
+            self.last = kwargs["record"]
+            return Ack(self.last.id)
+        if op == "get":
+            return self.last
+        raise NotImplementedError(op)
+
+
+class StaleKeyWorker:
+    """Keyed reads return the oldest value for the first `stale_reads` gets."""
+
+    capabilities = {"keyed", "upsert", "get"}
+
+    def __init__(self, stale_reads):
+        self.stale_reads, self.rows = stale_reads, {}
+
+    def call(self, op, **kwargs):
+        if op == "upsert":
+            record = kwargs["record"]
+            self.rows.setdefault(record.key, []).append(record)
+            return Ack(record.id)
+        if op == "get":
+            rows = self.rows.get(kwargs["key"], [])
+            self.stale_reads -= 1
+            return rows[0] if self.stale_reads >= 0 else rows[-1]
+        raise NotImplementedError(op)
+
+
+def stub_control_worker(system, *args, **kwargs):
+    return contextlib.nullcontext(SimpleNamespace(system=system, info={}))
+
+
+def stub_supersede(worker, **kwargs):
+    return {"status": "violation" if worker.system == "append-oldest" else "ok"}
+
+
 def stub_recall(system, config, path, *, paths, **kwargs):
     return {
         "paths": {
@@ -393,7 +476,8 @@ def stub_recall(system, config, path, *, paths, **kwargs):
                         "polls": 1,
                     }
                 ],
-                "read_ms": {"p99": 0.1},
+                "read_ms": {"n": 1, "p50": 0.1, "p99": None},
+                "read_max_ms": 0.1,
             }
         }
     }
@@ -499,3 +583,85 @@ def matches(schema, value, path):
     if isinstance(value, str) and len(value) < schema.get("minLength", 0):
         return False
     return True
+
+
+class EncodedMemory(Markdown):
+    name = "encoded-memory-test"
+
+    def start(self, workdir, config):
+        super().start(workdir, "append")
+        self.mode = config
+        self.path = workdir / "memory.gz"
+        existed = self.path.exists()
+        if not existed:
+            self.path.write_bytes(gzip.compress(b""))
+        elif config == "recovery-loss":
+            self._rewrite(lambda rows: [r for r in rows if r.key != "key00000000"])
+
+    def capabilities(self):
+        missing = {
+            "no-upsert": {"upsert"},
+            "no-get": {"get"},
+            "no-delete": {"delete"},
+            "no-list": {"list_prefix"},
+        }.get(self.mode, set())
+        return super().capabilities() - missing
+
+    def _all(self):
+        records = []
+        for line in gzip.decompress(self.path.read_bytes()).decode().splitlines():
+            data = json.loads(line)
+            data["scope"] = Scope(**data["scope"])
+            records.append(Record(**data))
+        return records
+
+    def _rewrite(self, transform):
+        records = transform(self._all())
+        self.path.write_bytes(
+            gzip.compress("".join(r.value() + "\n" for r in records).encode())
+        )
+
+    def write(self, scope, record):
+        self._rewrite(lambda rows: rows + [record])
+        if self.mode == "encoded":
+            print(record.text, file=sys.stderr)
+        return Ack(record.id, ref=None if self.mode == "no-ref" else Ref(record.id))
+
+    def bulk_load(self, scope, records):
+        self._rewrite(lambda rows: rows + records)
+
+    def delete(self, scope, ref):
+        if self.mode != "delete-scope":
+            return super().delete(scope, ref)
+        self._rewrite(lambda rows: [r for r in rows if r.scope != scope])
+        return Ack(ref.id)
+
+    def search(self, scope, query, k, vector=None):
+        if self.mode == "unreadable-search":
+            return []
+        return super().search(scope, query, k, vector)
+
+
+class ResidueMarkdown(Markdown):
+    """Hides deleted rows from reads but keeps a plaintext journal on disk."""
+
+    def start(self, workdir, config):
+        super().start(workdir, "append")
+        self.mode = config
+
+    def delete(self, scope, ref):
+        (self.workdir / "journal.md").write_text(self.path.read_text())
+        return super().delete(scope, ref)
+
+    def search(self, scope, query, k, vector=None):
+        if self.mode == "unreadable-search":
+            return []
+        return super().search(scope, query, k, vector)
+
+
+def stub_forget(system, *args, **kwargs):
+    return {
+        "status": "violation"
+        if system in {"sqlite-forget-fts", "sqlite-residue-off"}
+        else "ok"
+    }
