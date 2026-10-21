@@ -53,7 +53,11 @@ def node():
 
 
 @pytest.fixture
-def available():
+def available(request):
+    opted_in = request.config.getoption("--slow") and request.node.get_closest_marker(
+        "slow"
+    )
+
     def check(name):
         if name == "mcp-memory":
             from memtorture.adapters.mcp_memory import BLOCK_REASON
@@ -62,7 +66,10 @@ def available():
         if name == "qdrant":
             artifact = ROOT / ".tools/qdrant" / VERSION / "qdrant"
             if not artifact.is_file():
-                pytest.skip(f"Pinned Qdrant artifact is missing: {artifact}")
+                missing = f"Pinned Qdrant artifact is missing: {artifact}"
+                if opted_in:
+                    pytest.fail(missing)
+                pytest.skip(missing)
 
     return check
 

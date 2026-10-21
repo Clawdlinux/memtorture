@@ -31,6 +31,8 @@ Fix those in code and review. Do not pin them with tests.
 7. **Names describe behavior.** Files and tests are named by what they protect. Never by review round, version or ticket (`review_*`, `*_v2`).
 8. **Slow tests are opt-in.** Mark them `#[ignore = "reason"]` in Rust or gate them with a marker in Python, and run them in a separate CI job.
 
+In memtorture the `slow` scenarios need the pinned native Qdrant binary in `.tools/`. CI runs controls and baseline systems only, so run them locally with `uv run pytest -q --slow -m slow`. With `--slow`, a missing binary fails the run instead of skipping.
+
 ## Layout
 
 Rust, per crate:
