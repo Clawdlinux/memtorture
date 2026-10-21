@@ -630,6 +630,12 @@ class EncodedMemory(Markdown):
     def bulk_load(self, scope, records):
         self._rewrite(lambda rows: rows + records)
 
+    def delete(self, scope, ref):
+        if self.mode != "delete-scope":
+            return super().delete(scope, ref)
+        self._rewrite(lambda rows: [r for r in rows if r.scope != scope])
+        return Ack(ref.id)
+
     def search(self, scope, query, k, vector=None):
         if self.mode == "unreadable-search":
             return []

@@ -73,11 +73,11 @@ def check_supersede_by_key(worker, *, versions=5, timeout_s=5, poll_ms=10, emit=
         decoy = Record.make(scope, "decoy", f"decoy{version}")
         for written in (record, decoy):
             ack = worker.call("upsert", scope=scope, record=written)
+            ack_ns = time.monotonic_ns()
             dropped += ack.dropped
             event(emit, operation="upsert", record=asdict(written), dropped=ack.dropped)
         older.append(record)
     older.pop()
-    ack_ns = time.monotonic_ns()
     read = {"reads": 0}
 
     def settled():
@@ -747,9 +747,10 @@ def forget_promise(system):
     return promise
 
 
-def forget_read(worker, path, record):
-    if path == "get":
-        row = worker.call(path, scope=record.scope, key=record.key)
+def forget_read(worker, path, record, ref):
+    if path in {"get", "get_by_ref"}:
+        lookup = {"key": record.key} if path == "get" else {"ref": ref}
+        row = worker.call(path, scope=record.scope, **lookup)
         return [row] if row else []
     return read_path(
         worker, next(name for name, op in PATHS.items() if op == path), record
@@ -760,20 +761,23 @@ def seed_forget(worker, text):
     if not {"write", "delete"} <= worker.capabilities:
         raise NotSupported("Forget needs write and delete")
     scope = Scope("benchmark", "forget")
-    for index in range(3):
-        decoy = Record.make(scope, f"decoy-{index}", f"survivor {index}")
-        if worker.call("write", scope=scope, record=decoy).dropped:
+    records = [
+        Record.make(scope, f"decoy-{index}", f"survivor {index}") for index in range(3)
+    ]
+    records.append(Record.make(scope, "target", text))
+    seeded = []
+    for record in records:
+        ack = worker.call("write", scope=scope, record=record)
+        if ack.dropped:
             raise RuntimeError("Forget setup write dropped")
-    target = Record.make(scope, "target", text)
-    ack = worker.call("write", scope=scope, record=target)
-    if ack.dropped:
-        raise RuntimeError("Forget target write dropped")
-    if ack.ref is None:
-        raise NotSupported("Write returned no native ref for delete")
-    return target, ack.ref
+        if ack.ref is None:
+            raise NotSupported("Write returned no native ref for delete")
+        seeded.append((record, ack.ref))
+    (target, ref), survivors = seeded[-1], seeded[:-1]
+    return target, ref, survivors
 
 
-def check_forget(worker, target, ref, *, timeout_s=5, poll_ms=10, emit=None):
+def check_forget(worker, target, ref, survivors, *, timeout_s=5, poll_ms=10, emit=None):
     paths = {}
     for path in FORGET_PATHS:
         if path not in worker.capabilities:
@@ -783,7 +787,7 @@ def check_forget(worker, target, ref, *, timeout_s=5, poll_ms=10, emit=None):
         def visible(path=path):
             return any(
                 row == target and row.valid()
-                for row in forget_read(worker, path, target)
+                for row in forget_read(worker, path, target, ref)
             )
 
         try:
@@ -805,7 +809,7 @@ def check_forget(worker, target, ref, *, timeout_s=5, poll_ms=10, emit=None):
         for path in FORGET_PATHS:
             if path not in pending:
                 continue
-            rows = forget_read(worker, path, target)
+            rows = forget_read(worker, path, target, ref)
             now = time.monotonic_ns()
             remaining = sum(
                 row.id == target.id or row.key == target.key for row in rows
@@ -819,17 +823,41 @@ def check_forget(worker, target, ref, *, timeout_s=5, poll_ms=10, emit=None):
     poll_until(absent, timeout_s=timeout_s, poll_ms=poll_ms)
     for path in pending:
         paths[path].update(status="violation", lag_ms=None)
+    measured = [path for path, detail in paths.items() if detail.get("visible_before")]
+    lost = set()
+
+    def survivors_intact():
+        lost.clear()
+        for path in measured:
+            missing = [
+                record.id
+                for record, survivor_ref in survivors
+                if not any(
+                    row == record and row.valid()
+                    for row in forget_read(worker, path, record, survivor_ref)
+                )
+            ]
+            paths[path].update(survivors_missing=len(missing))
+            lost.update(missing)
+        return not lost
+
+    poll_until(survivors_intact, timeout_s=timeout_s, poll_ms=poll_ms)
     for path, detail in paths.items():
         event(emit, operation="forget-check", path=path, **detail)
     statuses = [detail["status"] for detail in paths.values()]
     status = "ok"
-    if "violation" in statuses:
+    if "violation" in statuses or lost:
         status = "violation"
     elif "not measurable" in statuses:
         status = "not measurable"
     elif all(value == "N/A" for value in statuses):
         status = "N/A"
-    return {"status": status, "paths": paths, "timeout_s": timeout_s}
+    return {
+        "status": status,
+        "paths": paths,
+        "survivors_missing": len(lost),
+        "timeout_s": timeout_s,
+    }
 
 
 def scan_plaintext(directories, token):
@@ -855,11 +883,17 @@ def forget(system, config, workdir, *, timeout_s=5, poll_ms=10, emit=None):
     promise, token = forget_promise(system), secrets.token_hex(16)
     with Worker(system, config, workdir) as worker:
         info = worker.info
-        target, ref = seed_forget(worker, f"forget marker {token}")
+        target, ref, survivors = seed_forget(worker, f"forget marker {token}")
         directories = worker.call("data_dirs") if promise["kind"] == "erase" else []
         before = scan_plaintext(directories, token) if directories else 0
         result = check_forget(
-            worker, target, ref, timeout_s=timeout_s, poll_ms=poll_ms, emit=emit
+            worker,
+            target,
+            ref,
+            survivors,
+            timeout_s=timeout_s,
+            poll_ms=poll_ms,
+            emit=emit,
         )
     if promise["kind"] == "erase":
         after = scan_plaintext(directories, token)
@@ -875,7 +909,7 @@ def forget_residue(system, config, workdir, *, timeout_s=5, poll_ms=10, emit=Non
     token = secrets.token_hex(16)
     with Worker(system, config, workdir) as worker:
         info = worker.info
-        target, ref = seed_forget(worker, f"plaintext marker {token}")
+        target, ref, survivors = seed_forget(worker, f"plaintext marker {token}")
         directories = worker.call("data_dirs")
         before = scan_plaintext(directories, token)
         if not before:
@@ -889,7 +923,13 @@ def forget_residue(system, config, workdir, *, timeout_s=5, poll_ms=10, emit=Non
             }
         else:
             deletion = check_forget(
-                worker, target, ref, timeout_s=timeout_s, poll_ms=poll_ms, emit=emit
+                worker,
+                target,
+                ref,
+                survivors,
+                timeout_s=timeout_s,
+                poll_ms=poll_ms,
+                emit=emit,
             )
             result = {"occurrences_before": before, "forget": deletion}
     if before:

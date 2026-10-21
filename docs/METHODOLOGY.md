@@ -299,6 +299,7 @@ A missing operation is N/A for that path.
 Missing delete support or a missing write ref makes the suite N/A.
 A supported path without pre-delete visibility is not measurable, not a pass.
 A timeout with the target still visible is a violation.
+Survivors must still read intact on every measured path, and collateral loss is a violation reported as `survivors_missing`.
 
 The row carries its documented promise, URL, and exact quote from the system manifest.
 Delete promises require absence from supported reads. They do not promise disk erasure.

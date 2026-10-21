@@ -67,19 +67,24 @@ def test_throughput_keeps_loss_visible(tmp_path, system, missing):
 
 
 @pytest.mark.parametrize(
-    "system,expected",
+    "system,config,expected",
     [
-        ("sqlite-forget-fts", "violation"),
-        ("sqlite-forget-both", "ok"),
-        ("sqlite-delete-delayed", "ok"),
+        ("sqlite-forget-fts", "default", "violation"),
+        ("sqlite-forget-both", "default", "ok"),
+        ("sqlite-delete-delayed", "default", "ok"),
+        ("markdown", "delete-scope", "violation"),
     ],
 )
-def test_delete_checks_every_read_path(tmp_path, system, expected):
+def test_delete_checks_every_read_path(request, tmp_path, system, config, expected):
+    if config == "delete-scope":
+        request.getfixturevalue("encoded_worker")
     events = []
     result = forget(
-        system, "default", tmp_path, timeout_s=0.2, poll_ms=1, emit=events.append
+        system, config, tmp_path, timeout_s=0.2, poll_ms=1, emit=events.append
     )
     assert result["status"] == expected
+    lost = 3 if config == "delete-scope" else 0
+    assert result["survivors_missing"] == lost
     assert result["forget_promise"]["kind"] == "delete"
     assert result["forget_promise"]["url"] and result["forget_promise"]["quote"]
     assert set(result["paths"]) == {
@@ -95,6 +100,7 @@ def test_delete_checks_every_read_path(tmp_path, system, expected):
         assert detail["visible_before"] is True
         assert detail["remaining"] == int(stale)
         assert (detail["lag_ms"] is None) is stale
+        assert detail["survivors_missing"] == lost
     if system == "sqlite-delete-delayed":
         assert max(detail["lag_ms"] for detail in result["paths"].values()) >= 50
     assert len([e for e in events if e["operation"] == "forget-check"]) == 5
