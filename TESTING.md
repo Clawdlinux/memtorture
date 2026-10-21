@@ -29,7 +29,7 @@ Fix those in code and review. Do not pin them with tests.
 5. **Broad invariants belong to simulations.** The deterministic sims and property tests carry invariants across random schedules and faults. Example tests pin specific protocols and edge cases the sims cannot target.
 6. **Regression fixes extend existing tests.** A bug fix adds a case row or an assertion to the nearest existing test. Add a new test only when no existing scenario reaches the bug.
 7. **Names describe behavior.** Files and tests are named by what they protect. Never by review round, version or ticket (`review_*`, `*_v2`).
-8. **Slow tests are opt-in.** Mark them `#[ignore = "reason"]` in Rust or gate them with a marker in Python, and run them in a separate CI job.
+8. **Slow tests are opt-in.** Mark them `#[ignore = "reason"]` in Rust or gate them with a marker in Python. Run them in a separate CI job when CI can run them. Scenarios that need native dependencies run locally.
 
 In memtorture the `slow` scenarios need the pinned native Qdrant binary in `.tools/`. CI runs controls and baseline systems only, so run them locally with `uv run pytest -q --slow -m slow`. With `--slow`, a missing binary fails the run instead of skipping.
 

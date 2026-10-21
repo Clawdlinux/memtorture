@@ -78,7 +78,12 @@ class Worker:
     """JSONL client. Only receive() can add a write to the harness ack set."""
 
     def __init__(self, system, config, workdir, *, command=None, timeout=60, cwd=None):
-        self.workdir = Path(workdir).resolve() if cwd is not None else Path(workdir)
+        absolute = Path(os.path.abspath(workdir))
+        self.workdir = absolute if cwd is not None else Path(workdir)
+        logs = absolute.parent / "logs"
+        for path in (absolute, logs):
+            if path.is_symlink():
+                raise ValueError(f"Symlinks are not allowed: {path}")
         self.workdir.mkdir(parents=True, exist_ok=True)
         self.timeout = timeout
         self.acked = {}
@@ -91,7 +96,6 @@ class Worker:
         self.stopped = False
         self.closed = False
         self.server_pid = None
-        logs = self.workdir.resolve().parent / "logs"
         logs.mkdir(parents=True, exist_ok=True)
         self.log_path = logs / f"{self.workdir.name}-{uuid.uuid4().hex}.stderr.log"
         self.log = self.log_path.open("ab")

@@ -24,7 +24,9 @@ def allowed_output(path, *, control_evidence=False, under=None):
 
     Runs go under results/runs/. Control evidence goes under
     results/controls/<os>-<arch>/. The check is lexical from the working
-    directory, and no existing part below results/ may be a symlink.
+    directory. No part may be "..", and no existing part below results/ may
+    be a symlink. Absolute paths must use the resolved working directory.
+    Use the returned path for all file operations.
     """
     from memtorture.controls.gate import DEFAULT_ROOT, platform_key
 
@@ -32,8 +34,8 @@ def allowed_output(path, *, control_evidence=False, under=None):
         DEFAULT_ROOT / platform_key() if control_evidence else RUNS_ROOT
     )
     base = Path.cwd().resolve()
-    target = Path(os.path.abspath(base / path))
-    if base / allowed not in target.parents:
+    target = base / path
+    if ".." in Path(path).parts or base / allowed not in target.parents:
         raise ValueError(f"Output must be under {allowed.as_posix()}/: {path}")
     current = base
     for name in target.relative_to(base).parts:
@@ -77,7 +79,9 @@ class ResultWriter:
     def __init__(self, root: Path, command: list[str], *, control_evidence=False):
         from memtorture.controls.gate import methodology_hash, platform_key
 
-        allowed_output(root, control_evidence=control_evidence)
+        self.policy = {"control_evidence": control_evidence}
+        self.root = allowed_output(root, **self.policy)
+        self.work = allowed_output(self.root / ".work", **self.policy)
         status_command = ["git", "status", "--porcelain"]
         if control_evidence:
             status_command += ["--", ":/", ":(top,exclude)results/controls"]
@@ -85,8 +89,6 @@ class ResultWriter:
             "harness_commit": commit(),
             "harness_dirty": bool(subprocess.check_output(status_command, text=True)),
         }
-        self.root = Path(root)
-        self.policy = {"control_evidence": control_evidence}
         self.root.mkdir(parents=True, exist_ok=True)
         self.raw = open_output(self.root / "operations.jsonl", **self.policy)
         self.cells = []

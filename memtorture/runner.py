@@ -2,7 +2,6 @@ import json
 import shutil
 import uuid
 from datetime import UTC, datetime
-from pathlib import Path
 
 from memtorture.controls.gate import (
     DEFAULT_ROOT,
@@ -76,8 +75,7 @@ def run_cell(suite, system, config, path, *, extended=False, emit=None):
 
 def run(args):
     stamp = datetime.now(UTC).strftime("%Y%m%dT%H%M%SZ")
-    root = Path(args.output or RUNS_ROOT / f"{stamp}-{uuid.uuid4().hex[:8]}")
-    allowed_output(root)
+    root = allowed_output(args.output or RUNS_ROOT / f"{stamp}-{uuid.uuid4().hex[:8]}")
     if (root / "manifest.json").exists():
         raise ValueError("Output already has a manifest. Choose a new directory.")
     selected = (
@@ -128,8 +126,11 @@ def run(args):
                     }
                 )
 
-            path = root / ".work" / suite / system / config.replace("=", "-")
             try:
+                path = allowed_output(
+                    writer.work / suite / system / config.replace("=", "-")
+                )
+                allowed_output(path.parent / "logs")
                 result = run_cell(
                     suite, system, config, path, extended=args.extended, emit=emit
                 )
@@ -177,8 +178,7 @@ def load_run(root=None):
         if not runs:
             raise ValueError("No local runs found")
         root = runs[-1].parent
-    root = Path(root)
-    allowed_output(root)
+    root = allowed_output(root)
     manifest = json.loads((root / "manifest.json").read_text())
     cells = json.loads((root / "cells.json").read_text())
     return root, manifest, cells
@@ -211,8 +211,7 @@ def export_system(system, root=None, out=None):
     if not cells:
         raise ValueError(f"No {system} cells in {root}")
     exports = RUNS_ROOT / "exports"
-    out = Path(out or exports / f"{root.name}-{system}")
-    allowed_output(out, under=exports)
+    out = allowed_output(out or exports / f"{root.name}-{system}", under=exports)
     if out.exists():
         raise FileExistsError(f"Export already exists: {out}")
     out.parent.mkdir(parents=True, exist_ok=True)

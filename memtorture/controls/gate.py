@@ -6,7 +6,7 @@ import uuid
 from pathlib import Path
 
 from memtorture.protocol import Worker
-from memtorture.results import ResultWriter, hardware, open_output
+from memtorture.results import ResultWriter, allowed_output, hardware, open_output
 from memtorture.suites import (
     HISTORY_CONTROLS,
     PATHS,
@@ -91,7 +91,7 @@ def require_controls(suite, root=DEFAULT_ROOT):
 def run_controls(*, quick=False):
     run_root = gate_path().parent / ("quick" if quick else "full")
     trials = 5 if quick else 20
-    work = run_root / ".work" / uuid.uuid4().hex
+    work = allowed_output(run_root / ".work" / uuid.uuid4().hex, control_evidence=True)
     work.mkdir(parents=True)
     summary = {
         "trials": trials,

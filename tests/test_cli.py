@@ -173,6 +173,7 @@ def test_local_report_and_export(workspace, authorized_controls, provenance, cap
         ("outside", "out", False, False, None),
         ("run in controls", "results/controls/{platform}/a", False, False, None),
         ("symlink escape", "results/runs/link/a", False, False, None),
+        ("dotdot through symlink", "results/runs/link/../a", False, False, None),
         ("controls", "results/controls/{platform}/full", True, True, None),
         ("controls root", "results/controls/{platform}", True, False, None),
         ("other platform", "results/controls/other-os-arch/full", True, False, None),
@@ -190,6 +191,13 @@ def test_local_report_and_export(workspace, authorized_controls, provenance, cap
             False,
             False,
             ("results/runs/exports", "results/controls/{platform}"),
+        ),
+        (
+            "linked work dir",
+            "results/runs/probe",
+            False,
+            False,
+            ("results/runs/probe/.work", "elsewhere"),
         ),
         (
             "linked result file",
