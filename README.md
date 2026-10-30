@@ -1,4 +1,4 @@
-Sponsored and built by the Clawdlinux team, makers of zerodb, an agent memory engine. zerodb will be tested here from milestone B4, under the same rules as every other system.
+Sponsored and built by the Clawdlinux team, makers of AtticDB (formerly zerodb), an agent memory engine. AtticDB will be tested here from milestone B4, under the same rules as every other system.
 
 # memtorture
 

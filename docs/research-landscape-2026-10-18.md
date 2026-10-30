@@ -1,4 +1,4 @@
-# Agent Memory Benchmark Landscape (research for zerodb)
+# Agent Memory Benchmark Landscape (research for AtticDB)
 
 Date of research: 2026-10-18. Citations are inline URLs. Items marked UNVERIFIED could not be confirmed.
 
@@ -34,7 +34,7 @@ Cross-cutting: none measure write/retrieval latency as a harness output except M
 | Jepsen, https://github.com/jepsen-io/jepsen | Eclipse Public License v1.0 (per `project.clj`; GitHub license API returns null) | 2026-10-16 | Correctness under faults: partitions, clock skew, process kill/pause, checked via Elle/Knossos | Clojure protocols per target system (`db/DB`, `db/Process`, `db/Pause`, `client/Client`), no config-driven plug-in | Zero notion of embeddings/recall/answerability. No completed Jepsen test of any vector DB found; a Qdrant blog post (qdrant.tech/blog/qdrant-summer-of-code-24/) lists this as an open, unimplemented idea |
 | LazyFS, https://github.com/dsrhaslab/lazyfs (VLDB 2024, DOI 10.14778/3681954.3681980) | MIT | 2026-08-24 | FUSE filesystem only flushing to disk on command, simulating crash/power-loss without real reboot | TOML config plus a FIFO control pipe; fault types `torn-seq`, `torn-op`, `clear` | Pure fault-injection substrate, no workload generator; used by WiredTiger's crash-consistency suite and a community Jepsen test for PowerSync (`nurturenature/jepsen-powersync`) |
 
-Best starting skeletons: VectorDBBench's `VectorDB` ABC and Qdrant's per-engine directory convention (Python, low friction); go-ycsb's registration pattern for Go. Jepsen plus LazyFS together is the closest prior art for crash safety, but no one has built this for any agent-memory or vector database yet, a real opening for zerodb.
+Best starting skeletons: VectorDBBench's `VectorDB` ABC and Qdrant's per-engine directory convention (Python, low friction); go-ycsb's registration pattern for Go. Jepsen plus LazyFS together is the closest prior art for crash safety, but no one has built this for any agent-memory or vector database yet, a real opening for AtticDB.
 
 ## 2. Published numbers per competitor
 
@@ -104,10 +104,10 @@ All five are real, verified repositories, not hallucinated. Every benchmark numb
 ## 3. Gaps nobody publishes today
 
 Dimensions users complain about in GitHub issues but that no vendor or harness reports as a number:
-1. Acked-write survival under `kill -9` or power loss. No vendor states an RPO/RTO. No harness (Jepsen aside, unrun on these systems) tests this. zerodb's durability design is directly relevant here.
+1. Acked-write survival under `kill -9` or power loss. No vendor states an RPO/RTO. No harness (Jepsen aside, unrun on these systems) tests this. AtticDB's durability design is directly relevant here.
 2. Latency versus history length (does add/search slow down at 10k, 100k, 1M memories). Only Cognee's PGVector full-table-scan issue (#4362) hints at this; no one publishes a curve.
 3. Concurrent multi-process writers losing updates. Real bugs reported for Mem0 (#4892), Cognee (#5254), Zep's FalkorDB backend, never measured as a benchmark metric.
-4. Read-your-writes / answerability delay, time from write-ack to the fact being retrievable. Documented qualitatively by Zep ("minutes, not seconds") and Redis (5-30 minute window) but never reported as a hard percentile. zerodb's read-your-writes design is a genuine differentiator to quantify.
+4. Read-your-writes / answerability delay, time from write-ack to the fact being retrievable. Documented qualitatively by Zep ("minutes, not seconds") and Redis (5-30 minute window) but never reported as a hard percentile. AtticDB's read-your-writes design is a genuine differentiator to quantify.
 5. Forget completeness: does delete remove all copies (vector index, graph edges, cache). Cognee's #4956 and Mem0's dedup bugs suggest this is broken in practice; unbenchmarked.
 6. Stale-fact rate after updates/supersession. No system publishes a metric for how often it answers with an outdated fact.
 7. Cost per operation including LLM calls, end to end. Only Verging Labs (independent) and Redis (vendor) publish a $/1k-answers or $/1M-token figure; others give plan-tier pricing only.
@@ -117,9 +117,9 @@ Dimensions users complain about in GitHub issues but that no vendor or harness r
 
 ### Dimensions and workloads
 1. Ingest latency: per-memory add latency, p50/p95/p99, at fixed concurrency (1, 8, 64 writers), measured separately from any LLM-extraction step so embedding/LLM time and storage-engine time are not conflated.
-2. Answerability delay: time from write-ack to first successful retrieval of that fact via the system's own search/query API, not a side-channel poll. Targets gap #4 and is zerodb's strongest claimed advantage (read-your-writes).
+2. Answerability delay: time from write-ack to first successful retrieval of that fact via the system's own search/query API, not a side-channel poll. Targets gap #4 and is AtticDB's strongest claimed advantage (read-your-writes).
 3. Retrieval latency at increasing corpus size: p50/p99 at 1k, 10k, 100k, 1M memories, same query mix, to expose the latency-vs-history-length curve (gap #2).
-4. Crash safety: Jepsen-style or LazyFS-style fault injection, kill -9 and simulated power loss right after write-ack, verify no acked write is lost and no un-acked write is silently exposed. The single biggest unaddressed gap in the landscape (section 3, item 1) and plays to zerodb's durable append-only log.
+4. Crash safety: Jepsen-style or LazyFS-style fault injection, kill -9 and simulated power loss right after write-ack, verify no acked write is lost and no un-acked write is silently exposed. The single biggest unaddressed gap in the landscape (section 3, item 1) and plays to AtticDB's durable append-only log.
 5. Concurrent writer correctness: N processes writing distinct and overlapping keys simultaneously, check for lost updates, duplicate entries, or torn writes (gap #3).
 6. Forget completeness and stale-fact rate: issue a forget/delete or an update-supersedes-old-fact, then query both the primary index and any secondary index (graph, cache) to confirm the fact is actually gone or updated everywhere (gaps #5, #6).
 7. Quality/recall: run LongMemEval and LoCoMo (LoCoMo's CC BY-NC license blocks commercial redistribution of the dataset itself, so publish scores but not re-host the data) through a shared ingest-then-QA pipeline, same judge model and prompt for every system.
@@ -136,7 +136,7 @@ Dimensions users complain about in GitHub issues but that no vendor or harness r
 - Disclose any case where a vendor's cloud ToS restricts benchmark publication (section 5) and whether the run was against OSS, self-hosted, or managed cloud.
 
 ### Adapter interface shape
-Recommend a Python harness. Most competitors ship a Python SDK or are themselves Python (Mem0 OSS, Cognee, Letta's client, Graphiti, LangGraph), and the two most mature adapter patterns found (VectorDBBench's `VectorDB` ABC and supermemory/memorybench's `Provider` interface) are Python/TypeScript, not Go or Clojure. A thin Rust client (PyO3 bindings or a local HTTP sidecar) lets zerodb plug in without forcing the suite into Rust.
+Recommend a Python harness. Most competitors ship a Python SDK or are themselves Python (Mem0 OSS, Cognee, Letta's client, Graphiti, LangGraph), and the two most mature adapter patterns found (VectorDBBench's `VectorDB` ABC and supermemory/memorybench's `Provider` interface) are Python/TypeScript, not Go or Clojure. A thin Rust client (PyO3 bindings or a local HTTP sidecar) lets AtticDB plug in without forcing the suite into Rust.
 
 Minimal interface, modeled on VectorDBBench's ABC and supermemory's Provider:
 ```python
@@ -158,10 +158,10 @@ Top 5 self-hostable systems by usage, in priority order: Mem0 OSS (largest commu
 - Markdown-file baseline: a flat directory of dated markdown files, append-only, read via plain file I/O and a simple grep or re-embed-on-query search. Sets a floor for latency and a ceiling for simplicity, with zero published numbers anywhere today.
 - SQLite baseline: a single table with `created_at`, `text`, and an optional `sqlite-vec` embedding column, WAL mode on, representing "what you get for free with no agent-memory product at all." SQLite's own crash-test harness and dbench numbers (section 2) give us something to sanity-check our own crash-safety test against.
 
-### Where zerodb would likely lose honestly
+### Where AtticDB would likely lose honestly
 - Semantic/vector recall quality before it ships search: on LongMemEval/LoCoMo-style QA, systems with graph extraction (Zep/Graphiti, MemOS) or LLM-based fact extraction (Mem0, Cognee) will likely beat a pure append-only log with recency-window reads on multi-hop and knowledge-update question types, which require reasoning over relationships, not just recency.
-- Ecosystem maturity: most competitors have existing LangChain/LlamaIndex integrations and larger community-tested backend options; zerodb's adapter will be new and untested here.
-- Benchmarks rewarding LLM-extraction-based dedup/consolidation (MemOS, Cognee) over raw append-only storage will favor those systems on "stale-fact rate" unless zerodb's supersession feature is complete and tested.
+- Ecosystem maturity: most competitors have existing LangChain/LlamaIndex integrations and larger community-tested backend options; AtticDB's adapter will be new and untested here.
+- Benchmarks rewarding LLM-extraction-based dedup/consolidation (MemOS, Cognee) over raw append-only storage will favor those systems on "stale-fact rate" unless AtticDB's supersession feature is complete and tested.
 Report these honestly in the same raw-output format as our wins, per the fairness rules above.
 
 ## 5. Licensing and ToS risk of publishing comparative benchmarks
@@ -187,4 +187,4 @@ Key caveat: every "High" risk binds only parties who created an account on that 
 - "Zep 162.7s" could not be found anywhere; likely a garbled retelling of Zep's real 162ms p95 figure. UNVERIFIED.
 - Mem0's "~20s add latency" is fully verified at GitHub issue #2813.
 - MemOS Cloud ToS could not be checked (JS-only site).
-- No completed Jepsen-style crash-safety test exists for any vector or agent-memory database as of this research; the clearest opportunity for zerodb to publish genuinely new numbers.
+- No completed Jepsen-style crash-safety test exists for any vector or agent-memory database as of this research; the clearest opportunity for AtticDB to publish genuinely new numbers.
