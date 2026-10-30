@@ -22,7 +22,7 @@ memtorture measures these, reproducibly, with raw outputs, controls, and suites 
 
 ## Sponsor disclosure
 
-memtorture is built by the team behind zerodb. That is stated at the top of the README and on every results page. The governance rules below exist to make the results trustworthy anyway.
+memtorture is built by the team behind AtticDB. That is stated at the top of the README and on every results page. The governance rules below exist to make the results trustworthy anyway.
 
 ## Principles
 
@@ -36,7 +36,7 @@ memtorture is built by the team behind zerodb. That is stated at the top of the 
 
 ## What it does not do
 
-- Rebuild LoCoMo or LongMemEval runners. Supermemory's `memorybench` (MIT) already does that through a provider interface. We contribute a zerodb provider there.
+- Rebuild LoCoMo or LongMemEval runners. Supermemory's `memorybench` (MIT) already does that through a provider interface. We contribute an AtticDB provider there.
 - Benchmark ANN speed on static corpora. VectorDBBench does that.
 - Publish a combined score or a leaderboard.
 
@@ -64,7 +64,7 @@ All vector systems use one pinned deterministic embedder. It is defined byte for
 | `concurrent-kv` | 2, 4, 8 processes write distinct keys, then overlapping keys | Distinct keys: none missing. Overlapping: final value equals one intact acked write. CAS support and history are reported as capabilities, never as pass or fail |
 | `supersede-by-key` | Native keyed update N times, read | Capability check: current value correct |
 | `forget` | Delete through the native API, then query every documented read path | Judged against the system's own documented promise (delete vs erase) |
-| `forget-residue` | After `forget`, scan the data directory for the plaintext | Bytes found. zerodb v0.1 fails this until compaction ships |
+| `forget-residue` | After `forget`, scan the data directory for the plaintext | Bytes found. AtticDB v0.1 fails this until compaction ships |
 | `recovery` | Restart after 100K and 1M records | Time to ready, RSS after open |
 
 Controls. Each suite has its own must-fail and must-pass control. Each control isolates one cause. A must-fail control must fail in at least 90% of trials, and the rate is published. If a control does not discriminate, the suite publishes nothing. One exception: the `mmap` pair in `power-loss` only gates `mmap`-based systems.
@@ -88,14 +88,14 @@ SQLite WAL `synchronous=NORMAL` is reported in `power-loss` as an expected-loss 
   - Records are `Correction(id, path_scope, task_tags, text, supersedes_id)`.
   - Queries are `QueryContext(file_path, task_text, recent_context, token_budget)`.
   - Adapters may use metadata filters, text, or both. Upstream maintainers may rewrite their adapter.
-- **Corpus, published before any zerodb result:**
+- **Corpus, published before any AtticDB result:**
   - Mined from the git history of `CLAUDE.md`, `AGENTS.md`, `.cursor/rules` and `.github/instructions` in permissively licensed public repos, with attribution. Later edits give supersession ground truth.
   - Stratified, each bucket scored separately:
     - A, path or directory scoped (about 35%);
     - B, task, library or symbol scoped, where path globs cannot help (about 35%);
     - C, supersession and revocation (about 30%).
   - Paraphrased wording is included.
-  - Labeled by people outside the zerodb team, with inter-annotator agreement reported.
+  - Labeled by people outside the AtticDB team, with inter-annotator agreement reported.
   - Queries come from the corpus, not from us. For each correction, the `QueryContext` is built from a later commit in the same repo: its touched file paths and its commit message as task text. Outside labelers mark which corrections that commit should have seen. The method ships with the corpus.
   - Bucket C runs in 2 modes, scored apart. **Keyed:** `supersedes_id` is given. **Unkeyed:** only the new text and `path_scope` are given, and the system must work out what changed.
   - Split into a public `dev` set and a frozen, checksummed `eval` set. Adapters must not branch on eval contents.
@@ -116,7 +116,7 @@ SQLite WAL `synchronous=NORMAL` is reported in `power-loss` as an expected-loss 
 
 ## Tier 3: recall quality (delegated)
 
-A zerodb provider in `memorybench`. memtorture links those results. It does not re-host LoCoMo (CC BY-NC).
+An AtticDB provider in `memorybench`. memtorture links those results. It does not re-host LoCoMo (CC BY-NC).
 
 ## Systems
 
@@ -136,7 +136,7 @@ A zerodb provider in `memorybench`. memtorture links those results. It does not 
 | LangGraph store | 1 | the durable `BaseStore` of the pinned version | |
 | Redis agent-memory-server | 1 | shipped default, `appendfsync everysec`, `appendfsync always` | Needs RediSearch. Extraction off |
 | Letta | 1 | default | Memory blocks for keyed ops, archival passages for append and search. Moves to B4 if any write path calls an LLM |
-| zerodb | 1, 2 | | Only from a tagged release with `zerodb serve` (zerodb S3). Never through a shim |
+| AtticDB | 1, 2 | | Only from a tagged release with `atticdb serve` (AtticDB S3). Never through a shim |
 
 Rows are named by their exact setting. Each row cites the upstream doc line that says what is persisted before the call returns. A system with no documented fsync-before-ack mode gets "no documented durable mode" instead of a second row.
 
@@ -192,27 +192,27 @@ Benchmarked systems (databases, memory libraries, servers) run under a named exc
 - Sponsor disclosure on the README and every results page.
 - At least one maintainer from outside the sponsor before the first comparative publication. Methodology changes need their approval.
 - 14-day right of reply. Before publishing comparative tables, open an issue with each upstream project with the adapter, config and raw output. Link the issue and record who replied.
-- Maintainer config fixes are merged even when they lower zerodb's standing.
-- Expected zerodb losses are written down before zerodb's first run.
+- Maintainer config fixes are merged even when they lower AtticDB's standing.
+- Expected AtticDB losses are written down before AtticDB's first run.
 - Sponsor marketing must link the full run, never a cropped table.
 
 ## Milestones
 
 | M | Scope | Publishes |
 |---|---|---|
-| B1 | Harness, process model, controls. Suites: `recall-delay`, `history-scale`, `process-kill`, `concurrent-append`, `concurrent-kv`. Adapters: markdown (flat), SQLite (both rows), MCP reference memory server, Qdrant (both rows) | Methodology, code and control results. Comparative tables only after an outside maintainer joins and the 14-day reply window closes. No zerodb cells |
+| B1 | Harness, process model, controls. Suites: `recall-delay`, `history-scale`, `process-kill`, `concurrent-append`, `concurrent-kv`. Adapters: markdown (flat), SQLite (both rows), MCP reference memory server, Qdrant (both rows) | Methodology, code and control results. Comparative tables only after an outside maintainer joins and the 14-day reply window closes. No AtticDB cells |
 | B2a | Protocol v1 with schemas, conformance kit, a Node reference worker, the language-neutral embedder. `write-throughput`, `recovery`, `supersede-by-key`, `forget`, `forget-residue`, with controls. Leak prevention. No new third-party code | Methodology and control results |
 | B2b | `power-loss` on Linux with LazyFS (GitHub Actions first, a Linux VM as fallback), with the `mmap` controls | Control results |
 | B2c | Sandbox runner and artifact policy. Adapters: Chroma, Postgres + pgvector, Mem0 (`infer=False`), Redis agent-memory-server, LangGraph store, Letta | Results, under governance. The Tier 2 corpus moves to B3 |
 | B3 | Tier 2 corpus published for critique. Tier 2 retrieval level. Adapters: nested markdown, rules files, basic-memory, SQLite FTS5 | Tier 2 results, once the outside maintainer and the corpus labels are in |
-| B4 | zerodb adapter (after zerodb S3 is tagged). Mem0 `infer=True` and Graphiti with a pinned local LLM, small N | zerodb cells, after the 14-day reply window |
-| B5 | Tier 2 end-to-end. zerodb provider for `memorybench` | End-to-end results |
+| B4 | AtticDB adapter (after AtticDB S3 is tagged). Mem0 `infer=True` and Graphiti with a pinned local LLM, small N | AtticDB cells, after the 14-day reply window |
+| B5 | Tier 2 end-to-end. AtticDB provider for `memorybench` | End-to-end results |
 
 B1 is worth open-sourcing alone. It would be the first public process-kill and concurrency test of agent memory stores and vector databases, on systems the sponsor does not own. The governance rules apply from B1, not from B4.
 
-## Expected zerodb losses (pre-registered)
+## Expected AtticDB losses (pre-registered)
 
-- `search` and Tier 2 bucket B: N/A or weak until zerodb has search.
+- `search` and Tier 2 bucket B: N/A or weak until AtticDB has search.
 - `forget-residue`: fails until compaction.
 - `write-throughput` with 1 writer: likely slower than stores that ack before fsync in their default rows.
 - `recovery`: open is O(log size) for the CRC scan.
